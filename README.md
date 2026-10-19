@@ -185,6 +185,40 @@ git checkout codex/final-chapter # 同人终章开发版
 ```
 
 双击 `~/Games/勇士的信仰.app` 或目录内 `启动游戏.command`，启动当前分支对应版本。
-当前分支为原版 5.6。分支切换只改变受 Git 管理的程序与代码，不回滚实时存档。
+当前分支为同人终章开发版。分支切换只改变受 Git 管理的程序与代码，不回滚实时存档。
 原版用 `yzlr2_saves.sol`；终章用 `yzlr2_final.sol` 和 `yzlr2_epilogue.sol`。
 `.runtime/`、`save-backups/` 和系统 Flash 实时存档在两分支间保留，不纳入 Git。
+
+
+## 同人终章开发版：归来的曙光
+
+这是在原版引擎之上新增的同人故事和战斗流程，不是官方后续剧情。新增三场战斗、封印机制和两个结局，复用原版地图、敌人素材与战斗系统；目前前两场已实测，第三场封印交互尚在调试，两个结局的完整实机流程尚未验收。
+
+- `mod/story.json`：新增对话、章节配置和结局文本。
+- `mod/src/Epilogue.as`：新增菜单、章节切换、战斗和进度逻辑。原游戏未取得原始 FLA 工程，分析用反编译结果保存在 `.runtime/`。
+- `mod/build.sh`、`mod/generate_story.py`：编译生成 `终章入口.swf`；依赖当前 `.runtime/tools/` 中的 Flex、Java 和 playerglobal，以及 Qubit Python。可通过 EPILOGUE_JAVA、EPILOGUE_FLEX、EPILOGUE_PLAYERGLOBAL 环境变量指定工具路径。
+- `终章入口.swf`：已编译终章入口，随本分支提交。
+- `终章核心.swf`：原版主程序的独立副本，仅替换存档名 `yzlr2_saves` → `yzlr2_final`，随本分支提交。原版主程序及资源保持原样。
+- `tools/prepare_epilogue.py`：校验原版主程序、生成独立核心；仅在终章角色存档不存在时从原版复制，并备份终章角色和剧情进度。
+
+本分支的 `启动游戏.command`（以及调用它的 Mac 图标）打开 `终章入口.swf`，首次读取角色后点击右上角终章按钮。启动前、退出后分别备份两个终章存档。原版分支的同名脚本则打开原版主程序。
+
+实时存档都在 `~/Library/Preferences/Macromedia/Flash Player/#SharedObjects/*/localhost/`：
+
+| 文件 | 用途 |
+| --- | --- |
+| `yzlr2_saves.sol` | 原版角色，终章不写入 |
+| `yzlr2_final.sol` | 终章角色，首次复制后与原版独立 |
+| `yzlr2_epilogue.sol` | 终章进度、结局；当前还含调试记录 |
+
+本次保留现有测试进度，不自动重置存档。毕业角色预设仍在 `presets/毕业体验档.sol`。Git checkout 切换程序版本不会切换或还原上述实时存档。
+
+### 开发待办
+
+- 修复并实测第三战封印按键交互，完成最终战与两个结局验收。
+- 复测第二战到第三战的特效清理及失败重试。
+- 发布前移除调试记录，处理封印回血上限，整理首次游玩体验。
+
+### 本次维护
+
+- 2026-10-19：目录改为 `~/Games/勇者的信仰`；建立 `5.6` 分支并提交现有图标启动器；将终章开发代码、编译产物与分支专用启动脚本保存到 `codex/final-chapter`。此提交是可恢复的开发快照，不代表终章已完成。

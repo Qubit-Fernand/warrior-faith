@@ -10,7 +10,7 @@ save_root="$HOME/Library/Preferences/Macromedia/Flash Player/#SharedObjects"
 backup_save() {
   local phase="$1" source destination='' relative
   # 只复制本游戏的存档，保留 Flash 随机目录名以方便恢复。
-  for source in "$save_root"/*/localhost/yzlr2_saves.sol(N); do
+  for source in "$save_root"/*/localhost/yzlr2_final.sol(N) "$save_root"/*/localhost/yzlr2_epilogue.sol(N); do
     if [[ -z "$destination" ]]; then
       mkdir -p "$game_dir/save-backups"
       destination="$(mktemp -d "$game_dir/save-backups/$(date +%Y%m%d-%H%M%S)-adobe-${phase}-XXXXXX")"
@@ -51,8 +51,9 @@ if [[ ! -x "$player_app/Contents/MacOS/Flash Player" ]]; then
   codesign --verify --deep --strict "$player_app"
 fi
 
+/opt/miniconda3/envs/Qubit/bin/python "$game_dir/tools/prepare_epilogue.py"
 backup_save before
-echo '游戏已启动。请使用英文输入法。'
+echo '同人终章开发版已启动。先读档，再点击右上角终章按钮；请使用英文输入法。'
 echo '退出前点击游戏内“系统 → 保存进度”，看到“游戏保存成功”后用 ⌘Q 退出。'
 echo '播放器退出后会自动备份存档；请保留本终端窗口直到游戏结束。'
-/usr/bin/open -W -a "$player_app" "$game_dir/3_L4399Main_gamefile.swf"
+/usr/bin/open -W -a "$player_app" "$game_dir/终章入口.swf"
