@@ -1,0 +1,12 @@
+#!/bin/zsh
+set -eu
+launcher_dir="${0:A:h}"
+game_dir="${launcher_dir}/../../.."
+game_dir="${game_dir:A}"
+log_dir="$HOME/Library/Logs/勇士的信仰"
+mkdir -p "$log_dir"
+log_file="$log_dir/启动.log"
+if ! /bin/zsh "$game_dir/启动游戏.command" >> "$log_file" 2>&1; then
+  /usr/bin/open -a TextEdit "$log_file"
+  exit 1
+fi

@@ -1,10 +1,10 @@
-# 勇士的信仰 5.6 单机版
+# 勇者的信仰 · 本地游戏项目
 
 本地游戏资源与恢复仓库，整理于 2026-10-19。
 
 ## 位置与来源
 
-- 游戏目录：`/Users/AntiEntropy/Games/勇士的信仰5.6单机版`。本机 `~/games` 与 `~/Games` 指向同一个目录。
+- 游戏目录：`/Users/AntiEntropy/Games/勇者的信仰`。本机 `~/games` 与 `~/Games` 指向同一个目录。
 - 用户下载的原包保留在 `/Users/AntiEntropy/Downloads/勇士的信仰5.6单机版等4个文件.rar`。
 - 原包 SHA-256：`28fcf38ddd6996bad7391cf5e07c09d8bda3a1aefd8548a6c6731b01a5a77a08`。
 - 对应发布线索：https://www.bilibili.com/opus/1144775248772595719
@@ -27,7 +27,7 @@
 查看当前改动：
 
 ```sh
-cd "$HOME/Games/勇士的信仰5.6单机版"
+cd "$HOME/Games/勇者的信仰"
 git status --short
 git diff --stat
 ```
@@ -43,7 +43,7 @@ git commit -m "描述此次修改"
 推荐的恢复方式是把初始版本导出到新目录，保留当前目录及所有修改：
 
 ```sh
-cd "$HOME/Games/勇士的信仰5.6单机版"
+cd "$HOME/Games/勇者的信仰"
 restore_dir="$(mktemp -d "$HOME/Games/勇士的信仰5.6-恢复-XXXXXX")"
 git archive original-import | tar -x -C "$restore_dir"
 cd "$restore_dir"
@@ -138,7 +138,7 @@ save-backups/时间-adobe-before或after-随机后缀/随机目录名/localhost/
 恢复第 1 槽位到初始毕业体验状态（先退出 Flash；工具自动备份当前完整存档，保留其他槽位）：
 
 ```sh
-cd "$HOME/Games/勇士的信仰5.6单机版"
+cd "$HOME/Games/勇者的信仰"
 /opt/miniconda3/envs/Qubit/bin/python tools/import_preset.py \
   "$HOME/Library/Preferences/Macromedia/Flash Player/#SharedObjects/NS57UMMB/localhost/yzlr2_saves.sol" --slot 1 --replace
 ```
@@ -159,3 +159,32 @@ cd "$HOME/Games/勇士的信仰5.6单机版"
 - `tools/graduate-data.json`：从本包 DataX_v76.swf 装备/技能/地图表和主 SWF 强化表提取的必要条目。
 - `tools/import_preset.py`：恢复预设到指定槽位，同时备份已有存档。
 - 只读分析使用 FFDec 26.3.0 + Temurin 21；下载、解包、反编译和完整 XML 均在被忽略的 `.runtime/` 内。运行修改工具无需 Java 或反编译器。
+
+## Finder 快捷启动（2026-10-19）
+
+双击 `~/Games/勇士的信仰.app` 即可启动游戏；该入口链接到本目录中的同名应用。它在后台调用现有 `启动游戏.command`，保留启动前和退出后的存档备份，无需终端窗口。启动日志位于 `~/Library/Logs/勇士的信仰/启动.log`，失败时自动打开日志。退出前仍需在游戏内保存。
+
+- 2026-10-19：启动器换用内置 image_gen 生成的红金剑盾图标，资源位于 `勇士的信仰.app/Contents/Resources/WarriorIcon.png` 和 `WarriorIcon.icns`。原 `FlashPlayer.icns` 与修改前 Info.plist 保留。提示词：Create one square macOS application icon for the nostalgic Chinese fantasy action RPG 勇士的信仰. Icon only, no mockup. A bold polished golden shield with a deep crimson inset, one elegant silver sword angled upward across it, a small purple gemstone accent on the hilt. Inspired by vivid early-2010s fantasy Flash game menus. Modern macOS rounded-square tile with subtle dimensional material and restrained highlights, warm dark red tile, excellent clear silhouette readable at 64 pixels. Centered single emblem, generous even margin, no lettering, no text, no watermark. Transparent outside the rounded-square tile. 1024x1024.
+
+
+## 分支切换与目录（2026-10-19）
+
+项目文件夹按用户要求改名为 `~/Games/勇者的信仰`；游戏本身仍叫「勇士的信仰」。
+
+- `5.6`：原版 5.6 游戏资源、Mac 启动器和毕业体验档工具；不含同人终章。
+- `codex/final-chapter`：同人终章开发版，尚未完成全部测试。
+- `main`：保留此前的毕业体验档提交；`original-import` 标签保留最初导入。
+
+先在游戏内保存并退出播放器，再切换（若有未提交改动，先检查并提交，不要强制 checkout）：
+
+```sh
+cd "$HOME/Games/勇者的信仰"
+git checkout 5.6                 # 原版
+# 或者：
+git checkout codex/final-chapter # 同人终章开发版
+```
+
+双击 `~/Games/勇士的信仰.app` 或目录内 `启动游戏.command`，启动当前分支对应版本。
+当前分支为原版 5.6。分支切换只改变受 Git 管理的程序与代码，不回滚实时存档。
+原版用 `yzlr2_saves.sol`；终章用 `yzlr2_final.sol` 和 `yzlr2_epilogue.sol`。
+`.runtime/`、`save-backups/` 和系统 Flash 实时存档在两分支间保留，不纳入 Git。
