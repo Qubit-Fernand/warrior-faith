@@ -1,0 +1,51 @@
+{
+  "schema": "yzlr2-final-slot-runtime-evidence-v1",
+  "observed_utc": "2026-10-23T19:31:00.417394+00:00",
+  "operation": "Read-only explicit isolated test SOL; authenticate internal name; decode only in memory; serialize selected slot2 assertions. No SOL copied or written.",
+  "source": {
+    "logical_shared_object": "yzlr2_rebuild_probe",
+    "sha256": "8541bafb74e8c4dbdf924ffc3895b5a03a8df0542869ccf509c96b36360aafbe",
+    "read_before_after_identical": true,
+    "slot_one_based": 2,
+    "slot_index_zero_based": 1
+  },
+  "runtime_context": {
+    "reported_by_root": true,
+    "package": "reverse/build/runtime-all-rebuilt-20261023T191531.793191Z",
+    "assembly_sha256": "86a916fde465b1369487a4e67796f36bf9e1446a8e5023a40a0dc03b02f78d34",
+    "main_sha256": "71b7c20c9edcc1da4dc3142bedfdc0572fe658a62bf4fd35252f854567370648",
+    "note": "SOL does not itself identify producing SWF; package association is root-controlled UI provenance, not inferred from save fields."
+  },
+  "observed": {
+    "gold": 4717,
+    "Exp": 500,
+    "level": 1,
+    "quest_110001": {
+      "state": 0,
+      "oldTime": 1
+    },
+    "reward_12510": {
+      "counts": {
+        "equipment_bag": 1,
+        "equipped_slots": 0
+      },
+      "total_count": 1
+    }
+  },
+  "checks": {
+    "gold_equals_shop_balance_4387_plus_reward_330": true,
+    "quest_claimed_state0_oldTime1": true,
+    "experience_equals_reward500": true,
+    "reward_equipment_12510_count1": true
+  },
+  "limitations": [
+    "Persisted level is1 at this snapshot; observed animation is not proof that a new level was persisted.",
+    "No complete slot, account fields, or original SOL included.",
+    "This is post-turn-in disk evidence; a new cold read after quest turn-in is separate from the earlier shop cold-read UI test."
+  ],
+  "source_semantics": [
+    "com/hotpoint/braveManIII/models/common/VT.as:getValue = value.num - value.random",
+    "com/hotpoint/braveManIII/views/taskPanel/TaskData.as:saveTask serializes [state,oldTime,goodsCounts,enemyCounts,overTime]",
+    "com/hotpoint/braveManIII/views/taskPanel/TaskPanel.as:taskAw -> SaveXX -> Main.Save"
+  ]
+}

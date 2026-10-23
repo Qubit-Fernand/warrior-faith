@@ -1,0 +1,46 @@
+{
+  "schema": "yzlr2-final-slot1-post-boss-persistence-v1",
+  "observed_utc": "2026-10-23T20:10:06.963832+00:00",
+  "source": {
+    "logical_shared_object": "yzlr2_rebuild_probe",
+    "sha256": "373f59f8cc2aae9a5e81902c33c558101a8804b5cb33784adaa7c480d821c6d8",
+    "read_before_after_identical": true,
+    "slot_one_based": 1,
+    "slot_index_zero_based": 0
+  },
+  "observed": {
+    "gold": 10002242,
+    "Exp": 7191,
+    "killPoint": 1000003,
+    "level": 85,
+    "equipped_base_ids": [
+      13526,
+      13426,
+      14113,
+      13726,
+      13626,
+      14213,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "checks": {
+    "ui_reported_gold_exp_killpoints_equal_persisted": true,
+    "six_graduation_equipment_items_equipped": true
+  },
+  "runtime_context": {
+    "package": "reverse/build/runtime-all-rebuilt-20261023T191531.793191Z",
+    "main_sha256": "71b7c20c9edcc1da4dc3142bedfdc0572fe658a62bf4fd35252f854567370648",
+    "association": "Root controlled final-package UI and explicit Save; SOL itself has no producer SWF hash."
+  },
+  "limitations": [
+    "Read-only persistence snapshot after explicit save, before final complete quit and cold reload.",
+    "HP/MP/attack/defense/crit/dodge are UI/runtime derived attributes; this snapshot does not calculate or assert them.",
+    "Only selected isolated slot1 fields exported; no original SOL or full slot data copied."
+  ]
+}
