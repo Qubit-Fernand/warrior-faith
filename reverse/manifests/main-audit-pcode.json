@@ -1,0 +1,396 @@
+{
+  "scope": "Nine classes, named method inventory and selected arithmetic/return/throw opcode counts. This does not prove control-flow or runtime-binding equivalence. P-code inputs are separately hashed because the root may rebuild its current output.",
+  "classes": [
+    {
+      "class": "src.ClassLoader",
+      "source_files": {
+        "original": {
+          "path": "reverse/build/main-audit/original/scripts/src/ClassLoader.pcode",
+          "sha256": "0994e54f812995a467adb3f60937be28140be7c627d129e2d3d227d73f885c40"
+        },
+        "rebuilt": {
+          "path": "reverse/build/main-audit/rebuilt/scripts/src/ClassLoader.pcode",
+          "sha256": "fe21783d235a8f3613043289c76564c65a413c7c634ffa9f32a052286deb9ccb"
+        }
+      },
+      "method_counts": {
+        "original": 12,
+        "rebuilt": 12
+      },
+      "selected_opcode_differences": []
+    },
+    {
+      "class": "src.Main",
+      "source_files": {
+        "original": {
+          "path": "reverse/build/main-audit/original/scripts/src/Main.pcode",
+          "sha256": "f3e0fa83a60691fd2805219d48e67fd7028b3404afaa8abe550d101a074dae63"
+        },
+        "rebuilt": {
+          "path": "reverse/build/main-audit/rebuilt/scripts/src/Main.pcode",
+          "sha256": "0e69c6e6643577c71e4060409619c5062ee599fac1fed3dccf6e21ce9f1cefad"
+        }
+      },
+      "method_counts": {
+        "original": 35,
+        "rebuilt": 35
+      },
+      "selected_opcode_differences": []
+    },
+    {
+      "class": "src.Enemy",
+      "source_files": {
+        "original": {
+          "path": "reverse/build/main-audit/original/scripts/src/Enemy.pcode",
+          "sha256": "3e24f9379943e4b36aff1db8a32865e7a1e935602a48cb44fe69154bcec8d461"
+        },
+        "rebuilt": {
+          "path": "reverse/build/main-audit/rebuilt/scripts/src/Enemy.pcode",
+          "sha256": "6e5bb14369215014ed95c3277fff18550482ed42d1f2408d6402474a5b52aa06"
+        }
+      },
+      "method_counts": {
+        "original": 27,
+        "rebuilt": 27
+      },
+      "selected_opcode_differences": []
+    },
+    {
+      "class": "src.Player",
+      "source_files": {
+        "original": {
+          "path": "reverse/build/main-audit/original/scripts/src/Player.pcode",
+          "sha256": "46378a8d9cb0886ab0e17dc0aba7cada52bfaa62685490029d944b77432492dd"
+        },
+        "rebuilt": {
+          "path": "reverse/build/main-audit/rebuilt/scripts/src/Player.pcode",
+          "sha256": "41dd96a20c7456efeec386254e87f54274502fc59ef715a55ca758dc3b12ec2f"
+        }
+      },
+      "method_counts": {
+        "original": 106,
+        "rebuilt": 106
+      },
+      "selected_opcode_differences": [
+        {
+          "method": "MoveData",
+          "selected_opcode_counts": {
+            "original": {
+              "subtract": 2,
+              "multiply": 3,
+              "add": 5,
+              "returnvoid": 1
+            },
+            "rebuilt": {
+              "multiply": 3,
+              "add": 5,
+              "subtract": 1,
+              "returnvoid": 1
+            }
+          },
+          "original_line": 9346,
+          "rebuilt_line": 9761
+        },
+        {
+          "method": "MoveRun",
+          "selected_opcode_counts": {
+            "original": {
+              "add": 8,
+              "subtract": 20,
+              "returnvoid": 1
+            },
+            "rebuilt": {
+              "add": 8,
+              "subtract": 19,
+              "returnvoid": 1
+            }
+          },
+          "original_line": 9500,
+          "rebuilt_line": 9934
+        },
+        {
+          "method": "runPower",
+          "selected_opcode_counts": {
+            "original": {
+              "subtract": 7,
+              "returnvoid": 2,
+              "multiply": 8,
+              "divide": 6
+            },
+            "rebuilt": {
+              "returnvoid": 2,
+              "multiply": 8,
+              "divide": 6,
+              "subtract": 4
+            }
+          },
+          "original_line": 9193,
+          "rebuilt_line": 9606
+        }
+      ]
+    },
+    {
+      "class": "src.NewLoad",
+      "source_files": {
+        "original": {
+          "path": "reverse/build/main-audit/original/scripts/src/NewLoad.pcode",
+          "sha256": "b78ecf7c110a7840bf6c85e3b9955c9d49755d4bb02a123d5bfa9598b132ea3c"
+        },
+        "rebuilt": {
+          "path": "reverse/build/main-audit/rebuilt/scripts/src/NewLoad.pcode",
+          "sha256": "87a6cd5ab078fe491696f1f57fbab634dba43d241687594c9e0c21d34ba28fc0"
+        }
+      },
+      "method_counts": {
+        "original": 5,
+        "rebuilt": 5
+      },
+      "selected_opcode_differences": []
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.equip.Equip",
+      "source_files": {
+        "original": {
+          "path": "reverse/build/main-audit/original/scripts/com/hotpoint/braveManIII/models/equip/Equip.pcode",
+          "sha256": "3fcf9fe7700bad92e209d29d546deb01abe982ab964b5c45b0d5bb01e271b370"
+        },
+        "rebuilt": {
+          "path": "reverse/build/main-audit/rebuilt/scripts/com/hotpoint/braveManIII/models/equip/Equip.pcode",
+          "sha256": "fda0eae59ec5d448da96ac2a97697928f4ff17072ad16523a5cbbd939af851bb"
+        }
+      },
+      "method_counts": {
+        "original": 84,
+        "rebuilt": 84
+      },
+      "selected_opcode_differences": [
+        {
+          "method": "setRemainingTime",
+          "selected_opcode_counts": {
+            "original": {
+              "subtract": 3,
+              "multiply": 3,
+              "divide": 1,
+              "returnvoid": 1
+            },
+            "rebuilt": {
+              "subtract": 2,
+              "multiply": 3,
+              "divide": 1,
+              "returnvoid": 1
+            }
+          },
+          "original_line": 1713,
+          "rebuilt_line": 1735
+        },
+        {
+          "method": "setSysTime",
+          "selected_opcode_counts": {
+            "original": {
+              "returnvoid": 2,
+              "subtract": 1
+            },
+            "rebuilt": {
+              "returnvoid": 2
+            }
+          },
+          "original_line": 1846,
+          "rebuilt_line": 1854
+        }
+      ]
+    },
+    {
+      "class": "com.hotpoint.braveManIII.repository.equip.EquipFactory",
+      "source_files": {
+        "original": {
+          "path": "reverse/build/main-audit/original/scripts/com/hotpoint/braveManIII/repository/equip/EquipFactory.pcode",
+          "sha256": "bb7024c2ce7d82dcc1df06bdbf210fd7485573fa494929188481fbc8710901eb"
+        },
+        "rebuilt": {
+          "path": "reverse/build/main-audit/rebuilt/scripts/com/hotpoint/braveManIII/repository/equip/EquipFactory.pcode",
+          "sha256": "695e99124aa8e8b2736274a67a2590b35ecfe46f35d69f2349069fa5c0120c73"
+        }
+      },
+      "method_counts": {
+        "original": 33,
+        "rebuilt": 33
+      },
+      "selected_opcode_differences": []
+    },
+    {
+      "class": "com.hotpoint.braveManIII.repository.equip.EquipBaseData",
+      "source_files": {
+        "original": {
+          "path": "reverse/build/main-audit/original/scripts/com/hotpoint/braveManIII/repository/equip/EquipBaseData.pcode",
+          "sha256": "67f6c1e9a4e139835a167646a510e7ad75a4b532337d017767d31c7affdbde3a"
+        },
+        "rebuilt": {
+          "path": "reverse/build/main-audit/rebuilt/scripts/com/hotpoint/braveManIII/repository/equip/EquipBaseData.pcode",
+          "sha256": "638727e31e729fe5ca60bbd5788d009fe4d83ebee1334f16305513a30c283136"
+        }
+      },
+      "method_counts": {
+        "original": 76,
+        "rebuilt": 76
+      },
+      "selected_opcode_differences": []
+    },
+    {
+      "class": "PayMoneyVar",
+      "source_files": {
+        "original": {
+          "path": "reverse/build/main-audit/original/scripts/PayMoneyVar.pcode",
+          "sha256": "72fbf6d0afcb8a9945ac03a84f295321c48388741c72569ed6c6fc4c5eead1fd"
+        },
+        "rebuilt": {
+          "path": "reverse/build/main-audit/rebuilt/scripts/PayMoneyVar.pcode",
+          "sha256": "755d7f40dc77a408bc2791f42e70fb0a949e5a1e2402bd0ab4bb1b799c397b01"
+        }
+      },
+      "method_counts": {
+        "original": 4,
+        "rebuilt": 4
+      },
+      "selected_opcode_differences": []
+    }
+  ],
+  "coercion_chain_and_constructor": [
+    {
+      "class": "com.hotpoint.braveManIII.models.equip.Equip",
+      "method": "getClassName4",
+      "versions": {
+        "original": {
+          "line": 916,
+          "signature": "public function getClassName4() : int\n                                                                                                {\n                                                                                                   trait method QName(PackageNamespace(\"\"),\"getClassName4\")\n                                                                                                      dispid 0\n                                                                                                      method\n                                                                                                         name \"com.hotpoint.braveManIII.models.equip:Equip/getClassName4\"\n                                                                                                         returns QName(PackageNamespace(\"\"),\"int\")",
+          "code": [
+            "getlocal0",
+            "pushscope",
+            "getlex QName(PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),\"EquipFactory\")",
+            "getlex QName(PrivateNamespace(\"com.hotpoint.braveManIII.models.equip:Equip\"),\"_base\")",
+            "callproperty Multiname(\"getValue\",[PackageNamespace(\"\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.models.common\"),PackageNamespace(\"com.hotpoint.braveManIII.models.gem\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.skill\"),PackageNamespace(\"src\"),PrivateNamespace(\"com.hotpoint.braveManIII.models.equip:Equip\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.equip:Equip\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.equip:Equip\"),PrivateNamespace(\"Equip.as$10\")]), 0",
+            "callproperty QName(PackageNamespace(\"\"),\"findClassName4\"), 1",
+            "returnvalue"
+          ]
+        },
+        "rebuilt": {
+          "line": 920,
+          "signature": "public function getClassName4() : int\n                                                                                                {\n                                                                                                   trait method QName(PackageNamespace(\"\"),\"getClassName4\")\n                                                                                                      dispid 0\n                                                                                                      method\n                                                                                                         name null\n                                                                                                         returns QName(PackageNamespace(\"\"),\"int\")",
+          "code": [
+            "getlocal0",
+            "pushscope",
+            "getlex Multiname(\"EquipFactory\",[PrivateNamespace(null,\"37\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PrivateNamespace(null,\"771\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.equip\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.common\"),PackageNamespace(\"com.hotpoint.braveManIII.models.gem\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.skill\"),PackageNamespace(\"src\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.equip:Equip\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.equip:Equip\")])",
+            "getlocal0",
+            "getproperty Multiname(\"_base\",[PrivateNamespace(null,\"37\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PrivateNamespace(null,\"771\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.equip\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.common\"),PackageNamespace(\"com.hotpoint.braveManIII.models.gem\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.skill\"),PackageNamespace(\"src\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.equip:Equip\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.equip:Equip\")])",
+            "callproperty Multiname(\"getValue\",[PrivateNamespace(null,\"37\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PrivateNamespace(null,\"771\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.equip\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.common\"),PackageNamespace(\"com.hotpoint.braveManIII.models.gem\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.skill\"),PackageNamespace(\"src\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.equip:Equip\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.equip:Equip\")]), 0",
+            "callproperty Multiname(\"findClassName4\",[PrivateNamespace(null,\"37\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PrivateNamespace(null,\"771\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.equip\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.common\"),PackageNamespace(\"com.hotpoint.braveManIII.models.gem\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.skill\"),PackageNamespace(\"src\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.equip:Equip\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.equip:Equip\")]), 1",
+            "returnvalue"
+          ]
+        }
+      }
+    },
+    {
+      "class": "com.hotpoint.braveManIII.repository.equip.EquipFactory",
+      "method": "findClassName4",
+      "versions": {
+        "original": {
+          "line": 961,
+          "signature": "public static function findClassName4(param1:Number) : int\n                                                      {\n                                                         trait method QName(PackageNamespace(\"\"),\"findClassName4\")\n                                                            flag FINAL\n                                                            dispid 19\n                                                            method\n                                                               name \"com.hotpoint.braveManIII.repository.equip:EquipFactory/findClassName4\"\n                                                               param QName(PackageNamespace(\"\"),\"Number\")\n                                                               returns QName(PackageNamespace(\"\"),\"int\")",
+          "code": [
+            "getlocal0",
+            "pushscope",
+            "findpropstrict QName(PrivateNamespace(\"com.hotpoint.braveManIII.repository.equip:EquipFactory\"),\"getEquipBaseDataById\")",
+            "getlocal1",
+            "callproperty QName(PrivateNamespace(\"com.hotpoint.braveManIII.repository.equip:EquipFactory\"),\"getEquipBaseDataById\"), 1",
+            "callproperty Multiname(\"getClassName4\",[PackageNamespace(\"\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageInternalNs(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"flash.events\"),PrivateNamespace(\"com.hotpoint.braveManIII.repository.equip:EquipFactory\"),ProtectedNamespace(\"com.hotpoint.braveManIII.repository.equip:EquipFactory\"),StaticProtectedNs(\"com.hotpoint.braveManIII.repository.equip:EquipFactory\"),PrivateNamespace(\"EquipFactory.as$29\")]), 0",
+            "returnvalue"
+          ]
+        },
+        "rebuilt": {
+          "line": 928,
+          "signature": "public static function findClassName4(param1:Number) : int\n                                                      {\n                                                         trait method QName(PackageNamespace(\"\"),\"findClassName4\")\n                                                            flag FINAL\n                                                            dispid 19\n                                                            method\n                                                               name null\n                                                               param QName(PackageNamespace(\"\"),\"Number\")\n                                                               returns QName(PackageNamespace(\"\"),\"int\")",
+          "code": [
+            "getlocal0",
+            "pushscope",
+            "findpropstrict Multiname(\"getEquipBaseDataById\",[PrivateNamespace(null,\"63\"),PackageNamespace(\"\"),PrivateNamespace(null,\"800\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageInternalNs(\"com.hotpoint.braveManIII.repository.equip\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"flash.events\"),ProtectedNamespace(\"com.hotpoint.braveManIII.repository.equip:EquipFactory\"),StaticProtectedNs(\"com.hotpoint.braveManIII.repository.equip:EquipFactory\")])",
+            "getlocal1",
+            "callproperty Multiname(\"getEquipBaseDataById\",[PrivateNamespace(null,\"63\"),PackageNamespace(\"\"),PrivateNamespace(null,\"800\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageInternalNs(\"com.hotpoint.braveManIII.repository.equip\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"flash.events\"),ProtectedNamespace(\"com.hotpoint.braveManIII.repository.equip:EquipFactory\"),StaticProtectedNs(\"com.hotpoint.braveManIII.repository.equip:EquipFactory\")]), 1",
+            "callproperty Multiname(\"getClassName4\",[PrivateNamespace(null,\"63\"),PackageNamespace(\"\"),PrivateNamespace(null,\"800\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageInternalNs(\"com.hotpoint.braveManIII.repository.equip\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"flash.events\"),ProtectedNamespace(\"com.hotpoint.braveManIII.repository.equip:EquipFactory\"),StaticProtectedNs(\"com.hotpoint.braveManIII.repository.equip:EquipFactory\")]), 0",
+            "returnvalue"
+          ]
+        }
+      }
+    },
+    {
+      "class": "com.hotpoint.braveManIII.repository.equip.EquipBaseData",
+      "method": "getClassName4",
+      "versions": {
+        "original": {
+          "line": 1654,
+          "signature": "public function getClassName4() : String\n                                                                                                                                                                              {\n                                                                                                                                                                                 trait method QName(PackageNamespace(\"\"),\"getClassName4\")\n                                                                                                                                                                                    dispid 0\n                                                                                                                                                                                    method\n                                                                                                                                                                                       name null\n                                                                                                                                                                                       returns QName(PackageNamespace(\"\"),\"String\")",
+          "code": [
+            "getlocal0",
+            "pushscope",
+            "getlex Multiname(\"_className4\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PrivateNamespace(null,\"346\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.repository.equip\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.repository.equip:EquipBaseData\"),StaticProtectedNs(\"com.hotpoint.braveManIII.repository.equip:EquipBaseData\")])",
+            "returnvalue"
+          ]
+        },
+        "rebuilt": {
+          "line": 1685,
+          "signature": "public function getClassName4() : String\n                                                                                                                                                                              {\n                                                                                                                                                                                 trait method QName(PackageNamespace(\"\"),\"getClassName4\")\n                                                                                                                                                                                    dispid 0\n                                                                                                                                                                                    method\n                                                                                                                                                                                       name null\n                                                                                                                                                                                       returns QName(PackageNamespace(\"\"),\"String\")",
+          "code": [
+            "getlocal0",
+            "pushscope",
+            "getlocal0",
+            "getproperty Multiname(\"_className4\",[PrivateNamespace(null,\"62\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PrivateNamespace(null,\"799\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.repository.equip\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.common\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),ProtectedNamespace(\"com.hotpoint.braveManIII.repository.equip:EquipBaseData\"),StaticProtectedNs(\"com.hotpoint.braveManIII.repository.equip:EquipBaseData\")])",
+            "returnvalue"
+          ]
+        }
+      }
+    },
+    {
+      "class": "PayMoneyVar",
+      "method": "PayMoneyVar",
+      "versions": {
+        "original": {
+          "line": 28,
+          "signature": "public function PayMoneyVar()\n      {\n         method\n            name null\n            returns QName(PackageNamespace(\"\"),\"void\")",
+          "code": [
+            "getlocal0",
+            "pushscope",
+            "getlocal0",
+            "constructsuper 0",
+            "getlex Multiname(\"PayMoneyVar\",[PrivateNamespace(null,\"53\"),PrivateNamespace(null,\"331\"),PackageNamespace(\"\"),PackageInternalNs(\"\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"PayMoneyVar\"),StaticProtectedNs(\"PayMoneyVar\")])",
+            "getproperty Multiname(\"instance\",[PrivateNamespace(null,\"53\"),PrivateNamespace(null,\"331\"),PackageNamespace(\"\"),PackageInternalNs(\"\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"PayMoneyVar\"),StaticProtectedNs(\"PayMoneyVar\")])",
+            "pushnull",
+            "ifeq ofs001b",
+            "findpropstrict Multiname(\"Error\",[PrivateNamespace(null,\"53\"),PrivateNamespace(null,\"331\"),PackageNamespace(\"\"),PackageInternalNs(\"\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"PayMoneyVar\"),StaticProtectedNs(\"PayMoneyVar\")])",
+            "pushstring \"只能实例一次！\"",
+            "constructprop Multiname(\"Error\",[PrivateNamespace(null,\"53\"),PrivateNamespace(null,\"331\"),PackageNamespace(\"\"),PackageInternalNs(\"\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"PayMoneyVar\"),StaticProtectedNs(\"PayMoneyVar\")]), 1",
+            "throw",
+            "returnvoid"
+          ]
+        },
+        "rebuilt": {
+          "line": 28,
+          "signature": "public function PayMoneyVar()\n      {\n         method\n            name null\n            returns null",
+          "code": [
+            "getlocal0",
+            "pushscope",
+            "getlocal0",
+            "constructsuper 0",
+            "getglobalscope",
+            "getslot 1",
+            "getproperty Multiname(\"instance\",[PrivateNamespace(null,\"4\"),PrivateNamespace(null,\"286\"),PackageNamespace(\"\"),PackageInternalNs(\"\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"PayMoneyVar\"),StaticProtectedNs(\"PayMoneyVar\")])",
+            "pushnull",
+            "ifeq ofs001b",
+            "findpropstrict Multiname(\"Error\",[PrivateNamespace(null,\"4\"),PrivateNamespace(null,\"286\"),PackageNamespace(\"\"),PackageInternalNs(\"\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"PayMoneyVar\"),StaticProtectedNs(\"PayMoneyVar\")])",
+            "pushstring \"只能实例一次！\"",
+            "constructprop Multiname(\"Error\",[PrivateNamespace(null,\"4\"),PrivateNamespace(null,\"286\"),PackageNamespace(\"\"),PackageInternalNs(\"\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"PayMoneyVar\"),StaticProtectedNs(\"PayMoneyVar\")]), 1",
+            "throw",
+            "returnvoid"
+          ]
+        }
+      }
+    }
+  ]
+}
