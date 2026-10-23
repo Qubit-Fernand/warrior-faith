@@ -1,0 +1,105 @@
+{
+  "source_sha256": "6b1767c58e59382edcdd8b7fab2cd7116774636e3d4257756c8073b80815c77e",
+  "swf_sha256": "10a0c1e47f913d5925c879ccdf0872155dfc92c90b73c52363cdc9cfffbc46ae",
+  "swf": "reverse/build/decrement-harness/DecrementHarness.swf",
+  "commands": [
+    [
+      "/Users/AntiEntropy/Games/勇者的信仰-逆向/.runtime/shared-tools/java/jdk-21.0.12.1+1-jre/Contents/Home/bin/java",
+      "-Djava.awt.headless=true",
+      "-Dflexlib=/Users/AntiEntropy/Games/勇者的信仰-逆向/.runtime/shared-tools/flex/apache-flex-sdk-4.16.1-bin/frameworks",
+      "-jar",
+      "/Users/AntiEntropy/Games/勇者的信仰-逆向/.runtime/shared-tools/flex/apache-flex-sdk-4.16.1-bin/lib/mxmlc.jar",
+      "-load-config=",
+      "-compiler.theme=",
+      "-compiler.external-library-path=/Users/AntiEntropy/Games/勇者的信仰-逆向/.runtime/shared-tools/ffdec/flashlib/playerglobal32_0.swc",
+      "-compiler.library-path=",
+      "-compiler.source-path=/Users/AntiEntropy/Games/勇者的信仰-逆向/reverse/experiments/decrement-harness",
+      "-target-player=32.0",
+      "-use-network=false",
+      "-debug=false",
+      "-output=/Users/AntiEntropy/Games/勇者的信仰-逆向/reverse/build/decrement-harness/DecrementHarness.swf",
+      "/Users/AntiEntropy/Games/勇者的信仰-逆向/reverse/experiments/decrement-harness/DecrementHarness.as"
+    ],
+    [
+      "/Users/AntiEntropy/Games/勇者的信仰-逆向/.runtime/shared-tools/java/jdk-21.0.12.1+1-jre/Contents/Home/bin/java",
+      "-Djava.awt.headless=true",
+      "-jar",
+      "/Users/AntiEntropy/Games/勇者的信仰-逆向/.runtime/shared-tools/ffdec/ffdec.jar",
+      "-format",
+      "script:pcode",
+      "-export",
+      "script",
+      "/Users/AntiEntropy/Games/勇者的信仰-逆向/reverse/build/decrement-harness/pcode",
+      "/Users/AntiEntropy/Games/勇者的信仰-逆向/reverse/build/decrement-harness/DecrementHarness.swf"
+    ]
+  ],
+  "pcode_sha256": "3c16f6f8fbb336cf8a7950f432ba5df88e2ed27f60a31f9c7bbb32e32bd2879e",
+  "subtract_code": [
+    {
+      "line": 253,
+      "code": "getlocal0"
+    },
+    {
+      "line": 254,
+      "code": "pushscope"
+    },
+    {
+      "line": 255,
+      "code": "getlocal1"
+    },
+    {
+      "line": 256,
+      "code": "getlocal0"
+    },
+    {
+      "line": 257,
+      "code": "callproperty QName(PrivateNamespace(null),\"one\"), 0"
+    },
+    {
+      "line": 258,
+      "code": "subtract"
+    },
+    {
+      "line": 259,
+      "code": "returnvalue"
+    }
+  ],
+  "decrement_code": [
+    {
+      "line": 281,
+      "code": "getlocal0"
+    },
+    {
+      "line": 282,
+      "code": "pushscope"
+    },
+    {
+      "line": 283,
+      "code": "getlocal1"
+    },
+    {
+      "line": 284,
+      "code": "decrement"
+    },
+    {
+      "line": 285,
+      "code": "convert_d"
+    },
+    {
+      "line": 286,
+      "code": "setlocal1"
+    },
+    {
+      "line": 287,
+      "code": "getlocal1"
+    },
+    {
+      "line": 288,
+      "code": "returnvalue"
+    }
+  ],
+  "only_probe_class": true,
+  "save_or_network_api_strings": false,
+  "compiled": true,
+  "runtime_tested": false
+}

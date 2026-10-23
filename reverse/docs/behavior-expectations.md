@@ -26,7 +26,7 @@ Enemy table for difficulty1:
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | 小蛇 | 852 | 4 | 1 | 0 / 0 | 18 | 3 | 1 | 15363 |
 | 2 | 独眼怪 | 852 | 4 | 1 | 0 / 0 | 21 | 4 | 1 | 15444 |
-| 3 | BOSS眼镜蛇 | 6000 | 15 | 1 | 0 / 0 | 250 | 415 | 1 | 15525 |
+| 3 | BOSS眼镜蛇（内部类名；UI 显示金光蛇王） | 6000 | 15 | 1 | 0 / 0 | 250 | 415 | 1 | 15525 |
 
 `Enemy.SkinData:193–268` populates these values and resolves skins from `EnemyArr[关卡]`; this is `Enemy1.swf`, not `Enemy3.swf` for boss ID3. Before a first hit, the boss life/max pair should be6000/6000 at difficulty1 absent explicit test modifications.
 
@@ -100,3 +100,7 @@ Accept110001 → enter map1 via normal map selection → inspect ready state →
 - Save payload includes `p1`, `P1P2`, `changKu`, `guanKa`, `RenWu` and other persistent state. It does **not** save the transient current `gameNum/gameNum2`, active enemies or their HP. A restart returning to village is not a failed combat-room persistence check.
 
 For save acceptance, record the test SO path/hash before and after a permitted save; reopen in the same isolated namespace and inspect the chosen slot. Require unchanged personal-save hashes. Preserve test field snapshots in private logs and report only relevant counters, never upload personal SOL contents.
+
+## Boss 名称与显示层的区别（运行反馈核对）
+
+地图 1/房间 5 的 Boss ID3 在 Data2_data XML 中的 `<名称>` 为 `BOSS眼镜蛇`，这是 `Enemy.SkinData`→`addSkin` 使用的类/linkage 名（Enemy.as:184–185、205），不是要显示给玩家的中文名称。`Play_Interface.as:558` 按 `"a" + bossIS.id` 切换 Boss 头像/标题时间轴。根运行验证反馈显示“金光蛇王 Lv5”，与该内部类名不矛盾。原主 SWF 的 DefineBinaryData cid8633（offset22406512）含“金光蛇王的卡片”，cid8632 的任务介绍也提到“落月之原内的金光蛇王”；这些原资源文本确认这是原游戏显示/剧情用名。本表的 HP 等仍取原战斗配置，UI 名称不能反向替换用于 getDefinition 的类名。

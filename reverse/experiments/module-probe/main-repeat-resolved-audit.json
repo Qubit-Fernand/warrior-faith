@@ -1,0 +1,295 @@
+{
+  "schema": 1,
+  "runs": [
+    {
+      "run": "run-lx5icqis",
+      "swf_sha256": "96ce6635d3ad0868d83f0fcbe74890a3ef7dedbcf4046d5619b417a0b7b458ba",
+      "abc_sha256": "1bd60fe801d23a63ccbd9de7a6218a94411512dddd610d2f4a6101a75c1678bc"
+    },
+    {
+      "run": "run-b062kbrm",
+      "swf_sha256": "928e3d909992abb9b73e1820a45dd373d26171c460a72e296f605601df396248",
+      "abc_sha256": "fa53653a40d122f8404e4125230dfab982773e92cdf4b341348bb3f3e0ec50c2"
+    }
+  ],
+  "pcode_files": 710,
+  "normalization": "Only .as$compilerOrdinal: strings and branch labels to per-body instruction index. Private namespace identity indexes retained.",
+  "pcode_changes": [
+    {
+      "file": "Str_强化.pcode",
+      "diff": "--- \n+++ \n@@ -104,7 +104,7 @@\n          code\n             getlocal0\n             pushscope\n-            getscopeobject 0\n+            findpropstrict Multiname(\"Str_强化\",[PackageNamespace(\"\")])\n             getlex QName(PackageNamespace(\"\"),\"Object\")\n             pushscope\n             getlex QName(PackageNamespace(\"flash.events\"),\"EventDispatcher\")\n"
+    },
+    {
+      "file": "com/hotpoint/braveManIII/models/basicBtn/BasicBtn.pcode",
+      "diff": "--- \n+++ \n@@ -463,7 +463,7 @@\n                                  code\n                                     getlocal0\n                                     pushscope\n-                                    getscopeobject 0\n+                                    findpropstrict Multiname(\"BasicBtn\",[PackageNamespace(\"com.hotpoint.braveManIII.models.basicBtn\")])\n                                     getlex QName(PackageNamespace(\"\"),\"Object\")\n                                     pushscope\n                                     getlex QName(PackageNamespace(\"flash.events\"),\"EventDispatcher\")\n"
+    },
+    {
+      "file": "com/hotpoint/braveManIII/models/basicBtn/CloseBtn.pcode",
+      "diff": "--- \n+++ \n@@ -93,7 +93,7 @@\n          code\n             getlocal0\n             pushscope\n-            findpropstrict Multiname(\"CloseBtn\",[PackageNamespace(\"com.hotpoint.braveManIII.models.basicBtn\")])\n+            getscopeobject 0\n             getlex QName(PackageNamespace(\"\"),\"Object\")\n             pushscope\n             getlex QName(PackageNamespace(\"flash.events\"),\"EventDispatcher\")\n"
+    },
+    {
+      "file": "com/hotpoint/braveManIII/models/basicBtn/OneClickBtn.pcode",
+      "diff": "--- \n+++ \n@@ -188,7 +188,7 @@\n                code\n                   getlocal0\n                   pushscope\n-                  findpropstrict Multiname(\"OneClickBtn\",[PackageNamespace(\"com.hotpoint.braveManIII.models.basicBtn\")])\n+                  getscopeobject 0\n                   getlex QName(PackageNamespace(\"\"),\"Object\")\n                   pushscope\n                   getlex QName(PackageNamespace(\"flash.events\"),\"EventDispatcher\")\n"
+    },
+    {
+      "file": "com/hotpoint/braveManIII/models/basicBtn/SlideChangeBtn.pcode",
+      "diff": "--- \n+++ \n@@ -292,7 +292,7 @@\n                      code\n                         getlocal0\n                         pushscope\n-                        findpropstrict Multiname(\"SlideChangeBtn\",[PackageNamespace(\"com.hotpoint.braveManIII.models.basicBtn\")])\n+                        getscopeobject 0\n                         getlex QName(PackageNamespace(\"\"),\"Object\")\n                         pushscope\n                         getlex QName(PackageNamespace(\"flash.events\"),\"EventDispatcher\")\n"
+    },
+    {
+      "file": "com/hotpoint/braveManIII/views/setKeyPanel/DeepCopyUtil.pcode",
+      "diff": "--- \n+++ \n@@ -98,7 +98,7 @@\n          code\n             getlocal0\n             pushscope\n-            findpropstrict Multiname(\"DeepCopyUtil\",[PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\")])\n+            getscopeobject 0\n             getlex QName(PackageNamespace(\"\"),\"Object\")\n             pushscope\n             getlex Multiname(\"Object\",[PrivateNamespace(null,\"864\"),PackageNamespace(\"\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"flash.utils\")])\n"
+    }
+  ],
+  "script_changes": [
+    {
+      "before": {
+        "index": 6,
+        "initializer": 68,
+        "traits": [
+          {
+            "name": "com.hotpoint.braveManIII.models.basicBtn.BasicBtn",
+            "kind": 4,
+            "slot": 1,
+            "class": 6
+          }
+        ]
+      },
+      "after": {
+        "index": 6,
+        "initializer": 68,
+        "traits": [
+          {
+            "name": "com.hotpoint.braveManIII.models.basicBtn.BasicBtn",
+            "kind": 4,
+            "slot": 0,
+            "class": 6
+          }
+        ]
+      }
+    },
+    {
+      "before": {
+        "index": 34,
+        "initializer": 160,
+        "traits": [
+          {
+            "name": "com.hotpoint.braveManIII.models.basicBtn.CloseBtn",
+            "kind": 4,
+            "slot": 0,
+            "class": 34
+          }
+        ]
+      },
+      "after": {
+        "index": 34,
+        "initializer": 160,
+        "traits": [
+          {
+            "name": "com.hotpoint.braveManIII.models.basicBtn.CloseBtn",
+            "kind": 4,
+            "slot": 1,
+            "class": 34
+          }
+        ]
+      }
+    },
+    {
+      "before": {
+        "index": 55,
+        "initializer": 241,
+        "traits": [
+          {
+            "name": "Str_强化",
+            "kind": 4,
+            "slot": 1,
+            "class": 55
+          }
+        ]
+      },
+      "after": {
+        "index": 55,
+        "initializer": 241,
+        "traits": [
+          {
+            "name": "Str_强化",
+            "kind": 4,
+            "slot": 0,
+            "class": 55
+          }
+        ]
+      }
+    },
+    {
+      "before": {
+        "index": 227,
+        "initializer": 919,
+        "traits": [
+          {
+            "name": "com.hotpoint.braveManIII.models.basicBtn.SlideChangeBtn",
+            "kind": 4,
+            "slot": 0,
+            "class": 227
+          }
+        ]
+      },
+      "after": {
+        "index": 227,
+        "initializer": 919,
+        "traits": [
+          {
+            "name": "com.hotpoint.braveManIII.models.basicBtn.SlideChangeBtn",
+            "kind": 4,
+            "slot": 1,
+            "class": 227
+          }
+        ]
+      }
+    },
+    {
+      "before": {
+        "index": 287,
+        "initializer": 1428,
+        "traits": [
+          {
+            "name": "com.hotpoint.braveManIII.models.basicBtn.OneClickBtn",
+            "kind": 4,
+            "slot": 0,
+            "class": 288
+          }
+        ]
+      },
+      "after": {
+        "index": 287,
+        "initializer": 1428,
+        "traits": [
+          {
+            "name": "com.hotpoint.braveManIII.models.basicBtn.OneClickBtn",
+            "kind": 4,
+            "slot": 1,
+            "class": 288
+          }
+        ]
+      }
+    },
+    {
+      "before": {
+        "index": 403,
+        "initializer": 4544,
+        "traits": [
+          {
+            "name": "com.hotpoint.braveManIII.views.setKeyPanel.DeepCopyUtil",
+            "kind": 4,
+            "slot": 0,
+            "class": 404
+          }
+        ]
+      },
+      "after": {
+        "index": 403,
+        "initializer": 4544,
+        "traits": [
+          {
+            "name": "com.hotpoint.braveManIII.views.setKeyPanel.DeepCopyUtil",
+            "kind": 4,
+            "slot": 1,
+            "class": 404
+          }
+        ]
+      }
+    }
+  ],
+  "classes_equal": true,
+  "method_metadata_equal": true,
+  "namespaces_equal_after_private_uri_ordinal_normalization": true,
+  "namespace_set_pool_raw_equal": false,
+  "namespace_set_resolved_multiset_equal": true,
+  "multiname_only_in_first": [
+    [
+      [
+        9,
+        "CloseBtn",
+        [
+          [
+            22,
+            "com.hotpoint.braveManIII.models.basicBtn",
+            null
+          ]
+        ]
+      ],
+      1
+    ],
+    [
+      [
+        9,
+        "SlideChangeBtn",
+        [
+          [
+            22,
+            "com.hotpoint.braveManIII.models.basicBtn",
+            null
+          ]
+        ]
+      ],
+      1
+    ],
+    [
+      [
+        9,
+        "OneClickBtn",
+        [
+          [
+            22,
+            "com.hotpoint.braveManIII.models.basicBtn",
+            null
+          ]
+        ]
+      ],
+      1
+    ],
+    [
+      [
+        9,
+        "DeepCopyUtil",
+        [
+          [
+            22,
+            "com.hotpoint.braveManIII.views.setKeyPanel",
+            null
+          ]
+        ]
+      ],
+      1
+    ]
+  ],
+  "multiname_only_in_second": [
+    [
+      [
+        9,
+        "BasicBtn",
+        [
+          [
+            22,
+            "com.hotpoint.braveManIII.models.basicBtn",
+            null
+          ]
+        ]
+      ],
+      1
+    ],
+    [
+      [
+        9,
+        "Str_强化",
+        [
+          [
+            22,
+            "",
+            null
+          ]
+        ]
+      ],
+      1
+    ]
+  ],
+  "interpretation": "All normalized P-code differences are the six single-class script initialization target lookups. This is strong static evidence, not a proof of runtime equivalence. No business method instruction changes found. Compiler nondeterminism is unresolved; this audit does not alter output bytes."
+}

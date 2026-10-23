@@ -3,6 +3,7 @@
 import argparse,hashlib,json,shutil,subprocess,time,tempfile
 from pathlib import Path
 from probe_normalize_swf import normalize
+from build_inputs import capture,finish
 ROOT=Path(__file__).resolve().parents[2]
 JAVA=ROOT/'.runtime/shared-tools/java/jdk-21.0.12.1+1-jre/Contents/Home/bin/java'
 FLEX=ROOT/'.runtime/shared-tools/flex/apache-flex-sdk-4.16.1-bin'
@@ -17,6 +18,9 @@ def main():
     if not a.save_name.startswith('yzlr2_rebuild_') or not a.save_name.replace('_','').isalnum():
         raise ValueError('Reconstruction test stores must use a safe yzlr2_rebuild_ prefix')
     BUILD.mkdir(parents=True,exist_ok=True)
+    input_snapshot=capture('3_L4399Main_gamefile',a.source_dir,
+        extra_trees=[RAW],
+        recipe_files=[Path(__file__),ROOT/'reverse/tools/probe_normalize_swf.py',ROOT/'reverse/tools/swf_inventory.py'])
     run=Path(tempfile.mkdtemp(prefix='run-',dir=BUILD));src=BUILD/'source'
     # Flex's private-name numbering/order depends on absolute source paths.
     # Keep a stable staging path, but archive its entire previous contents so
@@ -56,11 +60,12 @@ def main():
         row['normalization']=normalize(out,normalized,ROOT/'3_L4399Main_gamefile.swf')
         row['output_sha256']=hashlib.sha256(normalized.read_bytes()).hexdigest()
         row['normalized_output']=str(normalized.relative_to(ROOT))
+        row['input_fingerprint']=finish(input_snapshot)
         shutil.copy2(out,BUILD/('main-all-raw.swf' if a.all_definitions else 'main-reachable-raw.swf'))
         shutil.copy2(normalized,BUILD/('main-normalized.swf' if a.all_definitions else 'main-reachable-normalized.swf'))
     shutil.copy2(log,run/'compile.log')
     (run/'receipt.json').write_text(json.dumps(row,ensure_ascii=False,indent=2)+'\n')
     (BUILD/('build-all.json' if a.all_definitions else 'build-reachable.json')).write_text(json.dumps(row,ensure_ascii=False,indent=2)+'\n')
-    print(json.dumps({k:v for k,v in row.items() if k not in ('command','source_repairs','source_sha256','normalization')},ensure_ascii=False,indent=2))
+    print(json.dumps({k:v for k,v in row.items() if k not in ('command','source_repairs','source_sha256','normalization','input_fingerprint')},ensure_ascii=False,indent=2))
     raise SystemExit(0 if success else 1)
 if __name__=='__main__':main()

@@ -1,6 +1,6 @@
 # 全量 FFDec 导出质量审计
 
-审计对象是根目录 164 个原版 SWF，以及 `reverse/exports/<模块>/scripts/` 的本次完整导出。结果支持“源码与资源已完整导出、可继续修复编译”的结构性结论，不支持所有方法、所有帧已经语义等价的结论。原始 SWF、用户存档和播放器均未被本审计修改或执行。
+审计对象是根目录 164 个原版 SWF，以及 `reverse/exports/<模块>/scripts/` 的本次完整导出。结果支持“类/脚本声明覆盖完整、源码已有 Embed 引用均可解析”的结构性结论，不支持所有方法、所有帧已经语义等价的结论。原始 SWF、用户存档和播放器均未被本审计修改或执行。
 
 复现：`python reverse/tools/audit_export_quality.py`。完整逐模块、逐引用、逐调用证据见 `reverse/manifests/export-quality.json`；每个原模块、assets 容器均记录 SHA-256。164 个原模块的当前哈希均与原始 inventory 一致。
 
@@ -36,7 +36,7 @@
 
 ## 可执行验收界线
 
-当前静态验收没有发现缺失源码、缺失 Embed 或越界帧绑定造成的阻塞。可优先修改被证据覆盖的业务源码，再构建、检查最终 ABC 和资源绑定、运行隔离存档回归。最小行为路径见 `behavior-expectations.md`：读档→村庄→任务 110001/110002→地图 1 小怪/Boss→保存→重启；角色各方向动作、帧回调攻击和装备皮肤仍须独立运行覆盖。
+本检查自身没有发现缺失声明、无法解析的已有 Embed 或越界帧绑定；后续根时间轴/原 SymbolClass 对照另发现真实修复阻塞，见下文。可优先修改被证据覆盖的业务源码，再构建、检查最终 ABC 和资源绑定、运行隔离存档回归。最小行为路径见 `behavior-expectations.md`：读档→村庄→任务 110001/110002→地图 1 小怪/Boss→保存→重启；角色各方向动作、帧回调攻击和装备皮肤仍须独立运行覆盖。
 
 本报告未运行所有地图、角色、Boss 或所有动画，不将“19,910 文件齐全”“编译通过”或“标题能启动”称为完整行为等价。
 
@@ -49,3 +49,9 @@
 - 原版 TiaoShi 的 JSON 查找同样使用含默认空包与 Adobe 包的宽命名空间集；新产物仍属这种形式。这里确认消除了已知 `com` 错绑路线，没有证明该调试功能在现代播放器中的 JSON 调用已经跑通。该功能含 HTTP 调用，本审计没有触发它。
 
 这些结论只适用于记录的 Enemy105 哈希，不自动推广到其他尚未重建或未抽查的模块。
+
+## 后续原 SymbolClass / 根时间轴核对的补充边界
+
+`application-domain-audit.md` 和 `module-roots.json` 补充了本检查不覆盖的两个层面。FFDec 已有 Embed 全部可解析，并不代表原 SWF 的全部 class→character 绑定都生成了 Embed：21 个非空 NPC/任务按钮及7个空遮罩的源码缺少 Embed，初次重建因此丢失原 SymbolClass 绑定。另 Enemy5 根时间轴的未绑定 Shape2 与两个小 bitmap 未进入 assets 容器；Enemy16 根放置和 Music 根流头也未自然保留。构建代理正在/已经按逐产物记录修复，最终状态看 module-roots manifest 的当前哈希。不能把此前的 0 Embed 问题解释为所有原资源均已无损重建。
+
+附加的 AVM1 内嵌动作检查由资源构建代理实现并记录于 `reverse/experiments/module-probe/asset-action-audit.json`：163 个原导出 assets 中350个 DefineButton2 的 ActionOffset 均为0，64,061个 PlaceObject2 和12,303个 PlaceObject3 的 ClipActions 标志均为0。这补足仅检查独立 DoAction/DoABC 标签不能排除按钮/放置记录内嵌动作的边界。构建器对这些入口也做 fail-closed 检查。
