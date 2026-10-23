@@ -1,0 +1,453 @@
+package com.hotpoint.braveManIII.models.container
+{
+   import com.hotpoint.braveManIII.models.equip.Equip;
+   import com.hotpoint.braveManIII.models.gem.Gem;
+   import com.hotpoint.braveManIII.models.other.Otherobj;
+   import com.hotpoint.braveManIII.models.supplies.Supplies;
+   import flash.utils.*;
+   
+   public class Storage
+   {
+      
+      private var _equipStorage:Array = new Array();
+      
+      private var _gemStorage:Array = new Array();
+      
+      private var _otherobjStorage:Array = new Array();
+      
+      private var _suppliesStorage:Array = new Array();
+      
+      public function Storage()
+      {
+         super();
+      }
+      
+      public static function createStorage() : Storage
+      {
+         var _loc1_:Storage = null;
+         var _loc2_:int = 0;
+         _loc1_ = new Storage();
+         _loc2_ = 0;
+         while(_loc2_ < 35)
+         {
+            _loc1_._equipStorage[_loc2_] = null;
+            _loc1_._suppliesStorage[_loc2_] = null;
+            _loc1_._gemStorage[_loc2_] = null;
+            _loc1_._otherobjStorage[_loc2_] = null;
+            _loc2_++;
+         }
+         return _loc1_;
+      }
+      
+      public function backOtherEmptyNum() : uint
+      {
+         var _loc1_:uint = 0;
+         var _loc2_:int = 0;
+         _loc1_ = 0;
+         _loc2_ = 0;
+         while(_loc2_ < 35)
+         {
+            if(_otherobjStorage[_loc2_] == null)
+            {
+               _loc1_++;
+            }
+            _loc2_++;
+         }
+         return _loc1_;
+      }
+      
+      public function delGem(param1:Number, param2:Number) : Gem
+      {
+         var _loc3_:Gem = null;
+         _loc3_ = _gemStorage[param1];
+         if(_loc3_.getIsPile() == true)
+         {
+            _loc3_.useGem(param2);
+            if(_loc3_.getTimes() == 0)
+            {
+               _gemStorage[param1] = null;
+            }
+         }
+         else
+         {
+            _gemStorage[param1] = null;
+         }
+         return _loc3_.cloneGem(param2);
+      }
+      
+      public function otherobjStorageMove(param1:Number, param2:Number) : *
+      {
+         var _loc3_:Supplies = null;
+         if(_otherobjStorage[param2] == null)
+         {
+            _otherobjStorage[param2] = _otherobjStorage[param1];
+            _otherobjStorage[param1] = null;
+         }
+         else
+         {
+            _loc3_ = _otherobjStorage[param2];
+            _otherobjStorage[param2] = _otherobjStorage[param1];
+            _otherobjStorage[param1] = _loc3_;
+         }
+      }
+      
+      public function backGemEmptyNum() : uint
+      {
+         var _loc1_:uint = 0;
+         var _loc2_:int = 0;
+         _loc1_ = 0;
+         _loc2_ = 0;
+         while(_loc2_ < 35)
+         {
+            if(_gemStorage[_loc2_] == null)
+            {
+               _loc1_++;
+            }
+            _loc2_++;
+         }
+         return _loc1_;
+      }
+      
+      public function addSuppliesStorage(param1:Supplies) : Boolean
+      {
+         var _loc2_:uint = 0;
+         _loc2_ = 0;
+         while(_loc2_ < 35)
+         {
+            if(_suppliesStorage[_loc2_] == null)
+            {
+               _suppliesStorage[_loc2_] = param1;
+               return true;
+            }
+            _loc2_++;
+         }
+         return false;
+      }
+      
+      public function addToEquipStorage(param1:Equip, param2:Number) : *
+      {
+         _equipStorage[param2] = param1;
+      }
+      
+      public function addToSuppliesStorage(param1:Supplies, param2:Number) : *
+      {
+         _suppliesStorage[param2] = param1;
+      }
+      
+      public function getOtherobjFromStorage(param1:Number) : Otherobj
+      {
+         if(_otherobjStorage[param1] != null)
+         {
+            return _otherobjStorage[param1];
+         }
+         return null;
+      }
+      
+      public function getEquipFromStorage(param1:Number) : Equip
+      {
+         if(_equipStorage[param1] != null)
+         {
+            return _equipStorage[param1];
+         }
+         return null;
+      }
+      
+      public function set gemStorage(param1:Array) : void
+      {
+         trace("禁止get:",getQualifiedClassName(this));
+         _gemStorage = param1;
+      }
+      
+      public function delOtherobj(param1:Number) : Otherobj
+      {
+         var _loc2_:Otherobj = null;
+         if(_otherobjStorage[param1] != null)
+         {
+            _loc2_ = _otherobjStorage[param1];
+            _otherobjStorage[param1] = null;
+         }
+         return _loc2_;
+      }
+      
+      public function set suppliesStorage(param1:Array) : void
+      {
+         trace("禁止get:",getQualifiedClassName(this));
+         _suppliesStorage = param1;
+      }
+      
+      public function set equipStorage(param1:Array) : void
+      {
+         trace("禁止get:",getQualifiedClassName(this));
+         _equipStorage = param1;
+      }
+      
+      public function getGemFromStorage(param1:Number) : Gem
+      {
+         if(_gemStorage[param1] != null)
+         {
+            return _gemStorage[param1];
+         }
+         return null;
+      }
+      
+      public function addToGemStorage(param1:Gem, param2:Number) : *
+      {
+         _gemStorage[param2] = param1;
+      }
+      
+      public function backEquipEmptyNum() : uint
+      {
+         var _loc1_:uint = 0;
+         var _loc2_:int = 0;
+         _loc1_ = 0;
+         _loc2_ = 0;
+         while(_loc2_ < 35)
+         {
+            if(_equipStorage[_loc2_] == null)
+            {
+               _loc1_++;
+            }
+            _loc2_++;
+         }
+         return _loc1_;
+      }
+      
+      public function get otherobjStorage() : Array
+      {
+         trace("禁止get:",getQualifiedClassName(this));
+         return _otherobjStorage;
+      }
+      
+      public function gemStorageMove(param1:Number, param2:Number) : *
+      {
+         var _loc3_:uint = 0;
+         var _loc4_:Gem = null;
+         if(param1 != param2)
+         {
+            if(_gemStorage[param2] == null)
+            {
+               _gemStorage[param2] = _gemStorage[param1];
+               _gemStorage[param1] = null;
+            }
+            else if(_gemStorage[param2].getIsPile() == true && _gemStorage[param2].getName() == _gemStorage[param1].getName())
+            {
+               if(_gemStorage[param2].getTimes() < _gemStorage[param2].getPileLimit())
+               {
+                  _loc3_ = _gemStorage[param2].getTimes() + _gemStorage[param1].getTimes();
+                  if(_loc3_ > _gemStorage[param2].getPileLimit())
+                  {
+                     _gemStorage[param1].useGem(_gemStorage[param2].getPileLimit() - _gemStorage[param2].getTimes());
+                     _gemStorage[param2].addGem(_gemStorage[param2].getPileLimit() - _gemStorage[param2].getTimes());
+                  }
+                  else
+                  {
+                     _gemStorage[param2].addGem(_gemStorage[param1].getTimes());
+                     _gemStorage[param1] = null;
+                  }
+               }
+            }
+            else
+            {
+               _loc4_ = _gemStorage[param2];
+               _gemStorage[param2] = _gemStorage[param1];
+               _gemStorage[param1] = _loc4_;
+            }
+         }
+      }
+      
+      public function delEquip(param1:Number) : Equip
+      {
+         var _loc2_:Equip = null;
+         if(_equipStorage[param1] != null)
+         {
+            _loc2_ = _equipStorage[param1];
+            _equipStorage[param1] = null;
+         }
+         return _loc2_;
+      }
+      
+      public function suppliesStorageMove(param1:Number, param2:Number) : *
+      {
+         var _loc3_:Supplies = null;
+         if(_suppliesStorage[param2] == null)
+         {
+            _suppliesStorage[param2] = _suppliesStorage[param1];
+            _suppliesStorage[param1] = null;
+         }
+         else
+         {
+            _loc3_ = _suppliesStorage[param2];
+            _suppliesStorage[param2] = _suppliesStorage[param1];
+            _suppliesStorage[param1] = _loc3_;
+         }
+      }
+      
+      public function set otherobjStorage(param1:Array) : void
+      {
+         trace("禁止get:",getQualifiedClassName(this));
+         _otherobjStorage = param1;
+      }
+      
+      public function get equipStorage() : Array
+      {
+         trace("禁止get:",getQualifiedClassName(this));
+         return _equipStorage;
+      }
+      
+      public function get gemStorage() : Array
+      {
+         trace("禁止get:",getQualifiedClassName(this));
+         return _gemStorage;
+      }
+      
+      public function backSuppliesEmptyNum() : uint
+      {
+         var _loc1_:uint = 0;
+         var _loc2_:int = 0;
+         _loc1_ = 0;
+         _loc2_ = 0;
+         while(_loc2_ < 35)
+         {
+            if(_suppliesStorage[_loc2_] == null)
+            {
+               _loc1_++;
+            }
+            _loc2_++;
+         }
+         return _loc1_;
+      }
+      
+      public function getSuppliesFromStorage(param1:Number) : Supplies
+      {
+         if(_suppliesStorage[param1] != null)
+         {
+            return _suppliesStorage[param1];
+         }
+         return null;
+      }
+      
+      public function addEquipStorage(param1:Equip) : Boolean
+      {
+         var _loc2_:uint = 0;
+         _loc2_ = 0;
+         while(_loc2_ < 35)
+         {
+            if(_equipStorage[_loc2_] == null)
+            {
+               _equipStorage[_loc2_] = param1;
+               return true;
+            }
+            _loc2_++;
+         }
+         return false;
+      }
+      
+      public function addGemStorage(param1:Gem) : Boolean
+      {
+         var _loc2_:int = 0;
+         var _loc3_:Boolean = false;
+         var _loc4_:int = 0;
+         if(param1.getIsPile() != true)
+         {
+            _loc4_ = 0;
+            while(true)
+            {
+               if(_loc4_ < 35)
+               {
+                  if(_gemStorage[_loc4_] == null)
+                  {
+                     break;
+                  }
+                  _loc4_++;
+                  continue;
+               }
+            }
+            _gemStorage[_loc4_] = param1;
+            return true;
+         }
+         _loc2_ = -1;
+         _loc3_ = true;
+         _loc4_ = 0;
+         while(_loc4_ < 35)
+         {
+            if(_gemStorage[_loc4_] != null)
+            {
+               if(_gemStorage[_loc4_].compareGem(param1) == true)
+               {
+                  while(param1.getTimes() > 0 && _gemStorage[_loc4_].getTimes() < param1.getPileLimit())
+                  {
+                     _gemStorage[_loc4_].addGem(1);
+                     param1.useGem(1);
+                  }
+                  if(param1.getTimes() == 0)
+                  {
+                     break;
+                  }
+               }
+            }
+            else if(_loc2_ == -1)
+            {
+               _loc2_ = _loc4_;
+            }
+            _loc4_++;
+         }
+         _gemStorage[_loc2_] = param1;
+         return false;
+      }
+      
+      public function get suppliesStorage() : Array
+      {
+         trace("禁止get:",getQualifiedClassName(this));
+         return _suppliesStorage;
+      }
+      
+      public function addToOtherobjStorage(param1:Otherobj, param2:Number) : *
+      {
+         _otherobjStorage[param2] = param1;
+      }
+      
+      public function addOtherobjStorage(param1:Otherobj) : Boolean
+      {
+         var _loc2_:uint = 0;
+         _loc2_ = 0;
+         while(_loc2_ < 35)
+         {
+            if(_otherobjStorage[_loc2_] == null)
+            {
+               _otherobjStorage[_loc2_] = param1;
+               return true;
+            }
+            _loc2_++;
+         }
+         return false;
+      }
+      
+      public function equipStorageMove(param1:Number, param2:Number) : *
+      {
+         var _loc3_:Equip = null;
+         if(_equipStorage[param2] == null)
+         {
+            _equipStorage[param2] = _equipStorage[param1];
+            _equipStorage[param1] = null;
+         }
+         else
+         {
+            _loc3_ = _equipStorage[param2];
+            _equipStorage[param2] = _equipStorage[param1];
+            _equipStorage[param1] = _loc3_;
+         }
+      }
+      
+      public function delSupplies(param1:Number) : Supplies
+      {
+         var _loc2_:Supplies = null;
+         if(_suppliesStorage[param1] != null)
+         {
+            _loc2_ = _suppliesStorage[param1];
+            _suppliesStorage[param1] = null;
+         }
+         return _loc2_;
+      }
+   }
+}
+

@@ -1,0 +1,639 @@
+package com.hotpoint.braveManIII.views.storagePanel
+{
+   import com.hotpoint.braveManIII.events.*;
+   import com.hotpoint.braveManIII.models.container.*;
+   import com.hotpoint.braveManIII.models.player.PlayerData;
+   import com.hotpoint.braveManIII.views.itemsTooltip.*;
+   import flash.display.*;
+   import flash.events.*;
+   import flash.ui.*;
+   import src.*;
+   
+   public class StoragePanel extends MovieClip
+   {
+      
+      public static var itemsTooltip:ItemsTooltip;
+      
+      public static var dragObj:MovieClip;
+      
+      public static var sp:StoragePanel;
+      
+      private static var oldNum:Number;
+      
+      private static var pointx:Number;
+      
+      private static var pointy:Number;
+      
+      public static var player1:PlayerData;
+      
+      private static var allStorageHandle:AllStorageHandle;
+      
+      public static var player2:PlayerData;
+      
+      public static var storage:Storage;
+      
+      public static var storagePanel:MovieClip = new StorageShow();
+      
+      public static var returnx:Number = 0;
+      
+      public static var returny:Number = 0;
+      
+      public static var isDown:Boolean = false;
+      
+      private static var itemsType:Number = 1;
+      
+      private static var myMenu:ContextMenu = new ContextMenu();
+      
+      public function StoragePanel()
+      {
+         super();
+         player1 = Main.player1;
+         player2 = Main.player2;
+         itemsTooltip = new ItemsTooltip();
+         itemsTooltip.visible = false;
+         allStorageHandle = new AllStorageHandle();
+         this.addChild(storagePanel);
+         if(player2 == null)
+         {
+            storagePanel["lock2P"].visible = true;
+         }
+      }
+      
+      private static function allFalse() : void
+      {
+         storagePanel["bg1_1"].isClick = false;
+         storagePanel["bg1_2"].isClick = false;
+         storagePanel["bg1_3"].isClick = false;
+         storagePanel["bg1_4"].isClick = false;
+         storagePanel["bg2_1"].isClick = false;
+         storagePanel["bg2_2"].isClick = false;
+         storagePanel["bg2_3"].isClick = false;
+         storagePanel["bg2_4"].isClick = false;
+         storagePanel["mck_1"].isClick = false;
+         storagePanel["mck_2"].isClick = false;
+         storagePanel["mck_3"].isClick = false;
+         storagePanel["mck_4"].isClick = false;
+      }
+      
+      private static function UpHandler(e:MouseEvent = null) : void
+      {
+         var bool2P:Boolean = false;
+         if(dragObj)
+         {
+            dragObj.stopDrag();
+            if(player2)
+            {
+               bool2P = Boolean(inItemsRange2P());
+            }
+            else
+            {
+               bool2P = false;
+            }
+            if(inItemsRange() == false && bool2P == false && inStorageRange() == false)
+            {
+               dragObj.x = returnx;
+               dragObj.y = returny;
+            }
+            isDown = false;
+         }
+         dragObj = null;
+      }
+      
+      public static function addListenerP1() : *
+      {
+         var i:uint = 0;
+         for(i = 0; i < 24; i++)
+         {
+            storagePanel["s1_" + i].mouseChildren = false;
+            storagePanel["s1_" + i]["t_txt"].visible = false;
+            storagePanel["s1_" + i].addEventListener(MouseEvent.MOUSE_OVER,tooltipOpen);
+            storagePanel["s1_" + i].addEventListener(MouseEvent.MOUSE_OUT,tooltipClose);
+            storagePanel["s1_" + i].addEventListener(MouseEvent.MOUSE_DOWN,DownHandler);
+            storagePanel["s1_" + i].addEventListener(MouseEvent.DOUBLE_CLICK,DoubleClick);
+            storagePanel["s1_" + i].doubleClickEnabled = true;
+         }
+         for(i = 0; i < 35; i++)
+         {
+            storagePanel["kc_" + i].mouseChildren = false;
+            storagePanel["kc_" + i]["t_txt"].visible = false;
+            storagePanel["kc_" + i].addEventListener(MouseEvent.MOUSE_OVER,tooltipOpen);
+            storagePanel["kc_" + i].addEventListener(MouseEvent.MOUSE_OUT,tooltipClose);
+            storagePanel["kc_" + i].addEventListener(MouseEvent.MOUSE_DOWN,DownHandler);
+         }
+         storagePanel.addEventListener(BtnEvent.DO_CLICK,clickListen);
+         storagePanel.addEventListener(BtnEvent.DO_CHANGE,ckListen);
+         storagePanel.addEventListener(MouseEvent.MOUSE_MOVE,DragHandler);
+         storagePanel.addEventListener(MouseEvent.MOUSE_UP,UpHandler);
+         storagePanel.addEventListener(Event.DEACTIVATE,loseFocus);
+         myMenu.addEventListener(ContextMenuEvent.MENU_SELECT,loseFocus);
+         Main._stage.addEventListener(Event.MOUSE_LEAVE,loseFocus);
+         Main._stage.addEventListener(MouseEvent.MOUSE_UP,loseFocus);
+         storagePanel.contextMenu = myMenu;
+         StorageItemsShow.allHide();
+         StorageItemsShow.equipShow();
+         StorageItemsShow.equipStorageShow();
+         StorageItemsShow.informationShow();
+         allFalse();
+         storagePanel["bg1_1"].isClick = true;
+         storagePanel["mck_1"].isClick = true;
+         itemsType = 1;
+      }
+      
+      public static function addListenerP2() : *
+      {
+         var i:uint = 0;
+         storagePanel["lock2P"].visible = false;
+         for(i = 0; i < 24; i++)
+         {
+            storagePanel["s2_" + i].mouseChildren = false;
+            storagePanel["s2_" + i]["t_txt"].visible = false;
+            storagePanel["s2_" + i].addEventListener(MouseEvent.MOUSE_OVER,tooltipOpen);
+            storagePanel["s2_" + i].addEventListener(MouseEvent.MOUSE_OUT,tooltipClose);
+            storagePanel["s2_" + i].addEventListener(MouseEvent.MOUSE_DOWN,DownHandler);
+            storagePanel["s2_" + i].addEventListener(MouseEvent.DOUBLE_CLICK,DoubleClick);
+            storagePanel["s2_" + i].doubleClickEnabled = true;
+         }
+         storagePanel["bg2_1"].isClick = true;
+         StorageItemsShow.equipShow2P();
+         StorageItemsShow.informationShow2P();
+      }
+      
+      private static function DoubleClick(e:MouseEvent) : void
+      {
+         dragObj = e.target as MovieClip;
+         if(dragObj.name.substr(0,2) == "s1")
+         {
+            allStorageHandle.putInStorageHandle(itemsType,oldNum);
+         }
+         else
+         {
+            allStorageHandle.putInStorageHandle2P(itemsType,oldNum);
+         }
+         switch(itemsType)
+         {
+            case 1:
+               StorageItemsShow.equipShow();
+               if(player2)
+               {
+                  StorageItemsShow.equipShow2P();
+               }
+               StorageItemsShow.equipStorageShow();
+               break;
+            case 2:
+               StorageItemsShow.suppliesShow();
+               if(player2)
+               {
+                  StorageItemsShow.suppliesShow2P();
+               }
+               StorageItemsShow.suppliesStorageShow();
+               break;
+            case 3:
+               StorageItemsShow.gemShow();
+               if(player2)
+               {
+                  StorageItemsShow.gemShow2P();
+               }
+               StorageItemsShow.gemStorageShow();
+               break;
+            case 4:
+               trace("d");
+               break;
+            case 5:
+               trace("e");
+         }
+         dragObj = null;
+      }
+      
+      private static function DownHandler(e:MouseEvent) : void
+      {
+         if(itemsTooltip.visible = true)
+         {
+            itemsTooltip.visible = false;
+            isDown = true;
+         }
+         dragObj = e.target as MovieClip;
+         returnx = dragObj.x;
+         returny = dragObj.y;
+         pointx = storagePanel.mouseX;
+         pointy = storagePanel.mouseY;
+         oldNum = uint(dragObj.name.substr(3,2));
+      }
+      
+      private static function tooltipClose(e:MouseEvent) : void
+      {
+         if(isDown == false)
+         {
+            itemsTooltip.visible = false;
+         }
+      }
+      
+      public static function removeListenerP1() : *
+      {
+         var i:uint = 0;
+         for(i = 0; i < 24; i++)
+         {
+            storagePanel["s1_" + i].removeEventListener(MouseEvent.MOUSE_OVER,tooltipOpen);
+            storagePanel["s1_" + i].removeEventListener(MouseEvent.MOUSE_OUT,tooltipClose);
+            storagePanel["s1_" + i].removeEventListener(MouseEvent.MOUSE_DOWN,DownHandler);
+            storagePanel["s1_" + i].removeEventListener(MouseEvent.DOUBLE_CLICK,DoubleClick);
+         }
+         for(i = 0; i < 35; i++)
+         {
+            storagePanel["kc_" + i].removeEventListener(MouseEvent.MOUSE_OVER,tooltipOpen);
+            storagePanel["kc_" + i].removeEventListener(MouseEvent.MOUSE_OUT,tooltipClose);
+            storagePanel["kc_" + i].removeEventListener(MouseEvent.MOUSE_DOWN,DownHandler);
+         }
+         storagePanel.removeEventListener(Event.DEACTIVATE,loseFocus);
+         myMenu.removeEventListener(ContextMenuEvent.MENU_SELECT,loseFocus);
+         Main._stage.removeEventListener(Event.MOUSE_LEAVE,loseFocus);
+         Main._stage.removeEventListener(MouseEvent.MOUSE_UP,loseFocus);
+         storagePanel.contextMenu = myMenu;
+         storagePanel.removeEventListener(BtnEvent.DO_CLICK,clickListen);
+         storagePanel.removeEventListener(BtnEvent.DO_CHANGE,ckListen);
+         storagePanel.removeEventListener(MouseEvent.MOUSE_MOVE,DragHandler);
+         storagePanel.removeEventListener(MouseEvent.MOUSE_UP,UpHandler);
+      }
+      
+      private static function inItemsRange2P() : Boolean
+      {
+         var bool:Boolean = false;
+         var bagNum:uint = 0;
+         var yflag:int = 0;
+         var j:uint = 0;
+         var xflag:int = 0;
+         var i:uint = 0;
+         if(dragObj.name.substr(0,2) == "s1")
+         {
+            return false;
+         }
+         bagNum = 0;
+         yflag = storagePanel.y + 275;
+         for(j = 0; j < 3; j++)
+         {
+            bagNum = 8 * j;
+            xflag = storagePanel.x + 307;
+            if(storagePanel.mouseY > yflag && storagePanel.mouseY < yflag + 45)
+            {
+               for(i = 0; i < 8; i++)
+               {
+                  if(storagePanel.mouseX > xflag && storagePanel.mouseX < xflag + 45)
+                  {
+                     switch(itemsType)
+                     {
+                        case 1:
+                           allStorageHandle.equipHandle2P(dragObj,oldNum,bagNum);
+                           break;
+                        case 2:
+                           allStorageHandle.suppliesHandle2P(dragObj,oldNum,bagNum);
+                           break;
+                        case 3:
+                           allStorageHandle.gemHandle2P(dragObj,oldNum,bagNum);
+                           break;
+                        case 4:
+                           trace("d2");
+                     }
+                     dragObj.x = returnx;
+                     dragObj.y = returny;
+                     return bool;
+                  }
+                  bagNum++;
+                  xflag += 48;
+               }
+            }
+            yflag += 50;
+         }
+         return false;
+      }
+      
+      public static function removeListenerP2() : *
+      {
+         var i:uint = 0;
+         for(i = 0; i < 24; i++)
+         {
+            storagePanel["s2_" + i].removeEventListener(MouseEvent.MOUSE_OVER,tooltipOpen);
+            storagePanel["s2_" + i].removeEventListener(MouseEvent.MOUSE_OUT,tooltipClose);
+            storagePanel["s2_" + i].removeEventListener(MouseEvent.MOUSE_DOWN,DownHandler);
+            storagePanel["s2_" + i].removeEventListener(MouseEvent.DOUBLE_CLICK,DoubleClick);
+         }
+      }
+      
+      private static function loseFocus(e:Event = null) : *
+      {
+         if(dragObj)
+         {
+            UpHandler();
+         }
+      }
+      
+      private static function inStorageRange() : Boolean
+      {
+         var bool:Boolean = false;
+         var stotageNum:uint = 0;
+         var yflag:int = 0;
+         var j:uint = 0;
+         var xflag:int = 0;
+         var i:uint = 0;
+         stotageNum = 0;
+         yflag = storagePanel.y + 61;
+         for(j = 0; j < 7; j++)
+         {
+            stotageNum = 5 * j;
+            xflag = storagePanel.x + 37;
+            if(storagePanel.mouseY > yflag && storagePanel.mouseY < yflag + 45)
+            {
+               for(i = 0; i < 5; i++)
+               {
+                  if(storagePanel.mouseX > xflag && storagePanel.mouseX < xflag + 45)
+                  {
+                     switch(itemsType)
+                     {
+                        case 1:
+                           allStorageHandle.equipStorageHandle(dragObj,oldNum,stotageNum);
+                           break;
+                        case 2:
+                           allStorageHandle.suppliesStorageHandle(dragObj,oldNum,stotageNum);
+                           break;
+                        case 3:
+                           allStorageHandle.gemStorageHandle(dragObj,oldNum,stotageNum);
+                           break;
+                        case 4:
+                           trace("d3");
+                     }
+                     dragObj.x = returnx;
+                     dragObj.y = returny;
+                     return bool;
+                  }
+                  stotageNum++;
+                  xflag += 48;
+               }
+            }
+            yflag += 50;
+         }
+         return false;
+      }
+      
+      public static function open() : void
+      {
+         if(sp == null)
+         {
+            if(!storage)
+            {
+               storage = Storage.createStorage();
+            }
+            sp = new StoragePanel();
+         }
+         sp.x = 130;
+         sp.y = 30;
+         addListenerP1();
+         if(player2)
+         {
+            addListenerP2();
+         }
+         Main._stage.addChild(sp);
+         sp.visible = true;
+      }
+      
+      private static function ckListen(e:BtnEvent) : void
+      {
+         var btn:MovieClip = null;
+         var btnNum:uint = 0;
+         btn = e.target as MovieClip;
+         btnNum = uint(btn.name.substr(4,1));
+         switch(btnNum)
+         {
+            case 1:
+               allFalse();
+               storagePanel["bg1_1"].isClick = true;
+               storagePanel["mck_1"].isClick = true;
+               StorageItemsShow.equipShow();
+               StorageItemsShow.equipStorageShow();
+               if(player2)
+               {
+                  storagePanel["bg2_1"].isClick = true;
+                  StorageItemsShow.equipShow2P();
+               }
+               itemsType = 1;
+               break;
+            case 2:
+               allFalse();
+               storagePanel["bg1_2"].isClick = true;
+               storagePanel["mck_2"].isClick = true;
+               StorageItemsShow.suppliesShow();
+               StorageItemsShow.suppliesStorageShow();
+               if(player2)
+               {
+                  storagePanel["bg2_2"].isClick = true;
+                  StorageItemsShow.suppliesShow2P();
+               }
+               itemsType = 2;
+               break;
+            case 3:
+               allFalse();
+               storagePanel["bg1_3"].isClick = true;
+               storagePanel["mck_3"].isClick = true;
+               StorageItemsShow.gemShow();
+               StorageItemsShow.gemStorageShow();
+               if(player2)
+               {
+                  storagePanel["bg2_3"].isClick = true;
+                  StorageItemsShow.gemShow2P();
+               }
+               itemsType = 3;
+               break;
+            case 4:
+               allFalse();
+               storagePanel["bg1_4"].isClick = true;
+               storagePanel["mck_4"].isClick = true;
+               StorageItemsShow.otherobjShow();
+               StorageItemsShow.otherobjStorageShow();
+               if(player2)
+               {
+                  storagePanel["bg2_4"].isClick = true;
+                  StorageItemsShow.otherobjShow2P();
+               }
+         }
+      }
+      
+      private static function inItemsRange() : Boolean
+      {
+         var bool:Boolean = false;
+         var bagNum:uint = 0;
+         var yflag:int = 0;
+         var j:uint = 0;
+         var xflag:int = 0;
+         var i:uint = 0;
+         if(dragObj.name.substr(0,2) == "s2")
+         {
+            return false;
+         }
+         bagNum = 0;
+         yflag = storagePanel.y + 62;
+         for(j = 0; j < 3; j++)
+         {
+            bagNum = 8 * j;
+            xflag = storagePanel.x + 307;
+            if(storagePanel.mouseY > yflag && storagePanel.mouseY < yflag + 45)
+            {
+               for(i = 0; i < 8; i++)
+               {
+                  if(storagePanel.mouseX > xflag && storagePanel.mouseX < xflag + 45)
+                  {
+                     switch(itemsType)
+                     {
+                        case 1:
+                           allStorageHandle.equipHandle(dragObj,oldNum,bagNum);
+                           break;
+                        case 2:
+                           allStorageHandle.suppliesHandle(dragObj,oldNum,bagNum);
+                           break;
+                        case 3:
+                           allStorageHandle.gemHandle(dragObj,oldNum,bagNum);
+                           break;
+                        case 4:
+                           trace("d");
+                     }
+                     dragObj.x = returnx;
+                     dragObj.y = returny;
+                     return bool;
+                  }
+                  bagNum++;
+                  xflag += 48;
+               }
+            }
+            yflag += 50;
+         }
+         return false;
+      }
+      
+      private static function DragHandler(e:MouseEvent) : void
+      {
+         if(isDown == true)
+         {
+            if(isDrag(pointx,pointy) == true)
+            {
+               storagePanel.addChild(dragObj);
+               dragObj.x = storagePanel.mouseX - 20;
+               dragObj.y = storagePanel.mouseY - 20;
+               dragObj.startDrag();
+            }
+         }
+      }
+      
+      private static function tooltipOpen(e:MouseEvent) : void
+      {
+         var overobj:MovieClip = null;
+         var overNum:uint = 0;
+         storagePanel.addChild(itemsTooltip);
+         if(isDown == false)
+         {
+            overobj = e.target as MovieClip;
+            overNum = uint(overobj.name.substr(3,2));
+            itemsTooltip.x = storagePanel.mouseX;
+            itemsTooltip.y = storagePanel.mouseY;
+            if(storagePanel.mouseX > storagePanel.x + 290 && storagePanel.mouseY < storagePanel.y + 230)
+            {
+               switch(itemsType)
+               {
+                  case 1:
+                     itemsTooltip.equipTooltip(player1.getBag().getEquipFromBag(overNum));
+                     break;
+                  case 2:
+                     itemsTooltip.suppliesTooltip(player1.getBag().getSuppliesFromBag(overNum));
+                     break;
+                  case 3:
+                     itemsTooltip.gemTooltip(player1.getBag().getGemFromBag(overNum));
+                     break;
+                  case 4:
+                     trace("d");
+                     break;
+                  case 5:
+                     trace("e");
+               }
+            }
+            else if(storagePanel.mouseX > storagePanel.x + 290 && storagePanel.mouseY > storagePanel.y + 230)
+            {
+               switch(itemsType)
+               {
+                  case 1:
+                     itemsTooltip.equipTooltip(player2.getBag().getEquipFromBag(overNum),2);
+                     break;
+                  case 2:
+                     itemsTooltip.suppliesTooltip(player2.getBag().getSuppliesFromBag(overNum),2);
+                     break;
+                  case 3:
+                     itemsTooltip.gemTooltip(player2.getBag().getGemFromBag(overNum),2);
+                     break;
+                  case 4:
+                     trace("d");
+                     break;
+                  case 5:
+                     trace("e");
+               }
+            }
+            else
+            {
+               switch(itemsType)
+               {
+                  case 1:
+                     itemsTooltip.equipTooltip(storage.getEquipFromStorage(overNum),3);
+                     break;
+                  case 2:
+                     itemsTooltip.suppliesTooltip(storage.getSuppliesFromStorage(overNum),3);
+                     break;
+                  case 3:
+                     itemsTooltip.gemTooltip(storage.getGemFromStorage(overNum),3);
+                     break;
+                  case 4:
+                     trace("d");
+                     break;
+                  case 5:
+                     trace("e");
+               }
+            }
+            itemsTooltip.visible = true;
+         }
+      }
+      
+      private static function clickListen(e:BtnEvent) : void
+      {
+         var btn:MovieClip = null;
+         btn = e.target as MovieClip;
+         switch(btn.name)
+         {
+            case "closePanel":
+               close();
+         }
+      }
+      
+      private static function isDrag(xx:Number, yy:Number) : Boolean
+      {
+         if(isDown == true)
+         {
+            if(storagePanel.mouseX > xx + 1 || storagePanel.mouseX < xx - 1 || storagePanel.mouseY > yy + 1 || storagePanel.mouseY < yy - 1)
+            {
+               return true;
+            }
+         }
+         return false;
+      }
+      
+      public static function close() : void
+      {
+         if(sp == null)
+         {
+            if(!storage)
+            {
+               storage = Storage.createStorage();
+            }
+            sp = new StoragePanel();
+         }
+         removeListenerP1();
+         if(player2)
+         {
+            removeListenerP2();
+         }
+         sp.visible = false;
+      }
+   }
+}
+

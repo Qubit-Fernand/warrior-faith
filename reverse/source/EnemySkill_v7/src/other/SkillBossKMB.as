@@ -1,0 +1,76 @@
+package src.other
+{
+   import flash.display.*;
+   import flash.events.*;
+   import flash.geom.*;
+   import src.*;
+   
+   public class SkillBossKMB extends FlyPerson
+   {
+      
+      public function SkillBossKMB()
+      {
+         super();
+      }
+      
+      override public function setXY() : *
+      {
+         this.y += who.y;
+         if(this.RL)
+         {
+            scaleX *= -1;
+            this.x = who.x - this.x;
+         }
+         else
+         {
+            scaleX *= 1;
+            this.x = who.x + this.x;
+         }
+         this.visible = false;
+      }
+      
+      override public function onENTER_FRAME(param1:*) : *
+      {
+         if(over && this.currentLabel != "结束")
+         {
+            Dead();
+            return;
+         }
+         if(!over && life == 0)
+         {
+            life = -1;
+            gotoAndPlay("结束");
+            continuous = false;
+            over = true;
+         }
+         if(!over && time != -1)
+         {
+            --time;
+            if(time == -1)
+            {
+               time = -1;
+               gotoAndPlay("结束");
+               continuous = false;
+               over = true;
+            }
+         }
+         if(continuous && this.currentLabel != "运行")
+         {
+            gotoAndPlay("运行");
+         }
+         else if(!continuous && this.currentLabel != "运行")
+         {
+            over = true;
+         }
+         if(!over)
+         {
+            if(this.currentFrame > 37)
+            {
+               this.visible = true;
+               Move();
+            }
+         }
+      }
+   }
+}
+

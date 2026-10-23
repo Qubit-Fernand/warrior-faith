@@ -1,0 +1,15 @@
+package
+{
+   import src.Map;
+   
+   [Embed(source="/_assets/assets.swf", symbol="symbol61")]
+   public dynamic class Map_2_3 extends Map
+   {
+      
+      public function Map_2_3()
+      {
+         super();
+      }
+   }
+}
+

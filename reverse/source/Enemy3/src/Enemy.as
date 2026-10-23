@@ -1,0 +1,903 @@
+package src
+{
+   import com.hotpoint.braveManIII.models.container.*;
+   import com.hotpoint.braveManIII.models.equip.Equip;
+   import com.hotpoint.braveManIII.models.gem.Gem;
+   import com.hotpoint.braveManIII.models.quest.Quest;
+   import com.hotpoint.braveManIII.repository.equip.*;
+   import com.hotpoint.braveManIII.repository.gem.*;
+   import com.hotpoint.braveManIII.repository.quest.*;
+   import com.hotpoint.braveManIII.views.setTransfer.*;
+   import flash.display.*;
+   import flash.events.*;
+   import flash.geom.*;
+   
+   public class Enemy extends MovieClip
+   {
+      
+      public static var EnemyLoaded:Boolean;
+      
+      public static var EnemyXml:XML;
+      
+      public static var EnemyArr:Array = new Array();
+      
+      public static var All:Array = [];
+      
+      private var 硬直:Number;
+      
+      public var className:String;
+      
+      private var jump_time:* = 8;
+      
+      public var RL:Boolean = true;
+      
+      private var 掉落物品:Array = [];
+      
+      private var gravityNum:* = 0;
+      
+      private var gravity:int = 2;
+      
+      private var attack_XY:Array = [];
+      
+      private var parabola:Number = 0.2;
+      
+      public var runType:String = "自由";
+      
+      public var attack_TimeNum:Array = [];
+      
+      private var 掉落编号:int;
+      
+      public var 攻击力:Number;
+      
+      private var 等级:int;
+      
+      private var lastTime:int;
+      
+      public var attack_Time:Array = [];
+      
+      private var jumpType:int = 2;
+      
+      private var 浮动硬直:Number;
+      
+      public var distance_X:int;
+      
+      public var distance_Y:int;
+      
+      public var skinNum:int = 0;
+      
+      public var 防御力:int;
+      
+      public var lifeMAX:int = 100;
+      
+      private var 特殊掉落概率:Array = [];
+      
+      public var over:Boolean;
+      
+      private var guard_XY:Array = [10,10];
+      
+      private var jumping:Boolean;
+      
+      public var life:int = 100;
+      
+      public var 金钱:int;
+      
+      private var jumptemp:int;
+      
+      private var 原始硬直:Number;
+      
+      private var 掉落概率:Array = [];
+      
+      public var id:int;
+      
+      private var walk_power:* = 3;
+      
+      private var runY:int = 0;
+      
+      public var noMove:Boolean = false;
+      
+      private var runX:int = 0;
+      
+      public var iii:int = 0;
+      
+      public var skin:EnemySkin;
+      
+      private var 震退值:Number;
+      
+      public var hit:MovieClip = null;
+      
+      public var lifeMC:EnemyLife = new EnemyLife();
+      
+      private var 经验:int;
+      
+      public var skinArr:Array = [0,1];
+      
+      private var jump_power:* = 120;
+      
+      private var runArr:Array = new Array();
+      
+      private var 特殊掉落物品:Array = [];
+      
+      public function Enemy(i:int = 0)
+      {
+         var name:String = null;
+         super();
+         addEventListener(Event.ADDED_TO_STAGE,onADDED_TO_STAGE);
+         if(i != 0)
+         {
+            this.id = i;
+            name = SkinData(i);
+            if(name == null)
+            {
+               trace("怪物信息错误!! 找不到ID" + i);
+            }
+            else
+            {
+               addSkin(name);
+            }
+         }
+         else
+         {
+            trace("无法创建 怪物0");
+         }
+      }
+      
+      private function getRL(_RL:Boolean) : *
+      {
+         this.RL = _RL;
+         if(_RL)
+         {
+            skin.scaleX = -1;
+         }
+         else if(!_RL)
+         {
+            skin.scaleX = 1;
+         }
+      }
+      
+      private function set_attack_Time() : *
+      {
+         var x:int = 0;
+         var i:* = undefined;
+         var idX:int = 0;
+         var str:String = null;
+         var rTime:int = 0;
+         for(x = 0; x < attack_XY.length; x++)
+         {
+            for(i in EnemySkin.EnemySkinXml.怪物攻击)
+            {
+               idX = int(EnemySkin.EnemySkinXml.怪物攻击[i].ID);
+               str = String(EnemySkin.EnemySkinXml.怪物攻击[i].帧标签);
+               if(id == idX && str == "攻击" + (x + 1))
+               {
+                  rTime = int(EnemySkin.EnemySkinXml.怪物攻击[i].间隔);
+                  attack_Time[x] = rTime;
+                  attack_TimeNum[x] = int(rTime * Math.random());
+                  break;
+               }
+            }
+         }
+      }
+      
+      public function HpXX(hitX:HitXX, bj:Boolean = false) : *
+      {
+         var attTimes:int = 0;
+         var p:Player = null;
+         var 职业附加:Number = NaN;
+         var playHPxx:Number = NaN;
+         var hpXX:Number = NaN;
+         var hpDown:int = 0;
+         var xxx:int = 0;
+         var yyy:int = 0;
+         var rdm:Number = NaN;
+         var XX:Number = NaN;
+         var lifeX:int = 0;
+         attTimes = hitX.times;
+         p = hitX.who as Player;
+         职业附加 = 1;
+         if(p.data.skinNum == 0)
+         {
+            职业附加 = Number(p.职业附加[0]);
+         }
+         else if(p.data.skinNum == 1)
+         {
+            职业附加 = Number(p.职业附加[1]);
+         }
+         else if(p.data.skinNum == 2)
+         {
+            职业附加 = Number(p.职业附加[2]);
+         }
+         playHPxx = p.use_gongji.getValue();
+         hpXX = playHPxx * hitX.gongJi_hp * 职业附加;
+         hpXX = hpXX + Math.random() * hpXX * 0.020001548555 + (Math.random() * 4 - 2);
+         hpDown = hpXX * hitX.who.shuangShouBeiShu - 防御力 / attTimes;
+         (hitX.who as Player).energySlot.addEnergy(hitX.who,hpDown);
+         xxx = this.x + Math.random() * 100 - 50;
+         yyy = this.y + Math.random() * 100 - 50;
+         if(bj)
+         {
+            NewMC.Open("_暴击数字",Main.world.moveChild_Other,xxx,yyy,25,hpDown,true);
+         }
+         else
+         {
+            NewMC.Open("_攻击数字",Main.world.moveChild_Other,xxx,yyy,15,hpDown,true);
+         }
+         if(hpDown > 0)
+         {
+            this.life -= hpDown;
+            lifeX = 100 - life / lifeMAX * 100;
+            lifeMC.gotoAndStop(lifeX);
+            if(this.life <= 0)
+            {
+               life = 0;
+               (hitX.who as Player).ExpUP(this.经验);
+               (hitX.who as Player).MoneyUP(this.金钱);
+               任务品掉落();
+               装备掉落();
+               return;
+            }
+         }
+         rdm = Math.random() * 2.000000757 / 10.000005588 + 0.200008498;
+         浮动硬直 += rdm;
+         XX = hitX.硬直 - this.skin.被攻击硬直 - 浮动硬直;
+         trace("XX = " + XX + ", rdm = " + rdm);
+         if(XX >= 0)
+         {
+            skin.GoTo("被打",int(XX));
+            jump_power = 0;
+         }
+         if(震退值 != 0)
+         {
+            runArr = new Array();
+            if(hitX.RL)
+            {
+               runPower(-hitX.runArr[0] * 震退值,hitX.runArr[1] * 震退值,hitX.runArr[2]);
+            }
+            else
+            {
+               runPower(hitX.runArr[0] * 震退值,hitX.runArr[1] * 震退值,hitX.runArr[2]);
+            }
+         }
+      }
+      
+      private function onADDED_TO_STAGE(e:*) : *
+      {
+         removeEventListener(Event.ADDED_TO_STAGE,onADDED_TO_STAGE);
+         Main.world.moveChild_Enemy.addChild(this);
+         All[All.length] = this;
+         addEventListener(Event.ENTER_FRAME,onENTER_FRAME);
+         addEventListener(Event.REMOVED_FROM_STAGE,onREMOVED_FROM_STAGE);
+      }
+      
+      private function 装备掉落() : *
+      {
+         var id:int = 0;
+         var type:int = 0;
+         var arr:Array = null;
+         var XXX:Equip = null;
+         var ob:obj = null;
+         var XXX2:Gem = null;
+         id = int(掉落物品计算());
+         type = int(String(id).substr(1,1));
+         if(id != 0)
+         {
+            if(type == 1)
+            {
+               arr = [id];
+               XXX = EquipFactory.createEquipByColorAndLevel(arr);
+               ob = new obj(XXX,this.x,this.y);
+            }
+            else if(type == 2)
+            {
+               arr = [id];
+               XXX2 = GemFactory.createGemByColorAndLevel(arr);
+               ob = new obj(XXX2,this.x,this.y);
+            }
+         }
+      }
+      
+      private function getbagQuestNum() : Boolean
+      {
+         var fallLevel:Number = NaN;
+         var bagNum:Number = NaN;
+         var type:Number = NaN;
+         var i:uint = 0;
+         for(i = 0; i < 3; i++)
+         {
+            if(特殊掉落物品[i] != 0)
+            {
+               fallLevel = Number(特殊掉落物品[i]);
+               type = Number(QuestFactory.getType(fallLevel));
+               if(type == 1)
+               {
+                  if(Main.player2 == null)
+                  {
+                     return p1bagFall(fallLevel);
+                  }
+                  if(p1bagFall(fallLevel) || p2bagFall(fallLevel))
+                  {
+                     return true;
+                  }
+               }
+               else if(type == 2)
+               {
+                  if(Main.player2 == null)
+                  {
+                     if(p1bagFall(fallLevel))
+                     {
+                        return p1bagFall(fallLevel);
+                     }
+                  }
+                  else
+                  {
+                     if(p1bagFall(fallLevel) && p2bagFall(fallLevel))
+                     {
+                        return true;
+                     }
+                     if(Boolean(SetTransferPanel.tbo1()) && p2bagFall(fallLevel))
+                     {
+                        return true;
+                     }
+                     if(Boolean(SetTransferPanel.tbo2()) && p1bagFall(fallLevel))
+                     {
+                        return true;
+                     }
+                  }
+               }
+            }
+         }
+         return false;
+      }
+      
+      private function Attack_TimeXX() : *
+      {
+         var i:int = 0;
+         for(i = 0; i < attack_TimeNum.length; i++)
+         {
+            if(attack_TimeNum[i] < attack_Time[i])
+            {
+               ++attack_TimeNum[i];
+            }
+         }
+      }
+      
+      public function Dead() : *
+      {
+         this.parent.removeChild(this);
+         removeEventListener(Event.ENTER_FRAME,onENTER_FRAME);
+      }
+      
+      private function mainQuest() : Boolean
+      {
+         var p1:Boolean = false;
+         var p2:Boolean = false;
+         var i:uint = 0;
+         var fallLevel:Number = NaN;
+         var type:Number = NaN;
+         p1 = false;
+         p2 = false;
+         for(i = 0; i < 3; i++)
+         {
+            if(特殊掉落物品[i] != 0)
+            {
+               fallLevel = Number(特殊掉落物品[i]);
+               type = Number(QuestFactory.getType(fallLevel));
+               if(type == 1)
+               {
+                  return Main.getQuest(fallLevel);
+               }
+               if(type == 2)
+               {
+                  for(i = 0; i < 3; i++)
+                  {
+                     if(Main.player2 == null)
+                     {
+                        return SetTransferPanel.tbo1();
+                     }
+                     if(Boolean(SetTransferPanel.tbo1()) && Boolean(SetTransferPanel.tbo2()))
+                     {
+                        return true;
+                     }
+                  }
+               }
+            }
+         }
+         return false;
+      }
+      
+      public function p1bagFall(fallLevel:Number) : Boolean
+      {
+         var bagNum:Number = NaN;
+         var fallMax:Number = NaN;
+         bagNum = Number(Main.player1.getBag().fallQusetBag(fallLevel));
+         fallMax = Number(QuestFactory.getFallMax(fallLevel));
+         if(bagNum < fallMax)
+         {
+            return false;
+         }
+         return true;
+      }
+      
+      private function WhereAreYou() : *
+      {
+         var i:int = 0;
+         var dx2:* = undefined;
+         if(Player.All.length > 0)
+         {
+            distance_X = this.x - Player.All[0].x;
+            distance_Y = this.y - Player.All[0].y;
+            for(i = 1; i < Player.All.length; i++)
+            {
+               dx2 = this.x - Player.All[i].x;
+               if(Math.abs(dx2) < Math.abs(distance_X))
+               {
+                  distance_X = dx2;
+                  distance_Y = this.y - Player.All[i].y;
+               }
+            }
+         }
+         else
+         {
+            distance_X = 0;
+         }
+      }
+      
+      private function MoveRun() : *
+      {
+         var xxYN:Boolean = false;
+         var xx:int = 0;
+         var yy:int = 0;
+         var forecast_x:* = 0;
+         var forecast_y:* = 0;
+         var i:* = 0;
+         var tempX:int = 0;
+         var AA:Boolean = false;
+         var i2:uint = 0;
+         var map:* = undefined;
+         var BB:Boolean = false;
+         var CC:Boolean = false;
+         if(runX > 0)
+         {
+            xxYN = true;
+         }
+         xx = int(this.runX);
+         yy = int(this.runY);
+         forecast_x = int(this.x + Main.world.x);
+         forecast_y = int(this.y);
+         for(i = int(Math.abs(yy)); i > 0; i--)
+         {
+            if(this.jumpType == 1)
+            {
+               AA = Boolean(Main.world.MapData1.hitTestPoint(forecast_x,forecast_y - this.height,true));
+               if(!AA)
+               {
+                  for(i2 = 0; i2 < Main.world.numChildren; i2++)
+                  {
+                     map = Main.world.getChildAt(i2);
+                     if(map is Map && Boolean(map.MapData1.hitTestPoint(forecast_x,forecast_y - this.height,true)))
+                     {
+                        AA = true;
+                        break;
+                     }
+                  }
+               }
+               if(!AA)
+               {
+                  forecast_y--;
+               }
+            }
+            else if(this.jumpType == 2)
+            {
+               BB = Boolean(Main.world.MapData.hitTestPoint(forecast_x,forecast_y - 3,true));
+               AA = Boolean(Main.world.MapData.hitTestPoint(forecast_x,forecast_y - 1,true));
+               CC = Boolean(Main.world.MapData.hitTestPoint(forecast_x,forecast_y + 6,true));
+               for(i2 = 0; i2 < Main.world.numChildren; i2++)
+               {
+                  map = Main.world.getChildAt(i2);
+                  if(map is Map && Boolean(map.MapData.hitTestPoint(forecast_x,forecast_y - 3,true)))
+                  {
+                     BB = true;
+                  }
+                  else if(map is Map && Boolean(map.MapData.hitTestPoint(forecast_x,forecast_y - 1,true)))
+                  {
+                     AA = true;
+                  }
+                  else if(map is Map && Boolean(map.MapData.hitTestPoint(forecast_x,forecast_y + 6,true)))
+                  {
+                     CC = true;
+                  }
+               }
+               jumping = false;
+               if(BB)
+               {
+                  forecast_y -= 2;
+               }
+               else if(AA)
+               {
+                  runY = 0;
+                  gravityNum = 0;
+               }
+               else if(CC)
+               {
+                  forecast_y += 3;
+               }
+               else
+               {
+                  forecast_y++;
+                  this.jumping = true;
+               }
+            }
+            else if(this.jumpType == 3)
+            {
+               AA = Boolean(Main.world.MapData1.hitTestPoint(forecast_x,forecast_y - 1,true));
+               for(i2 = 0; i2 < Main.world.numChildren; i2++)
+               {
+                  map = Main.world.getChildAt(i2);
+                  if(map is Map && Boolean(map.MapData1.hitTestPoint(forecast_x,forecast_y - this.height,true)))
+                  {
+                     AA = true;
+                  }
+               }
+               if(!AA)
+               {
+                  jumpType = 2;
+                  break;
+               }
+               forecast_y++;
+            }
+         }
+         this.y = forecast_y;
+         if(xx > 0)
+         {
+            tempX = forecast_x - 20;
+         }
+         else
+         {
+            tempX = forecast_x + 20;
+         }
+         for(i = int(Math.abs(xx)); i > 0; i--)
+         {
+            AA = Boolean(Main.world.MapData1.hitTestPoint(tempX,forecast_y - 50,true));
+            if(!AA)
+            {
+               for(i2 = 0; i2 < Main.world.numChildren; i2++)
+               {
+                  map = Main.world.getChildAt(i2);
+                  if(map is Map && Boolean(map.MapData.hitTestPoint(tempX,forecast_y - 50,true)))
+                  {
+                     AA = true;
+                     break;
+                  }
+               }
+            }
+            if(!AA)
+            {
+               if(xx > 0)
+               {
+                  forecast_x--;
+               }
+               else
+               {
+                  forecast_x++;
+               }
+            }
+         }
+         this.x = forecast_x - Main.world.x;
+      }
+      
+      private function SkinData(num:int) : String
+      {
+         var i:* = undefined;
+         var ID:int = 0;
+         var 警戒:int = 0;
+         var 警戒randomXX:int = 0;
+         var j:int = 0;
+         for(i in EnemyXml.怪物)
+         {
+            ID = int(EnemyXml.怪物[i].ID);
+            if(ID == num)
+            {
+               this.className = String(EnemyXml.怪物[i].名称);
+               this.lifeMAX = this.life = int(EnemyXml.怪物[i].HP);
+               this.walk_power = int(EnemyXml.怪物[i].移动速度);
+               this.jumptemp = int(EnemyXml.怪物[i].跳跃力);
+               this.jump_power = int(EnemyXml.怪物[i].跳跃力);
+               this.jump_time = int(EnemyXml.怪物[i].跳跃时间);
+               this.gravity = int(EnemyXml.怪物[i].重力);
+               硬直 = 原始硬直 = int(EnemyXml.怪物[i].硬直);
+               攻击力 = Number(EnemyXml.怪物[i].攻击力);
+               防御力 = int(EnemyXml.怪物[i].防御力);
+               震退值 = Number(EnemyXml.怪物[i].震退值);
+               经验 = int(EnemyXml.怪物[i].经验);
+               等级 = int(EnemyXml.怪物[i].等级);
+               lastTime = int(EnemyXml.怪物[i].存在时间);
+               金钱 = int(EnemyXml.怪物[i].金钱);
+               警戒 = int(EnemyXml.怪物[i].警戒距离x);
+               警戒randomXX = 警戒 * Math.random();
+               guard_XY = [警戒randomXX,int(EnemyXml.怪物[i].警戒距离y)];
+               for(j = 0; j < 6; j++)
+               {
+                  if(int(EnemyXml.怪物[i]["攻击距离" + (j + 1) + "x"]) != -1)
+                  {
+                     attack_XY[j] = [int(EnemyXml.怪物[i]["攻击距离" + (j + 1) + "x"]),int(EnemyXml.怪物[i]["攻击距离" + (j + 1) + "y"])];
+                  }
+               }
+               for(j = 0; j < 20; j++)
+               {
+                  掉落物品[j] = int(EnemyXml.怪物[i]["掉落物品" + (j + 1)]);
+               }
+               for(j = 0; j < 20; j++)
+               {
+                  掉落概率[j] = int(EnemyXml.怪物[i]["掉落概率" + (j + 1)]);
+               }
+               for(j = 0; j < 3; j++)
+               {
+                  特殊掉落物品[j] = int(EnemyXml.怪物[i]["特殊掉落ID" + (j + 1)]);
+               }
+               for(j = 0; j < 3; j++)
+               {
+                  特殊掉落概率[j] = int(EnemyXml.怪物[i]["特殊概率ID" + (j + 1)]);
+               }
+               return String(EnemyXml.怪物[i].名称);
+            }
+         }
+         return null;
+      }
+      
+      private function 任务概率掉落计算() : int
+      {
+         var xx:int = 0;
+         var num:int = 0;
+         xx = 0;
+         if(!mainQuest())
+         {
+            if(!getbagQuestNum())
+            {
+               xx = Math.random() * 10000 + 1;
+            }
+            else
+            {
+               xx = 99999;
+            }
+         }
+         else
+         {
+            xx = 99999;
+         }
+         num = 0;
+         for(j = 0; j < 3; ++j)
+         {
+            num += 特殊掉落概率[j];
+            if(num > xx)
+            {
+               return 特殊掉落物品[j];
+            }
+         }
+         return 0;
+      }
+      
+      private function MoveData() : *
+      {
+         var distance_XX:* = undefined;
+         var distance_YY:* = undefined;
+         var i:* = 0;
+         var randomXY:int = 0;
+         var randomNum:int = 0;
+         var randomRun:String = null;
+         var jump:int = 0;
+         WhereAreYou();
+         Attack_TimeXX();
+         distance_XX = Math.abs(distance_X);
+         distance_YY = Math.abs(distance_Y);
+         if(skin.runType == "站立" || skin.runType == "移动" || skin.runType == "跳")
+         {
+            randomXY = Math.random() * 20 + 20;
+            randomNum = Math.random() * attack_XY.length;
+            randomRun = "攻击" + (randomNum + 1);
+            if(skin.continuousTime <= 0)
+            {
+               jump_power = jumptemp;
+               if(attack_Time[randomNum] == attack_TimeNum[randomNum] && distance_XX < attack_XY[randomNum][0] && distance_YY < attack_XY[randomNum][1])
+               {
+                  if(distance_X > 0)
+                  {
+                     getRL(false);
+                  }
+                  else
+                  {
+                     getRL(true);
+                  }
+                  attack_TimeNum[randomNum] = 0;
+                  skin.GoTo(randomRun);
+                  this.浮动硬直 = 0;
+               }
+               else if(distance_XX < 50 && distance_YY < 500)
+               {
+                  this.skin.GoTo("站立");
+               }
+               else if(distance_X > guard_XY[0])
+               {
+                  runPower(this.walk_power,0,1);
+                  getRL(false);
+                  skin.GoTo("移动");
+               }
+               else if(distance_X < -guard_XY[0])
+               {
+                  runPower(-this.walk_power,0,1);
+                  getRL(true);
+                  skin.GoTo("移动");
+               }
+               else
+               {
+                  this.skin.GoTo("站立");
+               }
+            }
+            jump = Math.random() * 60;
+            if(jump == 0 && !jumping)
+            {
+               if(RL)
+               {
+                  runPower(-walk_power * 0.8,jump_power,jump_time);
+               }
+               else
+               {
+                  runPower(walk_power * 0.8,jump_power,jump_time);
+               }
+            }
+         }
+         runX = runY = 0;
+         for(i = int(runArr.length - 1); i >= 0; i--)
+         {
+            if(runArr[i][2] > 0)
+            {
+               runX += runArr[i][0] + runArr[i][3] * runArr[i][2];
+               runY -= runArr[i][1] + runArr[i][4] * runArr[i][2];
+               --runArr[i][2];
+            }
+            else
+            {
+               runArr.splice(i,1);
+            }
+         }
+         if(runY < 0)
+         {
+            jumpType = 1;
+            gravityNum = 0;
+            jumping = true;
+         }
+         else
+         {
+            jumpType = 2;
+            if(gravity != 0)
+            {
+               gravityNum += 1;
+            }
+            runY += gravity * gravityNum;
+         }
+      }
+      
+      public function runPower(numX:Number = 0, numY:Number = 0, time:int = 0) : *
+      {
+         var numXX:* = undefined;
+         var numYY:* = undefined;
+         var gravityX:Number = NaN;
+         var gravityY:Number = NaN;
+         if(time <= 3)
+         {
+            runArr[runArr.length] = [numX,numY,1,0,0,0];
+            return;
+         }
+         numXX = numX / time * parabola;
+         numYY = numY / time * parabola;
+         gravityX = numX * (1 - parabola) / (time * time - time * (time - 1) / 2);
+         gravityY = numY * (1 - parabola) / (time * time - time * (time - 1) / 2);
+         runArr[runArr.length] = [numXX,numYY,time,gravityX,gravityY];
+      }
+      
+      private function 掉落物品计算() : int
+      {
+         var xx:int = 0;
+         var num:int = 0;
+         xx = Math.random() * 10000 + 1;
+         num = 0;
+         for(j = 0; j < 20; ++j)
+         {
+            num += 掉落概率[j];
+            if(num > xx)
+            {
+               return 掉落物品[j];
+            }
+         }
+         return 0;
+      }
+      
+      private function onREMOVED_FROM_STAGE(e:*) : *
+      {
+         this.skin.Over();
+         removeEventListener(Event.ENTER_FRAME,onENTER_FRAME);
+      }
+      
+      private function 任务品掉落() : *
+      {
+         var id:int = 0;
+         var XXX3:Quest = null;
+         var ob:obj = null;
+         id = int(任务概率掉落计算());
+         if(id != 0)
+         {
+            XXX3 = QuestFactory.creatQust(id);
+            ob = new obj(XXX3,this.x,this.y);
+         }
+      }
+      
+      public function p2bagFall(fallLevel:Number) : Boolean
+      {
+         var bagNum:Number = NaN;
+         var fallMax:Number = NaN;
+         bagNum = Number(Main.player2.getBag().fallQusetBag(fallLevel));
+         fallMax = Number(QuestFactory.getFallMax(fallLevel));
+         if(bagNum < fallMax)
+         {
+            return false;
+         }
+         return true;
+      }
+      
+      private function addSkin(str:String) : *
+      {
+         var classRef:Class = null;
+         classRef = EnemyArr[Main.gameNum].getClass(str) as Class;
+         this.skin = new classRef();
+         addChild(skin);
+         set_attack_Time();
+         addChild(lifeMC);
+         lifeMC.stop();
+         lifeMC.y = -this.skin.height;
+      }
+      
+      private function onENTER_FRAME(e:*) : *
+      {
+         if(lastTime > -1)
+         {
+            --lastTime;
+            if(lastTime == 0)
+            {
+               skin.GoTo("死亡");
+               removeEventListener(Event.ENTER_FRAME,onENTER_FRAME);
+            }
+         }
+         if(life > 0)
+         {
+            MoveData();
+            if(!noMove)
+            {
+               MoveRun();
+            }
+         }
+         else
+         {
+            skin.GoTo("死亡");
+            removeEventListener(Event.ENTER_FRAME,onENTER_FRAME);
+         }
+      }
+      
+      private function SkinValue() : *
+      {
+         if(skin != null)
+         {
+            this.gravity = this.skin.gravity;
+            if(skin.moveArr != null)
+            {
+               if(RL)
+               {
+                  runPower(skin.moveArr[0],skin.moveArr[1],skin.moveArr[2]);
+               }
+               else
+               {
+                  runPower(-skin.moveArr[0],skin.moveArr[1],skin.moveArr[2]);
+               }
+            }
+         }
+      }
+   }
+}
+

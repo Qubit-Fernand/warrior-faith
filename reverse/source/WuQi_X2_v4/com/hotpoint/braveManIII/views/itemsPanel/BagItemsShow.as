@@ -1,0 +1,525 @@
+package com.hotpoint.braveManIII.views.itemsPanel
+{
+   import flash.utils.*;
+   import src.*;
+   
+   public class BagItemsShow
+   {
+      
+      internal var timeOut:int;
+      
+      public function BagItemsShow()
+      {
+         super();
+      }
+      
+      public static function allHide() : void
+      {
+         for(var i:uint = 0; i < 24; i++)
+         {
+            ItemsPanel.itemsPanel["s1_" + i].t_txt.text = "";
+            ItemsPanel.itemsPanel["s1_" + i].t_txt.visible = true;
+            ItemsPanel.itemsPanel["s1_" + i].visible = false;
+            ItemsPanel.itemsPanel["s1_" + i]["diKuang"].visible = false;
+         }
+         for(i = 0; i < 8; i++)
+         {
+            ItemsPanel.itemsPanel["z1_" + i].t_txt.text = "";
+            ItemsPanel.itemsPanel["z1_" + i].visible = false;
+            ItemsPanel.itemsPanel["k1_" + i].visible = false;
+            ItemsPanel.itemsPanel["z1_" + i]["diKuang"].visible = false;
+         }
+         ItemsPanel.itemsPanel["g1_0"].visible = false;
+         ItemsPanel.itemsPanel["g1_1"].visible = false;
+      }
+      
+      public static function skillSlotShow() : void
+      {
+         for(var i:uint = 0; i < 2; i++)
+         {
+            if(Main.player1.getEquipSkillSlot().getGemFromSkillSlot(i) != null)
+            {
+               ItemsPanel.itemsPanel["g1_" + i].visible = true;
+            }
+            else
+            {
+               ItemsPanel.itemsPanel["g1_" + i].visible = false;
+            }
+         }
+      }
+      
+      public static function skillSlotShow2P() : void
+      {
+         for(var i:uint = 0; i < 2; i++)
+         {
+            if(Main.player2.getEquipSkillSlot().getGemFromSkillSlot(i) != null)
+            {
+               ItemsPanel.itemsPanel["g1_" + i].visible = true;
+            }
+            else
+            {
+               ItemsPanel.itemsPanel["g1_" + i].visible = false;
+            }
+         }
+      }
+      
+      public static function clearTimeout() : void
+      {
+         if(timeOut > 0)
+         {
+            clearTimeout(timeOut);
+         }
+      }
+      
+      public static function informationShow() : void
+      {
+         timeOut = setTimeout(show1P,100);
+      }
+      
+      private static function showLV(level:Number) : *
+      {
+         var str:String = null;
+         var left:int = 0;
+         var right:int = 0;
+         if(level < 10)
+         {
+            ItemsPanel.itemsPanel["shiwei"].gotoAndStop(level);
+            ItemsPanel.itemsPanel["gewei"].visible = false;
+         }
+         else
+         {
+            ItemsPanel.itemsPanel["gewei"].visible = true;
+            str = level.toString();
+            left = int(str.substring(0,1));
+            right = int(str.substring(1,2));
+            ItemsPanel.itemsPanel["shiwei"].gotoAndStop(left);
+            if(right == 0)
+            {
+               ItemsPanel.itemsPanel["gewei"].gotoAndStop(10);
+            }
+            else
+            {
+               ItemsPanel.itemsPanel["gewei"].gotoAndStop(right);
+            }
+         }
+      }
+      
+      public static function zyShow(p1p2:int) : *
+      {
+         for(var i:int = 0; i < 4; i++)
+         {
+            if(i == 3)
+            {
+               ItemsPanel.itemsPanel["ZY_txt"].text = "新手";
+            }
+            else if(Main["player" + p1p2]._transferArr[i])
+            {
+               if(i == 0)
+               {
+                  ItemsPanel.itemsPanel["ZY_txt"].text = "杀戮战神";
+               }
+               else if(i == 1)
+               {
+                  ItemsPanel.itemsPanel["ZY_txt"].text = "汲魂术士";
+               }
+               else
+               {
+                  ItemsPanel.itemsPanel["ZY_txt"].text = "毁灭拳神";
+               }
+               break;
+            }
+         }
+      }
+      
+      public static function QiangHuaJiaChengP1() : *
+      {
+         var sLV:int = int(Main.player1.getEquipSlot().getSuitStrength());
+         if(sLV < 4)
+         {
+            ItemsPanel.itemsPanel["strengthen"].gotoAndStop(1);
+            return;
+         }
+         ItemsPanel.itemsPanel["strengthen"].gotoAndStop(sLV - 2);
+      }
+      
+      public static function QiangHuaJiaChengP2() : *
+      {
+         var sLV:int = int(Main.player2.getEquipSlot().getSuitStrength());
+         if(sLV < 4)
+         {
+            ItemsPanel.itemsPanel["strengthen"].gotoAndStop(1);
+            return;
+         }
+         ItemsPanel.itemsPanel["strengthen"].gotoAndStop(sLV - 2);
+      }
+      
+      public static function show1P() : *
+      {
+         zyShow(1);
+         ItemsPanel.itemsPanel["name_txt"].text = Main.logName;
+         ItemsPanel.itemsPanel["hpPoint"].text = int(Main.player_1.use_hp_Max.getValue());
+         ItemsPanel.itemsPanel["mpPoint"].text = int(Main.player_1.use_mp_Max.getValue());
+         ItemsPanel.itemsPanel["attackPoint"].text = int(Main.player_1.use_gongji.getValue());
+         ItemsPanel.itemsPanel["defensePoint"].text = int(Main.player_1.use_fangyu.getValue());
+         ItemsPanel.itemsPanel["critPoint"].text = Math.pow(Number(Main.player_1.use_baoji.getValue() / 70),0.8).toFixed(1) + "%";
+         ItemsPanel.itemsPanel["duckPoint"].text = Math.pow(Number(Main.player_1.use_sanbi.getValue() / 100),0.8).toFixed(1) + "%";
+         ItemsPanel.itemsPanel["gold1"].text = Main.player1.getGold();
+         ItemsPanel.itemsPanel["kill_txt"].text = Main.player1.killPoint.getValue();
+         ItemsPanel.itemsPanel["expPoint"].text = Main.player1.getEXP() + " / " + Main.player_1.nextExp.getValue();
+         ItemsPanel.itemsPanel["jyt"]["zd"].scaleX = Main.player1.getEXP() / Main.player_1.nextExp.getValue();
+         if(Main.player1.getTitleSlot().getTitleView())
+         {
+            ItemsPanel.itemsPanel["chenghao"].gotoAndStop(Main.player1.getTitleSlot().getTitleView().getFrame());
+         }
+         else
+         {
+            ItemsPanel.itemsPanel["chenghao"].gotoAndStop(1);
+         }
+         if(Main.player1.playerJL_Data)
+         {
+            ItemsPanel.itemsPanel["jingling"].gotoAndStop(Main.player1.playerJL_Data.getFrame() + 1);
+         }
+         else
+         {
+            ItemsPanel.itemsPanel["jingling"].gotoAndStop(1);
+         }
+         if(Main.player1.getElvesSlot().backElvesNum() == 0)
+         {
+            ItemsPanel.itemsPanel["jingling_btn"].visible = false;
+         }
+         else
+         {
+            ItemsPanel.itemsPanel["jingling_btn"].visible = true;
+         }
+         showLV(Main.player1.getLevel());
+         QiangHuaJiaChengP1();
+      }
+      
+      public static function informationShow2P() : void
+      {
+         timeOut = setTimeout(show2P,100);
+      }
+      
+      public static function show2P() : *
+      {
+         zyShow(2);
+         ItemsPanel.itemsPanel["hpPoint"].text = int(Main.player_2.use_hp_Max.getValue());
+         ItemsPanel.itemsPanel["mpPoint"].text = int(Main.player_2.use_mp_Max.getValue());
+         ItemsPanel.itemsPanel["attackPoint"].text = int(Main.player_2.use_gongji.getValue());
+         ItemsPanel.itemsPanel["defensePoint"].text = int(Main.player_2.use_fangyu.getValue());
+         ItemsPanel.itemsPanel["critPoint"].text = Math.pow(Number(Main.player_2.use_baoji.getValue() / 70),0.8).toFixed(1) + "%";
+         ItemsPanel.itemsPanel["duckPoint"].text = Math.pow(Number(Main.player_2.use_sanbi.getValue() / 100),0.8).toFixed(1) + "%";
+         ItemsPanel.itemsPanel["gold1"].text = Main.player2.getGold();
+         ItemsPanel.itemsPanel["kill_txt"].text = Main.player2.killPoint.getValue();
+         ItemsPanel.itemsPanel["expPoint"].text = Main.player2.getEXP() + " / " + Main.player_2.nextExp.getValue();
+         ItemsPanel.itemsPanel["jyt"]["zd"].scaleX = Main.player2.getEXP() / Main.player_2.nextExp.getValue();
+         if(Main.player2.getTitleSlot().getTitleView())
+         {
+            ItemsPanel.itemsPanel["chenghao"].gotoAndStop(Main.player2.getTitleSlot().getTitleView().getFrame());
+         }
+         else
+         {
+            ItemsPanel.itemsPanel["chenghao"].gotoAndStop(1);
+         }
+         if(Main.player2.playerJL_Data)
+         {
+            ItemsPanel.itemsPanel["jingling"].gotoAndStop(Main.player2.playerJL_Data.getFrame() + 1);
+         }
+         else
+         {
+            ItemsPanel.itemsPanel["jingling"].gotoAndStop(1);
+         }
+         if(Main.player2.getElvesSlot().backElvesNum() == 0)
+         {
+            ItemsPanel.itemsPanel["jingling_btn"].visible = false;
+         }
+         else
+         {
+            ItemsPanel.itemsPanel["jingling_btn"].visible = true;
+         }
+         showLV(Main.player2.getLevel());
+         QiangHuaJiaChengP2();
+      }
+      
+      public static function equipShow() : void
+      {
+         for(var i:uint = 0; i < 24; i++)
+         {
+            ItemsPanel.itemsPanel["s1_" + i].t_txt.text = "";
+            if(Main.player1.getBag().getEquipFromBag(i) != null)
+            {
+               ItemsPanel.itemsPanel["s1_" + i].gotoAndStop(Main.player1.getBag().getEquipFromBag(i).getFrame());
+               ItemsPanel.itemsPanel["s1_" + i].visible = true;
+            }
+            else
+            {
+               ItemsPanel.itemsPanel["s1_" + i].visible = false;
+            }
+         }
+      }
+      
+      public static function equipShow2P() : void
+      {
+         for(var i:uint = 0; i < 24; i++)
+         {
+            ItemsPanel.itemsPanel["s1_" + i].t_txt.text = "";
+            if(Main.player2.getBag().getEquipFromBag(i) != null)
+            {
+               ItemsPanel.itemsPanel["s1_" + i].gotoAndStop(Main.player2.getBag().getEquipFromBag(i).getFrame());
+               ItemsPanel.itemsPanel["s1_" + i].visible = true;
+            }
+            else
+            {
+               ItemsPanel.itemsPanel["s1_" + i].visible = false;
+            }
+         }
+      }
+      
+      public static function gemShow() : void
+      {
+         for(var i:uint = 0; i < 24; i++)
+         {
+            ItemsPanel.itemsPanel["s1_" + i].t_txt.text = "";
+            if(Main.player1.getBag().getGemFromBag(i) != null)
+            {
+               ItemsPanel.itemsPanel["s1_" + i].gotoAndStop(Main.player1.getBag().getGemFromBag(i).getFrame());
+               ItemsPanel.itemsPanel["s1_" + i].visible = true;
+               if(Main.player1.getBag().getGemFromBag(i).getIsPile() == true)
+               {
+                  ItemsPanel.itemsPanel["s1_" + i].t_txt.text = Main.player1.getBag().getGemFromBag(i).getTimes();
+               }
+            }
+            else
+            {
+               ItemsPanel.itemsPanel["s1_" + i].visible = false;
+            }
+         }
+      }
+      
+      public static function gemShow2P() : void
+      {
+         for(var i:uint = 0; i < 24; i++)
+         {
+            ItemsPanel.itemsPanel["s1_" + i].t_txt.text = "";
+            if(Main.player2.getBag().getGemFromBag(i) != null)
+            {
+               ItemsPanel.itemsPanel["s1_" + i].gotoAndStop(Main.player2.getBag().getGemFromBag(i).getFrame());
+               ItemsPanel.itemsPanel["s1_" + i].visible = true;
+               if(Main.player2.getBag().getGemFromBag(i).getIsPile() == true)
+               {
+                  ItemsPanel.itemsPanel["s1_" + i].t_txt.text = Main.player2.getBag().getGemFromBag(i).getTimes();
+               }
+            }
+            else
+            {
+               ItemsPanel.itemsPanel["s1_" + i].visible = false;
+            }
+         }
+      }
+      
+      public static function suppliesShow() : void
+      {
+         if(ItemsPanel.boolFlag == false)
+         {
+            return;
+         }
+         ItemsPanel.menuTooltip.visible = false;
+         for(var i:uint = 0; i < 24; i++)
+         {
+            ItemsPanel.itemsPanel["s1_" + i].t_txt.text = "";
+            if(Main.player1.getBag().getSuppliesFromBag(i) != null)
+            {
+               ItemsPanel.itemsPanel["s1_" + i].gotoAndStop(Main.player1.getBag().getSuppliesFromBag(i).getFrame());
+               ItemsPanel.itemsPanel["s1_" + i].visible = true;
+               if(Main.player1.getBag().getSuppliesFromBag(i).getTimes() > 1)
+               {
+                  ItemsPanel.itemsPanel["s1_" + i].t_txt.text = Main.player1.getBag().getSuppliesFromBag(i).getTimes();
+               }
+            }
+            else
+            {
+               ItemsPanel.itemsPanel["s1_" + i].visible = false;
+            }
+         }
+      }
+      
+      public static function suppliesShow2P() : void
+      {
+         if(ItemsPanel.boolFlag == false)
+         {
+            return;
+         }
+         ItemsPanel.menuTooltip.visible = false;
+         for(var i:uint = 0; i < 24; i++)
+         {
+            ItemsPanel.itemsPanel["s1_" + i].t_txt.text = "";
+            if(Main.player2.getBag().getSuppliesFromBag(i) != null)
+            {
+               ItemsPanel.itemsPanel["s1_" + i].gotoAndStop(Main.player2.getBag().getSuppliesFromBag(i).getFrame());
+               ItemsPanel.itemsPanel["s1_" + i].visible = true;
+               if(Main.player2.getBag().getSuppliesFromBag(i).getTimes() > 1)
+               {
+                  ItemsPanel.itemsPanel["s1_" + i].t_txt.text = Main.player2.getBag().getSuppliesFromBag(i).getTimes();
+               }
+            }
+            else
+            {
+               ItemsPanel.itemsPanel["s1_" + i].visible = false;
+            }
+         }
+      }
+      
+      public static function slotShow() : void
+      {
+         for(var i:uint = 0; i < 8; i++)
+         {
+            ItemsPanel.itemsPanel["z1_" + i].t_txt.text = "";
+            if(Main.player1.getEquipSlot().getEquipFromSlot(i) != null)
+            {
+               ItemsPanel.itemsPanel["z1_" + i].gotoAndStop(Main.player1.getEquipSlot().getEquipFromSlot(i).getFrame());
+               ItemsPanel.itemsPanel["z1_" + i].visible = true;
+               ItemsPanel.itemsPanel["z1_" + i]["diKuang"].visible = true;
+            }
+            else
+            {
+               ItemsPanel.itemsPanel["z1_" + i].visible = false;
+            }
+         }
+      }
+      
+      public static function slotShow2P() : void
+      {
+         for(var i:uint = 0; i < 8; i++)
+         {
+            ItemsPanel.itemsPanel["z1_" + i].t_txt.text = "";
+            if(Main.player2.getEquipSlot().getEquipFromSlot(i) != null)
+            {
+               ItemsPanel.itemsPanel["z1_" + i].gotoAndStop(Main.player2.getEquipSlot().getEquipFromSlot(i).getFrame());
+               ItemsPanel.itemsPanel["z1_" + i].visible = true;
+               ItemsPanel.itemsPanel["z1_" + i]["diKuang"].visible = true;
+            }
+            else
+            {
+               ItemsPanel.itemsPanel["z1_" + i].visible = false;
+            }
+         }
+      }
+      
+      public static function badgeSlotShow() : void
+      {
+         for(var i:uint = 0; i < 6; i++)
+         {
+            if(Main.player1.getBadgeSlot().getBadgeFromSlot(i) != null)
+            {
+               ItemsPanel.itemsPanel["hz" + i].gotoAndStop(Main.player1.getBadgeSlot().getBadgeFromSlot(i).getFrame());
+               ItemsPanel.itemsPanel["hz" + i].visible = true;
+            }
+            else
+            {
+               ItemsPanel.itemsPanel["hz" + i].visible = false;
+            }
+         }
+      }
+      
+      public static function badgeSlotShow2P() : void
+      {
+         for(var i:uint = 0; i < 6; i++)
+         {
+            if(Main.player2.getBadgeSlot().getBadgeFromSlot(i) != null)
+            {
+               ItemsPanel.itemsPanel["hz" + i].gotoAndStop(Main.player2.getBadgeSlot().getBadgeFromSlot(i).getFrame());
+               ItemsPanel.itemsPanel["hz" + i].visible = true;
+            }
+            else
+            {
+               ItemsPanel.itemsPanel["hz" + i].visible = false;
+            }
+         }
+      }
+      
+      public static function questShow() : void
+      {
+         for(var i:uint = 0; i < 24; i++)
+         {
+            ItemsPanel.itemsPanel["s1_" + i].t_txt.text = "";
+            if(Main.player1.getBag().getQuestFromBag(i) != null)
+            {
+               ItemsPanel.itemsPanel["s1_" + i].gotoAndStop(Main.player1.getBag().getQuestFromBag(i).getFrame());
+               ItemsPanel.itemsPanel["s1_" + i].visible = true;
+               if(Main.player1.getBag().getQuestFromBag(i).isMany() == true)
+               {
+                  ItemsPanel.itemsPanel["s1_" + i].t_txt.text = Main.player1.getBag().getQuestFromBag(i).getTimes();
+               }
+            }
+            else
+            {
+               ItemsPanel.itemsPanel["s1_" + i].visible = false;
+            }
+         }
+      }
+      
+      public static function questShow2P() : void
+      {
+         for(var i:uint = 0; i < 24; i++)
+         {
+            ItemsPanel.itemsPanel["s1_" + i].t_txt.text = "";
+            if(Main.player2.getBag().getQuestFromBag(i) != null)
+            {
+               ItemsPanel.itemsPanel["s1_" + i].gotoAndStop(Main.player2.getBag().getQuestFromBag(i).getFrame());
+               ItemsPanel.itemsPanel["s1_" + i].visible = true;
+               if(Main.player2.getBag().getQuestFromBag(i).isMany() == true)
+               {
+                  ItemsPanel.itemsPanel["s1_" + i].t_txt.text = Main.player2.getBag().getQuestFromBag(i).getTimes();
+               }
+            }
+            else
+            {
+               ItemsPanel.itemsPanel["s1_" + i].visible = false;
+            }
+         }
+      }
+      
+      public static function otherobjShow() : void
+      {
+         for(var i:uint = 0; i < 24; i++)
+         {
+            ItemsPanel.itemsPanel["s1_" + i].t_txt.text = "";
+            if(Main.player1.getBag().getOtherobjFromBag(i) != null)
+            {
+               ItemsPanel.itemsPanel["s1_" + i].gotoAndStop(Main.player1.getBag().getOtherobjFromBag(i).getFrame());
+               ItemsPanel.itemsPanel["s1_" + i].visible = true;
+               if(Main.player1.getBag().getOtherobjFromBag(i).getTimes() > 1)
+               {
+                  ItemsPanel.itemsPanel["s1_" + i].t_txt.text = Main.player1.getBag().getOtherobjFromBag(i).getTimes();
+               }
+            }
+            else
+            {
+               ItemsPanel.itemsPanel["s1_" + i].visible = false;
+            }
+         }
+      }
+      
+      public static function otherobjShow2P() : void
+      {
+         for(var i:uint = 0; i < 24; i++)
+         {
+            ItemsPanel.itemsPanel["s1_" + i].t_txt.text = "";
+            if(Main.player2.getBag().getOtherobjFromBag(i) != null)
+            {
+               ItemsPanel.itemsPanel["s1_" + i].gotoAndStop(Main.player2.getBag().getOtherobjFromBag(i).getFrame());
+               ItemsPanel.itemsPanel["s1_" + i].visible = true;
+               if(Main.player2.getBag().getOtherobjFromBag(i).getTimes() > 1)
+               {
+                  ItemsPanel.itemsPanel["s1_" + i].t_txt.text = Main.player2.getBag().getOtherobjFromBag(i).getTimes();
+               }
+            }
+            else
+            {
+               ItemsPanel.itemsPanel["s1_" + i].visible = false;
+            }
+         }
+      }
+   }
+}
+
