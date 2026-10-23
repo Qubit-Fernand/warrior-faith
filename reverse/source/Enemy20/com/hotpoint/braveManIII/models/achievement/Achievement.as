@@ -962,29 +962,25 @@ package com.hotpoint.braveManIII.models.achievement
          {
             trace("有多个指定地图");
             i = 0;
-            while(true)
+            while(i < nmapId.length)
             {
-               if(i < nmapId.length)
+               if(nmapId[i].getValue() == this._map.getValue())
                {
-                  if(nmapId[i].getValue() == this._map.getValue())
+                  if(nstr == this._star.getValue())
                   {
-                     if(nstr == this._star.getValue())
+                     if(this.isRy())
                      {
-                        if(this.isRy())
-                        {
-                           break;
-                        }
-                        if(this._tg)
-                        {
-                           return this.dbNum(type,duNum);
-                        }
+                        return this.dbNum(type,duNum);
+                     }
+                     if(this._tg)
+                     {
+                        return this.dbNum(type,duNum);
                      }
                   }
-                  continue;
                }
                i++;
             }
-            return this.dbNum(type,duNum);
+            return false;
          }
          if(nmapId[0].getValue() == -1)
          {

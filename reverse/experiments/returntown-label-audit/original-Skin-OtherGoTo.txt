@@ -1,0 +1,74 @@
+public function OtherGoTo(param1:String) : String
+{
+trait method Name("OtherGoTo")
+dispid 0
+method
+name null
+param Name("String")
+returns Name("String")
+
+body
+maxstack 2
+localcount 5
+initscopedepth 10
+maxscopedepth 11
+
+code
+getlocal0
+pushscope
+pushnull
+coerce_s
+setlocal2
+getlex Name("timeNum")
+pushbyte 0
+ifnle ofs0019
+findproperty Name("runNum")
+pushbyte 1
+initproperty Name("runNum")
+ofs0019:
+getlex Name("timeNum")
+pushbyte 0
+greaterthan
+dup
+iffalse ofs002b
+pop
+getlocal1
+pushstring "攻击"
+equals
+ofs002b:
+iffalse ofs006d
+getlocal1
+getlex Name("runNum")
+add
+coerce_s
+setlocal2
+getlex Name("runNum")
+pushbyte 4
+ifne ofs004f
+findproperty Name("runNum")
+pushbyte 1
+initproperty Name("runNum")
+jump ofs0067
+ofs004f:
+findpropstrict Name("runNum")
+dup
+setlocal3
+getproperty Name("runNum")
+increment_i
+setlocal 4
+getlocal3
+getlocal 4
+setproperty Name("runNum")
+kill 4
+kill 3
+ofs0067:
+getlocal2
+returnvalue
+jump ofs006d
+ofs006d:
+getlocal1
+returnvalue
+end ; code
+end ; body
+end ; method
+}

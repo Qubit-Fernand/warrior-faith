@@ -246,7 +246,7 @@ package src
          {
             arr = data.getPetSkillType();
             xx = int(Math.random() * 4);
-            if(arr[xx] <= 0)
+            if(!(arr[xx] > 0))
             {
                gongJiYn1 = gongJiYn2 = false;
                return;

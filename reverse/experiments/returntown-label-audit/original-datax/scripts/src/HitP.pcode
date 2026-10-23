@@ -1,0 +1,508 @@
+package src
+{
+   import flash.display.*;
+   import flash.events.*;
+   
+   public class HitP extends MovieClip
+   {
+      
+      public static var AllHitP:Array;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 9
+            maxscopedepth 10
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"AllHitP")
+               newarray 0
+               setproperty QName(PackageNamespace(""),"AllHitP")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public var who:Object;
+      
+      public var objArr:Array;
+      
+      public function HitP()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 3
+               localcount 1
+               initscopedepth 10
+               maxscopedepth 11
+               
+               code
+                  getlocal0
+                  pushscope
+                  findproperty QName(PackageNamespace(""),"objArr")
+                  newarray 0
+                  initproperty QName(PackageNamespace(""),"objArr")
+                  getlocal0
+                  constructsuper 0
+                  findproperty Multiname("_stage",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getlex Multiname("Main",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getproperty Multiname("_this",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  setproperty Multiname("_stage",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  findpropstrict Multiname("addEventListener",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getlex Multiname("Event",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getproperty Multiname("ADDED_TO_STAGE",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getlex Multiname("onADDED_TO_STAGE",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  callpropvoid Multiname("addEventListener",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                  findpropstrict Multiname("addEventListener",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getlex Multiname("Event",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getproperty Multiname("REMOVED_FROM_STAGE",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getlex Multiname("onREMOVED_FROM_STAGE",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  callpropvoid Multiname("addEventListener",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function HitPlayer() : *
+      {
+         trait method QName(PackageNamespace(""),"HitPlayer")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 3
+                  localcount 7
+                  initscopedepth 9
+                  maxscopedepth 10
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushbyte 0
+                     setlocal1
+                     pushnull
+                     coerce QName(PackageNamespace("src"),"HitP")
+                     setlocal2
+                     pushbyte 0
+                     setlocal3
+                     pushfalse
+                     setlocal 4
+                     pushbyte 0
+                     setlocal 5
+                     pushbyte 0
+                     setlocal 6
+                     getlex Multiname("HitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("AllHitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("length",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     pushbyte 0
+                     ifngt ofs0145
+                     pushbyte 0
+                     setlocal1
+                     jump ofs0130
+            ofs0031:
+                     label
+                     getlex Multiname("HitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("AllHitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal1
+                     getproperty MultinameL([PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlex Multiname("HitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     astypelate
+                     coerce QName(PackageNamespace("src"),"HitP")
+                     setlocal2
+                     getlocal2
+                     getproperty Multiname("who",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlex Multiname("Player",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     istypelate
+                     iffalse ofs012e
+                     pushbyte 0
+                     setlocal3
+                     jump ofs011d
+            ofs005d:
+                     label
+                     pushfalse
+                     setlocal 4
+                     pushbyte 0
+                     setlocal 5
+                     jump ofs008f
+            ofs0069:
+                     label
+                     getlex Multiname("Player",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("All",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal3
+                     getproperty MultinameL([PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal2
+                     getproperty Multiname("objArr",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal 5
+                     getproperty MultinameL([PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     ifne ofs008d
+                     pushtrue
+                     setlocal 4
+                     jump ofs009e
+            ofs008d:
+                     inclocal_i 5
+            ofs008f:
+                     getlocal 5
+                     getlocal2
+                     getproperty Multiname("objArr",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("length",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     iflt ofs0069
+            ofs009e:
+                     getlex Multiname("Player",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("All",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal3
+                     getproperty MultinameL([PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("hit",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     coerce_a
+                     dup
+                     iffalse ofs00d5
+                     pop
+                     getlex Multiname("Player",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("All",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal3
+                     getproperty MultinameL([PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlex Multiname("Player",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     astypelate
+                     getproperty Multiname("hp",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callproperty Multiname("getValue",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                     pushbyte 0
+                     greaterthan
+                     coerce_a
+            ofs00d5:
+                     coerce_a
+                     convert_b
+                     dup
+                     iffalse ofs00e2
+                     pop
+                     getlocal 4
+                     not
+                     coerce_a
+                     convert_b
+            ofs00e2:
+                     dup
+                     iffalse ofs0100
+                     pop
+                     getlocal2
+                     getlex Multiname("Player",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("All",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal3
+                     getproperty MultinameL([PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("hit",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callproperty Multiname("hitTestObject",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                     convert_b
+            ofs0100:
+                     iffalse ofs011b
+                     getlex Multiname("Player",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("All",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal3
+                     getproperty MultinameL([PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlex Multiname("Player",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     astypelate
+                     pushtrue
+                     setproperty Multiname("noHit",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+            ofs011b:
+                     inclocal_i 3
+            ofs011d:
+                     getlocal3
+                     getlex Multiname("Player",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("All",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("length",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     iflt ofs005d
+            ofs012e:
+                     inclocal_i 1
+            ofs0130:
+                     getlocal1
+                     getlex Multiname("HitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("AllHitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("length",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     iflt ofs0031
+                     jump ofs017a
+            ofs0145:
+                     pushbyte 0
+                     setlocal 6
+                     jump ofs0168
+            ofs014d:
+                     label
+                     getlex Multiname("Player",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("All",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal 6
+                     getproperty MultinameL([PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlex Multiname("Player",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     astypelate
+                     pushfalse
+                     setproperty Multiname("noHit",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     inclocal_i 6
+            ofs0168:
+                     getlocal 6
+                     getlex Multiname("Player",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("All",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("length",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     iflt ofs014d
+            ofs017a:
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function onADDED_TO_STAGE(param1:*) : *
+         {
+            trait method QName(PrivateNamespace(null,"147"),"onADDED_TO_STAGE")
+               dispid 0
+               method
+                  name null
+                  param null
+                  returns null
+                  
+                  body
+                     maxstack 3
+                     localcount 4
+                     initscopedepth 10
+                     maxscopedepth 11
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushbyte 0
+                        setlocal3
+                        getlex Multiname("AllHitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        iffalse ofs0033
+                        pushbyte 0
+                        setlocal3
+                        jump ofs0026
+               ofs0014:
+                        label
+                        getlex Multiname("AllHitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal3
+                        getproperty MultinameL([PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal0
+                        ifne ofs0024
+                        returnvoid
+               ofs0024:
+                        inclocal_i 3
+               ofs0026:
+                        getlocal3
+                        getlex Multiname("AllHitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty Multiname("length",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        iflt ofs0014
+               ofs0033:
+                        getlocal0
+                        getproperty Multiname("parent",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlex Multiname("MovieClip",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        astypelate
+                        coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                        setlocal2
+                        jump ofs0126
+               ofs0044:
+                        label
+                        getlocal2
+                        getlex Multiname("Fly",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        istypelate
+                        iffalse ofs006e
+                        findproperty Multiname("who",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal2
+                        getproperty Multiname("who",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        initproperty Multiname("who",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlex Multiname("AllHitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlex Multiname("AllHitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty Multiname("length",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal0
+                        setproperty MultinameL([PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        returnvoid
+               ofs006e:
+                        getlocal2
+                        getlex Multiname("Skin_WuQi",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        istypelate
+                        dup
+                        iffalse ofs0084
+                        pop
+                        getlocal2
+                        getproperty Multiname("parent",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlex Multiname("Player",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        istypelate
+               ofs0084:
+                        iffalse ofs00a7
+                        findproperty Multiname("who",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal2
+                        getproperty Multiname("parent",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        initproperty Multiname("who",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlex Multiname("AllHitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlex Multiname("AllHitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty Multiname("length",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal0
+                        setproperty MultinameL([PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        returnvoid
+               ofs00a7:
+                        getlocal2
+                        getlex Multiname("Skin",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        istypelate
+                        dup
+                        iffalse ofs00bd
+                        pop
+                        getlocal2
+                        getproperty Multiname("parent",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlex Multiname("Player",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        istypelate
+               ofs00bd:
+                        iffalse ofs00e0
+                        findproperty Multiname("who",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal2
+                        getproperty Multiname("parent",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        initproperty Multiname("who",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlex Multiname("AllHitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlex Multiname("AllHitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty Multiname("length",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal0
+                        setproperty MultinameL([PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        returnvoid
+               ofs00e0:
+                        getlocal2
+                        getlex Multiname("EnemySkin",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        istypelate
+                        dup
+                        iffalse ofs00f6
+                        pop
+                        getlocal2
+                        getproperty Multiname("parent",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlex Multiname("Enemy",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        istypelate
+               ofs00f6:
+                        iffalse ofs0119
+                        findproperty Multiname("who",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal2
+                        getproperty Multiname("parent",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        initproperty Multiname("who",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlex Multiname("AllHitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlex Multiname("AllHitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty Multiname("length",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal0
+                        setproperty MultinameL([PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        returnvoid
+               ofs0119:
+                        getlocal2
+                        getproperty Multiname("parent",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlex Multiname("MovieClip",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        astypelate
+                        coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                        setlocal2
+               ofs0126:
+                        getlocal2
+                        getlex Multiname("_stage",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        ifne ofs0044
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private function onREMOVED_FROM_STAGE(param1:*) : *
+            {
+               trait method QName(PrivateNamespace(null,"147"),"onREMOVED_FROM_STAGE")
+                  dispid 0
+                  method
+                     name null
+                     param null
+                     returns null
+                     
+                     body
+                        maxstack 3
+                        localcount 3
+                        initscopedepth 10
+                        maxscopedepth 11
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushbyte 0
+                           setlocal2
+                           getlex Multiname("AllHitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           iffalse ofs003e
+                           pushbyte 0
+                           setlocal2
+                           jump ofs0031
+                  ofs0014:
+                           label
+                           getlex Multiname("AllHitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getlocal2
+                           getproperty MultinameL([PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getlocal0
+                           ifne ofs002f
+                           getlex Multiname("AllHitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getlocal2
+                           pushbyte 1
+                           callpropvoid Multiname("splice",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                  ofs002f:
+                           inclocal_i 2
+                  ofs0031:
+                           getlocal2
+                           getlex Multiname("AllHitP",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty Multiname("length",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           iflt ofs0014
+                  ofs003e:
+                           getlocal0
+                           findpropstrict Multiname("Array",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           constructprop Multiname("Array",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                           setproperty Multiname("objArr",[PrivateNamespace(null,"147"),PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),ProtectedNamespace("src:HitP"),StaticProtectedNs("src:HitP"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+            }
+         }
+         
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 1
+               maxscopedepth 9
+               
+               code
+                  getlocal0
+                  pushscope
+                  findpropstrict Multiname("HitP",[PackageNamespace("src")])
+                  getlex QName(PackageNamespace(""),"Object")
+                  pushscope
+                  getlex QName(PackageNamespace("flash.events"),"EventDispatcher")
+                  pushscope
+                  getlex QName(PackageNamespace("flash.display"),"DisplayObject")
+                  pushscope
+                  getlex QName(PackageNamespace("flash.display"),"InteractiveObject")
+                  pushscope
+                  getlex QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+                  pushscope
+                  getlex QName(PackageNamespace("flash.display"),"Sprite")
+                  pushscope
+                  getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                  pushscope
+                  getlex Multiname("MovieClip",[PackageNamespace(""),PackageNamespace("src"),PrivateNamespace(null,"507"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events")])
+                  newclass 272
+                  popscope
+                  popscope
+                  popscope
+                  popscope
+                  popscope
+                  popscope
+                  popscope
+                  initproperty QName(PackageNamespace("src"),"HitP")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+         

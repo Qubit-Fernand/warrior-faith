@@ -345,19 +345,15 @@ package com.hotpoint.braveManIII.models.container
          if(param1.getIsPile() != true)
          {
             _loc3_ = 0;
-            while(true)
+            while(_loc3_ < 24)
             {
-               if(_loc3_ < 24)
+               if(_gemBag[_loc3_] == null)
                {
-                  if(_gemBag[_loc3_] == null)
-                  {
-                     break;
-                  }
-                  _loc3_++;
-                  continue;
+                  return true;
                }
+               _loc3_++;
             }
-            return true;
+            return false;
          }
          _loc2_ = true;
          _loc3_ = 0;
@@ -391,20 +387,16 @@ package com.hotpoint.braveManIII.models.container
          if(param1.getIsPile() != true)
          {
             _loc4_ = 0;
-            while(true)
+            while(_loc4_ < 24)
             {
-               if(_loc4_ < 24)
+               if(_gemBag[_loc4_] == null)
                {
-                  if(_gemBag[_loc4_] == null)
-                  {
-                     break;
-                  }
-                  _loc4_++;
-                  continue;
+                  _gemBag[_loc4_] = param1;
+                  return true;
                }
+               _loc4_++;
             }
-            _gemBag[_loc4_] = param1;
-            return true;
+            return false;
          }
          _loc2_ = -1;
          _loc3_ = true;
@@ -511,20 +503,16 @@ package com.hotpoint.braveManIII.models.container
          if(param1.isMany() != true)
          {
             _loc4_ = 0;
-            while(true)
+            while(_loc4_ < 24)
             {
-               if(_loc4_ < 24)
+               if(_otherobjBag[_loc4_] == null)
                {
-                  if(_otherobjBag[_loc4_] == null)
-                  {
-                     break;
-                  }
-                  _loc4_++;
-                  continue;
+                  _otherobjBag[_loc4_] = param1;
+                  return true;
                }
+               _loc4_++;
             }
-            _otherobjBag[_loc4_] = param1;
-            return true;
+            return false;
          }
          _loc2_ = -1;
          _loc3_ = true;
@@ -570,20 +558,16 @@ package com.hotpoint.braveManIII.models.container
          if(param1.isMany() != true)
          {
             _loc4_ = 0;
-            while(true)
+            while(_loc4_ < 24)
             {
-               if(_loc4_ < 24)
+               if(_questBag[_loc4_] == null)
                {
-                  if(_questBag[_loc4_] == null)
-                  {
-                     break;
-                  }
-                  _loc4_++;
-                  continue;
+                  _questBag[_loc4_] = param1;
+                  return true;
                }
+               _loc4_++;
             }
-            _questBag[_loc4_] = param1;
-            return true;
+            return false;
          }
          _loc2_ = -1;
          _loc3_ = true;
@@ -1036,7 +1020,7 @@ package com.hotpoint.braveManIII.models.container
          var _loc4_:uint = 0;
          while(_loc4_ < 24)
          {
-            if(param2 <= 0)
+            if(!(param2 > 0))
             {
                break;
             }
@@ -1086,7 +1070,7 @@ package com.hotpoint.braveManIII.models.container
          var _loc4_:uint = 0;
          while(_loc4_ < 24)
          {
-            if(param2 <= 0)
+            if(!(param2 > 0))
             {
                break;
             }

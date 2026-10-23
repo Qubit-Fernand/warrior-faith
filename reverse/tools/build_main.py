@@ -3,6 +3,7 @@
 import argparse,hashlib,json,shutil,subprocess,time,tempfile
 from pathlib import Path
 from probe_normalize_swf import normalize
+from swf_inventory import read_swf
 from build_inputs import capture,finish
 ROOT=Path(__file__).resolve().parents[2]
 JAVA=ROOT/'.runtime/shared-tools/java/jdk-21.0.12.1+1-jre/Contents/Home/bin/java'
@@ -10,6 +11,24 @@ FLEX=ROOT/'.runtime/shared-tools/flex/apache-flex-sdk-4.16.1-bin'
 PLAYER=ROOT/'.runtime/shared-tools/ffdec/flashlib/playerglobal32_0.swc'
 RAW=ROOT/'reverse/exports/3_L4399Main_gamefile/scripts'
 BUILD=ROOT/'reverse/build/main-probe'
+def preserve_original_swf_version(output, original):
+    """Keep caller-version compatibility rules; alter no ABC or tag bytes."""
+    before, body, header = read_swf(output)
+    baseline, _, original_header = read_swf(original)
+    version = original_header['version']
+    after = before[:3] + bytes([version]) + before[4:]
+    assert after[:3] == before[:3] and after[4:] == before[4:]
+    output.write_bytes(after)
+    checked, checked_body, checked_header = read_swf(output)
+    assert checked == after and checked_body == body and checked_header['version'] == version
+    return {'version_before': header['version'], 'version_after': version,
+        'original_sha256': hashlib.sha256(baseline).hexdigest(),
+        'before_sha256': hashlib.sha256(before).hexdigest(),
+        'after_sha256': hashlib.sha256(after).hexdigest(),
+        'changed_offsets': [3] if before[3] != version else [],
+        'all_other_bytes_identical': True, 'decompressed_body_and_abc_identical': True,
+        'reason': 'Preserve original SWF caller-version semantics; SWF9 missing frame labels do not throw the SWF11+ error2109.'}
+
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--all-definitions',action='store_true')
     ap.add_argument('--source-dir',type=Path,default=ROOT/'reverse/source/3_L4399Main_gamefile')
@@ -44,7 +63,7 @@ def main():
     # Runtime tests MUST use their own save store; never write yzlr2_saves/final.
     repair('src/LocalSaveManager.as','"yzlr2_saves"',json.dumps(a.save_name),'Test-only isolation of SharedObject; original source and player saves untouched.')
     out=run/'raw.swf'
-    cmd=[str(JAVA),'-Xmx5g','-Djava.awt.headless=true',f'-Dflexlib={FLEX}/frameworks','-jar',str(FLEX/'lib/mxmlc.jar'),'-load-config=','-compiler.theme=',f'-compiler.external-library-path={PLAYER}',f'-compiler.source-path={src}','-compiler.strict=false','-target-player=32.0','-use-network=false','-debug=false',f'-output={out}']
+    cmd=[str(JAVA),'-Xmx5g','-Djava.awt.headless=true',f'-Dflexlib={FLEX}/frameworks','-jar',str(FLEX/'lib/mxmlc.jar'),'-load-config=','-compiler.theme=',f'-compiler.external-library-path={PLAYER}',f'-compiler.source-path={src}','-compiler.strict=false','-target-player=32.0','-use-network=false','-debug=false', '-compiler.omit-trace-statements=false',f'-output={out}']
     if a.all_definitions:
         classes=sorted('.'.join(p.relative_to(src).with_suffix('').parts) for p in src.rglob('*.as') if p.relative_to(src).as_posix()!='src/Main.as')
         cmd+=['-includes='+','.join(classes)]
@@ -58,6 +77,7 @@ def main():
     if success:
         normalized=run/'normalized.swf'
         row['normalization']=normalize(out,normalized,ROOT/'3_L4399Main_gamefile.swf')
+        row['swf_version_compatibility']=preserve_original_swf_version(normalized,ROOT/'3_L4399Main_gamefile.swf')
         row['output_sha256']=hashlib.sha256(normalized.read_bytes()).hexdigest()
         row['normalized_output']=str(normalized.relative_to(ROOT))
         row['input_fingerprint']=finish(input_snapshot)

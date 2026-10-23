@@ -1,0 +1,528 @@
+--- a/reverse/source/ChongWu_v8/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/ChongWu_v8/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -542,7 +542,7 @@
+       public function addGold(param1:Number) : void
+       {
+          var _loc2_:Number = _gold.getValue() + param1;
+-         if(_loc2_ <= InitData.Money_max.getValue())
++         if(!(_loc2_ > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(_loc2_);
+          }
+--- a/reverse/source/DataX_v76/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/DataX_v76/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -542,7 +542,7 @@
+       public function addGold(param1:Number) : void
+       {
+          var _loc2_:Number = _gold.getValue() + param1;
+-         if(_loc2_ <= InitData.Money_max.getValue())
++         if(!(_loc2_ > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(_loc2_);
+          }
+--- a/reverse/source/Enemy105/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy105/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/Enemy13_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy13_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -579,7 +579,7 @@
+       public function addGold(param1:Number) : void
+       {
+          var _loc2_:Number = _gold.getValue() + param1;
+-         if(_loc2_ <= InitData.Money_max.getValue())
++         if(!(_loc2_ > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(_loc2_);
+          }
+--- a/reverse/source/Enemy14_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy14_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = this._gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             this._gold.setValue(num);
+          }
+--- a/reverse/source/Enemy16/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy16/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -579,7 +579,7 @@
+       public function addGold(param1:Number) : void
+       {
+          var _loc2_:Number = _gold.getValue() + param1;
+-         if(_loc2_ <= InitData.Money_max.getValue())
++         if(!(_loc2_ > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(_loc2_);
+          }
+--- a/reverse/source/Enemy20/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy20/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -494,7 +494,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = this._gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             this._gold.setValue(num);
+          }
+--- a/reverse/source/Enemy201_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy201_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -579,7 +579,7 @@
+       public function addGold(param1:Number) : void
+       {
+          var _loc2_:Number = this._gold.getValue() + param1;
+-         if(_loc2_ <= InitData.Money_max.getValue())
++         if(!(_loc2_ > InitData.Money_max.getValue()))
+          {
+             this._gold.setValue(_loc2_);
+          }
+--- a/reverse/source/Enemy202/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy202/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -552,7 +552,7 @@
+       public function addGold(param1:Number) : void
+       {
+          var _loc2_:Number = this._gold.getValue() + param1;
+-         if(_loc2_ <= InitData.Money_max.getValue())
++         if(!(_loc2_ > InitData.Money_max.getValue()))
+          {
+             this._gold.setValue(_loc2_);
+          }
+--- a/reverse/source/Enemy203_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy203_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -579,7 +579,7 @@
+       public function addGold(param1:Number) : void
+       {
+          var _loc2_:Number = this._gold.getValue() + param1;
+-         if(_loc2_ <= InitData.Money_max.getValue())
++         if(!(_loc2_ > InitData.Money_max.getValue()))
+          {
+             this._gold.setValue(_loc2_);
+          }
+--- a/reverse/source/Enemy204_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy204_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -532,7 +532,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/Enemy205_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy205_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -532,7 +532,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/Enemy206_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy206_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -532,7 +532,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/Enemy207_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy207_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/Enemy21/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy21/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = this._gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             this._gold.setValue(num);
+          }
+--- a/reverse/source/Enemy210/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy210/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/Enemy213/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy213/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -579,7 +579,7 @@
+       public function addGold(param1:Number) : void
+       {
+          var _loc2_:Number = this._gold.getValue() + param1;
+-         if(_loc2_ <= InitData.Money_max.getValue())
++         if(!(_loc2_ > InitData.Money_max.getValue()))
+          {
+             this._gold.setValue(_loc2_);
+          }
+--- a/reverse/source/Enemy216/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy216/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -579,7 +579,7 @@
+       public function addGold(param1:Number) : void
+       {
+          var _loc2_:Number = _gold.getValue() + param1;
+-         if(_loc2_ <= InitData.Money_max.getValue())
++         if(!(_loc2_ > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(_loc2_);
+          }
+--- a/reverse/source/Enemy22/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy22/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = this._gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             this._gold.setValue(num);
+          }
+--- a/reverse/source/Enemy23/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy23/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/Enemy51/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy51/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/Enemy52_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy52_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/Enemy53/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy53/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -532,7 +532,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = this._gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             this._gold.setValue(num);
+          }
+--- a/reverse/source/Enemy54/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy54/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -579,7 +579,7 @@
+       public function addGold(param1:Number) : void
+       {
+          var _loc2_:Number = _gold.getValue() + param1;
+-         if(_loc2_ <= InitData.Money_max.getValue())
++         if(!(_loc2_ > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(_loc2_);
+          }
+--- a/reverse/source/Enemy55_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy55_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -579,7 +579,7 @@
+       public function addGold(param1:Number) : void
+       {
+          var _loc2_:Number = _gold.getValue() + param1;
+-         if(_loc2_ <= InitData.Money_max.getValue())
++         if(!(_loc2_ > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(_loc2_);
+          }
+--- a/reverse/source/Enemy81_v3/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy81_v3/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/Enemy8_v6/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Enemy8_v6/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -542,7 +542,7 @@
+       public function addGold(param1:Number) : void
+       {
+          var _loc2_:Number = _gold.getValue() + param1;
+-         if(_loc2_ <= InitData.Money_max.getValue())
++         if(!(_loc2_ > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(_loc2_);
+          }
+--- a/reverse/source/EnemySkill_v7/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/EnemySkill_v7/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -579,7 +579,7 @@
+       public function addGold(param1:Number) : void
+       {
+          var _loc2_:Number = _gold.getValue() + param1;
+-         if(_loc2_ <= InitData.Money_max.getValue())
++         if(!(_loc2_ > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(_loc2_);
+          }
+--- a/reverse/source/Map0_v26/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Map0_v26/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -579,7 +579,7 @@
+       public function addGold(param1:Number) : void
+       {
+          var _loc2_:Number = _gold.getValue() + param1;
+-         if(_loc2_ <= InitData.Money_max.getValue())
++         if(!(_loc2_ > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(_loc2_);
+          }
+--- a/reverse/source/Map105/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Map105/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/Map12_v6/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Map12_v6/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/Map16/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Map16/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/Map3_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Map3_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/Map51/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Map51/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/Map52/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Map52/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/Map53/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Map53/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/Map54/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Map54/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -579,7 +579,7 @@
+       public function addGold(param1:Number) : void
+       {
+          var _loc2_:Number = _gold.getValue() + param1;
+-         if(_loc2_ <= InitData.Money_max.getValue())
++         if(!(_loc2_ > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(_loc2_);
+          }
+--- a/reverse/source/Map55/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Map55/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -542,7 +542,7 @@
+       public function addGold(param1:Number) : void
+       {
+          var _loc2_:Number = _gold.getValue() + param1;
+-         if(_loc2_ <= InitData.Money_max.getValue())
++         if(!(_loc2_ > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(_loc2_);
+          }
+--- a/reverse/source/Map81_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Map81_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/Map999/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Map999/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -532,7 +532,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/Map9_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/Map9_v2/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/PlayerMc_X0_v10/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/PlayerMc_X0_v10/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -579,7 +579,7 @@
+       public function addGold(param1:Number) : void
+       {
+          var _loc2_:Number = _gold.getValue() + param1;
+-         if(_loc2_ <= InitData.Money_max.getValue())
++         if(!(_loc2_ > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(_loc2_);
+          }
+--- a/reverse/source/PlayerMc_X1_v10/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/PlayerMc_X1_v10/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -542,7 +542,7 @@
+       public function addGold(param1:Number) : void
+       {
+          var _loc2_:Number = _gold.getValue() + param1;
+-         if(_loc2_ <= InitData.Money_max.getValue())
++         if(!(_loc2_ > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(_loc2_);
+          }
+--- a/reverse/source/PlayerMc_X2_v10/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/PlayerMc_X2_v10/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -579,7 +579,7 @@
+       public function addGold(param1:Number) : void
+       {
+          var _loc2_:Number = _gold.getValue() + param1;
+-         if(_loc2_ <= InitData.Money_max.getValue())
++         if(!(_loc2_ > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(_loc2_);
+          }
+--- a/reverse/source/ShiZhuang_X2_v5/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/ShiZhuang_X2_v5/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -532,7 +532,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/WuQi_X0_v4/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/WuQi_X0_v4/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }
+--- a/reverse/source/WuQi_X1_v6/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/WuQi_X1_v6/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -542,7 +542,7 @@
+       public function addGold(param1:Number) : void
+       {
+          var _loc2_:Number = _gold.getValue() + param1;
+-         if(_loc2_ <= InitData.Money_max.getValue())
++         if(!(_loc2_ > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(_loc2_);
+          }
+--- a/reverse/source/WuQi_X2_v4/com/hotpoint/braveManIII/models/player/PlayerData.as
++++ b/reverse/source/WuQi_X2_v4/com/hotpoint/braveManIII/models/player/PlayerData.as
+@@ -569,7 +569,7 @@
+       public function addGold(value:Number) : void
+       {
+          var num:Number = _gold.getValue() + value;
+-         if(num <= InitData.Money_max.getValue())
++         if(!(num > InitData.Money_max.getValue()))
+          {
+             _gold.setValue(num);
+          }

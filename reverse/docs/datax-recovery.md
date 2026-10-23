@@ -1,6 +1,6 @@
 # DataX 巨型 XML 恢复与全模块源码构建
 
-2026-10-24：`DataX_v76.swf` 已从 canonical ActionScript 和不含脚本的资源重新编译出候选 SWF。**构建通过、重复构建字节一致；未在播放器中验证。** 当前修复版 SHA-256 为 `02ab9b45c2310ffb79b2e84a1ba0d70da53b24f40a1a4a57f1148813a3ce5def`。旧 `f2435311…` 版本使用有风险的完全限定动态引用，已被当前版本取代，不能作为正确绑定的构建。本文没有把静态源码恢复或编译成功当作实际玩法验证。
+2026-10-24：`DataX_v76.swf` 已从 canonical ActionScript 和不含脚本的资源重新编译出候选 SWF。**构建通过；本子任务没有单独启动播放器。主任务已在完整164模块包中实际验证DataX初始化和采样玩法，见下述运行证据。** 当前修复版 SHA-256 为 `02ab9b45c2310ffb79b2e84a1ba0d70da53b24f40a1a4a57f1148813a3ce5def`。旧 `f2435311…` 版本使用有风险的完全限定动态引用，已被当前版本取代，不能作为正确绑定的构建。本文没有把静态源码恢复或编译成功当作实际玩法验证。
 
 ## 当前产物与复现
 
@@ -118,3 +118,11 @@ import-xml 仅替换当前 InData 中对应 11 个 JSON 格式字符串字面量
 编译、归一化、类覆盖及六处 XMLAsset p-code 检查成功后，`finish` 重扫并要求构建期间输入未变化，之后才复制稳定候选和写成功 receipt。每次真实构建生成新的 generation；旧构建不追认指纹。统一入口要求当前输入仍匹配且 post_build_verified=true。
 
 首个真实指纹构建：`build-20261023T172550.187267Z.json`，generation `3b841305-8973-4de2-9c3b-ad9cb2257a9c`，338 项模块输入、6218 项共享工具链输入，postcheck 通过。产物仍为 `02ab9b45c2310ffb79b2e84a1ba0d70da53b24f40a1a4a57f1148813a3ce5def`，与上一实际构建逐字节一致；`fingerprint-build-check.json` 记录统一深审通过，以及外部 receipt 更新后旧诊断包的来源快照仍有效。
+
+## 完整包运行及复现边界补充
+
+DataX02ab 已进入主任务实际运行的完整164模块包 `runtime-all-rebuilt-20261023T171635.802067Z`（Main96ce），通过存档读取、DataX初始化、村庄、技能面板、Map1五房间/Boss通关、装备变动、任务领奖、保存及冷重启。详见 [runtime-validation.md](runtime-validation.md) 的 Full source-rebuilt package，具体测试范围/截图/主程序hash均在那里记录。02ab也进入175702严格指纹包（Main928e），该包新增运行观察继续由该日志记录。这里“本子任务未运行”不等于“DataX从未经过全包运行”，但采样通过也不代表所有XML条目、关卡、事件都覆盖。
+
+DataX在本工程固定full-source暂存路径的已记录重复编译曾输出相同02ab字节；这不是跨目录、跨机器、跨Java/Flex环境的字节确定性保证。Flex可把暂存源码路径和编译序号写入private namespace；Main后续固定路径也出现过96ce/928e差异，详见runtime-validation和main-optimize-false文档。每次构建必须保留真实输入指纹及输出hash，迁移目录后重新验证，不能只凭“源码相同”假定产物SHA必然一致。完整包当前也有独立玩法缺陷待原版对照（如返回城镇的“站立”标签错误，见returntown-label-audit），不应把DataX成功初始化写成整个游戏无错误。
+
+2026-10-24版本兼容修复更新：DataX构建recipe现会在normalize/根恢复之后保留原SWF9版本；原02ab的header-only实测变体为05edda0b…，与Main一起恢复版本后系统回城成功。正式recipe尚未重新编译，02ab仍是旧构建历史hash。新版本证据/局部函数幂等检查见returntown-label-audit.md和recipe-header-check.json；不得把新规则追认到旧receipt。

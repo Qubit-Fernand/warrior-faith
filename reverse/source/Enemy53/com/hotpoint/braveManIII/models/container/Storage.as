@@ -254,20 +254,16 @@ package com.hotpoint.braveManIII.models.container
          if(value.getIsPile() != true)
          {
             i = 0;
-            while(true)
+            while(i < 35)
             {
-               if(i < 35)
+               if(this._gemStorage[i] == null)
                {
-                  if(this._gemStorage[i] == null)
-                  {
-                     break;
-                  }
-                  i++;
-                  continue;
+                  this._gemStorage[i] = value;
+                  return true;
                }
+               i++;
             }
-            this._gemStorage[i] = value;
-            return true;
+            return false;
          }
          temp = -1;
          isSameIn = true;
@@ -313,20 +309,16 @@ package com.hotpoint.braveManIII.models.container
          if(value.isMany() != true)
          {
             i = 0;
-            while(true)
+            while(i < 35)
             {
-               if(i < 35)
+               if(this._otherobjStorage[i] == null)
                {
-                  if(this._otherobjStorage[i] == null)
-                  {
-                     break;
-                  }
-                  i++;
-                  continue;
+                  this._otherobjStorage[i] = value;
+                  return true;
                }
+               i++;
             }
-            this._otherobjStorage[i] = value;
-            return true;
+            return false;
          }
          temp = -1;
          isSameIn = true;

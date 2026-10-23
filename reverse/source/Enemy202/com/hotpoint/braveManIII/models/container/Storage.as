@@ -282,21 +282,18 @@ package com.hotpoint.braveManIII.models.container
          if(param1.getIsPile() != true)
          {
             _loc4_ = 0;
-            while(true)
+            while(_loc4_ < 35)
             {
-               if(_loc4_ < 35)
+               if(this._gemStorage[_loc4_] == null)
                {
-                  if(this._gemStorage[_loc4_] == null)
-                  {
-                     break;
-                  }
-                  _loc4_++;
-                  continue;
+                  this._gemStorage[_loc4_] = param1;
+                  CheckTest.setMD5();
+                  return true;
                }
+               _loc4_++;
             }
-            this._gemStorage[_loc4_] = param1;
             CheckTest.setMD5();
-            return true;
+            return false;
          }
          _loc2_ = -1;
          _loc3_ = true;
@@ -348,21 +345,18 @@ package com.hotpoint.braveManIII.models.container
          if(param1.isMany() != true)
          {
             _loc4_ = 0;
-            while(true)
+            while(_loc4_ < 35)
             {
-               if(_loc4_ < 35)
+               if(this._otherobjStorage[_loc4_] == null)
                {
-                  if(this._otherobjStorage[_loc4_] == null)
-                  {
-                     break;
-                  }
-                  _loc4_++;
-                  continue;
+                  this._otherobjStorage[_loc4_] = param1;
+                  CheckTest.setMD5Other();
+                  return true;
                }
+               _loc4_++;
             }
-            this._otherobjStorage[_loc4_] = param1;
             CheckTest.setMD5Other();
-            return true;
+            return false;
          }
          _loc2_ = -1;
          _loc3_ = true;

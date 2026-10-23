@@ -1,0 +1,765 @@
+package com.hotpoint.braveManIII.repository.skillCondition
+{
+   public class SkillConditionFactory
+   {
+      
+      public static var SkillCondDataArr:Array;
+      
+      public static var isCondDataOk:Boolean;
+      
+      public static var myXml:XML;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"SkillCondDataArr")
+               newarray 0
+               setproperty QName(PackageNamespace(""),"SkillCondDataArr")
+               findproperty QName(PackageNamespace(""),"myXml")
+               findpropstrict Multiname("XML",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+               constructprop Multiname("XML",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 0
+               setproperty QName(PackageNamespace(""),"myXml")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function SkillConditionFactory()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function creatKillCond() : *
+      {
+         trait method QName(PackageNamespace(""),"creatKillCond")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 1
+                  localcount 2
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     construct 0
+                     coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),"SkillConditionFactory")
+                     setlocal1
+                     getlocal1
+                     callpropvoid Multiname("creatLoard",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 0
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private static function getSkillDataByTypeId(param1:String) : Array
+         {
+            trait method QName(PrivateNamespace(null,"15"),"getSkillDataByTypeId")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  param QName(PackageNamespace(""),"String")
+                  returns QName(PackageNamespace(""),"Array")
+                  
+                  body
+                     maxstack 3
+                     localcount 7
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushnull
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),"SkillConditionBaseData")
+                        setlocal3
+                        pushnull
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),"SkillConditionBaseData")
+                        setlocal 4
+                        newarray 0
+                        coerce QName(PackageNamespace(""),"Array")
+                        setlocal2
+                        pushbyte 0
+                        setlocal 5
+                        getlex Multiname("SkillCondDataArr",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                        coerce_a
+                        setlocal 6
+                        jump ofs003d
+               ofs001e:
+                        label
+                        getlocal 6
+                        getlocal 5
+                        nextvalue
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),"SkillConditionBaseData")
+                        dup
+                        setlocal 4
+                        callproperty Multiname("getTypeId",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 0
+                        getlocal1
+                        ifne ofs003d
+                        getlocal 4
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),"SkillConditionBaseData")
+                        setlocal3
+                        getlocal2
+                        getlocal3
+                        callpropvoid Multiname("push",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+               ofs003d:
+                        hasnext2 6, 5
+                        iftrue ofs001e
+                        kill 6
+                        kill 5
+                        getlocal2
+                        getproperty Multiname("length",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                        pushbyte 1
+                        ifnlt ofs005f
+                        findpropstrict Multiname("Error",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                        pushstring "找不到基础数据!typeId:"
+                        getlocal1
+                        add
+                        constructprop Multiname("Error",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                        throw
+               ofs005f:
+                        getlocal2
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public static function getPlayerDataLevel(param1:String, param2:Number = 1) : Number
+            {
+               trait method QName(PackageNamespace(""),"getPlayerDataLevel")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     flag HAS_OPTIONAL
+                     param QName(PackageNamespace(""),"String")
+                     param QName(PackageNamespace(""),"Number")
+                     optional Integer(1)
+                     returns QName(PackageNamespace(""),"Number")
+                     
+                     body
+                        maxstack 2
+                        localcount 5
+                        initscopedepth 3
+                        maxscopedepth 4
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           newarray 0
+                           coerce QName(PackageNamespace(""),"Array")
+                           setlocal3
+                           getlocal2
+                           decrement
+                           convert_d
+                           setlocal 4
+                           findpropstrict Multiname("getSkillDataByTypeId",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                           getlocal1
+                           callproperty Multiname("getSkillDataByTypeId",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                           pushbyte 0
+                           callproperty Multiname("slice",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                           coerce QName(PackageNamespace(""),"Array")
+                           setlocal3
+                           getlocal3
+                           getlocal 4
+                           getproperty MultinameL([PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                           callproperty Multiname("getPlayerDataLevel",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 0
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public static function getRebirth(param1:String, param2:Number = 1) : Boolean
+               {
+                  trait method QName(PackageNamespace(""),"getRebirth")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name null
+                        flag HAS_OPTIONAL
+                        param QName(PackageNamespace(""),"String")
+                        param QName(PackageNamespace(""),"Number")
+                        optional Integer(1)
+                        returns QName(PackageNamespace(""),"Boolean")
+                        
+                        body
+                           maxstack 2
+                           localcount 5
+                           initscopedepth 3
+                           maxscopedepth 4
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              newarray 0
+                              coerce QName(PackageNamespace(""),"Array")
+                              setlocal3
+                              getlocal2
+                              decrement
+                              convert_d
+                              setlocal 4
+                              findpropstrict Multiname("getSkillDataByTypeId",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                              getlocal1
+                              callproperty Multiname("getSkillDataByTypeId",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                              pushbyte 0
+                              callproperty Multiname("slice",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                              coerce QName(PackageNamespace(""),"Array")
+                              setlocal3
+                              getlocal3
+                              getlocal 4
+                              getproperty MultinameL([PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                              callproperty Multiname("getRebirth",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 0
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public static function getTransfer(param1:String, param2:Number = 1) : Boolean
+                  {
+                     trait method QName(PackageNamespace(""),"getTransfer")
+                        flag FINAL
+                        dispid 7
+                        method
+                           name null
+                           flag HAS_OPTIONAL
+                           param QName(PackageNamespace(""),"String")
+                           param QName(PackageNamespace(""),"Number")
+                           optional Integer(1)
+                           returns QName(PackageNamespace(""),"Boolean")
+                           
+                           body
+                              maxstack 2
+                              localcount 5
+                              initscopedepth 3
+                              maxscopedepth 4
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 newarray 0
+                                 coerce QName(PackageNamespace(""),"Array")
+                                 setlocal3
+                                 getlocal2
+                                 decrement
+                                 convert_d
+                                 setlocal 4
+                                 findpropstrict Multiname("getSkillDataByTypeId",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                 getlocal1
+                                 callproperty Multiname("getSkillDataByTypeId",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                 pushbyte 0
+                                 callproperty Multiname("slice",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                 coerce QName(PackageNamespace(""),"Array")
+                                 setlocal3
+                                 getlocal3
+                                 getlocal 4
+                                 getproperty MultinameL([PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                 callproperty Multiname("getTransfer",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 0
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public static function getBeforeLevel(param1:String, param2:Number = 1) : Number
+                     {
+                        trait method QName(PackageNamespace(""),"getBeforeLevel")
+                           flag FINAL
+                           dispid 8
+                           method
+                              name null
+                              flag HAS_OPTIONAL
+                              param QName(PackageNamespace(""),"String")
+                              param QName(PackageNamespace(""),"Number")
+                              optional Integer(1)
+                              returns QName(PackageNamespace(""),"Number")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 5
+                                 initscopedepth 3
+                                 maxscopedepth 4
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    newarray 0
+                                    coerce QName(PackageNamespace(""),"Array")
+                                    setlocal3
+                                    getlocal2
+                                    decrement
+                                    convert_d
+                                    setlocal 4
+                                    findpropstrict Multiname("getSkillDataByTypeId",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                    getlocal1
+                                    callproperty Multiname("getSkillDataByTypeId",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                    pushbyte 0
+                                    callproperty Multiname("slice",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                    coerce QName(PackageNamespace(""),"Array")
+                                    setlocal3
+                                    getlocal3
+                                    getlocal 4
+                                    getproperty MultinameL([PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                    callproperty Multiname("getBeforeLevel",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 0
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public static function getBeforeLevelId(param1:String, param2:Number = 1) : String
+                        {
+                           trait method QName(PackageNamespace(""),"getBeforeLevelId")
+                              flag FINAL
+                              dispid 9
+                              method
+                                 name null
+                                 flag HAS_OPTIONAL
+                                 param QName(PackageNamespace(""),"String")
+                                 param QName(PackageNamespace(""),"Number")
+                                 optional Integer(1)
+                                 returns QName(PackageNamespace(""),"String")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 5
+                                    initscopedepth 3
+                                    maxscopedepth 4
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       newarray 0
+                                       coerce QName(PackageNamespace(""),"Array")
+                                       setlocal3
+                                       getlocal2
+                                       decrement
+                                       convert_d
+                                       setlocal 4
+                                       findpropstrict Multiname("getSkillDataByTypeId",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                       getlocal1
+                                       callproperty Multiname("getSkillDataByTypeId",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                       pushbyte 0
+                                       callproperty Multiname("slice",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                       coerce QName(PackageNamespace(""),"Array")
+                                       setlocal3
+                                       getlocal3
+                                       getlocal 4
+                                       getproperty MultinameL([PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                       callproperty Multiname("getBeforeLevelId",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 0
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public static function getPoints(param1:String, param2:Number = 1) : Number
+                           {
+                              trait method QName(PackageNamespace(""),"getPoints")
+                                 flag FINAL
+                                 dispid 10
+                                 method
+                                    name null
+                                    flag HAS_OPTIONAL
+                                    param QName(PackageNamespace(""),"String")
+                                    param QName(PackageNamespace(""),"Number")
+                                    optional Integer(1)
+                                    returns QName(PackageNamespace(""),"Number")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 5
+                                       initscopedepth 3
+                                       maxscopedepth 4
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          newarray 0
+                                          coerce QName(PackageNamespace(""),"Array")
+                                          setlocal3
+                                          getlocal2
+                                          decrement
+                                          convert_d
+                                          setlocal 4
+                                          findpropstrict Multiname("getSkillDataByTypeId",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                          getlocal1
+                                          callproperty Multiname("getSkillDataByTypeId",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                          pushbyte 0
+                                          callproperty Multiname("slice",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                          coerce QName(PackageNamespace(""),"Array")
+                                          setlocal3
+                                          getlocal3
+                                          getlocal 4
+                                          getproperty MultinameL([PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                          callproperty Multiname("getPoints",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 0
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public static function getGold(param1:String, param2:Number = 1) : Number
+                              {
+                                 trait method QName(PackageNamespace(""),"getGold")
+                                    flag FINAL
+                                    dispid 11
+                                    method
+                                       name null
+                                       flag HAS_OPTIONAL
+                                       param QName(PackageNamespace(""),"String")
+                                       param QName(PackageNamespace(""),"Number")
+                                       optional Integer(1)
+                                       returns QName(PackageNamespace(""),"Number")
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 5
+                                          initscopedepth 3
+                                          maxscopedepth 4
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             newarray 0
+                                             coerce QName(PackageNamespace(""),"Array")
+                                             setlocal3
+                                             getlocal2
+                                             decrement
+                                             convert_d
+                                             setlocal 4
+                                             findpropstrict Multiname("getSkillDataByTypeId",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                             getlocal1
+                                             callproperty Multiname("getSkillDataByTypeId",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                             pushbyte 0
+                                             callproperty Multiname("slice",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                             coerce QName(PackageNamespace(""),"Array")
+                                             setlocal3
+                                             getlocal3
+                                             getlocal 4
+                                             getproperty MultinameL([PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                             callproperty Multiname("getGold",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 0
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public static function getCondition(param1:String, param2:*) : Array
+                                 {
+                                    trait method QName(PackageNamespace(""),"getCondition")
+                                       flag FINAL
+                                       dispid 12
+                                       method
+                                          name null
+                                          param QName(PackageNamespace(""),"String")
+                                          param null
+                                          returns QName(PackageNamespace(""),"Array")
+                                          
+                                          body
+                                             maxstack 4
+                                             localcount 4
+                                             initscopedepth 3
+                                             maxscopedepth 4
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                newarray 0
+                                                coerce QName(PackageNamespace(""),"Array")
+                                                setlocal3
+                                                getlocal3
+                                                findpropstrict Multiname("getPlayerDataLevel",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                getlocal1
+                                                getlocal2
+                                                callproperty Multiname("getPlayerDataLevel",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 2
+                                                callpropvoid Multiname("push",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                                getlocal3
+                                                findpropstrict Multiname("getPoints",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                getlocal1
+                                                getlocal2
+                                                callproperty Multiname("getPoints",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 2
+                                                callpropvoid Multiname("push",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                                getlocal3
+                                                findpropstrict Multiname("getGold",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                getlocal1
+                                                getlocal2
+                                                callproperty Multiname("getGold",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 2
+                                                callpropvoid Multiname("push",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                                getlocal3
+                                                findpropstrict Multiname("getRebirth",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                getlocal1
+                                                getlocal2
+                                                callproperty Multiname("getRebirth",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 2
+                                                callpropvoid Multiname("push",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                                getlocal3
+                                                findpropstrict Multiname("getTransfer",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                getlocal1
+                                                getlocal2
+                                                callproperty Multiname("getTransfer",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 2
+                                                callpropvoid Multiname("push",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                                getlocal3
+                                                findpropstrict Multiname("getBeforeLevelId",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                getlocal1
+                                                getlocal2
+                                                callproperty Multiname("getBeforeLevelId",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 2
+                                                callpropvoid Multiname("push",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                                getlocal3
+                                                findpropstrict Multiname("getBeforeLevel",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                getlocal1
+                                                getlocal2
+                                                callproperty Multiname("getBeforeLevel",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 2
+                                                callpropvoid Multiname("push",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                                getlocal3
+                                                returnvalue
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    private function creatLoard() : *
+                                    {
+                                       trait method QName(PrivateNamespace(null,"15"),"creatLoard")
+                                          dispid 0
+                                          method
+                                             name null
+                                             returns null
+                                             
+                                             body
+                                                maxstack 1
+                                                localcount 1
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   findpropstrict Multiname("xmlLoaded",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                   callpropvoid Multiname("xmlLoaded",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 0
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       private function xmlLoaded() : void
+                                       {
+                                          trait method QName(PrivateNamespace(null,"15"),"xmlLoaded")
+                                             dispid 0
+                                             method
+                                                name null
+                                                returns QName(PackageNamespace(""),"void")
+                                                
+                                                body
+                                                   maxstack 10
+                                                   localcount 14
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      pushnull
+                                                      coerce QName(PackageNamespace(""),"XML")
+                                                      setlocal1
+                                                      pushnull
+                                                      coerce_s
+                                                      setlocal2
+                                                      pushnan
+                                                      setlocal3
+                                                      pushnan
+                                                      setlocal 4
+                                                      pushfalse
+                                                      setlocal 5
+                                                      pushfalse
+                                                      setlocal 6
+                                                      pushnull
+                                                      coerce_s
+                                                      setlocal 7
+                                                      pushnan
+                                                      setlocal 8
+                                                      pushnan
+                                                      setlocal 9
+                                                      pushnan
+                                                      setlocal 10
+                                                      pushnull
+                                                      coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),"SkillConditionBaseData")
+                                                      setlocal 11
+                                                      pushbyte 0
+                                                      setlocal 12
+                                                      getlex Multiname("myXml",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      getproperty Multiname("技能",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      coerce_a
+                                                      setlocal 13
+                                                      jump ofs010c
+                                             ofs0037:
+                                                      label
+                                                      getlocal 13
+                                                      getlocal 12
+                                                      nextvalue
+                                                      coerce QName(PackageNamespace(""),"XML")
+                                                      setlocal1
+                                                      findpropstrict Multiname("String",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      getlocal1
+                                                      getproperty Multiname("技能类型",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      callproperty Multiname("String",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                                      coerce_s
+                                                      setlocal2
+                                                      findpropstrict Multiname("Number",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      getlocal1
+                                                      getproperty Multiname("技能等级",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      callproperty Multiname("Number",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                                      convert_d
+                                                      setlocal3
+                                                      findpropstrict Multiname("Number",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      getlocal1
+                                                      getproperty Multiname("学习条件",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      getproperty Multiname("角色等级",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      callproperty Multiname("Number",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                                      convert_d
+                                                      setlocal 4
+                                                      getlocal1
+                                                      getproperty Multiname("学习条件",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      getproperty Multiname("重生",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      callproperty Multiname("toString",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 0
+                                                      pushstring "true"
+                                                      equals
+                                                      getlex Multiname("Boolean",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      astypelate
+                                                      convert_b
+                                                      setlocal 5
+                                                      getlocal1
+                                                      getproperty Multiname("学习条件",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      getproperty Multiname("转职",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      callproperty Multiname("toString",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 0
+                                                      pushstring "true"
+                                                      equals
+                                                      getlex Multiname("Boolean",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      astypelate
+                                                      convert_b
+                                                      setlocal 6
+                                                      findpropstrict Multiname("String",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      getlocal1
+                                                      getproperty Multiname("学习条件",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      getproperty Multiname("特定技能条件",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      getproperty Multiname("特定技能类型",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      callproperty Multiname("String",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                                      coerce_s
+                                                      setlocal 7
+                                                      findpropstrict Multiname("Number",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      getlocal1
+                                                      getproperty Multiname("学习条件",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      getproperty Multiname("特定技能条件",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      getproperty Multiname("特定技能等级",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      callproperty Multiname("Number",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                                      convert_d
+                                                      setlocal 8
+                                                      findpropstrict Multiname("Number",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      getlocal1
+                                                      getproperty Multiname("学习条件",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      getproperty Multiname("点数",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      callproperty Multiname("Number",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                                      convert_d
+                                                      setlocal 9
+                                                      findpropstrict Multiname("Number",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      getlocal1
+                                                      getproperty Multiname("学习条件",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      getproperty Multiname("金币",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      callproperty Multiname("Number",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                                      convert_d
+                                                      setlocal 10
+                                                      getlex Multiname("SkillConditionBaseData",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      getlocal2
+                                                      getlocal3
+                                                      getlocal 4
+                                                      getlocal 5
+                                                      getlocal 6
+                                                      getlocal 7
+                                                      getlocal 8
+                                                      getlocal 9
+                                                      getlocal 10
+                                                      callproperty Multiname("creatConditionBaseData",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 9
+                                                      coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),"SkillConditionBaseData")
+                                                      setlocal 11
+                                                      getlex Multiname("SkillCondDataArr",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      getlocal 11
+                                                      callpropvoid Multiname("push",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")]), 1
+                                                      findproperty Multiname("isCondDataOk",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                                      pushtrue
+                                                      setproperty Multiname("isCondDataOk",[PrivateNamespace(null,"15"),PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skillCondition:SkillConditionFactory")])
+                                             ofs010c:
+                                                      hasnext2 13, 12
+                                                      iftrue ofs0037
+                                                      kill 13
+                                                      kill 12
+                                                      returnvoid
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                       }
+                                    }
+                                    
+                                    method
+                                       name null
+                                       returns null
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 1
+                                          initscopedepth 1
+                                          maxscopedepth 3
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             findpropstrict Multiname("SkillConditionFactory",[PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition")])
+                                             getlex QName(PackageNamespace(""),"Object")
+                                             pushscope
+                                             getlex Multiname("Object",[PackageNamespace(""),PrivateNamespace(null,"229"),PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),PackageInternalNs("com.hotpoint.braveManIII.repository.skillCondition"),Namespace("http://adobe.com/AS3/2006/builtin")])
+                                             newclass 13
+                                             popscope
+                                             initproperty QName(PackageNamespace("com.hotpoint.braveManIII.repository.skillCondition"),"SkillConditionFactory")
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                    

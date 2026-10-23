@@ -1,0 +1,3632 @@
+{
+  "schema": 1,
+  "scope": "Actual original P-code finite fixtures with trace recorded as an external logging call. All original source trace expressions/arguments preserved byte-for-byte; loop branch/increment restoration only. No whole-method/runtime proof.",
+  "model_source": "def execute(rows,fixture):\n kind=fixture['kind'];keys=fixture.get('keys');state={'keyNum':16,'_map':('VT',fixture.get('map',1)),'_star':('VT',fixture.get('star',1)),'_tg':fixture.get('tg',True)}\n main={'player1':{'_keyArr':keys[0]},'player2':{'_keyArr':keys[1]}if keys[1]is not None else None}if kind=='keys'else{}\n local={0:state,1:0,2:1};stack=[];seen=set();pc=0;trace=[];calls=[];log_calls=[];labels={r['code'][:-1]:i for i,r in enumerate(rows)if r['code'].endswith(':')}\n def get(o,n):\n  if n=='length':assert type(o)is list;return len(o)\n  return o[n]\n while True:\n  signature=repr((pc,local,stack,calls))\n  if signature in seen:return {'termination':'cycle','steps':len(trace),'db_calls':len(calls),'trace_tail':trace[-10:]}\n  seen.add(signature);assert len(trace)<10000,'unsupported nonrepeating long path'\n  r=rows[pc];s=r['code'];op=s.split()[0];trace.append(r);pc+=1\n  if s.endswith(':')or op=='label':continue\n  if op.startswith('getlocal'):n=int(s.split()[-1])if op=='getlocal'else int(op[-1]);stack.append(local[n])\n  elif op.startswith('setlocal'):n=int(s.split()[-1])if op=='setlocal'else int(op[-1]);local[n]=stack.pop()\n  elif op=='pushscope':stack.pop()\n  elif op in ('pushbyte','pushshort','pushint'):stack.append(int(s.split()[-1]))\n  elif op=='pushstring':stack.append(json.loads(s.split(' ',1)[1]))\n  elif op=='add':\n   b=stack.pop();a=stack.pop();assert type(a) in (str,int,float) and type(b) in (str,int,float)\n   stack.append((str(a)+str(b)) if type(a)is str or type(b)is str else a+b)\n  elif op=='pushtrue':stack.append(True)\n  elif op=='pushfalse':stack.append(False)\n  elif op=='pushnull':stack.append(None)\n  elif op=='getlex':\n   n=prop(s);stack.append(main if n=='Main'else'Array'if n=='Array'else state[n])\n  elif op=='findpropstrict':\n   n=prop(s);assert n in ('getGoodsId','getTs','isRy','dbNum','trace');stack.append('trace'if n=='trace'else state)\n  elif op=='getproperty':\n   if 'MultinameL('in s:n=stack.pop();o=stack.pop();stack.append(o[n])\n   else:stack.append(get(stack.pop(),prop(s)))\n  elif op=='callpropvoid':\n   assert prop(s)=='trace';argc=int(re.search(r',\\s*(\\d+)$',s)[1]);args=[stack.pop()for _ in range(argc)][::-1];assert stack.pop()=='trace';log_calls.append(args)\n  elif op=='callproperty':\n   n=prop(s);argc=int(re.search(r',\\s*(\\d+)$',s)[1]);args=[stack.pop()for _ in range(argc)][::-1];receiver=stack.pop()\n   if n=='getValue':assert isinstance(receiver,tuple)and receiver[0]=='VT';value=receiver[1]\n   elif n=='getGoodsId':assert receiver is state;value=[('VT',n)for n in fixture['goods']]\n   elif n=='getTs':assert receiver is state;value=fixture.get('ts',1)\n   elif n=='isRy':assert receiver is state;value=fixture.get('ry',False)\n   elif n=='dbNum':assert receiver is state;calls.append(args);value=fixture.get('db_result',True)\n   else:raise AssertionError(s)\n   stack.append(value)\n  elif op=='astypelate':assert stack.pop()=='Array'and type(stack[-1])is list\n  elif op=='coerce':assert prop(s)=='Array'and type(stack[-1])is list,s\n  elif op=='convert_u':a=stack.pop();assert type(a)in(int,float)and a>=0 and int(a)==a;stack.append(int(a)%2**32)\n  elif op=='convert_d':assert type(stack[-1])in(int,float);stack[-1]=float(stack[-1])\n  elif op=='increment':a=stack.pop();assert type(a)in(int,float);stack.append(a+1)\n  elif op=='inclocal':n=int(s.split()[-1]);assert type(local[n])in(int,float);local[n]+=1\n  elif op=='dup':stack.append(stack[-1])\n  elif op=='pop':stack.pop()\n  elif op=='equals':b=stack.pop();a=stack.pop();stack.append(a==b)\n  elif op in ('ifeq','ifne','iflt','ifnlt'):\n   b=stack.pop();a=stack.pop();take={'ifeq':lambda:a==b,'ifne':lambda:a!=b,'iflt':lambda:a<b,'ifnlt':lambda:not(a<b)}[op]()\n   if take:pc=labels[s.split()[-1]]\n  elif op in ('iftrue','iffalse'):\n   a=stack.pop();assert type(a)is bool\n   if a==(op=='iftrue'):pc=labels[s.split()[-1]]\n  elif op=='jump':pc=labels[s.split()[-1]]\n  elif op=='returnvalue':return {'trace_calls':log_calls,'termination':'return','value':stack.pop(),'steps':len(trace),'db_calls':len(calls),'trace_tail':trace[-10:]}\n  else:raise AssertionError('unsupported executed instruction '+s)\n",
+  "modules": [
+    {
+      "module": "Enemy20",
+      "methods": [
+        {
+          "module": "Enemy20",
+          "class": "com/hotpoint/braveManIII/views/setKeyPanel/SetKeyPanel",
+          "method": "closeOk",
+          "source": "reverse/source/Enemy20/com/hotpoint/braveManIII/views/setKeyPanel/SetKeyPanel.as",
+          "source_before_sha256": "6d2d8e1e903b416494a12b3401a3286e31d6e85906691ddea221ed7b82512d3c",
+          "before_method": "private function closeOk() : Boolean\r\n      {\r\n         var i:uint = 0;\r\n         if(Main.player2 != null)\r\n         {\r\n            i = 0;\r\n            while(true)\r\n            {\r\n               if(i < this.keyNum)\r\n               {\r\n                  if(Main.player1._keyArr[i] == -1)\r\n                  {\r\n                     break;\r\n                  }\r\n                  if(Main.player2._keyArr[i] == -1)\r\n                  {\r\n                     return false;\r\n                  }\r\n                  continue;\r\n               }\r\n               i++;\r\n            }\r\n            return false;\r\n         }\r\n         for(i = 0; i < this.keyNum; i++)\r\n         {\r\n            if(Main.player1._keyArr[i] == -1)\r\n            {\r\n               return false;\r\n            }\r\n         }\r\n         return true;\r\n      }",
+          "after_method": "private function closeOk() : Boolean\r\n      {\r\n         var i:uint = 0;\r\n         if(Main.player2 != null)\r\n         {\r\n            i = 0;\r\n            while(i < this.keyNum)\r\n            {\r\n               if(Main.player1._keyArr[i] == -1)\r\n               {\r\n                  return false;\r\n               }\r\n               if(Main.player2._keyArr[i] == -1)\r\n               {\r\n                  return false;\r\n               }\r\n               i++;\r\n            }\r\n            return true;\r\n         }\r\n         for(i = 0; i < this.keyNum; i++)\r\n         {\r\n            if(Main.player1._keyArr[i] == -1)\r\n            {\r\n               return false;\r\n            }\r\n         }\r\n         return true;\r\n      }",
+          "original_swf_sha256": "802d4afec1146a2b0aa57436632838e09006fa727cfe95b60ad3f590ba2538ef",
+          "pcode_sha256": "50f23b447fb1a61505d414b7c533e1f00c8826449c6eef627a7ace40e2d835e4",
+          "original_instructions": [
+            {
+              "line": 1015,
+              "code": "getlocal0"
+            },
+            {
+              "line": 1016,
+              "code": "pushscope"
+            },
+            {
+              "line": 1017,
+              "code": "pushbyte 0"
+            },
+            {
+              "line": 1018,
+              "code": "convert_u"
+            },
+            {
+              "line": 1019,
+              "code": "setlocal1"
+            },
+            {
+              "line": 1021,
+              "code": "getlex Multiname(\"Main\",[PrivateNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),PackageNamespace(\"\"),PrivateNamespace(\"SetKeyPanel.as$198\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\"),PackageNamespace(\"src\")])"
+            },
+            {
+              "line": 1022,
+              "code": "getproperty Multiname(\"player2\",[PrivateNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),PackageNamespace(\"\"),PrivateNamespace(\"SetKeyPanel.as$198\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 1023,
+              "code": "pushnull"
+            },
+            {
+              "line": 1024,
+              "code": "ifne ofs005c"
+            },
+            {
+              "line": 1027,
+              "code": "pushbyte 0"
+            },
+            {
+              "line": 1028,
+              "code": "convert_u"
+            },
+            {
+              "line": 1029,
+              "code": "setlocal1"
+            },
+            {
+              "line": 1030,
+              "code": "jump ofs004f"
+            },
+            {
+              "line": 1031,
+              "code": "ofs002c:"
+            },
+            {
+              "line": 1032,
+              "code": "label"
+            },
+            {
+              "line": 1034,
+              "code": "getlex Multiname(\"Main\",[PrivateNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),PackageNamespace(\"\"),PrivateNamespace(\"SetKeyPanel.as$198\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\"),PackageNamespace(\"src\")])"
+            },
+            {
+              "line": 1035,
+              "code": "getproperty Multiname(\"player1\",[PrivateNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),PackageNamespace(\"\"),PrivateNamespace(\"SetKeyPanel.as$198\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 1036,
+              "code": "getproperty Multiname(\"_keyArr\",[PrivateNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),PackageNamespace(\"\"),PrivateNamespace(\"SetKeyPanel.as$198\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 1037,
+              "code": "getlocal1"
+            },
+            {
+              "line": 1038,
+              "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),PackageNamespace(\"\"),PrivateNamespace(\"SetKeyPanel.as$198\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 1039,
+              "code": "pushbyte -1"
+            },
+            {
+              "line": 1040,
+              "code": "ifne ofs0048"
+            },
+            {
+              "line": 1042,
+              "code": "pushfalse"
+            },
+            {
+              "line": 1043,
+              "code": "returnvalue"
+            },
+            {
+              "line": 1044,
+              "code": "ofs0048:"
+            },
+            {
+              "line": 1046,
+              "code": "getlocal1"
+            },
+            {
+              "line": 1047,
+              "code": "increment"
+            },
+            {
+              "line": 1048,
+              "code": "convert_u"
+            },
+            {
+              "line": 1049,
+              "code": "setlocal1"
+            },
+            {
+              "line": 1050,
+              "code": "ofs004f:"
+            },
+            {
+              "line": 1051,
+              "code": "getlocal1"
+            },
+            {
+              "line": 1052,
+              "code": "getlocal0"
+            },
+            {
+              "line": 1053,
+              "code": "getproperty Multiname(\"keyNum\",[PrivateNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),PackageNamespace(\"\"),PrivateNamespace(\"SetKeyPanel.as$198\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 1054,
+              "code": "iflt ofs002c"
+            },
+            {
+              "line": 1055,
+              "code": "jump ofs00ae"
+            },
+            {
+              "line": 1056,
+              "code": "ofs005c:"
+            },
+            {
+              "line": 1058,
+              "code": "pushbyte 0"
+            },
+            {
+              "line": 1059,
+              "code": "convert_u"
+            },
+            {
+              "line": 1060,
+              "code": "setlocal1"
+            },
+            {
+              "line": 1061,
+              "code": "jump ofs00a5"
+            },
+            {
+              "line": 1062,
+              "code": "ofs0067:"
+            },
+            {
+              "line": 1063,
+              "code": "label"
+            },
+            {
+              "line": 1065,
+              "code": "getlex Multiname(\"Main\",[PrivateNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),PackageNamespace(\"\"),PrivateNamespace(\"SetKeyPanel.as$198\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\"),PackageNamespace(\"src\")])"
+            },
+            {
+              "line": 1066,
+              "code": "getproperty Multiname(\"player1\",[PrivateNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),PackageNamespace(\"\"),PrivateNamespace(\"SetKeyPanel.as$198\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 1067,
+              "code": "getproperty Multiname(\"_keyArr\",[PrivateNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),PackageNamespace(\"\"),PrivateNamespace(\"SetKeyPanel.as$198\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 1068,
+              "code": "getlocal1"
+            },
+            {
+              "line": 1069,
+              "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),PackageNamespace(\"\"),PrivateNamespace(\"SetKeyPanel.as$198\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 1070,
+              "code": "pushbyte -1"
+            },
+            {
+              "line": 1071,
+              "code": "ifne ofs0083"
+            },
+            {
+              "line": 1073,
+              "code": "pushfalse"
+            },
+            {
+              "line": 1074,
+              "code": "returnvalue"
+            },
+            {
+              "line": 1075,
+              "code": "ofs0083:"
+            },
+            {
+              "line": 1077,
+              "code": "getlex Multiname(\"Main\",[PrivateNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),PackageNamespace(\"\"),PrivateNamespace(\"SetKeyPanel.as$198\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\"),PackageNamespace(\"src\")])"
+            },
+            {
+              "line": 1078,
+              "code": "getproperty Multiname(\"player2\",[PrivateNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),PackageNamespace(\"\"),PrivateNamespace(\"SetKeyPanel.as$198\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 1079,
+              "code": "getproperty Multiname(\"_keyArr\",[PrivateNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),PackageNamespace(\"\"),PrivateNamespace(\"SetKeyPanel.as$198\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 1080,
+              "code": "getlocal1"
+            },
+            {
+              "line": 1081,
+              "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),PackageNamespace(\"\"),PrivateNamespace(\"SetKeyPanel.as$198\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 1082,
+              "code": "pushbyte -1"
+            },
+            {
+              "line": 1083,
+              "code": "ifne ofs009e"
+            },
+            {
+              "line": 1085,
+              "code": "pushfalse"
+            },
+            {
+              "line": 1086,
+              "code": "returnvalue"
+            },
+            {
+              "line": 1087,
+              "code": "ofs009e:"
+            },
+            {
+              "line": 1089,
+              "code": "getlocal1"
+            },
+            {
+              "line": 1090,
+              "code": "increment"
+            },
+            {
+              "line": 1091,
+              "code": "convert_u"
+            },
+            {
+              "line": 1092,
+              "code": "setlocal1"
+            },
+            {
+              "line": 1093,
+              "code": "ofs00a5:"
+            },
+            {
+              "line": 1094,
+              "code": "getlocal1"
+            },
+            {
+              "line": 1095,
+              "code": "getlocal0"
+            },
+            {
+              "line": 1096,
+              "code": "getproperty Multiname(\"keyNum\",[PrivateNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),PackageNamespace(\"\"),PrivateNamespace(\"SetKeyPanel.as$198\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 1097,
+              "code": "iflt ofs0067"
+            },
+            {
+              "line": 1098,
+              "code": "ofs00ae:"
+            },
+            {
+              "line": 1100,
+              "code": "pushtrue"
+            },
+            {
+              "line": 1101,
+              "code": "returnvalue"
+            }
+          ],
+          "fixtures": [
+            {
+              "fixture": {
+                "kind": "keys",
+                "keys": [
+                  [
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65
+                  ],
+                  null
+                ],
+                "expected": true
+              },
+              "result": {
+                "trace_calls": [],
+                "termination": "return",
+                "value": true,
+                "steps": 326,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "keys",
+                "keys": [
+                  [
+                    -1,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65
+                  ],
+                  null
+                ],
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [],
+                "termination": "return",
+                "value": false,
+                "steps": 29,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "keys",
+                "keys": [
+                  [
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    -1
+                  ],
+                  null
+                ],
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [],
+                "termination": "return",
+                "value": false,
+                "steps": 314,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "keys",
+                "keys": [
+                  [
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65
+                  ],
+                  [
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66
+                  ]
+                ],
+                "expected": true
+              },
+              "result": {
+                "trace_calls": [],
+                "termination": "return",
+                "value": true,
+                "steps": 454,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "keys",
+                "keys": [
+                  [
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65
+                  ],
+                  [
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66
+                  ]
+                ],
+                "expected": true
+              },
+              "result": {
+                "trace_calls": [],
+                "termination": "return",
+                "value": true,
+                "steps": 454,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "keys",
+                "keys": [
+                  [
+                    -1,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65
+                  ],
+                  [
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66
+                  ]
+                ],
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [],
+                "termination": "return",
+                "value": false,
+                "steps": 30,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "keys",
+                "keys": [
+                  [
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65
+                  ],
+                  [
+                    -1,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66
+                  ]
+                ],
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [],
+                "termination": "return",
+                "value": false,
+                "steps": 38,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "keys",
+                "keys": [
+                  [
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    -1
+                  ],
+                  [
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66
+                  ]
+                ],
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [],
+                "termination": "return",
+                "value": false,
+                "steps": 435,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "keys",
+                "keys": [
+                  [
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65
+                  ],
+                  [
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    -1
+                  ]
+                ],
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [],
+                "termination": "return",
+                "value": false,
+                "steps": 443,
+                "db_calls": 0
+              }
+            }
+          ]
+        },
+        {
+          "module": "Enemy20",
+          "class": "com/hotpoint/braveManIII/models/achievement/Achievement",
+          "method": "getIddo",
+          "source": "reverse/source/Enemy20/com/hotpoint/braveManIII/models/achievement/Achievement.as",
+          "source_before_sha256": "9e6c9eb2f7eb414d2c083941de59cfd6d50d010f54b01254573e6944838ea596",
+          "before_method": "private function getIddo(duNum:Number, type:Number = 1) : Boolean\r\n      {\r\n         var i:uint = 0;\r\n         var nmapId:Array = this.getGoodsId() as Array;\r\n         var nstr:Number = this.getTs();\r\n         if(nmapId.length != 1)\r\n         {\r\n            trace(\"有多个指定地图\");\r\n            i = 0;\r\n            while(true)\r\n            {\r\n               if(i < nmapId.length)\r\n               {\r\n                  if(nmapId[i].getValue() == this._map.getValue())\r\n                  {\r\n                     if(nstr == this._star.getValue())\r\n                     {\r\n                        if(this.isRy())\r\n                        {\r\n                           break;\r\n                        }\r\n                        if(this._tg)\r\n                        {\r\n                           return this.dbNum(type,duNum);\r\n                        }\r\n                     }\r\n                  }\r\n                  continue;\r\n               }\r\n               i++;\r\n            }\r\n            return this.dbNum(type,duNum);\r\n         }\r\n         if(nmapId[0].getValue() == -1)\r\n         {\r\n            trace(\"没有地图要求\");\r\n            if(nstr == -1)\r\n            {\r\n               if(this.isRy())\r\n               {\r\n                  trace(\"无通关要求\");\r\n                  return this.dbNum(type,duNum);\r\n               }\r\n               trace(\"通关要求YES\",this._tg);\r\n               if(this._tg)\r\n               {\r\n                  return this.dbNum(type,duNum);\r\n               }\r\n            }\r\n            else if(nstr == this._star.getValue())\r\n            {\r\n               if(this.isRy())\r\n               {\r\n                  trace(\"无通关要求\");\r\n                  return this.dbNum(type,duNum);\r\n               }\r\n               trace(\"通关要求YES\",this._tg);\r\n               if(this._tg)\r\n               {\r\n                  return this.dbNum(type,duNum);\r\n               }\r\n            }\r\n         }\r\n         else\r\n         {\r\n            trace(\"有指定地图1个\");\r\n            trace(\"地图要求:\" + nmapId[0].getValue(),\"现在的地图:\" + this._map.getValue(),\"星级要求:\" + nstr,\"现在的星级:\" + this._star.getValue());\r\n            if(nmapId[0].getValue() == this._map.getValue() && nstr == this._star.getValue())\r\n            {\r\n               if(this.isRy())\r\n               {\r\n                  trace(\"无通关要求\");\r\n                  return this.dbNum(type,duNum);\r\n               }\r\n               trace(\"通关要求YES\",this._tg);\r\n               if(this._tg)\r\n               {\r\n                  return this.dbNum(type,duNum);\r\n               }\r\n            }\r\n         }\r\n         return false;\r\n      }",
+          "after_method": "private function getIddo(duNum:Number, type:Number = 1) : Boolean\r\n      {\r\n         var i:uint = 0;\r\n         var nmapId:Array = this.getGoodsId() as Array;\r\n         var nstr:Number = this.getTs();\r\n         if(nmapId.length != 1)\r\n         {\r\n            trace(\"有多个指定地图\");\r\n            i = 0;\r\n            while(i < nmapId.length)\r\n            {\r\n               if(nmapId[i].getValue() == this._map.getValue())\r\n               {\r\n                  if(nstr == this._star.getValue())\r\n                  {\r\n                     if(this.isRy())\r\n                     {\r\n                        return this.dbNum(type,duNum);\r\n                     }\r\n                     if(this._tg)\r\n                     {\r\n                        return this.dbNum(type,duNum);\r\n                     }\r\n                  }\r\n               }\r\n               i++;\r\n            }\r\n            return false;\r\n         }\r\n         if(nmapId[0].getValue() == -1)\r\n         {\r\n            trace(\"没有地图要求\");\r\n            if(nstr == -1)\r\n            {\r\n               if(this.isRy())\r\n               {\r\n                  trace(\"无通关要求\");\r\n                  return this.dbNum(type,duNum);\r\n               }\r\n               trace(\"通关要求YES\",this._tg);\r\n               if(this._tg)\r\n               {\r\n                  return this.dbNum(type,duNum);\r\n               }\r\n            }\r\n            else if(nstr == this._star.getValue())\r\n            {\r\n               if(this.isRy())\r\n               {\r\n                  trace(\"无通关要求\");\r\n                  return this.dbNum(type,duNum);\r\n               }\r\n               trace(\"通关要求YES\",this._tg);\r\n               if(this._tg)\r\n               {\r\n                  return this.dbNum(type,duNum);\r\n               }\r\n            }\r\n         }\r\n         else\r\n         {\r\n            trace(\"有指定地图1个\");\r\n            trace(\"地图要求:\" + nmapId[0].getValue(),\"现在的地图:\" + this._map.getValue(),\"星级要求:\" + nstr,\"现在的星级:\" + this._star.getValue());\r\n            if(nmapId[0].getValue() == this._map.getValue() && nstr == this._star.getValue())\r\n            {\r\n               if(this.isRy())\r\n               {\r\n                  trace(\"无通关要求\");\r\n                  return this.dbNum(type,duNum);\r\n               }\r\n               trace(\"通关要求YES\",this._tg);\r\n               if(this._tg)\r\n               {\r\n                  return this.dbNum(type,duNum);\r\n               }\r\n            }\r\n         }\r\n         return false;\r\n      }",
+          "original_swf_sha256": "802d4afec1146a2b0aa57436632838e09006fa727cfe95b60ad3f590ba2538ef",
+          "pcode_sha256": "e3eddc84822e85bc4a2857060594df2fe10119fd564f288541526675f843feda",
+          "original_instructions": [
+            {
+              "line": 4075,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4076,
+              "code": "pushscope"
+            },
+            {
+              "line": 4077,
+              "code": "pushbyte 0"
+            },
+            {
+              "line": 4078,
+              "code": "convert_u"
+            },
+            {
+              "line": 4079,
+              "code": "setlocal 5"
+            },
+            {
+              "line": 4085,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4086,
+              "code": "callproperty Multiname(\"getGoodsId\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 4087,
+              "code": "getlex Multiname(\"Array\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4088,
+              "code": "astypelate"
+            },
+            {
+              "line": 4089,
+              "code": "coerce QName(PackageNamespace(\"\"),\"Array\")"
+            },
+            {
+              "line": 4090,
+              "code": "setlocal3"
+            },
+            {
+              "line": 4092,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4093,
+              "code": "callproperty Multiname(\"getTs\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 4094,
+              "code": "convert_d"
+            },
+            {
+              "line": 4095,
+              "code": "setlocal 4"
+            },
+            {
+              "line": 4097,
+              "code": "getlocal3"
+            },
+            {
+              "line": 4098,
+              "code": "getproperty Multiname(\"length\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4099,
+              "code": "pushbyte 1"
+            },
+            {
+              "line": 4100,
+              "code": "ifne ofs01e7"
+            },
+            {
+              "line": 4102,
+              "code": "getlocal3"
+            },
+            {
+              "line": 4103,
+              "code": "pushbyte 0"
+            },
+            {
+              "line": 4104,
+              "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4105,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 4106,
+              "code": "pushbyte -1"
+            },
+            {
+              "line": 4107,
+              "code": "ifne ofs012a"
+            },
+            {
+              "line": 4109,
+              "code": "findpropstrict Multiname(\"trace\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4110,
+              "code": "pushstring \"没有地图要求\""
+            },
+            {
+              "line": 4111,
+              "code": "callpropvoid Multiname(\"trace\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 1"
+            },
+            {
+              "line": 4113,
+              "code": "getlocal 4"
+            },
+            {
+              "line": 4114,
+              "code": "pushbyte -1"
+            },
+            {
+              "line": 4115,
+              "code": "ifne ofs00ca"
+            },
+            {
+              "line": 4117,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4118,
+              "code": "callproperty Multiname(\"isRy\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 4119,
+              "code": "iffalse ofs009f"
+            },
+            {
+              "line": 4121,
+              "code": "findpropstrict Multiname(\"trace\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4122,
+              "code": "pushstring \"无通关要求\""
+            },
+            {
+              "line": 4123,
+              "code": "callpropvoid Multiname(\"trace\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 1"
+            },
+            {
+              "line": 4125,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4126,
+              "code": "getlocal2"
+            },
+            {
+              "line": 4127,
+              "code": "getlocal1"
+            },
+            {
+              "line": 4128,
+              "code": "callproperty Multiname(\"dbNum\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 4129,
+              "code": "returnvalue"
+            },
+            {
+              "line": 4130,
+              "code": "ofs009f:"
+            },
+            {
+              "line": 4132,
+              "code": "findpropstrict Multiname(\"trace\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4133,
+              "code": "pushstring \"通关要求YES\""
+            },
+            {
+              "line": 4134,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4135,
+              "code": "getproperty Multiname(\"_tg\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4136,
+              "code": "callpropvoid Multiname(\"trace\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 4138,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4139,
+              "code": "getproperty Multiname(\"_tg\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4140,
+              "code": "iffalse ofs00c6"
+            },
+            {
+              "line": 4142,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4143,
+              "code": "getlocal2"
+            },
+            {
+              "line": 4144,
+              "code": "getlocal1"
+            },
+            {
+              "line": 4145,
+              "code": "callproperty Multiname(\"dbNum\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 4146,
+              "code": "returnvalue"
+            },
+            {
+              "line": 4147,
+              "code": "ofs00c6:"
+            },
+            {
+              "line": 4148,
+              "code": "jump ofs0126"
+            },
+            {
+              "line": 4149,
+              "code": "ofs00ca:"
+            },
+            {
+              "line": 4151,
+              "code": "getlocal 4"
+            },
+            {
+              "line": 4152,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4153,
+              "code": "getproperty Multiname(\"_star\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4154,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 4155,
+              "code": "ifne ofs0126"
+            },
+            {
+              "line": 4157,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4158,
+              "code": "callproperty Multiname(\"isRy\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 4159,
+              "code": "iffalse ofs00ff"
+            },
+            {
+              "line": 4161,
+              "code": "findpropstrict Multiname(\"trace\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4162,
+              "code": "pushstring \"无通关要求\""
+            },
+            {
+              "line": 4163,
+              "code": "callpropvoid Multiname(\"trace\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 1"
+            },
+            {
+              "line": 4165,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4166,
+              "code": "getlocal2"
+            },
+            {
+              "line": 4167,
+              "code": "getlocal1"
+            },
+            {
+              "line": 4168,
+              "code": "callproperty Multiname(\"dbNum\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 4169,
+              "code": "returnvalue"
+            },
+            {
+              "line": 4170,
+              "code": "ofs00ff:"
+            },
+            {
+              "line": 4172,
+              "code": "findpropstrict Multiname(\"trace\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4173,
+              "code": "pushstring \"通关要求YES\""
+            },
+            {
+              "line": 4174,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4175,
+              "code": "getproperty Multiname(\"_tg\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4176,
+              "code": "callpropvoid Multiname(\"trace\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 4178,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4179,
+              "code": "getproperty Multiname(\"_tg\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4180,
+              "code": "iffalse ofs0126"
+            },
+            {
+              "line": 4182,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4183,
+              "code": "getlocal2"
+            },
+            {
+              "line": 4184,
+              "code": "getlocal1"
+            },
+            {
+              "line": 4185,
+              "code": "callproperty Multiname(\"dbNum\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 4186,
+              "code": "returnvalue"
+            },
+            {
+              "line": 4187,
+              "code": "ofs0126:"
+            },
+            {
+              "line": 4188,
+              "code": "jump ofs01e3"
+            },
+            {
+              "line": 4189,
+              "code": "ofs012a:"
+            },
+            {
+              "line": 4191,
+              "code": "findpropstrict Multiname(\"trace\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4192,
+              "code": "pushstring \"有指定地图1个\""
+            },
+            {
+              "line": 4193,
+              "code": "callpropvoid Multiname(\"trace\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 1"
+            },
+            {
+              "line": 4195,
+              "code": "findpropstrict Multiname(\"trace\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4196,
+              "code": "pushstring \"地图要求:\""
+            },
+            {
+              "line": 4197,
+              "code": "getlocal3"
+            },
+            {
+              "line": 4198,
+              "code": "pushbyte 0"
+            },
+            {
+              "line": 4199,
+              "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4200,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 4201,
+              "code": "add"
+            },
+            {
+              "line": 4202,
+              "code": "pushstring \"现在的地图:\""
+            },
+            {
+              "line": 4203,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4204,
+              "code": "getproperty Multiname(\"_map\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4205,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 4206,
+              "code": "add"
+            },
+            {
+              "line": 4207,
+              "code": "pushstring \"星级要求:\""
+            },
+            {
+              "line": 4208,
+              "code": "getlocal 4"
+            },
+            {
+              "line": 4209,
+              "code": "add"
+            },
+            {
+              "line": 4210,
+              "code": "pushstring \"现在的星级:\""
+            },
+            {
+              "line": 4211,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4212,
+              "code": "getproperty Multiname(\"_star\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4213,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 4214,
+              "code": "add"
+            },
+            {
+              "line": 4215,
+              "code": "callpropvoid Multiname(\"trace\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 4"
+            },
+            {
+              "line": 4217,
+              "code": "getlocal3"
+            },
+            {
+              "line": 4218,
+              "code": "pushbyte 0"
+            },
+            {
+              "line": 4219,
+              "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4220,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 4221,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4222,
+              "code": "getproperty Multiname(\"_map\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4223,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 4224,
+              "code": "equals"
+            },
+            {
+              "line": 4225,
+              "code": "dup"
+            },
+            {
+              "line": 4226,
+              "code": "iffalse ofs0194"
+            },
+            {
+              "line": 4227,
+              "code": "pop"
+            },
+            {
+              "line": 4228,
+              "code": "getlocal 4"
+            },
+            {
+              "line": 4229,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4230,
+              "code": "getproperty Multiname(\"_star\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4231,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 4232,
+              "code": "equals"
+            },
+            {
+              "line": 4233,
+              "code": "ofs0194:"
+            },
+            {
+              "line": 4234,
+              "code": "iffalse ofs01e3"
+            },
+            {
+              "line": 4236,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4237,
+              "code": "callproperty Multiname(\"isRy\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 4238,
+              "code": "iffalse ofs01bc"
+            },
+            {
+              "line": 4240,
+              "code": "findpropstrict Multiname(\"trace\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4241,
+              "code": "pushstring \"无通关要求\""
+            },
+            {
+              "line": 4242,
+              "code": "callpropvoid Multiname(\"trace\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 1"
+            },
+            {
+              "line": 4244,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4245,
+              "code": "getlocal2"
+            },
+            {
+              "line": 4246,
+              "code": "getlocal1"
+            },
+            {
+              "line": 4247,
+              "code": "callproperty Multiname(\"dbNum\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 4248,
+              "code": "returnvalue"
+            },
+            {
+              "line": 4249,
+              "code": "ofs01bc:"
+            },
+            {
+              "line": 4251,
+              "code": "findpropstrict Multiname(\"trace\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4252,
+              "code": "pushstring \"通关要求YES\""
+            },
+            {
+              "line": 4253,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4254,
+              "code": "getproperty Multiname(\"_tg\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4255,
+              "code": "callpropvoid Multiname(\"trace\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 4257,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4258,
+              "code": "getproperty Multiname(\"_tg\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4259,
+              "code": "iffalse ofs01e3"
+            },
+            {
+              "line": 4261,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4262,
+              "code": "getlocal2"
+            },
+            {
+              "line": 4263,
+              "code": "getlocal1"
+            },
+            {
+              "line": 4264,
+              "code": "callproperty Multiname(\"dbNum\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 4265,
+              "code": "returnvalue"
+            },
+            {
+              "line": 4266,
+              "code": "ofs01e3:"
+            },
+            {
+              "line": 4267,
+              "code": "jump ofs0272"
+            },
+            {
+              "line": 4268,
+              "code": "ofs01e7:"
+            },
+            {
+              "line": 4271,
+              "code": "findpropstrict Multiname(\"trace\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4272,
+              "code": "pushstring \"有多个指定地图\""
+            },
+            {
+              "line": 4273,
+              "code": "callpropvoid Multiname(\"trace\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 1"
+            },
+            {
+              "line": 4275,
+              "code": "pushbyte 0"
+            },
+            {
+              "line": 4276,
+              "code": "convert_u"
+            },
+            {
+              "line": 4277,
+              "code": "setlocal 5"
+            },
+            {
+              "line": 4278,
+              "code": "jump ofs0268"
+            },
+            {
+              "line": 4279,
+              "code": "ofs0207:"
+            },
+            {
+              "line": 4280,
+              "code": "label"
+            },
+            {
+              "line": 4282,
+              "code": "getlocal3"
+            },
+            {
+              "line": 4283,
+              "code": "getlocal 5"
+            },
+            {
+              "line": 4284,
+              "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4285,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 4286,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4287,
+              "code": "getproperty Multiname(\"_map\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4288,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 4289,
+              "code": "ifne ofs025f"
+            },
+            {
+              "line": 4291,
+              "code": "getlocal 4"
+            },
+            {
+              "line": 4292,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4293,
+              "code": "getproperty Multiname(\"_star\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4294,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 4295,
+              "code": "ifne ofs025f"
+            },
+            {
+              "line": 4297,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4298,
+              "code": "callproperty Multiname(\"isRy\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 4299,
+              "code": "iffalse ofs0249"
+            },
+            {
+              "line": 4301,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4302,
+              "code": "getlocal2"
+            },
+            {
+              "line": 4303,
+              "code": "getlocal1"
+            },
+            {
+              "line": 4304,
+              "code": "callproperty Multiname(\"dbNum\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 4305,
+              "code": "returnvalue"
+            },
+            {
+              "line": 4306,
+              "code": "ofs0249:"
+            },
+            {
+              "line": 4308,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4309,
+              "code": "getproperty Multiname(\"_tg\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4310,
+              "code": "iffalse ofs025f"
+            },
+            {
+              "line": 4312,
+              "code": "getlocal0"
+            },
+            {
+              "line": 4313,
+              "code": "getlocal2"
+            },
+            {
+              "line": 4314,
+              "code": "getlocal1"
+            },
+            {
+              "line": 4315,
+              "code": "callproperty Multiname(\"dbNum\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 4316,
+              "code": "returnvalue"
+            },
+            {
+              "line": 4317,
+              "code": "ofs025f:"
+            },
+            {
+              "line": 4319,
+              "code": "getlocal 5"
+            },
+            {
+              "line": 4320,
+              "code": "increment"
+            },
+            {
+              "line": 4321,
+              "code": "convert_u"
+            },
+            {
+              "line": 4322,
+              "code": "setlocal 5"
+            },
+            {
+              "line": 4323,
+              "code": "ofs0268:"
+            },
+            {
+              "line": 4324,
+              "code": "getlocal 5"
+            },
+            {
+              "line": 4325,
+              "code": "getlocal3"
+            },
+            {
+              "line": 4326,
+              "code": "getproperty Multiname(\"length\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(\"Achievement.as$263\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 4327,
+              "code": "iflt ofs0207"
+            },
+            {
+              "line": 4328,
+              "code": "ofs0272:"
+            },
+            {
+              "line": 4330,
+              "code": "pushfalse"
+            },
+            {
+              "line": 4331,
+              "code": "returnvalue"
+            }
+          ],
+          "fixtures": [
+            {
+              "fixture": {
+                "kind": "achievement",
+                "goods": [
+                  1,
+                  2
+                ],
+                "map": 1,
+                "ry": true,
+                "tg": false,
+                "expected": true
+              },
+              "result": {
+                "trace_calls": [
+                  [
+                    "有多个指定地图"
+                  ]
+                ],
+                "termination": "return",
+                "value": true,
+                "steps": 55,
+                "db_calls": 1
+              }
+            },
+            {
+              "fixture": {
+                "kind": "achievement",
+                "goods": [
+                  1,
+                  2
+                ],
+                "map": 1,
+                "ry": false,
+                "tg": true,
+                "expected": true
+              },
+              "result": {
+                "trace_calls": [
+                  [
+                    "有多个指定地图"
+                  ]
+                ],
+                "termination": "return",
+                "value": true,
+                "steps": 59,
+                "db_calls": 1
+              }
+            },
+            {
+              "fixture": {
+                "kind": "achievement",
+                "goods": [
+                  1,
+                  2
+                ],
+                "map": 1,
+                "ry": false,
+                "tg": false,
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [
+                  [
+                    "有多个指定地图"
+                  ]
+                ],
+                "termination": "return",
+                "value": false,
+                "steps": 87,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "achievement",
+                "goods": [
+                  1,
+                  2
+                ],
+                "map": 2,
+                "ry": true,
+                "tg": false,
+                "expected": true
+              },
+              "result": {
+                "trace_calls": [
+                  [
+                    "有多个指定地图"
+                  ]
+                ],
+                "termination": "return",
+                "value": true,
+                "steps": 75,
+                "db_calls": 1
+              }
+            },
+            {
+              "fixture": {
+                "kind": "achievement",
+                "goods": [
+                  1,
+                  2
+                ],
+                "map": 2,
+                "ry": false,
+                "tg": true,
+                "expected": true
+              },
+              "result": {
+                "trace_calls": [
+                  [
+                    "有多个指定地图"
+                  ]
+                ],
+                "termination": "return",
+                "value": true,
+                "steps": 79,
+                "db_calls": 1
+              }
+            },
+            {
+              "fixture": {
+                "kind": "achievement",
+                "goods": [
+                  1,
+                  2
+                ],
+                "map": 2,
+                "ry": false,
+                "tg": false,
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [
+                  [
+                    "有多个指定地图"
+                  ]
+                ],
+                "termination": "return",
+                "value": false,
+                "steps": 87,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "achievement",
+                "goods": [
+                  1,
+                  2
+                ],
+                "map": 3,
+                "ry": true,
+                "tg": false,
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [
+                  [
+                    "有多个指定地图"
+                  ]
+                ],
+                "termination": "return",
+                "value": false,
+                "steps": 75,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "achievement",
+                "goods": [
+                  1,
+                  2
+                ],
+                "map": 3,
+                "ry": false,
+                "tg": true,
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [
+                  [
+                    "有多个指定地图"
+                  ]
+                ],
+                "termination": "return",
+                "value": false,
+                "steps": 75,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "achievement",
+                "goods": [
+                  1,
+                  2
+                ],
+                "map": 3,
+                "ry": false,
+                "tg": false,
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [
+                  [
+                    "有多个指定地图"
+                  ]
+                ],
+                "termination": "return",
+                "value": false,
+                "steps": 75,
+                "db_calls": 0
+              }
+            }
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "module": "Enemy202",
+      "methods": [
+        {
+          "module": "Enemy202",
+          "class": "com/hotpoint/braveManIII/views/setKeyPanel/SetKeyPanel",
+          "method": "closeOk",
+          "source": "reverse/source/Enemy202/com/hotpoint/braveManIII/views/setKeyPanel/SetKeyPanel.as",
+          "source_before_sha256": "0904179a59d1f373ada4f0497e4687cc1f5742d8c1c4c099fa746304900cde0c",
+          "before_method": "private function closeOk() : Boolean\r\n      {\r\n         var _loc1_:uint = 0;\r\n         if(Main.player2 != null)\r\n         {\r\n            _loc1_ = 0;\r\n            while(true)\r\n            {\r\n               if(_loc1_ < this.keyNum)\r\n               {\r\n                  if(Main.player1._keyArr[_loc1_] == -1)\r\n                  {\r\n                     break;\r\n                  }\r\n                  if(Main.player2._keyArr[_loc1_] == -1)\r\n                  {\r\n                     return false;\r\n                  }\r\n                  continue;\r\n               }\r\n               _loc1_++;\r\n            }\r\n            return false;\r\n         }\r\n         _loc1_ = 0;\r\n         while(_loc1_ < this.keyNum)\r\n         {\r\n            if(Main.player1._keyArr[_loc1_] == -1)\r\n            {\r\n               return false;\r\n            }\r\n            _loc1_++;\r\n         }\r\n         return true;\r\n      }",
+          "after_method": "private function closeOk() : Boolean\r\n      {\r\n         var _loc1_:uint = 0;\r\n         if(Main.player2 != null)\r\n         {\r\n            _loc1_ = 0;\r\n            while(_loc1_ < this.keyNum)\r\n            {\r\n               if(Main.player1._keyArr[_loc1_] == -1)\r\n               {\r\n                  return false;\r\n               }\r\n               if(Main.player2._keyArr[_loc1_] == -1)\r\n               {\r\n                  return false;\r\n               }\r\n               _loc1_++;\r\n            }\r\n            return true;\r\n         }\r\n         _loc1_ = 0;\r\n         while(_loc1_ < this.keyNum)\r\n         {\r\n            if(Main.player1._keyArr[_loc1_] == -1)\r\n            {\r\n               return false;\r\n            }\r\n            _loc1_++;\r\n         }\r\n         return true;\r\n      }",
+          "original_swf_sha256": "66c2ba978294a1d70ef99b0337b8c3b7bb7bc9ac08a773f2d233ef0afe9d71a2",
+          "pcode_sha256": "40cf43c386aff6cc58859b93f7fd7e11019cf4f1abf4703718596033c82fd0e5",
+          "original_instructions": [
+            {
+              "line": 877,
+              "code": "getlocal0"
+            },
+            {
+              "line": 878,
+              "code": "pushscope"
+            },
+            {
+              "line": 879,
+              "code": "pushbyte 0"
+            },
+            {
+              "line": 880,
+              "code": "convert_u"
+            },
+            {
+              "line": 881,
+              "code": "setlocal1"
+            },
+            {
+              "line": 882,
+              "code": "getlex Multiname(\"Main\",[PrivateNamespace(null,\"111\"),PackageNamespace(\"\"),PrivateNamespace(null),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\"),PackageNamespace(\"src\")])"
+            },
+            {
+              "line": 883,
+              "code": "getproperty Multiname(\"player2\",[PrivateNamespace(null,\"111\"),PackageNamespace(\"\"),PrivateNamespace(null),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 884,
+              "code": "pushnull"
+            },
+            {
+              "line": 885,
+              "code": "ifne ofs0040"
+            },
+            {
+              "line": 886,
+              "code": "pushbyte 0"
+            },
+            {
+              "line": 887,
+              "code": "convert_u"
+            },
+            {
+              "line": 888,
+              "code": "setlocal1"
+            },
+            {
+              "line": 889,
+              "code": "jump ofs0033"
+            },
+            {
+              "line": 890,
+              "code": "ofs0019:"
+            },
+            {
+              "line": 891,
+              "code": "label"
+            },
+            {
+              "line": 892,
+              "code": "getlex Multiname(\"Main\",[PrivateNamespace(null,\"111\"),PackageNamespace(\"\"),PrivateNamespace(null),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\"),PackageNamespace(\"src\")])"
+            },
+            {
+              "line": 893,
+              "code": "getproperty Multiname(\"player1\",[PrivateNamespace(null,\"111\"),PackageNamespace(\"\"),PrivateNamespace(null),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 894,
+              "code": "getproperty Multiname(\"_keyArr\",[PrivateNamespace(null,\"111\"),PackageNamespace(\"\"),PrivateNamespace(null),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 895,
+              "code": "getlocal1"
+            },
+            {
+              "line": 896,
+              "code": "getproperty MultinameL([PrivateNamespace(null,\"111\"),PackageNamespace(\"\"),PrivateNamespace(null),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 897,
+              "code": "pushbyte -1"
+            },
+            {
+              "line": 898,
+              "code": "ifne ofs002f"
+            },
+            {
+              "line": 899,
+              "code": "pushfalse"
+            },
+            {
+              "line": 900,
+              "code": "returnvalue"
+            },
+            {
+              "line": 901,
+              "code": "ofs002f:"
+            },
+            {
+              "line": 902,
+              "code": "getlocal1"
+            },
+            {
+              "line": 903,
+              "code": "increment"
+            },
+            {
+              "line": 904,
+              "code": "convert_u"
+            },
+            {
+              "line": 905,
+              "code": "setlocal1"
+            },
+            {
+              "line": 906,
+              "code": "ofs0033:"
+            },
+            {
+              "line": 907,
+              "code": "getlocal1"
+            },
+            {
+              "line": 908,
+              "code": "getlocal0"
+            },
+            {
+              "line": 909,
+              "code": "getproperty Multiname(\"keyNum\",[PrivateNamespace(null,\"111\"),PackageNamespace(\"\"),PrivateNamespace(null),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 910,
+              "code": "iflt ofs0019"
+            },
+            {
+              "line": 911,
+              "code": "jump ofs0080"
+            },
+            {
+              "line": 912,
+              "code": "ofs0040:"
+            },
+            {
+              "line": 913,
+              "code": "pushbyte 0"
+            },
+            {
+              "line": 914,
+              "code": "convert_u"
+            },
+            {
+              "line": 915,
+              "code": "setlocal1"
+            },
+            {
+              "line": 916,
+              "code": "jump ofs0077"
+            },
+            {
+              "line": 917,
+              "code": "ofs0048:"
+            },
+            {
+              "line": 918,
+              "code": "label"
+            },
+            {
+              "line": 919,
+              "code": "getlex Multiname(\"Main\",[PrivateNamespace(null,\"111\"),PackageNamespace(\"\"),PrivateNamespace(null),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\"),PackageNamespace(\"src\")])"
+            },
+            {
+              "line": 920,
+              "code": "getproperty Multiname(\"player1\",[PrivateNamespace(null,\"111\"),PackageNamespace(\"\"),PrivateNamespace(null),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 921,
+              "code": "getproperty Multiname(\"_keyArr\",[PrivateNamespace(null,\"111\"),PackageNamespace(\"\"),PrivateNamespace(null),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 922,
+              "code": "getlocal1"
+            },
+            {
+              "line": 923,
+              "code": "getproperty MultinameL([PrivateNamespace(null,\"111\"),PackageNamespace(\"\"),PrivateNamespace(null),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 924,
+              "code": "pushbyte -1"
+            },
+            {
+              "line": 925,
+              "code": "ifne ofs005e"
+            },
+            {
+              "line": 926,
+              "code": "pushfalse"
+            },
+            {
+              "line": 927,
+              "code": "returnvalue"
+            },
+            {
+              "line": 928,
+              "code": "ofs005e:"
+            },
+            {
+              "line": 929,
+              "code": "getlex Multiname(\"Main\",[PrivateNamespace(null,\"111\"),PackageNamespace(\"\"),PrivateNamespace(null),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\"),PackageNamespace(\"src\")])"
+            },
+            {
+              "line": 930,
+              "code": "getproperty Multiname(\"player2\",[PrivateNamespace(null,\"111\"),PackageNamespace(\"\"),PrivateNamespace(null),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 931,
+              "code": "getproperty Multiname(\"_keyArr\",[PrivateNamespace(null,\"111\"),PackageNamespace(\"\"),PrivateNamespace(null),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 932,
+              "code": "getlocal1"
+            },
+            {
+              "line": 933,
+              "code": "getproperty MultinameL([PrivateNamespace(null,\"111\"),PackageNamespace(\"\"),PrivateNamespace(null),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 934,
+              "code": "pushbyte -1"
+            },
+            {
+              "line": 935,
+              "code": "ifne ofs0073"
+            },
+            {
+              "line": 936,
+              "code": "pushfalse"
+            },
+            {
+              "line": 937,
+              "code": "returnvalue"
+            },
+            {
+              "line": 938,
+              "code": "ofs0073:"
+            },
+            {
+              "line": 939,
+              "code": "getlocal1"
+            },
+            {
+              "line": 940,
+              "code": "increment"
+            },
+            {
+              "line": 941,
+              "code": "convert_u"
+            },
+            {
+              "line": 942,
+              "code": "setlocal1"
+            },
+            {
+              "line": 943,
+              "code": "ofs0077:"
+            },
+            {
+              "line": 944,
+              "code": "getlocal1"
+            },
+            {
+              "line": 945,
+              "code": "getlocal0"
+            },
+            {
+              "line": 946,
+              "code": "getproperty Multiname(\"keyNum\",[PrivateNamespace(null,\"111\"),PackageNamespace(\"\"),PrivateNamespace(null),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageInternalNs(\"com.hotpoint.braveManIII.views.setKeyPanel\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"com.hotpoint.braveManIII.views.setKeyPanel:SetKeyPanel\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+            },
+            {
+              "line": 947,
+              "code": "iflt ofs0048"
+            },
+            {
+              "line": 948,
+              "code": "ofs0080:"
+            },
+            {
+              "line": 949,
+              "code": "pushtrue"
+            },
+            {
+              "line": 950,
+              "code": "returnvalue"
+            }
+          ],
+          "fixtures": [
+            {
+              "fixture": {
+                "kind": "keys",
+                "keys": [
+                  [
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65
+                  ],
+                  null
+                ],
+                "expected": true
+              },
+              "result": {
+                "trace_calls": [],
+                "termination": "return",
+                "value": true,
+                "steps": 326,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "keys",
+                "keys": [
+                  [
+                    -1,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65
+                  ],
+                  null
+                ],
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [],
+                "termination": "return",
+                "value": false,
+                "steps": 29,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "keys",
+                "keys": [
+                  [
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    -1
+                  ],
+                  null
+                ],
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [],
+                "termination": "return",
+                "value": false,
+                "steps": 314,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "keys",
+                "keys": [
+                  [
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65
+                  ],
+                  [
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66
+                  ]
+                ],
+                "expected": true
+              },
+              "result": {
+                "trace_calls": [],
+                "termination": "return",
+                "value": true,
+                "steps": 454,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "keys",
+                "keys": [
+                  [
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65
+                  ],
+                  [
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66
+                  ]
+                ],
+                "expected": true
+              },
+              "result": {
+                "trace_calls": [],
+                "termination": "return",
+                "value": true,
+                "steps": 454,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "keys",
+                "keys": [
+                  [
+                    -1,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65
+                  ],
+                  [
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66
+                  ]
+                ],
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [],
+                "termination": "return",
+                "value": false,
+                "steps": 30,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "keys",
+                "keys": [
+                  [
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65
+                  ],
+                  [
+                    -1,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66
+                  ]
+                ],
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [],
+                "termination": "return",
+                "value": false,
+                "steps": 38,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "keys",
+                "keys": [
+                  [
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    -1
+                  ],
+                  [
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66
+                  ]
+                ],
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [],
+                "termination": "return",
+                "value": false,
+                "steps": 435,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "keys",
+                "keys": [
+                  [
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65,
+                    65
+                  ],
+                  [
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    66,
+                    -1
+                  ]
+                ],
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [],
+                "termination": "return",
+                "value": false,
+                "steps": 443,
+                "db_calls": 0
+              }
+            }
+          ]
+        },
+        {
+          "module": "Enemy202",
+          "class": "com/hotpoint/braveManIII/models/achievement/Achievement",
+          "method": "getIddo",
+          "source": "reverse/source/Enemy202/com/hotpoint/braveManIII/models/achievement/Achievement.as",
+          "source_before_sha256": "6af71973d8f665a5c8da0845dde259fe159e91752ff04c09fb325dc2a157cdb2",
+          "before_method": "private function getIddo(param1:Number, param2:Number = 1) : Boolean\r\n      {\r\n         var _loc5_:uint = 0;\r\n         var _loc3_:Array = this.getGoodsId() as Array;\r\n         var _loc4_:Number = this.getTs();\r\n         if(_loc3_.length != 1)\r\n         {\r\n            trace(\"有多个指定地图\");\r\n            _loc5_ = 0;\r\n            while(true)\r\n            {\r\n               if(_loc5_ < _loc3_.length)\r\n               {\r\n                  if(_loc3_[_loc5_].getValue() == this._map.getValue())\r\n                  {\r\n                     if(_loc4_ == this._star.getValue())\r\n                     {\r\n                        if(this.isRy())\r\n                        {\r\n                           break;\r\n                        }\r\n                        if(this._tg)\r\n                        {\r\n                           return this.dbNum(param2,param1);\r\n                        }\r\n                     }\r\n                  }\r\n                  continue;\r\n               }\r\n               _loc5_++;\r\n            }\r\n            return this.dbNum(param2,param1);\r\n         }\r\n         if(_loc3_[0].getValue() == -1)\r\n         {\r\n            trace(\"没有地图要求\");\r\n            if(_loc4_ == -1)\r\n            {\r\n               if(this.isRy())\r\n               {\r\n                  trace(\"无通关要求\");\r\n                  return this.dbNum(param2,param1);\r\n               }\r\n               trace(\"通关要求YES\",this._tg);\r\n               if(this._tg)\r\n               {\r\n                  return this.dbNum(param2,param1);\r\n               }\r\n            }\r\n            else if(_loc4_ == this._star.getValue())\r\n            {\r\n               if(this.isRy())\r\n               {\r\n                  trace(\"无通关要求\");\r\n                  return this.dbNum(param2,param1);\r\n               }\r\n               trace(\"通关要求YES\",this._tg);\r\n               if(this._tg)\r\n               {\r\n                  return this.dbNum(param2,param1);\r\n               }\r\n            }\r\n         }\r\n         else\r\n         {\r\n            trace(\"有指定地图1个\");\r\n            trace(\"地图要求:\" + _loc3_[0].getValue(),\"现在的地图:\" + this._map.getValue(),\"星级要求:\" + _loc4_,\"现在的星级:\" + this._star.getValue());\r\n            if(_loc3_[0].getValue() == this._map.getValue() && _loc4_ == this._star.getValue())\r\n            {\r\n               if(this.isRy())\r\n               {\r\n                  trace(\"无通关要求\");\r\n                  return this.dbNum(param2,param1);\r\n               }\r\n               trace(\"通关要求YES\",this._tg);\r\n               if(this._tg)\r\n               {\r\n                  return this.dbNum(param2,param1);\r\n               }\r\n            }\r\n         }\r\n         return false;\r\n      }",
+          "after_method": "private function getIddo(param1:Number, param2:Number = 1) : Boolean\r\n      {\r\n         var _loc5_:uint = 0;\r\n         var _loc3_:Array = this.getGoodsId() as Array;\r\n         var _loc4_:Number = this.getTs();\r\n         if(_loc3_.length != 1)\r\n         {\r\n            trace(\"有多个指定地图\");\r\n            _loc5_ = 0;\r\n            while(_loc5_ < _loc3_.length)\r\n            {\r\n               if(_loc3_[_loc5_].getValue() == this._map.getValue())\r\n               {\r\n                  if(_loc4_ == this._star.getValue())\r\n                  {\r\n                     if(this.isRy())\r\n                     {\r\n                        return this.dbNum(param2,param1);\r\n                     }\r\n                     if(this._tg)\r\n                     {\r\n                        return this.dbNum(param2,param1);\r\n                     }\r\n                  }\r\n               }\r\n               _loc5_++;\r\n            }\r\n            return false;\r\n         }\r\n         if(_loc3_[0].getValue() == -1)\r\n         {\r\n            trace(\"没有地图要求\");\r\n            if(_loc4_ == -1)\r\n            {\r\n               if(this.isRy())\r\n               {\r\n                  trace(\"无通关要求\");\r\n                  return this.dbNum(param2,param1);\r\n               }\r\n               trace(\"通关要求YES\",this._tg);\r\n               if(this._tg)\r\n               {\r\n                  return this.dbNum(param2,param1);\r\n               }\r\n            }\r\n            else if(_loc4_ == this._star.getValue())\r\n            {\r\n               if(this.isRy())\r\n               {\r\n                  trace(\"无通关要求\");\r\n                  return this.dbNum(param2,param1);\r\n               }\r\n               trace(\"通关要求YES\",this._tg);\r\n               if(this._tg)\r\n               {\r\n                  return this.dbNum(param2,param1);\r\n               }\r\n            }\r\n         }\r\n         else\r\n         {\r\n            trace(\"有指定地图1个\");\r\n            trace(\"地图要求:\" + _loc3_[0].getValue(),\"现在的地图:\" + this._map.getValue(),\"星级要求:\" + _loc4_,\"现在的星级:\" + this._star.getValue());\r\n            if(_loc3_[0].getValue() == this._map.getValue() && _loc4_ == this._star.getValue())\r\n            {\r\n               if(this.isRy())\r\n               {\r\n                  trace(\"无通关要求\");\r\n                  return this.dbNum(param2,param1);\r\n               }\r\n               trace(\"通关要求YES\",this._tg);\r\n               if(this._tg)\r\n               {\r\n                  return this.dbNum(param2,param1);\r\n               }\r\n            }\r\n         }\r\n         return false;\r\n      }",
+          "original_swf_sha256": "66c2ba978294a1d70ef99b0337b8c3b7bb7bc9ac08a773f2d233ef0afe9d71a2",
+          "pcode_sha256": "1a8328105735e73f014fe02e95241ea2b9807d144102fc1a111256544912c31f",
+          "original_instructions": [
+            {
+              "line": 3474,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3475,
+              "code": "pushscope"
+            },
+            {
+              "line": 3476,
+              "code": "pushbyte 0"
+            },
+            {
+              "line": 3477,
+              "code": "convert_u"
+            },
+            {
+              "line": 3478,
+              "code": "setlocal 5"
+            },
+            {
+              "line": 3479,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3480,
+              "code": "callproperty Multiname(\"getGoodsId\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 3481,
+              "code": "getlex Multiname(\"Array\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3482,
+              "code": "astypelate"
+            },
+            {
+              "line": 3483,
+              "code": "coerce QName(PackageNamespace(\"\"),\"Array\")"
+            },
+            {
+              "line": 3484,
+              "code": "setlocal3"
+            },
+            {
+              "line": 3485,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3486,
+              "code": "callproperty Multiname(\"getTs\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 3487,
+              "code": "convert_d"
+            },
+            {
+              "line": 3488,
+              "code": "setlocal 4"
+            },
+            {
+              "line": 3489,
+              "code": "getlocal3"
+            },
+            {
+              "line": 3490,
+              "code": "getproperty Multiname(\"length\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3491,
+              "code": "pushbyte 1"
+            },
+            {
+              "line": 3492,
+              "code": "ifne ofs0171"
+            },
+            {
+              "line": 3493,
+              "code": "getlocal3"
+            },
+            {
+              "line": 3494,
+              "code": "pushbyte 0"
+            },
+            {
+              "line": 3495,
+              "code": "getproperty MultinameL([PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3496,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 3497,
+              "code": "pushbyte -1"
+            },
+            {
+              "line": 3498,
+              "code": "ifne ofs00cf"
+            },
+            {
+              "line": 3499,
+              "code": "findpropstrict Multiname(\"trace\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3500,
+              "code": "pushstring \"没有地图要求\""
+            },
+            {
+              "line": 3501,
+              "code": "callpropvoid Multiname(\"trace\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 1"
+            },
+            {
+              "line": 3502,
+              "code": "getlocal 4"
+            },
+            {
+              "line": 3503,
+              "code": "pushbyte -1"
+            },
+            {
+              "line": 3504,
+              "code": "ifne ofs0084"
+            },
+            {
+              "line": 3505,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3506,
+              "code": "callproperty Multiname(\"isRy\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 3507,
+              "code": "iffalse ofs0062"
+            },
+            {
+              "line": 3508,
+              "code": "findpropstrict Multiname(\"trace\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3509,
+              "code": "pushstring \"无通关要求\""
+            },
+            {
+              "line": 3510,
+              "code": "callpropvoid Multiname(\"trace\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 1"
+            },
+            {
+              "line": 3511,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3512,
+              "code": "getlocal2"
+            },
+            {
+              "line": 3513,
+              "code": "getlocal1"
+            },
+            {
+              "line": 3514,
+              "code": "callproperty Multiname(\"dbNum\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 3515,
+              "code": "returnvalue"
+            },
+            {
+              "line": 3516,
+              "code": "ofs0062:"
+            },
+            {
+              "line": 3517,
+              "code": "findpropstrict Multiname(\"trace\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3518,
+              "code": "pushstring \"通关要求YES\""
+            },
+            {
+              "line": 3519,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3520,
+              "code": "getproperty Multiname(\"_tg\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3521,
+              "code": "callpropvoid Multiname(\"trace\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 3522,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3523,
+              "code": "getproperty Multiname(\"_tg\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3524,
+              "code": "iffalse ofs0080"
+            },
+            {
+              "line": 3525,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3526,
+              "code": "getlocal2"
+            },
+            {
+              "line": 3527,
+              "code": "getlocal1"
+            },
+            {
+              "line": 3528,
+              "code": "callproperty Multiname(\"dbNum\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 3529,
+              "code": "returnvalue"
+            },
+            {
+              "line": 3530,
+              "code": "ofs0080:"
+            },
+            {
+              "line": 3531,
+              "code": "jump ofs00cb"
+            },
+            {
+              "line": 3532,
+              "code": "ofs0084:"
+            },
+            {
+              "line": 3533,
+              "code": "getlocal 4"
+            },
+            {
+              "line": 3534,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3535,
+              "code": "getproperty Multiname(\"_star\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3536,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 3537,
+              "code": "ifne ofs00cb"
+            },
+            {
+              "line": 3538,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3539,
+              "code": "callproperty Multiname(\"isRy\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 3540,
+              "code": "iffalse ofs00ad"
+            },
+            {
+              "line": 3541,
+              "code": "findpropstrict Multiname(\"trace\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3542,
+              "code": "pushstring \"无通关要求\""
+            },
+            {
+              "line": 3543,
+              "code": "callpropvoid Multiname(\"trace\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 1"
+            },
+            {
+              "line": 3544,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3545,
+              "code": "getlocal2"
+            },
+            {
+              "line": 3546,
+              "code": "getlocal1"
+            },
+            {
+              "line": 3547,
+              "code": "callproperty Multiname(\"dbNum\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 3548,
+              "code": "returnvalue"
+            },
+            {
+              "line": 3549,
+              "code": "ofs00ad:"
+            },
+            {
+              "line": 3550,
+              "code": "findpropstrict Multiname(\"trace\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3551,
+              "code": "pushstring \"通关要求YES\""
+            },
+            {
+              "line": 3552,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3553,
+              "code": "getproperty Multiname(\"_tg\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3554,
+              "code": "callpropvoid Multiname(\"trace\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 3555,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3556,
+              "code": "getproperty Multiname(\"_tg\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3557,
+              "code": "iffalse ofs00cb"
+            },
+            {
+              "line": 3558,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3559,
+              "code": "getlocal2"
+            },
+            {
+              "line": 3560,
+              "code": "getlocal1"
+            },
+            {
+              "line": 3561,
+              "code": "callproperty Multiname(\"dbNum\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 3562,
+              "code": "returnvalue"
+            },
+            {
+              "line": 3563,
+              "code": "ofs00cb:"
+            },
+            {
+              "line": 3564,
+              "code": "jump ofs016d"
+            },
+            {
+              "line": 3565,
+              "code": "ofs00cf:"
+            },
+            {
+              "line": 3566,
+              "code": "findpropstrict Multiname(\"trace\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3567,
+              "code": "pushstring \"有指定地图1个\""
+            },
+            {
+              "line": 3568,
+              "code": "callpropvoid Multiname(\"trace\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 1"
+            },
+            {
+              "line": 3569,
+              "code": "findpropstrict Multiname(\"trace\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3570,
+              "code": "pushstring \"地图要求:\""
+            },
+            {
+              "line": 3571,
+              "code": "getlocal3"
+            },
+            {
+              "line": 3572,
+              "code": "pushbyte 0"
+            },
+            {
+              "line": 3573,
+              "code": "getproperty MultinameL([PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3574,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 3575,
+              "code": "add"
+            },
+            {
+              "line": 3576,
+              "code": "pushstring \"现在的地图:\""
+            },
+            {
+              "line": 3577,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3578,
+              "code": "getproperty Multiname(\"_map\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3579,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 3580,
+              "code": "add"
+            },
+            {
+              "line": 3581,
+              "code": "pushstring \"星级要求:\""
+            },
+            {
+              "line": 3582,
+              "code": "getlocal 4"
+            },
+            {
+              "line": 3583,
+              "code": "add"
+            },
+            {
+              "line": 3584,
+              "code": "pushstring \"现在的星级:\""
+            },
+            {
+              "line": 3585,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3586,
+              "code": "getproperty Multiname(\"_star\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3587,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 3588,
+              "code": "add"
+            },
+            {
+              "line": 3589,
+              "code": "callpropvoid Multiname(\"trace\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 4"
+            },
+            {
+              "line": 3590,
+              "code": "getlocal3"
+            },
+            {
+              "line": 3591,
+              "code": "pushbyte 0"
+            },
+            {
+              "line": 3592,
+              "code": "getproperty MultinameL([PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3593,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 3594,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3595,
+              "code": "getproperty Multiname(\"_map\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3596,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 3597,
+              "code": "equals"
+            },
+            {
+              "line": 3598,
+              "code": "dup"
+            },
+            {
+              "line": 3599,
+              "code": "iffalse ofs0130"
+            },
+            {
+              "line": 3600,
+              "code": "pop"
+            },
+            {
+              "line": 3601,
+              "code": "getlocal 4"
+            },
+            {
+              "line": 3602,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3603,
+              "code": "getproperty Multiname(\"_star\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3604,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 3605,
+              "code": "equals"
+            },
+            {
+              "line": 3606,
+              "code": "ofs0130:"
+            },
+            {
+              "line": 3607,
+              "code": "iffalse ofs016d"
+            },
+            {
+              "line": 3608,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3609,
+              "code": "callproperty Multiname(\"isRy\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 3610,
+              "code": "iffalse ofs014f"
+            },
+            {
+              "line": 3611,
+              "code": "findpropstrict Multiname(\"trace\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3612,
+              "code": "pushstring \"无通关要求\""
+            },
+            {
+              "line": 3613,
+              "code": "callpropvoid Multiname(\"trace\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 1"
+            },
+            {
+              "line": 3614,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3615,
+              "code": "getlocal2"
+            },
+            {
+              "line": 3616,
+              "code": "getlocal1"
+            },
+            {
+              "line": 3617,
+              "code": "callproperty Multiname(\"dbNum\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 3618,
+              "code": "returnvalue"
+            },
+            {
+              "line": 3619,
+              "code": "ofs014f:"
+            },
+            {
+              "line": 3620,
+              "code": "findpropstrict Multiname(\"trace\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3621,
+              "code": "pushstring \"通关要求YES\""
+            },
+            {
+              "line": 3622,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3623,
+              "code": "getproperty Multiname(\"_tg\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3624,
+              "code": "callpropvoid Multiname(\"trace\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 3625,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3626,
+              "code": "getproperty Multiname(\"_tg\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3627,
+              "code": "iffalse ofs016d"
+            },
+            {
+              "line": 3628,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3629,
+              "code": "getlocal2"
+            },
+            {
+              "line": 3630,
+              "code": "getlocal1"
+            },
+            {
+              "line": 3631,
+              "code": "callproperty Multiname(\"dbNum\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 3632,
+              "code": "returnvalue"
+            },
+            {
+              "line": 3633,
+              "code": "ofs016d:"
+            },
+            {
+              "line": 3634,
+              "code": "jump ofs01da"
+            },
+            {
+              "line": 3635,
+              "code": "ofs0171:"
+            },
+            {
+              "line": 3636,
+              "code": "findpropstrict Multiname(\"trace\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3637,
+              "code": "pushstring \"有多个指定地图\""
+            },
+            {
+              "line": 3638,
+              "code": "callpropvoid Multiname(\"trace\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 1"
+            },
+            {
+              "line": 3639,
+              "code": "pushbyte 0"
+            },
+            {
+              "line": 3640,
+              "code": "convert_u"
+            },
+            {
+              "line": 3641,
+              "code": "setlocal 5"
+            },
+            {
+              "line": 3642,
+              "code": "jump ofs01d0"
+            },
+            {
+              "line": 3643,
+              "code": "ofs0184:"
+            },
+            {
+              "line": 3644,
+              "code": "label"
+            },
+            {
+              "line": 3645,
+              "code": "getlocal3"
+            },
+            {
+              "line": 3646,
+              "code": "getlocal 5"
+            },
+            {
+              "line": 3647,
+              "code": "getproperty MultinameL([PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3648,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 3649,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3650,
+              "code": "getproperty Multiname(\"_map\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3651,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 3652,
+              "code": "ifne ofs01ca"
+            },
+            {
+              "line": 3653,
+              "code": "getlocal 4"
+            },
+            {
+              "line": 3654,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3655,
+              "code": "getproperty Multiname(\"_star\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3656,
+              "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 3657,
+              "code": "ifne ofs01ca"
+            },
+            {
+              "line": 3658,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3659,
+              "code": "callproperty Multiname(\"isRy\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 0"
+            },
+            {
+              "line": 3660,
+              "code": "iffalse ofs01ba"
+            },
+            {
+              "line": 3661,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3662,
+              "code": "getlocal2"
+            },
+            {
+              "line": 3663,
+              "code": "getlocal1"
+            },
+            {
+              "line": 3664,
+              "code": "callproperty Multiname(\"dbNum\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 3665,
+              "code": "returnvalue"
+            },
+            {
+              "line": 3666,
+              "code": "ofs01ba:"
+            },
+            {
+              "line": 3667,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3668,
+              "code": "getproperty Multiname(\"_tg\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3669,
+              "code": "iffalse ofs01ca"
+            },
+            {
+              "line": 3670,
+              "code": "getlocal0"
+            },
+            {
+              "line": 3671,
+              "code": "getlocal2"
+            },
+            {
+              "line": 3672,
+              "code": "getlocal1"
+            },
+            {
+              "line": 3673,
+              "code": "callproperty Multiname(\"dbNum\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")]), 2"
+            },
+            {
+              "line": 3674,
+              "code": "returnvalue"
+            },
+            {
+              "line": 3675,
+              "code": "ofs01ca:"
+            },
+            {
+              "line": 3676,
+              "code": "getlocal 5"
+            },
+            {
+              "line": 3677,
+              "code": "increment"
+            },
+            {
+              "line": 3678,
+              "code": "convert_u"
+            },
+            {
+              "line": 3679,
+              "code": "setlocal 5"
+            },
+            {
+              "line": 3680,
+              "code": "ofs01d0:"
+            },
+            {
+              "line": 3681,
+              "code": "getlocal 5"
+            },
+            {
+              "line": 3682,
+              "code": "getlocal3"
+            },
+            {
+              "line": 3683,
+              "code": "getproperty Multiname(\"length\",[PrivateNamespace(null,\"57\"),PackageNamespace(\"com.hotpoint.braveManIII.models.achievement\"),PrivateNamespace(null,\"279\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.achievement\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.achievement:Achievement\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.achievement:Achievement\")])"
+            },
+            {
+              "line": 3684,
+              "code": "iflt ofs0184"
+            },
+            {
+              "line": 3685,
+              "code": "ofs01da:"
+            },
+            {
+              "line": 3686,
+              "code": "pushfalse"
+            },
+            {
+              "line": 3687,
+              "code": "returnvalue"
+            }
+          ],
+          "fixtures": [
+            {
+              "fixture": {
+                "kind": "achievement",
+                "goods": [
+                  1,
+                  2
+                ],
+                "map": 1,
+                "ry": true,
+                "tg": false,
+                "expected": true
+              },
+              "result": {
+                "trace_calls": [
+                  [
+                    "有多个指定地图"
+                  ]
+                ],
+                "termination": "return",
+                "value": true,
+                "steps": 55,
+                "db_calls": 1
+              }
+            },
+            {
+              "fixture": {
+                "kind": "achievement",
+                "goods": [
+                  1,
+                  2
+                ],
+                "map": 1,
+                "ry": false,
+                "tg": true,
+                "expected": true
+              },
+              "result": {
+                "trace_calls": [
+                  [
+                    "有多个指定地图"
+                  ]
+                ],
+                "termination": "return",
+                "value": true,
+                "steps": 59,
+                "db_calls": 1
+              }
+            },
+            {
+              "fixture": {
+                "kind": "achievement",
+                "goods": [
+                  1,
+                  2
+                ],
+                "map": 1,
+                "ry": false,
+                "tg": false,
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [
+                  [
+                    "有多个指定地图"
+                  ]
+                ],
+                "termination": "return",
+                "value": false,
+                "steps": 87,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "achievement",
+                "goods": [
+                  1,
+                  2
+                ],
+                "map": 2,
+                "ry": true,
+                "tg": false,
+                "expected": true
+              },
+              "result": {
+                "trace_calls": [
+                  [
+                    "有多个指定地图"
+                  ]
+                ],
+                "termination": "return",
+                "value": true,
+                "steps": 75,
+                "db_calls": 1
+              }
+            },
+            {
+              "fixture": {
+                "kind": "achievement",
+                "goods": [
+                  1,
+                  2
+                ],
+                "map": 2,
+                "ry": false,
+                "tg": true,
+                "expected": true
+              },
+              "result": {
+                "trace_calls": [
+                  [
+                    "有多个指定地图"
+                  ]
+                ],
+                "termination": "return",
+                "value": true,
+                "steps": 79,
+                "db_calls": 1
+              }
+            },
+            {
+              "fixture": {
+                "kind": "achievement",
+                "goods": [
+                  1,
+                  2
+                ],
+                "map": 2,
+                "ry": false,
+                "tg": false,
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [
+                  [
+                    "有多个指定地图"
+                  ]
+                ],
+                "termination": "return",
+                "value": false,
+                "steps": 87,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "achievement",
+                "goods": [
+                  1,
+                  2
+                ],
+                "map": 3,
+                "ry": true,
+                "tg": false,
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [
+                  [
+                    "有多个指定地图"
+                  ]
+                ],
+                "termination": "return",
+                "value": false,
+                "steps": 75,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "achievement",
+                "goods": [
+                  1,
+                  2
+                ],
+                "map": 3,
+                "ry": false,
+                "tg": true,
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [
+                  [
+                    "有多个指定地图"
+                  ]
+                ],
+                "termination": "return",
+                "value": false,
+                "steps": 75,
+                "db_calls": 0
+              }
+            },
+            {
+              "fixture": {
+                "kind": "achievement",
+                "goods": [
+                  1,
+                  2
+                ],
+                "map": 3,
+                "ry": false,
+                "tg": false,
+                "expected": false
+              },
+              "result": {
+                "trace_calls": [
+                  [
+                    "有多个指定地图"
+                  ]
+                ],
+                "termination": "return",
+                "value": false,
+                "steps": 75,
+                "db_calls": 0
+              }
+            }
+          ]
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "fixture_count": 36
+}

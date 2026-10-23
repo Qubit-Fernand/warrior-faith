@@ -25,7 +25,7 @@ def build():
  classes=[c['name']for a in abcs for c in a['classes']];strings={s for a in abcs for s in a['strings']}
  assert classes==['ResourceHarness'],classes
  assert NAME in strings and not any(s in strings for s in('yzlr2_saves','yzlr2_diagnostic_probe','3_L4399Main_gamefile.swf','DataX_v76.swf'))
- report={'schema':'yzlr2-resource-wrapper-build-v1','utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_sha256':sha(SOURCE/'ResourceHarness.as'),'swf_sha256':sha(BUILD/SWF),'classes':classes,'shared_object':NAME,'shared_object_path':'default package-local path; not /','command':command,'player_started':False,'game_save_accessed':False,'runtime_tested':False}
+ report={'schema':'yzlr2-resource-wrapper-build-v1','utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_sha256':sha(SOURCE/'ResourceHarness.as'),'swf_sha256':sha(BUILD/SWF),'classes':classes,'shared_object':NAME,'shared_object_path':'default path; macOS projector observed localhost shared across packages; export results sequentially','command':command,'player_started':False,'game_save_accessed':False,'runtime_tested':False}
  (SOURCE/'build.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');print(json.dumps(report,ensure_ascii=False,indent=2))
 def prepare_pair():
  receipt=json.loads((SOURCE/'build.json').read_text());assert sha(BUILD/SWF)==receipt['swf_sha256']and sha(SOURCE/'ResourceHarness.as')==receipt['source_sha256'],'Wrapper changed; rebuild first'

@@ -54,7 +54,8 @@ package {
                 startedUTC:new Date().toUTCString(), runId:"pending", mode:"pending",
                 complete:false, rows:[], fatal:[], persistError:"",
                 scope:"standalone parent domain; no game Main; load/hasDefinition only"};
-            // Default localPath isolates this exact package directory, unlike '/'.
+            // macOS projector may share this name under localhost across packages.
+            // Export each completed result before running another package.
             try { store = SharedObject.getLocal(SAVE); }
             catch(error:Error) { persistence = "SO denied: " + error.message.substr(0,100); }
             input.addEventListener(Event.COMPLETE, manifestLoaded);
@@ -201,8 +202,8 @@ package {
         private function show(message:String):void {
             display.text = "勇士的信仰 · resource import probe\n\n" + message +
                 "\nMode: " + report.mode + "   Run: " + report.runId +
-                "\nSO: " + SAVE + " (package-local)\nPersistence: " + persistence +
-                "\n\nLibraries stay off stage. No arbitrary class construction.\nOriginal and rebuilt use separate package paths.\n" +
+                "\nSO: " + SAVE + " (dedicated name; may be shared across packages)\nPersistence: " + persistence +
+                "\n\nLibraries stay off stage. No arbitrary class construction.\nExport this result before starting the other package.\n" +
                 (done ? "\nDONE. Read diagnostic SOL; completion alone is not a clean-pass claim." : "");
         }
     }

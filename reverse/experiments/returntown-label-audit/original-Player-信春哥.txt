@@ -1,0 +1,73 @@
+public function 信春哥() : *
+{
+trait method Name("信春哥")
+dispid 0
+method
+name "src:Player/信春哥"
+returns null
+
+body
+maxstack 4
+localcount 1
+initscopedepth 10
+maxscopedepth 11
+
+code
+getlocal0
+pushscope
+getlex Name("deadX")
+dup
+convert_b
+iffalse ofs000f
+pop
+getlex Name("skin")
+ofs000f:
+dup
+iffalse ofs0018
+pop
+getlex Name("skin_Z")
+ofs0018:
+dup
+iffalse ofs0026
+pop
+findpropstrict Name("Boolean")
+getlex Name("skin_W")
+callproperty Name("Boolean"), 1
+ofs0026:
+iffalse ofs0058
+getlex Name("deadX")
+pushfalse
+setproperty Name("visible")
+getlex Name("skin")
+pushtrue
+setproperty Name("visible")
+getlex Name("skin_Z")
+pushtrue
+setproperty Name("visible")
+getlex Name("skin_W")
+pushtrue
+setproperty Name("visible")
+getlex Name("skin")
+pushstring "站立"
+pushbyte 1
+pushtrue
+callpropvoid Name("GoTo"), 3
+ofs0058:
+findpropstrict Name("PK_hpMax")
+callpropvoid Name("PK_hpMax"), 0
+getlocal0
+getproperty Name("hp")
+pushint 9999999
+callpropvoid Name("setValue"), 1
+getlocal0
+getproperty Name("mp")
+pushint 9999999
+callpropvoid Name("setValue"), 1
+findproperty Name("continuousTime")
+pushbyte 0
+setproperty Name("continuousTime")
+returnvoid
+end ; code
+end ; body
+end ; method
+}

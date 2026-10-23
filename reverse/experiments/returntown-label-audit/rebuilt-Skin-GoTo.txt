@@ -1,0 +1,200 @@
+public function GoTo(param1:String, param2:int = 0, param3:Boolean = false) : *
+{
+trait method Name("GoTo")
+dispid 0
+method
+name null
+flag HAS_OPTIONAL
+param Name("String")
+param Name("int")
+param Name("Boolean")
+optional Integer(0)
+optional False()
+returns null
+
+body
+maxstack 3
+localcount 4
+initscopedepth 10
+maxscopedepth 11
+
+code
+getlocal0
+pushscope
+getlocal3
+pushtrue
+ifne ofs000e
+getlocal0
+pushtrue
+initproperty Name("stopRun")
+ofs000e:
+getlocal1
+pushstring "怪物技能"
+ifne ofs001c
+getlocal0
+callpropvoid Name("enemySkill"), 0
+ofs001c:
+getlocal1
+pushstring "被打"
+ifne ofs00aa
+getlocal0
+getlocal1
+initproperty Name("runType")
+getlocal0
+pushfalse
+initproperty Name("runOver")
+getlocal0
+pushfalse
+initproperty Name("stopRun")
+findpropstrict Name("gotoAndPlay")
+getlocal0
+getproperty Name("runType")
+callpropvoid Name("gotoAndPlay"), 1
+getlocal0
+getproperty Name("playX")
+getproperty Name("skin_W")
+getlocal0
+getproperty Name("runType")
+callpropvoid Name("gotoAndPlay"), 1
+getlocal0
+getproperty Name("playX")
+getproperty Name("skin_Z")
+getlocal0
+getproperty Name("runType")
+callpropvoid Name("gotoAndPlay"), 1
+getlocal0
+getproperty Name("playX")
+getproperty Name("skin_Z2")
+iffalse ofs008a
+getlocal0
+getproperty Name("playX")
+getproperty Name("skin_Z2")
+getlocal0
+getproperty Name("runType")
+callpropvoid Name("gotoAndPlay"), 1
+ofs008a:
+getlocal0
+getproperty Name("playX")
+getproperty Name("skin_Z3")
+iffalse ofs00aa
+getlocal0
+getproperty Name("playX")
+getproperty Name("skin_Z3")
+getlocal0
+getproperty Name("runType")
+callpropvoid Name("gotoAndPlay"), 1
+ofs00aa:
+getlocal0
+getproperty Name("runOver")
+convert_b
+dup
+iftrue ofs00bc
+pop
+getlocal0
+getproperty Name("stopRun")
+convert_b
+ofs00bc:
+dup
+iffalse ofs00ca
+pop
+getlocal0
+getproperty Name("runType")
+getlocal1
+equals
+not
+ofs00ca:
+iffalse ofs01c3
+getlocal0
+getlocal1
+callproperty Name("OtherGoTo"), 1
+coerce_s
+setlocal1
+getlocal0
+getlocal1
+callproperty Name("CanGoTo"), 1
+iffalse ofs01c3
+getlocal0
+getlocal1
+initproperty Name("runType")
+getlocal0
+getlocal0
+getproperty Name("runType")
+callpropvoid Name("otherGoTo"), 1
+findpropstrict Name("gotoAndPlay")
+getlocal0
+getproperty Name("runType")
+callpropvoid Name("gotoAndPlay"), 1
+getlocal0
+getproperty Name("playX")
+getproperty Name("skin_W")
+getlocal0
+getproperty Name("runType")
+callpropvoid Name("gotoAndPlay"), 1
+getlocal0
+getproperty Name("playX")
+getproperty Name("skin_Z")
+getlocal0
+getproperty Name("runType")
+callpropvoid Name("gotoAndPlay"), 1
+getlocal0
+getproperty Name("playX")
+getproperty Name("skin_Z2")
+iffalse ofs0147
+getlocal0
+getproperty Name("playX")
+getproperty Name("skin_Z2")
+getlocal0
+getproperty Name("runType")
+callpropvoid Name("gotoAndPlay"), 1
+ofs0147:
+getlocal0
+getproperty Name("playX")
+getproperty Name("skin_Z3")
+iffalse ofs018a
+getlocal0
+getproperty Name("runType")
+pushstring "跳"
+ifne ofs0177
+getlocal0
+getproperty Name("playX")
+getproperty Name("skin_Z3")
+getlocal0
+getproperty Name("runType")
+callpropvoid Name("gotoAndStop"), 1
+jump ofs018a
+ofs0177:
+getlocal0
+getproperty Name("playX")
+getproperty Name("skin_Z3")
+getlocal0
+getproperty Name("runType")
+callpropvoid Name("gotoAndPlay"), 1
+ofs018a:
+getlocal0
+pushfalse
+initproperty Name("runOver")
+getlocal0
+pushbyte 0
+initproperty Name("frame")
+getlex Name("MusicBox")
+getlocal0
+getproperty Name("playX")
+getproperty Name("data")
+getproperty Name("skinArr")
+getlocal0
+getproperty Name("playX")
+getproperty Name("data")
+getproperty Name("skinNum")
+getproperty MultinameL([PrivateNamespace(null,"152"),PackageNamespace(""),PrivateNamespace(null,"972"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.geom"),PackageNamespace("flash.utils"),ProtectedNamespace("src:Skin"),StaticProtectedNs("src:Skin"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+getlocal0
+getproperty Name("runType")
+callpropvoid Name("ActMusicPlay"), 2
+ofs01c3:
+getlocal0
+getlocal2
+initproperty Name("continuousTime")
+returnvoid
+end ; code
+end ; body
+end ; method
+}

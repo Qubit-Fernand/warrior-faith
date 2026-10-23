@@ -28,6 +28,24 @@ REPORT = ROOT/'reverse/experiments/datax-recovery'
 def sha(data): return hashlib.sha256(data).hexdigest()
 
 
+def preserve_original_swf_version(output, original):
+    """Keep caller-version compatibility rules; alter no ABC or tag bytes."""
+    before, body, header = read_swf(output)
+    baseline, _, original_header = read_swf(original)
+    version = original_header['version']
+    after = before[:3] + bytes([version]) + before[4:]
+    assert after[:3] == before[:3] and after[4:] == before[4:]
+    output.write_bytes(after)
+    checked, checked_body, checked_header = read_swf(output)
+    assert checked == after and checked_body == body and checked_header['version'] == version
+    return {'version_before': header['version'], 'version_after': version,
+        'original_sha256': hashlib.sha256(baseline).hexdigest(),
+        'before_sha256': hashlib.sha256(before).hexdigest(),
+        'after_sha256': hashlib.sha256(after).hexdigest(),
+        'changed_offsets': [3] if before[3] != version else [],
+        'all_other_bytes_identical': True, 'decompressed_body_and_abc_identical': True,
+        'reason': 'Preserve original SWF caller-version semantics; SWF9 missing frame labels do not throw the SWF11+ error2109.'}
+
 def verify_xmlasset_bindings(swf,run,java):
     """Inspect fresh FFDec disassembly, never raw-byte-search instruction operands."""
     classes=['src._data.ShopFactory','src._data.XingLingFactory','src.Shop_LiBao','src.Shop_LiBao2']
@@ -151,7 +169,7 @@ def main():
     assert not output.exists()
     command = [str(java), '-Xmx4g', '-Djava.awt.headless=true', f'-Dflexlib={flex}/frameworks', '-jar', str(flex/'lib/compc.jar'),
         '-load-config=', '-compiler.theme=', f'-compiler.external-library-path={player}', '-compiler.library-path=',
-        f'-compiler.source-path={source}', '-compiler.strict=false', '-debug=false', '-use-network=false',
+        f'-compiler.source-path={source}', '-compiler.strict=false', '-debug=false', '-compiler.omit-trace-statements=false', '-use-network=false',
         '-target-player=32.0', '-include-classes', *classes, f'-output={output}']
     LOGS.mkdir(parents=True,exist_ok=True)
     start=time.monotonic()
@@ -173,6 +191,7 @@ def main():
         normalized=run/'DataX_v76-rebuilt.swf'
         report['normalization']=normalize(raw,normalized,ROOT/'DataX_v76.swf')
         report['root_restoration']=restore_root(normalized,ROOT/'DataX_v76.swf')
+        report['swf_version_compatibility']=preserve_original_swf_version(normalized,ROOT/'DataX_v76.swf')
         original_inv=json.loads((ROOT/'reverse/exports/DataX_v76/inventory/abc-0000.json').read_text())
         rebuilt=[];indata_abc=None
         for code,payload in tags(normalized):

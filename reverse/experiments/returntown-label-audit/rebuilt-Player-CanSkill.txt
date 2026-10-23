@@ -1,0 +1,130 @@
+public function CanSkill(param1:String, param2:int) : Boolean
+{
+trait method Name("CanSkill")
+dispid 0
+method
+name null
+param Name("String")
+param Name("int")
+returns Name("Boolean")
+
+body
+maxstack 3
+localcount 10
+initscopedepth 10
+maxscopedepth 11
+
+code
+getlocal0
+pushscope
+pushbyte 0
+setlocal3
+pushbyte 0
+setlocal 4
+pushnull
+coerce Name("Array")
+setlocal 5
+pushbyte 0
+setlocal 6
+getlex Name("SkillFactory")
+getlocal1
+getlocal2
+callproperty Name("getSkillByTypeIAndLevel"), 2
+coerce Name("Skill")
+setlocal 7
+getlocal 7
+pushnull
+ifeq ofs00ef
+getlocal0
+getproperty Name("mp")
+callproperty Name("getValue"), 0
+getlocal 7
+callproperty Name("getMp"), 0
+subtract
+convert_i
+setlocal3
+findpropstrict Name("int")
+getlocal0
+getlocal1
+callproperty Name("selCD"), 1
+callproperty Name("int"), 1
+convert_i
+setlocal 4
+getlocal3
+pushbyte 0
+ifnle ofs0058
+pushfalse
+returnvalue
+ofs0058:
+getlocal 4
+pushbyte -1
+ifne ofs0062
+pushfalse
+returnvalue
+ofs0062:
+getlocal0
+getproperty Name("data")
+callproperty Name("getEquipSlot"), 0
+callproperty Name("getAllSuitSkill"), 0
+coerce Name("Array")
+setlocal 5
+pushbyte 0
+setlocal 8
+getlocal 5
+coerce_a
+setlocal 9
+jump ofs00c4
+ofs0082:
+label
+getlocal 9
+getlocal 8
+nextname
+convert_i
+setlocal 6
+getlocal 5
+getlocal 6
+getproperty MultinameL([PrivateNamespace(null,"144"),PackageNamespace(""),PrivateNamespace(null,"958"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.models.supplies"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("com.hotpoint.braveManIII.views.cardPanel"),PackageNamespace("com.hotpoint.braveManIII.views.itemsPanel"),PackageNamespace("com.hotpoint.braveManIII.views.suppliesShopPanel"),PackageNamespace("flash.events"),PackageNamespace("src._data"),PackageNamespace("src.other"),PackageNamespace("src.tool"),ProtectedNamespace("src:Player"),StaticProtectedNs("src:Player"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+pushint 57363
+ifne ofs00c4
+getlocal0
+getproperty Name("flagTempMP")
+iffalse ofs00c4
+getlocal0
+pushfalse
+initproperty Name("flagTempMP")
+getlocal0
+callpropvoid Name("setInTimeCDMP"), 0
+getlocal0
+getproperty Name("AllSkillCDXX")
+getlocal 4
+getproperty MultinameL([PrivateNamespace(null,"144"),PackageNamespace(""),PrivateNamespace(null,"958"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.models.supplies"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("com.hotpoint.braveManIII.views.cardPanel"),PackageNamespace("com.hotpoint.braveManIII.views.itemsPanel"),PackageNamespace("com.hotpoint.braveManIII.views.suppliesShopPanel"),PackageNamespace("flash.events"),PackageNamespace("src._data"),PackageNamespace("src.other"),PackageNamespace("src.tool"),ProtectedNamespace("src:Player"),StaticProtectedNs("src:Player"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+pushbyte 1
+pushbyte 0
+setproperty MultinameL([PrivateNamespace(null,"144"),PackageNamespace(""),PrivateNamespace(null,"958"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.models.supplies"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("com.hotpoint.braveManIII.views.cardPanel"),PackageNamespace("com.hotpoint.braveManIII.views.itemsPanel"),PackageNamespace("com.hotpoint.braveManIII.views.suppliesShopPanel"),PackageNamespace("flash.events"),PackageNamespace("src._data"),PackageNamespace("src.other"),PackageNamespace("src.tool"),ProtectedNamespace("src:Player"),StaticProtectedNs("src:Player"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+pushtrue
+returnvalue
+ofs00c4:
+hasnext2 9, 8
+iftrue ofs0082
+kill 9
+kill 8
+getlocal0
+getproperty Name("mp")
+getlocal3
+callpropvoid Name("setValue"), 1
+getlocal0
+getproperty Name("AllSkillCDXX")
+getlocal 4
+getproperty MultinameL([PrivateNamespace(null,"144"),PackageNamespace(""),PrivateNamespace(null,"958"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.models.supplies"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("com.hotpoint.braveManIII.views.cardPanel"),PackageNamespace("com.hotpoint.braveManIII.views.itemsPanel"),PackageNamespace("com.hotpoint.braveManIII.views.suppliesShopPanel"),PackageNamespace("flash.events"),PackageNamespace("src._data"),PackageNamespace("src.other"),PackageNamespace("src.tool"),ProtectedNamespace("src:Player"),StaticProtectedNs("src:Player"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+pushbyte 1
+pushbyte 0
+setproperty MultinameL([PrivateNamespace(null,"144"),PackageNamespace(""),PrivateNamespace(null,"958"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.models.supplies"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("com.hotpoint.braveManIII.views.cardPanel"),PackageNamespace("com.hotpoint.braveManIII.views.itemsPanel"),PackageNamespace("com.hotpoint.braveManIII.views.suppliesShopPanel"),PackageNamespace("flash.events"),PackageNamespace("src._data"),PackageNamespace("src.other"),PackageNamespace("src.tool"),ProtectedNamespace("src:Player"),StaticProtectedNs("src:Player"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+pushtrue
+returnvalue
+ofs00ef:
+pushtrue
+returnvalue
+end ; code
+end ; body
+end ; method
+}

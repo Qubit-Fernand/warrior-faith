@@ -1,0 +1,747 @@
+package com.hotpoint.braveManIII.repository.quest
+{
+   import com.hotpoint.braveManIII.models.quest.Quest;
+   import com.hotpoint.braveManIII.repository.task.*;
+   
+   public class QuestFactory
+   {
+      
+      public static var allData:Array;
+      
+      public static var myXml:XML;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"allData")
+               newarray 0
+               setproperty QName(PackageNamespace(""),"allData")
+               findproperty QName(PackageNamespace(""),"myXml")
+               findpropstrict Multiname("XML",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+               constructprop Multiname("XML",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 0
+               setproperty QName(PackageNamespace(""),"myXml")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function QuestFactory()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function creatQuestFactory() : *
+      {
+         trait method QName(PackageNamespace(""),"creatQuestFactory")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 1
+                  localcount 2
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     construct 0
+                     coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.quest"),"QuestFactory")
+                     setlocal1
+                     getlocal1
+                     callpropvoid Multiname("creatQuestFactory",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 0
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public static function getQuestById(param1:Number) : QuestBasicData
+         {
+            trait method QName(PackageNamespace(""),"getQuestById")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  param QName(PackageNamespace(""),"Number")
+                  returns QName(PackageNamespace("com.hotpoint.braveManIII.repository.quest"),"QuestBasicData")
+                  
+                  body
+                     maxstack 2
+                     localcount 6
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushnull
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.quest"),"QuestBasicData")
+                        setlocal2
+                        pushnull
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.quest"),"QuestBasicData")
+                        setlocal3
+                        pushbyte 0
+                        setlocal 4
+                        getlex Multiname("allData",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                        coerce_a
+                        setlocal 5
+                        jump ofs002f
+               ofs0018:
+                        label
+                        getlocal 5
+                        getlocal 4
+                        nextvalue
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.quest"),"QuestBasicData")
+                        setlocal3
+                        getlocal3
+                        callproperty Multiname("getFallLevel",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 0
+                        getlocal1
+                        ifne ofs002f
+                        getlocal3
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.quest"),"QuestBasicData")
+                        setlocal2
+               ofs002f:
+                        hasnext2 5, 4
+                        iftrue ofs0018
+                        kill 5
+                        kill 4
+                        getlocal2
+                        pushnull
+                        ifne ofs0040
+               ofs0040:
+                        getlocal2
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public static function getTaskId(param1:Number) : Number
+            {
+               trait method QName(PackageNamespace(""),"getTaskId")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"Number")
+                     returns QName(PackageNamespace(""),"Number")
+                     
+                     body
+                        maxstack 2
+                        localcount 2
+                        initscopedepth 3
+                        maxscopedepth 4
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           findpropstrict Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                           getlocal1
+                           callproperty Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                           callproperty Multiname("getId",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 0
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public static function getName(param1:Number) : String
+               {
+                  trait method QName(PackageNamespace(""),"getName")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"Number")
+                        returns QName(PackageNamespace(""),"String")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 3
+                           maxscopedepth 4
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                              getlocal1
+                              callproperty Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                              callproperty Multiname("getName",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 0
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public static function getType(param1:Number) : Number
+                  {
+                     trait method QName(PackageNamespace(""),"getType")
+                        flag FINAL
+                        dispid 7
+                        method
+                           name null
+                           param QName(PackageNamespace(""),"Number")
+                           returns QName(PackageNamespace(""),"Number")
+                           
+                           body
+                              maxstack 2
+                              localcount 2
+                              initscopedepth 3
+                              maxscopedepth 4
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 findpropstrict Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                 getlocal1
+                                 callproperty Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                 callproperty Multiname("getType",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 0
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public static function getFrame(param1:Number) : Number
+                     {
+                        trait method QName(PackageNamespace(""),"getFrame")
+                           flag FINAL
+                           dispid 8
+                           method
+                              name null
+                              param QName(PackageNamespace(""),"Number")
+                              returns QName(PackageNamespace(""),"Number")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 2
+                                 initscopedepth 3
+                                 maxscopedepth 4
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    findpropstrict Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                    getlocal1
+                                    callproperty Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                    callproperty Multiname("getFrame",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 0
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public static function getFallLevel(param1:Number) : Number
+                        {
+                           trait method QName(PackageNamespace(""),"getFallLevel")
+                              flag FINAL
+                              dispid 9
+                              method
+                                 name null
+                                 param QName(PackageNamespace(""),"Number")
+                                 returns QName(PackageNamespace(""),"Number")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 2
+                                    initscopedepth 3
+                                    maxscopedepth 4
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       findpropstrict Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                       getlocal1
+                                       callproperty Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                       callproperty Multiname("getFallLevel",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 0
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public static function getIntroduction(param1:Number) : String
+                           {
+                              trait method QName(PackageNamespace(""),"getIntroduction")
+                                 flag FINAL
+                                 dispid 10
+                                 method
+                                    name null
+                                    param QName(PackageNamespace(""),"Number")
+                                    returns QName(PackageNamespace(""),"String")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 2
+                                       initscopedepth 3
+                                       maxscopedepth 4
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          findpropstrict Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                          getlocal1
+                                          callproperty Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                          callproperty Multiname("getIntroduction",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 0
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public static function isMany(param1:Number) : Boolean
+                              {
+                                 trait method QName(PackageNamespace(""),"isMany")
+                                    flag FINAL
+                                    dispid 11
+                                    method
+                                       name null
+                                       param QName(PackageNamespace(""),"Number")
+                                       returns QName(PackageNamespace(""),"Boolean")
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 2
+                                          initscopedepth 3
+                                          maxscopedepth 4
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             findpropstrict Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                             getlocal1
+                                             callproperty Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                             callproperty Multiname("isMany",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 0
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public static function getTimes(param1:Number) : Number
+                                 {
+                                    trait method QName(PackageNamespace(""),"getTimes")
+                                       flag FINAL
+                                       dispid 12
+                                       method
+                                          name null
+                                          param QName(PackageNamespace(""),"Number")
+                                          returns QName(PackageNamespace(""),"Number")
+                                          
+                                          body
+                                             maxstack 2
+                                             localcount 2
+                                             initscopedepth 3
+                                             maxscopedepth 4
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                findpropstrict Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                getlocal1
+                                                callproperty Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                                callproperty Multiname("getTimes",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 0
+                                                returnvalue
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    public static function getPileLimit(param1:Number) : Number
+                                    {
+                                       trait method QName(PackageNamespace(""),"getPileLimit")
+                                          flag FINAL
+                                          dispid 13
+                                          method
+                                             name null
+                                             param QName(PackageNamespace(""),"Number")
+                                             returns QName(PackageNamespace(""),"Number")
+                                             
+                                             body
+                                                maxstack 2
+                                                localcount 2
+                                                initscopedepth 3
+                                                maxscopedepth 4
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   findpropstrict Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                   getlocal1
+                                                   callproperty Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                                   callproperty Multiname("getPileLimit",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 0
+                                                   returnvalue
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       public static function getFallMax(param1:Number) : Number
+                                       {
+                                          trait method QName(PackageNamespace(""),"getFallMax")
+                                             flag FINAL
+                                             dispid 14
+                                             method
+                                                name null
+                                                param QName(PackageNamespace(""),"Number")
+                                                returns QName(PackageNamespace(""),"Number")
+                                                
+                                                body
+                                                   maxstack 2
+                                                   localcount 2
+                                                   initscopedepth 3
+                                                   maxscopedepth 4
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      findpropstrict Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                      getlocal1
+                                                      callproperty Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                                      callproperty Multiname("getFallMax",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 0
+                                                      returnvalue
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          public static function getGold(param1:Number) : Number
+                                          {
+                                             trait method QName(PackageNamespace(""),"getGold")
+                                                flag FINAL
+                                                dispid 15
+                                                method
+                                                   name null
+                                                   param QName(PackageNamespace(""),"Number")
+                                                   returns QName(PackageNamespace(""),"Number")
+                                                   
+                                                   body
+                                                      maxstack 2
+                                                      localcount 2
+                                                      initscopedepth 3
+                                                      maxscopedepth 4
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         findpropstrict Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                         getlocal1
+                                                         callproperty Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                                         callproperty Multiname("getGold",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 0
+                                                         returnvalue
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             public static function creatQust(param1:Number) : Quest
+                                             {
+                                                trait method QName(PackageNamespace(""),"creatQust")
+                                                   flag FINAL
+                                                   dispid 16
+                                                   method
+                                                      name null
+                                                      param QName(PackageNamespace(""),"Number")
+                                                      returns QName(PackageNamespace("com.hotpoint.braveManIII.models.quest"),"Quest")
+                                                      
+                                                      body
+                                                         maxstack 2
+                                                         localcount 2
+                                                         initscopedepth 3
+                                                         maxscopedepth 4
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            findpropstrict Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                            getlocal1
+                                                            callproperty Multiname("getQuestById",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                                            callproperty Multiname("creatQuest",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 0
+                                                            returnvalue
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                                
+                                                public static function getGoodMaxNum(param1:Number) : Number
+                                                {
+                                                   trait method QName(PackageNamespace(""),"getGoodMaxNum")
+                                                      flag FINAL
+                                                      dispid 17
+                                                      method
+                                                         name null
+                                                         param QName(PackageNamespace(""),"Number")
+                                                         returns QName(PackageNamespace(""),"Number")
+                                                         
+                                                         body
+                                                            maxstack 3
+                                                            localcount 4
+                                                            initscopedepth 3
+                                                            maxscopedepth 4
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               findpropstrict Multiname("getTaskId",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                               getlocal1
+                                                               callproperty Multiname("getTaskId",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                                               convert_d
+                                                               setlocal2
+                                                               getlex Multiname("TaskFactory",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory"),PackageNamespace("com.hotpoint.braveManIII.repository.task")])
+                                                               getlocal2
+                                                               getlocal1
+                                                               callproperty Multiname("getGoodsMaxNum",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 2
+                                                               convert_d
+                                                               setlocal3
+                                                               getlocal3
+                                                               returnvalue
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                   }
+                                                   
+                                                   private function creatQuestFactory() : *
+                                                   {
+                                                      trait method QName(PrivateNamespace(null,"19"),"creatQuestFactory")
+                                                         dispid 0
+                                                         method
+                                                            name null
+                                                            returns null
+                                                            
+                                                            body
+                                                               maxstack 1
+                                                               localcount 1
+                                                               initscopedepth 4
+                                                               maxscopedepth 5
+                                                               
+                                                               code
+                                                                  getlocal0
+                                                                  pushscope
+                                                                  findpropstrict Multiname("xmlLoaded",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                  callpropvoid Multiname("xmlLoaded",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 0
+                                                                  returnvoid
+                                                               end ; code
+                                                            end ; body
+                                                         end ; method
+                                                      }
+                                                      
+                                                      private function xmlLoaded() : *
+                                                      {
+                                                         trait method QName(PrivateNamespace(null,"19"),"xmlLoaded")
+                                                            dispid 0
+                                                            method
+                                                               name null
+                                                               returns null
+                                                               
+                                                               body
+                                                                  maxstack 12
+                                                                  localcount 16
+                                                                  initscopedepth 4
+                                                                  maxscopedepth 5
+                                                                  
+                                                                  code
+                                                                     getlocal0
+                                                                     pushscope
+                                                                     pushnull
+                                                                     coerce QName(PackageNamespace(""),"XML")
+                                                                     setlocal1
+                                                                     pushnan
+                                                                     setlocal2
+                                                                     pushnull
+                                                                     coerce_s
+                                                                     setlocal3
+                                                                     pushnan
+                                                                     setlocal 4
+                                                                     pushnan
+                                                                     setlocal 5
+                                                                     pushnan
+                                                                     setlocal 6
+                                                                     pushnull
+                                                                     coerce_s
+                                                                     setlocal 7
+                                                                     pushfalse
+                                                                     setlocal 8
+                                                                     pushnan
+                                                                     setlocal 9
+                                                                     pushnan
+                                                                     setlocal 10
+                                                                     pushnan
+                                                                     setlocal 11
+                                                                     pushnan
+                                                                     setlocal 12
+                                                                     pushnull
+                                                                     coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.quest"),"QuestBasicData")
+                                                                     setlocal 13
+                                                                     pushbyte 0
+                                                                     setlocal 14
+                                                                     getlex Multiname("myXml",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     getproperty Multiname("任务道具",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     coerce_a
+                                                                     setlocal 15
+                                                                     jump ofs010b
+                                                            ofs003d:
+                                                                     label
+                                                                     getlocal 15
+                                                                     getlocal 14
+                                                                     nextvalue
+                                                                     coerce QName(PackageNamespace(""),"XML")
+                                                                     setlocal1
+                                                                     findpropstrict Multiname("Number",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     getlocal1
+                                                                     getproperty Multiname("编号",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     callproperty Multiname("Number",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                                                     convert_d
+                                                                     setlocal2
+                                                                     findpropstrict Multiname("String",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     getlocal1
+                                                                     getproperty Multiname("名字",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     callproperty Multiname("String",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                                                     coerce_s
+                                                                     setlocal3
+                                                                     findpropstrict Multiname("Number",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     getlocal1
+                                                                     getproperty Multiname("类型",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     callproperty Multiname("Number",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                                                     convert_d
+                                                                     setlocal 4
+                                                                     findpropstrict Multiname("Number",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     getlocal1
+                                                                     getproperty Multiname("帧数",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     callproperty Multiname("Number",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                                                     convert_d
+                                                                     setlocal 5
+                                                                     findpropstrict Multiname("Number",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     getlocal1
+                                                                     getproperty Multiname("掉落等级",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     callproperty Multiname("Number",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                                                     convert_d
+                                                                     setlocal 6
+                                                                     findpropstrict Multiname("String",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     getlocal1
+                                                                     getproperty Multiname("介绍",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     callproperty Multiname("String",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                                                     coerce_s
+                                                                     setlocal 7
+                                                                     getlocal1
+                                                                     getproperty Multiname("叠加",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     callproperty Multiname("toString",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 0
+                                                                     pushstring "true"
+                                                                     equals
+                                                                     getlex Multiname("Boolean",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     astypelate
+                                                                     convert_b
+                                                                     setlocal 8
+                                                                     findpropstrict Multiname("Number",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     getlocal1
+                                                                     getproperty Multiname("堆叠次数",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     callproperty Multiname("Number",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                                                     convert_d
+                                                                     setlocal 9
+                                                                     findpropstrict Multiname("Number",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     getlocal1
+                                                                     getproperty Multiname("堆叠上限",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     callproperty Multiname("Number",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                                                     convert_d
+                                                                     setlocal 10
+                                                                     findpropstrict Multiname("Number",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     getlocal1
+                                                                     getproperty Multiname("最大掉落数",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     callproperty Multiname("Number",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                                                     convert_d
+                                                                     setlocal 11
+                                                                     findpropstrict Multiname("Number",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     getlocal1
+                                                                     getproperty Multiname("金币",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     callproperty Multiname("Number",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                                                     convert_d
+                                                                     setlocal 12
+                                                                     getlex Multiname("QuestBasicData",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     getlocal2
+                                                                     getlocal 6
+                                                                     getlocal 4
+                                                                     getlocal3
+                                                                     getlocal 5
+                                                                     getlocal 7
+                                                                     getlocal 8
+                                                                     getlocal 9
+                                                                     getlocal 10
+                                                                     getlocal 11
+                                                                     getlocal 12
+                                                                     callproperty Multiname("creatQuest",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 11
+                                                                     coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.quest"),"QuestBasicData")
+                                                                     setlocal 13
+                                                                     getlex Multiname("allData",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")])
+                                                                     getlocal 13
+                                                                     callpropvoid Multiname("push",[PrivateNamespace(null,"19"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.quest:QuestFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.quest:QuestFactory")]), 1
+                                                            ofs010b:
+                                                                     hasnext2 15, 14
+                                                                     iftrue ofs003d
+                                                                     kill 15
+                                                                     kill 14
+                                                                     returnvoid
+                                                                  end ; code
+                                                               end ; body
+                                                            end ; method
+                                                         }
+                                                      }
+                                                   }
+                                                   
+                                                   method
+                                                      name null
+                                                      returns null
+                                                      
+                                                      body
+                                                         maxstack 2
+                                                         localcount 1
+                                                         initscopedepth 1
+                                                         maxscopedepth 3
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            findpropstrict Multiname("QuestFactory",[PackageNamespace("com.hotpoint.braveManIII.repository.quest")])
+                                                            getlex QName(PackageNamespace(""),"Object")
+                                                            pushscope
+                                                            getlex Multiname("Object",[PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("com.hotpoint.braveManIII.repository.quest"),PackageInternalNs("com.hotpoint.braveManIII.repository.quest"),Namespace("http://adobe.com/AS3/2006/builtin")])
+                                                            newclass 17
+                                                            popscope
+                                                            initproperty QName(PackageNamespace("com.hotpoint.braveManIII.repository.quest"),"QuestFactory")
+                                                            returnvoid
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                   

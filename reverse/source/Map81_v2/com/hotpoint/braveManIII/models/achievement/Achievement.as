@@ -950,29 +950,25 @@ package com.hotpoint.braveManIII.models.achievement
          if(nmapId.length != 1)
          {
             i = 0;
-            while(true)
+            while(i < nmapId.length)
             {
-               if(i < nmapId.length)
+               if(nmapId[i].getValue() == _map.getValue())
                {
-                  if(nmapId[i].getValue() == _map.getValue())
+                  if(nstr == _star.getValue())
                   {
-                     if(nstr == _star.getValue())
+                     if(isRy())
                      {
-                        if(isRy())
-                        {
-                           break;
-                        }
-                        if(_tg)
-                        {
-                           return dbNum(type,duNum);
-                        }
+                        return dbNum(type,duNum);
+                     }
+                     if(_tg)
+                     {
+                        return dbNum(type,duNum);
                      }
                   }
-                  continue;
                }
                i++;
             }
-            return dbNum(type,duNum);
+            return false;
          }
          if(nmapId[0].getValue() == -1)
          {

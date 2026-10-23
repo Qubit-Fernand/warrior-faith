@@ -1,0 +1,549 @@
+{
+  "schema": 1,
+  "scope": "22 proven Main decompilation-loss repairs only; original game defects retained. Applied after root authorization. No game or compiler execution.",
+  "original_swf_sha256": "b362fd3035995e63998de714cec9eb2fbe5216b4ee078182d48e30f5e1474b32",
+  "previous_runtime_build_sha256": "928e3d909992abb9b73e1820a45dd373d26171c460a72e296f605601df396248",
+  "patches": [
+    {
+      "path": "reverse/experiments/ordered-comparison/main-candidate.patch",
+      "sha256": "4177d4a1bef3f54248bc7facb7b8f3220366ddb1ba9a6325666a7ca1f90fff16"
+    },
+    {
+      "path": "reverse/experiments/ordered-comparison/nonstack-candidate.patch",
+      "sha256": "51227353b0dd3e0a075ef48232a7fbf1a5852a061d6ea6a3a3c707f247eb634f"
+    },
+    {
+      "path": "reverse/experiments/ordered-comparison/shop-setDown-candidate.patch",
+      "sha256": "c467a69b4e5f1730bec44712a801fb6d48b8dbcfee5834de858d184f0ff92ad1"
+    }
+  ],
+  "files": [
+    {
+      "path": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/player/PlayerData.as",
+      "before_sha256": "c6216b7a06fadb45e5ee465da3cfce36dc6a835b385407cde755efda45ceaafa",
+      "after_sha256": "9bbe8062f499f301ab683d12ac4d6b92676189f412160ec46af3de62468c2cac",
+      "crlf_preserved": true
+    },
+    {
+      "path": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/EquipSlot.as",
+      "before_sha256": "3767aca72567ac48091ca07ec88c4c35f9d13aeacbbab2370911e29f9c084f7d",
+      "after_sha256": "40bec7a6da48d4a38204fbfcc229850d37ff2d9eee5b7c1e69d3c070038ac2fc",
+      "crlf_preserved": true
+    },
+    {
+      "path": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/Bag.as",
+      "before_sha256": "e2c145068aa5ea5e54861d122bd4e6fca0648da6117b70d7981605ec2f84412e",
+      "after_sha256": "12ac73ca1bb34f9ffa985d7ffa191ebeb141ea4126aad96f1765b13379a0290c",
+      "crlf_preserved": true
+    },
+    {
+      "path": "reverse/source/3_L4399Main_gamefile/src/ChongWu.as",
+      "before_sha256": "9a80911b43ec5c4a131889ad61b1afee450dc8d484a085ace5ddc499ee129965",
+      "after_sha256": "85d1573ee773ee2f02d1ac0f1ddd431f25cf00c0c5de577e51db8747a70dd354",
+      "crlf_preserved": true
+    },
+    {
+      "path": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/Storage.as",
+      "before_sha256": "242cd0abeb86415117b47cda0eb2bd533af1741cbc325405b6460a9df70d59ad",
+      "after_sha256": "577cb6c33f1c7d9e8e5f0fd7567403306260ba9f421c3beca9525e7bd68685c8",
+      "crlf_preserved": true
+    },
+    {
+      "path": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/views/suppliesShopPanel/SuppliesShopPanel.as",
+      "before_sha256": "513b96e5d40f1a87f4d5da577be32e1041f728b33f42972525fb675d3b4f6944",
+      "after_sha256": "2b9d34174d41ebff370157725a2328b163bfbe390898b572f8751a4b8d9ecbb5",
+      "crlf_preserved": true
+    }
+  ],
+  "methods": [
+    {
+      "class": "com.hotpoint.braveManIII.models.player.PlayerData",
+      "method": "addGold",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/player/PlayerData.as",
+      "before_method_sha256": "65e7abfdfc7c15c6091bb7db07ff672d4c5618f801d65465fc2fdd569e68ff76",
+      "after_method_sha256": "0760884cf9a9bdfc2f5b904f89445bb01c629f670edd0125e90d183084b24f87",
+      "before_method": "public function addGold(param1:Number) : void\r\n      {\r\n         var _loc2_:Number = _gold.getValue() + param1;\r\n         if(_loc2_ <= InitData.Money_max.getValue())\r\n         {\r\n            _gold.setValue(_loc2_);\r\n         }\r\n      }",
+      "after_method": "public function addGold(param1:Number) : void\r\n      {\r\n         var _loc2_:Number = _gold.getValue() + param1;\r\n         if(!(_loc2_ > InitData.Money_max.getValue()))\r\n         {\r\n            _gold.setValue(_loc2_);\r\n         }\r\n      }",
+      "original_abc_method_index": 134,
+      "original_abc_method_code": {
+        "method": 134,
+        "offset": 2550912,
+        "length": 41,
+        "sha256": "4c78abfcef4b8dac1aee3d27a287deec606909cfeed36f9a68c7eaf4039da11f",
+        "max_stack": 2,
+        "local_count": 3,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      },
+      "evidence_manifest": "ordered-comparisons.json"
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.container.EquipSlot",
+      "method": "getAllHP",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/EquipSlot.as",
+      "before_method_sha256": "0da0fcd8f9f5323d7d1d6a4c99ef0feea059c156ca2aee2d5327fc30fd59dc8f",
+      "after_method_sha256": "3ad1b3d846fc9b44e40a429ef52ef62afe3ee18f62d832f915bf4b8b3440e909",
+      "before_method": "public function getAllHP() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if((_slot[_loc2_] as Equip).getRemainingTime() > 0)\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getHP();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.HP);\r\n      }",
+      "after_method": "public function getAllHP() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if(!((_slot[_loc2_] as Equip).getRemainingTime() <= 0))\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getHP();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.HP);\r\n      }",
+      "original_abc_method_index": 1032,
+      "original_abc_method_code": {
+        "method": 1032,
+        "offset": 2620106,
+        "length": 155,
+        "sha256": "797fa43d7f7e60209dd9a6dd2481d5bfe5a0f09e1460c1e50ef8f1aef8185c5a",
+        "max_stack": 3,
+        "local_count": 3,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      },
+      "evidence_manifest": "ordered-comparisons.json"
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.container.EquipSlot",
+      "method": "getAllMP",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/EquipSlot.as",
+      "before_method_sha256": "226e37c921fb27a29e010d06c87f53ed0b8480315e193b4acf593a7e01ac4853",
+      "after_method_sha256": "8c8ed2060981e4be029db686288fdf620dafd420a807f230101cf81fa5ad3820",
+      "before_method": "public function getAllMP() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if((_slot[_loc2_] as Equip).getRemainingTime() > 0)\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getMP();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.MP);\r\n      }",
+      "after_method": "public function getAllMP() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if(!((_slot[_loc2_] as Equip).getRemainingTime() <= 0))\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getMP();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.MP);\r\n      }",
+      "original_abc_method_index": 1033,
+      "original_abc_method_code": {
+        "method": 1033,
+        "offset": 2620271,
+        "length": 155,
+        "sha256": "ebd90968b300f1858de22b254e596137b43191b665fb9762141cf3648c946ea4",
+        "max_stack": 3,
+        "local_count": 3,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      },
+      "evidence_manifest": "ordered-comparisons.json"
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.container.EquipSlot",
+      "method": "getAllAttack",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/EquipSlot.as",
+      "before_method_sha256": "52ed5e9178acedefa3b4d88240cf7f94f4128a9e409d51681e69059dfb234f15",
+      "after_method_sha256": "380f6fc2969e2b1d449b81110d7e174633b5b3b75a6e2957effc600ada1cde9b",
+      "before_method": "public function getAllAttack() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if((_slot[_loc2_] as Equip).getRemainingTime() > 0)\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getAttack();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.ATTACK);\r\n      }",
+      "after_method": "public function getAllAttack() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if(!((_slot[_loc2_] as Equip).getRemainingTime() <= 0))\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getAttack();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.ATTACK);\r\n      }",
+      "original_abc_method_index": 1034,
+      "original_abc_method_code": {
+        "method": 1034,
+        "offset": 2620436,
+        "length": 155,
+        "sha256": "1af60df5d4fa84ffcea2bb90ff3ee33b68dc8685bc31634154fcbc93f36594fd",
+        "max_stack": 3,
+        "local_count": 3,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      },
+      "evidence_manifest": "ordered-comparisons.json"
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.container.EquipSlot",
+      "method": "getAllAttackIgnoreDefense",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/EquipSlot.as",
+      "before_method_sha256": "293cf0d97b2e4d2075a917f0538e91cebaa90c774176c47fb7b3b646140dd332",
+      "after_method_sha256": "6dcccfb70b7f50388459d6b99ffbe0f28cca38a37358b68bb9e8820451a47646",
+      "before_method": "public function getAllAttackIgnoreDefense() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if((_slot[_loc2_] as Equip).getRemainingTime() > 0)\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getAttackIgnoreDefense();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.ATTACKIGNOREDEFENSE);\r\n      }",
+      "after_method": "public function getAllAttackIgnoreDefense() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if(!((_slot[_loc2_] as Equip).getRemainingTime() <= 0))\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getAttackIgnoreDefense();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.ATTACKIGNOREDEFENSE);\r\n      }",
+      "original_abc_method_index": 1036,
+      "original_abc_method_code": {
+        "method": 1036,
+        "offset": 2620723,
+        "length": 155,
+        "sha256": "687580d4f6192062d7bf6eed67c94d43476776f3839481cc30c2d5e35d30286d",
+        "max_stack": 3,
+        "local_count": 3,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      },
+      "evidence_manifest": "ordered-comparisons.json"
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.container.EquipSlot",
+      "method": "getAllDefense",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/EquipSlot.as",
+      "before_method_sha256": "8f0d42eb0da654b465813d4da2a40572b7b0e283b43e33de9abe9b1bf3566713",
+      "after_method_sha256": "1e2baa85b8fdfbde281e9cf35f947327b2c998a0413b8a5d5c84d96b2b428df9",
+      "before_method": "public function getAllDefense() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if((_slot[_loc2_] as Equip).getRemainingTime() > 0)\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getDefense();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.DEFENSE);\r\n      }",
+      "after_method": "public function getAllDefense() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if(!((_slot[_loc2_] as Equip).getRemainingTime() <= 0))\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getDefense();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.DEFENSE);\r\n      }",
+      "original_abc_method_index": 1037,
+      "original_abc_method_code": {
+        "method": 1037,
+        "offset": 2620888,
+        "length": 155,
+        "sha256": "429f9eb915c609f6a9d3d9290d4e46fe00f2ac81e99635aacbf795b9575015ce",
+        "max_stack": 3,
+        "local_count": 3,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      },
+      "evidence_manifest": "ordered-comparisons.json"
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.container.EquipSlot",
+      "method": "getAllMoveSpeed",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/EquipSlot.as",
+      "before_method_sha256": "6fb709cd6c25b9842aa6064b3c04248f10d3ff9895ef1ed377362eda776aa4e5",
+      "after_method_sha256": "466385932a2870a0d1dd77d9ee877715abf87e6c91a4f0b6006eebbeb6121603",
+      "before_method": "public function getAllMoveSpeed() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if((_slot[_loc2_] as Equip).getRemainingTime() > 0)\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getMoveSpeed();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.MOVESPEED);\r\n      }",
+      "after_method": "public function getAllMoveSpeed() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if(!((_slot[_loc2_] as Equip).getRemainingTime() <= 0))\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getMoveSpeed();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.MOVESPEED);\r\n      }",
+      "original_abc_method_index": 1038,
+      "original_abc_method_code": {
+        "method": 1038,
+        "offset": 2621053,
+        "length": 155,
+        "sha256": "9046802663945b50dd762bc5c43bfb16ddad81feacd74b8a332d1c16c4fe3901",
+        "max_stack": 3,
+        "local_count": 3,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      },
+      "evidence_manifest": "ordered-comparisons.json"
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.container.EquipSlot",
+      "method": "getAllCrit",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/EquipSlot.as",
+      "before_method_sha256": "2562af5060f022602b46f2bb06d50fd620bf4bbe557746f6ca0c49c81f331308",
+      "after_method_sha256": "ef485d59091a1271b24f84bc6071037a1c3b4b4aef4d6b1ff9fb3c953c0e16a1",
+      "before_method": "public function getAllCrit() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if((_slot[_loc2_] as Equip).getRemainingTime() > 0)\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getCrit();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.CRIT);\r\n      }",
+      "after_method": "public function getAllCrit() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if(!((_slot[_loc2_] as Equip).getRemainingTime() <= 0))\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getCrit();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.CRIT);\r\n      }",
+      "original_abc_method_index": 1039,
+      "original_abc_method_code": {
+        "method": 1039,
+        "offset": 2621218,
+        "length": 155,
+        "sha256": "904450a17199f15b96a3f0d5d7abad4bcaf300aa3f6f36ddd1dba46f6ce07197",
+        "max_stack": 3,
+        "local_count": 3,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      },
+      "evidence_manifest": "ordered-comparisons.json"
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.container.EquipSlot",
+      "method": "getAllDuck",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/EquipSlot.as",
+      "before_method_sha256": "70fe77669816055a314320c81b95c937f675cb8171d6c3ade722a741323fed35",
+      "after_method_sha256": "71db26d075b8fea22ded4ad265dda8bb1831d36113c14edf7633b224d3594f7c",
+      "before_method": "public function getAllDuck() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if((_slot[_loc2_] as Equip).getRemainingTime() > 0)\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getDuck();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.DUCK);\r\n      }",
+      "after_method": "public function getAllDuck() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if(!((_slot[_loc2_] as Equip).getRemainingTime() <= 0))\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getDuck();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.DUCK);\r\n      }",
+      "original_abc_method_index": 1040,
+      "original_abc_method_code": {
+        "method": 1040,
+        "offset": 2621383,
+        "length": 155,
+        "sha256": "afe7d2a4992b8a31d050fe41a2a09160e3dd6f947c4192ebc376f398f2e40337",
+        "max_stack": 3,
+        "local_count": 3,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      },
+      "evidence_manifest": "ordered-comparisons.json"
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.container.EquipSlot",
+      "method": "getAllHardValue",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/EquipSlot.as",
+      "before_method_sha256": "14f861dc792ce8944e91c7572deeb1c545ad0d47c1a7f6b779238aa58ecc836a",
+      "after_method_sha256": "fd636ffa88256e14ea9d5fca3ae0a8fd02b46562b5ae3e499e9f8f2b477b0b22",
+      "before_method": "public function getAllHardValue() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if((_slot[_loc2_] as Equip).getRemainingTime() > 0)\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getHardValue();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.HARDVALUE);\r\n      }",
+      "after_method": "public function getAllHardValue() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if(!((_slot[_loc2_] as Equip).getRemainingTime() <= 0))\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getHardValue();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.HARDVALUE);\r\n      }",
+      "original_abc_method_index": 1041,
+      "original_abc_method_code": {
+        "method": 1041,
+        "offset": 2621548,
+        "length": 155,
+        "sha256": "6454b5e31cfa51936bf8f475f806e37d7758e72f90911ebd41ddab17444af0ba",
+        "max_stack": 3,
+        "local_count": 3,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      },
+      "evidence_manifest": "ordered-comparisons.json"
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.container.EquipSlot",
+      "method": "getAllMOKANG",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/EquipSlot.as",
+      "before_method_sha256": "20b27d472441206e76955f451df7534738a2378d75a320e366ca1ec78da323b1",
+      "after_method_sha256": "6d2116cbf0999f50d56fee6f0b3dbbabe426c1707a4a7d289bfaf691ea29cf50",
+      "before_method": "public function getAllMOKANG() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if((_slot[_loc2_] as Equip).getRemainingTime() > 0)\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getMOKANG();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.MOKANG);\r\n      }",
+      "after_method": "public function getAllMOKANG() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if(!((_slot[_loc2_] as Equip).getRemainingTime() <= 0))\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getMOKANG();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.MOKANG);\r\n      }",
+      "original_abc_method_index": 1042,
+      "original_abc_method_code": {
+        "method": 1042,
+        "offset": 2621713,
+        "length": 155,
+        "sha256": "5337eb558b7f5abfc2f1b837584b5abb613765cc46e8c48480c4328ab34c0bfa",
+        "max_stack": 3,
+        "local_count": 3,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      },
+      "evidence_manifest": "ordered-comparisons.json"
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.container.EquipSlot",
+      "method": "getAllPOMO",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/EquipSlot.as",
+      "before_method_sha256": "bcb391e53c46a6c06c426bc0420f0a07206754be04aca58475302bbd6b86a008",
+      "after_method_sha256": "736cd56bd825eb3779a13fdee0db1aca9cb74693167859accd6a9a22e6300144",
+      "before_method": "public function getAllPOMO() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if((_slot[_loc2_] as Equip).getRemainingTime() > 0)\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getPOMO();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.POMO);\r\n      }",
+      "after_method": "public function getAllPOMO() : Number\r\n      {\r\n         var _loc1_:Number = 0;\r\n         var _loc2_:* = 0;\r\n         for(; _loc2_ < 13; _loc2_++)\r\n         {\r\n            if(who.skinNum == 0)\r\n            {\r\n               if(_loc2_ == 5)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            else if(who.skinNum == 1)\r\n            {\r\n               if(_loc2_ == 2)\r\n               {\r\n                  continue;\r\n               }\r\n            }\r\n            if(_slot[_loc2_] != null)\r\n            {\r\n               if(!((_slot[_loc2_] as Equip).getRemainingTime() <= 0))\r\n               {\r\n                  _loc1_ += _slot[_loc2_].getPOMO();\r\n               }\r\n            }\r\n         }\r\n         return _loc1_ + getSuitAllAttrib(EquipBaseAttribTypeConst.POMO);\r\n      }",
+      "original_abc_method_index": 1043,
+      "original_abc_method_code": {
+        "method": 1043,
+        "offset": 2621878,
+        "length": 155,
+        "sha256": "d64c022864e0b12ad7504c12bc31224630bdb5abd264cf1d11e9d6e4a5ddd165",
+        "max_stack": 3,
+        "local_count": 3,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      },
+      "evidence_manifest": "ordered-comparisons.json"
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.container.Bag",
+      "method": "delGemById",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/Bag.as",
+      "before_method_sha256": "92271ca1b95969e3e58736f5d9cac739d40285a97ee2634f3afa15ce2f27a247",
+      "after_method_sha256": "725c57e1cc0c65b579b23ab9bd73fdd7a8ac7a3e9335f4ac0e18b161d29fa72f",
+      "before_method": "public function delGemById(param1:Number, param2:Number) : Array\r\n      {\r\n         var _loc5_:int = 0;\r\n         var _loc3_:Array = [];\r\n         var _loc4_:uint = 0;\r\n         while(_loc4_ < 24)\r\n         {\r\n            if(param2 <= 0)\r\n            {\r\n               break;\r\n            }\r\n            if(_gemBag[_loc4_] != null)\r\n            {\r\n               if((_gemBag[_loc4_] as Gem).compareById(param1))\r\n               {\r\n                  if(_gemBag[_loc4_].getIsPile() == true)\r\n                  {\r\n                     _loc5_ = 1;\r\n                     while(_loc5_ <= param2)\r\n                     {\r\n                        (_gemBag[_loc4_] as Gem).useGem(1);\r\n                        if((_gemBag[_loc4_] as Gem).getTimes() == 0)\r\n                        {\r\n                           _loc3_.push((_gemBag[_loc4_] as Gem).cloneGem(_loc5_));\r\n                           param2 -= _loc5_;\r\n                           _gemBag[_loc4_] = null;\r\n                           break;\r\n                        }\r\n                        if(_loc5_ == param2)\r\n                        {\r\n                           _loc3_.push((_gemBag[_loc4_] as Gem).cloneGem(param2));\r\n                           param2 = 0;\r\n                           break;\r\n                        }\r\n                        _loc5_++;\r\n                     }\r\n                  }\r\n                  else\r\n                  {\r\n                     param2--;\r\n                     _loc3_.push((_gemBag[_loc4_] as Gem).cloneGem(1));\r\n                     _gemBag[_loc4_] = null;\r\n                  }\r\n               }\r\n            }\r\n            _loc4_++;\r\n         }\r\n         return _loc3_;\r\n      }",
+      "after_method": "public function delGemById(param1:Number, param2:Number) : Array\r\n      {\r\n         var _loc5_:int = 0;\r\n         var _loc3_:Array = [];\r\n         var _loc4_:uint = 0;\r\n         while(_loc4_ < 24)\r\n         {\r\n            if(!(param2 > 0))\r\n            {\r\n               break;\r\n            }\r\n            if(_gemBag[_loc4_] != null)\r\n            {\r\n               if((_gemBag[_loc4_] as Gem).compareById(param1))\r\n               {\r\n                  if(_gemBag[_loc4_].getIsPile() == true)\r\n                  {\r\n                     _loc5_ = 1;\r\n                     while(_loc5_ <= param2)\r\n                     {\r\n                        (_gemBag[_loc4_] as Gem).useGem(1);\r\n                        if((_gemBag[_loc4_] as Gem).getTimes() == 0)\r\n                        {\r\n                           _loc3_.push((_gemBag[_loc4_] as Gem).cloneGem(_loc5_));\r\n                           param2 -= _loc5_;\r\n                           _gemBag[_loc4_] = null;\r\n                           break;\r\n                        }\r\n                        if(_loc5_ == param2)\r\n                        {\r\n                           _loc3_.push((_gemBag[_loc4_] as Gem).cloneGem(param2));\r\n                           param2 = 0;\r\n                           break;\r\n                        }\r\n                        _loc5_++;\r\n                     }\r\n                  }\r\n                  else\r\n                  {\r\n                     param2--;\r\n                     _loc3_.push((_gemBag[_loc4_] as Gem).cloneGem(1));\r\n                     _gemBag[_loc4_] = null;\r\n                  }\r\n               }\r\n            }\r\n            _loc4_++;\r\n         }\r\n         return _loc3_;\r\n      }",
+      "original_abc_method_index": 281,
+      "original_abc_method_code": {
+        "method": 281,
+        "offset": 2559030,
+        "length": 284,
+        "sha256": "d6fde0778e34fab9fb53922375f6f518f9c3fea3a4d43de164c0cf1ece08b704",
+        "max_stack": 3,
+        "local_count": 6,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      },
+      "evidence_manifest": "ordered-comparisons.json"
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.container.Bag",
+      "method": "delOtherById",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/Bag.as",
+      "before_method_sha256": "b1fd75d994def0cbbb974e2a4dcc7f4aa6679bcc9278a410a7062392f1950f6a",
+      "after_method_sha256": "e7da76e22628938030451c7318ff3f29d8b0c6670be0acc8afbdb57c909bfb92",
+      "before_method": "public function delOtherById(param1:Number, param2:Number = 1) : Array\r\n      {\r\n         var _loc5_:int = 0;\r\n         var _loc3_:Array = [];\r\n         var _loc4_:uint = 0;\r\n         while(_loc4_ < 24)\r\n         {\r\n            if(param2 <= 0)\r\n            {\r\n               break;\r\n            }\r\n            if(_otherobjBag[_loc4_] != null)\r\n            {\r\n               if((_otherobjBag[_loc4_] as Otherobj).compareById(param1))\r\n               {\r\n                  if(_otherobjBag[_loc4_].isMany() == true)\r\n                  {\r\n                     _loc5_ = 1;\r\n                     while(_loc5_ <= param2)\r\n                     {\r\n                        (_otherobjBag[_loc4_] as Otherobj).useOtherobj(1);\r\n                        if((_otherobjBag[_loc4_] as Otherobj).getTimes() == 0)\r\n                        {\r\n                           _loc3_.push((_otherobjBag[_loc4_] as Otherobj).cloneOtherobj(_loc5_));\r\n                           param2 -= _loc5_;\r\n                           _otherobjBag[_loc4_] = null;\r\n                           break;\r\n                        }\r\n                        if(_loc5_ == param2)\r\n                        {\r\n                           _loc3_.push((_otherobjBag[_loc4_] as Otherobj).cloneOtherobj(param2));\r\n                           param2 = 0;\r\n                           break;\r\n                        }\r\n                        _loc5_++;\r\n                     }\r\n                  }\r\n                  else\r\n                  {\r\n                     param2--;\r\n                     _loc3_.push((_otherobjBag[_loc4_] as Otherobj).cloneOtherobj(1));\r\n                     _otherobjBag[_loc4_] = null;\r\n                  }\r\n               }\r\n            }\r\n            _loc4_++;\r\n         }\r\n         return _loc3_;\r\n      }",
+      "after_method": "public function delOtherById(param1:Number, param2:Number = 1) : Array\r\n      {\r\n         var _loc5_:int = 0;\r\n         var _loc3_:Array = [];\r\n         var _loc4_:uint = 0;\r\n         while(_loc4_ < 24)\r\n         {\r\n            if(!(param2 > 0))\r\n            {\r\n               break;\r\n            }\r\n            if(_otherobjBag[_loc4_] != null)\r\n            {\r\n               if((_otherobjBag[_loc4_] as Otherobj).compareById(param1))\r\n               {\r\n                  if(_otherobjBag[_loc4_].isMany() == true)\r\n                  {\r\n                     _loc5_ = 1;\r\n                     while(_loc5_ <= param2)\r\n                     {\r\n                        (_otherobjBag[_loc4_] as Otherobj).useOtherobj(1);\r\n                        if((_otherobjBag[_loc4_] as Otherobj).getTimes() == 0)\r\n                        {\r\n                           _loc3_.push((_otherobjBag[_loc4_] as Otherobj).cloneOtherobj(_loc5_));\r\n                           param2 -= _loc5_;\r\n                           _otherobjBag[_loc4_] = null;\r\n                           break;\r\n                        }\r\n                        if(_loc5_ == param2)\r\n                        {\r\n                           _loc3_.push((_otherobjBag[_loc4_] as Otherobj).cloneOtherobj(param2));\r\n                           param2 = 0;\r\n                           break;\r\n                        }\r\n                        _loc5_++;\r\n                     }\r\n                  }\r\n                  else\r\n                  {\r\n                     param2--;\r\n                     _loc3_.push((_otherobjBag[_loc4_] as Otherobj).cloneOtherobj(1));\r\n                     _otherobjBag[_loc4_] = null;\r\n                  }\r\n               }\r\n            }\r\n            _loc4_++;\r\n         }\r\n         return _loc3_;\r\n      }",
+      "original_abc_method_index": 282,
+      "original_abc_method_code": {
+        "method": 282,
+        "offset": 2559324,
+        "length": 284,
+        "sha256": "6cd5c845de9f4942c5aabcc097cf54658c2511786773949ccdba555bb9808ce0",
+        "max_stack": 3,
+        "local_count": 6,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      },
+      "evidence_manifest": "ordered-comparisons.json"
+    },
+    {
+      "class": "src.ChongWu",
+      "method": "GoTo",
+      "source": "reverse/source/3_L4399Main_gamefile/src/ChongWu.as",
+      "before_method_sha256": "331563910bcef3dd501b4bc83654d5a3b9e2e9debf0a9fc5b997530208f315ba",
+      "after_method_sha256": "cb2927402e113032c7c57b1f46447c6194bd1f16077e322f28c46ebace8f3a6f",
+      "before_method": "public function GoTo(param1:String, param2:Boolean = false) : *\r\n      {\r\n         var _loc5_:Array = null;\r\n         var _loc6_:int = 0;\r\n         if(noMove)\r\n         {\r\n            return;\r\n         }\r\n         var _loc3_:uint = 3;\r\n         if(data._id.getValue() == 73105)\r\n         {\r\n            _loc3_ = 5;\r\n         }\r\n         var _loc4_:String = param1;\r\n         if(param1 == \"站立\")\r\n         {\r\n            _loc4_ = \"站立\" + int(Math.random() * _loc3_ + 1);\r\n         }\r\n         else if(param1 == \"攻击\")\r\n         {\r\n            _loc5_ = data.getPetSkillType();\r\n            _loc6_ = int(Math.random() * 4);\r\n            if(_loc5_[_loc6_] <= 0)\r\n            {\r\n               gongJiYn1 = gongJiYn2 = false;\r\n               return;\r\n            }\r\n            _loc4_ = \"攻击\" + _loc5_[_loc6_];\r\n         }\r\n         if(runType != _loc4_ && (isRunOver() || param2))\r\n         {\r\n            runType = _loc4_;\r\n            runType2 = param1;\r\n            if(param1 == \"攻击\")\r\n            {\r\n               noMove = true;\r\n               timeNum = 27 * 10;\r\n               gongJiYn1 = gongJiYn2 = false;\r\n            }\r\n            skin.gotoAndPlay(runType);\r\n         }\r\n      }",
+      "after_method": "public function GoTo(param1:String, param2:Boolean = false) : *\r\n      {\r\n         var _loc5_:Array = null;\r\n         var _loc6_:int = 0;\r\n         if(noMove)\r\n         {\r\n            return;\r\n         }\r\n         var _loc3_:uint = 3;\r\n         if(data._id.getValue() == 73105)\r\n         {\r\n            _loc3_ = 5;\r\n         }\r\n         var _loc4_:String = param1;\r\n         if(param1 == \"站立\")\r\n         {\r\n            _loc4_ = \"站立\" + int(Math.random() * _loc3_ + 1);\r\n         }\r\n         else if(param1 == \"攻击\")\r\n         {\r\n            _loc5_ = data.getPetSkillType();\r\n            _loc6_ = int(Math.random() * 4);\r\n            if(!(_loc5_[_loc6_] > 0))\r\n            {\r\n               gongJiYn1 = gongJiYn2 = false;\r\n               return;\r\n            }\r\n            _loc4_ = \"攻击\" + _loc5_[_loc6_];\r\n         }\r\n         if(runType != _loc4_ && (isRunOver() || param2))\r\n         {\r\n            runType = _loc4_;\r\n            runType2 = param1;\r\n            if(param1 == \"攻击\")\r\n            {\r\n               noMove = true;\r\n               timeNum = 27 * 10;\r\n               gongJiYn1 = gongJiYn2 = false;\r\n            }\r\n            skin.gotoAndPlay(runType);\r\n         }\r\n      }",
+      "original_abc_method_index": 5004,
+      "original_abc_method_code": {
+        "method": 5004,
+        "offset": 2940603,
+        "length": 320,
+        "sha256": "a0dfa3b78996d066da9e93db5b158fd2bf2e48c092809b426e52d120c0b37ae2",
+        "max_stack": 4,
+        "local_count": 8,
+        "init_scope": 10,
+        "max_scope": 11,
+        "traits": []
+      },
+      "evidence_manifest": "ordered-comparisons.json"
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.container.Bag",
+      "method": "isGemBagEmpty",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/Bag.as",
+      "before_method_sha256": "9f841b9aae5878e88bf4ca8ae6ae07c09ea9b429d09b9608fe9d43972baff24f",
+      "after_method_sha256": "1eb5f168e6a1fd80a1e993f7b8868947b54432dfcaf00bfee03fb740cf4ca5bd",
+      "before_method": "public function isGemBagEmpty(param1:Gem) : Boolean\r\n      {\r\n         var _loc2_:Boolean = false;\r\n         var _loc3_:int = 0;\r\n         if(param1.getIsPile() != true)\r\n         {\r\n            _loc3_ = 0;\r\n            while(true)\r\n            {\r\n               if(_loc3_ < 24)\r\n               {\r\n                  if(_gemBag[_loc3_] == null)\r\n                  {\r\n                     break;\r\n                  }\r\n                  _loc3_++;\r\n                  continue;\r\n               }\r\n            }\r\n            return true;\r\n         }\r\n         _loc2_ = true;\r\n         _loc3_ = 0;\r\n         while(_loc3_ < 24)\r\n         {\r\n            if(_gemBag[_loc3_] == null)\r\n            {\r\n               return true;\r\n            }\r\n            if(_gemBag[_loc3_].compareGem(param1) == true)\r\n            {\r\n               if(_gemBag[_loc3_].getTimes() + param1.getTimes() < param1.getPileLimit())\r\n               {\r\n                  return true;\r\n               }\r\n               if(_loc3_ == 23)\r\n               {\r\n                  return false;\r\n               }\r\n            }\r\n            _loc3_++;\r\n         }\r\n         return false;\r\n      }",
+      "after_method": "public function isGemBagEmpty(param1:Gem) : Boolean\r\n      {\r\n         var _loc2_:Boolean = false;\r\n         var _loc3_:int = 0;\r\n         if(param1.getIsPile() != true)\r\n         {\r\n            _loc3_ = 0;\r\n            while(_loc3_ < 24)\r\n            {\r\n               if(_gemBag[_loc3_] == null)\r\n               {\r\n                  return true;\r\n               }\r\n               _loc3_++;\r\n            }\r\n            return false;\r\n         }\r\n         _loc2_ = true;\r\n         _loc3_ = 0;\r\n         while(_loc3_ < 24)\r\n         {\r\n            if(_gemBag[_loc3_] == null)\r\n            {\r\n               return true;\r\n            }\r\n            if(_gemBag[_loc3_].compareGem(param1) == true)\r\n            {\r\n               if(_gemBag[_loc3_].getTimes() + param1.getTimes() < param1.getPileLimit())\r\n               {\r\n                  return true;\r\n               }\r\n               if(_loc3_ == 23)\r\n               {\r\n                  return false;\r\n               }\r\n            }\r\n            _loc3_++;\r\n         }\r\n         return false;\r\n      }",
+      "original_abc_method_index": 252,
+      "original_abc_method_code": {
+        "method": 252,
+        "offset": 2555799,
+        "length": 145,
+        "sha256": "bf37f5b61fdfc509a666893870fe162fb5c68b5e8a7168ed2ed2f9b3e1e46539",
+        "max_stack": 2,
+        "local_count": 4,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      },
+      "evidence_manifest": "nonstack-loops.json"
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.container.Bag",
+      "method": "addGemBag",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/Bag.as",
+      "before_method_sha256": "8b5e3e23204596435217e1a0c64498e95ed9506af8cac576fb92911b71df0d42",
+      "after_method_sha256": "cffdc40b36c42085a75b7a64dba41dee306600e19a5ab6f48e1009dd7654f3ce",
+      "before_method": "public function addGemBag(param1:Gem) : Boolean\r\n      {\r\n         var _loc2_:int = 0;\r\n         var _loc3_:Boolean = false;\r\n         var _loc4_:int = 0;\r\n         if(param1.getIsPile() != true)\r\n         {\r\n            _loc4_ = 0;\r\n            while(true)\r\n            {\r\n               if(_loc4_ < 24)\r\n               {\r\n                  if(_gemBag[_loc4_] == null)\r\n                  {\r\n                     break;\r\n                  }\r\n                  _loc4_++;\r\n                  continue;\r\n               }\r\n            }\r\n            _gemBag[_loc4_] = param1;\r\n            return true;\r\n         }\r\n         _loc2_ = -1;\r\n         _loc3_ = true;\r\n         _loc4_ = 0;\r\n         while(_loc4_ < 24)\r\n         {\r\n            if(_gemBag[_loc4_] != null)\r\n            {\r\n               if(_gemBag[_loc4_].compareGem(param1) == true)\r\n               {\r\n                  while(_gemBag[_loc4_].getTimes() < param1.getPileLimit())\r\n                  {\r\n                     _gemBag[_loc4_].addGem(1);\r\n                     if(param1.useGem(1) == false)\r\n                     {\r\n                        break;\r\n                     }\r\n                  }\r\n                  if(param1.getTimes() == 0)\r\n                  {\r\n                     break;\r\n                  }\r\n               }\r\n            }\r\n            else if(_loc2_ == -1)\r\n            {\r\n               _loc2_ = _loc4_;\r\n            }\r\n            _loc4_++;\r\n         }\r\n         if(param1.getTimes() > 0)\r\n         {\r\n            _gemBag[_loc2_] = param1;\r\n         }\r\n         return false;\r\n      }",
+      "after_method": "public function addGemBag(param1:Gem) : Boolean\r\n      {\r\n         var _loc2_:int = 0;\r\n         var _loc3_:Boolean = false;\r\n         var _loc4_:int = 0;\r\n         if(param1.getIsPile() != true)\r\n         {\r\n            _loc4_ = 0;\r\n            while(_loc4_ < 24)\r\n            {\r\n               if(_gemBag[_loc4_] == null)\r\n               {\r\n                  _gemBag[_loc4_] = param1;\r\n                  return true;\r\n               }\r\n               _loc4_++;\r\n            }\r\n            return false;\r\n         }\r\n         _loc2_ = -1;\r\n         _loc3_ = true;\r\n         _loc4_ = 0;\r\n         while(_loc4_ < 24)\r\n         {\r\n            if(_gemBag[_loc4_] != null)\r\n            {\r\n               if(_gemBag[_loc4_].compareGem(param1) == true)\r\n               {\r\n                  while(_gemBag[_loc4_].getTimes() < param1.getPileLimit())\r\n                  {\r\n                     _gemBag[_loc4_].addGem(1);\r\n                     if(param1.useGem(1) == false)\r\n                     {\r\n                        break;\r\n                     }\r\n                  }\r\n                  if(param1.getTimes() == 0)\r\n                  {\r\n                     break;\r\n                  }\r\n               }\r\n            }\r\n            else if(_loc2_ == -1)\r\n            {\r\n               _loc2_ = _loc4_;\r\n            }\r\n            _loc4_++;\r\n         }\r\n         if(param1.getTimes() > 0)\r\n         {\r\n            _gemBag[_loc2_] = param1;\r\n         }\r\n         return false;\r\n      }",
+      "original_abc_method_index": 253,
+      "original_abc_method_code": {
+        "method": 253,
+        "offset": 2555954,
+        "length": 230,
+        "sha256": "9e0dc441a628c7ee7421329b4c27157dbaeb8b38c5bb2afef33f4b784a085d9b",
+        "max_stack": 3,
+        "local_count": 5,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      },
+      "evidence_manifest": "nonstack-loops.json"
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.container.Bag",
+      "method": "addOtherobjBag",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/Bag.as",
+      "before_method_sha256": "ef9fd4905921e6b37db61b5879846142c16e2d878d01b81308ff25a86fb64377",
+      "after_method_sha256": "63701e9c3f3614af7e83bcd121ac9724f032c7a8eeca2674c83095a9fe802d24",
+      "before_method": "public function addOtherobjBag(param1:Otherobj) : Boolean\r\n      {\r\n         var _loc2_:int = 0;\r\n         var _loc3_:Boolean = false;\r\n         var _loc4_:int = 0;\r\n         if(param1.isMany() != true)\r\n         {\r\n            _loc4_ = 0;\r\n            while(true)\r\n            {\r\n               if(_loc4_ < 24)\r\n               {\r\n                  if(_otherobjBag[_loc4_] == null)\r\n                  {\r\n                     break;\r\n                  }\r\n                  _loc4_++;\r\n                  continue;\r\n               }\r\n            }\r\n            _otherobjBag[_loc4_] = param1;\r\n            return true;\r\n         }\r\n         _loc2_ = -1;\r\n         _loc3_ = true;\r\n         _loc4_ = 0;\r\n         while(_loc4_ < 24)\r\n         {\r\n            if(_otherobjBag[_loc4_] != null)\r\n            {\r\n               if(_otherobjBag[_loc4_].compareOtherobj(param1) == true)\r\n               {\r\n                  while(_otherobjBag[_loc4_].getTimes() < param1.getPileLimit())\r\n                  {\r\n                     _otherobjBag[_loc4_].addOtherobj(1);\r\n                     if(param1.useOtherobj(1) == false)\r\n                     {\r\n                        break;\r\n                     }\r\n                  }\r\n                  if(param1.getTimes() == 0)\r\n                  {\r\n                     break;\r\n                  }\r\n               }\r\n            }\r\n            else if(_loc2_ == -1)\r\n            {\r\n               _loc2_ = _loc4_;\r\n            }\r\n            _loc4_++;\r\n         }\r\n         if(param1.getTimes() > 0)\r\n         {\r\n            _otherobjBag[_loc2_] = param1;\r\n         }\r\n         return false;\r\n      }",
+      "after_method": "public function addOtherobjBag(param1:Otherobj) : Boolean\r\n      {\r\n         var _loc2_:int = 0;\r\n         var _loc3_:Boolean = false;\r\n         var _loc4_:int = 0;\r\n         if(param1.isMany() != true)\r\n         {\r\n            _loc4_ = 0;\r\n            while(_loc4_ < 24)\r\n            {\r\n               if(_otherobjBag[_loc4_] == null)\r\n               {\r\n                  _otherobjBag[_loc4_] = param1;\r\n                  return true;\r\n               }\r\n               _loc4_++;\r\n            }\r\n            return false;\r\n         }\r\n         _loc2_ = -1;\r\n         _loc3_ = true;\r\n         _loc4_ = 0;\r\n         while(_loc4_ < 24)\r\n         {\r\n            if(_otherobjBag[_loc4_] != null)\r\n            {\r\n               if(_otherobjBag[_loc4_].compareOtherobj(param1) == true)\r\n               {\r\n                  while(_otherobjBag[_loc4_].getTimes() < param1.getPileLimit())\r\n                  {\r\n                     _otherobjBag[_loc4_].addOtherobj(1);\r\n                     if(param1.useOtherobj(1) == false)\r\n                     {\r\n                        break;\r\n                     }\r\n                  }\r\n                  if(param1.getTimes() == 0)\r\n                  {\r\n                     break;\r\n                  }\r\n               }\r\n            }\r\n            else if(_loc2_ == -1)\r\n            {\r\n               _loc2_ = _loc4_;\r\n            }\r\n            _loc4_++;\r\n         }\r\n         if(param1.getTimes() > 0)\r\n         {\r\n            _otherobjBag[_loc2_] = param1;\r\n         }\r\n         return false;\r\n      }",
+      "original_abc_method_index": 258,
+      "original_abc_method_code": {
+        "method": 258,
+        "offset": 2556446,
+        "length": 230,
+        "sha256": "76535427c96f955f151554f5524ada776739d9eaa8fca60bdd18c02c85366511",
+        "max_stack": 3,
+        "local_count": 5,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      },
+      "evidence_manifest": "nonstack-loops.json"
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.container.Bag",
+      "method": "addQuestBag",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/Bag.as",
+      "before_method_sha256": "863d00881a1ef7e2cfc4cbbee03551f25246c8659315ad9c955386de4820c12e",
+      "after_method_sha256": "f854916a0943b7c1b9c961270fe968bc41dba7841b2f2e24ca8807b722a5eb40",
+      "before_method": "public function addQuestBag(param1:Quest) : Boolean\r\n      {\r\n         var _loc2_:int = 0;\r\n         var _loc3_:Boolean = false;\r\n         var _loc4_:int = 0;\r\n         if(param1.isMany() != true)\r\n         {\r\n            _loc4_ = 0;\r\n            while(true)\r\n            {\r\n               if(_loc4_ < 24)\r\n               {\r\n                  if(_questBag[_loc4_] == null)\r\n                  {\r\n                     break;\r\n                  }\r\n                  _loc4_++;\r\n                  continue;\r\n               }\r\n            }\r\n            _questBag[_loc4_] = param1;\r\n            return true;\r\n         }\r\n         _loc2_ = -1;\r\n         _loc3_ = true;\r\n         _loc4_ = 0;\r\n         while(_loc4_ < 24)\r\n         {\r\n            if(_questBag[_loc4_] != null)\r\n            {\r\n               if(_questBag[_loc4_].compareQuest(param1) == true)\r\n               {\r\n                  while(_questBag[_loc4_].getTimes() < param1.getPileLimit())\r\n                  {\r\n                     _questBag[_loc4_].addQuest(1);\r\n                     if(param1.useQuest(1) == false)\r\n                     {\r\n                        break;\r\n                     }\r\n                  }\r\n                  if(param1.getTimes() == 0)\r\n                  {\r\n                     break;\r\n                  }\r\n               }\r\n            }\r\n            else if(_loc2_ == -1)\r\n            {\r\n               _loc2_ = _loc4_;\r\n            }\r\n            _loc4_++;\r\n         }\r\n         if(param1.getTimes() > 0)\r\n         {\r\n            _questBag[_loc2_] = param1;\r\n         }\r\n         return false;\r\n      }",
+      "after_method": "public function addQuestBag(param1:Quest) : Boolean\r\n      {\r\n         var _loc2_:int = 0;\r\n         var _loc3_:Boolean = false;\r\n         var _loc4_:int = 0;\r\n         if(param1.isMany() != true)\r\n         {\r\n            _loc4_ = 0;\r\n            while(_loc4_ < 24)\r\n            {\r\n               if(_questBag[_loc4_] == null)\r\n               {\r\n                  _questBag[_loc4_] = param1;\r\n                  return true;\r\n               }\r\n               _loc4_++;\r\n            }\r\n            return false;\r\n         }\r\n         _loc2_ = -1;\r\n         _loc3_ = true;\r\n         _loc4_ = 0;\r\n         while(_loc4_ < 24)\r\n         {\r\n            if(_questBag[_loc4_] != null)\r\n            {\r\n               if(_questBag[_loc4_].compareQuest(param1) == true)\r\n               {\r\n                  while(_questBag[_loc4_].getTimes() < param1.getPileLimit())\r\n                  {\r\n                     _questBag[_loc4_].addQuest(1);\r\n                     if(param1.useQuest(1) == false)\r\n                     {\r\n                        break;\r\n                     }\r\n                  }\r\n                  if(param1.getTimes() == 0)\r\n                  {\r\n                     break;\r\n                  }\r\n               }\r\n            }\r\n            else if(_loc2_ == -1)\r\n            {\r\n               _loc2_ = _loc4_;\r\n            }\r\n            _loc4_++;\r\n         }\r\n         if(param1.getTimes() > 0)\r\n         {\r\n            _questBag[_loc2_] = param1;\r\n         }\r\n         return false;\r\n      }",
+      "original_abc_method_index": 259,
+      "original_abc_method_code": {
+        "method": 259,
+        "offset": 2556686,
+        "length": 230,
+        "sha256": "1d860b13614667dabfc653e3449da7c9cfdea4a74fd5efc919d4caf02f0f4e1c",
+        "max_stack": 3,
+        "local_count": 5,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      },
+      "evidence_manifest": "nonstack-loops.json"
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.container.Storage",
+      "method": "addGemStorage",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/Storage.as",
+      "before_method_sha256": "da35c36089fda6b26826c9778874bd59e583e0b003a74c1776481f096973a44f",
+      "after_method_sha256": "a5073d28977687b63e7d8d50f466f052dd81c41bb2fb65ceb434739ee2c730f9",
+      "before_method": "public function addGemStorage(param1:Gem) : Boolean\r\n      {\r\n         var _loc2_:int = 0;\r\n         var _loc3_:Boolean = false;\r\n         var _loc4_:int = 0;\r\n         if(param1.getIsPile() != true)\r\n         {\r\n            _loc4_ = 0;\r\n            while(true)\r\n            {\r\n               if(_loc4_ < 35)\r\n               {\r\n                  if(_gemStorage[_loc4_] == null)\r\n                  {\r\n                     break;\r\n                  }\r\n                  _loc4_++;\r\n                  continue;\r\n               }\r\n            }\r\n            _gemStorage[_loc4_] = param1;\r\n            return true;\r\n         }\r\n         _loc2_ = -1;\r\n         _loc3_ = true;\r\n         _loc4_ = 0;\r\n         while(_loc4_ < 35)\r\n         {\r\n            if(_gemStorage[_loc4_] != null)\r\n            {\r\n               if(_gemStorage[_loc4_].compareGem(param1) == true)\r\n               {\r\n                  while(param1.getTimes() > 0 && _gemStorage[_loc4_].getTimes() < param1.getPileLimit())\r\n                  {\r\n                     _gemStorage[_loc4_].addGem(1);\r\n                     param1.useGem(1);\r\n                  }\r\n                  if(param1.getTimes() == 0)\r\n                  {\r\n                     break;\r\n                  }\r\n               }\r\n            }\r\n            else if(_loc2_ == -1)\r\n            {\r\n               _loc2_ = _loc4_;\r\n            }\r\n            _loc4_++;\r\n         }\r\n         if(param1.getTimes() > 0)\r\n         {\r\n            _gemStorage[_loc2_] = param1;\r\n         }\r\n         return false;\r\n      }",
+      "after_method": "public function addGemStorage(param1:Gem) : Boolean\r\n      {\r\n         var _loc2_:int = 0;\r\n         var _loc3_:Boolean = false;\r\n         var _loc4_:int = 0;\r\n         if(param1.getIsPile() != true)\r\n         {\r\n            _loc4_ = 0;\r\n            while(_loc4_ < 35)\r\n            {\r\n               if(_gemStorage[_loc4_] == null)\r\n               {\r\n                  _gemStorage[_loc4_] = param1;\r\n                  return true;\r\n               }\r\n               _loc4_++;\r\n            }\r\n            return false;\r\n         }\r\n         _loc2_ = -1;\r\n         _loc3_ = true;\r\n         _loc4_ = 0;\r\n         while(_loc4_ < 35)\r\n         {\r\n            if(_gemStorage[_loc4_] != null)\r\n            {\r\n               if(_gemStorage[_loc4_].compareGem(param1) == true)\r\n               {\r\n                  while(param1.getTimes() > 0 && _gemStorage[_loc4_].getTimes() < param1.getPileLimit())\r\n                  {\r\n                     _gemStorage[_loc4_].addGem(1);\r\n                     param1.useGem(1);\r\n                  }\r\n                  if(param1.getTimes() == 0)\r\n                  {\r\n                     break;\r\n                  }\r\n               }\r\n            }\r\n            else if(_loc2_ == -1)\r\n            {\r\n               _loc2_ = _loc4_;\r\n            }\r\n            _loc4_++;\r\n         }\r\n         if(param1.getTimes() > 0)\r\n         {\r\n            _gemStorage[_loc2_] = param1;\r\n         }\r\n         return false;\r\n      }",
+      "original_abc_method_index": 1306,
+      "original_abc_method_code": {
+        "method": 1306,
+        "offset": 2633332,
+        "length": 236,
+        "sha256": "ecdd13f09694984e48356fafe13307c1e3233fe2c627e9da2b70786216c4bfcc",
+        "max_stack": 3,
+        "local_count": 5,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      },
+      "evidence_manifest": "nonstack-loops.json"
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.container.Storage",
+      "method": "addOtherobjStorage",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/container/Storage.as",
+      "before_method_sha256": "61b8c37569527389d131eef24e4cd13d549409916b23fd29f2e263fddea7309a",
+      "after_method_sha256": "ba353dcbd58b3e93ed1da63226b9a7a6fa249debb1d8e56b222019c62fce6484",
+      "before_method": "public function addOtherobjStorage(param1:Otherobj) : Boolean\r\n      {\r\n         var _loc2_:int = 0;\r\n         var _loc3_:Boolean = false;\r\n         var _loc4_:int = 0;\r\n         if(param1.isMany() != true)\r\n         {\r\n            _loc4_ = 0;\r\n            while(true)\r\n            {\r\n               if(_loc4_ < 35)\r\n               {\r\n                  if(_otherobjStorage[_loc4_] == null)\r\n                  {\r\n                     break;\r\n                  }\r\n                  _loc4_++;\r\n                  continue;\r\n               }\r\n            }\r\n            _otherobjStorage[_loc4_] = param1;\r\n            return true;\r\n         }\r\n         _loc2_ = -1;\r\n         _loc3_ = true;\r\n         _loc4_ = 0;\r\n         while(_loc4_ < 35)\r\n         {\r\n            if(_otherobjStorage[_loc4_] != null)\r\n            {\r\n               if(_otherobjStorage[_loc4_].compareOtherobj(param1) == true)\r\n               {\r\n                  while(param1.getTimes() > 0 && _otherobjStorage[_loc4_].getTimes() < param1.getPileLimit())\r\n                  {\r\n                     _otherobjStorage[_loc4_].addOtherobj(1);\r\n                     param1.useOtherobj(1);\r\n                  }\r\n                  if(param1.getTimes() == 0)\r\n                  {\r\n                     break;\r\n                  }\r\n               }\r\n            }\r\n            else if(_loc2_ == -1)\r\n            {\r\n               _loc2_ = _loc4_;\r\n            }\r\n            _loc4_++;\r\n         }\r\n         if(param1.getTimes() > 0)\r\n         {\r\n            _otherobjStorage[_loc2_] = param1;\r\n         }\r\n         return false;\r\n      }",
+      "after_method": "public function addOtherobjStorage(param1:Otherobj) : Boolean\r\n      {\r\n         var _loc2_:int = 0;\r\n         var _loc3_:Boolean = false;\r\n         var _loc4_:int = 0;\r\n         if(param1.isMany() != true)\r\n         {\r\n            _loc4_ = 0;\r\n            while(_loc4_ < 35)\r\n            {\r\n               if(_otherobjStorage[_loc4_] == null)\r\n               {\r\n                  _otherobjStorage[_loc4_] = param1;\r\n                  return true;\r\n               }\r\n               _loc4_++;\r\n            }\r\n            return false;\r\n         }\r\n         _loc2_ = -1;\r\n         _loc3_ = true;\r\n         _loc4_ = 0;\r\n         while(_loc4_ < 35)\r\n         {\r\n            if(_otherobjStorage[_loc4_] != null)\r\n            {\r\n               if(_otherobjStorage[_loc4_].compareOtherobj(param1) == true)\r\n               {\r\n                  while(param1.getTimes() > 0 && _otherobjStorage[_loc4_].getTimes() < param1.getPileLimit())\r\n                  {\r\n                     _otherobjStorage[_loc4_].addOtherobj(1);\r\n                     param1.useOtherobj(1);\r\n                  }\r\n                  if(param1.getTimes() == 0)\r\n                  {\r\n                     break;\r\n                  }\r\n               }\r\n            }\r\n            else if(_loc2_ == -1)\r\n            {\r\n               _loc2_ = _loc4_;\r\n            }\r\n            _loc4_++;\r\n         }\r\n         if(param1.getTimes() > 0)\r\n         {\r\n            _otherobjStorage[_loc2_] = param1;\r\n         }\r\n         return false;\r\n      }",
+      "original_abc_method_index": 1308,
+      "original_abc_method_code": {
+        "method": 1308,
+        "offset": 2633598,
+        "length": 236,
+        "sha256": "9f47a2fb8524ebafb529214fed418ee1a749e11a02db23d2f010e4df7303293f",
+        "max_stack": 3,
+        "local_count": 5,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      },
+      "evidence_manifest": "nonstack-loops.json"
+    },
+    {
+      "class": "com.hotpoint.braveManIII.views.suppliesShopPanel.SuppliesShopPanel",
+      "method": "setDown",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/views/suppliesShopPanel/SuppliesShopPanel.as",
+      "before_method_sha256": "070dfbc903d805917375dcda45356d53c7dee0b95e3cfc017c73a3a6e735da02",
+      "after_method_sha256": "c4d39c4cd6adfa6981dee8d72f8c8295ae33a65c006a1950dfb63833a459dc78",
+      "before_method": "private static function setDown() : void\r\n      {\r\n         var _loc1_:* = int(suppliesShowPanel[\"buyMenu\"][\"amount\"].text);\r\n         if(_loc1_ == 1)\r\n         {\r\n            _loc1_ = 24;\r\n         }\r\n         else\r\n         {\r\n            _loc1_--;\r\n         }\r\n         suppliesShowPanel[\"buyMenu\"][\"amount\"].text = _loc1_;\r\n      }",
+      "after_method": "private static function setDown() : void\r\n      {\r\n         var _loc1_:int = int(suppliesShowPanel[\"buyMenu\"][\"amount\"].text);\r\n         if(_loc1_ == 1)\r\n         {\r\n            _loc1_ = 24;\r\n         }\r\n         else\r\n         {\r\n            _loc1_--;\r\n         }\r\n         suppliesShowPanel[\"buyMenu\"][\"amount\"].text = _loc1_;\r\n      }",
+      "original_abc_method_index": 5121,
+      "original_abc_method_code": {
+        "method": 5121,
+        "offset": 2965931,
+        "length": 67,
+        "sha256": "1c8d0d5ed5ae7fe628bb9ee8dd6422adf76bdb0ef133a58a0305413812f33d6d",
+        "max_stack": 2,
+        "local_count": 2,
+        "init_scope": 9,
+        "max_scope": 10,
+        "traits": []
+      },
+      "evidence_manifest": "shop-amount-field.json + experiments/ordered-comparison/shop-setDown-pcode.json"
+    }
+  ],
+  "method_count": 22,
+  "git_apply_check_passed": true,
+  "applied": true,
+  "recompiled": false,
+  "new_runtime_tested": false
+}

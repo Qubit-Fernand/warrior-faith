@@ -1,0 +1,1271 @@
+package com.hotpoint.braveManIII.repository.supplies
+{
+   import com.hotpoint.braveManIII.models.supplies.*;
+   import flash.events.*;
+   
+   public class SuppliesFactory
+   {
+      
+      public static var _suppliesDataList:Array;
+      
+      public static var isSuppiesOK:Boolean = false;
+      
+      public static var myXml:XML;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"_suppliesDataList")
+               newarray 0
+               setproperty QName(PackageNamespace(""),"_suppliesDataList")
+               findproperty QName(PackageNamespace(""),"isSuppiesOK")
+               pushfalse
+               setproperty QName(PackageNamespace(""),"isSuppiesOK")
+               findproperty QName(PackageNamespace(""),"myXml")
+               findpropstrict Multiname("XML",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+               constructprop Multiname("XML",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+               setproperty QName(PackageNamespace(""),"myXml")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function SuppliesFactory()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function creatSuppliesFactory() : *
+      {
+         trait method QName(PackageNamespace(""),"creatSuppliesFactory")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 1
+                  localcount 2
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     construct 0
+                     coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),"SuppliesFactory")
+                     setlocal1
+                     getlocal1
+                     callpropvoid Multiname("creatSuppliesData",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private static function getSuppliesBaseDataById(param1:Number) : SuppliesBaseData
+         {
+            trait method QName(PrivateNamespace(null,"18"),"getSuppliesBaseDataById")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  param QName(PackageNamespace(""),"Number")
+                  returns QName(PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),"SuppliesBaseData")
+                  
+                  body
+                     maxstack 3
+                     localcount 6
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushnull
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),"SuppliesBaseData")
+                        setlocal2
+                        pushnull
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),"SuppliesBaseData")
+                        setlocal3
+                        pushbyte 0
+                        setlocal 4
+                        getlex Multiname("_suppliesDataList",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                        coerce_a
+                        setlocal 5
+                        jump ofs0033
+               ofs0018:
+                        label
+                        getlocal 5
+                        getlocal 4
+                        nextvalue
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),"SuppliesBaseData")
+                        setlocal3
+                        getlocal3
+                        callproperty Multiname("getId",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                        getlocal1
+                        ifne ofs0033
+                        getlocal3
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),"SuppliesBaseData")
+                        setlocal2
+                        jump ofs003a
+               ofs0033:
+                        hasnext2 5, 4
+                        iftrue ofs0018
+               ofs003a:
+                        kill 5
+                        kill 4
+                        getlocal2
+                        pushnull
+                        ifne ofs0051
+                        findpropstrict Multiname("Error",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                        pushstring "找不到基础数据!id:"
+                        getlocal1
+                        add
+                        constructprop Multiname("Error",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                        throw
+               ofs0051:
+                        getlocal2
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public static function getSuppliesById(param1:Number) : Supplies
+            {
+               trait method QName(PackageNamespace(""),"getSuppliesById")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"Number")
+                     returns QName(PackageNamespace("com.hotpoint.braveManIII.models.supplies"),"Supplies")
+                     
+                     body
+                        maxstack 2
+                        localcount 3
+                        initscopedepth 3
+                        maxscopedepth 4
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           findpropstrict Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                           getlocal1
+                           callproperty Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                           coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),"SuppliesBaseData")
+                           setlocal2
+                           getlocal2
+                           callproperty Multiname("createSupplies",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public static function getSuppliesNameAndCD() : Array
+               {
+                  trait method QName(PackageNamespace(""),"getSuppliesNameAndCD")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"Array")
+                        
+                        body
+                           maxstack 2
+                           localcount 6
+                           initscopedepth 3
+                           maxscopedepth 4
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushnull
+                              coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),"SuppliesBaseData")
+                              setlocal2
+                              pushnull
+                              coerce QName(PackageNamespace(""),"Array")
+                              setlocal3
+                              newarray 0
+                              coerce QName(PackageNamespace(""),"Array")
+                              setlocal1
+                              pushbyte 0
+                              setlocal 4
+                              getlex Multiname("_suppliesDataList",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                              coerce_a
+                              setlocal 5
+                              jump ofs0045
+                     ofs001d:
+                              label
+                              getlocal 5
+                              getlocal 4
+                              nextvalue
+                              coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),"SuppliesBaseData")
+                              setlocal2
+                              newarray 0
+                              coerce QName(PackageNamespace(""),"Array")
+                              setlocal3
+                              getlocal3
+                              getlocal2
+                              callproperty Multiname("getName",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                              callpropvoid Multiname("push",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                              getlocal3
+                              getlocal2
+                              callproperty Multiname("getCoolDowns",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                              callpropvoid Multiname("push",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                              getlocal1
+                              getlocal3
+                              callpropvoid Multiname("push",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                     ofs0045:
+                              hasnext2 5, 4
+                              iftrue ofs001d
+                              kill 5
+                              kill 4
+                              getlocal1
+                              getproperty Multiname("length",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                              pushbyte 1
+                              ifnlt ofs0065
+                              findpropstrict Multiname("Error",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                              pushstring "找不到基础数据!"
+                              constructprop Multiname("Error",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                              throw
+                     ofs0065:
+                              getlocal1
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public static function createSuppliesByColorAndLevel(param1:Array) : Supplies
+                  {
+                     trait method QName(PackageNamespace(""),"createSuppliesByColorAndLevel")
+                        flag FINAL
+                        dispid 7
+                        method
+                           name null
+                           param QName(PackageNamespace(""),"Array")
+                           returns QName(PackageNamespace("com.hotpoint.braveManIII.models.supplies"),"Supplies")
+                           
+                           body
+                              maxstack 3
+                              localcount 10
+                              initscopedepth 3
+                              maxscopedepth 4
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 pushnull
+                                 coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),"SuppliesBaseData")
+                                 setlocal3
+                                 pushnan
+                                 setlocal 5
+                                 newarray 0
+                                 coerce QName(PackageNamespace(""),"Array")
+                                 setlocal2
+                                 pushbyte 0
+                                 setlocal 6
+                                 getlex Multiname("_suppliesDataList",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                 coerce_a
+                                 setlocal 7
+                                 jump ofs0056
+                        ofs001c:
+                                 label
+                                 getlocal 7
+                                 getlocal 6
+                                 nextvalue
+                                 coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),"SuppliesBaseData")
+                                 setlocal3
+                                 pushbyte 0
+                                 setlocal 8
+                                 getlocal1
+                                 coerce_a
+                                 setlocal 9
+                                 jump ofs004b
+                        ofs0031:
+                                 label
+                                 getlocal 9
+                                 getlocal 8
+                                 nextvalue
+                                 convert_d
+                                 setlocal 5
+                                 getlocal3
+                                 callproperty Multiname("getDropLevel",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                                 getlocal 5
+                                 ifne ofs004b
+                                 getlocal2
+                                 getlocal3
+                                 callpropvoid Multiname("push",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                        ofs004b:
+                                 hasnext2 9, 8
+                                 iftrue ofs0031
+                                 kill 9
+                                 kill 8
+                        ofs0056:
+                                 hasnext2 7, 6
+                                 iftrue ofs001c
+                                 kill 7
+                                 kill 6
+                                 getlocal2
+                                 getproperty Multiname("length",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                 pushbyte 1
+                                 ifnlt ofs0078
+                                 findpropstrict Multiname("Error",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                 pushstring "没有这个的等级物品:"
+                                 getlocal1
+                                 add
+                                 constructprop Multiname("Error",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                 throw
+                        ofs0078:
+                                 getlex Multiname("Math",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                 getlex Multiname("Math",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                 callproperty Multiname("random",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                                 getlocal2
+                                 getproperty Multiname("length",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                 multiply
+                                 callproperty Multiname("floor",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                 convert_i
+                                 setlocal 4
+                                 getlocal2
+                                 getlocal 4
+                                 getproperty MultinameL([PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                 getlex Multiname("SuppliesBaseData",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                 astypelate
+                                 coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),"SuppliesBaseData")
+                                 setlocal3
+                                 getlocal3
+                                 callproperty Multiname("createSupplies",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public static function createSuppliesByShop() : Array
+                     {
+                        trait method QName(PackageNamespace(""),"createSuppliesByShop")
+                           flag FINAL
+                           dispid 8
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"Array")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 6
+                                 initscopedepth 3
+                                 maxscopedepth 4
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    pushnull
+                                    coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),"SuppliesBaseData")
+                                    setlocal3
+                                    newarray 0
+                                    coerce QName(PackageNamespace(""),"Array")
+                                    setlocal1
+                                    findpropstrict Multiname("getSuppliesBaseDataByColor",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                    pushbyte 1
+                                    callproperty Multiname("getSuppliesBaseDataByColor",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                    coerce QName(PackageNamespace(""),"Array")
+                                    setlocal2
+                                    pushbyte 0
+                                    setlocal 4
+                                    getlocal2
+                                    coerce_a
+                                    setlocal 5
+                                    jump ofs0036
+                           ofs0023:
+                                    label
+                                    getlocal 5
+                                    getlocal 4
+                                    nextvalue
+                                    coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),"SuppliesBaseData")
+                                    setlocal3
+                                    getlocal1
+                                    getlocal3
+                                    callproperty Multiname("createSupplies",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                                    callpropvoid Multiname("push",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                           ofs0036:
+                                    hasnext2 5, 4
+                                    iftrue ofs0023
+                                    kill 5
+                                    kill 4
+                                    getlocal1
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public static function getSuppliesBaseDataByColor(param1:Number) : Array
+                        {
+                           trait method QName(PackageNamespace(""),"getSuppliesBaseDataByColor")
+                              flag FINAL
+                              dispid 9
+                              method
+                                 name null
+                                 param QName(PackageNamespace(""),"Number")
+                                 returns QName(PackageNamespace(""),"Array")
+                                 
+                                 body
+                                    maxstack 3
+                                    localcount 6
+                                    initscopedepth 3
+                                    maxscopedepth 4
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       pushnull
+                                       coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),"SuppliesBaseData")
+                                       setlocal3
+                                       newarray 0
+                                       coerce QName(PackageNamespace(""),"Array")
+                                       setlocal2
+                                       pushbyte 0
+                                       setlocal 4
+                                       getlex Multiname("_suppliesDataList",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                       coerce_a
+                                       setlocal 5
+                                       jump ofs0032
+                              ofs0019:
+                                       label
+                                       getlocal 5
+                                       getlocal 4
+                                       nextvalue
+                                       coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),"SuppliesBaseData")
+                                       setlocal3
+                                       getlocal3
+                                       callproperty Multiname("getColor",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                                       getlocal1
+                                       ifne ofs0032
+                                       getlocal2
+                                       getlocal3
+                                       callpropvoid Multiname("push",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                              ofs0032:
+                                       hasnext2 5, 4
+                                       iftrue ofs0019
+                                       kill 5
+                                       kill 4
+                                       getlocal2
+                                       getproperty Multiname("length",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                       pushbyte 1
+                                       ifnlt ofs0054
+                                       findpropstrict Multiname("Error",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                       pushstring "没有这个颜色的宝石:color:"
+                                       getlocal1
+                                       add
+                                       constructprop Multiname("Error",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                       throw
+                              ofs0054:
+                                       getlocal2
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public static function findAffectMode(param1:Number) : Number
+                           {
+                              trait method QName(PackageNamespace(""),"findAffectMode")
+                                 flag FINAL
+                                 dispid 10
+                                 method
+                                    name null
+                                    param QName(PackageNamespace(""),"Number")
+                                    returns QName(PackageNamespace(""),"Number")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 2
+                                       initscopedepth 3
+                                       maxscopedepth 4
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          findpropstrict Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                          getlocal1
+                                          callproperty Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                          callproperty Multiname("getAffectMode",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public static function findDuration(param1:Number) : Number
+                              {
+                                 trait method QName(PackageNamespace(""),"findDuration")
+                                    flag FINAL
+                                    dispid 11
+                                    method
+                                       name null
+                                       param QName(PackageNamespace(""),"Number")
+                                       returns QName(PackageNamespace(""),"Number")
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 2
+                                          initscopedepth 3
+                                          maxscopedepth 4
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             findpropstrict Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                             getlocal1
+                                             callproperty Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                             callproperty Multiname("getDuration",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public static function findFrame(param1:Number) : Number
+                                 {
+                                    trait method QName(PackageNamespace(""),"findFrame")
+                                       flag FINAL
+                                       dispid 12
+                                       method
+                                          name null
+                                          param QName(PackageNamespace(""),"Number")
+                                          returns QName(PackageNamespace(""),"Number")
+                                          
+                                          body
+                                             maxstack 2
+                                             localcount 2
+                                             initscopedepth 3
+                                             maxscopedepth 4
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                findpropstrict Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                getlocal1
+                                                callproperty Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                callproperty Multiname("getFrame",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                                                returnvalue
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    public static function findUseLevel(param1:Number) : Number
+                                    {
+                                       trait method QName(PackageNamespace(""),"findUseLevel")
+                                          flag FINAL
+                                          dispid 13
+                                          method
+                                             name null
+                                             param QName(PackageNamespace(""),"Number")
+                                             returns QName(PackageNamespace(""),"Number")
+                                             
+                                             body
+                                                maxstack 2
+                                                localcount 2
+                                                initscopedepth 3
+                                                maxscopedepth 4
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   findpropstrict Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                   getlocal1
+                                                   callproperty Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                   callproperty Multiname("getUseLevel",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                                                   returnvalue
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       public static function findName(param1:Number) : String
+                                       {
+                                          trait method QName(PackageNamespace(""),"findName")
+                                             flag FINAL
+                                             dispid 14
+                                             method
+                                                name null
+                                                param QName(PackageNamespace(""),"Number")
+                                                returns QName(PackageNamespace(""),"String")
+                                                
+                                                body
+                                                   maxstack 2
+                                                   localcount 2
+                                                   initscopedepth 3
+                                                   maxscopedepth 4
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      findpropstrict Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                      getlocal1
+                                                      callproperty Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                      callproperty Multiname("getName",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                                                      returnvalue
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          public static function findIsPile(param1:Number) : Boolean
+                                          {
+                                             trait method QName(PackageNamespace(""),"findIsPile")
+                                                flag FINAL
+                                                dispid 15
+                                                method
+                                                   name null
+                                                   param QName(PackageNamespace(""),"Number")
+                                                   returns QName(PackageNamespace(""),"Boolean")
+                                                   
+                                                   body
+                                                      maxstack 2
+                                                      localcount 2
+                                                      initscopedepth 3
+                                                      maxscopedepth 4
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         findpropstrict Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                         getlocal1
+                                                         callproperty Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                         callproperty Multiname("getIsPile",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                                                         returnvalue
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             public static function findPrice(param1:Number) : Number
+                                             {
+                                                trait method QName(PackageNamespace(""),"findPrice")
+                                                   flag FINAL
+                                                   dispid 16
+                                                   method
+                                                      name null
+                                                      param QName(PackageNamespace(""),"Number")
+                                                      returns QName(PackageNamespace(""),"Number")
+                                                      
+                                                      body
+                                                         maxstack 2
+                                                         localcount 2
+                                                         initscopedepth 3
+                                                         maxscopedepth 4
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            findpropstrict Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                            getlocal1
+                                                            callproperty Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                            callproperty Multiname("getPrice",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                                                            returnvalue
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                                
+                                                public static function findTimes(param1:Number) : Number
+                                                {
+                                                   trait method QName(PackageNamespace(""),"findTimes")
+                                                      flag FINAL
+                                                      dispid 17
+                                                      method
+                                                         name null
+                                                         param QName(PackageNamespace(""),"Number")
+                                                         returns QName(PackageNamespace(""),"Number")
+                                                         
+                                                         body
+                                                            maxstack 2
+                                                            localcount 2
+                                                            initscopedepth 3
+                                                            maxscopedepth 4
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               findpropstrict Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                               getlocal1
+                                                               callproperty Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                               callproperty Multiname("getTimes",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                                                               returnvalue
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                   }
+                                                   
+                                                   public static function findColor(param1:Number) : Number
+                                                   {
+                                                      trait method QName(PackageNamespace(""),"findColor")
+                                                         flag FINAL
+                                                         dispid 18
+                                                         method
+                                                            name null
+                                                            param QName(PackageNamespace(""),"Number")
+                                                            returns QName(PackageNamespace(""),"Number")
+                                                            
+                                                            body
+                                                               maxstack 2
+                                                               localcount 2
+                                                               initscopedepth 3
+                                                               maxscopedepth 4
+                                                               
+                                                               code
+                                                                  getlocal0
+                                                                  pushscope
+                                                                  findpropstrict Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                  getlocal1
+                                                                  callproperty Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                  callproperty Multiname("getColor",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                                                                  returnvalue
+                                                               end ; code
+                                                            end ; body
+                                                         end ; method
+                                                      }
+                                                      
+                                                      public static function findAffect(param1:Number) : Array
+                                                      {
+                                                         trait method QName(PackageNamespace(""),"findAffect")
+                                                            flag FINAL
+                                                            dispid 19
+                                                            method
+                                                               name null
+                                                               param QName(PackageNamespace(""),"Number")
+                                                               returns QName(PackageNamespace(""),"Array")
+                                                               
+                                                               body
+                                                                  maxstack 2
+                                                                  localcount 2
+                                                                  initscopedepth 3
+                                                                  maxscopedepth 4
+                                                                  
+                                                                  code
+                                                                     getlocal0
+                                                                     pushscope
+                                                                     findpropstrict Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                     getlocal1
+                                                                     callproperty Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                     callproperty Multiname("getAffect",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                                                                     returnvalue
+                                                                  end ; code
+                                                               end ; body
+                                                            end ; method
+                                                         }
+                                                         
+                                                         public static function findDropLevel(param1:Number) : Number
+                                                         {
+                                                            trait method QName(PackageNamespace(""),"findDropLevel")
+                                                               flag FINAL
+                                                               dispid 20
+                                                               method
+                                                                  name null
+                                                                  param QName(PackageNamespace(""),"Number")
+                                                                  returns QName(PackageNamespace(""),"Number")
+                                                                  
+                                                                  body
+                                                                     maxstack 2
+                                                                     localcount 2
+                                                                     initscopedepth 3
+                                                                     maxscopedepth 4
+                                                                     
+                                                                     code
+                                                                        getlocal0
+                                                                        pushscope
+                                                                        findpropstrict Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                        getlocal1
+                                                                        callproperty Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                        callproperty Multiname("getDropLevel",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                                                                        returnvalue
+                                                                     end ; code
+                                                                  end ; body
+                                                               end ; method
+                                                            }
+                                                            
+                                                            public static function findDescript(param1:Number) : String
+                                                            {
+                                                               trait method QName(PackageNamespace(""),"findDescript")
+                                                                  flag FINAL
+                                                                  dispid 21
+                                                                  method
+                                                                     name null
+                                                                     param QName(PackageNamespace(""),"Number")
+                                                                     returns QName(PackageNamespace(""),"String")
+                                                                     
+                                                                     body
+                                                                        maxstack 2
+                                                                        localcount 2
+                                                                        initscopedepth 3
+                                                                        maxscopedepth 4
+                                                                        
+                                                                        code
+                                                                           getlocal0
+                                                                           pushscope
+                                                                           findpropstrict Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                           getlocal1
+                                                                           callproperty Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                           callproperty Multiname("getDescript",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                                                                           returnvalue
+                                                                        end ; code
+                                                                     end ; body
+                                                                  end ; method
+                                                               }
+                                                               
+                                                               public static function findCoolDowns(param1:Number) : Number
+                                                               {
+                                                                  trait method QName(PackageNamespace(""),"findCoolDowns")
+                                                                     flag FINAL
+                                                                     dispid 22
+                                                                     method
+                                                                        name null
+                                                                        param QName(PackageNamespace(""),"Number")
+                                                                        returns QName(PackageNamespace(""),"Number")
+                                                                        
+                                                                        body
+                                                                           maxstack 2
+                                                                           localcount 2
+                                                                           initscopedepth 3
+                                                                           maxscopedepth 4
+                                                                           
+                                                                           code
+                                                                              getlocal0
+                                                                              pushscope
+                                                                              findpropstrict Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                              getlocal1
+                                                                              callproperty Multiname("getSuppliesBaseDataById",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                              callproperty Multiname("getCoolDowns",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                                                                              returnvalue
+                                                                           end ; code
+                                                                        end ; body
+                                                                     end ; method
+                                                                  }
+                                                                  
+                                                                  private function creatSuppliesData() : *
+                                                                  {
+                                                                     trait method QName(PrivateNamespace(null,"18"),"creatSuppliesData")
+                                                                        dispid 0
+                                                                        method
+                                                                           name null
+                                                                           returns null
+                                                                           
+                                                                           body
+                                                                              maxstack 1
+                                                                              localcount 1
+                                                                              initscopedepth 4
+                                                                              maxscopedepth 5
+                                                                              
+                                                                              code
+                                                                                 getlocal0
+                                                                                 pushscope
+                                                                                 findpropstrict Multiname("xmlLoaded",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                 callpropvoid Multiname("xmlLoaded",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                                                                                 returnvoid
+                                                                              end ; code
+                                                                           end ; body
+                                                                        end ; method
+                                                                     }
+                                                                     
+                                                                     internal function xmlLoaded() : *
+                                                                     {
+                                                                        trait method QName(PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),"xmlLoaded")
+                                                                           dispid 0
+                                                                           method
+                                                                              name null
+                                                                              returns null
+                                                                              
+                                                                              body
+                                                                                 maxstack 15
+                                                                                 localcount 23
+                                                                                 initscopedepth 4
+                                                                                 maxscopedepth 5
+                                                                                 
+                                                                                 code
+                                                                                    getlocal0
+                                                                                    pushscope
+                                                                                    pushnull
+                                                                                    coerce QName(PackageNamespace(""),"XML")
+                                                                                    setlocal1
+                                                                                    pushnull
+                                                                                    coerce_s
+                                                                                    setlocal2
+                                                                                    pushnan
+                                                                                    setlocal3
+                                                                                    pushnan
+                                                                                    setlocal 4
+                                                                                    pushnull
+                                                                                    coerce_s
+                                                                                    setlocal 5
+                                                                                    pushnan
+                                                                                    setlocal 6
+                                                                                    pushnan
+                                                                                    setlocal 7
+                                                                                    pushnan
+                                                                                    setlocal 8
+                                                                                    pushnan
+                                                                                    setlocal 9
+                                                                                    pushnan
+                                                                                    setlocal 10
+                                                                                    pushnan
+                                                                                    setlocal 11
+                                                                                    pushfalse
+                                                                                    setlocal 12
+                                                                                    pushnan
+                                                                                    setlocal 13
+                                                                                    pushnan
+                                                                                    setlocal 14
+                                                                                    pushnull
+                                                                                    coerce QName(PackageNamespace(""),"XMLList")
+                                                                                    setlocal 15
+                                                                                    pushnull
+                                                                                    coerce QName(PackageNamespace(""),"Array")
+                                                                                    setlocal 16
+                                                                                    pushnull
+                                                                                    coerce QName(PackageNamespace(""),"XML")
+                                                                                    setlocal 17
+                                                                                    pushnull
+                                                                                    coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),"SuppliesBaseData")
+                                                                                    setlocal 18
+                                                                                    pushbyte 0
+                                                                                    setlocal 19
+                                                                                    getlex Multiname("myXml",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getproperty Multiname("消耗品",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    coerce_a
+                                                                                    setlocal 20
+                                                                                    jump ofs02d2
+                                                                           ofs0053:
+                                                                                    label
+                                                                                    getlocal 20
+                                                                                    getlocal 19
+                                                                                    nextvalue
+                                                                                    coerce QName(PackageNamespace(""),"XML")
+                                                                                    setlocal1
+                                                                                    findpropstrict Multiname("String",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal1
+                                                                                    getproperty Multiname("名称",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("String",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    coerce_s
+                                                                                    setlocal2
+                                                                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal1
+                                                                                    getproperty Multiname("帧数",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    convert_d
+                                                                                    setlocal3
+                                                                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal1
+                                                                                    getproperty Multiname("编号",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    convert_d
+                                                                                    setlocal 4
+                                                                                    findpropstrict Multiname("String",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal1
+                                                                                    getproperty Multiname("描述",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("String",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    coerce_s
+                                                                                    setlocal 5
+                                                                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal1
+                                                                                    getproperty Multiname("使用等级",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    convert_d
+                                                                                    setlocal 6
+                                                                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal1
+                                                                                    getproperty Multiname("掉落等级",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    convert_d
+                                                                                    setlocal 7
+                                                                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal1
+                                                                                    getproperty Multiname("价钱",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    convert_d
+                                                                                    setlocal 8
+                                                                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal1
+                                                                                    getproperty Multiname("冷却时间",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    convert_d
+                                                                                    setlocal 9
+                                                                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal1
+                                                                                    getproperty Multiname("堆叠次数",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    convert_d
+                                                                                    setlocal 10
+                                                                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal1
+                                                                                    getproperty Multiname("品质",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    convert_d
+                                                                                    setlocal 11
+                                                                                    getlocal1
+                                                                                    getproperty Multiname("是否堆叠",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("toString",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 0
+                                                                                    pushstring "true"
+                                                                                    equals
+                                                                                    getlex Multiname("Boolean",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    astypelate
+                                                                                    convert_b
+                                                                                    setlocal 12
+                                                                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal1
+                                                                                    getproperty Multiname("作用模式",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    convert_d
+                                                                                    setlocal 13
+                                                                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal1
+                                                                                    getproperty Multiname("持续时间",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    convert_d
+                                                                                    setlocal 14
+                                                                                    getlocal1
+                                                                                    getproperty Multiname("具体作用",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    coerce QName(PackageNamespace(""),"XMLList")
+                                                                                    setlocal 15
+                                                                                    newarray 0
+                                                                                    coerce QName(PackageNamespace(""),"Array")
+                                                                                    setlocal 16
+                                                                                    pushbyte 0
+                                                                                    setlocal 21
+                                                                                    getlocal 15
+                                                                                    coerce_a
+                                                                                    setlocal 22
+                                                                                    jump ofs0299
+                                                                           ofs0131:
+                                                                                    label
+                                                                                    getlocal 22
+                                                                                    getlocal 21
+                                                                                    nextvalue
+                                                                                    coerce QName(PackageNamespace(""),"XML")
+                                                                                    dup
+                                                                                    setlocal 17
+                                                                                    getproperty Multiname("生命",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    pushstring "null"
+                                                                                    ifeq ofs0161
+                                                                                    getlocal 16
+                                                                                    getlex Multiname("SuppliesAffect",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),PackageNamespace("com.hotpoint.braveManIII.models.supplies")])
+                                                                                    pushbyte 1
+                                                                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal 17
+                                                                                    getproperty Multiname("生命",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    callproperty Multiname("creatSuppliesAffect",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 2
+                                                                                    callpropvoid Multiname("push",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                           ofs0161:
+                                                                                    getlocal 17
+                                                                                    getproperty Multiname("魔法",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    pushstring "null"
+                                                                                    ifeq ofs0188
+                                                                                    getlocal 16
+                                                                                    getlex Multiname("SuppliesAffect",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),PackageNamespace("com.hotpoint.braveManIII.models.supplies")])
+                                                                                    pushbyte 2
+                                                                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal 17
+                                                                                    getproperty Multiname("魔法",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    callproperty Multiname("creatSuppliesAffect",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 2
+                                                                                    callpropvoid Multiname("push",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                           ofs0188:
+                                                                                    getlocal 17
+                                                                                    getproperty Multiname("攻击",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    pushstring "null"
+                                                                                    ifeq ofs01af
+                                                                                    getlocal 16
+                                                                                    getlex Multiname("SuppliesAffect",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),PackageNamespace("com.hotpoint.braveManIII.models.supplies")])
+                                                                                    pushbyte 3
+                                                                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal 17
+                                                                                    getproperty Multiname("攻击",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    callproperty Multiname("creatSuppliesAffect",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 2
+                                                                                    callpropvoid Multiname("push",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                           ofs01af:
+                                                                                    getlocal 17
+                                                                                    getproperty Multiname("防御",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    pushstring "null"
+                                                                                    ifeq ofs01d6
+                                                                                    getlocal 16
+                                                                                    getlex Multiname("SuppliesAffect",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),PackageNamespace("com.hotpoint.braveManIII.models.supplies")])
+                                                                                    pushbyte 4
+                                                                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal 17
+                                                                                    getproperty Multiname("防御",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    callproperty Multiname("creatSuppliesAffect",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 2
+                                                                                    callpropvoid Multiname("push",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                           ofs01d6:
+                                                                                    getlocal 17
+                                                                                    getproperty Multiname("暴击",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    pushstring "null"
+                                                                                    ifeq ofs01fd
+                                                                                    getlocal 16
+                                                                                    getlex Multiname("SuppliesAffect",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),PackageNamespace("com.hotpoint.braveManIII.models.supplies")])
+                                                                                    pushbyte 5
+                                                                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal 17
+                                                                                    getproperty Multiname("暴击",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    callproperty Multiname("creatSuppliesAffect",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 2
+                                                                                    callpropvoid Multiname("push",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                           ofs01fd:
+                                                                                    getlocal 17
+                                                                                    getproperty Multiname("闪避",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    pushstring "null"
+                                                                                    ifeq ofs0224
+                                                                                    getlocal 16
+                                                                                    getlex Multiname("SuppliesAffect",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),PackageNamespace("com.hotpoint.braveManIII.models.supplies")])
+                                                                                    pushbyte 6
+                                                                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal 17
+                                                                                    getproperty Multiname("闪避",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    callproperty Multiname("creatSuppliesAffect",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 2
+                                                                                    callpropvoid Multiname("push",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                           ofs0224:
+                                                                                    getlocal 17
+                                                                                    getproperty Multiname("移动速度",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    pushstring "null"
+                                                                                    ifeq ofs024b
+                                                                                    getlocal 16
+                                                                                    getlex Multiname("SuppliesAffect",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),PackageNamespace("com.hotpoint.braveManIII.models.supplies")])
+                                                                                    pushbyte 7
+                                                                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal 17
+                                                                                    getproperty Multiname("移动速度",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    callproperty Multiname("creatSuppliesAffect",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 2
+                                                                                    callpropvoid Multiname("push",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                           ofs024b:
+                                                                                    getlocal 17
+                                                                                    getproperty Multiname("硬直",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    pushstring "null"
+                                                                                    ifeq ofs0272
+                                                                                    getlocal 16
+                                                                                    getlex Multiname("SuppliesAffect",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),PackageNamespace("com.hotpoint.braveManIII.models.supplies")])
+                                                                                    pushbyte 8
+                                                                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal 17
+                                                                                    getproperty Multiname("硬直",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    callproperty Multiname("creatSuppliesAffect",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 2
+                                                                                    callpropvoid Multiname("push",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                           ofs0272:
+                                                                                    getlocal 17
+                                                                                    getproperty Multiname("经验",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    pushstring "null"
+                                                                                    ifeq ofs0299
+                                                                                    getlocal 16
+                                                                                    getlex Multiname("SuppliesAffect",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),PackageNamespace("com.hotpoint.braveManIII.models.supplies")])
+                                                                                    pushbyte 9
+                                                                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal 17
+                                                                                    getproperty Multiname("经验",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    callproperty Multiname("Number",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                                    callproperty Multiname("creatSuppliesAffect",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 2
+                                                                                    callpropvoid Multiname("push",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                           ofs0299:
+                                                                                    hasnext2 22, 21
+                                                                                    iftrue ofs0131
+                                                                                    kill 22
+                                                                                    kill 21
+                                                                                    getlex Multiname("SuppliesBaseData",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal 4
+                                                                                    getlocal3
+                                                                                    getlocal2
+                                                                                    getlocal 5
+                                                                                    getlocal 6
+                                                                                    getlocal 7
+                                                                                    getlocal 8
+                                                                                    getlocal 9
+                                                                                    getlocal 10
+                                                                                    getlocal 11
+                                                                                    getlocal 12
+                                                                                    getlocal 13
+                                                                                    getlocal 14
+                                                                                    getlocal 16
+                                                                                    callproperty Multiname("createSuppliesBaseData",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 14
+                                                                                    coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),"SuppliesBaseData")
+                                                                                    setlocal 18
+                                                                                    getlex Multiname("_suppliesDataList",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    getlocal 18
+                                                                                    callpropvoid Multiname("push",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")]), 1
+                                                                           ofs02d2:
+                                                                                    hasnext2 20, 19
+                                                                                    iftrue ofs0053
+                                                                                    kill 20
+                                                                                    kill 19
+                                                                                    findproperty Multiname("isSuppiesOK",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    pushtrue
+                                                                                    setproperty Multiname("isSuppiesOK",[PrivateNamespace(null,"18"),PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events"),ProtectedNamespace("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.supplies:SuppliesFactory")])
+                                                                                    returnvoid
+                                                                                 end ; code
+                                                                              end ; body
+                                                                           end ; method
+                                                                        }
+                                                                     }
+                                                                  }
+                                                                  
+                                                                  method
+                                                                     name null
+                                                                     returns null
+                                                                     
+                                                                     body
+                                                                        maxstack 2
+                                                                        localcount 1
+                                                                        initscopedepth 1
+                                                                        maxscopedepth 3
+                                                                        
+                                                                        code
+                                                                           getlocal0
+                                                                           pushscope
+                                                                           findpropstrict Multiname("SuppliesFactory",[PackageNamespace("com.hotpoint.braveManIII.repository.supplies")])
+                                                                           getlex QName(PackageNamespace(""),"Object")
+                                                                           pushscope
+                                                                           getlex Multiname("Object",[PackageNamespace(""),PrivateNamespace(null,"232"),PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),PackageInternalNs("com.hotpoint.braveManIII.repository.supplies"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.events")])
+                                                                           newclass 16
+                                                                           popscope
+                                                                           initproperty QName(PackageNamespace("com.hotpoint.braveManIII.repository.supplies"),"SuppliesFactory")
+                                                                           returnvoid
+                                                                        end ; code
+                                                                     end ; body
+                                                                  end ; method
+                                                                  

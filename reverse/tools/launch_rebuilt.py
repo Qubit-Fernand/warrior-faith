@@ -7,12 +7,15 @@ No player installation, global configuration, fixture import or SOL access.
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import plistlib
+import platform
 import shlex
 import subprocess
 import sys
 from build_inputs import verify
+from launch_inputs import verify_batch
 from diagnostic_harness import validate_package
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -21,6 +24,20 @@ MAIN='3_L4399Main_gamefile.swf'
 
 
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def verify_launch_fingerprint(fingerprint):
+    """Keep all file checks; the compiler's environment is not the player's env."""
+    issues=verify(fingerprint)
+    # verify still checks the recorded digest and every source/toolchain file.
+    # No Java/compiler is invoked on this launch path. A locale or Java build
+    # option change cannot alter the already-hashed SWF being handed to Adobe.
+    blocking=[issue for issue in issues if issue!='build input environment changed']
+    expected=fingerprint.get('environment',{})
+    differences=[key for key,value in expected.get('environment',{}).items() if os.environ.get(key)!=value]
+    if expected.get('python_version')!=sys.version:differences.append('python_version')
+    if expected.get('python_implementation')!=platform.python_implementation():differences.append('python_implementation')
+    return blocking,sorted(differences)
 
 
 def select_package(explicit=None):
@@ -43,6 +60,7 @@ def validate_inputs(directory):
     directory,main,save_name,assembly_hash=validate_package(directory)
     assert assembly_hash and save_name.startswith('yzlr2_rebuild_'), '主程序必须使用独立重建测试存档名'
     manifest=json.loads((directory/'assembly.json').read_text())
+    fingerprints=[]
     for row in manifest['modules']:
         relative=row.get('receipt_snapshot')
         receipt_path=(directory/relative).resolve() if relative else directory/'diagnostic-origin'/(row['receipt_sha256']+'.json')
@@ -52,10 +70,13 @@ def validate_inputs(directory):
         assert fingerprint and fingerprint.get('post_build_verified') is True, '旧包缺少真实构建前后输入指纹：'+row['module']
         assert fingerprint.get('module')==row['module'], '输入指纹模块不符'
         assert row.get('input_generation')==fingerprint['generation'] and row.get('input_digest')==fingerprint['digest'], '组装输入指纹与构建凭据不符'
-        issues=verify(fingerprint)
-        if issues:raise ValueError(row['module']+' 输入已过期：'+'; '.join(issues))
+        fingerprints.append(fingerprint)
+    issues,batch=verify_batch(fingerprints,lambda message:print(message,flush=True))
+    if issues:raise ValueError('输入已过期：'+json.dumps(issues,ensure_ascii=False))
     return {'package':str(directory),'main':str(main),'assembly_sha256':assembly_hash,
         'main_sha256':sha(main),'modules':164,'game_shared_object':save_name,
+        **batch,
+        'build_environment_policy':'Names only, no values logged. Build-only environment changes (including Java options) do not change verified SWF bytes; no compiler/Java is run here. Rebuild/assemble still require strict environment fingerprints.',
         'source_inputs_current':True,'private_save_accessed':False,'player_started':False}
 
 
@@ -94,9 +115,12 @@ def main():
         print('校验严格重建包、全部文件与当前构建输入…',flush=True)
         report=validate_inputs(package);app=debugger_app(args.player_app);running=active_players()
         report.update(player_app=str(app),active_players=running,launch_available=not running)
+        if report['build_environment_differences']:
+            print('检测到仅构建环境差异（只记录名称）：'+', '.join(report['build_environment_differences'])+'。本次不编译，所有输入文件和产物哈希仍须通过；重新构建时仍严格检查环境。',flush=True)
         if args.check:
             print(json.dumps(report,ensure_ascii=False,indent=2));return
         if running:raise ValueError('已有 Flash 播放器正在运行；请先退出，以免两个实例同时使用测试存档。未关闭任何现有程序。')
+        print('重建包：'+report['package']+'\n主文件 SHA-256：'+report['main_sha256'],flush=True)
         print('已验证 164/164 源码重建模块。测试存档：'+report['game_shared_object'],flush=True)
         print('请用英文输入法；保存后退出播放器。此入口直接启动主游戏，不加载诊断 wrapper。',flush=True)
         launch_requested=True

@@ -1,0 +1,300 @@
+package com.efnx.fps
+{
+   import flash.display.*;
+   import flash.events.*;
+   import flash.text.*;
+   import flash.utils.*;
+   
+   public class fpsBox extends TextField
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 7
+            maxscopedepth 8
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var frames:uint = 0;
+      
+      protected var format:TextFormat;
+      
+      protected var averageArray:Array;
+      
+      protected var targetFPS:int = 0;
+      
+      public function fpsBox(... rest)
+      {
+         method
+            name null
+            flag NEED_REST
+            returns null
+            
+            body
+               maxstack 6
+               localcount 3
+               initscopedepth 8
+               maxscopedepth 9
+               
+               code
+                  getlocal0
+                  pushscope
+                  findproperty QName(ProtectedNamespace("com.efnx.fps:fpsBox"),"format")
+                  findpropstrict Multiname("TextFormat",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher"),PackageNamespace("flash.text")])
+                  constructprop Multiname("TextFormat",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher"),PackageNamespace("flash.text")]), 0
+                  initproperty QName(ProtectedNamespace("com.efnx.fps:fpsBox"),"format")
+                  findproperty QName(ProtectedNamespace("com.efnx.fps:fpsBox"),"averageArray")
+                  findpropstrict Multiname("Array",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  constructprop Multiname("Array",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                  initproperty QName(ProtectedNamespace("com.efnx.fps:fpsBox"),"averageArray")
+                  getlocal0
+                  constructsuper 0
+                  findpropstrict Multiname("Timer",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher"),PackageNamespace("flash.utils")])
+                  pushshort 1000
+                  constructprop Multiname("Timer",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher"),PackageNamespace("flash.utils")]), 1
+                  coerce QName(PackageNamespace("flash.utils"),"Timer")
+                  setlocal2
+                  getlex Multiname("format",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  pushstring "Verdana"
+                  setproperty Multiname("font",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getlex Multiname("format",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  pushint 16777215
+                  setproperty Multiname("color",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getlex Multiname("format",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  pushbyte 10
+                  setproperty Multiname("size",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getlocal0
+                  getlex Multiname("TextFieldAutoSize",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher"),PackageNamespace("flash.text")])
+                  getproperty Multiname("LEFT",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  initproperty Multiname("autoSize",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getlocal0
+                  getlex Multiname("format",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  initproperty Multiname("defaultTextFormat",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getlocal0
+                  pushstring "-- FPS ---- AV"
+                  initproperty Multiname("text",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getlocal2
+                  getlex Multiname("TimerEvent",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher"),PackageNamespace("flash.events")])
+                  getproperty Multiname("TIMER",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getlex Multiname("tick",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  callpropvoid Multiname("addEventListener",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                  getlocal1
+                  pushbyte 0
+                  getproperty MultinameL([PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getlex Multiname("Stage",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher"),PackageNamespace("flash.display")])
+                  istypelate
+                  iffalse ofs00a5
+                  getlocal1
+                  pushbyte 0
+                  getproperty MultinameL([PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getlex Multiname("Event",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher"),PackageNamespace("flash.events")])
+                  getproperty Multiname("ENTER_FRAME",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getlex Multiname("everyFrame",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  pushfalse
+                  pushbyte 0
+                  pushtrue
+                  callpropvoid Multiname("addEventListener",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 5
+                  findproperty Multiname("targetFPS",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getlocal1
+                  pushbyte 0
+                  getproperty MultinameL([PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getproperty Multiname("frameRate",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  initproperty Multiname("targetFPS",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  jump ofs00b7
+         ofs00a5:
+                  getlocal0
+                  getlex Multiname("Event",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher"),PackageNamespace("flash.events")])
+                  getproperty Multiname("ENTER_FRAME",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getlex Multiname("everyFrame",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  pushfalse
+                  pushbyte 0
+                  pushtrue
+                  callpropvoid Multiname("addEventListener",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 5
+         ofs00b7:
+                  getlocal2
+                  callpropvoid Multiname("start",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function everyFrame(param1:Event) : void
+      {
+         trait method QName(PackageNamespace(""),"everyFrame")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("flash.events"),"Event")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 2
+                  localcount 4
+                  initscopedepth 8
+                  maxscopedepth 9
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict Multiname("frames",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     dup
+                     setlocal2
+                     getproperty Multiname("frames",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     increment
+                     setlocal3
+                     getlocal2
+                     getlocal3
+                     setproperty Multiname("frames",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     kill 3
+                     kill 2
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         protected function tick(param1:TimerEvent) : void
+         {
+            trait method QName(ProtectedNamespace("com.efnx.fps:fpsBox"),"tick")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("flash.events"),"TimerEvent")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 5
+                     localcount 3
+                     initscopedepth 8
+                     maxscopedepth 9
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushbyte 0
+                        setlocal2
+                        getlex Multiname("averageArray",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlex Multiname("frames",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        callpropvoid Multiname("push",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                        getlex Multiname("averageArray",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty Multiname("length",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        pushbyte 4
+                        ifne ofs006b
+                        pushbyte 1
+                        setlocal2
+                        jump ofs003d
+               ofs0022:
+                        label
+                        getlex Multiname("averageArray",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        pushbyte 0
+                        getlex Multiname("averageArray",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        pushbyte 0
+                        getproperty MultinameL([PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlex Multiname("averageArray",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal2
+                        getproperty MultinameL([PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        add
+                        setproperty MultinameL([PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        inclocal_i 2
+               ofs003d:
+                        getlocal2
+                        getlex Multiname("averageArray",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty Multiname("length",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        iflt ofs0022
+                        getlex Multiname("averageArray",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        pushbyte 1
+                        getlex Multiname("averageArray",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty Multiname("length",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        decrement
+                        callpropvoid Multiname("splice",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                        getlex Multiname("averageArray",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        pushbyte 0
+                        getlex Multiname("averageArray",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        pushbyte 0
+                        getproperty MultinameL([PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        pushbyte 4
+                        divide
+                        setproperty MultinameL([PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+               ofs006b:
+                        getlocal0
+                        getlex Multiname("frames",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        pushstring " FPS "
+                        add
+                        getlex Multiname("Math",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlex Multiname("averageArray",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        pushbyte 0
+                        getproperty MultinameL([PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        callproperty Multiname("round",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                        add
+                        pushstring " AV"
+                        add
+                        setproperty Multiname("text",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlex Multiname("targetFPS",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        pushbyte 0
+                        ifeq ofs009f
+                        getlocal0
+                        pushstring " /"
+                        getlex Multiname("targetFPS",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        add
+                        callpropvoid Multiname("appendText",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+               ofs009f:
+                        findproperty Multiname("frames",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        pushbyte 0
+                        initproperty Multiname("frames",[PrivateNamespace(null,"420"),ProtectedNamespace("com.efnx.fps:fpsBox"),PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("com.efnx.fps:fpsBox"),StaticProtectedNs("flash.text:TextField"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 7
+            
+            code
+               getlocal0
+               pushscope
+               findpropstrict Multiname("fpsBox",[PackageNamespace("com.efnx.fps")])
+               getlex QName(PackageNamespace(""),"Object")
+               pushscope
+               getlex QName(PackageNamespace("flash.events"),"EventDispatcher")
+               pushscope
+               getlex QName(PackageNamespace("flash.display"),"DisplayObject")
+               pushscope
+               getlex QName(PackageNamespace("flash.display"),"InteractiveObject")
+               pushscope
+               getlex QName(PackageNamespace("flash.text"),"TextField")
+               pushscope
+               getlex Multiname("TextField",[PrivateNamespace(null,"421"),PackageNamespace(""),PackageNamespace("com.efnx.fps"),PackageInternalNs("com.efnx.fps"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.text")])
+               newclass 186
+               popscope
+               popscope
+               popscope
+               popscope
+               popscope
+               initproperty QName(PackageNamespace("com.efnx.fps"),"fpsBox")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

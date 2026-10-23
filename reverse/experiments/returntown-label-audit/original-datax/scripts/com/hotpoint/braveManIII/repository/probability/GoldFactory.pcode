@@ -1,0 +1,345 @@
+package com.hotpoint.braveManIII.repository.probability
+{
+   public class GoldFactory
+   {
+      
+      public static var goldIsOk:Boolean;
+      
+      public static var goldAllData:Array;
+      
+      public static var myXml:XML;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"goldAllData")
+               newarray 0
+               setproperty QName(PackageNamespace(""),"goldAllData")
+               findproperty QName(PackageNamespace(""),"myXml")
+               findpropstrict Multiname("XML",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")])
+               constructprop Multiname("XML",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")]), 0
+               setproperty QName(PackageNamespace(""),"myXml")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function GoldFactory()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function creatGoldFactory() : void
+      {
+         trait method QName(PackageNamespace(""),"creatGoldFactory")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 1
+                  localcount 2
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     construct 0
+                     coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.probability"),"GoldFactory")
+                     setlocal1
+                     getlocal1
+                     callpropvoid Multiname("creatLoard",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")]), 0
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public static function getProbabilltyByFallId(param1:Number) : GoldBaseData
+         {
+            trait method QName(PackageNamespace(""),"getProbabilltyByFallId")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  param QName(PackageNamespace(""),"Number")
+                  returns QName(PackageNamespace("com.hotpoint.braveManIII.repository.probability"),"GoldBaseData")
+                  
+                  body
+                     maxstack 2
+                     localcount 6
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushnull
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.probability"),"GoldBaseData")
+                        setlocal3
+                        pushnull
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.probability"),"GoldBaseData")
+                        setlocal2
+                        pushbyte 0
+                        setlocal 4
+                        getlex Multiname("goldAllData",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")])
+                        coerce_a
+                        setlocal 5
+                        jump ofs002f
+               ofs0018:
+                        label
+                        getlocal 5
+                        getlocal 4
+                        nextvalue
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.probability"),"GoldBaseData")
+                        setlocal3
+                        getlocal3
+                        callproperty Multiname("getFallLevel",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")]), 0
+                        getlocal1
+                        ifne ofs002f
+                        getlocal3
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.probability"),"GoldBaseData")
+                        setlocal2
+               ofs002f:
+                        hasnext2 5, 4
+                        iftrue ofs0018
+                        kill 5
+                        kill 4
+                        getlocal2
+                        pushnull
+                        ifne ofs0040
+               ofs0040:
+                        getlocal2
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public static function getMosaicGold(param1:Number) : Number
+            {
+               trait method QName(PackageNamespace(""),"getMosaicGold")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"Number")
+                     returns QName(PackageNamespace(""),"Number")
+                     
+                     body
+                        maxstack 2
+                        localcount 2
+                        initscopedepth 3
+                        maxscopedepth 4
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           findpropstrict Multiname("getProbabilltyByFallId",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")])
+                           getlocal1
+                           callproperty Multiname("getProbabilltyByFallId",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")]), 1
+                           callproperty Multiname("getMosaicGold",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")]), 0
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public static function getDeleteGold(param1:Number) : Number
+               {
+                  trait method QName(PackageNamespace(""),"getDeleteGold")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"Number")
+                        returns QName(PackageNamespace(""),"Number")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 3
+                           maxscopedepth 4
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict Multiname("getProbabilltyByFallId",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")])
+                              getlocal1
+                              callproperty Multiname("getProbabilltyByFallId",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")]), 1
+                              callproperty Multiname("getDeleteGold",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")]), 0
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  private function creatLoard() : *
+                  {
+                     trait method QName(PrivateNamespace(null,"11"),"creatLoard")
+                        dispid 0
+                        method
+                           name null
+                           returns null
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 findpropstrict Multiname("xmlLoaded",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")])
+                                 callpropvoid Multiname("xmlLoaded",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")]), 0
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     internal function xmlLoaded() : *
+                     {
+                        trait method QName(PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),"xmlLoaded")
+                           dispid 0
+                           method
+                              name null
+                              returns null
+                              
+                              body
+                                 maxstack 4
+                                 localcount 8
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    pushnull
+                                    coerce QName(PackageNamespace(""),"XML")
+                                    setlocal1
+                                    pushnan
+                                    setlocal2
+                                    pushnan
+                                    setlocal3
+                                    pushnan
+                                    setlocal 4
+                                    pushnull
+                                    coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.probability"),"GoldBaseData")
+                                    setlocal 5
+                                    pushbyte 0
+                                    setlocal 6
+                                    getlex Multiname("myXml",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")])
+                                    getproperty Multiname("金币",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")])
+                                    coerce_a
+                                    setlocal 7
+                                    jump ofs006c
+                           ofs0023:
+                                    label
+                                    getlocal 7
+                                    getlocal 6
+                                    nextvalue
+                                    coerce QName(PackageNamespace(""),"XML")
+                                    setlocal1
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")])
+                                    getlocal1
+                                    getproperty Multiname("掉落等级",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")]), 1
+                                    convert_d
+                                    setlocal2
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")])
+                                    getlocal1
+                                    getproperty Multiname("镶嵌",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")]), 1
+                                    convert_d
+                                    setlocal3
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")])
+                                    getlocal1
+                                    getproperty Multiname("挖空",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")]), 1
+                                    convert_d
+                                    setlocal 4
+                                    getlex Multiname("GoldBaseData",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")])
+                                    getlocal2
+                                    getlocal3
+                                    getlocal 4
+                                    callproperty Multiname("creatGold",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")]), 3
+                                    coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.probability"),"GoldBaseData")
+                                    setlocal 5
+                                    getlex Multiname("goldAllData",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")])
+                                    getlocal 5
+                                    callpropvoid Multiname("push",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")]), 1
+                           ofs006c:
+                                    hasnext2 7, 6
+                                    iftrue ofs0023
+                                    kill 7
+                                    kill 6
+                                    findproperty Multiname("goldIsOk",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")])
+                                    pushtrue
+                                    setproperty Multiname("goldIsOk",[PrivateNamespace(null,"11"),PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.repository.probability:GoldFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.probability:GoldFactory")])
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                     }
+                  }
+                  
+                  method
+                     name null
+                     returns null
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 1
+                        maxscopedepth 3
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           findpropstrict Multiname("GoldFactory",[PackageNamespace("com.hotpoint.braveManIII.repository.probability")])
+                           getlex QName(PackageNamespace(""),"Object")
+                           pushscope
+                           getlex Multiname("Object",[PackageNamespace(""),PrivateNamespace(null,"225"),PackageNamespace("com.hotpoint.braveManIII.repository.probability"),PackageInternalNs("com.hotpoint.braveManIII.repository.probability"),Namespace("http://adobe.com/AS3/2006/builtin")])
+                           newclass 9
+                           popscope
+                           initproperty QName(PackageNamespace("com.hotpoint.braveManIII.repository.probability"),"GoldFactory")
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+                  

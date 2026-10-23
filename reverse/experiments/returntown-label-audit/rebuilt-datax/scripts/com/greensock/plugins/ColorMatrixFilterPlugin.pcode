@@ -1,0 +1,1207 @@
+package com.greensock.plugins
+{
+   import com.greensock.*;
+   import flash.filters.*;
+   
+   public class ColorMatrixFilterPlugin extends FilterPlugin
+   {
+      
+      public static const API:Number = 1;
+      
+      private static var _propNames:Array;
+      
+      protected static var _idMatrix:Array;
+      
+      protected static var _lumR:Number = 0.212671;
+      
+      protected static var _lumG:Number = 0.71516;
+      
+      protected static var _lumB:Number = 0.072169;
+      
+      method
+         name ""
+         returns null
+         
+         body
+            maxstack 21
+            localcount 1
+            initscopedepth 5
+            maxscopedepth 6
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"API")
+               pushbyte 1
+               initproperty QName(PackageNamespace(""),"API")
+               findproperty QName(PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),"_propNames")
+               newarray 0
+               setproperty QName(PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),"_propNames")
+               findproperty QName(StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),"_idMatrix")
+               pushbyte 1
+               pushbyte 0
+               pushbyte 0
+               pushbyte 0
+               pushbyte 0
+               pushbyte 0
+               pushbyte 1
+               pushbyte 0
+               pushbyte 0
+               pushbyte 0
+               pushbyte 0
+               pushbyte 0
+               pushbyte 1
+               pushbyte 0
+               pushbyte 0
+               pushbyte 0
+               pushbyte 0
+               pushbyte 0
+               pushbyte 1
+               pushbyte 0
+               newarray 20
+               setproperty QName(StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),"_idMatrix")
+               findproperty QName(StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),"_lumR")
+               pushdouble 0.212671
+               setproperty QName(StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),"_lumR")
+               findproperty QName(StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),"_lumG")
+               pushdouble 0.71516
+               setproperty QName(StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),"_lumG")
+               findproperty QName(StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),"_lumB")
+               pushdouble 0.072169
+               setproperty QName(StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),"_lumB")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var _matrix:Array;
+      
+      protected var _matrixTween:EndArrayPlugin;
+      
+      public function ColorMatrixFilterPlugin()
+      {
+         method
+            name ""
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 6
+               maxscopedepth 7
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  pushstring "colorMatrixFilter"
+                  initproperty Multiname("propName",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  getlocal0
+                  pushstring "colorMatrixFilter"
+                  newarray 1
+                  initproperty Multiname("overwriteProps",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function colorize(param1:Array, param2:Number, param3:Number = 1) : Array
+      {
+         trait method QName(PackageNamespace(""),"colorize")
+            flag FINAL
+            dispid 3
+            method
+               name ""
+               flag HAS_OPTIONAL
+               param QName(PackageNamespace(""),"Array")
+               param QName(PackageNamespace(""),"Number")
+               param QName(PackageNamespace(""),"Number")
+               optional Integer(1)
+               returns QName(PackageNamespace(""),"Array")
+               
+               body
+                  maxstack 20
+                  localcount 9
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict Multiname("isNaN",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal2
+                     callproperty Multiname("isNaN",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                     iffalse ofs000e
+                     getlocal1
+                     returnvalue
+            ofs000e:
+                     findpropstrict Multiname("isNaN",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal3
+                     callproperty Multiname("isNaN",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                     iffalse ofs001c
+                     pushbyte 1
+                     convert_d
+                     setlocal3
+            ofs001c:
+                     getlocal2
+                     pushbyte 16
+                     rshift
+                     pushshort 255
+                     bitand
+                     pushshort 255
+                     divide
+                     convert_d
+                     setlocal 4
+                     getlocal2
+                     pushbyte 8
+                     rshift
+                     pushshort 255
+                     bitand
+                     pushshort 255
+                     divide
+                     convert_d
+                     setlocal 5
+                     getlocal2
+                     pushshort 255
+                     bitand
+                     pushshort 255
+                     divide
+                     convert_d
+                     setlocal 6
+                     pushbyte 1
+                     getlocal3
+                     subtract
+                     convert_d
+                     setlocal 7
+                     getlocal 7
+                     getlocal3
+                     getlocal 4
+                     multiply
+                     findpropstrict Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     multiply
+                     add
+                     getlocal3
+                     getlocal 4
+                     multiply
+                     findpropstrict Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     multiply
+                     getlocal3
+                     getlocal 4
+                     multiply
+                     findpropstrict Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     multiply
+                     pushbyte 0
+                     pushbyte 0
+                     getlocal3
+                     getlocal 5
+                     multiply
+                     findpropstrict Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     multiply
+                     getlocal 7
+                     getlocal3
+                     getlocal 5
+                     multiply
+                     findpropstrict Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     multiply
+                     add
+                     getlocal3
+                     getlocal 5
+                     multiply
+                     findpropstrict Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     multiply
+                     pushbyte 0
+                     pushbyte 0
+                     getlocal3
+                     getlocal 6
+                     multiply
+                     findpropstrict Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     multiply
+                     getlocal3
+                     getlocal 6
+                     multiply
+                     findpropstrict Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     multiply
+                     getlocal 7
+                     getlocal3
+                     getlocal 6
+                     multiply
+                     findpropstrict Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     multiply
+                     add
+                     pushbyte 0
+                     pushbyte 0
+                     pushbyte 0
+                     pushbyte 0
+                     pushbyte 0
+                     pushbyte 1
+                     pushbyte 0
+                     newarray 20
+                     coerce QName(PackageNamespace(""),"Array")
+                     setlocal 8
+                     findpropstrict Multiname("applyMatrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 8
+                     getlocal1
+                     callproperty Multiname("applyMatrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 2
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public static function setThreshold(param1:Array, param2:Number) : Array
+         {
+            trait method QName(PackageNamespace(""),"setThreshold")
+               flag FINAL
+               dispid 4
+               method
+                  name ""
+                  param QName(PackageNamespace(""),"Array")
+                  param QName(PackageNamespace(""),"Number")
+                  returns QName(PackageNamespace(""),"Array")
+                  
+                  body
+                     maxstack 20
+                     localcount 4
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("isNaN",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal2
+                        callproperty Multiname("isNaN",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                        iffalse ofs000e
+                        getlocal1
+                        returnvalue
+               ofs000e:
+                        findpropstrict Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getproperty Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        pushshort 256
+                        multiply
+                        findpropstrict Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getproperty Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        pushshort 256
+                        multiply
+                        findpropstrict Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getproperty Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        pushshort 256
+                        multiply
+                        pushbyte 0
+                        pushshort -256
+                        getlocal2
+                        multiply
+                        findpropstrict Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getproperty Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        pushshort 256
+                        multiply
+                        findpropstrict Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getproperty Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        pushshort 256
+                        multiply
+                        findpropstrict Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getproperty Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        pushshort 256
+                        multiply
+                        pushbyte 0
+                        pushshort -256
+                        getlocal2
+                        multiply
+                        findpropstrict Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getproperty Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        pushshort 256
+                        multiply
+                        findpropstrict Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getproperty Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        pushshort 256
+                        multiply
+                        findpropstrict Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getproperty Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        pushshort 256
+                        multiply
+                        pushbyte 0
+                        pushshort -256
+                        getlocal2
+                        multiply
+                        pushbyte 0
+                        pushbyte 0
+                        pushbyte 0
+                        pushbyte 1
+                        pushbyte 0
+                        newarray 20
+                        coerce QName(PackageNamespace(""),"Array")
+                        setlocal3
+                        findpropstrict Multiname("applyMatrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal3
+                        getlocal1
+                        callproperty Multiname("applyMatrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 2
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public static function setHue(param1:Array, param2:Number) : Array
+            {
+               trait method QName(PackageNamespace(""),"setHue")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name ""
+                     param QName(PackageNamespace(""),"Array")
+                     param QName(PackageNamespace(""),"Number")
+                     returns QName(PackageNamespace(""),"Array")
+                     
+                     body
+                        maxstack 25
+                        localcount 6
+                        initscopedepth 5
+                        maxscopedepth 6
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           findpropstrict Multiname("isNaN",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal2
+                           callproperty Multiname("isNaN",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                           iffalse ofs000e
+                           getlocal1
+                           returnvalue
+                  ofs000e:
+                           getlocal2
+                           findpropstrict Multiname("Math",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("Math",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("PI",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           pushshort 180
+                           divide
+                           multiply
+                           convert_d
+                           setlocal2
+                           findpropstrict Multiname("Math",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("Math",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal2
+                           callproperty Multiname("cos",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                           convert_d
+                           setlocal3
+                           findpropstrict Multiname("Math",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("Math",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal2
+                           callproperty Multiname("sin",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                           convert_d
+                           setlocal 4
+                           findpropstrict Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal3
+                           pushbyte 1
+                           findpropstrict Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           subtract
+                           multiply
+                           add
+                           getlocal 4
+                           findpropstrict Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           negate
+                           multiply
+                           add
+                           findpropstrict Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal3
+                           findpropstrict Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           negate
+                           multiply
+                           add
+                           getlocal 4
+                           findpropstrict Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           negate
+                           multiply
+                           add
+                           findpropstrict Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal3
+                           findpropstrict Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           negate
+                           multiply
+                           add
+                           getlocal 4
+                           pushbyte 1
+                           findpropstrict Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           subtract
+                           multiply
+                           add
+                           pushbyte 0
+                           pushbyte 0
+                           findpropstrict Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal3
+                           findpropstrict Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           negate
+                           multiply
+                           add
+                           getlocal 4
+                           pushdouble 0.143
+                           multiply
+                           add
+                           findpropstrict Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal3
+                           pushbyte 1
+                           findpropstrict Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           subtract
+                           multiply
+                           add
+                           getlocal 4
+                           pushdouble 0.14
+                           multiply
+                           add
+                           findpropstrict Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal3
+                           findpropstrict Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           negate
+                           multiply
+                           add
+                           getlocal 4
+                           pushdouble -0.283
+                           multiply
+                           add
+                           pushbyte 0
+                           pushbyte 0
+                           findpropstrict Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal3
+                           findpropstrict Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           negate
+                           multiply
+                           add
+                           getlocal 4
+                           pushbyte 1
+                           findpropstrict Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           subtract
+                           negate
+                           multiply
+                           add
+                           findpropstrict Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal3
+                           findpropstrict Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           negate
+                           multiply
+                           add
+                           getlocal 4
+                           findpropstrict Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           multiply
+                           add
+                           findpropstrict Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal3
+                           pushbyte 1
+                           findpropstrict Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           subtract
+                           multiply
+                           add
+                           getlocal 4
+                           findpropstrict Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           multiply
+                           add
+                           pushbyte 0
+                           pushbyte 0
+                           pushbyte 0
+                           pushbyte 0
+                           pushbyte 0
+                           pushbyte 1
+                           pushbyte 0
+                           pushbyte 0
+                           pushbyte 0
+                           pushbyte 0
+                           pushbyte 0
+                           pushbyte 1
+                           newarray 25
+                           coerce QName(PackageNamespace(""),"Array")
+                           setlocal 5
+                           findpropstrict Multiname("applyMatrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal 5
+                           getlocal1
+                           callproperty Multiname("applyMatrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 2
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public static function setBrightness(param1:Array, param2:Number) : Array
+               {
+                  trait method QName(PackageNamespace(""),"setBrightness")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name ""
+                        param QName(PackageNamespace(""),"Array")
+                        param QName(PackageNamespace(""),"Number")
+                        returns QName(PackageNamespace(""),"Array")
+                        
+                        body
+                           maxstack 26
+                           localcount 3
+                           initscopedepth 5
+                           maxscopedepth 6
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict Multiname("isNaN",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              getlocal2
+                              callproperty Multiname("isNaN",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                              iffalse ofs000e
+                              getlocal1
+                              returnvalue
+                     ofs000e:
+                              getlocal2
+                              pushbyte 100
+                              multiply
+                              pushbyte 100
+                              subtract
+                              convert_d
+                              setlocal2
+                              findpropstrict Multiname("applyMatrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              pushbyte 1
+                              pushbyte 0
+                              pushbyte 0
+                              pushbyte 0
+                              getlocal2
+                              pushbyte 0
+                              pushbyte 1
+                              pushbyte 0
+                              pushbyte 0
+                              getlocal2
+                              pushbyte 0
+                              pushbyte 0
+                              pushbyte 1
+                              pushbyte 0
+                              getlocal2
+                              pushbyte 0
+                              pushbyte 0
+                              pushbyte 0
+                              pushbyte 1
+                              pushbyte 0
+                              pushbyte 0
+                              pushbyte 0
+                              pushbyte 0
+                              pushbyte 0
+                              pushbyte 1
+                              newarray 25
+                              getlocal1
+                              callproperty Multiname("applyMatrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 2
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public static function setSaturation(param1:Array, param2:Number) : Array
+                  {
+                     trait method QName(PackageNamespace(""),"setSaturation")
+                        flag FINAL
+                        dispid 7
+                        method
+                           name ""
+                           param QName(PackageNamespace(""),"Array")
+                           param QName(PackageNamespace(""),"Number")
+                           returns QName(PackageNamespace(""),"Array")
+                           
+                           body
+                              maxstack 20
+                              localcount 8
+                              initscopedepth 5
+                              maxscopedepth 6
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 findpropstrict Multiname("isNaN",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal2
+                                 callproperty Multiname("isNaN",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                                 iffalse ofs000e
+                                 getlocal1
+                                 returnvalue
+                        ofs000e:
+                                 pushbyte 1
+                                 getlocal2
+                                 subtract
+                                 convert_d
+                                 setlocal3
+                                 getlocal3
+                                 findpropstrict Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getproperty Multiname("_lumR",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 multiply
+                                 convert_d
+                                 setlocal 4
+                                 getlocal3
+                                 findpropstrict Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getproperty Multiname("_lumG",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 multiply
+                                 convert_d
+                                 setlocal 5
+                                 getlocal3
+                                 findpropstrict Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getproperty Multiname("_lumB",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 multiply
+                                 convert_d
+                                 setlocal 6
+                                 getlocal 4
+                                 getlocal2
+                                 add
+                                 getlocal 5
+                                 getlocal 6
+                                 pushbyte 0
+                                 pushbyte 0
+                                 getlocal 4
+                                 getlocal 5
+                                 getlocal2
+                                 add
+                                 getlocal 6
+                                 pushbyte 0
+                                 pushbyte 0
+                                 getlocal 4
+                                 getlocal 5
+                                 getlocal 6
+                                 getlocal2
+                                 add
+                                 pushbyte 0
+                                 pushbyte 0
+                                 pushbyte 0
+                                 pushbyte 0
+                                 pushbyte 0
+                                 pushbyte 1
+                                 pushbyte 0
+                                 newarray 20
+                                 coerce QName(PackageNamespace(""),"Array")
+                                 setlocal 7
+                                 findpropstrict Multiname("applyMatrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal 7
+                                 getlocal1
+                                 callproperty Multiname("applyMatrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 2
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public static function setContrast(param1:Array, param2:Number) : Array
+                     {
+                        trait method QName(PackageNamespace(""),"setContrast")
+                           flag FINAL
+                           dispid 8
+                           method
+                              name ""
+                              param QName(PackageNamespace(""),"Array")
+                              param QName(PackageNamespace(""),"Number")
+                              returns QName(PackageNamespace(""),"Array")
+                              
+                              body
+                                 maxstack 20
+                                 localcount 4
+                                 initscopedepth 5
+                                 maxscopedepth 6
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    findpropstrict Multiname("isNaN",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                    getlocal2
+                                    callproperty Multiname("isNaN",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                                    iffalse ofs000e
+                                    getlocal1
+                                    returnvalue
+                           ofs000e:
+                                    getlocal2
+                                    pushdouble 0.01
+                                    add
+                                    convert_d
+                                    setlocal2
+                                    getlocal2
+                                    pushbyte 0
+                                    pushbyte 0
+                                    pushbyte 0
+                                    pushshort 128
+                                    pushbyte 1
+                                    getlocal2
+                                    subtract
+                                    multiply
+                                    pushbyte 0
+                                    getlocal2
+                                    pushbyte 0
+                                    pushbyte 0
+                                    pushshort 128
+                                    pushbyte 1
+                                    getlocal2
+                                    subtract
+                                    multiply
+                                    pushbyte 0
+                                    pushbyte 0
+                                    getlocal2
+                                    pushbyte 0
+                                    pushshort 128
+                                    pushbyte 1
+                                    getlocal2
+                                    subtract
+                                    multiply
+                                    pushbyte 0
+                                    pushbyte 0
+                                    pushbyte 0
+                                    pushbyte 1
+                                    pushbyte 0
+                                    newarray 20
+                                    coerce QName(PackageNamespace(""),"Array")
+                                    setlocal3
+                                    findpropstrict Multiname("applyMatrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                    getlocal3
+                                    getlocal1
+                                    callproperty Multiname("applyMatrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 2
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public static function applyMatrix(param1:Array, param2:Array) : Array
+                        {
+                           trait method QName(PackageNamespace(""),"applyMatrix")
+                              flag FINAL
+                              dispid 9
+                              method
+                                 name ""
+                                 param QName(PackageNamespace(""),"Array")
+                                 param QName(PackageNamespace(""),"Array")
+                                 returns QName(PackageNamespace(""),"Array")
+                                 
+                                 body
+                                    maxstack 7
+                                    localcount 8
+                                    initscopedepth 5
+                                    maxscopedepth 6
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       pushbyte 0
+                                       convert_i
+                                       setlocal3
+                                       pushbyte 0
+                                       convert_i
+                                       setlocal 4
+                                       getlocal1
+                                       findpropstrict Multiname("Array",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                       getproperty Multiname("Array",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                       istypelate
+                                       not
+                                       convert_b
+                                       dup
+                                       convert_b
+                                       iftrue ofs0022
+                                       pop
+                                       getlocal2
+                                       findpropstrict Multiname("Array",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                       getproperty Multiname("Array",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                       istypelate
+                                       not
+                                       convert_b
+                              ofs0022:
+                                       iffalse ofs0028
+                                       getlocal2
+                                       returnvalue
+                              ofs0028:
+                                       newarray 0
+                                       coerce QName(PackageNamespace(""),"Array")
+                                       setlocal 5
+                                       pushbyte 0
+                                       convert_i
+                                       setlocal 6
+                                       pushbyte 0
+                                       convert_i
+                                       setlocal 7
+                                       pushbyte 0
+                                       convert_i
+                                       setlocal3
+                                       jump ofs00d7
+                              ofs0040:
+                                       label
+                                       pushbyte 0
+                                       convert_i
+                                       setlocal 4
+                                       jump ofs00c1
+                              ofs004a:
+                                       label
+                                       getlocal 4
+                                       pushbyte 4
+                                       ifne ofs0067
+                                       findpropstrict Multiname("int",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                       getlocal1
+                                       getlocal 6
+                                       pushbyte 4
+                                       add
+                                       getproperty MultinameL([PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                       callproperty Multiname("int",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                                       convert_i
+                                       setlocal 7
+                                       jump ofs006c
+                              ofs0067:
+                                       pushbyte 0
+                                       convert_i
+                                       setlocal 7
+                              ofs006c:
+                                       getlocal 5
+                                       getlocal 6
+                                       getlocal 4
+                                       add
+                                       getlocal1
+                                       getlocal 6
+                                       getproperty MultinameL([PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                       getlocal2
+                                       getlocal 4
+                                       getproperty MultinameL([PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                       multiply
+                                       getlocal1
+                                       getlocal 6
+                                       pushbyte 1
+                                       add
+                                       getproperty MultinameL([PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                       getlocal2
+                                       getlocal 4
+                                       pushbyte 5
+                                       add
+                                       getproperty MultinameL([PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                       multiply
+                                       add
+                                       getlocal1
+                                       getlocal 6
+                                       pushbyte 2
+                                       add
+                                       getproperty MultinameL([PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                       getlocal2
+                                       getlocal 4
+                                       pushbyte 10
+                                       add
+                                       getproperty MultinameL([PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                       multiply
+                                       add
+                                       getlocal1
+                                       getlocal 6
+                                       pushbyte 3
+                                       add
+                                       getproperty MultinameL([PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                       getlocal2
+                                       getlocal 4
+                                       pushbyte 15
+                                       add
+                                       getproperty MultinameL([PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                       multiply
+                                       add
+                                       getlocal 7
+                                       add
+                                       setproperty MultinameL([PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                       getlocal 4
+                                       pushbyte 1
+                                       add
+                                       convert_i
+                                       setlocal 4
+                              ofs00c1:
+                                       getlocal 4
+                                       pushbyte 5
+                                       iflt ofs004a
+                                       getlocal 6
+                                       pushbyte 5
+                                       add
+                                       convert_i
+                                       setlocal 6
+                                       getlocal3
+                                       pushbyte 1
+                                       add
+                                       convert_i
+                                       setlocal3
+                              ofs00d7:
+                                       getlocal3
+                                       pushbyte 4
+                                       iflt ofs0040
+                                       getlocal 5
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           override public function onInitTween(param1:Object, param2:*, param3:TweenLite) : Boolean
+                           {
+                              trait method QName(PackageNamespace(""),"onInitTween")
+                                 flag OVERRIDE
+                                 dispid 0
+                                 method
+                                    name ""
+                                    param QName(PackageNamespace(""),"Object")
+                                    param null
+                                    param QName(PackageNamespace("com.greensock"),"TweenLite")
+                                    returns QName(PackageNamespace(""),"Boolean")
+                                    
+                                    body
+                                       maxstack 7
+                                       localcount 6
+                                       initscopedepth 6
+                                       maxscopedepth 7
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          findproperty Multiname("_target",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal1
+                                          initproperty Multiname("_target",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          findproperty Multiname("_type",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          findpropstrict Multiname("ColorMatrixFilter",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getproperty Multiname("ColorMatrixFilter",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          initproperty Multiname("_type",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal2
+                                          coerce QName(PackageNamespace(""),"Object")
+                                          setlocal 4
+                                          findpropstrict Multiname("initFilter",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          pushstring "remove"
+                                          convert_s
+                                          getlocal2
+                                          getproperty Multiname("remove",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          pushstring "index"
+                                          convert_s
+                                          getlocal2
+                                          getproperty Multiname("index",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          pushstring "addFilter"
+                                          convert_s
+                                          getlocal2
+                                          getproperty Multiname("addFilter",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          newobject 3
+                                          findpropstrict Multiname("ColorMatrixFilter",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          findpropstrict Multiname("_idMatrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getproperty Multiname("_idMatrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          callproperty Multiname("slice",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 0
+                                          constructprop Multiname("ColorMatrixFilter",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                                          findpropstrict Multiname("_propNames",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getproperty Multiname("_propNames",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          callproperty Multiname("initFilter",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 3
+                                          pop
+                                          getlocal0
+                                          findpropstrict Multiname("ColorMatrixFilter",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          findpropstrict Multiname("_filter",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getproperty Multiname("_filter",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          callproperty Multiname("ColorMatrixFilter",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                                          getproperty Multiname("matrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          initproperty Multiname("_matrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          newarray 0
+                                          coerce QName(PackageNamespace(""),"Array")
+                                          setlocal 5
+                                          getlocal 4
+                                          getproperty Multiname("matrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          pushnull
+                                          equals
+                                          not
+                                          convert_b
+                                          dup
+                                          convert_b
+                                          iffalse ofs006b
+                                          pop
+                                          getlocal 4
+                                          getproperty Multiname("matrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          findpropstrict Multiname("Array",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getproperty Multiname("Array",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          istypelate
+                                          convert_b
+                                 ofs006b:
+                                          iffalse ofs007b
+                                          getlocal 4
+                                          getproperty Multiname("matrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          coerce QName(PackageNamespace(""),"Array")
+                                          setlocal 5
+                                          jump ofs0109
+                                 ofs007b:
+                                          getlocal 4
+                                          getproperty Multiname("relative",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          pushtrue
+                                          ifne ofs0092
+                                          getlocal0
+                                          getproperty Multiname("_matrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          callproperty Multiname("slice",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 0
+                                          coerce QName(PackageNamespace(""),"Array")
+                                          setlocal 5
+                                          jump ofs009d
+                                 ofs0092:
+                                          findpropstrict Multiname("_idMatrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getproperty Multiname("_idMatrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          callproperty Multiname("slice",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 0
+                                          coerce QName(PackageNamespace(""),"Array")
+                                          setlocal 5
+                                 ofs009d:
+                                          findpropstrict Multiname("setBrightness",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal 5
+                                          getlocal 4
+                                          getproperty Multiname("brightness",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          callproperty Multiname("setBrightness",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 2
+                                          coerce QName(PackageNamespace(""),"Array")
+                                          setlocal 5
+                                          findpropstrict Multiname("setContrast",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal 5
+                                          getlocal 4
+                                          getproperty Multiname("contrast",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          callproperty Multiname("setContrast",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 2
+                                          coerce QName(PackageNamespace(""),"Array")
+                                          setlocal 5
+                                          findpropstrict Multiname("setHue",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal 5
+                                          getlocal 4
+                                          getproperty Multiname("hue",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          callproperty Multiname("setHue",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 2
+                                          coerce QName(PackageNamespace(""),"Array")
+                                          setlocal 5
+                                          findpropstrict Multiname("setSaturation",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal 5
+                                          getlocal 4
+                                          getproperty Multiname("saturation",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          callproperty Multiname("setSaturation",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 2
+                                          coerce QName(PackageNamespace(""),"Array")
+                                          setlocal 5
+                                          findpropstrict Multiname("setThreshold",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal 5
+                                          getlocal 4
+                                          getproperty Multiname("threshold",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          callproperty Multiname("setThreshold",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 2
+                                          coerce QName(PackageNamespace(""),"Array")
+                                          setlocal 5
+                                          findpropstrict Multiname("isNaN",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal 4
+                                          getproperty Multiname("colorize",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          callproperty Multiname("isNaN",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                                          not
+                                          iffalse ofs0109
+                                          findpropstrict Multiname("colorize",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal 5
+                                          getlocal 4
+                                          getproperty Multiname("colorize",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal 4
+                                          getproperty Multiname("amount",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          callproperty Multiname("colorize",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 3
+                                          coerce QName(PackageNamespace(""),"Array")
+                                          setlocal 5
+                                 ofs0109:
+                                          getlocal0
+                                          findpropstrict Multiname("EndArrayPlugin",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          constructprop Multiname("EndArrayPlugin",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 0
+                                          initproperty Multiname("_matrixTween",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal0
+                                          getproperty Multiname("_matrixTween",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal0
+                                          getproperty Multiname("_matrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal 5
+                                          callproperty Multiname("init",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 2
+                                          pop
+                                          pushtrue
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              override public function set changeFactor(param1:Number) : void
+                              {
+                                 trait setter QName(PackageNamespace(""),"changeFactor")
+                                    flag OVERRIDE
+                                    dispid 0
+                                    method
+                                       name ""
+                                       param QName(PackageNamespace(""),"Number")
+                                       returns QName(PackageNamespace(""),"void")
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 2
+                                          initscopedepth 6
+                                          maxscopedepth 7
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             getproperty Multiname("_matrixTween",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                             getlocal1
+                                             setproperty Multiname("changeFactor",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                             findpropstrict Multiname("ColorMatrixFilter",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                             findpropstrict Multiname("_filter",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                             getproperty Multiname("_filter",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                             callproperty Multiname("ColorMatrixFilter",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                                             getlocal0
+                                             getproperty Multiname("_matrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                             setproperty Multiname("matrix",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                             getlocal0
+                                             getlocal1
+                                             setsuper Multiname("changeFactor",[PrivateNamespace("com.greensock.plugins:ColorMatrixFilterPlugin"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:ColorMatrixFilterPlugin"),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin"),ProtectedNamespace("com.greensock.plugins:FilterPlugin")])
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                              }
+                           }
+                           
+                           method
+                              name ""
+                              returns null
+                              
+                              body
+                                 maxstack 2
+                                 localcount 1
+                                 initscopedepth 1
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    findpropstrict Multiname("ColorMatrixFilterPlugin",[PackageNamespace("com.greensock.plugins")])
+                                    findpropstrict QName(PackageNamespace(""),"Object")
+                                    getproperty QName(PackageNamespace(""),"Object")
+                                    pushscope
+                                    findpropstrict QName(PackageNamespace("com.greensock.plugins"),"TweenPlugin")
+                                    getproperty QName(PackageNamespace("com.greensock.plugins"),"TweenPlugin")
+                                    pushscope
+                                    findpropstrict QName(PackageNamespace("com.greensock.plugins"),"FilterPlugin")
+                                    getproperty QName(PackageNamespace("com.greensock.plugins"),"FilterPlugin")
+                                    pushscope
+                                    findpropstrict Multiname("FilterPlugin",[PackageNamespace(""),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters")])
+                                    getproperty Multiname("FilterPlugin",[PackageNamespace(""),PrivateNamespace("ColorMatrixFilterPlugin.as$171"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters")])
+                                    newclass 0
+                                    popscope
+                                    popscope
+                                    popscope
+                                    initproperty QName(PackageNamespace("com.greensock.plugins"),"ColorMatrixFilterPlugin")
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                           

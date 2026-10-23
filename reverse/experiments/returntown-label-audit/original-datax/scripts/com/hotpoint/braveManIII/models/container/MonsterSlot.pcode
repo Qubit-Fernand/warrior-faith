@@ -1,0 +1,957 @@
+package com.hotpoint.braveManIII.models.container
+{
+   import com.hotpoint.braveManIII.models.common.*;
+   import com.hotpoint.braveManIII.models.monsterCard.*;
+   import com.hotpoint.braveManIII.repository.monsterCard.*;
+   import src.*;
+   import src.tool.*;
+   
+   public class MonsterSlot
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var _slot:Array;
+      
+      private var _lqTimes:VT;
+      
+      public function MonsterSlot()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 3
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  findproperty QName(PrivateNamespace(null,"45"),"_slot")
+                  newarray 0
+                  initproperty QName(PrivateNamespace(null,"45"),"_slot")
+                  findproperty QName(PrivateNamespace(null,"45"),"_lqTimes")
+                  getlex Multiname("VT",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot"),PackageNamespace("com.hotpoint.braveManIII.models.common")])
+                  pushbyte 0
+                  callproperty Multiname("createVT",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 1
+                  initproperty QName(PrivateNamespace(null,"45"),"_lqTimes")
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function creatMonsterSlot() : MonsterSlot
+      {
+         trait method QName(PackageNamespace(""),"creatMonsterSlot")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               returns QName(PackageNamespace("com.hotpoint.braveManIII.models.container"),"MonsterSlot")
+               
+               body
+                  maxstack 3
+                  localcount 3
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     construct 0
+                     coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.container"),"MonsterSlot")
+                     setlocal1
+                     pushbyte 0
+                     setlocal2
+                     jump ofs001b
+            ofs000f:
+                     label
+                     getlocal1
+                     getproperty Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                     getlocal2
+                     pushnull
+                     setproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                     inclocal_i 2
+            ofs001b:
+                     getlocal2
+                     pushbyte 80
+                     iflt ofs000f
+                     getlocal1
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function testMonsterSlot() : *
+         {
+            trait method QName(PackageNamespace(""),"testMonsterSlot")
+               dispid 0
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 3
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushbyte 0
+                        setlocal1
+                        jump ofs0033
+               ofs0009:
+                        label
+                        getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                        getlocal1
+                        getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                        iffalse ofs0031
+                        getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                        getlocal1
+                        getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                        getlex Multiname("MonsterCard",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot"),PackageNamespace("com.hotpoint.braveManIII.models.monsterCard")])
+                        astypelate
+                        callproperty Multiname("getId",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 0
+                        getlocal1
+                        ifeq ofs0031
+                        getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                        getlocal1
+                        pushnull
+                        setproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+               ofs0031:
+                        inclocal_i 1
+               ofs0033:
+                        getlocal1
+                        pushbyte 80
+                        iflt ofs0009
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function getMonsterSlotLength() : Number
+            {
+               trait method QName(PackageNamespace(""),"getMonsterSlotLength")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"Number")
+                     
+                     body
+                        maxstack 1
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                           getproperty Multiname("length",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function getMonsterSlotNum(param1:int) : MonsterCard
+               {
+                  trait method QName(PackageNamespace(""),"getMonsterSlotNum")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"int")
+                        returns QName(PackageNamespace("com.hotpoint.braveManIII.models.monsterCard"),"MonsterCard")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                              getlocal1
+                              getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                              iffalse ofs0015
+                              getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                              getlocal1
+                              getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                              returnvalue
+                     ofs0015:
+                              pushnull
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function addMonsterSlot(param1:int) : *
+                  {
+                     trait method QName(PackageNamespace(""),"addMonsterSlot")
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace(""),"int")
+                           returns null
+                           
+                           body
+                              maxstack 4
+                              localcount 3
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 pushbyte 0
+                                 setlocal2
+                                 getlex Multiname("MonsterFactory",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot"),PackageNamespace("com.hotpoint.braveManIII.repository.monsterCard")])
+                                 getlocal1
+                                 callproperty Multiname("getMonsterByType",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 1
+                                 iffalse ofs0053
+                                 findpropstrict Multiname("int",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                 getlex Multiname("MonsterFactory",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot"),PackageNamespace("com.hotpoint.braveManIII.repository.monsterCard")])
+                                 getlocal1
+                                 callproperty Multiname("getMonsterByType",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 1
+                                 callproperty Multiname("getId",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 0
+                                 callproperty Multiname("int",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 1
+                                 convert_i
+                                 setlocal2
+                                 getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                 getlocal2
+                                 getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                 iffalse ofs0044
+                                 getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                 getlocal2
+                                 getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                 getlex Multiname("MonsterCard",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot"),PackageNamespace("com.hotpoint.braveManIII.models.monsterCard")])
+                                 astypelate
+                                 callpropvoid Multiname("addTimes",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 0
+                                 jump ofs0053
+                        ofs0044:
+                                 getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                 getlocal2
+                                 getlex Multiname("MonsterFactory",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot"),PackageNamespace("com.hotpoint.braveManIII.repository.monsterCard")])
+                                 getlocal1
+                                 callproperty Multiname("creatMonsterType",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 1
+                                 setproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                        ofs0053:
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function addLqTimes(param1:int = 1) : *
+                     {
+                        trait method QName(PackageNamespace(""),"addLqTimes")
+                           dispid 0
+                           method
+                              name null
+                              flag HAS_OPTIONAL
+                              param QName(PackageNamespace(""),"int")
+                              optional Integer(1)
+                              returns null
+                              
+                              body
+                                 maxstack 3
+                                 localcount 2
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlex Multiname("_lqTimes",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                    getlex Multiname("_lqTimes",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                    callproperty Multiname("getValue",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 0
+                                    getlocal1
+                                    add
+                                    callpropvoid Multiname("setValue",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 1
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function getLqTimes() : int
+                        {
+                           trait method QName(PackageNamespace(""),"getLqTimes")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"int")
+                                 
+                                 body
+                                    maxstack 1
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlex Multiname("_lqTimes",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                       callproperty Multiname("getValue",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 0
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function getAllStarNum() : int
+                           {
+                              trait method QName(PackageNamespace(""),"getAllStarNum")
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"int")
+                                    
+                                    body
+                                       maxstack 3
+                                       localcount 3
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          pushbyte 0
+                                          convert_d
+                                          setlocal1
+                                          pushbyte 0
+                                          setlocal2
+                                          jump ofs002e
+                                 ofs000d:
+                                          label
+                                          getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                          getlocal2
+                                          getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                          iffalse ofs002c
+                                          getlocal1
+                                          getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                          getlocal2
+                                          getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                          getlex Multiname("MonsterCard",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot"),PackageNamespace("com.hotpoint.braveManIII.models.monsterCard")])
+                                          astypelate
+                                          callproperty Multiname("getTimes",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 0
+                                          add
+                                          convert_d
+                                          setlocal1
+                                 ofs002c:
+                                          inclocal_i 2
+                                 ofs002e:
+                                          getlocal2
+                                          getlex Multiname("slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                          getproperty Multiname("length",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                          iflt ofs000d
+                                          getlocal1
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function addMonsterCard(param1:Number) : *
+                              {
+                                 trait method QName(PackageNamespace(""),"addMonsterCard")
+                                    dispid 0
+                                    method
+                                       name null
+                                       param QName(PackageNamespace(""),"Number")
+                                       returns null
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 3
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlex Multiname("Math",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                             callproperty Multiname("random",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 0
+                                             pushbyte 100
+                                             multiply
+                                             convert_d
+                                             setlocal2
+                                             getlocal2
+                                             pushbyte 5
+                                             ifnlt ofs001d
+                                             findpropstrict Multiname("addMonsterSlot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                             getlocal1
+                                             callpropvoid Multiname("addMonsterSlot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 1
+                                    ofs001d:
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function getAllAttup() : Number
+                                 {
+                                    trait method QName(PackageNamespace(""),"getAllAttup")
+                                       dispid 0
+                                       method
+                                          name null
+                                          returns QName(PackageNamespace(""),"Number")
+                                          
+                                          body
+                                             maxstack 3
+                                             localcount 3
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                pushbyte 0
+                                                convert_d
+                                                setlocal1
+                                                pushbyte 0
+                                                setlocal2
+                                                jump ofs0052
+                                       ofs000d:
+                                                label
+                                                getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                getlocal2
+                                                getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                iffalse ofs0050
+                                                getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                getlocal2
+                                                getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                convert_b
+                                                dup
+                                                iffalse ofs0039
+                                                pop
+                                                getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                getlocal2
+                                                getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                getlex Multiname("MonsterCard",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot"),PackageNamespace("com.hotpoint.braveManIII.models.monsterCard")])
+                                                astypelate
+                                                callproperty Multiname("getTimes",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 0
+                                                pushbyte 3
+                                                greaterequals
+                                       ofs0039:
+                                                iffalse ofs0050
+                                                getlocal1
+                                                getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                getlocal2
+                                                getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                getlex Multiname("MonsterCard",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot"),PackageNamespace("com.hotpoint.braveManIII.models.monsterCard")])
+                                                astypelate
+                                                callproperty Multiname("getAttup",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 0
+                                                add
+                                                convert_d
+                                                setlocal1
+                                       ofs0050:
+                                                inclocal_i 2
+                                       ofs0052:
+                                                getlocal2
+                                                getlex Multiname("slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                getproperty Multiname("length",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                iflt ofs000d
+                                                getlocal1
+                                                returnvalue
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    public function getAllDefup() : Number
+                                    {
+                                       trait method QName(PackageNamespace(""),"getAllDefup")
+                                          dispid 0
+                                          method
+                                             name null
+                                             returns QName(PackageNamespace(""),"Number")
+                                             
+                                             body
+                                                maxstack 3
+                                                localcount 3
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   pushbyte 0
+                                                   convert_d
+                                                   setlocal1
+                                                   pushbyte 0
+                                                   setlocal2
+                                                   jump ofs0052
+                                          ofs000d:
+                                                   label
+                                                   getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                   getlocal2
+                                                   getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                   iffalse ofs0050
+                                                   getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                   getlocal2
+                                                   getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                   convert_b
+                                                   dup
+                                                   iffalse ofs0039
+                                                   pop
+                                                   getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                   getlocal2
+                                                   getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                   getlex Multiname("MonsterCard",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot"),PackageNamespace("com.hotpoint.braveManIII.models.monsterCard")])
+                                                   astypelate
+                                                   callproperty Multiname("getTimes",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 0
+                                                   pushbyte 3
+                                                   greaterequals
+                                          ofs0039:
+                                                   iffalse ofs0050
+                                                   getlocal1
+                                                   getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                   getlocal2
+                                                   getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                   getlex Multiname("MonsterCard",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot"),PackageNamespace("com.hotpoint.braveManIII.models.monsterCard")])
+                                                   astypelate
+                                                   callproperty Multiname("getDefup",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 0
+                                                   add
+                                                   convert_d
+                                                   setlocal1
+                                          ofs0050:
+                                                   inclocal_i 2
+                                          ofs0052:
+                                                   getlocal2
+                                                   getlex Multiname("slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                   getproperty Multiname("length",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                   iflt ofs000d
+                                                   getlocal1
+                                                   returnvalue
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       public function getAllCritup() : Number
+                                       {
+                                          trait method QName(PackageNamespace(""),"getAllCritup")
+                                             dispid 0
+                                             method
+                                                name null
+                                                returns QName(PackageNamespace(""),"Number")
+                                                
+                                                body
+                                                   maxstack 3
+                                                   localcount 3
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      pushbyte 0
+                                                      convert_d
+                                                      setlocal1
+                                                      pushbyte 0
+                                                      setlocal2
+                                                      jump ofs0052
+                                             ofs000d:
+                                                      label
+                                                      getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                      getlocal2
+                                                      getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                      iffalse ofs0050
+                                                      getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                      getlocal2
+                                                      getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                      convert_b
+                                                      dup
+                                                      iffalse ofs0039
+                                                      pop
+                                                      getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                      getlocal2
+                                                      getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                      getlex Multiname("MonsterCard",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot"),PackageNamespace("com.hotpoint.braveManIII.models.monsterCard")])
+                                                      astypelate
+                                                      callproperty Multiname("getTimes",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 0
+                                                      pushbyte 3
+                                                      greaterequals
+                                             ofs0039:
+                                                      iffalse ofs0050
+                                                      getlocal1
+                                                      getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                      getlocal2
+                                                      getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                      getlex Multiname("MonsterCard",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot"),PackageNamespace("com.hotpoint.braveManIII.models.monsterCard")])
+                                                      astypelate
+                                                      callproperty Multiname("getCritup",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 0
+                                                      add
+                                                      convert_d
+                                                      setlocal1
+                                             ofs0050:
+                                                      inclocal_i 2
+                                             ofs0052:
+                                                      getlocal2
+                                                      getlex Multiname("slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                      getproperty Multiname("length",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                      iflt ofs000d
+                                                      getlocal1
+                                                      returnvalue
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          public function getAllHpup() : Number
+                                          {
+                                             trait method QName(PackageNamespace(""),"getAllHpup")
+                                                dispid 0
+                                                method
+                                                   name null
+                                                   returns QName(PackageNamespace(""),"Number")
+                                                   
+                                                   body
+                                                      maxstack 3
+                                                      localcount 3
+                                                      initscopedepth 4
+                                                      maxscopedepth 5
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         pushbyte 0
+                                                         convert_d
+                                                         setlocal1
+                                                         pushbyte 0
+                                                         setlocal2
+                                                         jump ofs0052
+                                                ofs000d:
+                                                         label
+                                                         getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                         getlocal2
+                                                         getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                         iffalse ofs0050
+                                                         getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                         getlocal2
+                                                         getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                         convert_b
+                                                         dup
+                                                         iffalse ofs0039
+                                                         pop
+                                                         getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                         getlocal2
+                                                         getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                         getlex Multiname("MonsterCard",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot"),PackageNamespace("com.hotpoint.braveManIII.models.monsterCard")])
+                                                         astypelate
+                                                         callproperty Multiname("getTimes",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 0
+                                                         pushbyte 3
+                                                         greaterequals
+                                                ofs0039:
+                                                         iffalse ofs0050
+                                                         getlocal1
+                                                         getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                         getlocal2
+                                                         getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                         getlex Multiname("MonsterCard",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot"),PackageNamespace("com.hotpoint.braveManIII.models.monsterCard")])
+                                                         astypelate
+                                                         callproperty Multiname("getHpup",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 0
+                                                         add
+                                                         convert_d
+                                                         setlocal1
+                                                ofs0050:
+                                                         inclocal_i 2
+                                                ofs0052:
+                                                         getlocal2
+                                                         getlex Multiname("slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                         getproperty Multiname("length",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                         iflt ofs000d
+                                                         getlocal1
+                                                         returnvalue
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             public function getAllMpup() : Number
+                                             {
+                                                trait method QName(PackageNamespace(""),"getAllMpup")
+                                                   dispid 0
+                                                   method
+                                                      name null
+                                                      returns QName(PackageNamespace(""),"Number")
+                                                      
+                                                      body
+                                                         maxstack 3
+                                                         localcount 3
+                                                         initscopedepth 4
+                                                         maxscopedepth 5
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            pushbyte 0
+                                                            convert_d
+                                                            setlocal1
+                                                            pushbyte 0
+                                                            setlocal2
+                                                            jump ofs0052
+                                                   ofs000d:
+                                                            label
+                                                            getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                            getlocal2
+                                                            getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                            iffalse ofs0050
+                                                            getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                            getlocal2
+                                                            getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                            convert_b
+                                                            dup
+                                                            iffalse ofs0039
+                                                            pop
+                                                            getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                            getlocal2
+                                                            getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                            getlex Multiname("MonsterCard",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot"),PackageNamespace("com.hotpoint.braveManIII.models.monsterCard")])
+                                                            astypelate
+                                                            callproperty Multiname("getTimes",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 0
+                                                            pushbyte 3
+                                                            greaterequals
+                                                   ofs0039:
+                                                            iffalse ofs0050
+                                                            getlocal1
+                                                            getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                            getlocal2
+                                                            getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                            getlex Multiname("MonsterCard",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot"),PackageNamespace("com.hotpoint.braveManIII.models.monsterCard")])
+                                                            astypelate
+                                                            callproperty Multiname("getMpup",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 0
+                                                            add
+                                                            convert_d
+                                                            setlocal1
+                                                   ofs0050:
+                                                            inclocal_i 2
+                                                   ofs0052:
+                                                            getlocal2
+                                                            getlex Multiname("slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                            getproperty Multiname("length",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                            iflt ofs000d
+                                                            getlocal1
+                                                            returnvalue
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                                
+                                                public function get slot() : Array
+                                                {
+                                                   trait getter QName(PackageNamespace(""),"slot")
+                                                      dispid 0
+                                                      method
+                                                         name null
+                                                         returns QName(PackageNamespace(""),"Array")
+                                                         
+                                                         body
+                                                            maxstack 1
+                                                            localcount 1
+                                                            initscopedepth 4
+                                                            maxscopedepth 5
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                               returnvalue
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                   }
+                                                   
+                                                   public function set slot(param1:Array) : void
+                                                   {
+                                                      trait setter QName(PackageNamespace(""),"slot")
+                                                         dispid 0
+                                                         method
+                                                            name null
+                                                            param QName(PackageNamespace(""),"Array")
+                                                            returns QName(PackageNamespace(""),"void")
+                                                            
+                                                            body
+                                                               maxstack 2
+                                                               localcount 2
+                                                               initscopedepth 4
+                                                               maxscopedepth 5
+                                                               
+                                                               code
+                                                                  getlocal0
+                                                                  pushscope
+                                                                  findproperty Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                                  getlocal1
+                                                                  initproperty Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                                  returnvoid
+                                                               end ; code
+                                                            end ; body
+                                                         end ; method
+                                                      }
+                                                      
+                                                      public function get lqTimes() : VT
+                                                      {
+                                                         trait getter QName(PackageNamespace(""),"lqTimes")
+                                                            dispid 0
+                                                            method
+                                                               name null
+                                                               returns QName(PackageNamespace("com.hotpoint.braveManIII.models.common"),"VT")
+                                                               
+                                                               body
+                                                                  maxstack 1
+                                                                  localcount 1
+                                                                  initscopedepth 4
+                                                                  maxscopedepth 5
+                                                                  
+                                                                  code
+                                                                     getlocal0
+                                                                     pushscope
+                                                                     getlex Multiname("_lqTimes",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                                     returnvalue
+                                                                  end ; code
+                                                               end ; body
+                                                            end ; method
+                                                         }
+                                                         
+                                                         public function set lqTimes(param1:VT) : void
+                                                         {
+                                                            trait setter QName(PackageNamespace(""),"lqTimes")
+                                                               dispid 0
+                                                               method
+                                                                  name null
+                                                                  param QName(PackageNamespace("com.hotpoint.braveManIII.models.common"),"VT")
+                                                                  returns QName(PackageNamespace(""),"void")
+                                                                  
+                                                                  body
+                                                                     maxstack 2
+                                                                     localcount 2
+                                                                     initscopedepth 4
+                                                                     maxscopedepth 5
+                                                                     
+                                                                     code
+                                                                        getlocal0
+                                                                        pushscope
+                                                                        findproperty Multiname("_lqTimes",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                                        getlocal1
+                                                                        initproperty Multiname("_lqTimes",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                                        returnvoid
+                                                                     end ; code
+                                                                  end ; body
+                                                               end ; method
+                                                            }
+                                                            
+                                                            public function getMonsterCardOK(param1:int) : Boolean
+                                                            {
+                                                               trait method QName(PackageNamespace(""),"getMonsterCardOK")
+                                                                  dispid 0
+                                                                  method
+                                                                     name null
+                                                                     param QName(PackageNamespace(""),"int")
+                                                                     returns QName(PackageNamespace(""),"Boolean")
+                                                                     
+                                                                     body
+                                                                        maxstack 2
+                                                                        localcount 3
+                                                                        initscopedepth 4
+                                                                        maxscopedepth 5
+                                                                        
+                                                                        code
+                                                                           getlocal0
+                                                                           pushscope
+                                                                           pushbyte 0
+                                                                           setlocal2
+                                                                           jump ofs002f
+                                                                  ofs0009:
+                                                                           label
+                                                                           getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                                           getlocal2
+                                                                           getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                                           iffalse ofs002d
+                                                                           getlex Multiname("_slot",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                                           getlocal2
+                                                                           getproperty MultinameL([PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")])
+                                                                           getlex Multiname("MonsterCard",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot"),PackageNamespace("com.hotpoint.braveManIII.models.monsterCard")])
+                                                                           astypelate
+                                                                           callproperty Multiname("getTimes",[PrivateNamespace(null,"45"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:MonsterSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:MonsterSlot")]), 0
+                                                                           pushbyte 3
+                                                                           ifnge ofs002d
+                                                                           getlocal1
+                                                                           decrement_i
+                                                                           setlocal1
+                                                                  ofs002d:
+                                                                           inclocal_i 2
+                                                                  ofs002f:
+                                                                           getlocal2
+                                                                           pushbyte 80
+                                                                           iflt ofs0009
+                                                                           getlocal1
+                                                                           pushbyte 0
+                                                                           ifnle ofs003f
+                                                                           pushtrue
+                                                                           returnvalue
+                                                                  ofs003f:
+                                                                           pushfalse
+                                                                           returnvalue
+                                                                        end ; code
+                                                                     end ; body
+                                                                  end ; method
+                                                               }
+                                                            }
+                                                         }
+                                                         
+                                                         method
+                                                            name null
+                                                            returns null
+                                                            
+                                                            body
+                                                               maxstack 2
+                                                               localcount 1
+                                                               initscopedepth 1
+                                                               maxscopedepth 3
+                                                               
+                                                               code
+                                                                  getlocal0
+                                                                  pushscope
+                                                                  findpropstrict Multiname("MonsterSlot",[PackageNamespace("com.hotpoint.braveManIII.models.container")])
+                                                                  getlex QName(PackageNamespace(""),"Object")
+                                                                  pushscope
+                                                                  getlex Multiname("Object",[PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"277"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("src.tool")])
+                                                                  newclass 55
+                                                                  popscope
+                                                                  initproperty QName(PackageNamespace("com.hotpoint.braveManIII.models.container"),"MonsterSlot")
+                                                                  returnvoid
+                                                               end ; code
+                                                            end ; body
+                                                         end ; method
+                                                         

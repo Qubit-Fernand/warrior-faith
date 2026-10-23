@@ -379,7 +379,7 @@ package com.hotpoint.braveManIII.views.suppliesShopPanel
       
       private static function setDown() : void
       {
-         var _loc1_:* = int(suppliesShowPanel["buyMenu"]["amount"].text);
+         var _loc1_:int = int(suppliesShowPanel["buyMenu"]["amount"].text);
          if(_loc1_ == 1)
          {
             _loc1_ = 24;

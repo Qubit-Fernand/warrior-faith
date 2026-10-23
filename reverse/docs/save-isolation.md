@@ -27,6 +27,8 @@ Citations refer to fresh `reverse/exports/3_L4399Main_gamefile/scripts` (`3_L439
 
 A stronger separation is a dedicated macOS user or a player runtime with a verified separate storage directory. Setting HOME alone is not an adequate claim of isolation for a native app that may obtain its home through system APIs.
 
+Observed correction from the standalone resource probe: on this macOS official projector, two different package paths using default `getLocal("yzlr2_resource_probe")` both wrote `localhost/yzlr2_resource_probe.sol`. Default localPath did **not** establish package-directory isolation. The original report was exported before the rebuilt run reused that dedicated SO. Keep explicit distinct game test names and verify actual storage; see `resource-harness.md` and `save-network-boundary.md`.
+
 ## Cloud / external calls
 
 Normal local persistence is `Main.Save2 → LocalSaveManager.saveSlot`; the fresh main code does not call a 4399 cloud-save endpoint in this route. `Main.setHold` can accept a host object; do not supply one. Do not log into 4399 or import a browser session for testing.

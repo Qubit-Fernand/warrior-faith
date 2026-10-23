@@ -78,6 +78,17 @@ assemble 默认拒绝缺少有效重建收据/输入指纹或不完整资源，�
 
 每次章节修改至少验证：入口是否可见；任务接受/条件更新/提交；地图加载与结束；奖励只发一次；保存退出后重读；已完成任务不能无意重开。新增Boss/技能还须测试实际战斗和动画帧事件，而非只看类存在。当前静态工具中的基线比较可能把有意新增类/资源报为差异，必须明确记录并更新扩展验收，不能随手删除检查。
 
+## 当前可编辑范围与复现门槛
+
+“19,910份AS可编辑”表示这些文件是代码权威，不表示任意结构改动都已由工具支持。两个明确的构建契约需要保留：
+
+- `build_main.py:54–64` 的 staging 修复必须找到 Player2 的旧空语句、三个文件的原 wildcard import，以及 LocalSaveManager 的原存档名字面量。若你先在canonical里自行清理这些内容，构建会以 `Expected repair not found` 停止；需要同时审查并更新对应recipe与验证，不能删掉断言后继续宣称恢复等价。普通 Task 介绍文字修改不会触及这些前提。
+- `datax_source.py` 与 DataX 验证固定现有11个XML方法/加载关系。改这11份表的数据属于已有路径；新增第12张表、改方法名或加载顺序，需要显式扩展导入与原/新版验证。普通 `import-xml` 不是一个任意AS重写器。
+
+干净clone的步骤见 `reconstruction-boundaries.md`：原基线SWF、工具链、inventory与`-exportembed`素材都仍是必需输入。只拉取AS不会得到可链接的美术。独立新工作目录实验只完成33/164模块，未完成全量严格组装或运行；不要把同机已有完整包的成功转写成“全新机器一键复现”。
+
+2026-10-24交付审查时，保留trace的新Main71b7c20c9edc已通过24方法定点检查及183真实类回归；非Main全部采用显式`omit-trace-statements=false`的新世代仍在完成编译/组装与全包玩法验证。这是当时的阶段快照，不是永久状态；应以当前严格`audit`、新的`assembly.json`及对应运行证据确定可启动的包。历史928e或2c包不代表已包含后来的全部修复。
+
 ## ApplicationDomain和存档的两个主要陷阱
 
 游戏每个 ClassLoader 默认用独立子域，父域是游戏主程序；公共基类复用父域，兄弟资源不应合并成一个域。多个资源里的 src.Main/HitXX/Skin_ZhuangBei副本，以及 VIP/XLUP/YZJH 的同名 Skin，不能因名字重复就删掉或统一当前域。完整依据见 application-domain-audit.md。XMLAsset与JSON还有实际发生过的编译歧义：当前构建修复显式import/短名绑定；在strict=false模式直接写完全限定调用曾生成动态getlex com并在读档报1065，编译成功不证明绑定正确。

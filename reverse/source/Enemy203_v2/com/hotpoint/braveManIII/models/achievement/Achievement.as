@@ -976,29 +976,25 @@ package com.hotpoint.braveManIII.models.achievement
          if(_loc3_.length != 1)
          {
             _loc5_ = 0;
-            while(true)
+            while(_loc5_ < _loc3_.length)
             {
-               if(_loc5_ < _loc3_.length)
+               if(_loc3_[_loc5_].getValue() == this._map.getValue())
                {
-                  if(_loc3_[_loc5_].getValue() == this._map.getValue())
+                  if(_loc4_ == this._star.getValue())
                   {
-                     if(_loc4_ == this._star.getValue())
+                     if(this.isRy())
                      {
-                        if(this.isRy())
-                        {
-                           break;
-                        }
-                        if(this._tg)
-                        {
-                           return this.dbNum(param2,param1);
-                        }
+                        return this.dbNum(param2,param1);
+                     }
+                     if(this._tg)
+                     {
+                        return this.dbNum(param2,param1);
                      }
                   }
-                  continue;
                }
                _loc5_++;
             }
-            return this.dbNum(param2,param1);
+            return false;
          }
          if(_loc3_[0].getValue() == -1)
          {

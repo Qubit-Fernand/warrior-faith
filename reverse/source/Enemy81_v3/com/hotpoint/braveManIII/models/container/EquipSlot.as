@@ -113,7 +113,7 @@ package com.hotpoint.braveManIII.models.container
             }
             if(_slot[i] != null)
             {
-               if((_slot[i] as Equip).getRemainingTime() > 0)
+               if(!((_slot[i] as Equip).getRemainingTime() <= 0))
                {
                   hp += _slot[i].getHP();
                }
@@ -143,7 +143,7 @@ package com.hotpoint.braveManIII.models.container
             }
             if(_slot[i] != null)
             {
-               if((_slot[i] as Equip).getRemainingTime() > 0)
+               if(!((_slot[i] as Equip).getRemainingTime() <= 0))
                {
                   mp += _slot[i].getMP();
                }
@@ -173,7 +173,7 @@ package com.hotpoint.braveManIII.models.container
             }
             if(_slot[i] != null)
             {
-               if((_slot[i] as Equip).getRemainingTime() > 0)
+               if(!((_slot[i] as Equip).getRemainingTime() <= 0))
                {
                   att += _slot[i].getAttack();
                }
@@ -230,7 +230,7 @@ package com.hotpoint.braveManIII.models.container
             }
             if(_slot[i] != null)
             {
-               if((_slot[i] as Equip).getRemainingTime() > 0)
+               if(!((_slot[i] as Equip).getRemainingTime() <= 0))
                {
                   datt += _slot[i].getAttackIgnoreDefense();
                }
@@ -260,7 +260,7 @@ package com.hotpoint.braveManIII.models.container
             }
             if(_slot[i] != null)
             {
-               if((_slot[i] as Equip).getRemainingTime() > 0)
+               if(!((_slot[i] as Equip).getRemainingTime() <= 0))
                {
                   def += _slot[i].getDefense();
                }
@@ -290,7 +290,7 @@ package com.hotpoint.braveManIII.models.container
             }
             if(_slot[i] != null)
             {
-               if((_slot[i] as Equip).getRemainingTime() > 0)
+               if(!((_slot[i] as Equip).getRemainingTime() <= 0))
                {
                   speed += _slot[i].getMoveSpeed();
                }
@@ -320,7 +320,7 @@ package com.hotpoint.braveManIII.models.container
             }
             if(_slot[i] != null)
             {
-               if((_slot[i] as Equip).getRemainingTime() > 0)
+               if(!((_slot[i] as Equip).getRemainingTime() <= 0))
                {
                   crit += _slot[i].getCrit();
                }
@@ -350,7 +350,7 @@ package com.hotpoint.braveManIII.models.container
             }
             if(_slot[i] != null)
             {
-               if((_slot[i] as Equip).getRemainingTime() > 0)
+               if(!((_slot[i] as Equip).getRemainingTime() <= 0))
                {
                   duck += _slot[i].getDuck();
                }
@@ -380,7 +380,7 @@ package com.hotpoint.braveManIII.models.container
             }
             if(_slot[i] != null)
             {
-               if((_slot[i] as Equip).getRemainingTime() > 0)
+               if(!((_slot[i] as Equip).getRemainingTime() <= 0))
                {
                   hard += _slot[i].getHardValue();
                }
@@ -410,7 +410,7 @@ package com.hotpoint.braveManIII.models.container
             }
             if(_slot[i] != null)
             {
-               if((_slot[i] as Equip).getRemainingTime() > 0)
+               if(!((_slot[i] as Equip).getRemainingTime() <= 0))
                {
                   mokang += _slot[i].getMOKANG();
                }
@@ -440,7 +440,7 @@ package com.hotpoint.braveManIII.models.container
             }
             if(_slot[i] != null)
             {
-               if((_slot[i] as Equip).getRemainingTime() > 0)
+               if(!((_slot[i] as Equip).getRemainingTime() <= 0))
                {
                   pomo += _slot[i].getPOMO();
                }

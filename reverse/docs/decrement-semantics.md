@@ -45,7 +45,7 @@ Equip两方法从日期数字字符串的第4–5位取月份并转int（355–3
 
 原五方法中另有 declocal 等循环索引操作，重建常变为 `getlocal; decrement; coerce_a; setlocal`。这也是Number路径的表示差异，但不是上述减法计数减少的七个位置。MoveData的 `--runArr[index][2]` 在原P-code已是decrement；它不是重建新增的自减。本报告没有把这些周边操作全部纳入等价证明。
 
-## 可证伪数值探针：已编译，未运行
+## 可证伪数值探针及后续实测
 
 源文件 `reverse/experiments/decrement-harness/DecrementHarness.as`，产物 `reverse/build/decrement-harness/DecrementHarness.swf`，SHA-256为 `10a0c1e47f913d5925c879ccdf0872155dfc92c90b73c52363cdc9cfffbc46ae`。build.json保存编译命令、源/输出/P-code哈希及关键方法指令。编译产物仅含DecrementHarness类；没有SharedObject/getLocal/Loader/URLLoader/URLRequest引用，也不接入游戏目录或SO。
 
@@ -53,6 +53,15 @@ Equip两方法从日期数字字符串的第4–5位取月份并转int（355–3
 
 19个向量覆盖±Infinity、NaN、±0、小数、Array.length代表边界、int32两端和2^53。比较包含NaN判等与零符号检查。额外断言 `-2147483648 → -2147483649`；若误用int32减法则可能得到2147483647，能暴露不同降级。源码中的Number输出预期不等于运行结果；清单里主机IEEE-754计算也只是预期向量。
 
-由根任务另行打开这个独立SWF时，屏幕和trace显示逐项结果及Failures。当前只完成编译和P-code验证，**未有AVM执行结果**。即使探针全部通过，也只验证播放器这两个opcode的数值行为，不证明碰撞、运动曲线、装备到期业务完整无差异。
+初始交付时只完成编译和P-code验证；随后根任务已在macOS官方Flash Player Debugger实际启动同哈希SWF，19/19 PASS、Failures=0，int32边界显示-2147483649。截图 `reverse/logs/runtime/decrement-harness-pass.png` 已独立查看，单独的 `reverse/experiments/decrement-harness/runtime.json` 保存输出SWF与截图哈希、结果及来源；初始build.json的runtime_tested=false保留其当时状态，不伪改历史编译收据。此次通过验证的是播放器两个opcode的数值行为，仍不证明碰撞、运动曲线、实际Equip日期方法、时区或到期业务完整无差异。
 
 因此可以将之前“七处算术可能因减一降级改变语义”的疑点收窄为：局部Number操作有规范与实际操作数/用途证据支持等价；五方法全CFG、属性绑定、实际运动和装备日期回归仍需要自己的证据。游戏源码及原资源未修改。
+
+
+## 独立补充：原版商店 int32 下溢 UI 实测
+
+主任务随后用DiagnosticHarness v5运行原版隔离游戏，数量框输入 `-2147483648` 后点击减少按钮。已独立读取 `original-shop-v5-before-down.json`（序号232，11字符）和 `original-shop-v5-after-down.json`（序号251，10字符），目标amount完整文本实际为 `-2147483648 → 2147483647`。两份游戏/观察器错误数组均空，样本partial=false；目标字段和祖先路径无截断。原版Main和wrapper/report精确SHA见 `reverse/manifests/original-shop-quantity-v5-runtime.json`，商店流程及输入来源见shop-semantics.md。
+
+这项结果属于SuppliesShopPanel.setDown的int32下溢路径，**不是本报告上方七处普通Number decrement的测试结果**。因此与独立19向量探针中Number减一得到−2147483649一致地说明应区分Number与int32两种操作，不能据“同为减一”把两者合并。本轮原版UI数据验证了已定位的整数边界确实可由可编辑文本框到达。
+
+v4之前的panels=0来自比错误尾部旧60378ms的快照，当时观察器失败而没有新快照，不应当作原版字段行为。v5已完整捕获目标；其他商店文本仍受300节点/16字段预算截断，target完整不意味着全树完整。最新keep-trace重建包的同一UI输入/减少操作仍待对照；此处不把原版结果外推为修复后重建版通过。

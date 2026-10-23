@@ -1,0 +1,88 @@
+package mx.core
+{
+   import flash.utils.ByteArray;
+   
+   use namespace mx_internal;
+   
+   public class ByteArrayAsset extends ByteArray implements IFlexAsset
+   {
+      
+      mx_internal static const VERSION:String = "3.0.0.0";
+      
+      method
+         name ""
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(Namespace("http://www.adobe.com/2006/flex/mx/internal"),"VERSION")
+               pushstring "3.0.0.0"
+               initproperty QName(Namespace("http://www.adobe.com/2006/flex/mx/internal"),"VERSION")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function ByteArrayAsset()
+      {
+         method
+            name ""
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+   }
+}
+
+method
+   name ""
+   returns null
+   
+   body
+      maxstack 2
+      localcount 1
+      initscopedepth 1
+      maxscopedepth 4
+      
+      code
+         getlocal0
+         pushscope
+         findpropstrict Multiname("ByteArrayAsset",[PackageNamespace("mx.core")])
+         findpropstrict QName(PackageNamespace(""),"Object")
+         getproperty QName(PackageNamespace(""),"Object")
+         pushscope
+         findpropstrict QName(PackageNamespace("flash.utils"),"ByteArray")
+         getproperty QName(PackageNamespace("flash.utils"),"ByteArray")
+         pushscope
+         findpropstrict Multiname("ByteArray",[Namespace("http://www.adobe.com/2006/flex/mx/internal"),PackageNamespace(""),PrivateNamespace("ByteArrayAsset.as$177"),PackageNamespace("mx.core"),PackageInternalNs("mx.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.utils")])
+         getproperty Multiname("ByteArray",[Namespace("http://www.adobe.com/2006/flex/mx/internal"),PackageNamespace(""),PrivateNamespace("ByteArrayAsset.as$177"),PackageNamespace("mx.core"),PackageInternalNs("mx.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.utils")])
+         newclass 0
+         popscope
+         popscope
+         initproperty QName(PackageNamespace("mx.core"),"ByteArrayAsset")
+         returnvoid
+      end ; code
+   end ; body
+end ; method
+

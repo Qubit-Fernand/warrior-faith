@@ -1,0 +1,176 @@
+package com.greensock.plugins
+{
+   import com.greensock.*;
+   import flash.filters.*;
+   
+   public class BevelFilterPlugin extends FilterPlugin
+   {
+      
+      public static const API:Number = 1;
+      
+      private static var _propNames:Array;
+      
+      method
+         name ""
+         returns null
+         
+         body
+            maxstack 11
+            localcount 1
+            initscopedepth 5
+            maxscopedepth 6
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"API")
+               pushbyte 1
+               initproperty QName(PackageNamespace(""),"API")
+               findproperty QName(PrivateNamespace("com.greensock.plugins:BevelFilterPlugin"),"_propNames")
+               pushstring "distance"
+               pushstring "angle"
+               pushstring "highlightColor"
+               pushstring "highlightAlpha"
+               pushstring "shadowColor"
+               pushstring "shadowAlpha"
+               pushstring "blurX"
+               pushstring "blurY"
+               pushstring "strength"
+               pushstring "quality"
+               newarray 10
+               setproperty QName(PrivateNamespace("com.greensock.plugins:BevelFilterPlugin"),"_propNames")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function BevelFilterPlugin()
+      {
+         method
+            name ""
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 6
+               maxscopedepth 7
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  pushstring "bevelFilter"
+                  initproperty Multiname("propName",[PrivateNamespace("com.greensock.plugins:BevelFilterPlugin"),PackageNamespace(""),PrivateNamespace("BevelFilterPlugin.as$167"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  getlocal0
+                  pushstring "bevelFilter"
+                  newarray 1
+                  initproperty Multiname("overwriteProps",[PrivateNamespace("com.greensock.plugins:BevelFilterPlugin"),PackageNamespace(""),PrivateNamespace("BevelFilterPlugin.as$167"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function onInitTween(param1:Object, param2:*, param3:TweenLite) : Boolean
+      {
+         trait method QName(PackageNamespace(""),"onInitTween")
+            flag OVERRIDE
+            dispid 0
+            method
+               name ""
+               param QName(PackageNamespace(""),"Object")
+               param null
+               param QName(PackageNamespace("com.greensock"),"TweenLite")
+               returns QName(PackageNamespace(""),"Boolean")
+               
+               body
+                  maxstack 14
+                  localcount 4
+                  initscopedepth 6
+                  maxscopedepth 7
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findproperty Multiname("_target",[PrivateNamespace("com.greensock.plugins:BevelFilterPlugin"),PackageNamespace(""),PrivateNamespace("BevelFilterPlugin.as$167"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal1
+                     initproperty Multiname("_target",[PrivateNamespace("com.greensock.plugins:BevelFilterPlugin"),PackageNamespace(""),PrivateNamespace("BevelFilterPlugin.as$167"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     findproperty Multiname("_type",[PrivateNamespace("com.greensock.plugins:BevelFilterPlugin"),PackageNamespace(""),PrivateNamespace("BevelFilterPlugin.as$167"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     findpropstrict Multiname("BevelFilter",[PrivateNamespace("com.greensock.plugins:BevelFilterPlugin"),PackageNamespace(""),PrivateNamespace("BevelFilterPlugin.as$167"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("BevelFilter",[PrivateNamespace("com.greensock.plugins:BevelFilterPlugin"),PackageNamespace(""),PrivateNamespace("BevelFilterPlugin.as$167"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     initproperty Multiname("_type",[PrivateNamespace("com.greensock.plugins:BevelFilterPlugin"),PackageNamespace(""),PrivateNamespace("BevelFilterPlugin.as$167"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     findpropstrict Multiname("initFilter",[PrivateNamespace("com.greensock.plugins:BevelFilterPlugin"),PackageNamespace(""),PrivateNamespace("BevelFilterPlugin.as$167"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal2
+                     findpropstrict Multiname("BevelFilter",[PrivateNamespace("com.greensock.plugins:BevelFilterPlugin"),PackageNamespace(""),PrivateNamespace("BevelFilterPlugin.as$167"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     pushbyte 0
+                     pushbyte 0
+                     pushint 16777215
+                     pushdouble 0.5
+                     pushbyte 0
+                     pushdouble 0.5
+                     pushbyte 2
+                     pushbyte 2
+                     pushbyte 0
+                     findpropstrict Multiname("int",[PrivateNamespace("com.greensock.plugins:BevelFilterPlugin"),PackageNamespace(""),PrivateNamespace("BevelFilterPlugin.as$167"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal2
+                     getproperty Multiname("quality",[PrivateNamespace("com.greensock.plugins:BevelFilterPlugin"),PackageNamespace(""),PrivateNamespace("BevelFilterPlugin.as$167"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     callproperty Multiname("int",[PrivateNamespace("com.greensock.plugins:BevelFilterPlugin"),PackageNamespace(""),PrivateNamespace("BevelFilterPlugin.as$167"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                     convert_i
+                     dup
+                     iftrue ofs0038
+                     pop
+                     pushbyte 2
+                     convert_i
+            ofs0038:
+                     constructprop Multiname("BevelFilter",[PrivateNamespace("com.greensock.plugins:BevelFilterPlugin"),PackageNamespace(""),PrivateNamespace("BevelFilterPlugin.as$167"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 10
+                     findpropstrict Multiname("_propNames",[PrivateNamespace("com.greensock.plugins:BevelFilterPlugin"),PackageNamespace(""),PrivateNamespace("BevelFilterPlugin.as$167"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("_propNames",[PrivateNamespace("com.greensock.plugins:BevelFilterPlugin"),PackageNamespace(""),PrivateNamespace("BevelFilterPlugin.as$167"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     callproperty Multiname("initFilter",[PrivateNamespace("com.greensock.plugins:BevelFilterPlugin"),PackageNamespace(""),PrivateNamespace("BevelFilterPlugin.as$167"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters"),ProtectedNamespace("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:BevelFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 3
+                     pop
+                     pushtrue
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+      }
+   }
+   
+   method
+      name ""
+      returns null
+      
+      body
+         maxstack 2
+         localcount 1
+         initscopedepth 1
+         maxscopedepth 5
+         
+         code
+            getlocal0
+            pushscope
+            findpropstrict Multiname("BevelFilterPlugin",[PackageNamespace("com.greensock.plugins")])
+            findpropstrict QName(PackageNamespace(""),"Object")
+            getproperty QName(PackageNamespace(""),"Object")
+            pushscope
+            findpropstrict QName(PackageNamespace("com.greensock.plugins"),"TweenPlugin")
+            getproperty QName(PackageNamespace("com.greensock.plugins"),"TweenPlugin")
+            pushscope
+            findpropstrict QName(PackageNamespace("com.greensock.plugins"),"FilterPlugin")
+            getproperty QName(PackageNamespace("com.greensock.plugins"),"FilterPlugin")
+            pushscope
+            findpropstrict Multiname("FilterPlugin",[PackageNamespace(""),PrivateNamespace("BevelFilterPlugin.as$167"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters")])
+            getproperty Multiname("FilterPlugin",[PackageNamespace(""),PrivateNamespace("BevelFilterPlugin.as$167"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.filters")])
+            newclass 0
+            popscope
+            popscope
+            popscope
+            initproperty QName(PackageNamespace("com.greensock.plugins"),"BevelFilterPlugin")
+            returnvoid
+         end ; code
+      end ; body
+   end ; method
+   

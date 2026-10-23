@@ -322,19 +322,15 @@ package com.hotpoint.braveManIII.models.container
          if(value.getIsPile() != true)
          {
             i = 0;
-            while(true)
+            while(i < 24)
             {
-               if(i < 24)
+               if(_gemBag[i] == null)
                {
-                  if(_gemBag[i] == null)
-                  {
-                     break;
-                  }
-                  i++;
-                  continue;
+                  return true;
                }
+               i++;
             }
-            return true;
+            return false;
          }
          isSameIn = true;
          for(i = 0; i < 24; i++)
@@ -366,20 +362,16 @@ package com.hotpoint.braveManIII.models.container
          if(value.getIsPile() != true)
          {
             i = 0;
-            while(true)
+            while(i < 24)
             {
-               if(i < 24)
+               if(_gemBag[i] == null)
                {
-                  if(_gemBag[i] == null)
-                  {
-                     break;
-                  }
-                  i++;
-                  continue;
+                  _gemBag[i] = value;
+                  return true;
                }
+               i++;
             }
-            _gemBag[i] = value;
-            return true;
+            return false;
          }
          temp = -1;
          isSameIn = true;
@@ -480,20 +472,16 @@ package com.hotpoint.braveManIII.models.container
          if(value.isMany() != true)
          {
             i = 0;
-            while(true)
+            while(i < 24)
             {
-               if(i < 24)
+               if(_otherobjBag[i] == null)
                {
-                  if(_otherobjBag[i] == null)
-                  {
-                     break;
-                  }
-                  i++;
-                  continue;
+                  _otherobjBag[i] = value;
+                  return true;
                }
+               i++;
             }
-            _otherobjBag[i] = value;
-            return true;
+            return false;
          }
          temp = -1;
          isSameIn = true;
@@ -537,20 +525,16 @@ package com.hotpoint.braveManIII.models.container
          if(value.isMany() != true)
          {
             i = 0;
-            while(true)
+            while(i < 24)
             {
-               if(i < 24)
+               if(_questBag[i] == null)
                {
-                  if(_questBag[i] == null)
-                  {
-                     break;
-                  }
-                  i++;
-                  continue;
+                  _questBag[i] = value;
+                  return true;
                }
+               i++;
             }
-            _questBag[i] = value;
-            return true;
+            return false;
          }
          temp = -1;
          isSameIn = true;
@@ -978,7 +962,7 @@ package com.hotpoint.braveManIII.models.container
          var arr:Array = [];
          for(var i:uint = 0; i < 24; i++)
          {
-            if(times <= 0)
+            if(!(times > 0))
             {
                break;
             }
@@ -1024,7 +1008,7 @@ package com.hotpoint.braveManIII.models.container
          var arr:Array = [];
          for(var i:uint = 0; i < 24; i++)
          {
-            if(times <= 0)
+            if(!(times > 0))
             {
                break;
             }

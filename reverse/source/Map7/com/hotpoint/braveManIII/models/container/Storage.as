@@ -350,20 +350,16 @@ package com.hotpoint.braveManIII.models.container
          if(param1.getIsPile() != true)
          {
             _loc4_ = 0;
-            while(true)
+            while(_loc4_ < 35)
             {
-               if(_loc4_ < 35)
+               if(_gemStorage[_loc4_] == null)
                {
-                  if(_gemStorage[_loc4_] == null)
-                  {
-                     break;
-                  }
-                  _loc4_++;
-                  continue;
+                  _gemStorage[_loc4_] = param1;
+                  return true;
                }
+               _loc4_++;
             }
-            _gemStorage[_loc4_] = param1;
-            return true;
+            return false;
          }
          _loc2_ = -1;
          _loc3_ = true;

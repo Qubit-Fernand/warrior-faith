@@ -32,6 +32,9 @@ package {
         private var label:String = "run";
         private var resolveClassIdentities:Boolean = false;
         private var observedHitClass:Object;
+        private var wrapperDomain:ApplicationDomain;
+        private var loaderDomains:Dictionary = new Dictionary(true);
+        private var domainParents:Dictionary = new Dictionary(true);
 
         public function Source() {
             if(stage) start();
@@ -39,10 +42,13 @@ package {
         }
         private function start(event:Event = null):void {
             removeEventListener(Event.ADDED_TO_STAGE, start);
-            report = {schema:"yzlr2-diagnostic-v1", wrapperVersion:2, wrapper:loaderInfo.url,
+            report = {schema:"yzlr2-diagnostic-v1", wrapperVersion:5, wrapper:loaderInfo.url,
                 target:TARGET, startedUTC:new Date().toUTCString(),
-                samples:[], errors:[], loaded:false, mode:"wrapper-not-direct-launch",
-                resolveClassIdentities:false, classResolutionWarning:"Opt-in getDefinition identity checks may initialize unused classes and advance VT random masking."};
+                samples:[], errors:[], observerErrors:[], loaded:false, mode:"wrapper-not-direct-launch",
+                resolveClassIdentities:false,
+                fieldSemantics:{hpBaseMax:"Player.hp_Max",hpEffectiveMax:"Player.use_hp_Max",mpBaseMax:"Player.mp_Max",mpEffectiveMax:"Player.use_mp_Max"},
+                domainIdentitySemantics:"Cached API object handles keyed by LoaderInfo; handle equality is not VM domain identity. Getter-created wrappers are not evidence of reload.",
+                classResolutionWarning:"Opt-in getDefinition identity checks may initialize unused classes and advance VT random masking."};
             // Only this explicitly named diagnostic object is opened or written.
             try { store = SharedObject.getLocal(SAVE, "/"); }
             catch(error:Error) { persistence = "SO denied"; }
@@ -57,8 +63,9 @@ package {
             game.contentLoaderInfo.addEventListener(Event.COMPLETE, loaded);
             game.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, loadError);
             game.contentLoaderInfo.addEventListener(SecurityErrorEvent.SECURITY_ERROR, loadError);
-            game.contentLoaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, uncaught);
-            domain = new ApplicationDomain(ApplicationDomain.currentDomain);
+            game.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, uncaught);
+            wrapperDomain = ApplicationDomain.currentDomain;
+            domain = new ApplicationDomain(wrapperDomain);
             clock.addEventListener(TimerEvent.TIMER, tick);
             requestLoader.addEventListener(Event.COMPLETE, requestComplete);
             requestLoader.addEventListener(IOErrorEvent.IO_ERROR, requestFailed);
@@ -155,8 +162,8 @@ package {
             if(object == null) return null;
             return {identity:identity(object), className:getQualifiedClassName(object),
                 x:scalar(read(object,"x")), y:scalar(read(object,"y")),
-                hp:number(read(object,"hp")), hpMax:number(read(object,"hp_Max")),
-                mp:number(read(object,"mp")), mpMax:number(read(object,"mp_Max")),
+                hp:number(read(object,"hp")), hpBaseMax:number(read(object,"hp_Max")), hpEffectiveMax:number(read(object,"use_hp_Max")),
+                mp:number(read(object,"mp")), mpBaseMax:number(read(object,"mp_Max")), mpEffectiveMax:number(read(object,"use_mp_Max")),
                 facing:scalar(read(object,"RL")), noMove:scalar(read(object,"noMove")),
                 animation:animation(read(object,"skin"))};
         }
@@ -235,9 +242,16 @@ package {
             }
             return result;
         }
+        private function cachedDomain(info:LoaderInfo):ApplicationDomain {
+            // Getter results can be fresh API wrappers. Cache once per existing LoaderInfo.
+            if(!loaderDomains[info]) loaderDomains[info]=info.applicationDomain;
+            return loaderDomains[info] as ApplicationDomain;
+        }
         private function domainInfo(resource:ApplicationDomain):Object {
-            var result:Object = {identity:identity(resource), isMain:resource===domain,
-                parent:resource.parentDomain ? identity(resource.parentDomain) : null,availableDefinitions:{},sameAsMain:{}};
+            if(!(resource in domainParents)) domainParents[resource]=resource.parentDomain;
+            var parent:ApplicationDomain=domainParents[resource] as ApplicationDomain;
+            var result:Object = {cachedHandle:identity(resource), sameHandleAsRequestedMain:resource===domain,
+                cachedParentHandle:parent ? identity(parent) : null,availableDefinitions:{},sameAsMain:{}};
             for each(var name:String in ["src.Main","src.HitXX","src.Skin_ZhuangBei"]) {
                 var available:Boolean = resource.hasDefinition(name);
                 result.availableDefinitions[name]=available;
@@ -246,7 +260,7 @@ package {
             return result;
         }
         private function resources():Object {
-            var result:Object = {mainDomain:identity(domain),wrapperDomain:identity(ApplicationDomain.currentDomain),resolveClassIdentities:resolveClassIdentities,loaders:[],npcs:[],skinInstances:[]};
+            var result:Object = {requestedMainHandle:identity(domain),wrapperHandle:identity(wrapperDomain),domainIdentityIsSemantic:false,resolveClassIdentities:resolveClassIdentities,loaders:[],npcs:[],skinInstances:[]};
             // Map and Player have existing instances; GameData.GetData already uses Enemy before AddMap.
             var collections:Array = [["src.Map","MapArr"],["src.Enemy","EnemyArr"],["src.Player","PlayerMcArr"]];
             if(resolveClassIdentities) collections=collections.concat([["src.Skin_ZhuangBei","PlayerMcArr"],["src.Skin_WuQi","PlayerMcArr"]]);
@@ -265,7 +279,7 @@ package {
                     var index:int=indices[i];var holder:Object = array[index];
                     var loader:Loader = read(holder,"loader") as Loader;
                     if(!loader || loader.contentLoaderInfo.bytesTotal==0 || loader.contentLoaderInfo.bytesLoaded<loader.contentLoaderInfo.bytesTotal) continue;
-                    var resource:ApplicationDomain = loader.contentLoaderInfo.applicationDomain;
+                    var resource:ApplicationDomain = cachedDomain(loader.contentLoaderInfo);
                     var row:Object = domainInfo(resource); row.collection=spec.join(".");row.index=index;
                     row.rootClass=loader.content ? getQualifiedClassName(loader.content) : null;
                     row.rootChildren=loader.content is DisplayObjectContainer ? DisplayObjectContainer(loader.content).numChildren : null;
@@ -288,7 +302,7 @@ package {
                         if(count>=6) break;
                         holder=files[fileIndex];loader=read(holder,"loader") as Loader;
                         if(!loader || loader.contentLoaderInfo.bytesTotal==0 || loader.contentLoaderInfo.bytesLoaded<loader.contentLoaderInfo.bytesTotal) continue;
-                        row=domainInfo(loader.contentLoaderInfo.applicationDomain);
+                        row=domainInfo(cachedDomain(loader.contentLoaderInfo));
                         row.collection="src.NewLoad.zhuangBeiSkin";row.skinIndex=skinIndex;row.fileIndex=fileIndex;
                         row.url=scalar(read(holder,"url"));row.rootClass=loader.content ? getQualifiedClassName(loader.content) : null;
                         row.rootChildren=loader.content is DisplayObjectContainer ? DisplayObjectContainer(loader.content).numChildren : null;
@@ -298,9 +312,26 @@ package {
                 result.equipmentLoadersLimit=6;
             }
             // Observe existing stage instances only: never open NPC/VIP windows or reach private loadData.
-            var queue:Array = [stage]; var visited:int = 0;
-            while(queue.length>0 && visited<500) {
-                var object:DisplayObject = queue.shift() as DisplayObject;visited++;
+            // Prioritize the existing world over unrelated menus/visual effects.
+            // No reads of private fields, construction, child insertion or loader calls.
+            var currentWorld:DisplayObject=read(main,"world") as DisplayObject;
+            var queue:Array = []; var seen:Dictionary=new Dictionary(true); var visited:int = 0;
+            if(currentWorld) {
+                queue.push(currentWorld);
+                for each(var field:String in ["MapData","MapData1","MapData2","moveChild"]) {
+                    var branch:DisplayObject=read(currentWorld,field) as DisplayObject;
+                    if(branch) queue.push(branch);
+                }
+                var worldContainer:DisplayObjectContainer=currentWorld as DisplayObjectContainer;
+                if(worldContainer) for(var wi:int=0;wi<Math.min(worldContainer.numChildren,100);wi++) queue.push(worldContainer.getChildAt(wi));
+            }
+            queue.push(stage);
+            result.scanPriority="existing-world-public-map-branches-then-stage";
+            result.childLimitTruncated=false;
+            while(queue.length>0 && visited<800) {
+                var object:DisplayObject = queue.shift() as DisplayObject;
+                if(!object || seen[object]) continue;
+                seen[object]=true;visited++;
                 var className:String = getQualifiedClassName(object).replace("::",".");
                 if(className=="src.HitXX") observedHitClass=Object(object).constructor;
                 if(wanted.indexOf(className)>=0 && result.npcs.length<12) {
@@ -311,17 +342,21 @@ package {
                     }
                     result.npcs.push({className:className,instance:identity(object),visible:object.visible,
                         classIdentity:identity(Object(object).constructor),candidateResourceDomains:candidates,
-                        matchedResourceDomains:resolveClassIdentities ? matches : null,loaderDomain:identity(object.loaderInfo.applicationDomain)});
+                        matchedResourceDomains:resolveClassIdentities ? matches : null,loaderInfoIdentity:identity(object.loaderInfo),cachedLoaderDomainHandle:identity(cachedDomain(object.loaderInfo))});
                 }
                 if(className=="Skin" && result.skinInstances.length<6) {
-                    var skinDomain:ApplicationDomain=object.loaderInfo.applicationDomain;
-                    result.skinInstances.push({instance:identity(object),domain:identity(skinDomain),
+                    var skinDomain:ApplicationDomain=cachedDomain(object.loaderInfo);
+                    result.skinInstances.push({instance:identity(object),cachedDomainHandle:identity(skinDomain),
                         classIdentity:identity(Object(object).constructor),url:object.loaderInfo.url});
                 }
                 var container:DisplayObjectContainer=object as DisplayObjectContainer;
-                if(container && object!==indicator) for(i=0;i<Math.min(container.numChildren,100);i++) queue.push(container.getChildAt(i));
+                if(container && object!==indicator) {
+                    if(container.numChildren>100) result.childLimitTruncated=true;
+                    for(i=0;i<Math.min(container.numChildren,100);i++) queue.push(container.getChildAt(i));
+                }
             }
             result.stageScanTruncated=queue.length>0;
+            result.npcObservationComplete=false; // bounded scan never proves NPC absence or full domain correctness
             result.stageNodesScanned=visited;
             if(resolveClassIdentities && domain.hasDefinition("src.HitXX")) observedHitClass=domain.getDefinition("src.HitXX");
             array=read(observedHitClass,"AllHitXX") as Array;
@@ -329,36 +364,148 @@ package {
             result.hitClassPreviouslyObserved=observedHitClass!=null;
             return result;
         }
-        private function capture(reason:String):void {
-            try {
-                var now:int = getTimer();
-                var sample:Object = {sequence:sequence++, ms:now, reason:reason,label:label,resolveClassIdentities:resolveClassIdentities,
-                    frame:frames, observedFPS:now > previousTime ?
-                        Math.round((frames-previousFrames)*10000/(now-previousTime))/10 : null};
-                previousFrames = frames; previousTime = now;
-                if(main) {
-                    sample.map = number(read(main,"gameNum"));
-                    sample.room = number(read(main,"gameNum2"));
-                    sample.village = scalar(read(main,"Map0_YN"));
-                    sample.loadedSave = scalar(read(main,"loadSaveOver"));
-                    sample.player1 = player(read(main,"player_1"));
-                    sample.player2 = player(read(main,"player_2"));
-                    sample.world = world(read(main,"world"));
-                    if(read(main,"loadSaveOver") === true && read(main,"world") != null) {
-                        sample.tasks=tasks();sample.inventory1=inventory(read(main,"player1"));
-                        if(read(main,"P1P2")===true) sample.inventory2=inventory(read(main,"player2"));
-                        sample.resources=resources();
+        // Only observed display objects of the already-open supplies shop are inspected.
+        // No game class resolution, static fields, factories, text setters, or focus changes.
+        private function textVisibility(object:DisplayObject):Object {
+            var ancestors:Array=[]; var visible:Boolean=true; var alpha:Number=1;
+            var current:DisplayObject=object; var reachedStage:Boolean=false;
+            while(current && ancestors.length<24) {
+                ancestors.unshift({name:current.name == null ? null : current.name.substr(0,80), className:getQualifiedClassName(current),
+                    visible:current.visible,alpha:current.alpha});
+                visible=visible && current.visible; alpha*=current.alpha;
+                if(current===stage) { reachedStage=true; break; }
+                current=current.parent;
+            }
+            return {ancestors:ancestors,ancestorVisible:visible,ancestorAlpha:alpha,
+                attachedToStage:reachedStage,pathTruncated:current!=null && !reachedStage,
+                visibilityComplete:reachedStage,
+                visibilityMeaning:"Display-list visible/alpha only; no occlusion, mask or viewport guarantee"};
+        }
+        private function shopText():Object {
+            var result:Object={scope:"existing stage-child SuppliesShopPanel and its SuppliesShopShow view only",panels:0,views:0,stageChildren:[],stageMetadataTruncated:false,targetLookupAttempts:0,
+                visiblePanels:0,fields:[],stageChildrenScanned:0,nodesScanned:0,
+                stageScanTruncated:false,scanTruncated:false,childLimitTruncated:false,
+                fieldsTruncated:false,textTruncated:false,ancestorPathTruncated:false,passwordFieldsSkipped:0,
+                limits:{stageChildren:160,panelNodes:300,childrenPerContainer:100,fields:16,
+                    charsPerField:128,totalChars:1536,ancestorDepth:24}};
+            if(!stage) return result;
+            var queue:Array=[]; var fieldQueue:Array=[]; var seenFields:Dictionary=new Dictionary(true); var i:int; var j:int;
+            result.stageScanTruncated=stage.numChildren>160;
+            for(i=0;i<Math.min(stage.numChildren,160);i++) {
+                var panel:DisplayObject=stage.getChildAt(i); result.stageChildrenScanned++;
+                var panelClass:String=getQualifiedClassName(panel).replace("::",".");
+                if(result.stageChildren.length<24) result.stageChildren.push({name:panel.name,className:panelClass,visible:panel.visible});
+                else result.stageMetadataTruncated=true;
+                if(panelClass!="com.hotpoint.braveManIII.views.suppliesShopPanel.SuppliesShopPanel" && panelClass!="SuppliesShopShow") continue;
+                result.panels++;
+                var visibility:Object=textVisibility(panel);
+                if(visibility.pathTruncated) result.ancestorPathTruncated=true;
+                if(!visibility.visibilityComplete || !visibility.ancestorVisible || visibility.ancestorAlpha<=0) continue;
+                result.visiblePanels++; queue.push(panel);
+                var views:Array=[];
+                if(panelClass=="SuppliesShopShow") views.push(panel);
+                else {
+                    var panelContainer:DisplayObjectContainer=panel as DisplayObjectContainer;
+                    if(panelContainer) {
+                        if(panelContainer.numChildren>100) result.childLimitTruncated=true;
+                        for(j=0;j<Math.min(panelContainer.numChildren,100);j++) {
+                            var candidate:DisplayObject=panelContainer.getChildAt(j);
+                            if(getQualifiedClassName(candidate)=="SuppliesShopShow") views.push(candidate);
+                        }
                     }
                 }
-                var known:Array = ["src.Main","src.Player","src.Map","src.Skin","src.Enemy",
-                    "src.GameData","src.Data","src.InData"];
-                sample.availableDefinitions = [];
-                for each(var name:String in known) if(domain.hasDefinition(name)) sample.availableDefinitions.push(name);
-                report.samples.push(sample);
-                while(report.samples.length > 24) report.samples.shift();
-                persist();
-                indicator.text = "DIAGNOSTIC | #"+sample.sequence+" | "+label+" | F8 | "+persistence;
-            } catch(error:Error) { errorRecord("observer", error.name+": "+error.message); }
+                for each(var view:DisplayObjectContainer in views) {
+                    result.views++; result.targetLookupAttempts++;
+                    // Native display lookup on an existing known view; no static game properties.
+                    var menu:DisplayObjectContainer=view.getChildByName("buyMenu") as DisplayObjectContainer;
+                    var amount:TextField=menu ? menu.getChildByName("amount") as TextField : null;
+                    if(amount && !seenFields[amount]) { seenFields[amount]=true; fieldQueue.unshift(amount); }
+                }
+            }
+            // Collect under the bounded panel scope first; prioritize amount before decorative text.
+            while(queue.length && result.nodesScanned<300) {
+                var node:DisplayObject=queue.shift() as DisplayObject; result.nodesScanned++;
+                var tf:TextField=node as TextField;
+                if(tf && !seenFields[tf]) { seenFields[tf]=true; if(tf.name=="amount") fieldQueue.unshift(tf); else fieldQueue.push(tf); }
+                var container:DisplayObjectContainer=node as DisplayObjectContainer;
+                if(container) {
+                    if(container.numChildren>100) result.childLimitTruncated=true;
+                    for(j=0;j<Math.min(container.numChildren,100);j++) queue.push(container.getChildAt(j));
+                }
+            }
+            result.scanTruncated=queue.length>0;
+            var total:int=0;
+            for each(tf in fieldQueue) {
+                visibility=textVisibility(tf);
+                if(visibility.pathTruncated) result.ancestorPathTruncated=true;
+                if(!visibility.visibilityComplete || !visibility.ancestorVisible || visibility.ancestorAlpha<=0) continue;
+                if(tf.displayAsPassword) { result.passwordFieldsSkipped++; continue; }
+                if(result.fields.length>=16 || total>=1536) { result.fieldsTruncated=true; continue; }
+                var value:String=tf.text; var budget:int=Math.min(128,1536-total);
+                var text:String=value.substr(0,budget); total+=text.length;
+                var truncated:Boolean=text.length<value.length;
+                if(truncated) result.textTruncated=true;
+                result.fields.push({name:tf.name,role:tf.name=="amount" ? "shop-amount-candidate" : "shop-text",
+                    targetAmount:tf.name=="amount" && tf.parent!=null && tf.parent.name=="buyMenu",
+                    text:text,originalLength:value.length,textTruncated:truncated,
+                    fieldType:tf.type,visibility:visibility});
+            }
+            result.charsCaptured=total;
+            result.observationComplete=!(result.stageScanTruncated || result.scanTruncated ||
+                result.childLimitTruncated || result.fieldsTruncated || result.textTruncated || result.ancestorPathTruncated);
+            return result;
+        }
+        private function observerFailure(sample:Object, group:String, error:Error):void {
+            sample.partial=true;
+            sample.groupStatus[group]="error";
+            var stack:String=error.getStackTrace();
+            var detail:Object={sequence:sample.sequence,ms:getTimer(),group:group,errorID:error.errorID,
+                text:(error.name+": "+error.message).substr(0,220),stack:stack ? stack.substr(0,500) : null};
+            sample.groupErrors.push(detail);
+            report.observerErrors.push(detail);
+            while(report.observerErrors.length>8) report.observerErrors.shift();
+            // Game UNCAUGHT_ERROR stays in report.errors, never evicted by observer failures.
+        }
+        private function observe(sample:Object, group:String, action:Function):void {
+            try { sample[group]=action(); sample.groupStatus[group]=sample[group]==null ? "unavailable" : "ok"; }
+            catch(error:Error) { sample[group]=null; observerFailure(sample,group,error); }
+        }
+        private function capture(reason:String):void {
+            var now:int = getTimer();
+            var sample:Object = {sequence:sequence++, ms:now, reason:reason,label:label,resolveClassIdentities:resolveClassIdentities,
+                partial:false,groupStatus:{},groupErrors:[],frame:frames, observedFPS:now > previousTime ?
+                    Math.round((frames-previousFrames)*10000/(now-previousTime))/10 : null};
+            previousFrames = frames; previousTime = now;
+            // Each group is isolated. A failing optional observer cannot discard the text snapshot.
+            observe(sample,"uiText",shopText);
+            observe(sample,"scene",function():Object {
+                if(!main) return null;
+                return {map:number(read(main,"gameNum")),room:number(read(main,"gameNum2")),
+                    village:scalar(read(main,"Map0_YN")),loadedSave:scalar(read(main,"loadSaveOver"))};
+            });
+            if(sample.scene) {
+                sample.map=sample.scene.map;sample.room=sample.scene.room;
+                sample.village=sample.scene.village;sample.loadedSave=sample.scene.loadedSave;
+            }
+            observe(sample,"player1",function():Object {return player(read(main,"player_1"));});
+            observe(sample,"player2",function():Object {return player(read(main,"player_2"));});
+            observe(sample,"world",function():Object {return world(read(main,"world"));});
+            var ready:Boolean=read(main,"loadSaveOver")===true && read(main,"world")!=null;
+            observe(sample,"tasks",function():Object {return ready ? tasks() : null;});
+            observe(sample,"inventory1",function():Object {return ready ? inventory(read(main,"player1")) : null;});
+            observe(sample,"inventory2",function():Object {return ready && read(main,"P1P2")===true ? inventory(read(main,"player2")) : null;});
+            observe(sample,"resources",function():Object {return ready ? resources() : null;});
+            observe(sample,"availableDefinitions",function():Array {
+                var definitions:Array=[];
+                if(!domain) return definitions;
+                for each(var name:String in ["src.Main","src.Player","src.Map","src.Skin","src.Enemy","src.GameData","src.Data","src.InData"])
+                    if(domain.hasDefinition(name)) definitions.push(name);
+                return definitions;
+            });
+            report.samples.push(sample);
+            while(report.samples.length>24) report.samples.shift();
+            persist();
+            indicator.text="DIAGNOSTIC v5 | #"+sample.sequence+" | "+label+" | "+(sample.partial ? "PARTIAL | " : "")+persistence;
         }
         private function persist():void {
             if(!store) return;

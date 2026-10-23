@@ -1,0 +1,918 @@
+package com
+{
+   import flash.events.*;
+   import flash.utils.*;
+   
+   public class BasicKey
+   {
+      
+      private static var _stage:*;
+      
+      private static var nowKey:uint;
+      
+      private static var allKeyNum:uint = 300;
+      
+      private static var clickYsNum:uint = 20;
+      
+      private static var jgNum:uint = 70;
+      
+      private static var targetKeyYsNum:uint = 15;
+      
+      private static var sjYsNum:uint = 300;
+      
+      private static var keyTimer:uint = 0;
+      
+      private static var timer:Timer;
+      
+      private static var clickArr:Array;
+      
+      private static var clickTimerArr:Array;
+      
+      private static var clickBo:Array;
+      
+      private static var clickKgBo:Array;
+      
+      private static var downKgBo:Array;
+      
+      private static var downArr:Array;
+      
+      private static var towKeyArr:Array;
+      
+      private static var towKeyTimer:Array;
+      
+      private static var towClickArr:Array;
+      
+      private static var targetArr:Array;
+      
+      private static var targetKgBoArr:Array;
+      
+      private static var clickOkArr:Array;
+      
+      private static var ii:uint;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PrivateNamespace(null,"165"),"allKeyNum")
+               pushshort 300
+               setproperty QName(PrivateNamespace(null,"165"),"allKeyNum")
+               findproperty QName(PrivateNamespace(null,"165"),"clickYsNum")
+               pushbyte 20
+               setproperty QName(PrivateNamespace(null,"165"),"clickYsNum")
+               findproperty QName(PrivateNamespace(null,"165"),"jgNum")
+               pushbyte 70
+               setproperty QName(PrivateNamespace(null,"165"),"jgNum")
+               findproperty QName(PrivateNamespace(null,"165"),"targetKeyYsNum")
+               pushbyte 15
+               setproperty QName(PrivateNamespace(null,"165"),"targetKeyYsNum")
+               findproperty QName(PrivateNamespace(null,"165"),"sjYsNum")
+               pushshort 300
+               setproperty QName(PrivateNamespace(null,"165"),"sjYsNum")
+               findproperty QName(PrivateNamespace(null,"165"),"keyTimer")
+               pushbyte 0
+               setproperty QName(PrivateNamespace(null,"165"),"keyTimer")
+               findproperty QName(PrivateNamespace(null,"165"),"clickArr")
+               newarray 0
+               setproperty QName(PrivateNamespace(null,"165"),"clickArr")
+               findproperty QName(PrivateNamespace(null,"165"),"clickTimerArr")
+               newarray 0
+               setproperty QName(PrivateNamespace(null,"165"),"clickTimerArr")
+               findproperty QName(PrivateNamespace(null,"165"),"clickBo")
+               newarray 0
+               setproperty QName(PrivateNamespace(null,"165"),"clickBo")
+               findproperty QName(PrivateNamespace(null,"165"),"clickKgBo")
+               newarray 0
+               setproperty QName(PrivateNamespace(null,"165"),"clickKgBo")
+               findproperty QName(PrivateNamespace(null,"165"),"downKgBo")
+               newarray 0
+               setproperty QName(PrivateNamespace(null,"165"),"downKgBo")
+               findproperty QName(PrivateNamespace(null,"165"),"downArr")
+               newarray 0
+               setproperty QName(PrivateNamespace(null,"165"),"downArr")
+               findproperty QName(PrivateNamespace(null,"165"),"towKeyArr")
+               newarray 0
+               setproperty QName(PrivateNamespace(null,"165"),"towKeyArr")
+               findproperty QName(PrivateNamespace(null,"165"),"towKeyTimer")
+               newarray 0
+               setproperty QName(PrivateNamespace(null,"165"),"towKeyTimer")
+               findproperty QName(PrivateNamespace(null,"165"),"towClickArr")
+               newarray 0
+               setproperty QName(PrivateNamespace(null,"165"),"towClickArr")
+               findproperty QName(PrivateNamespace(null,"165"),"targetArr")
+               newarray 0
+               setproperty QName(PrivateNamespace(null,"165"),"targetArr")
+               findproperty QName(PrivateNamespace(null,"165"),"targetKgBoArr")
+               newarray 0
+               setproperty QName(PrivateNamespace(null,"165"),"targetKgBoArr")
+               findproperty QName(PrivateNamespace(null,"165"),"clickOkArr")
+               newarray 0
+               setproperty QName(PrivateNamespace(null,"165"),"clickOkArr")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function BasicKey()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function Start(param1:*, param2:uint = 0, param3:uint = 100, param4:uint = 5, param5:uint = 200) : *
+      {
+         trait method QName(PackageNamespace(""),"Start")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               flag HAS_OPTIONAL
+               param null
+               param QName(PackageNamespace(""),"uint")
+               param QName(PackageNamespace(""),"uint")
+               param QName(PackageNamespace(""),"uint")
+               param QName(PackageNamespace(""),"uint")
+               optional Integer(0)
+               optional Integer(100)
+               optional Integer(5)
+               optional Integer(200)
+               returns null
+               
+               body
+                  maxstack 2
+                  localcount 6
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findproperty Multiname("_stage",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                     getlocal1
+                     setproperty Multiname("_stage",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                     findproperty Multiname("clickYsNum",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                     getlocal2
+                     setproperty Multiname("clickYsNum",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                     findproperty Multiname("jgNum",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                     getlocal3
+                     setproperty Multiname("jgNum",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                     findproperty Multiname("targetKeyYsNum",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                     getlocal 4
+                     setproperty Multiname("targetKeyYsNum",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                     findproperty Multiname("sjYsNum",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                     getlocal 5
+                     setproperty Multiname("sjYsNum",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                     findpropstrict Multiname("init",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                     callpropvoid Multiname("init",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")]), 0
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private static function init() : void
+         {
+            trait method QName(PrivateNamespace(null,"165"),"init")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 3
+                     localcount 2
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushbyte 0
+                        convert_u
+                        setlocal1
+                        jump ofs0060
+               ofs000a:
+                        label
+                        getlex Multiname("clickArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlocal1
+                        pushfalse
+                        setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlex Multiname("downArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlocal1
+                        pushfalse
+                        setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlex Multiname("clickTimerArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlocal1
+                        pushbyte 0
+                        setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlex Multiname("clickBo",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlocal1
+                        pushfalse
+                        setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlex Multiname("clickKgBo",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlocal1
+                        pushfalse
+                        setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlex Multiname("downKgBo",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlocal1
+                        pushfalse
+                        setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlex Multiname("towClickArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlocal1
+                        pushfalse
+                        setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlex Multiname("targetArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlocal1
+                        pushfalse
+                        setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlex Multiname("targetKgBoArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlocal1
+                        pushfalse
+                        setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlex Multiname("clickOkArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlocal1
+                        pushfalse
+                        setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlocal1
+                        increment
+                        convert_u
+                        setlocal1
+               ofs0060:
+                        getlocal1
+                        getlex Multiname("allKeyNum",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        iflt ofs000a
+                        findproperty Multiname("timer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        findpropstrict Multiname("Timer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey"),PackageNamespace("flash.utils")])
+                        pushbyte 0
+                        constructprop Multiname("Timer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey"),PackageNamespace("flash.utils")]), 1
+                        setproperty Multiname("timer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlex Multiname("timer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlex Multiname("TimerEvent",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey"),PackageNamespace("flash.events")])
+                        getproperty Multiname("TIMER",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlex Multiname("onTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        callpropvoid Multiname("addEventListener",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")]), 2
+                        getlex Multiname("timer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        callpropvoid Multiname("start",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")]), 0
+                        getlex Multiname("_stage",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlex Multiname("KeyboardEvent",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey"),PackageNamespace("flash.events")])
+                        getproperty Multiname("KEY_DOWN",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlex Multiname("downHandle",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        callpropvoid Multiname("addEventListener",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")]), 2
+                        getlex Multiname("_stage",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlex Multiname("KeyboardEvent",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey"),PackageNamespace("flash.events")])
+                        getproperty Multiname("KEY_UP",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        getlex Multiname("upHandle",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        callpropvoid Multiname("addEventListener",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")]), 2
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private static function onTimer(param1:TimerEvent) : void
+            {
+               trait method QName(PrivateNamespace(null,"165"),"onTimer")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     param QName(PackageNamespace("flash.events"),"TimerEvent")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 3
+                        localcount 3
+                        initscopedepth 3
+                        maxscopedepth 4
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushbyte 0
+                           convert_u
+                           setlocal2
+                           jump ofs00d5
+                  ofs000a:
+                           label
+                           getlex Multiname("downKgBo",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           getlocal2
+                           getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           iffalse ofs0022
+                           getlex Multiname("downArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           getlocal2
+                           pushtrue
+                           setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           jump ofs002a
+                  ofs0022:
+                           getlex Multiname("downArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           getlocal2
+                           pushfalse
+                           setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                  ofs002a:
+                           getlex Multiname("targetKgBoArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           getlocal2
+                           getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           iftrue ofs003d
+                           getlex Multiname("targetArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           getlocal2
+                           pushfalse
+                           setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                  ofs003d:
+                           getlex Multiname("clickTimerArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           getlocal2
+                           getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           pushbyte 0
+                           ifeq ofs00d1
+                           findpropstrict Multiname("getTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey"),PackageNamespace("flash.utils")])
+                           callproperty Multiname("getTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey"),PackageNamespace("flash.utils")]), 0
+                           getlex Multiname("clickTimerArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           getlocal2
+                           getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           subtract
+                           getlex Multiname("jgNum",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           ifngt ofs0070
+                           getlex Multiname("targetKgBoArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           getlocal2
+                           pushfalse
+                           setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           getlex Multiname("targetArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           getlocal2
+                           pushfalse
+                           setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                  ofs0070:
+                           findpropstrict Multiname("getTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey"),PackageNamespace("flash.utils")])
+                           callproperty Multiname("getTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey"),PackageNamespace("flash.utils")]), 0
+                           getlex Multiname("clickTimerArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           getlocal2
+                           getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           subtract
+                           getlex Multiname("clickYsNum",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           greaterthan
+                           dup
+                           iffalse ofs009c
+                           pop
+                           findpropstrict Multiname("getTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey"),PackageNamespace("flash.utils")])
+                           callproperty Multiname("getTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey"),PackageNamespace("flash.utils")]), 0
+                           getlex Multiname("clickTimerArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           getlocal2
+                           getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           subtract
+                           getlex Multiname("jgNum",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           lessequals
+                  ofs009c:
+                           iffalse ofs00b3
+                           getlex Multiname("clickOkArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           getlocal2
+                           getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           iftrue ofs00b3
+                           getlex Multiname("clickArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           getlocal2
+                           pushtrue
+                           setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                  ofs00b3:
+                           findpropstrict Multiname("getTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey"),PackageNamespace("flash.utils")])
+                           callproperty Multiname("getTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey"),PackageNamespace("flash.utils")]), 0
+                           getlex Multiname("clickTimerArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           getlocal2
+                           getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           subtract
+                           getlex Multiname("jgNum",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           ifngt ofs00d1
+                           getlex Multiname("clickArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           getlocal2
+                           pushfalse
+                           setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                  ofs00d1:
+                           getlocal2
+                           increment
+                           convert_u
+                           setlocal2
+                  ofs00d5:
+                           getlocal2
+                           getlex Multiname("allKeyNum",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           iflt ofs000a
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private static function downHandle(param1:KeyboardEvent) : void
+               {
+                  trait method QName(PrivateNamespace(null,"165"),"downHandle")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name null
+                        param QName(PackageNamespace("flash.events"),"KeyboardEvent")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 3
+                           maxscopedepth 4
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findproperty Multiname("nowKey",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                              getlocal1
+                              getproperty Multiname("keyCode",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                              setproperty Multiname("nowKey",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                              findpropstrict Multiname("clickFunction",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                              callpropvoid Multiname("clickFunction",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")]), 0
+                              findpropstrict Multiname("sjFunction",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                              callpropvoid Multiname("sjFunction",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")]), 0
+                              findpropstrict Multiname("targetFunction",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                              callpropvoid Multiname("targetFunction",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")]), 0
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  private static function targetFunction() : void
+                  {
+                     trait method QName(PrivateNamespace(null,"165"),"targetFunction")
+                        flag FINAL
+                        dispid 7
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 4
+                              localcount 2
+                              initscopedepth 3
+                              maxscopedepth 4
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 pushbyte 0
+                                 convert_u
+                                 setlocal1
+                                 jump ofs009b
+                        ofs000a:
+                                 label
+                                 getlocal1
+                                 pushbyte 1
+                                 ifngt ofs0097
+                                 getlex Multiname("towKeyArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getlocal1
+                                 getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getlex Multiname("towKeyArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getlocal1
+                                 decrement
+                                 getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 ifeq ofs0097
+                                 getlex Multiname("towKeyTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getlocal1
+                                 getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getlex Multiname("towKeyTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getlocal1
+                                 decrement
+                                 getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 subtract
+                                 getlex Multiname("targetKeyYsNum",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 ifnlt ofs0097
+                                 getlex Multiname("targetKgBoArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getlex Multiname("towKeyArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getlocal1
+                                 getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 iffalse ofs0097
+                                 getlex Multiname("clickOkArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getlex Multiname("towKeyArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getlocal1
+                                 getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 pushtrue
+                                 setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getlex Multiname("clickOkArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getlex Multiname("towKeyArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getlocal1
+                                 decrement
+                                 getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 pushtrue
+                                 setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getlex Multiname("targetArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getlex Multiname("towKeyArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getlocal1
+                                 getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 pushtrue
+                                 setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getlex Multiname("targetArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getlex Multiname("towKeyArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getlocal1
+                                 decrement
+                                 getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 pushtrue
+                                 setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 findproperty Multiname("keyTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 pushbyte 0
+                                 setproperty Multiname("keyTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 findproperty Multiname("towKeyTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 newarray 0
+                                 setproperty Multiname("towKeyTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                        ofs0097:
+                                 getlocal1
+                                 increment
+                                 convert_u
+                                 setlocal1
+                        ofs009b:
+                                 getlocal1
+                                 getlex Multiname("towKeyArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 getproperty Multiname("length",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                 iflt ofs000a
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private static function sjFunction() : void
+                     {
+                        trait method QName(PrivateNamespace(null,"165"),"sjFunction")
+                           flag FINAL
+                           dispid 8
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 4
+                                 localcount 2
+                                 initscopedepth 3
+                                 maxscopedepth 4
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    pushbyte 0
+                                    convert_u
+                                    setlocal1
+                                    jump ofs0062
+                           ofs000a:
+                                    label
+                                    getlocal1
+                                    pushbyte 1
+                                    ifngt ofs005e
+                                    getlex Multiname("towKeyArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                    getlocal1
+                                    getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                    getlex Multiname("towKeyArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                    getlocal1
+                                    decrement
+                                    getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                    ifne ofs005e
+                                    getlex Multiname("towKeyTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                    getlocal1
+                                    getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                    getlex Multiname("towKeyTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                    getlocal1
+                                    decrement
+                                    getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                    subtract
+                                    pushshort 300
+                                    ifnlt ofs005e
+                                    getlex Multiname("towClickArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                    getlex Multiname("nowKey",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                    pushtrue
+                                    setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                    findproperty Multiname("keyTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                    pushbyte 0
+                                    setproperty Multiname("keyTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                    findproperty Multiname("towKeyArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                    newarray 0
+                                    setproperty Multiname("towKeyArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                    findproperty Multiname("towKeyTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                    newarray 0
+                                    setproperty Multiname("towKeyTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                           ofs005e:
+                                    getlocal1
+                                    increment
+                                    convert_u
+                                    setlocal1
+                           ofs0062:
+                                    getlocal1
+                                    getlex Multiname("towKeyArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                    getproperty Multiname("length",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                    iflt ofs000a
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        private static function clickFunction() : void
+                        {
+                           trait method QName(PrivateNamespace(null,"165"),"clickFunction")
+                              flag FINAL
+                              dispid 9
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 3
+                                    localcount 3
+                                    initscopedepth 3
+                                    maxscopedepth 4
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlex Multiname("clickBo",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       getlex Multiname("nowKey",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       iftrue ofs0076
+                                       getlex Multiname("clickBo",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       getlex Multiname("nowKey",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       pushtrue
+                                       setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       findpropstrict Multiname("keyTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       dup
+                                       setlocal1
+                                       getproperty Multiname("keyTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       increment
+                                       setlocal2
+                                       getlocal1
+                                       getlocal2
+                                       setproperty Multiname("keyTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       kill 2
+                                       kill 1
+                                       getlex Multiname("towKeyArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       getlex Multiname("keyTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       getlex Multiname("nowKey",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       getlex Multiname("towKeyTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       getlex Multiname("keyTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       findpropstrict Multiname("getTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey"),PackageNamespace("flash.utils")])
+                                       callproperty Multiname("getTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey"),PackageNamespace("flash.utils")]), 0
+                                       setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       getlex Multiname("clickTimerArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       getlex Multiname("nowKey",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       findpropstrict Multiname("getTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey"),PackageNamespace("flash.utils")])
+                                       callproperty Multiname("getTimer",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey"),PackageNamespace("flash.utils")]), 0
+                                       setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       getlex Multiname("clickKgBo",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       getlex Multiname("nowKey",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       pushtrue
+                                       setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       getlex Multiname("downKgBo",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       getlex Multiname("nowKey",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       pushtrue
+                                       setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       getlex Multiname("targetKgBoArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       getlex Multiname("nowKey",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                       pushtrue
+                                       setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                              ofs0076:
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           private static function upHandle(param1:KeyboardEvent) : void
+                           {
+                              trait method QName(PrivateNamespace(null,"165"),"upHandle")
+                                 flag FINAL
+                                 dispid 10
+                                 method
+                                    name null
+                                    param QName(PackageNamespace("flash.events"),"KeyboardEvent")
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 3
+                                       localcount 3
+                                       initscopedepth 3
+                                       maxscopedepth 4
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal1
+                                          getproperty Multiname("keyCode",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                          convert_u
+                                          setlocal2
+                                          getlex Multiname("clickBo",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                          getlocal2
+                                          pushfalse
+                                          setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                          getlex Multiname("downKgBo",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                          getlocal2
+                                          pushfalse
+                                          setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                          getlex Multiname("towClickArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                          getlocal2
+                                          pushfalse
+                                          setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                          getlex Multiname("clickOkArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                          getlocal2
+                                          pushfalse
+                                          setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                          getlex Multiname("targetKgBoArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                          getlocal2
+                                          pushfalse
+                                          setproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public static function getKeyState(param1:uint, param2:uint) : Boolean
+                              {
+                                 trait method QName(PackageNamespace(""),"getKeyState")
+                                    flag FINAL
+                                    dispid 11
+                                    method
+                                       name null
+                                       param QName(PackageNamespace(""),"uint")
+                                       param QName(PackageNamespace(""),"uint")
+                                       returns QName(PackageNamespace(""),"Boolean")
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 4
+                                          initscopedepth 3
+                                          maxscopedepth 4
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             jump ofs0045
+                                    ofs0006:
+                                             label
+                                             getlex Multiname("clickArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                             getlocal1
+                                             getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                             iffalse ofs0014
+                                             pushtrue
+                                             returnvalue
+                                    ofs0014:
+                                             jump ofs008d
+                                    ofs0018:
+                                             label
+                                             getlex Multiname("downArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                             getlocal1
+                                             getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                             iffalse ofs0026
+                                             pushtrue
+                                             returnvalue
+                                    ofs0026:
+                                             jump ofs008d
+                                    ofs002a:
+                                             label
+                                             getlex Multiname("towClickArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                             getlocal1
+                                             getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                             iffalse ofs0038
+                                             pushtrue
+                                             returnvalue
+                                    ofs0038:
+                                             jump ofs008d
+                                    ofs003c:
+                                             label
+                                             jump ofs008d
+                                             jump ofs0045
+                                    ofs0045:
+                                             getlocal2
+                                             setlocal3
+                                             pushbyte 1
+                                             getlocal3
+                                             ifstrictne ofs0054
+                                             pushbyte 0
+                                             jump ofs007a
+                                    ofs0054:
+                                             pushbyte 2
+                                             getlocal3
+                                             ifstrictne ofs0061
+                                             pushbyte 1
+                                             jump ofs007a
+                                    ofs0061:
+                                             pushbyte 3
+                                             getlocal3
+                                             ifstrictne ofs006e
+                                             pushbyte 2
+                                             jump ofs007a
+                                    ofs006e:
+                                             jump ofs0078
+                                             pushbyte 3
+                                             jump ofs0078
+                                    ofs0078:
+                                             pushbyte 3
+                                    ofs007a:
+                                             kill 3
+                                             lookupswitch ofs003c, [ofs0006, ofs0018, ofs002a, ofs003c]
+                                    ofs008d:
+                                             pushfalse
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public static function getTargetState(param1:Array) : Boolean
+                                 {
+                                    trait method QName(PackageNamespace(""),"getTargetState")
+                                       flag FINAL
+                                       dispid 12
+                                       method
+                                          name null
+                                          param QName(PackageNamespace(""),"Array")
+                                          returns QName(PackageNamespace(""),"Boolean")
+                                          
+                                          body
+                                             maxstack 3
+                                             localcount 3
+                                             initscopedepth 3
+                                             maxscopedepth 4
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                pushbyte 0
+                                                setlocal2
+                                                jump ofs001d
+                                       ofs0009:
+                                                label
+                                                getlex Multiname("targetArr",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                                getlocal1
+                                                getlocal2
+                                                getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                                getproperty MultinameL([PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                                iftrue ofs001b
+                                                pushfalse
+                                                returnvalue
+                                       ofs001b:
+                                                inclocal_i 2
+                                       ofs001d:
+                                                getlocal2
+                                                getlocal1
+                                                getproperty Multiname("length",[PrivateNamespace(null,"165"),PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com:BasicKey"),StaticProtectedNs("com:BasicKey")])
+                                                iflt ofs0009
+                                                pushtrue
+                                                returnvalue
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                 }
+                              }
+                              
+                              method
+                                 name null
+                                 returns null
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 1
+                                    maxscopedepth 3
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       findpropstrict Multiname("BasicKey",[PackageNamespace("com")])
+                                       getlex QName(PackageNamespace(""),"Object")
+                                       pushscope
+                                       getlex Multiname("Object",[PrivateNamespace(null,"240"),PackageNamespace(""),PackageNamespace("com"),PackageInternalNs("com"),Namespace("http://adobe.com/AS3/2006/builtin")])
+                                       newclass 23
+                                       popscope
+                                       initproperty QName(PackageNamespace("com"),"BasicKey")
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                              

@@ -5,7 +5,7 @@ Uses no original ABC bytecode. Extracted art/timelines retain their original dat
 No Flash execution or SharedObject access. Commands and result manifests retained.
 """
 from __future__ import annotations
-import argparse, hashlib, json, shutil, struct, subprocess, time, zipfile, zlib
+import argparse, fcntl, hashlib, json, shutil, struct, subprocess, time, zipfile, zlib
 from pathlib import Path
 from probe_normalize_swf import normalize
 from swf_inventory import read_swf
@@ -41,13 +41,23 @@ def run(args,name):
  p=subprocess.run(args,cwd=ROOT,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=300)
  logname=f'{name}-{time.time_ns()}.txt';(LOGS/logname).write_bytes(p.stdout)
  (LOGS/f'{name}.txt').write_bytes(p.stdout)
- with (LOGS/'commands.jsonl').open('a') as f: f.write(json.dumps({'command':args,'exit':p.returncode,'seconds':round(time.time()-start,3),'log':logname},ensure_ascii=False)+'\n')
+ with (LOGS/'commands.jsonl').open('a') as f:
+  fcntl.flock(f,fcntl.LOCK_EX)
+  f.write(json.dumps({'command':args,'exit':p.returncode,'seconds':round(time.time()-start,3),'log':logname},ensure_ascii=False)+'\n');f.flush()
+  fcntl.flock(f,fcntl.LOCK_UN)
  if p.returncode: raise RuntimeError(f'{name}: exit {p.returncode}; see log')
  return p.stdout
 
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('module',help='root SWF stem (path separators forbidden)');ap.add_argument('--refresh-source',action='store_true');ap.add_argument('--dynamic',action='store_true',help='Preserve dynamic AVM2 coercions with compiler.strict=false');a=ap.parse_args()
  assert Path(a.module).name==a.module and '/' not in a.module and '\\' not in a.module
+ lockdir=BUILD/'locks';lockdir.mkdir(parents=True,exist_ok=True)
+ with (lockdir/(a.module+'.lock')).open('a+') as guard:
+  try:fcntl.flock(guard,fcntl.LOCK_EX|fcntl.LOCK_NB)
+  except BlockingIOError:raise SystemExit('Another build is already writing this module: '+a.module)
+  build_module(a)
+
+def build_module(a):
  original=ROOT/f'{a.module}.swf';original_header=read_swf(original)[2];b=BUILD/a.module;b.mkdir(parents=True,exist_ok=True)
  exported=b/'ffdec';source=SOURCES/a.module/'src';canonical=ROOT/'reverse/source'/a.module
  if canonical.exists():source=canonical
@@ -80,7 +90,7 @@ def main():
    assert not any(c in (12,59,72,82) for c in codes),f'Original script found in asset {f}'
    asset_report.append({'file':str(f.relative_to(compile_src)),'sha256':sha(f),'script_tags':0})
  classes=sorted('.'.join(p.relative_to(compile_src).with_suffix('').parts) for p in compile_src.rglob('*.as'))
- common=[JAVA,f'-Dflexlib={FLEX}/frameworks','-jar',FLEX/'lib/compc.jar','-load-config=','-compiler.theme=',f'-compiler.external-library-path={PLAYER}','-compiler.library-path=',f'-compiler.source-path={compile_src}',f'-compiler.strict={str(not a.dynamic).lower()}','-debug=false','-use-network=false',f'-swf-version={original_header["version"]}',f'-default-frame-rate={int(original_header["frame_rate"])}',f'-default-size={(original_header["rect_twips"][1]-original_header["rect_twips"][0])//20},{(original_header["rect_twips"][3]-original_header["rect_twips"][2])//20}','-include-classes',*classes]
+ common=[JAVA,'-Xmx2g',f'-Dflexlib={FLEX}/frameworks','-jar',FLEX/'lib/compc.jar','-load-config=','-compiler.theme=',f'-compiler.external-library-path={PLAYER}','-compiler.library-path=',f'-compiler.source-path={compile_src}',f'-compiler.strict={str(not a.dynamic).lower()}','-debug=false', '-compiler.omit-trace-statements=false','-use-network=false',f'-swf-version={original_header["version"]}',f'-default-frame-rate={int(original_header["frame_rate"])}',f'-default-size={(original_header["rect_twips"][1]-original_header["rect_twips"][0])//20},{(original_header["rect_twips"][3]-original_header["rect_twips"][2])//20}','-include-classes',*classes]
  swfs=[];normalizations=[]
  for index in (1,2):
   swc=b/f'compile-{index}-{time.time_ns()}.swc';run([*common,f'-output={swc}'],f'{a.module}-compile-{index}')

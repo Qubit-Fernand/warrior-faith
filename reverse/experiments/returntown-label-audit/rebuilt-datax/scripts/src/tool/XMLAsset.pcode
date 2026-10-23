@@ -1,0 +1,229 @@
+package src.tool
+{
+   import mx.core.*;
+   
+   public class XMLAsset
+   {
+      
+      method
+         name ""
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var _xml:XML;
+      
+      public function XMLAsset(param1:Class)
+      {
+         method
+            name ""
+            param QName(PackageNamespace(""),"Class")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal1
+                  pushnull
+                  ifeq ofs0014
+                  getlocal0
+                  findpropstrict Multiname("createXML",[PrivateNamespace("src.tool:XMLAsset"),PackageNamespace(""),PrivateNamespace("XMLAsset.as$46"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("mx.core"),ProtectedNamespace("src.tool:XMLAsset"),StaticProtectedNs("src.tool:XMLAsset")])
+                  getlocal1
+                  callproperty Multiname("createXML",[PrivateNamespace("src.tool:XMLAsset"),PackageNamespace(""),PrivateNamespace("XMLAsset.as$46"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("mx.core"),ProtectedNamespace("src.tool:XMLAsset"),StaticProtectedNs("src.tool:XMLAsset")]), 1
+                  initproperty Multiname("_xml",[PrivateNamespace("src.tool:XMLAsset"),PackageNamespace(""),PrivateNamespace("XMLAsset.as$46"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("mx.core"),ProtectedNamespace("src.tool:XMLAsset"),StaticProtectedNs("src.tool:XMLAsset")])
+         ofs0014:
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function createXML(param1:Class) : XML
+      {
+         trait method QName(PackageNamespace(""),"createXML")
+            flag FINAL
+            dispid 3
+            method
+               name ""
+               flag NEED_ACTIVATION
+               param QName(PackageNamespace(""),"Class")
+               returns QName(PackageNamespace(""),"XML")
+               
+               body
+                  maxstack 3
+                  localcount 4
+                  initscopedepth 4
+                  maxscopedepth 9
+                  trait slot QName(PackageInternalNs("src.tool"),"param1")
+                     slotid 1
+                     type QName(PackageNamespace(""),"Class")
+                  end ; trait
+                  trait slot QName(PackageInternalNs("src.tool"),"xml")
+                     slotid 2
+                     type QName(PackageNamespace(""),"XML")
+                  end ; trait
+                  trait slot QName(PackageInternalNs("src.tool"),"asset")
+                     slotid 3
+                     type QName(PackageNamespace(""),"Class")
+                  end ; trait
+                  trait slot QName(PackageInternalNs("src.tool"),"ba")
+                     slotid 4
+                     type QName(PackageNamespace("mx.core"),"ByteArrayAsset")
+                  end ; trait
+                  trait slot QName(PackageInternalNs("src.tool"),"source")
+                     slotid 5
+                     type QName(PackageNamespace(""),"String")
+                  end ; trait
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     newactivation
+                     dup
+                     setlocal2
+                     pushscope
+                     getscopeobject 1
+                     getlocal1
+                     setslot 1
+                     getscopeobject 1
+                     pushnull
+                     coerce QName(PackageNamespace(""),"XML")
+                     setslot 2
+                     getscopeobject 1
+                     getscopeobject 1
+                     getslot 1
+                     coerce QName(PackageNamespace(""),"Class")
+                     setslot 3
+                     getscopeobject 1
+                     findpropstrict Multiname("ByteArrayAsset",[PrivateNamespace("src.tool:XMLAsset"),PackageNamespace(""),PrivateNamespace("XMLAsset.as$46"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("mx.core"),ProtectedNamespace("src.tool:XMLAsset"),StaticProtectedNs("src.tool:XMLAsset")])
+                     getscopeobject 1
+                     getslot 3
+                     construct 0
+                     callproperty Multiname("ByteArrayAsset",[PrivateNamespace("src.tool:XMLAsset"),PackageNamespace(""),PrivateNamespace("XMLAsset.as$46"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("mx.core"),ProtectedNamespace("src.tool:XMLAsset"),StaticProtectedNs("src.tool:XMLAsset")]), 1
+                     coerce QName(PackageNamespace("mx.core"),"ByteArrayAsset")
+                     setslot 4
+                     getscopeobject 1
+                     getscopeobject 1
+                     getslot 4
+                     getscopeobject 1
+                     getslot 4
+                     getproperty Multiname("length",[PrivateNamespace("src.tool:XMLAsset"),PackageNamespace(""),PrivateNamespace("XMLAsset.as$46"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("mx.core"),ProtectedNamespace("src.tool:XMLAsset"),StaticProtectedNs("src.tool:XMLAsset")])
+                     callproperty Multiname("readUTFBytes",[PrivateNamespace("src.tool:XMLAsset"),PackageNamespace(""),PrivateNamespace("XMLAsset.as$46"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("mx.core"),ProtectedNamespace("src.tool:XMLAsset"),StaticProtectedNs("src.tool:XMLAsset")]), 1
+                     coerce_s
+                     setslot 5
+            ofs003f:
+                     getscopeobject 1
+                     findpropstrict Multiname("XML",[PrivateNamespace("src.tool:XMLAsset"),PackageNamespace(""),PrivateNamespace("XMLAsset.as$46"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("mx.core"),ProtectedNamespace("src.tool:XMLAsset"),StaticProtectedNs("src.tool:XMLAsset")])
+                     getscopeobject 1
+                     getslot 5
+                     constructprop Multiname("XML",[PrivateNamespace("src.tool:XMLAsset"),PackageNamespace(""),PrivateNamespace("XMLAsset.as$46"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("mx.core"),ProtectedNamespace("src.tool:XMLAsset"),StaticProtectedNs("src.tool:XMLAsset")]), 1
+                     coerce QName(PackageNamespace(""),"XML")
+                     setslot 2
+            ofs004e:
+                     jump ofs0071
+            ofs0052:
+                     getlocal0
+                     pushscope
+                     getlocal2
+                     pushscope
+                     newcatch 0
+                     dup
+                     setlocal3
+                     dup
+                     pushscope
+                     swap
+                     setslot 1
+                     findpropstrict Multiname("Error",[PrivateNamespace("src.tool:XMLAsset"),PackageNamespace(""),PrivateNamespace("XMLAsset.as$46"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("mx.core"),ProtectedNamespace("src.tool:XMLAsset"),StaticProtectedNs("src.tool:XMLAsset")])
+                     pushstring "Class must embed an XML document containing valid mark-up. "
+                     getscopeobject 2
+                     getslot 1
+                     getproperty Multiname("message",[PrivateNamespace("src.tool:XMLAsset"),PackageNamespace(""),PrivateNamespace("XMLAsset.as$46"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("mx.core"),ProtectedNamespace("src.tool:XMLAsset"),StaticProtectedNs("src.tool:XMLAsset")])
+                     add
+                     constructprop Multiname("Error",[PrivateNamespace("src.tool:XMLAsset"),PackageNamespace(""),PrivateNamespace("XMLAsset.as$46"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("mx.core"),ProtectedNamespace("src.tool:XMLAsset"),StaticProtectedNs("src.tool:XMLAsset")]), 1
+                     throw
+                     popscope
+                     kill 3
+            ofs0071:
+                     getscopeobject 1
+                     getslot 2
+                     returnvalue
+                  end ; code
+                  try from ofs003f to ofs004e target ofs0052 type QName(PackageNamespace(""),"Error") name QName(PackageNamespace(""),"error") end
+               end ; body
+            end ; method
+         }
+         
+         public function get xml() : XML
+         {
+            trait getter QName(PackageNamespace(""),"xml")
+               dispid 0
+               method
+                  name ""
+                  returns QName(PackageNamespace(""),"XML")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty Multiname("_xml",[PrivateNamespace("src.tool:XMLAsset"),PackageNamespace(""),PrivateNamespace("XMLAsset.as$46"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("mx.core"),ProtectedNamespace("src.tool:XMLAsset"),StaticProtectedNs("src.tool:XMLAsset")])
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name ""
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 3
+            
+            code
+               getlocal0
+               pushscope
+               getscopeobject 0
+               findpropstrict QName(PackageNamespace(""),"Object")
+               getproperty QName(PackageNamespace(""),"Object")
+               pushscope
+               findpropstrict Multiname("Object",[PackageNamespace(""),PrivateNamespace("XMLAsset.as$46"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("mx.core")])
+               getproperty Multiname("Object",[PackageNamespace(""),PrivateNamespace("XMLAsset.as$46"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("mx.core")])
+               newclass 0
+               popscope
+               initproperty QName(PackageNamespace("src.tool"),"XMLAsset")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

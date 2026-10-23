@@ -1,0 +1,203 @@
+package
+{
+   public class PayMoneyVar
+   {
+      
+      public static var instance:PayMoneyVar;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var _money:Object;
+      
+      public function PayMoneyVar()
+      {
+         method
+            name null
+            returns QName(PackageNamespace(""),"void")
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlex Multiname("PayMoneyVar",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")])
+                  getproperty Multiname("instance",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")])
+                  pushnull
+                  ifeq ofs001b
+                  findpropstrict Multiname("Error",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")])
+                  pushstring "只能实例一次！"
+                  constructprop Multiname("Error",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")]), 1
+                  throw
+         ofs001b:
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function getInstance() : PayMoneyVar
+      {
+         trait method QName(PackageNamespace(""),"getInstance")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               returns QName(PackageNamespace(""),"PayMoneyVar")
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex Multiname("instance",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")])
+                     pushnull
+                     ifne ofs0013
+                     findproperty Multiname("instance",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")])
+                     getlocal0
+                     construct 0
+                     setproperty Multiname("instance",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")])
+            ofs0013:
+                     getlex Multiname("instance",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")])
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function set money(param1:int) : void
+         {
+            trait setter QName(PackageNamespace(""),"money")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"int")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 3
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex Multiname("Math",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")])
+                        getlocal1
+                        callproperty Multiname("abs",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")]), 1
+                        convert_i
+                        setlocal1
+                        pushstring "value"
+                        getlocal1
+                        newobject 1
+                        coerce QName(PackageNamespace(""),"Object")
+                        setlocal2
+                        pushstring "value"
+                        getlocal2
+                        getproperty Multiname("value",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")])
+                        newobject 1
+                        coerce QName(PackageNamespace(""),"Object")
+                        setlocal2
+                        findproperty Multiname("_money",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")])
+                        getlocal2
+                        initproperty Multiname("_money",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")])
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function get money() : int
+            {
+               trait getter QName(PackageNamespace(""),"money")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"int")
+                     
+                     body
+                        maxstack 2
+                        localcount 2
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlex Multiname("_money",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")])
+                           pushnull
+                           ifne ofs000d
+                           pushbyte 0
+                           returnvalue
+                  ofs000d:
+                           findpropstrict Multiname("Object",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")])
+                           constructprop Multiname("Object",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")]), 0
+                           coerce QName(PackageNamespace(""),"Object")
+                           setlocal1
+                           getlocal1
+                           getlex Multiname("_money",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")])
+                           getproperty Multiname("value",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")])
+                           setproperty Multiname("value",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")])
+                           findpropstrict Multiname("int",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")])
+                           getlocal1
+                           getproperty Multiname("value",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")])
+                           callproperty Multiname("int",[PrivateNamespace(null,"53"),PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("PayMoneyVar"),StaticProtectedNs("PayMoneyVar")]), 1
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+            }
+         }
+         
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 1
+               maxscopedepth 3
+               
+               code
+                  getlocal0
+                  pushscope
+                  findpropstrict Multiname("PayMoneyVar",[PackageNamespace("")])
+                  getlex QName(PackageNamespace(""),"Object")
+                  pushscope
+                  getlex Multiname("Object",[PrivateNamespace(null,"294"),PackageNamespace(""),PackageInternalNs(""),Namespace("http://adobe.com/AS3/2006/builtin")])
+                  newclass 69
+                  popscope
+                  initproperty QName(PackageNamespace(""),"PayMoneyVar")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+         

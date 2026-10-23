@@ -80,3 +80,31 @@ Two new input-fingerprinted Main builds `run-lx5icqis` and `run-b062kbrm` both s
 ### Coverage still open
 
 This validates the full source-rebuilt package in one ordinary/Boss route and selected NPC/equipment/task/save flows. It does not cover all maps, enemy mechanics, careers, shops, pets, cooperative play, online services or every story branch. Audio has not been independently listened to. Newer strict fingerprints/launcher, resource import harness and numeric boundary harness still need runtime acceptance at this checkpoint.
+
+
+## Strict package 928e and caller-version regression, 02:03–02:28 Beijing
+
+`runtime-all-rebuilt-20261023T175702.006475Z` contains164 rebuilt modules/zero fallback with full build-input snapshots. Main928e loaded the save written by96ce, showed the expected equipped stats and empty pet panel, and entered one-star机械试验场. Mechanical red/blue enemies appeared, attacked, took damage, and player attacks/skills consumed MP. This sample did not clear that map or its Boss.
+
+System→回城 then threw Adobe Error2109 (missing站立 frame label), with stack `MovieClip.gotoAndPlay→src.Skin.GoTo→src.Player.信春哥→Player.一起信春哥→Play_Interface.回城`. The error was recorded and the process closed; it was not suppressed to count the test as passed. Original control in the same route returned successfully. A separate probe changed only byte3 of Main/DataX fromSWF14 to their originalSWF9, preserving all ABC and other bytes. That probe completed the same mechanical combat/return-town route without error. Screenshots: `latest928e-returntown-error2109.png`, `original-returntown-success.png`, `header9-returntown-success.png`. See `returntown-label-audit.md` for source, labels, version rules and exact hashes. Formal recipes now retain original versions; their new complete package still needs UI verification.
+
+The strict launcher was tested through an actual Finder double-click with no player process running. The first attempt did not launch and lacked a diagnostic log; it cannot retrospectively be assigned a definite cause. After adding retained logs and distinguishing launch environment differences from build-input changes, the second Finder attempt passed the164-input verification and opened the game title. Evidence: `reverse/logs/launcher/20261023T182158Z-25101.log`, `finder-cold-launch-928e.png`. This verifies the launcher at928e, not the subsequent canonical semantic repairs. Later source changes correctly make that historical package stale.
+
+## Original fresh-character shop control, 02:33–02:37 Beijing
+
+A completely restarted original-control player created a **new isolated slot2**, leaving slot1 intact. Single player, sword/staff selection, opening-story skip, level1 HP1432/MP768. The normal village has similar background art to the graduation fixture's alternate village; appearance alone is not a map-number test. Fresh妮蒂亚 showed the normal smiling portrait and visible购买物品 button. Initial gold4399, eight red and eight blue low-level potions occupied16 slots.
+
+Observed quantity-down1→24 and up24→1. The quantity field accepted keyboard editing. Entering `-2147483648` then clicking down showed a clipped suffix `47`; the field is too narrow to claim the full2147483647 value from this screenshot alone. Exact compiled int32 behavior is independently covered by the bytecode audit; a complete UI text snapshot is still pending.
+
+Entering2 and buying low-level HP potions created two distinct new slots and changed gold4399→4383. Selling the second new potion removed one slot and returned4, giving4387 gold, nine red/eight blue potions. Images `original-shop-buy2.png`, `original-shop-intmin-decrement-clipped.png`, `original-shop-sell1.png`. These are game-currency operations only. The state has not yet been cold-reloaded at this checkpoint.
+
+
+## Original shop exact boundary and real-class probes, approximately03:00–03:05 Beijing
+
+Original slot2 was cold-read twice after full player quits; the saved level1 character retained gold4387, nine red and eight blue potions. Diagnostic wrapper v5 read the exact existing buyMenu.amount TextField: seq232 text `-2147483648` (11 characters) before down and seq251 `2147483647` (10) after down. Neither target field was truncated; both reports have errors=[], observerErrors=[], partial=false. Other UI tree/field budgets were truncated, so this proves the named field, not a complete display-tree observation. No purchase was made with these boundary values. See `original-shop-quantity-v5-runtime.json`; v4 failed observer evidence remains preserved separately.
+
+The actual-class v3 harness ran in Adobe Debugger against originalb362fd303599 and trace-preserving rebuilt Main71b7c20c9edc. Both showed183/183, Failures0, Persistence:flushed. All183 per-case inputs and results match in the recovered dedicated SO reports; the player encoded long names into `#/` path components, which explains why an earlier flat-basename search missed v2 files. The recovered v2 files also pass, without retroactively inventing a storage failure. See `experiments/actual-class-harness/runtime-comparison.json`. The probe executes actual unchanged ABC methods in an isolated library lifecycle; it is not whole-game equivalence or normal saving.
+
+## Original double-player key control, approximately03:05–03:08 Beijing
+
+Direct original isolated control created empty slot3 with two level1 sword/staff players. P1 HP1431/MP772; P2 HP1428/MP769, random starter equipment values. System→键位设置 showed both player tabs. Selecting player2 and confirming the default mapping closed the panel immediately; holding Right moved player2 separately while player1 remained. Assigning player2 Right to A (already player1 Left) then confirming produced `键位未设置!`. Cancel and 使用系统推荐设置 restored defaults; confirmation closed normally again. Explicit system save was clicked; cold-read of this new slot has not yet been tested. No existing slot was replaced. Screenshots `original-2p-keys-before.png`, `original-2p-keys-confirmed.png`, `original-2p-key-conflict-warning.png`. Latest reconstructed full-package comparison remains pending.

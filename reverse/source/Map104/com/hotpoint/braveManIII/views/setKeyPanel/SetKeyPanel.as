@@ -157,23 +157,19 @@ package com.hotpoint.braveManIII.views.setKeyPanel
          if(Main.player2 != null)
          {
             i = 0;
-            while(true)
+            while(i < keyNum)
             {
-               if(i < keyNum)
+               if(Main.player1._keyArr[i] == -1)
                {
-                  if(Main.player1._keyArr[i] == -1)
-                  {
-                     break;
-                  }
-                  if(Main.player2._keyArr[i] == -1)
-                  {
-                     return false;
-                  }
-                  continue;
+                  return false;
+               }
+               if(Main.player2._keyArr[i] == -1)
+               {
+                  return false;
                }
                i++;
             }
-            return false;
+            return true;
          }
          for(i = 0; i < keyNum; i++)
          {

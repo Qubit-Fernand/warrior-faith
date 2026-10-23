@@ -214,23 +214,19 @@ package com.hotpoint.braveManIII.views.setKeyPanel
          if(Main.player2 != null)
          {
             _loc1_ = 0;
-            while(true)
+            while(_loc1_ < keyNum)
             {
-               if(_loc1_ < keyNum)
+               if(Main.player1._keyArr[_loc1_] == -1)
                {
-                  if(Main.player1._keyArr[_loc1_] == -1)
-                  {
-                     break;
-                  }
-                  if(Main.player2._keyArr[_loc1_] == -1)
-                  {
-                     return false;
-                  }
-                  continue;
+                  return false;
+               }
+               if(Main.player2._keyArr[_loc1_] == -1)
+               {
+                  return false;
                }
                _loc1_++;
             }
-            return false;
+            return true;
          }
          _loc1_ = 0;
          while(_loc1_ < keyNum)

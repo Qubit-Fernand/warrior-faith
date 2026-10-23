@@ -223,14 +223,14 @@ def summary(report):
     return {k:v for k,v in report.items() if k!='modules'}
 
 
-def build(target, dry_run=False):
+def build(target, dry_run=False, jobs=1):
     commands=[]
     if target in ('all','main'):
         commands.append([sys.executable,str(TOOLS/'build_main.py'),'--all-definitions'])
     if target in ('all','datax'):
         commands.append([sys.executable,str(TOOLS/'datax_build.py')])
     if target in ('all','resources'):
-        commands.append([sys.executable,str(TOOLS/'probe_resource_family.py')])
+        commands.append([sys.executable,str(TOOLS/'probe_resource_family.py'),'--jobs',str(jobs)])
     if target not in ('all','main','datax','resources'):
         modules={Path(r['path']).stem for r in read_json(BASELINE) if r['path'].endswith('.swf')}
         if target not in modules or target in (MAIN,DATAX):raise ValueError('Use main/datax aliases or an exact resource stem')
@@ -311,14 +311,14 @@ def main():
     sub=parser.add_subparsers(dest='action',required=True)
     for action in ('status','audit'):
         command=sub.add_parser(action);command.add_argument('--details',action='store_true')
-    command=sub.add_parser('build');command.add_argument('target',nargs='?',default='all');command.add_argument('--dry-run',action='store_true')
+    command=sub.add_parser('build');command.add_argument('target',nargs='?',default='all');command.add_argument('--dry-run',action='store_true');command.add_argument('--jobs',type=int,choices=range(1,4),default=1,help='Parallel resource modules only; main/datax remain sequential')
     command=sub.add_parser('assemble');command.add_argument('--partial',action='store_true')
     args=parser.parse_args()
     try:
         if args.action in ('status','audit'):
             report,_=collect(args.action=='audit')
             print(json.dumps(report if args.details else summary(report),ensure_ascii=False,indent=2))
-        elif args.action=='build':build(args.target,args.dry_run)
+        elif args.action=='build':build(args.target,args.dry_run,args.jobs)
         else:assemble(args.partial)
     except (ValueError,RuntimeError,OSError,AssertionError) as error:
         print('ERROR: '+str(error),file=sys.stderr);raise SystemExit(1)

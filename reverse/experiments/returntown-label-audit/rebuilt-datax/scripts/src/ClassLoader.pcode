@@ -1,0 +1,542 @@
+package src
+{
+   import flash.display.*;
+   import flash.events.*;
+   import flash.net.*;
+   import flash.system.LoaderContext;
+   import flash.text.*;
+   import flash.utils.*;
+   
+   public class ClassLoader extends EventDispatcher
+   {
+      
+      method
+         name ""
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public var url:String;
+      
+      public var loader:Loader;
+      
+      private var noCookieArr:Array;
+      
+      public function ClassLoader(param1:Object = null, param2:LoaderContext = null)
+      {
+         method
+            name ""
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace(""),"Object")
+            param QName(PackageNamespace("flash.system"),"LoaderContext")
+            optional Null()
+            optional Null()
+            returns null
+            
+            body
+               maxstack 3
+               localcount 3
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  pushstring "TempData.swf"
+                  newarray 1
+                  initproperty QName(PrivateNamespace("src:ClassLoader"),"noCookieArr")
+                  getlocal0
+                  constructsuper 0
+                  getlocal1
+                  pushnull
+                  ifeq ofs004b
+                  getlocal1
+                  findpropstrict Multiname("ByteArray",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getproperty Multiname("ByteArray",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  istypelate
+                  iffalse ofs002c
+                  getlocal0
+                  getlocal1
+                  findpropstrict Multiname("ByteArray",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getproperty Multiname("ByteArray",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  astypelate
+                  getlocal2
+                  callproperty Multiname("loadBytes",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                  pop
+                  jump ofs004b
+         ofs002c:
+                  getlocal1
+                  findpropstrict Multiname("String",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getproperty Multiname("String",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  istypelate
+                  not
+                  iffalse ofs003f
+                  findpropstrict Multiname("Error",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  pushstring "参数错误，构造函数第一参数只接受ByteArray或String"
+                  constructprop Multiname("Error",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                  throw
+         ofs003f:
+                  getlocal0
+                  getlocal1
+                  findpropstrict Multiname("String",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  getproperty Multiname("String",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  astypelate
+                  getlocal2
+                  callproperty Multiname("load",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                  pop
+         ofs004b:
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function load(param1:String, param2:LoaderContext = null) : void
+      {
+         trait method QName(PackageNamespace(""),"load")
+            dispid 0
+            method
+               name ""
+               flag HAS_OPTIONAL
+               param QName(PackageNamespace(""),"String")
+               param QName(PackageNamespace("flash.system"),"LoaderContext")
+               optional Null()
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 3
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getlocal1
+                     initproperty Multiname("url",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal0
+                     findpropstrict Multiname("Loader",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     constructprop Multiname("Loader",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                     initproperty Multiname("loader",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal0
+                     getproperty Multiname("loader",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     findpropstrict Multiname("URLRequest",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal0
+                     getproperty Multiname("url",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     constructprop Multiname("URLRequest",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                     getlocal2
+                     callproperty Multiname("load",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                     pop
+                     getlocal0
+                     callproperty Multiname("addEvent",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                     pop
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function NoCookie(param1:String) : String
+         {
+            trait method QName(PrivateNamespace("src:ClassLoader"),"NoCookie")
+               dispid 0
+               method
+                  name ""
+                  param QName(PackageNamespace(""),"String")
+                  returns QName(PackageNamespace(""),"String")
+                  
+                  body
+                     maxstack 4
+                     localcount 5
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("undefined",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty Multiname("undefined",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        coerce_a
+                        setlocal2
+                        pushbyte 0
+                        setlocal3
+                        getlocal0
+                        getproperty Multiname("noCookieArr",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        coerce_a
+                        setlocal 4
+                        jump ofs003d
+               ofs0015:
+                        label
+                        getlocal 4
+                        getlocal3
+                        nextname
+                        coerce_a
+                        setlocal2
+                        getlocal0
+                        getproperty Multiname("noCookieArr",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal2
+                        getproperty MultinameL([PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal1
+                        ifne ofs003d
+                        getlocal1
+                        pushstring "?"
+                        add
+                        findpropstrict Multiname("int",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        findpropstrict Multiname("Math",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty Multiname("Math",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        callproperty Multiname("random",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                        pushshort 1000
+                        multiply
+                        callproperty Multiname("int",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                        add
+                        returnvalue
+               ofs003d:
+                        hasnext2 4, 3
+                        iftrue ofs0015
+                        kill 4
+                        kill 3
+                        getlocal1
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function loadBytes(param1:ByteArray, param2:LoaderContext = null) : void
+            {
+               trait method QName(PackageNamespace(""),"loadBytes")
+                  dispid 0
+                  method
+                     name ""
+                     flag HAS_OPTIONAL
+                     param QName(PackageNamespace("flash.utils"),"ByteArray")
+                     param QName(PackageNamespace("flash.system"),"LoaderContext")
+                     optional Null()
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 3
+                        localcount 3
+                        initscopedepth 5
+                        maxscopedepth 6
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           findpropstrict Multiname("Loader",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           constructprop Multiname("Loader",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                           initproperty Multiname("loader",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getlocal0
+                           getproperty Multiname("loader",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getlocal1
+                           getlocal2
+                           callproperty Multiname("loadBytes",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                           pop
+                           getlocal0
+                           callproperty Multiname("addEvent",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                           pop
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function addEvent() : void
+               {
+                  trait method QName(PrivateNamespace("src:ClassLoader"),"addEvent")
+                     dispid 0
+                     method
+                        name ""
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 3
+                           localcount 1
+                           initscopedepth 5
+                           maxscopedepth 6
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty Multiname("loader",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              getproperty Multiname("contentLoaderInfo",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              findpropstrict Multiname("ProgressEvent",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              getproperty Multiname("ProgressEvent",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              getproperty Multiname("PROGRESS",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              getlocal0
+                              getproperty Multiname("progressFun",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              callproperty Multiname("addEventListener",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                              pop
+                              getlocal0
+                              getproperty Multiname("loader",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              getproperty Multiname("contentLoaderInfo",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              findpropstrict Multiname("Event",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              getproperty Multiname("Event",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              getproperty Multiname("COMPLETE",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              getlocal0
+                              getproperty Multiname("completeFun",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              callproperty Multiname("addEventListener",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                              pop
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  private function delEvent() : void
+                  {
+                     trait method QName(PrivateNamespace("src:ClassLoader"),"delEvent")
+                        dispid 0
+                        method
+                           name ""
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 3
+                              localcount 1
+                              initscopedepth 5
+                              maxscopedepth 6
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty Multiname("loader",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                 getproperty Multiname("contentLoaderInfo",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                 findpropstrict Multiname("ProgressEvent",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                 getproperty Multiname("ProgressEvent",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                 getproperty Multiname("PROGRESS",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                 getlocal0
+                                 getproperty Multiname("progressFun",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                 callproperty Multiname("removeEventListener",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                                 pop
+                                 getlocal0
+                                 getproperty Multiname("loader",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                 getproperty Multiname("contentLoaderInfo",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                 findpropstrict Multiname("Event",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                 getproperty Multiname("Event",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                 getproperty Multiname("COMPLETE",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                 getlocal0
+                                 getproperty Multiname("completeFun",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                 callproperty Multiname("removeEventListener",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                                 pop
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private function completeFun(param1:Event) : void
+                     {
+                        trait method QName(PrivateNamespace("src:ClassLoader"),"completeFun")
+                           dispid 0
+                           method
+                              name ""
+                              param QName(PackageNamespace("flash.events"),"Event")
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 2
+                                 initscopedepth 5
+                                 maxscopedepth 6
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    callproperty Multiname("delEvent",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                                    pop
+                                    findpropstrict Multiname("dispatchEvent",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                    getlocal1
+                                    callproperty Multiname("dispatchEvent",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                                    pop
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        private function progressFun(param1:ProgressEvent) : void
+                        {
+                           trait method QName(PrivateNamespace("src:ClassLoader"),"progressFun")
+                              dispid 0
+                              method
+                                 name ""
+                                 param QName(PackageNamespace("flash.events"),"ProgressEvent")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 4
+                                    localcount 3
+                                    initscopedepth 5
+                                    maxscopedepth 6
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       findpropstrict Multiname("dispatchEvent",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                       getlocal1
+                                       callproperty Multiname("dispatchEvent",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                                       pop
+                                       getlocal1
+                                       getproperty Multiname("bytesLoaded",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                       getlocal1
+                                       getproperty Multiname("bytesTotal",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                       divide
+                                       convert_d
+                                       setlocal2
+                                       findpropstrict Multiname("Load",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                       getproperty Multiname("Load",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                       findpropstrict Multiname("Math",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                       getproperty Multiname("Math",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                       getlocal2
+                                       pushbyte 100
+                                       multiply
+                                       callproperty Multiname("round",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                                       setproperty Multiname("percentLoaded",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function getClass(param1:String) : Object
+                           {
+                              trait method QName(PackageNamespace(""),"getClass")
+                                 dispid 0
+                                 method
+                                    name ""
+                                    param QName(PackageNamespace(""),"String")
+                                    returns QName(PackageNamespace(""),"Object")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 2
+                                       initscopedepth 5
+                                       maxscopedepth 6
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          getproperty Multiname("loader",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                          getproperty Multiname("contentLoaderInfo",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                          getproperty Multiname("applicationDomain",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                          getlocal1
+                                          callproperty Multiname("getDefinition",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function hasClass(param1:String) : Boolean
+                              {
+                                 trait method QName(PackageNamespace(""),"hasClass")
+                                    dispid 0
+                                    method
+                                       name ""
+                                       param QName(PackageNamespace(""),"String")
+                                       returns QName(PackageNamespace(""),"Boolean")
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 2
+                                          initscopedepth 5
+                                          maxscopedepth 6
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             getproperty Multiname("loader",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                             getproperty Multiname("contentLoaderInfo",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                             getproperty Multiname("applicationDomain",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                             getlocal1
+                                             callproperty Multiname("hasDefinition",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function clear() : void
+                                 {
+                                    trait method QName(PackageNamespace(""),"clear")
+                                       dispid 0
+                                       method
+                                          name ""
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 2
+                                             localcount 1
+                                             initscopedepth 5
+                                             maxscopedepth 6
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlocal0
+                                                getproperty Multiname("loader",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                callproperty Multiname("unload",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                                                pop
+                                                getlocal0
+                                                pushnull
+                                                initproperty Multiname("loader",[PrivateNamespace("src:ClassLoader"),PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:ClassLoader"),StaticProtectedNs("src:ClassLoader"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                 }
+                              }
+                              
+                              method
+                                 name ""
+                                 returns null
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 1
+                                    maxscopedepth 4
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       findpropstrict Multiname("ClassLoader",[PackageNamespace("src")])
+                                       findpropstrict QName(PackageNamespace(""),"Object")
+                                       getproperty QName(PackageNamespace(""),"Object")
+                                       pushscope
+                                       findpropstrict QName(PackageNamespace("flash.events"),"EventDispatcher")
+                                       getproperty QName(PackageNamespace("flash.events"),"EventDispatcher")
+                                       pushscope
+                                       findpropstrict Multiname("EventDispatcher",[PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils")])
+                                       getproperty Multiname("EventDispatcher",[PrivateNamespace("ClassLoader.as$175"),PackageNamespace(""),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.net"),PackageNamespace("flash.text"),PackageNamespace("flash.utils")])
+                                       newclass 0
+                                       popscope
+                                       popscope
+                                       initproperty QName(PackageNamespace("src"),"ClassLoader")
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                              

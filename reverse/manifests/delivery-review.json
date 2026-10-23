@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "reviewed_utc": "2026-10-23T19:05:20.587837+00:00",
+  "scope": "Independent documentation/CLI/path review; no compilation, assembly, player or game-save access in this review. Dedicated prior actual-class SO evidence was handled separately.",
+  "documents": [
+    {
+      "path": "reverse/docs/build-project.md",
+      "sha256": "e71a6c459ce80b5886697631c50435cae3c4af31f66aa5693c4fab30d37b099a"
+    },
+    {
+      "path": "reverse/docs/reconstruction-boundaries.md",
+      "sha256": "172bd6483de287b1c1d69470d8561c73dee7077a3301c4c04c420103a5d27ea7"
+    },
+    {
+      "path": "reverse/docs/modding-guide.md",
+      "sha256": "dafb00a06dd6683e5afba1a3193a67d3242f6a291123d56165e6d4d06b225acf"
+    }
+  ],
+  "cli_checks": {
+    "rebuild_project_build_all_jobs3_dry_run": {
+      "exit": 0,
+      "pipelines": [
+        "build_main.py --all-definitions",
+        "datax_build.py",
+        "probe_resource_family.py --jobs 3"
+      ],
+      "executed": false
+    },
+    "rebuild_project_build_Map1_dry_run": {
+      "exit": 0,
+      "command": "probe_rebuild_module.py Map1 --dynamic",
+      "executed": false
+    },
+    "build_main_help": {
+      "exit": 0,
+      "documented_save_name_flag_exists": true
+    },
+    "export_swf_help": {
+      "exit": 0,
+      "documented_mode_jobs_force_flags_exist": true
+    }
+  },
+  "paths": {
+    "source_as_files": 19910,
+    "task_xml_embed_exists": true,
+    "shared_tools_is_symlink": true,
+    "shared_tools_resolves_to": "/Users/AntiEntropy/Games/勇者的信仰/.runtime/tools"
+  },
+  "cleanroom": {
+    "source_commit": "875a2ea0d7827282783c7be9a540315c4de9f645",
+    "actual_modules_compiled": 33,
+    "exports": 164,
+    "full_164_assembly_completed": false,
+    "runtime_validated": false,
+    "source_and_tool_diff": "",
+    "qualification": "Same-machine new checkout with shared external toolchain, not new-machine or full164 reproduction."
+  },
+  "early_resource_snapshot_comparison": {
+    "snapshot": "reverse/experiments/module-probe/*/src/**/*.as",
+    "canonical": "reverse/source/<module>/**/*.as",
+    "equal": 18454,
+    "different": 454,
+    "missing": 0,
+    "method": "Read and compare complete file bytes for18908 existing resource snapshots; current semantic fixes make exact-equality claim stale."
+  },
+  "findings": [
+    {
+      "id": "main-staging-contract",
+      "severity": "reproduction_constraint",
+      "evidence": "reverse/tools/build_main.py:54-64 repair() raises Expected repair not found unless original empty-statement/import/save-name patterns remain",
+      "impact": "Canonical cleanup of those patterns requires an intentional recipe update; arbitraryAS edits do not automatically pass.",
+      "action": "Documented in owned modding-guide; no recipe change."
+    },
+    {
+      "id": "datax-11-config-contract",
+      "severity": "extension_constraint",
+      "evidence": "datax_source.py xml_literals asserts11; source_xml checks exact original method set; datax_build validates the matching11 XML method templates/constants",
+      "impact": "Editing existing values is supported; adding a twelfth config table or changing load order needs pipeline changes.",
+      "action": "Documented in owned modding-guide."
+    },
+    {
+      "id": "resource-snapshot-equality",
+      "severity": "stale_documentation",
+      "evidence": "reconstruction-boundaries.md input table still says18908 early snapshot AS match canonical byte-for-byte; actual454 differ",
+      "action": "Reported to root; not edited because ownership is external."
+    },
+    {
+      "id": "parallel-execution-status",
+      "severity": "stale_documentation",
+      "evidence": "build-project.md resource-parallel section says formal scheduling not yet executed; current root run is compiling keep-trace resources",
+      "action": "Reported to root to label early scheduling evidence as historical."
+    },
+    {
+      "id": "binary-resource-boundary",
+      "severity": "required_input",
+      "evidence": "build_main.py overlays nonAS export resources after canonical copy; resource/datax recipes also consume exported_assets; taskXML importer not yet implemented",
+      "impact": "AS alone cannot reconstruct artwork and directly changing ignored task assets is not a maintained chapter-config workflow.",
+      "action": "Existing docs accurately explain this; preserved."
+    }
+  ],
+  "current_generation_snapshot": {
+    "main_sha256": "71b7c20c9edcc1da4dc3142bedfdc0572fe658a62bf4fd35252f854567370648",
+    "main_24_method_validation": "reverse/manifests/main-semantic-repairs-validation-71b7c20c9edc.json",
+    "main_183_actual_class_validation": "reverse/experiments/actual-class-harness/runtime-comparison.json",
+    "full_keeptrace_package_assembled_at_review": false,
+    "historical_complete_assemblies": [
+      "runtime-all-rebuilt-20261023T175702.006475Z",
+      "runtime-all-rebuilt-20261023T171635.802067Z"
+    ],
+    "note": "Snapshot, not a permanent completion claim; root owns final current assembly/runtime status."
+  }
+}

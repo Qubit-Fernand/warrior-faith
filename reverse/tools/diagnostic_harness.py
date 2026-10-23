@@ -56,7 +56,7 @@ def build():
     strings = {s for a in abc for s in a['strings']}
     assert NAME in strings and 'yzlr2_saves' not in strings
     report = {'createdUTC':datetime.now(timezone.utc).isoformat(), 'command':command,
-        'source_sha256':sha(SOURCE/'Source.as'), 'swf_sha256':sha(BUILD/SWF),
+        'wrapper_version':5, 'source_sha256':sha(SOURCE/'Source.as'), 'swf_sha256':sha(BUILD/SWF),
         'bytes':(BUILD/SWF).stat().st_size, 'classes':classes,
         'diagnostic_shared_object':NAME, 'game_executed':False,
         'live_save_accessed':False, 'runtime_tested':False}
@@ -143,7 +143,7 @@ def install(directory,label,resolve_class_identities=False):
     shutil.copy2(BUILD/SWF,destination)
     receipt = {'main_sha256':sha(main), 'wrapper_sha256':sha(destination),
         'game_shared_object':save_name, 'diagnostic_shared_object':NAME,'assembly_sha256':assembly_sha,
-        'wrapper_version':2,'label_request_supported':True,
+        'wrapper_version':5,'label_request_supported':True,
         'initial_resolve_class_identities':resolve_class_identities,
         'game_executed':False, 'note':'Wrapper observes public fields; direct launch still required for acceptance.'}
     (directory/'diagnostic-install.json').write_text(json.dumps(receipt, indent=2)+'\n')
@@ -154,7 +154,7 @@ def install(directory,label,resolve_class_identities=False):
 def label_snapshot(directory,label,resolve_class_identities=None):
     directory,main,save_name,assembly_sha=validate_package(directory)
     installed=json.loads((directory/'diagnostic-install.json').read_text())
-    assert installed.get('wrapper_version')==2 and installed.get('label_request_supported') is True, 'Install the v2 wrapper first'
+    assert installed.get('wrapper_version') in (2,3,4,5) and installed.get('label_request_supported') is True, 'Install a label-capable v2/v3/v4/v5 wrapper first'
     assert sha(directory/SWF)==installed['wrapper_sha256'] and sha(main)==installed['main_sha256']
     assert installed.get('assembly_sha256')==assembly_sha
     request=request_snapshot(directory,label,resolve_class_identities=resolve_class_identities)
@@ -177,7 +177,7 @@ def parse_sol(path, full):
     assert name == NAME and set(fields) == {'payload'}
     report = json.loads(fields['payload'])
     assert report['schema'] == 'yzlr2-diagnostic-v1'
-    assert len(report['samples']) <= 24 and len(report['errors']) <= 8
+    assert len(report['samples']) <= 24 and len(report['errors']) <= 8 and len(report.get('observerErrors',[])) <= 8
     if full:
         print(json.dumps(report, ensure_ascii=False, indent=2))
         return
@@ -188,12 +188,14 @@ def parse_sol(path, full):
         animation = p.get('animation') or {}
         print(json.dumps({'sequence':sample['sequence'], 'ms':sample['ms'], 'reason':sample['reason'],'label':sample.get('label'),
             'map':sample.get('map'), 'room':sample.get('room'), 'fps':sample.get('observedFPS'),
-            'player1':{'hp':p.get('hp'), 'mp':p.get('mp'), 'x':p.get('x'), 'y':p.get('y'),
+            'partial':sample.get('partial'),'groupStatus':sample.get('groupStatus'),'groupErrors':sample.get('groupErrors'),
+            'player1':{'hp':p.get('hp'), 'hpBaseMax':p.get('hpBaseMax',p.get('hpMax')), 'hpEffectiveMax':p.get('hpEffectiveMax'),
+                'mp':p.get('mp'), 'mpBaseMax':p.get('mpBaseMax',p.get('mpMax')), 'mpEffectiveMax':p.get('mpEffectiveMax'), 'x':p.get('x'), 'y':p.get('y'),
                 'animation':animation.get('type'), 'frame':animation.get('frame')},
             'enemyCount':w.get('enemyChildren'), 'enemies':[{'identity':e['identity'], 'id':e['id'],
                 'hp':e['hp'], 'x':e['x'], 'y':e['y']} for e in w.get('enemies',[])],
             'truncated':w.get('enemyChildrenTruncated'),'tasks':sample.get('tasks'),
-            'inventory1':sample.get('inventory1'),'resources':sample.get('resources')}, ensure_ascii=False))
+            'inventory1':sample.get('inventory1'),'resources':sample.get('resources'),'uiText':sample.get('uiText')}, ensure_ascii=False))
 
 
 def main():

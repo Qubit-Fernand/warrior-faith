@@ -569,7 +569,7 @@ package com.hotpoint.braveManIII.models.player
       public function addGold(value:Number) : void
       {
          var num:Number = _gold.getValue() + value;
-         if(num <= InitData.Money_max.getValue())
+         if(!(num > InitData.Money_max.getValue()))
          {
             _gold.setValue(num);
          }

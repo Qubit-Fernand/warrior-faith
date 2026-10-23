@@ -255,7 +255,7 @@ package src
          {
             _loc5_ = this.data.getPetSkillType();
             _loc6_ = int(Math.random() * 4);
-            if(_loc5_[_loc6_] <= 0)
+            if(!(_loc5_[_loc6_] > 0))
             {
                gongJiYn1 = gongJiYn2 = false;
                return;
