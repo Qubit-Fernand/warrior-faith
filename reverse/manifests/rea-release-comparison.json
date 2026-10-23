@@ -1,0 +1,41 @@
+{
+  "package": "rea-agents",
+  "version": "6.7.0",
+  "resolved": "https://registry.npmjs.org/rea-agents/-/rea-agents-6.7.0.tgz",
+  "integrity": "sha512-yhIx2ioJYYT1C/tONfYeitC6LhnKmCh+ZwRUOgYuhSc733lGhkkt73zhug9WmLgxoMdKuqIYGCoBfD4fXkOhFw==",
+  "node": "26.11.1",
+  "install_log": "reverse/logs/rea-install.log",
+  "source_build_log": "reverse/logs/rea-source-build.log",
+  "source_commit": "2452efa9211d09e0acdf8cf9bfbf82a96f5a3522",
+  "release_artifact_rejection": {
+    "error": "Analysis failed",
+    "code": "target_unavailable",
+    "category": "unsupported_target",
+    "message": "Cannot open artifact: unsupported binary format.",
+    "retryable": false,
+    "remediation": {
+      "action": "Review the reported file-format reason and select a supported, well-formed target."
+    },
+    "details": {
+      "path": "/Users/AntiEntropy/Games/勇者的信仰-逆向/3_L4399Main_gamefile.swf",
+      "reason": "unsupported binary format",
+      "constraint": "file_format_rejected"
+    }
+  },
+  "release_entropy_command_rejection": {
+    "code": "COMMAND_NOT_FOUND",
+    "message": "'inspect-byte-entropy' is not a command for 'rea'. Did you mean 'inspect-native-api'?",
+    "cta": {
+      "description": "Suggested commands:",
+      "commands": [
+        {
+          "command": "rea inspect-native-api 3_L4399Main_gamefile.swf --blockSize 65536 --json"
+        },
+        {
+          "command": "rea --help",
+          "description": "see all available commands"
+        }
+      ]
+    }
+  }
+}
