@@ -1,6 +1,7 @@
 package src.epilogue.ui
 {
     import flash.display.Sprite;
+    import flash.display.Stage;
     import flash.events.MouseEvent;
     import flash.text.TextField;
     import flash.text.TextFormat;
@@ -20,7 +21,7 @@ package src.epilogue.ui
         {
             super();
             w=width;h=height;callback=action;
-            buttonMode=true;mouseChildren=false;
+            buttonMode=true;mouseChildren=false;tabEnabled=false;tabChildren=false;
             labelField=field(label,16,0xF5E5BE,w-24,26);
             labelField.x=12;labelField.y=description ? 6 : (h-26)/2;
             addChild(labelField);
@@ -47,7 +48,17 @@ package src.epilogue.ui
         public function activate():void {if(enabledValue && callback!=null)callback();}
         private function over(e:MouseEvent):void {hovering=true;paint();}
         private function out(e:MouseEvent):void {hovering=false;paint();}
-        private function click(e:MouseEvent):void {e.stopImmediatePropagation();activate();}
+        private function click(e:MouseEvent):void
+        {
+            e.stopImmediatePropagation();
+            var focusStage:Stage=stage;
+            try {activate();}
+            finally {
+                // The callback can remove this button, open another modal, or
+                // start a scene transition. Never leave focus on the old sprite.
+                if(focusStage)focusStage.focus=focusStage;
+            }
+        }
         private function paint():void
         {
             graphics.clear();

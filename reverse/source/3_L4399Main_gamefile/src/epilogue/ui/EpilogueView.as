@@ -170,11 +170,16 @@ package src.epilogue.ui
         }
         public function closeModal():void
         {
+            var focusStage:Stage=stage ? stage : keyStage;
             removeEventListener(Event.ENTER_FRAME,revealFrame);
             for each(var b:ChapterButton in buttons)b.dispose();
             buttons=[];clearLayer(modal);pages=[];kind="";complete=null;skipped=null;
             body=null;pageLabel=null;nameLabel=null;portrait=null;fullText="";
             skipAllowed=false;chrome.visible=true;selection=0;
+            // A clicked button may remain Stage.focus after removal, leaving
+            // keyboard events on a detached target instead of the game's Stage.
+            // Keep held-key suppression intact; only restore the focus target.
+            if(focusStage)focusStage.focus=focusStage;
         }
         public function dispose():void
         {

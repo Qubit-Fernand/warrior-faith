@@ -55,6 +55,11 @@ package {
                 }
                 sample.gold=read(main,"player1")?number(read(read(main,"player1"),"gold")):null;
                 sample.slot=read(main,"saveNum");
+                // Read-only focus evidence: never assign focus or synthesize input.
+                var focused:InteractiveObject=stage.focus;
+                sample.focus=focused?{type:getQualifiedClassName(focused),name:focused.name,
+                    onStage:focused.stage!=null,sameStage:focused.stage===stage,
+                    parentType:focused.parent?getQualifiedClassName(focused.parent):null}:null;
                 sample.keys=read(main,"player1")?read(read(main,"player1"),"_keyArr"):null;
                 sample.npcs=[];if(world)collectNPCs(world as DisplayObject,sample.npcs,0);
                 sample.ui=[];

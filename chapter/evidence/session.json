@@ -114,11 +114,29 @@
         "gold cap can lose reward",
         "seen dialogue completion not saved immediately"
       ]
+    },
+    {
+      "time_utc": "2026-10-25T17:20:51.337691+00:00",
+      "commit": "bbc8a38",
+      "package": "reverse/build/runtime-all-rebuilt-20261025T165840.921655Z",
+      "main_sha256": "734e39e157d0cee5891d34f7382bacb197d5ca2972830434228cd52e41f294af",
+      "assembly_sha256": "1fa1c066d2660d97078faf9539de158ae7a0eec2a0ccb7df2ec63390bca3ba03",
+      "strict_assembly": "164 rebuilt,0 fallback",
+      "observed": "Cold read; seen dialogue skip button; save status flushed and disk seenDialogues confirmed after quit; mouse skip loses keyboard until scene clicked; actual retry and combat after scene click; nodes destroyed, no victory",
+      "evidence": [
+        "private/018-candidate4-focus-recovered-combat.png",
+        "private/019-candidate4-diagnostic.json"
+      ],
+      "protected_saves": "four unchanged after exit",
+      "issues": [
+        "mouse modal close leaves keyboard focus detached; fix staged for next candidate"
+      ]
     }
   ],
   "resume": {
-    "next": "candidate4 persistence fixes then controlled import/build/strict package/runtime",
-    "player": "quit; live slot1 remains earned warden checkpoint",
-    "acceptance": "partial candidate3 evidence only, no final acceptance"
+    "next": "candidate5 build/strict assemble/updated passive observer; retest mouse skip then keyboard immediately and normal warden completion",
+    "player": "quit, disk warden intro seen true, boss false",
+    "main_receipt_last": "reverse/build/main-probe/run-mk3to2bx/receipt.json",
+    "acceptance": "no final acceptance yet"
   }
 }
