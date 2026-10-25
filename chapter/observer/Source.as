@@ -20,7 +20,8 @@ package {
             store=SharedObject.getLocal("yzlr2_rebuild_epilogue_diag_v2","/");
             report.startedUTC=new Date().toUTCString();report.wrapper=loaderInfo.url;
             game.contentLoaderInfo.addEventListener(Event.COMPLETE,loaded);
-            game.contentLoaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR,uncaught);
+            // SWF9 has no uncaughtErrorEvents API. The official debugger still displays errors.
+            report.errorCapture="IO and observer errors only; game errors remain visible in debugger";
             game.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR,ioError);
             addChild(game);game.load(new URLRequest("3_L4399Main_gamefile.swf"),new LoaderContext(false,new ApplicationDomain(null)));
         }
@@ -88,15 +89,33 @@ package {
             if(node is TextField){var text:String=TextField(node).text;if(text.length>0)output.push(text.substr(0,140));return;}
             if(node is DisplayObjectContainer){var c:DisplayObjectContainer=node as DisplayObjectContainer;for(var i:int=0;i<c.numChildren;i++)collectText(c.getChildAt(i),output,depth+1);}
         }
-        private function uncaught(event:UncaughtErrorEvent):void{
-            var error:Object=event.error;report.errors.push({ms:getTimer(),id:read(error,"errorID"),text:String(error),stack:error is Error?Error(error).getStackTrace():null});
-            while(report.errors.length>10)report.errors.shift();persist();
-            // Do not preventDefault: the official debugger must still show failures.
-        }
         private function ioError(event:IOErrorEvent):void{report.errors.push({ms:getTimer(),text:event.text});persist();}
+        // A deliberately small SWF9 JSON encoder for this plain-data diagnostic report.
+        // Native JSON and uncaughtErrorEvents would raise the wrapper API version.
+        private function quoteJSON(value:String):String{
+            var result:String='"';
+            for(var i:int=0;i<value.length;i++){
+                var code:int=value.charCodeAt(i);var c:String=value.charAt(i);
+                if(c=='"' || c=='\\')result+='\\'+c;
+                else if(code<32){var hex:String=code.toString(16);while(hex.length<4)hex='0'+hex;result+='\\u'+hex;}
+                else result+=c;
+            }
+            return result+'"';
+        }
+        private function encodeJSON(value:*,depth:int=0):String{
+            if(depth>40)throw new Error("observer data depth exceeds limit");
+            if(value==null)return 'null';
+            if(value is String)return quoteJSON(String(value));
+            if(value is Boolean)return value?'true':'false';
+            if(value is Number)return isFinite(Number(value))?String(value):'null';
+            var parts:Array=[];var key:String;
+            if(value is Array){for each(var item:* in value)parts.push(encodeJSON(item,depth+1));return '['+parts.join(',')+']';}
+            for(key in value)parts.push(quoteJSON(key)+':'+encodeJSON(value[key],depth+1));
+            return '{'+parts.join(',')+'}';
+        }
         private function persist():void{
-            var encoded:String=JSON.stringify(report);
-            while(encoded.length>90000 && report.samples.length>1){report.samples.shift();encoded=JSON.stringify(report);}
+            var encoded:String=encodeJSON(report);
+            while(encoded.length>90000 && report.samples.length>1){report.samples.shift();encoded=encodeJSON(report);}
             store.data.payload=encoded;store.flush();
         }
     }

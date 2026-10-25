@@ -5,7 +5,7 @@
 | 文件 | 用途 |
 | --- | --- |
 | `EpilogueView.as` | 940×580 逻辑画布：底部绢纸对话、目标提示、首领血条、记录本、选择、暂停和失败面板。父控制器把它加入舞台显示列表最上层。 |
-| `WorldTimelinePause.as` | 按世界保存正在播放的 MovieClip 并暂停，恢复时只恢复仍属于同一世界的原播放集合；销毁世界时 clear 不重启旧对象。 |
+| `WorldTimelinePause.as` | 按世界暂停能明确读取到正在播放的 MovieClip；SWF9 不支持读取播放态时跳过原生时间轴，避免误重启停止对象。销毁世界时 clear 不重启旧对象。 |
 | `ChapterButton.as` | 铜色边框按钮，鼠标悬停、键盘选中、禁用状态；销毁时移除自身监听。 |
 | `PortraitArt.as` | 本次同人章节新绘的矢量人物徽章，不是原版角色素材的复原。奥古斯丁、塔丽莎、格蕾丽丝、霍根和勇士使用不同发型、服饰及轮廓，也支持治疗者与居民。剧情固定 key 为 `augustine` / `talisha` / `goddess` / `hogen` / `hero` / `villager`；旧别名仍兼容。可单独在场景中复用。 |
 
@@ -48,7 +48,7 @@ view.showDialogue([
 
 ## 世界时间轴暂停
 
-每个 Controller 创建一个 `WorldTimelinePause` 实例。模态打开时调用 `freeze(Main.world)`；业务恢复时调用 `resume()`；切图/销毁世界时调用 `clear()`。重复 freeze 不替换首次快照，因此不会把原本在播放、被首轮暂停的动画误记为“本来就是停止”。resume 只恢复快照中仍属于原世界、且原世界仍在原舞台上的对象；首次冻结时已停止的对象保持停止。
+每个 Controller 创建一个 `WorldTimelinePause` 实例。模态打开时调用 `freeze(Main.world)`；业务恢复时调用 `resume()`；切图/销毁世界时调用 `clear()`。仅明确读到 Boolean true 的播放态才调用 stop 并进入快照；读到 false 或读取能力未知时不改变对象。重复 freeze 不替换首次快照。resume 只恢复快照中仍属于原世界、且原世界仍在原舞台上的对象；首次冻结时已停止的对象不会被重启。
 
 该工具只处理 MovieClip 时间轴。Controller/Core 仍须自行拦截 ENTER_FRAME、计时器和业务输入，也须避免暂停期间新增运行中的世界动画。它不会递归到世界之外，不操作 UI 或舞台帧率。`isFrozen` 与 `frozenCount` 可供运行时诊断。
 
@@ -67,3 +67,16 @@ view.showDialogue([
 - 脸部、发顶、眼睛与背景采用少量 Flash 原生渐变；眼白、虹膜、瞳孔与小高光分层，替代旧稿的小圆点眼睛与大块阴影。运行时仍只有单个 Sprite 的 Graphics，不添加 ENTER_FRAME 或外部资源依赖。
 
 这次只做源码和静态边界核查，没有单独构建或启动播放器。实际 112 像素头像的眼神、细线清晰度及整体风格需由主集成候选截图复核；不把本轮源码改动称作已通过视觉验收。
+
+
+## 正式 SWF9 入口的播放态兼容
+
+主任务在 candidate10b 正式直接入口观察到 `MovieClip.isPlaying` 的 Error 1069；较高 SWF 版本的 observer 曾掩盖这一兼容问题。不能把较高版本 wrapper 成功当作正式 SWF9 入口成功。本修复不提高 Main SWF 版本，也不设置全局 `stage.frameRate=0`。
+
+`WorldTimelinePause.freezeTree()` 改为受 `try/catch` 保护的 `Object(clip)["isPlaying"]` 查询，只有返回明确的 Boolean true 才 stop/保存；false 保持不动；抛异常、undefined 或其他类型一律视为未知并跳过。不能用 `currentFrame`、`totalFrames` 或前后帧号猜播放态，也不能先 stop 全树再统一 play，因为那样会错误重启原本停止的时间轴。重复 freeze、同世界恢复、清引用不恢复旧世界的契约保留。
+
+只读诊断：`playbackMode` 为 `idle`、`timelines`、`partial` 或 `logic-only`；`playbackDiagnostics` 返回新的 `{mode,known,unknown,stopped}` 对象。`known` 包括明确读到 true/false 的 clip；`unknown` 为无法可靠读取的数量；`stopped` 只计本组件实际停止并准备恢复的集合。clear/resume 后诊断归 idle。
+
+**SWF9 降级边界：** 当播放态不可用时，原生时间轴可能继续动画，不能宣称完整的世界视觉冻结。Main/Player/Skin/Fly/命中检测的既有 ENTER_FRAME 暂停守卫以及终章战斗自身暂停继续承担业务冻结。本工具不会绕过这些守卫，不修改技能动作状态，也不擅自补一次 play。原生 frame-script 是否产生额外效果、对白前后动作是否连贯，仍需正式入口验收。
+
+待主任务实测：直接打开 SWF9 正式入口，进入对白/暂停/记录本、完成及跳过连续对白，确认无 1069；停留期间确认 HP、敌人危险物和终章计时不推进；恢复后移动/攻击正常，原本停止的装置与界面不自行播放。observer 也应使用相同 SWF9 版本。可独立用 SWF9 两个多帧 clip（一个先 stop，一个正在 play）验证：未知模式不改变任一 clip；有明确 API 的模式只恢复原先在播放者。本子任务没有构建或启动任何播放器。
