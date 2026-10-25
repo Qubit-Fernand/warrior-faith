@@ -90,15 +90,35 @@
         "boss durability too high and nodes lack meters",
         "compass one-key interaction too shallow"
       ]
+    },
+    {
+      "time_utc": "2026-10-25T16:52:14.093175+00:00",
+      "commit": "a8f64e2",
+      "package": "reverse/build/runtime-all-rebuilt-20261025T162037.144367Z",
+      "main_sha256": "976b7eeac2335c15ca90a555b414c1aa5b0d22a502b89127e1050ea3af49bd3e",
+      "assembly_sha256": "4a4413e77e244b2ec4d4402b8e69b7794e7345eabffd85205099757672b70804",
+      "strict_assembly": "164 rebuilt,0 fallback",
+      "observed": "Cold read earned warden checkpoint; distinct backdrop and player foreground; real attacks destroyed both nodes and entered phase2; jump avoided sweep; died at approximately 22% boss HP; UI retry restored full player HP/MP and boss phase1/nodes; rescue and navigation progress retained. No victory.",
+      "evidence": [
+        "private/012-candidate3-cold-warden.png",
+        "private/013-candidate3-node-bars.png",
+        "private/014-candidate3-warden-phase2.json",
+        "private/015-candidate3-warden-death.png",
+        "private/016-candidate3-retry-paused.png",
+        "private/017-candidate3-retry-diagnostic.json"
+      ],
+      "protected_saves": "all four unchanged after player exit",
+      "issues": [
+        "partial player timers ignore pause",
+        "save flush unconfirmed",
+        "gold cap can lose reward",
+        "seen dialogue completion not saved immediately"
+      ]
     }
   ],
   "resume": {
-    "next": "candidate3 strict assembly then observer install/check; Finder launch and cold read earned slot1 warden checkpoint",
-    "build_session": 15995,
-    "main_receipt": "reverse/build/main-probe/run-k99mn989/receipt.json",
-    "main_sha256": "976b7eeac2335c15ca90a555b414c1aa5b0d22a502b89127e1050ea3af49bd3e",
-    "player": "fully quit; live test SO holds legally earned warden entry; no victory yet",
-    "agents": "all current files frozen",
-    "protected_saves": "all four unchanged after candidate2 quit"
+    "next": "candidate4 persistence fixes then controlled import/build/strict package/runtime",
+    "player": "quit; live slot1 remains earned warden checkpoint",
+    "acceptance": "partial candidate3 evidence only, no final acceptance"
   }
 }

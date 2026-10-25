@@ -19,6 +19,8 @@ package src.epilogue
     import src.GameData;
     import src.HitXX;
     import src.Main;
+    import src.InitData;
+    import src.LocalSaveManager;
     import src.Player;
     import src.epilogue.battle.ChapterEncounter;
     import src.epilogue.battle.ChapterDockEncounter;
@@ -35,6 +37,11 @@ package src.epilogue
         public static var paused:Boolean=false;
         public static var inArena:Boolean=false;
         private static var requestedScene:String="";
+        // Persist across scene controllers, but never across loaded role objects.
+        private static var saveOwner:Object;
+        private static var saveStatus:String="idle";
+        private static var saveQueued:Boolean=false;
+        private static var awaitingFlush:Boolean=false;
         private static const ARENA_MAP:int=81;
         private static const WIDTH:Number=1600;
         private static const FLOOR:Number=450;
@@ -85,13 +92,15 @@ package src.epilogue
         public static function snapshot():Object
         {
             return {chapter:ChapterState.exported(),inArena:inArena,paused:paused,
-                scene:current?current.scene:"",battle:current&&current.encounter?current.encounter.snapshot:null,
+                scene:current?current.scene:"",saveStatus:saveStatus,saveQueued:saveQueued,battle:current&&current.encounter?current.encounter.snapshot:null,
                 dock:current&&current.dock?current.dock.snapshot:null,mentor:current&&current.mentor?getQualifiedClassName(current.mentor):null};
         }
         private function get state():Object{return ChapterState.value;}
         public function ChapterController(location:String)
         {
             scene=location;
+            if(saveOwner!==ChapterState.value)
+            {saveOwner=ChapterState.value;saveStatus="idle";saveQueued=false;awaitingFlush=false;}
             Main.allClosePanel();
             view=new EpilogueView(940,580);
             Main._stage.addChild(view);
@@ -161,7 +170,14 @@ package src.epilogue
             if(!unlocked() && int(state.stage)==0){notice("完成并提交【主线70】再战奥加后，奥古斯汀会收到新的消息。");return;}
             if(Main.P1P2){notice("《归光之约》当前为单人章节。请使用单人角色存档进入；双人角色进度不会被更改。");return;}
             if(state.ending!="")
-            {dialogue("post_"+state.ending,function():void{journal();});return;}
+            {
+                if(rewardOwed()>0)
+                {
+                    var received:Number=collectReward();checkpoint();
+                    notice("本次收到 "+received+" 金币。"+(rewardOwed()>0?"尚有 "+rewardOwed()+" 金币由奥古斯汀保管；用掉一些金币后再来领取。":"归光谢礼已全部领取。"));return;
+                }
+                dialogue("post_"+state.ending,function():void{journal();});return;
+            }
             if(int(state.stage)==0)
             {
                 dialogue("intro",function():void{state.stage=1;state.scene="dock";ChapterState.record("dock");checkpoint();travel("dock");});
@@ -169,7 +185,7 @@ package src.epilogue
             else
             {
                 modalPause();
-                view.showChoice("归光之约","已保存当前章节进度。继续旅途会从本段的安全检查点出发。",[
+                view.showChoice("归光之约","继续旅途会从本段的安全检查点出发；未胜的首领重新开始。",[
                     {label:"继续旅途",description:"接续已完成的交互；未胜的首领重新开始。",action:function():void{resume();travel(String(state.scene));}},
                     {label:"稍后再来",description:"留在村庄。",action:resume}]);
             }
@@ -407,9 +423,28 @@ package src.epilogue
             ChapterState.record(id);
             // One transaction object: world state and inventory reward are saved together.
             if(!state.rewardClaims.returnLight)
-            {Main.player1.addGold(50000);state.rewardClaims.returnLight={ending:id,gold:50000};}
+                state.rewardClaims.returnLight={ending:id,gold:0,total:50000,pending:50000};
+            collectReward();
             checkpoint();
             animateChange(2.5,function():void{dialogue("ending_"+id,returnVillage);});
+        }
+        private function rewardOwed():Number
+        {
+            var claim:Object=state.rewardClaims.returnLight;
+            if(!claim)return 0;
+            // Earlier candidates stored only the paid amount (gold), never a debt.
+            return claim.hasOwnProperty("pending")?Math.max(0,Number(claim.pending)):0;
+        }
+        private function collectReward():Number
+        {
+            var owed:Number=rewardOwed();if(owed<=0)return 0;
+            var before:Number=Main.player1.getGold();
+            var amount:Number=Math.min(owed,Math.max(0,InitData.Money_max.getValue()-before));
+            if(amount>0)Main.player1.addGold(amount);
+            var received:Number=Math.max(0,Main.player1.getGold()-before);
+            var claim:Object=state.rewardClaims.returnLight;
+            claim.gold=Number(claim.gold)+received;claim.pending=owed-received;
+            return received;
         }
         private function animateChange(seconds:Number,after:Function):void
         {
@@ -426,13 +461,16 @@ package src.epilogue
         private function pauseMenu():void
         {
             if(view.modalOpen || disposed || transitioning)return;
-            modalPause();view.showPause(resume,journal,returnVillage);
+            modalPause();view.showPause(resume,journal,returnVillage,
+                saveStatus=="failed" || saveStatus=="blocked"?function():void{checkpoint(true);resume();}:null);
         }
         private function journal():void
         {
             modalPause();var entries:Array=[];
             var keys:Array=state.journal.concat();if(keys.length==0)keys.push("not_unlocked");
             for each(var key:String in keys)if(ChapterContent.DATA.journal[key])entries.push(ChapterContent.DATA.journal[key]);
+            if(state.rewardClaims.returnLight)
+                entries.push({speaker:"归光谢礼",text:"已收到 "+state.rewardClaims.returnLight.gold+" 金币。"+(rewardOwed()>0?"奥古斯汀仍为你保管 "+rewardOwed()+" 金币；留出金币空间后可再领取。":"谢礼已全部领取，不会重复发放。"),portrait:"mentor"});
             view.showJournal(entries,resume);
         }
         private function dialogue(key:String,after:Function=null):void
@@ -440,7 +478,7 @@ package src.epilogue
             if(!ChapterContent.DATA.dialogues[key])throw new Error("Missing chapter dialogue: "+key);
             modalPause();
             view.showDialogue(ChapterContent.DATA.dialogues[key],function():void{
-                state.seenDialogues[key]=true;resume();if(after!=null)after();
+                state.seenDialogues[key]=true;checkpoint();resume();if(after!=null)after();
             },Boolean(state.seenDialogues[key]));
         }
         private function notice(text:String):void
@@ -456,8 +494,33 @@ package src.epilogue
             if(Main.player_1)Main.player_1.clearChapterInput();
             if(Main.player_2)Main.player_2.clearChapterInput();
         }
-        private function checkpoint():void
-        {syncTasks();Main.Save2(false);trace("CHAPTER_CHECKPOINT",state.stage,state.scene,state.ending);}
+        private function checkpoint(showFeedback:Boolean=false):void
+        {
+            syncTasks();
+            if(LocalSaveManager.isPending)
+            {saveQueued=true;awaitingFlush=true;saveStatus="pending";return;}
+            saveQueued=false;
+            saveStatus=String(Main.Save2(showFeedback));awaitingFlush=saveStatus=="pending";
+            trace("CHAPTER_CHECKPOINT",saveStatus,state.stage,state.scene,state.ending);
+        }
+        public static function onSaveResolved(status:String,completedOwner:Object):void
+        {
+            if(!awaitingFlush || saveOwner!==ChapterState.value)return;
+            awaitingFlush=false;
+            if(completedOwner===saveOwner)
+            {
+                saveStatus=status;
+                if(status!="flushed")return;
+            }
+            else saveStatus="blocked"; // Another slot finishing is not this slot's success.
+            // Wake the current role's queued snapshot even if an older slot held the disk lock.
+            // This does not depend on a chapter controller being present in the current map.
+            if(saveQueued)
+            {
+                saveQueued=false;saveStatus=String(Main.Save2(false));
+                awaitingFlush=saveStatus=="pending";
+            }
+        }
         private function syncTasks():void
         {
             for each(var task:Task in TaskData.taskArr)
@@ -475,7 +538,7 @@ package src.epilogue
             else if(scene=="dock")objective=!state.bridgeOpen?"攻击桥锁，放下封锁渡桥":int(state.dockRelays)!=3?"击破继电器，再带居民撤离":int(state.rescuedGroups)<2?"救出居民 "+state.rescuedGroups+" / 2":!state.calibrationDone?(int(state.navigationSteps)<3?"观察线索，校准航标 "+state.navigationSteps+" / 3":"三盘已亮，前往旧罗盘确认"):"沿新方位前往司灯遗址";
             else if(scene=="warden")objective=!state.boss1Defeated?"击破供能灯座，关闭司灯":"修复归光装置，再进入王座";
             else objective=!state.boss2Defeated?"切断输光臂，击败窃光王座":state.endingChoice!=""?"完成归光仪式 "+state.endingNodes+" / 3":"走近归光装置，决定最后的归途";
-            view.setObjective("归光之约",objective,inArena?"E 交互 · Esc 暂停 · 进度自动保存":"同人最终章 · 独立存档");
+            view.setObjective("归光之约",objective,inArena?"E 交互 · Esc 暂停 · 检查点存档":"同人最终章 · 独立存档");
         }
         private function travel(destination:String):void
         {

@@ -1434,6 +1434,7 @@ package src
       
       public function wudi(param1:*) : *
       {
+         if(ChapterController.paused) return;
          ++timeTemp;
          if(timeTemp > 81)
          {
@@ -1447,6 +1448,7 @@ package src
       
       public function timeLimitBJ(param1:*) : *
       {
+         if(ChapterController.paused) return;
          ++timeTemp;
          if(timeTemp > 54)
          {
@@ -1458,6 +1460,7 @@ package src
       
       public function timeLimitSJ(param1:*) : *
       {
+         if(ChapterController.paused) return;
          ++timeTemp;
          if(timeTemp > 351)
          {
@@ -1469,6 +1472,7 @@ package src
       
       public function timeLimitSY(param1:*) : *
       {
+         if(ChapterController.paused) return;
          ++timeTemp;
          if(timeTemp > 284)
          {
@@ -1480,6 +1484,7 @@ package src
       
       public function timeLimitXL(param1:*) : *
       {
+         if(ChapterController.paused) return;
          ++timeTemp;
          if(timeTemp > 284)
          {
@@ -1491,6 +1496,7 @@ package src
       
       public function timeLimitMP(param1:*) : *
       {
+         if(ChapterController.paused) return;
          ++timeTempmp;
          if(timeTempmp > 216)
          {
@@ -2044,6 +2050,7 @@ package src
       
       private function NewLife(param1:*) : *
       {
+         if(ChapterController.paused) return;
          newLifeTime.setValue(newLifeTime.getValue() + InitData.BuyNum_1.getValue());
          if(newLifeTime.getValue() % 10 > 4)
          {

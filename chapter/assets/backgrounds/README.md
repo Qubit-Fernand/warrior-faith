@@ -54,3 +54,7 @@ Main.world.moveChild_Back.addChildAt(backdrop, 0);
 接入任务已经对 `expected()` 进行只读验证，并用内存模拟验证四种错误会被拒绝：PNG 单字节篡改、提示词改变、manifest 越界路径、重复 scene。**尚未由美术子任务执行完整 import 或构建**。主集成任务应先导入，再用其完整构建/指纹流程验证；已在 canonical `mx/core/BitmapAsset.as` 新写最小兼容支撑类，继承 `flash.display.Bitmap` 并实现现有空标记接口 `IFlexAsset`；这不是原作复原代码，也不是完整 Flex 框架。其构造器保持 BitmapData / pixelSnapping / smoothing 签名，供 Flex 生成的 PNG Embed 子类调用。
 
 构建链核查：`build_main.py --all-definitions` 自动枚举 staging 中所有 `.as` 作为 `-includes`，新增 ChapterBackdrop 与 BitmapAsset 会进入该枚举；本次未找到另一份独立扩展类允许名单，也没有削弱任何检查。主任务负责将 `chapter/assets/backgrounds` 加入构建输入树；generated overlay 本身已在原有 `chapter/generated` 指纹中。
+
+## 主任务接入复核（候选3）
+
+三张背景已通过受控导入并编入严格包；司灯实际冷读、战斗、第二阶段与死亡重试截图见 evidence/private/012–016。玩家已置于首领机器前景；司灯场景无右侧灰底。另两场景尚待实际运行检查，不能将此局部证据当最终验收。新增类与背景现另有 `chapter/content/extensions.json` 显式清单，import/verify 检查精确集合，不再只有自动枚举。

@@ -46,6 +46,8 @@ package src
    import flash.display.*;
    import flash.events.*;
    import flash.net.*;
+   import flash.text.TextField;
+   import flash.text.TextFormat;
    import flash.utils.*;
    import src._data.*;
    import src.npc.*;
@@ -142,6 +144,9 @@ package src
       public static var tempDataEnd:Boolean = false;
       
       public static var saveMc_YN:Boolean = true;
+
+      private static var localSaveNotice:TextField;
+      private static var localSaveNoticeTimer:uint = 0;
       
       public static var saveStop:Array = [false,true];
       
@@ -365,7 +370,7 @@ package src
          {
             JiHua_Interface.ppp4_9 = true;
          }
-         Save2(param1);
+         return Save2(param1);
       }
       
       public static function SaveFun() : *
@@ -386,84 +391,154 @@ package src
          saveMc_YN = param1;
          if(noSave > InitData.BuyNum_0.getValue() || Boolean(DuoKai_Info._noSave))
          {
-            return;
+            var blocked:String=LocalSaveManager.reportBlocked("当前角色受到原游戏保存保护，本次未写入存档。");
+            showLocalSaveNotice(LocalSaveManager.lastError,false);
+            return blocked;
          }
-         var title:String = "";
-         title += "P1:Lv" + player1.getLevel();
-         if(Main.P1P2)
+         if(LocalSaveManager.isPending)
          {
-            title += " / P2:Lv" + player2.getLevel();
+            LocalSaveManager.reportBlocked("上一次保存仍在等待 Flash 存储许可，本次保存未提交。");
+            showLocalSaveNotice(LocalSaveManager.lastError,true);
+            return "blocked";
          }
-         var save:Object = {};
-         save["var"] = Main.varX;
-         if(Main.logNameSave == "" && Main.varX_old < 182)
+         try
          {
-            save["logNameSave"] = MD5contrast.SaveStr(logName.toLocaleLowerCase(),saveNum);
-         }
-         else
-         {
-            save["logNameSave"] = Main.logNameSave;
-         }
-         save["NoLog"] = Main.NoLog;
-         save["NoLogInfo"] = Main.NoLogInfo;
-         var pCount:int = Main.P1P2 ? 2 : 1;
-         var i:int = 1;
-         while(i <= pCount)
-         {
-            save["p" + i] = Main["player" + i];
-            i++;
-         }
-         save["P1P2"] = Main.P1P2;
-         save["changKu"] = StoragePanel.storage;
-         save["guanKa"] = Main.guanKa;
-         save["questArr"] = Main.questArr;
-         save["verify"] = Math.random() * 9999;
-         save["InitDataX"] = InitData.SaveInitData();
-         save["RenWu"] = TaskData.saveTask();
-         save["buyTime"] = Data_KillShop.buyTime;
-         save["buyArr"] = Data_KillShop.buyArr;
-         save["KaiQiShopArr2"] = ShopKillPoint.KaiQiShopArr2;
-         save["MakeData"] = MakeData.saveMake();
-         save["lingQueArr"] = lingQueArr;
-         save["lingQueArr2"] = lingQueArr2;
-         save["TeShuHuoDongArr"] = TeShuHuoDong.TeShuHuoDongArr;
-         save["chengjiu"] = AchData.save();
-         save["xuansang"] = Main.wts;
-         save["kaPian"] = CardPanel.monsterSlot;
-         save["shengdan"] = Main.shengdan;
-         save["shengdanTimes"] = shengdanTimes;
-         save["huaZhi"] = Play_Interface.huaZhi;
-         save["Map0_YN"] = Main.Map0_YN;
-         save["Map0_YN2"] = Main.Map0_YN2;
-         save["water"] = Main.water;
-         save["LuoPanSuiPian"] = Main.LuoPanArr;
-         save["JiHua"] = PlanFactory.JiHuaData;
-         save["XinglingUp"] = XingLingFactory.xingLingData;
-         save["vipUserArr"] = Vip_Interface.vipUserArr;
-         save["TaskDataBoXX5"] = TaskData.BoXX;
-         save[ChapterState.SAVE_KEY] = ChapterState.exported();
-         if(Main.saveNum < 0)
-         {
-            Main.saveNum = 0;
-         }
-         LocalSaveManager.saveSlot(Main.saveNum,title,save);
-         Strat.SAVE_LIST = LocalSaveManager.getSlotTitles();
-         if(Strat.stratX && Strat.stratX.save_mc && Strat.stratX.save_mc.visible)
-         {
-            i = 0;
-            while(i < 8)
+            var title:String = "";
+            title += "P1:Lv" + player1.getLevel();
+            if(Main.P1P2)
             {
-               Strat.stratX.save_mc["txt_" + i].text = "" + Strat.SAVE_LIST[i];
+               title += " / P2:Lv" + player2.getLevel();
+            }
+            var save:Object = {};
+            save["var"] = Main.varX;
+            if(Main.logNameSave == "" && Main.varX_old < 182)
+            {
+               save["logNameSave"] = MD5contrast.SaveStr(logName.toLocaleLowerCase(),saveNum);
+            }
+            else
+            {
+               save["logNameSave"] = Main.logNameSave;
+            }
+            save["NoLog"] = Main.NoLog;
+            save["NoLogInfo"] = Main.NoLogInfo;
+            var pCount:int = Main.P1P2 ? 2 : 1;
+            var i:int = 1;
+            while(i <= pCount)
+            {
+               save["p" + i] = Main["player" + i];
                i++;
             }
+            save["P1P2"] = Main.P1P2;
+            save["changKu"] = StoragePanel.storage;
+            save["guanKa"] = Main.guanKa;
+            save["questArr"] = Main.questArr;
+            save["verify"] = Math.random() * 9999;
+            save["InitDataX"] = InitData.SaveInitData();
+            save["RenWu"] = TaskData.saveTask();
+            save["buyTime"] = Data_KillShop.buyTime;
+            save["buyArr"] = Data_KillShop.buyArr;
+            save["KaiQiShopArr2"] = ShopKillPoint.KaiQiShopArr2;
+            save["MakeData"] = MakeData.saveMake();
+            save["lingQueArr"] = lingQueArr;
+            save["lingQueArr2"] = lingQueArr2;
+            save["TeShuHuoDongArr"] = TeShuHuoDong.TeShuHuoDongArr;
+            save["chengjiu"] = AchData.save();
+            save["xuansang"] = Main.wts;
+            save["kaPian"] = CardPanel.monsterSlot;
+            save["shengdan"] = Main.shengdan;
+            save["shengdanTimes"] = shengdanTimes;
+            save["huaZhi"] = Play_Interface.huaZhi;
+            save["Map0_YN"] = Main.Map0_YN;
+            save["Map0_YN2"] = Main.Map0_YN2;
+            save["water"] = Main.water;
+            save["LuoPanSuiPian"] = Main.LuoPanArr;
+            save["JiHua"] = PlanFactory.JiHuaData;
+            save["XinglingUp"] = XingLingFactory.xingLingData;
+            save["vipUserArr"] = Vip_Interface.vipUserArr;
+            save["TaskDataBoXX5"] = TaskData.BoXX;
+            save[ChapterState.SAVE_KEY] = ChapterState.exported();
+            if(Main.saveNum < 0)
+            {
+               Main.saveNum = 0;
+            }
+            var savedSlot:int=Main.saveNum;
+            var savedOwner:PlayerData=Main.player1;
+            var chapterSaveOwner:Object=ChapterState.value;
+            var showSuccess:Boolean=param1;
+            var status:String=LocalSaveManager.saveSlot(savedSlot,title,save,
+               function(resolved:String,error:String):void
+               {
+                  completeLocalSave(resolved,error,showSuccess,savedSlot,savedOwner,chapterSaveOwner);
+                  ChapterController.onSaveResolved(resolved,chapterSaveOwner);
+               });
+            completeLocalSave(status,LocalSaveManager.lastError,showSuccess,savedSlot,savedOwner,chapterSaveOwner);
+            return status;
          }
-         if(Main.saveMc_YN)
+         catch(error:Error)
          {
-            NewMC.Open("保存成功",Main._this);
+            LocalSaveManager.reportFailed("准备本地存档失败："+error.message);
+            showLocalSaveNotice(LocalSaveManager.lastError,false);
+            return "failed";
          }
-         Main.SaveFun();
       }
-      
+
+      private static function completeLocalSave(status:String,error:String,showSuccess:Boolean,slot:int,owner:PlayerData,chapterOwner:Object) : void
+      {
+         try
+         {
+            var activeOwner:Boolean=Main.saveNum==slot && Main.player1===owner && ChapterState.value===chapterOwner;
+            if(status=="flushed")
+            {
+               if(activeOwner)clearLocalSaveNotice();
+               Strat.SAVE_LIST=LocalSaveManager.getSlotTitles();
+               if(Strat.stratX && Strat.stratX.save_mc && Strat.stratX.save_mc.visible)
+               {
+                  for(var i:int=0;i<8;i++) Strat.stratX.save_mc["txt_"+i].text=""+Strat.SAVE_LIST[i];
+               }
+               // A delayed permission response must not mark another loaded role saved.
+               if(activeOwner)
+               {
+                  if(showSuccess) NewMC.Open("保存成功",Main._this);
+                  Main.SaveFun();
+               }
+            }
+            else if(activeOwner && status=="pending")
+            {
+               showLocalSaveNotice("正在等待 Flash 本地存储许可；请允许写入。尚未保存，请勿关闭游戏。",true);
+            }
+            else if(activeOwner)
+            {
+               showLocalSaveNotice(error ? error : "本地存档未保存，请保留游戏并重试。",false);
+            }
+         }
+         catch(uiError:Error)
+         {
+            // Persistence is already resolved; presentation errors must not relabel it.
+            trace("LOCAL_SAVE_FEEDBACK_ERROR",status,uiError.message);
+         }
+      }
+      private static function showLocalSaveNotice(message:String,persistent:Boolean) : void
+      {
+         clearLocalSaveNotice();
+         trace("LOCAL_SAVE",LocalSaveManager.lastStatus,message);
+         if(!Main._stage) return;
+         localSaveNotice=new TextField();
+         localSaveNotice.defaultTextFormat=new TextFormat("_sans",14,0xFFF1C9,true);
+         localSaveNotice.width=540;localSaveNotice.height=58;localSaveNotice.x=200;localSaveNotice.y=92;
+         localSaveNotice.multiline=true;localSaveNotice.wordWrap=true;
+         localSaveNotice.background=true;localSaveNotice.backgroundColor=0x24333A;
+         localSaveNotice.border=true;localSaveNotice.borderColor=0xD2A65D;
+         localSaveNotice.selectable=false;localSaveNotice.mouseEnabled=false;
+         localSaveNotice.text=message;Main._stage.addChild(localSaveNotice);
+         if(!persistent) localSaveNoticeTimer=setTimeout(clearLocalSaveNotice,9000);
+      }
+      private static function clearLocalSaveNotice() : void
+      {
+         if(localSaveNoticeTimer){clearTimeout(localSaveNoticeTimer);localSaveNoticeTimer=0;}
+         if(localSaveNotice && localSaveNotice.parent) localSaveNotice.parent.removeChild(localSaveNotice);
+         localSaveNotice=null;
+      }
+
       public static function GetServerTime() : *
       {
       }

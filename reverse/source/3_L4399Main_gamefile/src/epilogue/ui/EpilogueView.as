@@ -151,12 +151,14 @@ package src.epilogue.ui
             addButton("关闭",78,30,727,88,finishJournal);
             renderJournal();
         }
-        public function showPause(onResume:Function,onJournal:Function,onReturn:Function):void
+        public function showPause(onResume:Function,onJournal:Function,onReturn:Function,onRetrySave:Function=null):void
         {
-            showChoice("篝火旁的片刻","旅途停在此处，准备好后再出发。",[
+            var choices:Array=[
                 {label:"继续旅程",description:"回到刚才的战场",action:onResume},
                 {label:"翻阅旅途记录",description:"回看线索与已经发生的故事",action:onJournal},
-                {label:"返回村庄",description:"结束本次挑战，保留已记录的剧情进度",action:onReturn}]);
+                {label:"返回村庄",description:"结束本次挑战，保留已记录的剧情进度",action:onReturn}];
+            if(onRetrySave!=null)choices.unshift({label:"重试保存",description:"当前进度尚未写入磁盘，请先重试。",action:onRetrySave});
+            showChoice("篝火旁的片刻",onRetrySave!=null?"存档尚未写入磁盘。请重试保存，确认成功后再关闭游戏。":"旅途停在此处，准备好后再出发。",choices);
             kind="pause";complete=onResume;
         }
         public function showFailure(reason:String,onRetry:Function,onReturn:Function):void
