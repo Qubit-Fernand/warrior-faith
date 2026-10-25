@@ -12,6 +12,9 @@
 
 - `add_future_role.py`：只向空槽7加入版本99、零章节完成和独立opaque字段的兼容性起点，用于验证旧程序不降级或丢弃未来状态；追加前后备份并验证其他槽位完全不变。准备成功不代表运行验收。
 
+- `timeline_pause/`：在 SWF 9 环境验证受管时间轴的暂停、恢复和新加入效果；候选12隔离检查31项通过，不代表匿名子动画全部冻结。
+- `compare_slots.py BEFORE AFTER`：只读比较两份SOL各槽的值及对象引用关系；忽略AMF动态字段遍历顺序变化。用于证明未操作角色没有被串写，不修改实时存档。
+
 ## 完整 SOL 存档组切换与恢复
 
 `switch_save_group.py` 用于八槽已满时切换独立验收组。它固定只操作当前 `NS57UMMB/localhost/yzlr2_rebuild_epilogue_v2.sol`，不改保存名、游戏包或 Flash 全局设置，没有编辑角色、金币或完成标记的接口。源仅允许 `chapter/fixtures/` 或 `chapter/evidence/private/checkpoints/` 下的完整 SOL。目标或源、其父路径若是符号链接，或文件有硬链接，都会拒绝。

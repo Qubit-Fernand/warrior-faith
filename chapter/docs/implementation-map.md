@@ -1,10 +1,12 @@
 # 归光之约 · 二次开发入口
 
+当前版本、失败记录及接入状态以 [session.json](../evidence/session.json) 为准；最终同包验收以 [acceptance.json](../evidence/acceptance.json) 为准。本轮交接时候选11已拒绝；候选12的暂停追踪实现已接入开发树并开始 Main 构建，正式工作树待同步，游戏包运行验收尚未完成。下文的实现职责与历史局部证据不能视为最终交付通过。
+
 ## 受跟踪输入与构建
 
 - `chapter/content/story.json`：对白和旅途日志，编辑后执行 `reverse/tools/chapter_source.py import`。
 - `chapter/content/main-tasks.xml`：原版167条任务逐条保留；新增190001–190003使用保留的大类型3，由章节控制器管理，避免误用原生杀怪/领奖判定。
-- `chapter/content/extensions.json`：明确列出15个新增类与3张生成背景；验证精确集合、路径安全、710个原类和原始来源摘要，不能靠自动扫描放行新文件。
+- `chapter/content/extensions.json`：明确列出允许新增的类与生成背景；实际条目数以该清单及导入验证结果为准，不在文档硬编码。验证精确集合、路径安全、710个原类和原始来源摘要，不能靠自动扫描放行新文件。
 - `chapter/generated/import.json`：内容与生成物摘要；构建前严格核验，不允许修改后不导入。
 - `chapter/generated/overlay/_assets/8632_src.Data2_taskData.bin`：明确在RAW素材复制之后覆盖到编译暂存区的任务资产；FFDec exports本身不修改。
 - `reverse/tools/chapter_source.py`：验证原任务保留、新ID无冲突与对白结构，生成AS常量及任务覆盖资产。
@@ -33,7 +35,8 @@
 | ui/EpilogueView.as | 绢纸对白、说话人、任务目标、首领血条、日志、选择/暂停/失败交互；模态关闭后恢复Stage焦点并保留持键屏障。 |
 | ui/PortraitArt.as | 六个可辨识的新绘矢量人物头像；非原美术工程恢复。 |
 | ui/ChapterButton.as | 菜单按钮、监听清理与鼠标回调后的Stage焦点归还。 |
-| ui/WorldTimelinePause.as | 只冻结原本播放中的世界MovieClip，恢复时验证仍属于同一舞台；不设置stage.frameRate。 |
+| ui/WorldTimelinePause.as | 章节模态的时间轴暂停／恢复协调。SWF9 不能依赖原生 isPlaying；下一次接入使用显式追踪的播放状态，恢复时验证舞台归属，不设置 stage.frameRate。正式包行为待复验。 |
+| ui/TrackedMovieClip.as | SWF9 显式记录根时间轴的 play/stop/gotoAndPlay/gotoAndStop 状态，供暂停后恢复；候选12已在开发树接入玩家、武器、装备与 Fly 四类动画根。正式树待同步，隔离测试通过不代表游戏包验收通过。 |
 
 ## 核心接入点
 
@@ -45,18 +48,24 @@
 
 王座战后可返回司灯遗址补修另一装置。确认结局先设置 `endingChoice`，然后在 x520、800、1050 顺序完成三个仪式节点。`endingNodes` 的前两步各自保存；第三步把 `ending`、阶段、日志、已见结局、金币和防重标志一起 checkpoint，随后才播放结局演出。保存与背包属于同一角色槽对象；冷读恢复及重复领取仍须真实运行验收，不能仅凭代码推断已经验证。
 
-当前两个结局均为本章一次 **50,000 金币**，共用 `rewardClaims.returnLight`。没有两种实物纪念品，也没有额外通关后挑战。差异是村庄灯塔／熄灭神像、窗灯／手灯、居民布置与 NPC 后日谈。
+当前两个结局均为本章一次 **50,000 金币**，共用 `rewardClaims.returnLight`。没有两种实物纪念品，也没有额外通关后挑战。差异是村庄灯塔、本章设置的熄灭引路像、路旁灯龛／居民手灯、居民布置与 NPC 后日谈；不关闭或改写原游戏所有神像、地图和任务。
 
-[三步航标校准](navigation-calibration-draft.md) 已接入 Controller 和槽位保存，候选3已编译，尚待真实运行验收。先前候选完成的 calibrationDone 会恢复为三盘已锁定；新增的观察过程不倒扣已获得进度。
+[三步航标校准](navigation-calibration-draft.md) 已接入 Controller 和槽位保存，后续候选已有操作记录，具体版本及范围见运行记录。早期“候选3已编译、待运行”仅属于历史阶段，不能作为当前状态。先前候选完成的 calibrationDone 会恢复为三盘已锁定；新增的观察过程不倒扣已获得进度。
 
 ## 当前限制
 
-这是开发中候选，尚未通过实际运行验收。当前单人；自定义首领不是原Enemy实例，依赖Enemy的宠物自动寻敌与部分套装被动尚未完整接入。新增艺术采用程序矢量和三张imagegen场景背景，复用原角色动画，不宣称全新手绘动画。实际时长、数值平衡与兼容范围必须以候选哈希对应的运行记录为准。
+当前最终同包验收仍未完成，已有候选的局部实战与冷读证据须按对应包摘要引用。当前仅单人，不支持本地双人进入本章；自定义首领不是原 Enemy 实例，宠物／精灵的自动寻敌与依赖原 Enemy 逻辑的特定装备／套装被动尚未接入，不能按原版效果预期。新增艺术采用程序矢量和三张imagegen场景背景，复用原角色动画，不宣称全新手绘动画。实际时长、数值平衡与兼容范围必须以候选哈希对应的运行记录为准。
+
+## SWF9 播放状态追踪的边界
+
+本轮交接时，主任务已在 generation `210231` 的隔离 SWF9 环境核验 31 项原生时间轴追踪检查通过；候选12随后已在开发树把 `src/epilogue/ui/TrackedMovieClip.as` 接到 Main 的四类动画根及 WorldTimelinePause，并完成内容导入、开始 Main 构建。该候选明确新增类清单为16项；正式树的代码与清单仍待同步，应以各树实际清单核对。隔离结果仅证明测试合同，不证明 Main 构建完成、正式入口可玩或最终同包通过。候选11的拒绝记录保留，不被隔离测试覆盖。
+
+覆盖目标是玩家、武器、装备与 Fly 的受追踪根时间轴；匿名子时间轴与未接入的原生装饰可能继续播放。业务暂停守卫另行阻断章节伤害与战斗计时，并须在直开游戏中复验。不能宣称完整原生世界的全部时间轴均已冻结。
 
 ## 辅助诊断与验收
 
 - `chapter/observer/Source.as` 与 `reverse/tools/chapter_observer.py`：被动采样，见 [诊断说明](../observer/README.md)。不推进游戏进度，包装不能替代直开验收。
-- `chapter/evidence/acceptance.json`：23项最终验收矩阵。每条须有同一候选的真实证据，pending不能视为通过。
+- `chapter/evidence/acceptance.json`：最终验收矩阵，条目以文件实际内容为准。每条须有同一候选的真实证据，pending不能视为通过。
 - `chapter/evidence/session.json`：开始时间、版本摘要、测试边界及检查点。
 
 ## 保存结果和金币上限（候选4起）

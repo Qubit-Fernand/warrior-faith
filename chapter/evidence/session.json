@@ -309,11 +309,74 @@
       "acceptance": "FAIL; cannot treat prior high-version wrapper evidence as direct SWF9 compatibility",
       "fix": "Candidate11 probes playing state with caught dynamic lookup; unknown native timelines untouched. Observer now SWF9 with own JSON encoder and no newer uncaughtErrorEvents API. Gameplay pause guards remain; visual native decoration may continue. Rebuild and direct revalidation required.",
       "integration": "bce77c6 merged into existing final branch; official app points to chapter launcher, no push"
+    },
+    {
+      "time_utc": "2026-10-25T20:46:30Z",
+      "candidate": "11-direct",
+      "main_sha256": "cf4dbfe963105b2350ac604504663b14ce819c04a97bd83c5f1ad7af0055a762",
+      "observed": [
+        "formal shortcut direct SWF9 startup passed",
+        "fresh slot3 intro/dock arrival/bridge/2 relays/2 rescues played; sword+staff actual damage",
+        "bridge skill I cleared without frozen overlay; rescue animation Enter skip reached same saved rescue2 state",
+        "SWF9 fallback lets native timeline spawn new skill effects after initial hiding; large overlays reappeared during rescue_two page2",
+        "Cua screenshot/getApp timed out twice; process sample saved; native player terminated after checkpoint backup"
+      ],
+      "evidence": [
+        "private/071-candidate11-direct-title.png",
+        "private/072-candidate11-normal-intro.png",
+        "private/073-candidate11-bridge-cleared.png",
+        "private/074-candidate11-rescue-animation.png",
+        "private/candidate11-direct-trace.json",
+        "private/checkpoints/candidate11-slot3-rescues-hang.sol"
+      ],
+      "status": "visual pause defect; full flow not passed",
+      "save": "slot3 actual bridgeOpen/rescuedGroups2/dockRelays3 stage1 preserved; no fabricated victories",
+      "next": "isolated SWF9 host/high-version child API probe; then robust fix and same-package full runs in fresh normal slot8 and graduation slot2"
+    },
+    {
+      "time_utc": "2026-10-25T22:01:29.481104+00:00",
+      "candidate": "candidate12",
+      "formal_commit": "ab40a1b",
+      "package": "reverse/build/runtime-all-rebuilt-20261025T210733.479077Z",
+      "main_sha256": "69259d8c4847ca80eef4d8809c4d53eb57f275feb9eba56e736c471495660bb2",
+      "observed": "Official existing Finder shortcut directly launched Main. Fresh normal slot8 completed dock bridge, both relays/rescues, all navigation and entered Warden. Native sword/staff attacks removed nodes and reached phase2; multiple deaths and retries. Return village/resume retained exploration. No Warden victory for this role. UI pause/resume used heavily for evidence; wall time cannot be called uninterrupted experience duration.",
+      "evidence": [
+        "private/087-candidate12-formal-shortcut-direct-title.png",
+        "private/candidate12-direct-trace.json",
+        "private/099-normal-warden-repeat.png",
+        "private/100-normal-warden-death-repeat.png",
+        "private/candidate12-normal8-slot-compare.json",
+        "private/candidate12-protected-after-normal.json"
+      ],
+      "save_result": "Only slot8 changed relative to post-observer checkpoint; all other seven roles semantically identical. Four protected legacy stores hash-identical.",
+      "next": "Direct fresh graduation slot2 complete flow and cold reads; ordinary full completion and final acceptance still pending."
+    },
+    {
+      "time_utc": "2026-10-25T22:25:56.077635+00:00",
+      "candidate": "candidate12",
+      "result": "Formal direct launch graduation slot 2 completed dock, both bosses with native attacks, release ritual, afterword and 50000 gold. Ritual 1/3 survived complete player quit and official Finder relaunch. Other seven slots unchanged. Completed ending cold read pending. Normal slot 8 still failed Warden and overall remains incomplete.",
+      "evidence": [
+        "private/candidate12-graduation-result.json",
+        "private/candidate12-graduation-slot-compare.json",
+        "private/candidate12-direct-trace.json"
+      ]
+    },
+    {
+      "time_utc": "2026-10-25T23:10:00Z",
+      "candidate": "candidate12-final-observation",
+      "result": "Ordinary slot8 reached Warden core approximately1% and8% on attempts5/6 but died. Death retry worked; returning to story village left0HP/invisible/immobile. Screenshot116; player closed. No injected progression. Candidate13 scoped native revival-before-save/Loading fix built, strict assembly running.",
+      "evidence": [
+        "private/114-normal-warden-fifth-failed.png",
+        "private/115-normal-warden-sixth-failed.png",
+        "private/116-normal-death-return-zero-hp.png",
+        "private/candidate12-normal8-final-slot-compare.json"
+      ],
+      "preservation": "Only slot8 differs from post-graduate-cold checkpoint. All8-slot exact backup candidate12-normal8-death-return.sol SHA9530f5c7e81cea47c0112f58f305c38fc6d6767c2449810c10cb42103029b2b3; four legacy SOL unchanged."
     }
   ],
   "resume": {
-    "next": "candidate10b Main52424c0a… run-mwj70_hk built; strict assembly session70642. Test native UI and ending closure then integrate final worktree/entry and same-package runs.",
-    "player": "official debugger exited; last candidate9 slot4 release complete/refilled499970000",
-    "acceptance": "all final same-package pending; 7h earliest22:23:17UTC"
+    "next": "Build candidate13; verify Warden death-return revival then normal full beacon flow. Candidate12 graduation release full+cold passed; ordinary Warden failed six attempts.",
+    "player": "Closed after screenshot116. All8 saved slots protected in candidate12-normal8-death-return.sol. Slot8 returned village at0HP and invisible; no injected progression.",
+    "acceptance": "Incomplete; candidate13 scoped death-return fix pending build and runtime. More than7h invested but completion gates remain."
   }
 }
