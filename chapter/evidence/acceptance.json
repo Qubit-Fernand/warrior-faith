@@ -1,27 +1,32 @@
 {
   "schema": 1,
   "final_candidate": {
-    "id": "candidate11",
-    "package": "reverse/build/runtime-all-rebuilt-20261025T203309.026164Z",
-    "main_sha256": "cf4dbfe963105b2350ac604504663b14ce819c04a97bd83c5f1ad7af0055a762",
-    "assembly_sha256": "6914869d6a04cea0b298856456ba6b21b800fb29fad8b729b439a5c96d40db2e",
+    "id": "candidate12",
+    "package": "reverse/build/runtime-all-rebuilt-20261025T210733.479077Z",
+    "main_sha256": "69259d8c4847ca80eef4d8809c4d53eb57f275feb9eba56e736c471495660bb2",
+    "assembly_sha256": "2441e639a6e8074a9716b733b5d4c2d0b3ee93025154849ff19b5fe4ac91233e",
     "rebuilt": 164,
     "original_fallback": 0,
-    "status": "rejected_for_visual_pause_defect"
+    "status": "runtime_acceptance_in_progress"
   },
   "overall": "incomplete",
   "checks": [
     {
       "id": "same_package",
       "requirement": "最终全部验收绑定同一严格完整包与Main/assembly SHA",
-      "status": "pending",
-      "evidence": []
+      "status": "package_verified_runs_pending",
+      "evidence": [
+        "private/candidate12-formal-check.txt"
+      ]
     },
     {
       "id": "direct_shortcut",
       "requirement": "Finder双击既有同人终章快捷方式，直开真实游戏，无诊断wrapper",
-      "status": "pending",
-      "evidence": []
+      "status": "passed",
+      "evidence": [
+        "private/candidate12-direct-trace.json",
+        "private/candidate12-formal-check.txt"
+      ]
     },
     {
       "id": "normal_unlock",
@@ -32,14 +37,18 @@
     {
       "id": "normal_complete",
       "requirement": "正常属性角色从接取连续完成码头、司灯、王座、仪式、领奖和回村",
-      "status": "pending",
-      "evidence": []
+      "status": "failed_attempts_in_progress",
+      "evidence": [
+        "private/100-normal-warden-death-repeat.png"
+      ]
     },
     {
       "id": "dock_combat",
       "requirement": "真实攻击破桥锁/两继电器；E不能跳过；跳跃地波/横移光锚",
-      "status": "pending",
-      "evidence": []
+      "status": "partial_verified",
+      "evidence": [
+        "private/candidate12-direct-trace.json"
+      ]
     },
     {
       "id": "new_boss_visuals",
@@ -62,14 +71,22 @@
     {
       "id": "graduation",
       "requirement": "毕业高伤害通过两血池，进度/奖励/结局不软锁",
-      "status": "pending",
-      "evidence": []
+      "status": "flow_passed_cold_reward_pending",
+      "evidence": [
+        "private/105-graduation-warden-victory.png",
+        "private/106-graduation-regent-transformation.png",
+        "private/107-graduation-regent-victory.png",
+        "private/candidate12-graduation-result.json"
+      ]
     },
     {
       "id": "death_retry",
       "requirement": "两核心Boss死亡后重试，不提前写胜利；既有探索进度保留",
-      "status": "pending",
-      "evidence": []
+      "status": "warden_verified_regent_pending",
+      "evidence": [
+        "private/095-normal-warden-death.png",
+        "private/100-normal-warden-death-repeat.png"
+      ]
     },
     {
       "id": "pause_inputs",
@@ -86,8 +103,11 @@
     {
       "id": "cold_mid_progress",
       "requirement": "完全退出播放器后重开读档，恢复救援/装置/仪式中途合法状态",
-      "status": "pending",
-      "evidence": []
+      "status": "ritual_verified",
+      "evidence": [
+        "private/108-graduation-ritual-one.png",
+        "private/109-graduation-ritual-cold-read.png"
+      ]
     },
     {
       "id": "main_ending",
@@ -98,20 +118,29 @@
     {
       "id": "alternate_ending",
       "requirement": "从真实合法分歧前检查点完成万家之火，路旁灯龛/居民手灯/本章引路像/后日谈区别持续",
-      "status": "pending",
-      "evidence": []
+      "status": "completed_cold_ending_pending",
+      "evidence": [
+        "private/110-graduation-release-village.png",
+        "private/111-graduation-reward-journal.png"
+      ]
     },
     {
       "id": "reward_atomic",
       "requirement": "结局、第三节点与50000应得谢礼及已付/待领余额同时保存；退出/重入不重复领奖",
-      "status": "pending",
-      "evidence": []
+      "status": "paid_once_observed_cold_idempotence_pending",
+      "evidence": [
+        "private/candidate12-graduation-result.json",
+        "private/111-graduation-reward-journal.png"
+      ]
     },
     {
       "id": "slot_isolation",
       "requirement": "正常/毕业等槽位进度互不串写，未来版本保留不降级",
-      "status": "pending",
-      "evidence": []
+      "status": "normal_and_graduation_verified_future_runtime_pending",
+      "evidence": [
+        "private/candidate12-normal8-slot-compare.json",
+        "private/candidate12-graduation-slot-compare.json"
+      ]
     },
     {
       "id": "three_sequences",
@@ -128,8 +157,10 @@
     {
       "id": "protected_saves",
       "requirement": "受保护四个现有SOL逐一哈希未变",
-      "status": "pending",
-      "evidence": []
+      "status": "passed_at_checkpoint",
+      "evidence": [
+        "private/candidate12-protected-after-normal.json"
+      ]
     },
     {
       "id": "duration",
