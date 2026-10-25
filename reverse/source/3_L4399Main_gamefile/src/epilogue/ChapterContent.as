@@ -67,6 +67,11 @@ public static const DATA:Object = {
                 "portrait": "villager"
             },
             {
+                "speaker": "获救居民",
+                "text": "第一座航标认潮向。看木桩上的潮痕箭头，把盘针转到同一边。",
+                "portrait": "villager"
+            },
+            {
                 "speaker": "勇士",
                 "text": "顺着绿色标记去船边。塔丽莎会接应你们。",
                 "portrait": "hero"
@@ -84,15 +89,20 @@ public static const DATA:Object = {
                 "portrait": "talisha"
             },
             {
+                "speaker": "获救居民",
+                "text": "第二盘对照接应船的帆纹；最后把回光镜转向旧罗盘的圆环。",
+                "portrait": "villager"
+            },
+            {
                 "speaker": "勇士",
-                "text": "人都齐了。等他们登船，我们再校准罗盘。",
+                "text": "等他们登船，我们就按线索逐个校准，最后回到主罗盘确认。",
                 "portrait": "hero"
             }
         ],
         "calibration": [
             {
                 "speaker": "塔丽莎",
-                "text": "航标上的缺口对上了。指针指着神殿内的一条暗道。",
+                "text": "三座航标接通了。指针指着神殿内的一条暗道。",
                 "portrait": "talisha"
             },
             {
@@ -307,7 +317,7 @@ public static const DATA:Object = {
         },
         "rescue": {
             "title": "最后的航标",
-            "text": "居民抄下的运输航标能指向神殿内航路。两组全部登船后，前往航标台校准罗盘。"
+            "text": "两组全部登船后，依次校准三座航标：对照木桩潮向、接应船帆纹、旧罗盘圆环。每座按 E 转动，锁定后再去下一座。最后在主罗盘确认。"
         },
         "calibration": {
             "title": "罗盘之外",

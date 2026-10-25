@@ -58,6 +58,47 @@
       "changes": "dock real HitXX combat integrated; ending transaction corrected; late NPC lookup; chapter-only Map81 guard; agents refining mechanics/art",
       "protected_saves": "four unchanged after quit",
       "runtime_acceptance": "not yet traversed new chapter"
+    },
+    {
+      "time_utc": "2026-10-25T16:17:59.850322+00:00",
+      "commit": "3fcbc10",
+      "package": "reverse/build/runtime-all-rebuilt-20261025T155727.493251Z",
+      "main_sha256": "0aa355cd068f0de68bb1652c25229b8c57afa06014ab5a535ef541731f64022d",
+      "assembly_sha256": "75af71f7ea14b7b5795f5f363d222342817d303f668f52e542eaa9d3e3453a94",
+      "strict_assembly": "164 rebuilt,0 fallback",
+      "observed": "normal slot1 original village unlock, correct mentor, all dock targets destroyed by real player attacks, both resident groups rescued, second walk skipped with Enter, compass and travel to warden; 16s real warden combat with hits and damage; pause blocks progression; no runtime errors",
+      "not_observed": [
+        "Boss victory",
+        "death/retry",
+        "cold-load",
+        "endings",
+        "reward",
+        "final direct shortcut acceptance"
+      ],
+      "evidence": [
+        "private/005-portrait-and-input-shield.png",
+        "private/007-pause-diagnostic.json",
+        "private/010-warden-first-fight.png",
+        "private/011-warden-diagnostic.json"
+      ],
+      "legal_checkpoint": "private/checkpoints/candidate2-slot1-warden-entry.sol",
+      "protected_saves": "all four unchanged after complete player quit",
+      "issues": [
+        "1600px arena exceeds original backdrop",
+        "foreground machines obscure player",
+        "revive sentinel visible in modal",
+        "boss durability too high and nodes lack meters",
+        "compass one-key interaction too shallow"
+      ]
     }
-  ]
+  ],
+  "resume": {
+    "next": "candidate3 strict assembly then observer install/check; Finder launch and cold read earned slot1 warden checkpoint",
+    "build_session": 15995,
+    "main_receipt": "reverse/build/main-probe/run-k99mn989/receipt.json",
+    "main_sha256": "976b7eeac2335c15ca90a555b414c1aa5b0d22a502b89127e1050ea3af49bd3e",
+    "player": "fully quit; live test SO holds legally earned warden entry; no victory yet",
+    "agents": "all current files frozen",
+    "protected_saves": "all four unchanged after candidate2 quit"
+  }
 }

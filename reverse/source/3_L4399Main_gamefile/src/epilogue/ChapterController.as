@@ -23,6 +23,8 @@ package src.epilogue
     import src.epilogue.battle.ChapterEncounter;
     import src.epilogue.battle.ChapterDockEncounter;
     import src.epilogue.scene.ChapterScenery;
+    import src.epilogue.scene.ChapterBackdrop;
+    import src.epilogue.scene.ChapterNavigation;
     import src.epilogue.ui.EpilogueView;
     import src.epilogue.ui.WorldTimelinePause;
 
@@ -38,6 +40,8 @@ package src.epilogue
         private static const FLOOR:Number=450;
         private var view:EpilogueView;
         private var scenery:ChapterScenery;
+        private var backdrop:ChapterBackdrop;
+        private var navigation:ChapterNavigation;
         private var encounter:ChapterEncounter;
         private var dock:ChapterDockEncounter;
         private var pendingDockChange:Boolean=false;
@@ -94,7 +98,9 @@ package src.epilogue
             view.onJournalRequest=journal;
             view.onPauseRequest=pauseMenu;
             prompt=new TextField();prompt.defaultTextFormat=new TextFormat("_sans",15,0xFFF0BF,true);
-            prompt.width=500;prompt.height=28;prompt.x=220;prompt.y=348;
+            prompt.width=500;prompt.height=28;prompt.x=220;prompt.y=498;
+            prompt.background=true;prompt.backgroundColor=0x18383D;
+            prompt.visible=false;
             prompt.selectable=false;prompt.mouseEnabled=false;
             Main._stage.addChild(prompt);
             if(scene!="")setupArena();else setupVillage();
@@ -121,8 +127,8 @@ package src.epilogue
             marker.visible=mentor!=null && (unlocked() || int(state.stage)>0);
             if(state.ending!="")
             {
-                scenery=new ChapterScenery("village_"+state.ending,WIDTH,FLOOR);
-                Main.world.moveChild_Other.addChild(scenery);scenery.setProgress(state);
+                scenery=new ChapterScenery("village_"+state.ending,WIDTH,523);
+                Main.world.moveChild_Back.addChild(scenery);scenery.setProgress(state);
             }
         }
         private function findMentor(container:DisplayObjectContainer):DisplayObject
@@ -174,21 +180,28 @@ package src.epilogue
             closeDoors(Main.world);
             Main.world.stopYn=true;Main.world.stopX_1=0;Main.world.stopX_2=WIDTH;
             Main.world._width=WIDTH;Main.world.x=0;
-            // A controlled flat arena is overlaid on the original sea-ruins backdrop.
-            // Original map resources and original map behavior outside the chapter remain unchanged.
-            var floor:MovieClip=new MovieClip();floor.graphics.beginFill(0x263C41);
+            // Chapter art spans the complete collision arena, including both camera edges.
+            // Only this instance of the chapter arena hides the original foreground decoration.
+            backdrop=new ChapterBackdrop(scene);Main.world.moveChild_Back.addChild(backdrop);
+            if(Main.world["map_3"] is DisplayObject)Main.world["map_3"].visible=false;
+            var floor:MovieClip=new MovieClip();floor.graphics.beginFill(0x263C41,0);
             floor.graphics.drawRect(0,FLOOR,WIDTH,130);floor.graphics.endFill();
-            floor.graphics.lineStyle(4,0xB29B6C);floor.graphics.moveTo(0,FLOOR);floor.graphics.lineTo(WIDTH,FLOOR);
             Main.world.moveChild_Back.addChild(floor);Main.world.MapData=floor;
             Main.world.MapData1=new MovieClip();Main.world.MapData2=new MovieClip();
             Main.player_1.x=150;Main.player_1.y=FLOOR-1;Player.一起信春哥();
+            // The original revival uses a large sentinel until its next update. Dialogue pauses
+            // that update, so set the same real maxima before displaying the chapter intro.
+            Main.player_1.hp.setValue(Main.player_1.use_hp_Max.getValue());
+            Main.player_1.mp.setValue(Main.player_1.use_mp_Max.getValue());
             scenery=new ChapterScenery(scene,WIDTH,FLOOR);
-            Main.world.moveChild_Other.addChild(scenery);scenery.setProgress(state);
+            Main.world.moveChild_Back.addChild(scenery);scenery.setProgress(state);
             if(scene=="dock")
             {
+                navigation=new ChapterNavigation(WIDTH,FLOOR);
+                Main.world.moveChild_Back.addChild(navigation);navigation.setProgress(state);
                 dock=new ChapterDockEncounter(WIDTH,FLOOR,{player:Main.player_1,
                     bridgeOpen:Boolean(state.bridgeOpen),dockRelays:int(state.dockRelays)});
-                Main.world.moveChild_Other.addChild(dock);
+                Main.world.moveChild_Enemy.addChild(dock);
                 dock.addEventListener(ChapterDockEncounter.CHANGED,dockChanged);
                 dialogue("dock_arrival");
             }
@@ -212,7 +225,7 @@ package src.epilogue
             resume();
             encounter=new ChapterEncounter(scene,WIDTH,FLOOR,{player:Main.player_1,
                 beaconPrepared:Boolean(state.beaconPrepared),releasePrepared:Boolean(state.releasePrepared)});
-            Main.world.moveChild_Other.addChild(encounter);
+            Main.world.moveChild_Enemy.addChild(encounter);
             encounter.addEventListener(ChapterEncounter.DEFEATED,bossDefeated);
             encounter.addEventListener(ChapterEncounter.PHASE_CHANGED,bossPhase);
         }
@@ -259,6 +272,7 @@ package src.epilogue
             if(pendingDockChange){applyDockChange();return;}
             if(!inArena && !mentor){mentorSearchTime+=dt;if(mentorSearchTime>.5){mentorSearchTime=0;mentor=findMentor(Main.world);if(mentor)placeMarker();}}
             paused=view.modalOpen || pendingAction!=null;
+            prompt.visible=false;
             if(encounter)encounter.setPaused(paused);
             if(dock)dock.setPaused(paused);
             if(scenery && !view.modalOpen)scenery.update(dt);
@@ -291,6 +305,7 @@ package src.epilogue
         {
             nearest=null;
             var points:Array=scenery?scenery.interactionPoints():[];
+            if(navigation)points=points.concat(navigation.interactionPoints());
             if(!inArena && marker && marker.visible)points.push({id:"mentor",label:state.ending!=""?"与故人交谈":"奥古斯汀的新消息",x:marker.x,radius:130});
             var best:Number=99999;
             for each(var point:Object in points)
@@ -299,6 +314,7 @@ package src.epilogue
                 if(distance<Number(point.radius || 95) && distance<best){nearest=point;best=distance;}
             }
             prompt.text=nearest?"E  ·  "+nearest.label:"";
+            prompt.visible=nearest!=null;
         }
         private function keyDown(event:KeyboardEvent):void
         {
@@ -316,6 +332,14 @@ package src.epilogue
             if(id=="mentor" || id=="post"){talkMentor();return;}
             if(scene=="dock")
             {
+                if(id.indexOf("nav")==0 && navigation && int(state.rescuedGroups)==2 && !state.calibrationDone)
+                {
+                    var navIndex:int=int(id.substr(3));
+                    if(navIndex!=int(state.navigationSteps))return;
+                    state.navigationTurns[navIndex]=(int(state.navigationTurns[navIndex])+1)%4;
+                    if(ChapterNavigation.correct(navIndex,int(state.navigationTurns[navIndex])))state.navigationSteps=navIndex+1;
+                    navigation.setProgress(state);checkpoint();updateObjective();return;
+                }
                 if(id=="bridge" && !state.bridgeOpen)
                 {notice("用攻击击碎铜色桥锁，渡桥才能落下。");}
                 else if(id=="group1" && (int(state.dockRelays)&1)==0){notice("先击破居民旁的扫波继电器；金色地波可以跳过。");}
@@ -324,8 +348,10 @@ package src.epilogue
                 {state.rescuedGroups=1;ChapterState.record("rescue");animateChange(2.2,function():void{checkpoint();dialogue("rescue_one");});}
                 else if(id=="group2" && int(state.rescuedGroups)==1)
                 {state.rescuedGroups=2;animateChange(2.2,function():void{checkpoint();dialogue("rescue_two");});}
+                else if(id=="compass" && int(state.rescuedGroups)==2 && !state.calibrationDone && int(state.navigationSteps)<3)
+                {notice("航标还没有对齐。沿码头找潮线、三纹船帆和回光，把三座盘校准后再确认罗盘。");}
                 else if(id=="compass" && int(state.rescuedGroups)==2 && !state.calibrationDone)
-                {state.calibrationDone=true;state.stage=2;ChapterState.record("calibration");animateChange(1.2,function():void{checkpoint();dialogue("calibration");});}
+                {state.calibrationDone=true;navigation.setProgress(state);state.stage=2;ChapterState.record("calibration");animateChange(1.2,function():void{checkpoint();dialogue("calibration");});}
                 else if(id=="exit" && state.calibrationDone){ChapterState.record("warden");checkpoint();travel("warden");}
                 else notice("先放下渡桥，带两组居民脱离封锁，再检查船上的航标。");
             }
@@ -388,6 +414,7 @@ package src.epilogue
         private function animateChange(seconds:Number,after:Function):void
         {
             clearInput();paused=true;timelinePause.freeze(Main.world);scenery.setProgress(state);
+            if(navigation)navigation.setProgress(state);
             actionTime=seconds;pendingAction=after;prompt.text="";
         }
         private function failure():void
@@ -445,7 +472,7 @@ package src.epilogue
         {
             var objective:String="";
             if(!inArena)objective=state.ending!=""?"故人仍在村庄等你":unlocked()?"寻找奥古斯汀身旁的信标":"完成并提交【主线70】再战奥加";
-            else if(scene=="dock")objective=!state.bridgeOpen?"攻击桥锁，放下封锁渡桥":int(state.dockRelays)!=3?"击破继电器，再带居民撤离":int(state.rescuedGroups)<2?"救出居民 "+state.rescuedGroups+" / 2":!state.calibrationDone?"检查航标，校准罗盘":"沿新方位前往司灯遗址";
+            else if(scene=="dock")objective=!state.bridgeOpen?"攻击桥锁，放下封锁渡桥":int(state.dockRelays)!=3?"击破继电器，再带居民撤离":int(state.rescuedGroups)<2?"救出居民 "+state.rescuedGroups+" / 2":!state.calibrationDone?(int(state.navigationSteps)<3?"观察线索，校准航标 "+state.navigationSteps+" / 3":"三盘已亮，前往旧罗盘确认"):"沿新方位前往司灯遗址";
             else if(scene=="warden")objective=!state.boss1Defeated?"击破供能灯座，关闭司灯":"修复归光装置，再进入王座";
             else objective=!state.boss2Defeated?"切断输光臂，击败窃光王座":state.endingChoice!=""?"完成归光仪式 "+state.endingNodes+" / 3":"走近归光装置，决定最后的归途";
             view.setObjective("归光之约",objective,inArena?"E 交互 · Esc 暂停 · 进度自动保存":"同人最终章 · 独立存档");
@@ -477,6 +504,8 @@ package src.epilogue
             if(encounter){encounter.removeEventListener(ChapterEncounter.DEFEATED,bossDefeated);encounter.removeEventListener(ChapterEncounter.PHASE_CHANGED,bossPhase);encounter.dispose();}
             if(dock){dock.removeEventListener(ChapterDockEncounter.CHANGED,dockChanged);dock.dispose();}
             if(scenery)scenery.dispose();
+            if(backdrop)backdrop.dispose();
+            if(navigation)navigation.dispose();
             view.dispose();if(view.parent)view.parent.removeChild(view);
             if(prompt.parent)prompt.parent.removeChild(prompt);
             pendingAction=null;timelinePause.clear();clearInput();

@@ -83,6 +83,7 @@ package src.epilogue.ui
         }
         public function setBoss(name:String,hp:Number,maxHp:Number,phase:String = "",hint:String = ""):void
         {
+            objectives.visible=false;
             var ratio:Number=maxHp>0?Math.max(0,Math.min(1,hp/maxHp)):0;
             var signature:String=name+"|"+Math.round(ratio*480)+"|"+phase+"|"+hint;
             if(signature==bossSignature)return;
@@ -97,7 +98,7 @@ package src.epilogue.ui
             if(hint)addText(p,hint,12,0xE9CFA0,12,46,446,21);
             bosses.addChild(p);
         }
-        public function hideBoss():void {bossSignature="";clearLayer(bosses);}
+        public function hideBoss():void {bossSignature="";clearLayer(bosses);objectives.visible=true;}
 
         /** Page objects: {speaker,text,portrait?}; [speaker,text] is also accepted. */
         public function showDialogue(value:Array,onComplete:Function,canSkip:Boolean = false,onSkip:Function = null):void

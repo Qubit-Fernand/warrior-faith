@@ -68,6 +68,7 @@ package src.epilogue.battle
       private var damageContacts:int = 0;
       private var lastReceivedDamage:Number = 0;
       private var lastIncomingPower:Number = 0;
+      private var shieldReleased:Boolean = false;
 
       public function ChapterEncounter(type:String, width:Number, groundY:Number, options:Object = null)
       {
@@ -78,11 +79,11 @@ package src.epilogue.battle
          arenaLeft = numeric("left", 20);
          arenaRight = numeric("right", arenaWidth - 20);
          if(arenaRight < arenaLeft + 320) arenaRight = arenaLeft + 320;
-         phaseOneMax = Math.max(1, numeric("maxHealth", kind == "warden" ? 1800000 : 1800000));
-         phaseTwoMax = kind == "regent" ? Math.max(1, numeric("phaseTwoHealth", 2400000)) : 0;
+         phaseOneMax = Math.max(1, numeric("maxHealth", kind == "warden" ? 420000 : 280000));
+         phaseTwoMax = kind == "regent" ? Math.max(1, numeric("phaseTwoHealth", 360000)) : 0;
          armor = Math.max(0, numeric("defense", 250));
          attackPower = Math.max(1, numeric("attack", 1800));
-         nodeMax = Math.max(1, numeric("nodeHealth", phaseOneMax * .07));
+         nodeMax = Math.max(1, numeric("nodeHealth", 24000));
          mouseEnabled = mouseChildren = false;
          name = "chapterEncounter_" + kind;
          reset();
@@ -155,7 +156,7 @@ package src.epilogue.battle
                  phaseHp:currentHp, phaseMaxHp:kind == "warden" || currentPhase == 1 ? phaseOneMax : phaseTwoMax,
                  hint:currentHint, state:stateName, paused:_paused, dead:_finished,
                  finished:_finished, disposed:_disposed, elapsed:elapsed,
-                 nodes:[Number(nodes[0]), Number(nodes[1])], nodeMax:nodeMax,
+                 nodes:[Number(nodes[0]), Number(nodes[1])], nodeMax:nodeMax, shieldReleased:shieldReleased,
                  attackIndex:attackIndex, playerHits:playerHits, attacksLanded:attacksLanded,
                  lastDamage:lastDamage, phaseTransitions:transitionCount, hazards:hazardStates,
                  lastHitBounds:lastHitBounds == null ? null : {x:lastHitBounds.x,y:lastHitBounds.y,width:lastHitBounds.width,height:lastHitBounds.height},
@@ -187,6 +188,7 @@ package src.epilogue.battle
          addChild(body); addChild(effects);
          currentHp = phaseOneMax;
          nodes = [nodeMax, nodeMax];
+         shieldReleased = false; body.setNodeHealth(nodes, nodeMax);
          currentPhase = 1; elapsed = 0; stateTime = 0; attackIndex = 0;
          attacksLanded = playerHits = transitionCount = 0; lastDamage = 0;
          lastHitBounds = null; lastHitAt = -1; lastHitResult = "none"; lastHitSource = "";
@@ -386,7 +388,13 @@ package src.epilogue.battle
             if(node >= 0)
             {
                nodes[node] = Math.max(0, Number(nodes[node]) - damage);
-               if(nodes[node] == 0) floating("供能切断", target.x + body.x, floorY - 110, 0xBBF8DC);
+               body.setNodeHealth(nodes, nodeMax);
+               if(nodes[node] == 0)
+               {
+                  body.breakNode(node);
+                  floating("供能切断", target.x + body.x, floorY - 110, 0xBBF8DC);
+                  announceShieldReleased();
+               }
             }
             else
             {
@@ -397,7 +405,8 @@ package src.epilogue.battle
             lastDamage = damage; ++playerHits;
             player.连击计数();
             if(player.energySlot) player.energySlot.addEnergy(player, damage);
-            body.pulse();
+            if(node >= 0) body.pulseNode(node);
+            else body.pulse();
             floating(formatDamage(damage), target.x + body.x, target.y + body.y - 45, 0xFFF1B2);
             if(currentHp <= 0)
             {
@@ -450,12 +459,22 @@ package src.epilogue.battle
          return isFinite(result) ? Math.max(0, result) : 0;
       }
 
+      private function announceShieldReleased():void
+      {
+         if(shieldReleased || nodes[0] > 0 || nodes[1] > 0) return;
+         shieldReleased = true;
+         floating("护盾解除 · 核心完全暴露", body.x, floorY - 185, 0xBCFFE0);
+         currentHint = "护盾解除！两侧供能已切断，攻击中央核心";
+      }
+
       private function beginTransformation():void
       {
          clearHazards();
          currentPhase = 2; ++transitionCount;
          currentHp = phaseTwoMax;
-         nodes = [0, 0];
+         body.breakNode(0); body.breakNode(1);
+         nodes = [0, 0]; body.setNodeHealth(nodes, nodeMax);
+         announceShieldReleased();
          enterState("transform", "冠轮崩裂 · 无冠之王：输光臂已断，核心完全暴露");
          floating("冠轮崩裂", body.x, floorY - 240, 0xE7D6FF);
          // Separate health pools make threshold transitions atomic even with graduation damage.
@@ -466,6 +485,7 @@ package src.epilogue.battle
       {
          _finished = true; currentHp = 0;
          clearHazards();
+         nodes = [0, 0]; body.setNodeHealth(nodes, nodeMax);
          enterState("defeated", kind == "warden" ? "司灯熄灭，归航记录已经显现" : "王座崩解。女神之灵终于可以回答");
          body.animate(elapsed, .05, currentPhase, stateName, [false, false]);
          dispatchEvent(new Event(DEFEATED));
@@ -481,9 +501,9 @@ package src.epilogue.battle
       private function floating(text:String, px:Number, py:Number, color:uint):void
       {
          var label:TextField = new TextField();
-         label.defaultTextFormat = new TextFormat("_sans", 18, color, true);
-         label.text = text; label.width = 180; label.height = 30;
-         label.x = px - 70; label.y = py;
+         label.defaultTextFormat = new TextFormat("_sans", 18, color, true, null, null, null, null, "center");
+         label.text = text; label.width = text.length > 10 ? 320 : 180; label.height = 30;
+         label.x = px - label.width / 2; label.y = py;
          label.mouseEnabled = false; label.selectable = false;
          effects.addChild(label);
          numbers.push({label:label, life:0});

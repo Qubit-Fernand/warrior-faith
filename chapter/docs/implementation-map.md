@@ -10,6 +10,9 @@
 - `reverse/tools/build_main.py`：原构建修复仍保留，新增内容/生成目录及导入器输入指纹，使用独立SO名`yzlr2_rebuild_epilogue_v2`。
 - `reverse/tools/chapter_fixture.py`：从仓库明确提供的毕业预设创建两个新章节起点；正常原数值与10倍装备属性分别一槽；只声明原主线已提交，不写新章节胜利。只允许安装到新命名且空的测试SO。
 
+- `chapter/assets/backgrounds/`：生成背景、完整提示词与SHA清单；导入器逐一核验并复制到受控overlay。
+- `mx/core/BitmapAsset.as`：新增最小PNG Embed兼容类，不是恢复的原游戏源码。
+
 ## 主程序源码
 
 以下路径相对`reverse/source/3_L4399Main_gamefile/src/epilogue/`。
@@ -24,6 +27,8 @@
 | battle/BossBody.as | 诺弥与霍根的原创组合矢量轮廓和动画。 |
 | battle/BattleHazard.as | 预警与实际碰撞共用几何；地波／光锚、追踪后锁定光束、夺光爆发与绿色安全区。当前没有拉拽场机制。 |
 | scene/ChapterScenery.as | 渡桥、居民移动、船、罗盘、装置及两种结局世界表现；只接收状态，不写存档。 |
+| scene/ChapterNavigation.as | 潮痕、帆纹、回光线索及三个航标盘；只读状态，Controller记录转动与锁定。 |
+| scene/ChapterBackdrop.as | 导入器生成的三场景PNG Embed引用，1600×580完整画幅。 |
 | ui/EpilogueView.as | 绢纸对白、说话人、任务目标、首领血条、日志、选择/暂停/失败交互。 |
 | ui/PortraitArt.as | 六个可辨识的新绘矢量人物头像；非原美术工程恢复。 |
 | ui/ChapterButton.as | 菜单按钮与监听清理。 |
@@ -35,17 +40,17 @@
 
 ## 剧情选择、仪式与奖励提交
 
-当前正式流程是码头真实攻击桥锁／继电器后救援，完成一次交互的罗盘校准，再进入诺弥与霍根两场战斗。战斗机制详见 [battle/README.md](../../reverse/source/3_L4399Main_gamefile/src/epilogue/battle/README.md)，不以早期剧情稿中的掩体或拉拽描述代替实际机制。
+当前正式流程是码头真实攻击桥锁／继电器后救援，观察潮痕／船帆／回光，旋转三处航标并确认罗盘，再进入诺弥与霍根两场战斗。战斗机制详见 [battle/README.md](../../reverse/source/3_L4399Main_gamefile/src/epilogue/battle/README.md)，不以早期剧情稿中的掩体或拉拽描述代替实际机制。
 
 王座战后可返回司灯遗址补修另一装置。确认结局先设置 `endingChoice`，然后在 x520、800、1050 顺序完成三个仪式节点。`endingNodes` 的前两步各自保存；第三步把 `ending`、阶段、日志、已见结局、金币和防重标志一起 checkpoint，随后才播放结局演出。保存与背包属于同一角色槽对象；冷读恢复及重复领取仍须真实运行验收，不能仅凭代码推断已经验证。
 
 当前两个结局均为本章一次 **50,000 金币**，共用 `rewardClaims.returnLight`。没有两种实物纪念品，也没有额外通关后挑战。差异是村庄灯塔／熄灭神像、窗灯／手灯、居民布置与 NPC 后日谈。
 
-[三步航标校准草案](navigation-calibration-draft.md) 仅供首轮完整实测后评估，尚未接入 Controller 或正式内容导入。不要把环境转盘、镜片反射或其预计时长算入当前实现。
+[三步航标校准](navigation-calibration-draft.md) 已接入 Controller 和槽位保存，候选3已编译，尚待真实运行验收。先前候选完成的 calibrationDone 会恢复为三盘已锁定；新增的观察过程不倒扣已获得进度。
 
 ## 当前限制
 
-这是开发中候选，尚未通过实际运行验收。当前单人；自定义首领不是原Enemy实例，依赖Enemy的宠物自动寻敌与部分套装被动尚未完整接入。新增艺术采用程序矢量并复用原角色/背景，不宣称全新手绘动画。实际时长、数值平衡与兼容范围必须以候选哈希对应的运行记录为准。
+这是开发中候选，尚未通过实际运行验收。当前单人；自定义首领不是原Enemy实例，依赖Enemy的宠物自动寻敌与部分套装被动尚未完整接入。新增艺术采用程序矢量和三张imagegen场景背景，复用原角色动画，不宣称全新手绘动画。实际时长、数值平衡与兼容范围必须以候选哈希对应的运行记录为准。
 
 ## 辅助诊断与验收
 

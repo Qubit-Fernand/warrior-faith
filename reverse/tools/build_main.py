@@ -40,7 +40,7 @@ def main():
     BUILD.mkdir(parents=True,exist_ok=True)
     chapter_receipt=verify_chapter()
     input_snapshot=capture('3_L4399Main_gamefile',a.source_dir,
-        extra_trees=[RAW,ROOT/'chapter/content',ROOT/'chapter/generated'],
+        extra_trees=[RAW,ROOT/'chapter/content',ROOT/'chapter/generated',ROOT/'chapter/assets/backgrounds'],
         recipe_files=[Path(__file__),ROOT/'reverse/tools/chapter_source.py',ROOT/'reverse/tools/probe_normalize_swf.py',ROOT/'reverse/tools/swf_inventory.py'])
     run=Path(tempfile.mkdtemp(prefix='run-',dir=BUILD));src=BUILD/'source'
     # Flex's private-name numbering/order depends on absolute source paths.
