@@ -5,7 +5,8 @@
 | 文件 | 用途 |
 | --- | --- |
 | `EpilogueView.as` | 940×580 逻辑画布：底部绢纸对话、目标提示、首领血条、记录本、选择、暂停和失败面板。父控制器把它加入舞台显示列表最上层。 |
-| `WorldTimelinePause.as` | 按世界暂停能明确读取到正在播放的 MovieClip；SWF9 不支持读取播放态时跳过原生时间轴，避免误重启停止对象。销毁世界时 clear 不重启旧对象。 |
+| `WorldTimelinePause.as` | 对世界内受管原生动作根保存并保持播放意图，捕获 ADDED 时立即暂停新增受管子树；原停止对象不重启，clear 不播放旧世界。 |
+| `TrackedMovieClip.as` | 新写 SWF9 原生播放命令跟踪基类；Skin / Skin_WuQi / Skin_ZhuangBei / Fly 继承它，覆盖 play/stop/goto/next/prev，避免调用不可用的 isPlaying。 |
 | `ChapterButton.as` | 铜色边框按钮，鼠标悬停、键盘选中、禁用状态；销毁时移除自身监听。 |
 | `PortraitArt.as` | 本次同人章节新绘的矢量人物徽章，不是原版角色素材的复原。奥古斯丁、塔丽莎、格蕾丽丝、霍根和勇士使用不同发型、服饰及轮廓，也支持治疗者与居民。剧情固定 key 为 `augustine` / `talisha` / `goddess` / `hogen` / `hero` / `villager`；旧别名仍兼容。可单独在场景中复用。 |
 
@@ -48,9 +49,11 @@ view.showDialogue([
 
 ## 世界时间轴暂停
 
-每个 Controller 创建一个 `WorldTimelinePause` 实例。模态打开时调用 `freeze(Main.world)`；业务恢复时调用 `resume()`；切图/销毁世界时调用 `clear()`。仅明确读到 Boolean true 的播放态才调用 stop 并进入快照；读到 false 或读取能力未知时不改变对象。重复 freeze 不替换首次快照。resume 只恢复快照中仍属于原世界、且原世界仍在原舞台上的对象；首次冻结时已停止的对象不会被重启。
+每个 Controller 创建一个 `WorldTimelinePause` 实例。模态打开时调用 `freeze(Main.world)`；业务恢复时调用 `resume()`；切图/销毁世界时调用 `clear()`。它只处理 `TrackedMovieClip` 受管根，不通过 currentFrame/totalFrames 猜测播放状态，也不读取 isPlaying。新写基类记录原生默认播放意图及所有显式播放控制命令，原生帧脚本调用 stop 同样经 override 更新意图；原生调用抛错则回滚。SWF9 的缺标签 gotoAndPlay 仍会开始播放，不能用标签存在性过滤命令；该边界由独立真实运行证明。
 
-该工具只处理 MovieClip 时间轴。Controller/Core 仍须自行拦截 ENTER_FRAME、计时器和业务输入，也须避免暂停期间新增运行中的世界动画。它不会递归到世界之外，不操作 UI 或舞台帧率。`isFrozen` 与 `frozenCount` 可供运行时诊断。
+freeze 会 hold 全部受管对象，包括当时已停止者，以拦截同帧稍后的 play；重复 freeze 不覆盖首次集合。world 的 ADDED capture 监听在目标处理器前立即 hold 新增受管根。resume 只 release 仍在同一世界、且世界仍在原舞台上的对象；本来停止者不重启。移出世界者、被替换世界与 clear 路径解除持有但维持原生停止，清除引用和监听，不重播旧对象。
+
+该工具不暂停未知/匿名 MovieClip、UI、计时器、音频或 ENTER_FRAME，不修改全局 stage.frameRate。Controller/Core 仍须拦截业务更新、输入和伤害，并在模态期间隐藏残留技能表现。`isFrozen`、`frozenCount` 与 `playbackDiagnostics` 可只读查看；mode 为 idle / tracked / tracked-partial，known/held 是受管数，unknown 是未触碰的 MovieClip 数，stopped 是首次捕获时明确播放的受管数。它不是“整个 Flash 世界每一条时间轴全部冻结”的承诺。
 
 ## 首轮运行图后的修正
 
@@ -69,14 +72,10 @@ view.showDialogue([
 这次只做源码和静态边界核查，没有单独构建或启动播放器。实际 112 像素头像的眼神、细线清晰度及整体风格需由主集成候选截图复核；不把本轮源码改动称作已通过视觉验收。
 
 
-## 正式 SWF9 入口的播放态兼容
+## 正式 SWF9 入口的播放态兼容与实测边界
 
-主任务在 candidate10b 正式直接入口观察到 `MovieClip.isPlaying` 的 Error 1069；较高 SWF 版本的 observer 曾掩盖这一兼容问题。不能把较高版本 wrapper 成功当作正式 SWF9 入口成功。本修复不提高 Main SWF 版本，也不设置全局 `stage.frameRate=0`。
+主任务在 candidate10b 正式直接入口观察到 MovieClip.isPlaying Error 1069；高版本 observer 曾掩盖问题。先前“跳过未知时间轴”的安全降级在 candidate11 实际长对白中仍使雷云/图腾不断出现，并伴随高 CPU，因此该降级不能作为可交付暂停。独立 SWF14 helper 加载进 SWF9 Host 的方案也经真实运行失败：24 项断言中 9 项失败，仍读取不到 isPlaying，running 帧脚本持续增加；没有接入游戏。
 
-`WorldTimelinePause.freezeTree()` 改为受 `try/catch` 保护的 `Object(clip)["isPlaying"]` 查询，只有返回明确的 Boolean true 才 stop/保存；false 保持不动；抛异常、undefined 或其他类型一律视为未知并跳过。不能用 `currentFrame`、`totalFrames` 或前后帧号猜播放态，也不能先 stop 全树再统一 play，因为那样会错误重启原本停止的时间轴。重复 freeze、同世界恢复、清引用不恢复旧世界的契约保留。
+随后采用原生命令跟踪，并先做独立 SWF9 四帧原生 DefineSprite 实验；不是 Python 镜像业务或 ENTER_FRAME 模拟动画。正式 debugger 直接运行 `tracked-20261025T210231.058686Z/TrackedHost9.swf`，专用 SO 读回 generation 精确一致、phase=complete、31 项检查全部通过。覆盖 frameScript stop 虚派发、缺标签与数字字符串原生语义、invalid scene 异常回滚、原停止保持、hold/play 阻断、原运行恢复、ADDED 自动 hold、未知 clip 不干预、移出/clear 不重启及重复调用。报告位于 `chapter/tests/timeline_pause/results/tracked-20261025T210231-actual-report.json`；测试源与构建 receipt 均保留。
 
-只读诊断：`playbackMode` 为 `idle`、`timelines`、`partial` 或 `logic-only`；`playbackDiagnostics` 返回新的 `{mode,known,unknown,stopped}` 对象。`known` 包括明确读到 true/false 的 clip；`unknown` 为无法可靠读取的数量；`stopped` 只计本组件实际停止并准备恢复的集合。clear/resume 后诊断归 idle。
-
-**SWF9 降级边界：** 当播放态不可用时，原生时间轴可能继续动画，不能宣称完整的世界视觉冻结。Main/Player/Skin/Fly/命中检测的既有 ENTER_FRAME 暂停守卫以及终章战斗自身暂停继续承担业务冻结。本工具不会绕过这些守卫，不修改技能动作状态，也不擅自补一次 play。原生 frame-script 是否产生额外效果、对白前后动作是否连贯，仍需正式入口验收。
-
-待主任务实测：直接打开 SWF9 正式入口，进入对白/暂停/记录本、完成及跳过连续对白，确认无 1069；停留期间确认 HP、敌人危险物和终章计时不推进；恢复后移动/攻击正常，原本停止的装置与界面不自行播放。observer 也应使用相同 SWF9 版本。可独立用 SWF9 两个多帧 clip（一个先 stop，一个正在 play）验证：未知模式不改变任一 clip；有明确 API 的模式只恢复原先在播放者。本子任务没有构建或启动任何播放器。
+正式代码是该已测类的机械包名/类名迁移，四个原基类仅改变继承并新增 import，保留 CRLF 和原方法。`chapter/content/extensions.json` 明确登记新增类，原始 FFDec 导出不改；read-only extension audit 通过。这里只证明隔离原生时间轴管理契约；游戏实际资源继承、连续施法后长对白新增 Fly/HitXX 数量、CPU、跳过/记录本/恢复、切图冷读仍由主任务下一候选正式入口验收。匿名 symbol 子时间轴不在覆盖范围，不能冒称完全暂停原游戏所有装饰或匿名命中图形。

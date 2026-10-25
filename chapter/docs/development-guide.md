@@ -25,7 +25,8 @@
 | `ui/EpilogueView.as` | 绢纸对白、选项、日志、暂停、死亡重试、Boss HUD | 关模态要归还Stage焦点；原生UI开关使用可见内容检测；不直接推进游戏状态 |
 | `ui/PortraitArt.as` | 头像矢量绘制及角色差异 | 保留角色键；它不是原作者动画资源 |
 | `ui/ChapterButton.as` | 可键鼠选择的按钮与焦点处理 | 长按与鼠标结束均要清输入，避免输入穿透 |
-| `ui/WorldTimelinePause.as` | 记录并暂停/恢复原场景 MovieClip | 与Player辅助Timer暂停配合；不能把全局帧率设为0 |
+| `ui/TrackedMovieClip.as` | 记录原生播放命令并提供受控 hold/release | 四个动作基类继承；保留 SWF9 缺标签和异常语义 |
+| `ui/WorldTimelinePause.as` | 暂停/恢复受管动作根并捕获新增对象 | 匿名子时间轴不猜测播放状态；与业务暂停守卫配合 |
 
 本章还修改 Main 的生命周期/保存装配、LocalSaveManager 的完整快照及 flush 回执、Player 的辅助计时器暂停。详见 Git diff；它们会影响旧流程，因此章节测试外还须做原村庄、原战斗与保存回归。
 
@@ -74,3 +75,5 @@ PY=/opt/miniconda3/envs/Qubit/bin/python
 ### 原生窗口让位
 
 村庄章节HUD/E/Esc由Controller检查Stage/Main直接挂载的已知原生窗口及SelMap；必须有舞台内实际可见内容才让位。CardPanel存在visible=true但零子项、零边界的常驻空壳，不能仅看visible/stage。SelMap特殊难度页用父容器-2000、子容器+2000抵消，不能仅用root坐标判离屏。`snapshot.nativeUI`只读记录阻断对象和叶子边界；原生窗口关闭后恢复终章输入，长按键需释放后再触发。
+
+原生暂停的隔离测试、实际报告和覆盖边界见 [timeline_pause](../tests/timeline_pause/README.md)。Main 的 SWF 9 版本不得为访问新 API 随意提高。

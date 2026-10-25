@@ -5,12 +5,13 @@ package src
    import com.hotpoint.braveManIII.models.skill.Skill;
    import com.hotpoint.braveManIII.repository.skill.*;
    import flash.display.*;
+   import src.epilogue.ui.TrackedMovieClip;
    import src.epilogue.ChapterController;
    import flash.events.*;
    import flash.geom.*;
    import flash.utils.*;
    
-   public class Skin extends MovieClip
+   public class Skin extends TrackedMovieClip
    {
       
       public static var XmlLoaded:Boolean = false;
