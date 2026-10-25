@@ -22,7 +22,7 @@
 | `scene/ChapterScenery.as` | 渡桥、撤离居民、装置、仪式、结局村庄装饰 | `setProgress` 只展示传入状态；`settle` 跳到合法终点；不写胜利/奖励 |
 | `scene/ChapterNavigation.as` | 三处可见航标线索与转盘展示 | 判定 `[3,2,1]`，Controller负责按键、顺序和保存 |
 | `scene/ChapterBackdrop.as` | 背景PNG嵌入与场景选择 | 自动生成；原图/manifest是编辑入口 |
-| `ui/EpilogueView.as` | 绢纸对白、选项、日志、暂停、死亡重试、Boss HUD | 关模态要归还Stage焦点；不直接推进游戏状态 |
+| `ui/EpilogueView.as` | 绢纸对白、选项、日志、暂停、死亡重试、Boss HUD | 关模态要归还Stage焦点；原生UI开关使用可见内容检测；不直接推进游戏状态 |
 | `ui/PortraitArt.as` | 头像矢量绘制及角色差异 | 保留角色键；它不是原作者动画资源 |
 | `ui/ChapterButton.as` | 可键鼠选择的按钮与焦点处理 | 长按与鼠标结束均要清输入，避免输入穿透 |
 | `ui/WorldTimelinePause.as` | 记录并暂停/恢复原场景 MovieClip | 与Player辅助Timer暂停配合；不能把全局帧率设为0 |
@@ -70,3 +70,7 @@ PY=/opt/miniconda3/envs/Qubit/bin/python
 - `chapter/evidence/private/`：截图、诊断与实战SOL备份，Git忽略。无私人测试档的仓库读者仍可按脚本生成全新起点。
 
 切换测试角色使用完全退出播放器后重开，勿在旧窗口仍打开时使用“打开最近文件”。同一保存名的多窗口会争用内存快照。本章目标是单人流程，完整双人章节并未承诺或验收。
+
+### 原生窗口让位
+
+村庄章节HUD/E/Esc由Controller检查Stage/Main直接挂载的已知原生窗口及SelMap；必须有舞台内实际可见内容才让位。CardPanel存在visible=true但零子项、零边界的常驻空壳，不能仅看visible/stage。SelMap特殊难度页用父容器-2000、子容器+2000抵消，不能仅用root坐标判离屏。`snapshot.nativeUI`只读记录阻断对象和叶子边界；原生窗口关闭后恢复终章输入，长按键需释放后再触发。
