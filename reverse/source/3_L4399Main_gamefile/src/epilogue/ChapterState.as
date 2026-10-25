@@ -13,7 +13,7 @@ package src.epilogue
         public static function defaults():Object
         {
             return {version:1,stage:0,inChapter:false,scene:"dock",bridgeOpen:false,
-                rescuedGroups:0,calibrationDone:false,beaconPrepared:false,releasePrepared:false,
+                rescuedGroups:0,dockRelays:0,calibrationDone:false,beaconPrepared:false,releasePrepared:false,
                 boss1Defeated:false,boss2Defeated:false,ending:"",endingChoice:"",seenEndings:[],
                 rewardClaims:{},seenDialogues:{},journal:[],endingNodes:0,
                 elapsedSeconds:0,deaths:0,fixture:false};
@@ -34,6 +34,7 @@ package src.epilogue
             for(var key:String in value) if(source.hasOwnProperty(key))value[key]=copy({v:source[key]}).v;
             value.version=1;
             value.rescuedGroups=Math.max(0,Math.min(2,int(value.rescuedGroups)));
+            value.dockRelays=int(value.dockRelays)&3;
             value.endingNodes=Math.max(0,Math.min(3,int(value.endingNodes)));
             if(["dock","warden","regent"].indexOf(value.scene)<0)value.scene="dock";
             if(!(value.seenEndings is Array))value.seenEndings=[];

@@ -855,7 +855,7 @@ package src
          addChild(Main.world);
          Main._stage.stageFocusRect = false;
          Main._stage.focus = Main.world;
-         if(Main.gameNum.getValue() == 81)
+         if(Main.gameNum.getValue() == 81 && !ChapterController.loadingChapter)
          {
             if(Main.world["_back"])
             {

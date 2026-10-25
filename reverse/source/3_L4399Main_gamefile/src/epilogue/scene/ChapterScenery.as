@@ -24,6 +24,7 @@ package src.epilogue.scene
       private var release:Sprite;
       private var wreck:Sprite;
       private var routeMarker:Sprite;
+      private var dockRoute:Sprite;
       private var ritualLinks:Sprite;
       private var ritualNodes:Array = [];
       private var prisoners:Array = [];
@@ -52,6 +53,7 @@ package src.epilogue.scene
          var count:Number = Number(source.rescuedGroups);
          progress = {
             bridgeOpen:Boolean(source.bridgeOpen),
+            dockRelays:int(source.dockRelays) & 3,
             rescuedGroups:isFinite(count) ? Math.max(0, Math.min(2, int(count))) : 0,
             calibrationDone:Boolean(source.calibrationDone),
             beaconPrepared:Boolean(source.beaconPrepared),
@@ -139,9 +141,9 @@ package src.epilogue.scene
       {
          if(disposed) return [];
          if(sceneName == "dock") return [
-            point("bridge", progress.bridgeOpen ? "渡桥已放下" : "断开锁链", 300),
-            point("group1", progress.rescuedGroups >= 1 ? "居民已经获救" : "救出第一组居民", 620),
-            point("group2", progress.rescuedGroups >= 2 ? "居民已经获救" : "救出第二组居民", 1080),
+            point("bridge", progress.bridgeOpen ? "渡桥已放下" : "攻击铜色桥锁", 300),
+            point("group1", progress.rescuedGroups >= 1 ? "居民已经获救" : (int(progress.dockRelays) & 1) != 0 ? "通路安全 · 解救居民" : "先攻击扫波继电器", 620),
+            point("group2", progress.rescuedGroups >= 2 ? "居民已经获救" : (int(progress.dockRelays) & 2) != 0 ? "通路安全 · 解救居民" : "先攻击光锚继电器", 1080),
             point("compass", progress.calibrationDone ? "航路已经校准" : "校准罗盘", 1380),
             point("exit", "沿航路前进", 1510)
          ];
@@ -178,7 +180,7 @@ package src.epilogue.scene
          while(numChildren > 0) removeChildAt(numChildren - 1);
          prisoners = []; gates = []; glows = []; labels = [];
          villageWindows = []; villagePeople = []; ritualNodes = [];
-         bridge = chain = compass = needle = boat = beacon = release = wreck = routeMarker = ritualLinks = null;
+         bridge = chain = compass = needle = boat = beacon = release = wreck = routeMarker = ritualLinks = dockRoute = null;
          graphics.clear();
          if(parent) parent.removeChild(this);
       }
@@ -209,6 +211,7 @@ package src.epilogue.scene
                g.lineStyle(8, 0x4F3D32); g.moveTo(x0, floorY + 8); g.lineTo(x0, floorY + 42);
             }
          }
+         dockRoute = new Sprite(); addChild(dockRoute);
          boat = new Sprite(); boat.x = 100; boat.y = floorY + 7; addChild(boat);
          drawBoat(boat.graphics);
          bridge = new Sprite(); bridge.x = 210; bridge.y = floorY - 3; addChild(bridge);
@@ -219,9 +222,9 @@ package src.epilogue.scene
             g.moveTo(i * 15, -7); g.lineTo(i * 15, 3);
          }
          bridge.rotation = -72;
-         chain = new Sprite(); chain.x = 300; chain.y = floorY - 100; addChild(chain);
+         // The hittable padlock at x300 belongs to ChapterDockEncounter. This is its bridge chain.
+         chain = new Sprite(); chain.x = 225; chain.y = floorY - 100; addChild(chain);
          drawChain(chain.graphics, false);
-         sign("渡桥锁链", 300, floorY - 126);
          buildPrison(620, 0); buildPrison(1080, 1);
          compass = new Sprite(); compass.x = 1380; compass.y = floorY - 60; addChild(compass);
          g = compass.graphics; g.lineStyle(4, 0xA88E55); g.beginFill(0x202F36);
@@ -241,6 +244,8 @@ package src.epilogue.scene
 
       private function buildPrison(px:Number, index:int):void
       {
+         // Keep residents beside the relay silhouette, not hidden under its attackable core.
+         px += 85;
          var post:Sprite = new Sprite(); post.x = px; post.y = floorY; addChild(post);
          var g:Graphics = post.graphics;
          g.lineStyle(8, 0x544B40); g.moveTo(-65, 0); g.lineTo(-65, -90); g.lineTo(65, -90); g.lineTo(65, 0);
@@ -256,7 +261,7 @@ package src.epilogue.scene
          for(i = -2; i <= 2; ++i) { g.moveTo(i * 22, 0); g.lineTo(i * 22, -82); }
          g.moveTo(-60, -58); g.lineTo(60, -58); g.moveTo(-60, -17); g.lineTo(60, -17);
          gates.push(gate);
-         sign(index == 0 ? "第一处关押点" : "第二处关押点", px, floorY - 118);
+         sign(index == 0 ? "第一处关押点" : "第二处关押点", px, floorY - 159, "dockGroup" + (index + 1));
       }
 
       private function buildSanctum():void
@@ -426,6 +431,7 @@ package src.epilogue.scene
       {
          var i:int;
          if(chain) drawChain(chain.graphics, Boolean(progress.bridgeOpen));
+         drawDockRoute();
          for(i = 0; i < gates.length; ++i) Sprite(gates[i]).visible = int(progress.rescuedGroups) <= i;
          for(i = 0; i < prisoners.length; ++i)
          {
@@ -449,6 +455,38 @@ package src.epilogue.scene
          }
          if(release) drawReleaseFrame(release, progress.ending == "release");
          drawRitual();
+      }
+
+      private function drawDockRoute():void
+      {
+         if(!dockRoute) return;
+         var g:Graphics = dockRoute.graphics; g.clear();
+         var sections:Array = [{left:210, right:405, safe:Boolean(progress.bridgeOpen), color:0xA38462},
+            {left:435, right:865, safe:Boolean(progress.bridgeOpen) && (int(progress.dockRelays) & 1) != 0, color:0xE7B965},
+            {left:905, right:1325, safe:Boolean(progress.bridgeOpen) && int(progress.dockRelays) == 3, color:0xBA94DA}];
+         for each(var section:Object in sections)
+         {
+            var color:uint = section.safe ? 0xA1E3BF : uint(section.color);
+            g.lineStyle(3, color, section.safe ? .85 : .45);
+            for(var px:Number = section.left; px < section.right - 12; px += 34)
+            {
+               g.moveTo(px, floorY - 3); g.lineTo(px + 18, floorY - 3);
+               if(section.safe)
+               {
+                  // Left-pointing arrows make the cleared route to the rescue boat explicit.
+                  g.moveTo(px + 5, floorY - 8); g.lineTo(px, floorY - 3); g.lineTo(px + 5, floorY + 2);
+               }
+            }
+         }
+         for each(var entry:Object in labels)
+         {
+            if(entry.role != "dockGroup1" && entry.role != "dockGroup2") continue;
+            var index:int = entry.role == "dockGroup1" ? 0 : 1;
+            var rescued:Boolean = int(progress.rescuedGroups) > index;
+            var disabled:Boolean = (int(progress.dockRelays) & (1 << index)) != 0;
+            TextField(entry.node).text = rescued ? "已撤离 · 船上接应" : disabled ? "供能已断 · 可以开门" : "居民关押点 · 先断供能";
+            TextField(entry.node).textColor = disabled || rescued ? 0xB9EBD0 : 0xEEE3BF;
+         }
       }
 
       private function drawChain(g:Graphics, broken:Boolean):void

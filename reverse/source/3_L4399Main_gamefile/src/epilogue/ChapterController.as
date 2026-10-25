@@ -21,6 +21,7 @@ package src.epilogue
     import src.Main;
     import src.Player;
     import src.epilogue.battle.ChapterEncounter;
+    import src.epilogue.battle.ChapterDockEncounter;
     import src.epilogue.scene.ChapterScenery;
     import src.epilogue.ui.EpilogueView;
     import src.epilogue.ui.WorldTimelinePause;
@@ -38,6 +39,9 @@ package src.epilogue
         private var view:EpilogueView;
         private var scenery:ChapterScenery;
         private var encounter:ChapterEncounter;
+        private var dock:ChapterDockEncounter;
+        private var pendingDockChange:Boolean=false;
+        private var mentorSearchTime:Number=0;
         private var marker:Sprite;
         private var mentor:DisplayObject;
         private var prompt:TextField;
@@ -55,6 +59,7 @@ package src.epilogue
         private var timelinePause:WorldTimelinePause=new WorldTimelinePause();
 
         public static function get available():Boolean{return current!=null;}
+        public static function get loadingChapter():Boolean{return requestedScene!="";}
         public static function onGameStart():void
         {
             var loaded:Boolean=ChapterState.resumePending;
@@ -76,7 +81,8 @@ package src.epilogue
         public static function snapshot():Object
         {
             return {chapter:ChapterState.exported(),inArena:inArena,paused:paused,
-                scene:current?current.scene:"",battle:current&&current.encounter?current.encounter.snapshot:null};
+                scene:current?current.scene:"",battle:current&&current.encounter?current.encounter.snapshot:null,
+                dock:current&&current.dock?current.dock.snapshot:null,mentor:current&&current.mentor?getQualifiedClassName(current.mentor):null};
         }
         private function get state():Object{return ChapterState.value;}
         public function ChapterController(location:String)
@@ -108,12 +114,11 @@ package src.epilogue
             var letter:TextField=new TextField();letter.defaultTextFormat=new TextFormat("_sans",21,0xFFF1C4,true);
             letter.text="!";letter.x=-5;letter.y=-15;letter.width=22;letter.height=30;letter.mouseEnabled=false;
             marker.addChild(letter);
-            if(mentor){var b:Rectangle=mentor.getBounds(Main.world);marker.x=b.x+b.width/2;marker.y=b.y-24;
-                mentor.addEventListener(MouseEvent.CLICK,mentorClick,true,10000);}
-            else {marker.x=700;marker.y=330;}
+            if(mentor)placeMarker();
+            else {marker.x=320;marker.y=170;}
             marker.buttonMode=true;marker.addEventListener(MouseEvent.CLICK,mentorClick);
             Main.world.addChild(marker);
-            marker.visible=unlocked() || int(state.stage)>0;
+            marker.visible=mentor!=null && (unlocked() || int(state.stage)>0);
             if(state.ending!="")
             {
                 scenery=new ChapterScenery("village_"+state.ending,WIDTH,FLOOR);
@@ -125,12 +130,18 @@ package src.epilogue
             for(var i:int=0;i<container.numChildren;i++)
             {
                 var child:DisplayObject=container.getChildAt(i);
-                var type:String=getQualifiedClassName(child);
-                if(type=="src.npc::技能")return child;
+                var type:String=getQualifiedClassName(child).replace("::", ".");
+                if(type=="src.npc.技能" || type=="src.npc.技能2")return child;
                 if(child is DisplayObjectContainer)
                 {var found:DisplayObject=findMentor(child as DisplayObjectContainer);if(found)return found;}
             }
             return null;
+        }
+        private function placeMarker():void
+        {
+            var b:Rectangle=mentor.getBounds(Main.world);
+            marker.x=b.x+b.width/2;marker.y=b.y-30;
+            marker.visible=unlocked() || int(state.stage)>0;
         }
         private function unlocked():Boolean {return TaskData.isOldById(110117);}
         private function mentorClick(event:MouseEvent):void
@@ -173,7 +184,14 @@ package src.epilogue
             Main.player_1.x=150;Main.player_1.y=FLOOR-1;Player.一起信春哥();
             scenery=new ChapterScenery(scene,WIDTH,FLOOR);
             Main.world.moveChild_Other.addChild(scenery);scenery.setProgress(state);
-            if(scene=="dock")dialogue("dock_arrival");
+            if(scene=="dock")
+            {
+                dock=new ChapterDockEncounter(WIDTH,FLOOR,{player:Main.player_1,
+                    bridgeOpen:Boolean(state.bridgeOpen),dockRelays:int(state.dockRelays)});
+                Main.world.moveChild_Other.addChild(dock);
+                dock.addEventListener(ChapterDockEncounter.CHANGED,dockChanged);
+                dialogue("dock_arrival");
+            }
             else if(scene=="warden" && !state.boss1Defeated)dialogue("warden_intro",startEncounter);
             else if(scene=="regent" && !state.boss2Defeated)dialogue("regent_intro",startEncounter);
             else if(scene=="regent")
@@ -197,6 +215,16 @@ package src.epilogue
             Main.world.moveChild_Other.addChild(encounter);
             encounter.addEventListener(ChapterEncounter.DEFEATED,bossDefeated);
             encounter.addEventListener(ChapterEncounter.PHASE_CHANGED,bossPhase);
+        }
+        private function dockChanged(event:Event):void {pendingDockChange=true;}
+        private function applyDockChange():void
+        {
+            pendingDockChange=false;
+            var newlyOpened:Boolean=!state.bridgeOpen && dock.bridgeBroken;
+            state.bridgeOpen=dock.bridgeBroken;state.dockRelays=dock.relays;
+            if(newlyOpened)ChapterState.record("bridge");
+            scenery.setProgress(state);checkpoint();updateObjective();
+            if(newlyOpened)animateChange(1.1,function():void{dialogue("bridge_open");});
         }
         private function bossPhase(event:Event):void
         {
@@ -228,8 +256,11 @@ package src.epilogue
             var now:int=getTimer();var dt:Number=Math.min(.05,Math.max(0,(now-lastTick)/1000));lastTick=now;
             if(resumeNextFrame){resumeNextFrame=false;travel(String(state.scene));return;}
             if(pendingVictory){applyVictory();return;}
+            if(pendingDockChange){applyDockChange();return;}
+            if(!inArena && !mentor){mentorSearchTime+=dt;if(mentorSearchTime>.5){mentorSearchTime=0;mentor=findMentor(Main.world);if(mentor)placeMarker();}}
             paused=view.modalOpen || pendingAction!=null;
             if(encounter)encounter.setPaused(paused);
+            if(dock)dock.setPaused(paused);
             if(scenery && !view.modalOpen)scenery.update(dt);
             if(pendingAction!=null)
             {
@@ -251,6 +282,7 @@ package src.epilogue
                     view.setBoss(b.name,b.hp,b.maxHp,"阶段 "+b.phase,b.hint);
                     prompt.text="";return;
                 }
+                if(dock)dock.update(dt);
                 if(scene=="dock" && !state.bridgeOpen && Main.player_1.x>430)Main.player_1.x=430;
             }
             updateInteraction();
@@ -278,14 +310,16 @@ package src.epilogue
         }
         private function keyUp(event:KeyboardEvent):void {if(event.keyCode==69)interactionHeld=false;}
         private function deactivate(event:Event):void
-        {interactionHeld=false;BasicKey.clearPressed();if(inArena && !view.modalOpen)pauseMenu();}
+        {interactionHeld=false;clearInput();if(inArena && !view.modalOpen)pauseMenu();}
         private function interact(id:String):void
         {
             if(id=="mentor" || id=="post"){talkMentor();return;}
             if(scene=="dock")
             {
                 if(id=="bridge" && !state.bridgeOpen)
-                {state.bridgeOpen=true;ChapterState.record("bridge");animateChange(1.1,function():void{checkpoint();dialogue("bridge_open");});}
+                {notice("用攻击击碎铜色桥锁，渡桥才能落下。");}
+                else if(id=="group1" && (int(state.dockRelays)&1)==0){notice("先击破居民旁的扫波继电器；金色地波可以跳过。");}
+                else if(id=="group2" && (int(state.dockRelays)&2)==0){notice("先击破居民旁的光锚继电器；光柱落下前离开紫色标记。");}
                 else if(id=="group1" && state.bridgeOpen && int(state.rescuedGroups)==0)
                 {state.rescuedGroups=1;ChapterState.record("rescue");animateChange(2.2,function():void{checkpoint();dialogue("rescue_one");});}
                 else if(id=="group2" && int(state.rescuedGroups)==1)
@@ -321,7 +355,7 @@ package src.epilogue
         private function chooseEnding(id:String):void
         {
             if(state.ending!="")return;
-            if(state.endingChoice!=""){notice("已开始归光仪式，请依次完成三个节点；未点亮第一节点前可重新选择装置。");return;}
+            if(state.endingChoice!="" && int(state.endingNodes)>0){notice("已开始归光仪式，请依次完成三个节点；未点亮第一节点前可重新选择装置。");return;}
             var available:Boolean=id=="beacon"?Boolean(state.beaconPrepared):Boolean(state.releasePrepared);
             if(!available){notice("这座装置尚未准备。回到司灯遗址修复它后再来；王座已败的进度会保留。");return;}
             modalPause();
@@ -339,8 +373,8 @@ package src.epilogue
         {
             if(!state.endingChoice || number!=int(state.endingNodes)+1)return;
             state.endingNodes=number;
-            scenery.setProgress(state);checkpoint();updateObjective();
-            if(number<3)return;
+            scenery.setProgress(state);updateObjective();
+            if(number<3){checkpoint();return;}
             var id:String=String(state.endingChoice);
             state.ending=id;state.stage=6;
             if(state.seenEndings.indexOf(id)<0)state.seenEndings.push(id);
@@ -348,11 +382,12 @@ package src.epilogue
             // One transaction object: world state and inventory reward are saved together.
             if(!state.rewardClaims.returnLight)
             {Main.player1.addGold(50000);state.rewardClaims.returnLight={ending:id,gold:50000};}
-            animateChange(2.5,function():void{checkpoint();dialogue("ending_"+id,returnVillage);});
+            checkpoint();
+            animateChange(2.5,function():void{dialogue("ending_"+id,returnVillage);});
         }
         private function animateChange(seconds:Number,after:Function):void
         {
-            BasicKey.clearPressed();paused=true;timelinePause.freeze(Main.world);scenery.setProgress(state);
+            clearInput();paused=true;timelinePause.freeze(Main.world);scenery.setProgress(state);
             actionTime=seconds;pendingAction=after;prompt.text="";
         }
         private function failure():void
@@ -384,9 +419,16 @@ package src.epilogue
         private function notice(text:String):void
         {modalPause();view.showDialogue([{speaker:"旅途记录",text:text,portrait:"hero"}],resume,true);}
         private function modalPause():void
-        {paused=true;timelinePause.freeze(Main.world);BasicKey.clearPressed();interactionHeld=false;prompt.text="";if(encounter)encounter.setPaused(true);}
+        {paused=true;timelinePause.freeze(Main.world);clearInput();interactionHeld=false;prompt.text="";if(encounter)encounter.setPaused(true);if(dock)dock.setPaused(true);}
         private function resume():void
-        {paused=pendingAction!=null || transitioning;if(!paused)timelinePause.resume();BasicKey.clearPressed();interactionHeld=false;lastTick=getTimer();if(encounter)encounter.setPaused(paused);}
+        {paused=pendingAction!=null || transitioning;if(!paused)timelinePause.resume();clearInput();interactionHeld=false;lastTick=getTimer();if(encounter)encounter.setPaused(paused);
+            if(dock)dock.setPaused(paused);}
+        private function clearInput():void
+        {
+            BasicKey.clearPressed();
+            if(Main.player_1)Main.player_1.clearChapterInput();
+            if(Main.player_2)Main.player_2.clearChapterInput();
+        }
         private function checkpoint():void
         {syncTasks();Main.Save2(false);trace("CHAPTER_CHECKPOINT",state.stage,state.scene,state.ending);}
         private function syncTasks():void
@@ -403,7 +445,7 @@ package src.epilogue
         {
             var objective:String="";
             if(!inArena)objective=state.ending!=""?"故人仍在村庄等你":unlocked()?"寻找奥古斯汀身旁的信标":"完成并提交【主线70】再战奥加";
-            else if(scene=="dock")objective=!state.bridgeOpen?"放下封锁渡桥":int(state.rescuedGroups)<2?"救出居民 "+state.rescuedGroups+" / 2":!state.calibrationDone?"检查航标，校准罗盘":"沿新方位前往司灯遗址";
+            else if(scene=="dock")objective=!state.bridgeOpen?"攻击桥锁，放下封锁渡桥":int(state.dockRelays)!=3?"击破继电器，再带居民撤离":int(state.rescuedGroups)<2?"救出居民 "+state.rescuedGroups+" / 2":!state.calibrationDone?"检查航标，校准罗盘":"沿新方位前往司灯遗址";
             else if(scene=="warden")objective=!state.boss1Defeated?"击破供能灯座，关闭司灯":"修复归光装置，再进入王座";
             else objective=!state.boss2Defeated?"切断输光臂，击败窃光王座":state.endingChoice!=""?"完成归光仪式 "+state.endingNodes+" / 3":"走近归光装置，决定最后的归途";
             view.setObjective("归光之约",objective,inArena?"E 交互 · Esc 暂停 · 进度自动保存":"同人最终章 · 独立存档");
@@ -413,7 +455,7 @@ package src.epilogue
             if(transitioning)return;
             transitioning=true;pendingAction=null;modalPause();
             state.inChapter=true;state.scene=destination;checkpoint();
-            requestedScene=destination;BasicKey.clearPressed();Main.allClosePanel();
+            requestedScene=destination;clearInput();Main.allClosePanel();
             Main.gameNum.setValue(ARENA_MAP);Main.gameNum2.setValue(1);GameData.gameLV=1;
             Main._this.Loading();
         }
@@ -431,13 +473,13 @@ package src.epilogue
             Main._stage.removeEventListener(KeyboardEvent.KEY_DOWN,keyDown);
             Main._stage.removeEventListener(KeyboardEvent.KEY_UP,keyUp);
             Main._stage.removeEventListener(Event.DEACTIVATE,deactivate);
-            if(mentor)mentor.removeEventListener(MouseEvent.CLICK,mentorClick,true);
             if(marker){marker.removeEventListener(MouseEvent.CLICK,mentorClick);if(marker.parent)marker.parent.removeChild(marker);}
             if(encounter){encounter.removeEventListener(ChapterEncounter.DEFEATED,bossDefeated);encounter.removeEventListener(ChapterEncounter.PHASE_CHANGED,bossPhase);encounter.dispose();}
+            if(dock){dock.removeEventListener(ChapterDockEncounter.CHANGED,dockChanged);dock.dispose();}
             if(scenery)scenery.dispose();
             view.dispose();if(view.parent)view.parent.removeChild(view);
             if(prompt.parent)prompt.parent.removeChild(prompt);
-            pendingAction=null;timelinePause.clear();BasicKey.clearPressed();
+            pendingAction=null;timelinePause.clear();clearInput();
         }
     }
 }

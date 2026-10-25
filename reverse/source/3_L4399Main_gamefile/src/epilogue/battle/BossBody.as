@@ -2,6 +2,8 @@ package src.epilogue.battle
 {
    import flash.display.Sprite;
    import flash.display.Graphics;
+   import flash.text.TextField;
+   import flash.text.TextFormat;
 
    /** Original composite vector art. No EnemySkin, exported boss sprite or timeline. */
    public class BossBody extends Sprite
@@ -16,6 +18,8 @@ package src.epilogue.battle
       private var legs:Array = [];
       private var flash:Number = 0;
       private var shattered:Boolean = false;
+      private var channel:Sprite = new Sprite();
+      private var channelLabel:TextField = new TextField();
 
       public function BossBody(type:String)
       {
@@ -28,6 +32,31 @@ package src.epilogue.battle
          leftNode.y = rightNode.y = -56;
          core.y = type == "warden" ? -92 : -103;
          build();
+         channelLabel.defaultTextFormat = new TextFormat("_sans", 13, 0xFFF0DE, true);
+         channelLabel.width = 220; channelLabel.height = 24;
+         channelLabel.x = -80; channelLabel.y = -266;
+         channelLabel.selectable = false; channelLabel.mouseEnabled = false;
+         channel.addChild(channelLabel); addChild(channel);
+         channel.visible = false;
+      }
+
+      public function setChanneling(progress:Number, interruption:Number):void
+      {
+         channel.visible = kind == "regent" && progress >= 0;
+         if(!channel.visible) return;
+         progress = Math.max(0, Math.min(1, progress));
+         interruption = Math.max(0, Math.min(1, interruption));
+         var g:Graphics = channel.graphics;
+         g.clear();
+         g.lineStyle(2 + progress * 3, 0xE6A7E0, .45 + progress * .4);
+         g.moveTo(-132, -56); g.lineTo(-48, -117); g.lineTo(0, -103);
+         g.moveTo(132, -56); g.lineTo(48, -117); g.lineTo(0, -103);
+         g.drawCircle(0, -103, 45 + progress * 18);
+         g.lineStyle(0, 0, 0); g.beginFill(0x101E2B, .95);
+         g.drawRect(-80, -243, 160, 17); g.endFill();
+         g.beginFill(0xDFA0DF, .95); g.drawRect(-78, -241, 156 * progress, 5); g.endFill();
+         g.beginFill(0xA3F7D4, 1); g.drawRect(-78, -233, 156 * interruption, 5); g.endFill();
+         channelLabel.text = "聚光 " + Math.round(progress * 100) + "% · 打断 " + Math.round(interruption * 100) + "%";
       }
 
       public function pulse():void { flash = .15; }

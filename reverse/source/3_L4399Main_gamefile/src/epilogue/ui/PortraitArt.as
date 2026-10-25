@@ -40,10 +40,10 @@ package src.epilogue.ui
             var witness:Boolean = id.indexOf("居民") >= 0 || id == "witness" || id == "villager";
             var mentor:Boolean = id.indexOf("奥古斯") >= 0 || id == "augustine";
             var g:Graphics = graphics;
-            var field:uint = mentor ? 0x3B4439 : goddess ? 0x314E58 : scout ? 0x273E53 : king ? 0x392C48 : healer ? 0x355447 : 0x364252;
-            var hair:uint = mentor ? 0xC7C3B0 : goddess ? 0xD3B879 : scout ? 0x6E3C2B : king ? 0x6B6674 : healer ? 0x574132 : witness ? 0x443328 : 0x26313B;
-            var skin:uint = mentor ? 0xC9AA8A : king ? 0xC4B9A5 : scout ? 0xD5A584 : goddess ? 0xEAD5B6 : 0xDCB595;
-            var cloth:uint = mentor ? 0x727C5A : goddess ? 0x97BFC2 : scout ? 0x375B73 : king ? 0x3E314F : healer ? 0x80977A : witness ? 0x947754 : 0x6E7A83;
+            var field:uint = mentor ? 0x344453 : goddess ? 0x314E58 : scout ? 0x273E53 : king ? 0x392C48 : healer ? 0x355447 : 0x364252;
+            var hair:uint = mentor ? 0xC8B8E4 : goddess ? 0xD3B879 : scout ? 0x6E3C2B : king ? 0x6B6674 : healer ? 0x574132 : witness ? 0x443328 : 0x26313B;
+            var skin:uint = mentor ? 0xE6B18F : king ? 0xC4B9A5 : scout ? 0xD5A584 : goddess ? 0xEAD5B6 : 0xDCB595;
+            var cloth:uint = mentor ? 0x557789 : goddess ? 0x97BFC2 : scout ? 0x375B73 : king ? 0x3E314F : healer ? 0x80977A : witness ? 0x947754 : 0x6E7A83;
             g.lineStyle(2, 0xC2A16A);
             g.beginFill(field);
             g.drawRoundRect(1, 1, 110, 130, 20, 20);
@@ -63,9 +63,13 @@ package src.epilogue.ui
             g.beginFill(skin); g.drawRoundRect(47, 70, 19, 26, 8, 8); g.endFill();
             polygon(g, cloth, [17,129,24,99,43,86,56,96,70,86,90,99,99,129]);
             if(mentor) {
-                polygon(g, 0x4A5846, [17,129,24,96,39,82,49,93,56,103,66,93,75,82,90,96,99,129]);
-                polygon(g, 0xB8A773, [36,85,43,81,57,104,70,81,78,86,63,118,50,118]);
-                g.lineStyle(2,0xC9B37C);g.moveTo(29,103);g.lineTo(38,126);g.moveTo(83,103);g.lineTo(74,126);g.lineStyle();
+                // Armor and the green greatsword are identifying cues from the observed NPC.
+                polygon(g,0x263B50,[19,129,24,95,39,83,56,96,73,84,91,98,98,129]);
+                polygon(g,0xC6D8DF,[24,98,39,84,47,96,39,112,22,113]);
+                polygon(g,0x93B7C9,[71,85,90,99,96,115,75,112,64,97]);
+                polygon(g,0x577D93,[42,97,55,104,69,96,74,128,39,128]);
+                g.lineStyle(1.5,0xD4E4E4);g.moveTo(43,108);g.lineTo(70,108);g.moveTo(42,116);g.lineTo(71,116);g.lineStyle();
+                g.beginFill(0xB35BC8);g.drawCircle(54,97,5);g.endFill();
             } else if(king) {
                 polygon(g, 0x29243A, [14,130,22,83,38,71,46,91,56,105,68,88,77,70,94,87,102,130]);
                 polygon(g, 0xA58A4E, [22,88,40,81,49,98,32,109]);
@@ -82,19 +86,32 @@ package src.epilogue.ui
                 g.lineStyle(2, 0xD4C197); g.moveTo(55,102); g.lineTo(55,130); g.lineStyle();
             }
             // Distinct silhouettes, not merely tint variants.
-            if(mentor) polygon(g,hair,[34,29,27,43,29,69,39,83,46,78,69,79,82,65,84,45,75,28]);
+            if(mentor) {
+                polygon(g,0x8A76B0,[31,30,25,59,30,98,43,117,47,83,70,80,77,124,96,129,86,89,85,42,72,22]);
+                polygon(g,hair,[31,29,27,54,33,84,41,94,41,58,71,41,76,87,85,111,83,63,80,31,65,19]);
+            }
             else if(king) polygon(g, hair, [32,31,28,57,35,81,42,89,48,79,66,79,75,89,81,62,78,31]);
             else if(scout) polygon(g, hair, [31,26,24,51,26,82,37,98,43,73,76,81,89,97,83,52,76,26]);
             else if(!goddess) polygon(g, hair, [29,37,34,23,52,16,72,24,81,39,77,70,36,71]);
             g.beginFill(skin); g.drawEllipse(35, 31, 43, 53); g.endFill();
             g.beginFill(0xBE8F74, .35); g.drawEllipse(38, 55, 12, 15); g.drawEllipse(66, 55, 10, 15); g.endFill();
             if(mentor) {
-                // Receding silver hair, long beard and weathered brows distinguish the mentor.
-                polygon(g,hair,[30,45,32,29,43,23,51,25,43,34,38,48]);
-                polygon(g,hair,[62,25,73,24,82,34,83,48,75,43,72,34]);
-                polygon(g,hair,[37,65,45,72,56,69,67,73,77,65,73,88,64,101,55,108,45,96,38,81]);
-                polygon(g,0xD8D0B9,[42,72,49,78,56,76,65,79,70,72,65,94,55,101,46,89]);
-                g.lineStyle(1,0x8F755B,.7);g.moveTo(46,41);g.lineTo(65,41);g.moveTo(45,45);g.lineTo(66,45);g.moveTo(40,57);g.lineTo(45,59);g.moveTo(68,59);g.lineTo(73,57);g.lineStyle();
+                // Original identity cues, interpreted as a new vector medallion.
+                polygon(g,hair,[29,47,29,29,43,17,60,14,76,22,84,38,81,59,73,48,69,31,59,26,48,35,42,55,34,62]);
+                polygon(g,0xEEE7FA,[31,36,37,24,55,19,67,22,52,24,41,38,38,51]);
+                polygon(g,0xA998CF,[70,29,78,36,81,55,74,48,71,37,61,27]);
+                // Dark forehead ornament with a violet gem, rather than a beard.
+                polygon(g,0x273748,[46,31,54,35,60,33,68,31,71,41,63,48,57,53,51,45,44,42]);
+                polygon(g,0xACC3D5,[46,34,52,38,51,43,46,40]);
+                polygon(g,0xADCADA,[65,35,69,34,68,41,62,44,58,50,56,44]);
+                g.lineStyle(1,0x562C6E);g.beginFill(0xB945CD);g.drawEllipse(53,33,10,12);g.endFill();g.lineStyle();
+                g.beginFill(0xE5A2EE);g.drawCircle(56,36,2);g.endFill();
+                // Cropped sword at the medallion edge keeps the face unobstructed.
+                polygon(g,0xD4E5DF,[10,71,26,71,26,124,18,129,10,124]);
+                polygon(g,0x4CB429,[14,75,22,75,22,121,18,125,14,121]);
+                g.beginFill(0xADEE56);g.drawEllipse(16,83,4,7);g.drawEllipse(16,101,4,7);g.endFill();
+                polygon(g,0xC7A74E,[6,67,30,67,27,73,9,73]);
+                g.lineStyle(5,0x73552F);g.moveTo(18,55);g.lineTo(18,66);g.lineStyle();
             } else if(goddess) {
                 polygon(g, hair, [31,44,33,25,51,18,72,22,80,39,71,34,57,27,45,39,42,31]);
                 g.lineStyle(2, 0xF8E6B0); g.moveTo(35,34); g.lineTo(56,26); g.lineTo(76,34); g.lineStyle();
@@ -119,7 +136,7 @@ package src.epilogue.ui
             g.moveTo(57,54); g.lineTo(54,64); g.lineTo(59,64);
             g.moveTo(49,72); g.curveTo(57,king?70:75,64,72);
             g.lineStyle();
-            g.beginFill(goddess ? 0x7DCEC6 : 0x283F4A);g.drawCircle(46,53,1.8);g.drawCircle(66,53,1.8);g.endFill();
+            g.beginFill(mentor ? 0xAA3289 : goddess ? 0x7DCEC6 : 0x283F4A);g.drawCircle(46,53,1.8);g.drawCircle(66,53,1.8);g.endFill();
             g.lineStyle(1,0xF6E0A7,.7);g.drawRoundRect(5,5,102,122,16,16);
             g.lineStyle();
         }

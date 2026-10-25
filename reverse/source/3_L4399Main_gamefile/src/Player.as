@@ -1747,8 +1747,14 @@ package src
          }
       }
       
+      public function clearChapterInput() : void
+      {
+         jKey = false;
+      }
+
       private function onKEY_DOWN(param1:KeyboardEvent) : *
       {
+         if(ChapterController.paused) return;
          if(param1.keyCode == data._keyArr[5])
          {
             jKey = true;

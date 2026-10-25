@@ -40,6 +40,8 @@ package src.epilogue.ui
         private var objectiveSignature:String = "";
         private var bossSignature:String = "";
         private var keys:Object = {};
+        private var pauseOpeningKeyHeld:Boolean = false;
+        private var openingEscapeEvent:KeyboardEvent;
 
         public function EpilogueView(width:Number = 940,height:Number = 580)
         {
@@ -105,7 +107,8 @@ package src.epilogue.ui
             pages=paginate(value,688,79,18);pageIndex=0;
             chrome.visible=false;
             if(pages.length==0){finishDialogue(false);return;}
-            // Only the bottom card intercepts the pointer; the world stays visible.
+            // Keep the world visible while blocking its pointer targets behind the card.
+            inputShield();
             var card:Sprite=parchment(900,170);card.x=20;card.y=390;modal.addChild(card);
             card.addEventListener(MouseEvent.CLICK,dialogueClick);
             portrait=new PortraitArt("hero",96);portrait.x=32;portrait.y=414;modal.addChild(portrait);
@@ -204,17 +207,24 @@ package src.epilogue.ui
                 keyStage.removeEventListener(KeyboardEvent.KEY_UP,keyUp,false);
                 keyStage=null;
             }
-            keys={};
+            keys={};pauseOpeningKeyHeld=false;openingEscapeEvent=null;
         }
-        private function deactivated(e:Event):void {keys={};}
+        private function deactivated(e:Event):void {keys={};pauseOpeningKeyHeld=false;openingEscapeEvent=null;}
         private function keyDown(e:KeyboardEvent):void
         {
             if(!modalOpen){
+                if(e.keyCode==27){
+                    // Capture and target/bubble can see the same event. Only a
+                    // different event while held is an OS auto-repeat.
+                    if(pauseOpeningKeyHeld && openingEscapeEvent!=e){e.stopImmediatePropagation();e.preventDefault();return;}
+                    pauseOpeningKeyHeld=true;openingEscapeEvent=e;
+                }
                 // A held confirm key must not become a gameplay action after closing.
                 if(keys[e.keyCode]){e.stopImmediatePropagation();e.preventDefault();}
                 return;
             }
             e.stopImmediatePropagation();e.preventDefault();
+            if(e.keyCode==27&&pauseOpeningKeyHeld)return;
             if(keys[e.keyCode])return;keys[e.keyCode]=true;
             if(kind=="dialogue"){
                 if(e.keyCode==13||e.keyCode==32)advanceDialogue();
@@ -232,6 +242,7 @@ package src.epilogue.ui
         }
         private function keyUp(e:KeyboardEvent):void
         {
+            if(e.keyCode==27){pauseOpeningKeyHeld=false;openingEscapeEvent=null;}
             var consumed:Boolean=Boolean(keys[e.keyCode]);delete keys[e.keyCode];
             if(modalOpen||consumed){e.stopImmediatePropagation();e.preventDefault();}
         }
@@ -291,9 +302,16 @@ package src.epilogue.ui
         private function modalBackdrop():void
         {
             modal.graphics.beginFill(0x10222A,.47);modal.graphics.drawRect(0,0,940,580);modal.graphics.endFill();
-            // A transparent input shield prevents pointer events reaching the game.
+            inputShield();
+        }
+        private function inputShield():void
+        {
             var shield:Sprite=new Sprite();shield.graphics.beginFill(0,0);shield.graphics.drawRect(0,0,940,580);shield.graphics.endFill();
-            shield.addEventListener(MouseEvent.CLICK,blockClick);modal.addChild(shield);
+            shield.addEventListener(MouseEvent.CLICK,blockClick);
+            shield.addEventListener(MouseEvent.MOUSE_DOWN,blockClick);
+            shield.addEventListener(MouseEvent.MOUSE_UP,blockClick);
+            shield.addEventListener(MouseEvent.MOUSE_WHEEL,blockClick);
+            modal.addChild(shield);
         }
         private function blockClick(e:MouseEvent):void {e.stopImmediatePropagation();}
         private function parchment(w:Number,h:Number):Sprite
@@ -318,6 +336,8 @@ package src.epilogue.ui
             while(layer.numChildren>0){
                 var child:Object=layer.removeChildAt(layer.numChildren-1);
                 child.removeEventListener(MouseEvent.CLICK,dialogueClick);child.removeEventListener(MouseEvent.CLICK,blockClick);
+                child.removeEventListener(MouseEvent.MOUSE_DOWN,blockClick);child.removeEventListener(MouseEvent.MOUSE_UP,blockClick);
+                child.removeEventListener(MouseEvent.MOUSE_WHEEL,blockClick);
             }
         }
         /** Measure actual device-font text; split long content rather than silently clipping it. */

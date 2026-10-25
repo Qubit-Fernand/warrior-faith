@@ -54,6 +54,20 @@ package src.epilogue.battle
       private var lastHitAt:Number = -1;
       private var lastHitResult:String = "none";
       private var lastHitSource:String = "";
+      private var chargeHazard:BattleHazard = null;
+      private var chargeReleased:Boolean = false;
+      private var chargeDamage:Number = 0;
+      private var chargeRequired:Number = 0;
+      private var interruptions:int = 0;
+      private var chargeFailures:int = 0;
+      private var sanctuaryEscapes:int = 0;
+      private var trackingDodges:int = 0;
+      private var exposedUntil:Number = 0;
+      private var lastMechanicResult:String = "none";
+      private var lastDt:Number = 0;
+      private var damageContacts:int = 0;
+      private var lastReceivedDamage:Number = 0;
+      private var lastIncomingPower:Number = 0;
 
       public function ChapterEncounter(type:String, width:Number, groundY:Number, options:Object = null)
       {
@@ -86,22 +100,25 @@ package src.epilogue.battle
          if(!isFinite(dt) || dt <= 0) return;
          // A restored background window never skips a telegraph in a single frame.
          dt = Math.min(dt, .05);
+         lastDt = dt;
          if(!player || !player.stage) player = settings.player is Player ? settings.player as Player : Main.player_1;
          if(!player || !player.stage || player.hp.getValue() <= 0) return;
          elapsed += dt;
          stateTime += dt;
          body.animate(elapsed, dt, currentPhase, stateName, [nodes[0] > 0, nodes[1] > 0]);
+         body.setChanneling(chargeHazard && !chargeHazard.fired ? chargeHazard.progress : -1,
+                            chargeRequired > 0 ? chargeDamage / chargeRequired : 0);
          updateNumbers(dt);
          if(stateName == "intro")
          {
-            if(stateTime >= 1.25) enterState("recover", "击破两侧供能灯座，展开灯核");
+            if(stateTime >= 1.25) enterState("recover", kind == "warden" ? "击破两侧供能灯座，展开灯核" : "击断输光臂；追光锁定后横移，夺光蓄能时攻击核心");
             return;
          }
          if(stateName == "transform")
          {
             if(stateTime >= 1.8)
             {
-               enterState("recover", "冠轮已裂。避开紫色光柱，跳过金色地波");
+               enterState("recover", "冠轮已裂：打断夺光，或进入绿色光环躲避爆发");
             }
             return;
          }
@@ -109,6 +126,8 @@ package src.epilogue.battle
          if(_disposed || _finished || stateName == "transform") return;
          updateHazards(dt);
          if(_disposed || _finished) return;
+         if(stateName == "exposed" && elapsed >= exposedUntil)
+            enterState("recover", "王座重新聚光。准备横移躲避追光锁定");
          if(stateName == "recover" && stateTime >= (settings.releasePrepared ? 1.9 : 1.35))
             beginAttack();
          else if(stateName == "telegraph" && hazards.length > 0 && BattleHazard(hazards[0]).fired)
@@ -143,7 +162,16 @@ package src.epilogue.battle
                  coreBounds:body ? numericBounds(body.core.getBounds(this)) : null,
                  lastHitAt:lastHitAt, lastHitResult:lastHitResult, lastHitSource:lastHitSource,
                  beaconPrepared:Boolean(settings.beaconPrepared), releasePrepared:Boolean(settings.releasePrepared),
-                 playerHp:player ? player.hp.getValue() : -1};
+                 playerHp:player ? player.hp.getValue() : -1, playerStats:diagnosticPlayer(),
+                 frameDelta:lastDt, damageContacts:damageContacts,
+                 lastReceivedDamage:lastReceivedDamage, lastIncomingPower:lastIncomingPower,
+                 configuredAttack:attackPower, configuredDefense:armor,
+                 chargeDamage:chargeDamage, chargeRequired:chargeRequired,
+                 charging:chargeHazard != null && !chargeHazard.fired,
+                 chargeProgress:chargeHazard ? chargeHazard.progress : 0,
+                 interruptions:interruptions, chargeFailures:chargeFailures,
+                 sanctuaryEscapes:sanctuaryEscapes, trackingDodges:trackingDodges,
+                 exposedRemaining:Math.max(0, exposedUntil - elapsed), lastMechanicResult:lastMechanicResult};
       }
 
       /** Reconstructs encounter-only state. Does not heal, teleport or save the player. */
@@ -162,6 +190,10 @@ package src.epilogue.battle
          currentPhase = 1; elapsed = 0; stateTime = 0; attackIndex = 0;
          attacksLanded = playerHits = transitionCount = 0; lastDamage = 0;
          lastHitBounds = null; lastHitAt = -1; lastHitResult = "none"; lastHitSource = "";
+         chargeHazard = null; chargeReleased = false; chargeDamage = chargeRequired = 0;
+         interruptions = chargeFailures = sanctuaryEscapes = trackingDodges = 0;
+         exposedUntil = 0; lastMechanicResult = "none";
+         lastDt = lastReceivedDamage = lastIncomingPower = 0; damageContacts = 0;
          _finished = false; _paused = false;
          player = settings.player is Player ? settings.player as Player : Main.player_1;
          enterState("intro", kind == "warden" ? "司灯机关苏醒：金色地波要跳，紫色锚印要躲" : "击断输光臂，让王座失去供能");
@@ -200,21 +232,17 @@ package src.epilogue.battle
 
       private function beginAttack():void
       {
+         if(kind == "regent")
+         {
+            beginRegentAttack();
+            return;
+         }
          var feet:Point = playerFeet();
          var aim:Number = Math.max(arenaLeft + 55, Math.min(arenaRight - 55, feet.x));
          var pattern:String = attackIndex % 2 == 0 ? "wave" : "columns";
          var targets:Array = [aim];
          var warn:Number = currentPhase == 2 ? 1.0 : 1.35;
          var duration:Number = pattern == "wave" ? 1.5 : .55;
-         if(kind == "regent" && currentPhase == 2)
-         {
-            duration = pattern == "wave" ? 1.15 : .7;
-            if(pattern == "columns")
-            {
-               var second:Number = aim < (arenaLeft + arenaRight) / 2 ? aim + 170 : aim - 170;
-               if(second > arenaLeft + 50 && second < arenaRight - 50) targets.push(second);
-            }
-         }
          var h:BattleHazard = new BattleHazard(pattern, arenaLeft, arenaRight, floorY,
             targets, warn, duration, attackIndex % 4 == 0 ? -1 : 1, currentPhase == 2 ? 1.25 : 1);
          hazards.push(h);
@@ -224,6 +252,53 @@ package src.epilogue.battle
          dispatchEvent(new Event(ATTACK_STARTED));
       }
 
+      private function beginRegentAttack():void
+      {
+         var feet:Point = playerFeet();
+         var h:BattleHazard;
+         var message:String;
+         if(attackIndex % 2 == 0)
+         {
+            // Follow, then visibly lock. A late horizontal dodge is different from
+            // Warden's fixed ground-wave jump and from attacking to interrupt below.
+            h = new BattleHazard("tracking", arenaLeft, arenaRight, floorY, [feet.x],
+                currentPhase == 2 ? 2.2 : 2.8, .6, 1, currentPhase == 2 ? 1.3 : 1.1);
+            message = "追光正在跟随 → 等“已锁定”出现后横移";
+         }
+         else
+         {
+            var radius:Number = (currentPhase == 2 ? 72 : 100) + (settings.beaconPrepared ? 28 : 0);
+            // Keep shelter close enough to reach without depending on a specific movement build.
+            var center:Number = feet.x + (feet.x < body.x ? 140 : -140);
+            center = Math.max(arenaLeft + radius + 12, Math.min(arenaRight - radius - 12, center));
+            h = new BattleHazard("sanctuary", arenaLeft, arenaRight, floorY, [center, radius],
+                currentPhase == 2 ? 3.2 : 3.8, .65, 1, 1.8);
+            var skinId:int = int(player.data.skinArr[player.data.skinNum]);
+            var profession:Number = skinId >= 0 && skinId < player.职业附加.length ? Number(player.职业附加[skinId]) : 1;
+            if(!isFinite(profession) || profession <= 0) profession = 1;
+            chargeRequired = Math.max(1, numeric("interruptDamage",
+                Math.min(90000, Math.max(1000, player.use_gongji.getValue() * profession * 3))));
+            if(settings.releasePrepared) chargeRequired *= .7;
+            chargeDamage = 0; chargeReleased = false; chargeHazard = h;
+            message = "夺光蓄能 → 攻击核心打断，或进入绿色光环";
+            lastMechanicResult = "charging";
+         }
+         hazards.push(h); addChildAt(h, 0); ++attackIndex;
+         enterState("telegraph", message);
+         dispatchEvent(new Event(ATTACK_STARTED));
+      }
+
+      private function interruptCharge():void
+      {
+         ++interruptions;
+         lastMechanicResult = "interrupted";
+         clearHazards();
+         exposedUntil = elapsed + 2.8;
+         enterState("exposed", "夺光已打断！核心失衡，2.8秒内伤害提高50%");
+         body.setChanneling(-1, 0);
+         floating("夺光打断 · 核心失衡", body.x, floorY - 235, 0xB8FFE1);
+      }
+
       private function updateHazards(dt:Number):void
       {
          var bounds:Rectangle = playerBounds();
@@ -231,10 +306,27 @@ package src.epilogue.battle
          for(var i:int = hazards.length - 1; i >= 0; --i)
          {
             var h:BattleHazard = hazards[i] as BattleHazard;
+            h.trackPlayer(feet.x);
             h.update(dt);
+            if(h.kind == "tracking" && !h.fired)
+               currentHint = h.tracking ? "追光正在跟随 → 等“已锁定”出现后横移" : "追光已锁定！立即横移出紫色光束";
+            if(h == chargeHazard && h.fired && !chargeReleased)
+            {
+               chargeReleased = true; ++chargeFailures;
+               lastMechanicResult = "charge-released";
+               currentHint = "未能打断！夺光爆发：留在绿色光环内";
+               floating("夺光爆发", body.x, floorY - 235, 0xFFD1E9);
+            }
             if(h.touches(bounds, feet)) damagePlayer(h.damageScale, feet.x > body.x);
             if(h.finished)
             {
+               if(h.kind == "sanctuary" && !Boolean(h.state.hit))
+               {
+                  ++sanctuaryEscapes; lastMechanicResult = "sheltered";
+                  floating("解缚光环保护了你", feet.x, feet.y - 110, 0xB8FFE1);
+               }
+               if(h.kind == "tracking" && !Boolean(h.state.hit)) ++trackingDodges;
+               if(h == chargeHazard) chargeHazard = null;
                if(h.parent) h.parent.removeChild(h);
                hazards.splice(i, 1);
             }
@@ -250,8 +342,10 @@ package src.epilogue.battle
          hit.times = 1; hit.硬直 = 12; hit.RL = toRight;
          hit.runArr = [5, -1, 5];
          var before:Number = player.hp.getValue();
+         ++damageContacts; lastIncomingPower = hit.gongJi_hp;
          player.HpXX(hit, false);
-         if(player.hp.getValue() < before) ++attacksLanded;
+         lastReceivedDamage = Math.max(0, before - player.hp.getValue());
+         if(lastReceivedDamage > 0) ++attacksLanded;
       }
 
       private function receivePlayerAttacks():void
@@ -287,6 +381,7 @@ package src.epilogue.battle
             // charge this same target. -1 remains unlimited penetration.
             if(projectile && projectile.life > 0) --projectile.life;
             var damage:Number = playerDamage(hit);
+            var rawDamage:Number = damage;
             if(damage <= 0) continue;
             if(node >= 0)
             {
@@ -296,6 +391,7 @@ package src.epilogue.battle
             else
             {
                if(nodes[0] > 0 || nodes[1] > 0) damage *= .3;
+               if(elapsed < exposedUntil) damage *= 1.5;
                currentHp = Math.max(0, currentHp - damage);
             }
             lastDamage = damage; ++playerHits;
@@ -309,6 +405,14 @@ package src.epilogue.battle
                else finish();
                return;
             }
+            if(node < 0 && chargeHazard && !chargeHazard.fired)
+            {
+               // Shield mitigation does not make the interruption test impossible.
+               // Only real core hits count; the timer never removes charge by itself.
+               chargeDamage += rawDamage;
+               if(chargeDamage >= chargeRequired) interruptCharge();
+               else currentHint = "攻击核心打断夺光：" + Math.min(100, Math.round(chargeDamage / chargeRequired * 100)) + "%";
+            }
             // Warden changes cadence and opens its lens while retaining one continuous health pool.
             if(kind == "warden" && currentPhase == 1 && currentHp <= phaseOneMax * .5)
             {
@@ -318,6 +422,14 @@ package src.epilogue.battle
                if(_disposed || _finished) return;
             }
          }
+      }
+
+      private function diagnosticPlayer():Object
+      {
+         if(!player) return null;
+         return {hp:player.hp.getValue(), maxHp:player.use_hp_Max.getValue(),
+                 attack:player.use_gongji.getValue(), defense:player.use_fangyu.getValue(),
+                 temporaryDefense:player.fangYuPOWER.getValue(), x:player.x, y:player.y};
       }
 
       private function numericBounds(rect:Rectangle):Object
@@ -363,6 +475,7 @@ package src.epilogue.battle
       {
          for each(var h:BattleHazard in hazards) if(h.parent) h.parent.removeChild(h);
          hazards = [];
+         chargeHazard = null;
       }
 
       private function floating(text:String, px:Number, py:Number, color:uint):void
