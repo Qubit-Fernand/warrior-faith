@@ -1,6 +1,7 @@
 package src
 {
    import flash.display.*;
+   import src.epilogue.ChapterController;
    import flash.events.*;
    import flash.utils.*;
    import src.other.*;
@@ -234,6 +235,7 @@ package src
       
       public function onENTER_FRAME(param1:*) : *
       {
+         if(ChapterController.paused) return;
          if(over && this.currentLabel != "结束")
          {
             Dead();

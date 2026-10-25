@@ -65,6 +65,17 @@ package com
          init();
       }
       
+      public static function clearPressed() : void
+      {
+         for(var n:uint=0;n<allKeyNum;n++)
+         {
+            clickArr[n]=downArr[n]=clickBo[n]=clickKgBo[n]=downKgBo[n]=false;
+            towClickArr[n]=targetArr[n]=targetKgBoArr[n]=clickOkArr[n]=false;
+            clickTimerArr[n]=0;
+         }
+         towKeyArr=[];towKeyTimer=[];keyTimer=0;
+      }
+
       private static function init() : void
       {
          var _loc1_:uint = 0;

@@ -1,6 +1,8 @@
 package src
 {
    import com.*;
+   import src.epilogue.ChapterController;
+   import src.epilogue.ChapterState;
    import com.ByteArrayXX.*;
    import com.hotpoint.braveManIII.models.common.*;
    import com.hotpoint.braveManIII.models.container.*;
@@ -205,6 +207,7 @@ package src
          {
             return;
          }
+         ChapterState.restore(save[ChapterState.SAVE_KEY]);
          Main.varX_old = save["var"];
          if(save["logNameSave"])
          {
@@ -438,6 +441,7 @@ package src
          save["XinglingUp"] = XingLingFactory.xingLingData;
          save["vipUserArr"] = Vip_Interface.vipUserArr;
          save["TaskDataBoXX5"] = TaskData.BoXX;
+         save[ChapterState.SAVE_KEY] = ChapterState.exported();
          if(Main.saveNum < 0)
          {
             Main.saveNum = 0;
@@ -823,10 +827,12 @@ package src
             JiHua_Interface.ppp5_4 = true;
          }
          _stage.addChild(blackXXXX);
+         ChapterController.onGameStart();
       }
       
       public function DelGame() : *
       {
+         ChapterController.beforeWorldRemoved();
          removeEventListener(Event.ENTER_FRAME,onENTER_FRAME);
          Enemy.All = new Array();
          Player.All = new Array();
@@ -922,12 +928,13 @@ package src
       
       private function onENTER_FRAME(param1:Event) : *
       {
+         if(ChapterController.paused) return;
          if(Main.gameNum.getValue() != 0)
          {
             HitXX.HitEnemy();
             HitF.HitFly();
             HitP.HitPlayer();
-            GameData.MonsterGo();
+            if(!ChapterController.inArena) GameData.MonsterGo();
             ++WinShow.txt_1;
             if(Main.gameNum.getValue() == 999)
             {

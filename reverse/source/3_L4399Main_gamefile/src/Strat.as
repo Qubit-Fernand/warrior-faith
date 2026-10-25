@@ -6,6 +6,7 @@ package src
    import com.hotpoint.braveManIII.views.setProfession.*;
    import com.hotpoint.braveManIII.views.storagePanel.*;
    import flash.display.*;
+   import src.epilogue.ChapterState;
    import flash.events.*;
    import flash.net.*;
    import src._data.*;
@@ -206,6 +207,7 @@ package src
       
       public function NewSave() : *
       {
+         ChapterState.reset();
          var _loc1_:int = 0;
          Strat.SAVE_LIST = LocalSaveManager.getSlotTitles();
          save_mc.visible = true;

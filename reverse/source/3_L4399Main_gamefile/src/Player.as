@@ -1,6 +1,7 @@
 package src
 {
    import com.*;
+   import src.epilogue.ChapterController;
    import com.hotpoint.braveManIII.models.common.*;
    import com.hotpoint.braveManIII.models.elves.Elves;
    import com.hotpoint.braveManIII.models.equip.Equip;
@@ -1234,6 +1235,7 @@ package src
       
       private function onENTER_FRAME(param1:*) : *
       {
+         if(ChapterController.paused) return;
          ++time;
          连击计时();
          药品使用();

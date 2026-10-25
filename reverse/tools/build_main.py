@@ -5,6 +5,7 @@ from pathlib import Path
 from probe_normalize_swf import normalize
 from swf_inventory import read_swf
 from build_inputs import capture,finish
+from chapter_source import verify as verify_chapter, overlay as overlay_chapter
 ROOT=Path(__file__).resolve().parents[2]
 JAVA=ROOT/'.runtime/shared-tools/java/jdk-21.0.12.1+1-jre/Contents/Home/bin/java'
 FLEX=ROOT/'.runtime/shared-tools/flex/apache-flex-sdk-4.16.1-bin'
@@ -37,9 +38,10 @@ def main():
     if not a.save_name.startswith('yzlr2_rebuild_') or not a.save_name.replace('_','').isalnum():
         raise ValueError('Reconstruction test stores must use a safe yzlr2_rebuild_ prefix')
     BUILD.mkdir(parents=True,exist_ok=True)
+    chapter_receipt=verify_chapter()
     input_snapshot=capture('3_L4399Main_gamefile',a.source_dir,
-        extra_trees=[RAW],
-        recipe_files=[Path(__file__),ROOT/'reverse/tools/probe_normalize_swf.py',ROOT/'reverse/tools/swf_inventory.py'])
+        extra_trees=[RAW,ROOT/'chapter/content',ROOT/'chapter/generated'],
+        recipe_files=[Path(__file__),ROOT/'reverse/tools/chapter_source.py',ROOT/'reverse/tools/probe_normalize_swf.py',ROOT/'reverse/tools/swf_inventory.py'])
     run=Path(tempfile.mkdtemp(prefix='run-',dir=BUILD));src=BUILD/'source'
     # Flex's private-name numbering/order depends on absolute source paths.
     # Keep a stable staging path, but archive its entire previous contents so
@@ -50,6 +52,8 @@ def main():
     for asset in RAW.rglob('*'):
         if asset.is_file() and asset.suffix!='.as':
             dest=src/asset.relative_to(RAW);dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(asset,dest)
+    # Explicit, verified chapter inputs supersede RAW only after baseline copy.
+    assert overlay_chapter(src)==chapter_receipt
     source_hashes={p.relative_to(src).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(src.rglob('*.as'))}
     def repair(file,before,after,reason):
         p=src/file;s=p.read_text();count=s.count(before)
@@ -74,6 +78,7 @@ def main():
     log_text=log.read_text(errors='replace')
     success=cp.returncode==0 and out.is_file() and 'Error:' not in log_text
     row={'command':cmd,'exit':cp.returncode,'success':success,'elapsed_seconds':time.time()-start,'source_root':str(a.source_dir),'source_sha256':source_hashes,'source_repairs':changes,'save_store':a.save_name,'compiler_mode':'strict=false preserves dynamic/unresolved references and runtime coercions rather than inventing declarations to satisfy strict checking','output':str(out.relative_to(ROOT)),'runtime_validated':False}
+    row['chapter_content_import']=chapter_receipt
     if success:
         normalized=run/'normalized.swf'
         row['normalization']=normalize(out,normalized,ROOT/'3_L4399Main_gamefile.swf')

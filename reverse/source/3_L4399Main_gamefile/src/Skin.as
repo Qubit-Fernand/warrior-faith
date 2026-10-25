@@ -5,6 +5,7 @@ package src
    import com.hotpoint.braveManIII.models.skill.Skill;
    import com.hotpoint.braveManIII.repository.skill.*;
    import flash.display.*;
+   import src.epilogue.ChapterController;
    import flash.events.*;
    import flash.geom.*;
    import flash.utils.*;
@@ -144,6 +145,7 @@ package src
       
       public function onENTER_FRAME(param1:*) : *
       {
+         if(ChapterController.paused) return;
          if(Boolean(playX) && !playX is Player2)
          {
             removeEventListener(Event.ENTER_FRAME,onENTER_FRAME);

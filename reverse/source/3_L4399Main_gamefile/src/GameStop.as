@@ -5,6 +5,7 @@ package src
    import flash.events.*;
    import flash.geom.*;
    import flash.text.*;
+   import src.epilogue.ChapterController;
    
    [Embed(source="/_assets/assets.swf", symbol="symbol1747")]
    public class GameStop extends MovieClip
@@ -13,6 +14,11 @@ package src
       public function GameStop()
       {
          super();
+         if(ChapterController.available)
+         {
+            ChapterController.pauseRequest();
+            return;
+         }
          Main._stage.addChild(this);
          Main._stage.frameRate = 0;
          addEventListener(MouseEvent.CLICK,Close);
