@@ -14,6 +14,7 @@ package src.epilogue.ui
     {
         public var onJournalRequest:Function;
         public var onPauseRequest:Function;
+        public var inputAvailable:Function;
         private var canvas:Sprite = new Sprite();
         private var objectives:Sprite = new Sprite();
         private var bosses:Sprite = new Sprite();
@@ -42,6 +43,9 @@ package src.epilogue.ui
         private var keys:Object = {};
         private var pauseOpeningKeyHeld:Boolean = false;
         private var openingEscapeEvent:KeyboardEvent;
+        private var nativeUISuspended:Boolean=false;
+        private var downKeys:Object={};
+        private var nativeHeldKeys:Object={};
 
         public function EpilogueView(width:Number = 940,height:Number = 580)
         {
@@ -62,6 +66,20 @@ package src.epilogue.ui
         }
         public function get modalOpen():Boolean {return kind!="";}
         public function get dialogueOpen():Boolean {return kind=="dialogue";}
+        public function setNativeUISuspended(value:Boolean):void
+        {
+            if(nativeUISuspended==value)return;
+            nativeUISuspended=value;visible=!value;
+            if(value)
+            {
+                // Remember keys held across the handoff, but never consume native UI keys.
+                for(var key:String in downKeys)nativeHeldKeys[key]=true;
+                keys={};pauseOpeningKeyHeld=false;openingEscapeEvent=null;
+            }
+        }
+        public function isNativeHeldKey(code:uint):Boolean {return Boolean(nativeHeldKeys[code]);}
+        private function inputAllowed():Boolean
+        {return !disposed && (inputAvailable==null || Boolean(inputAvailable())) && !nativeUISuspended;}
         public function setSize(width:Number,height:Number):void
         {
             var s:Number=Math.min(Math.max(1,width)/940,Math.max(1,height)/580);
@@ -187,11 +205,11 @@ package src.epilogue.ui
             removeEventListener(Event.ADDED_TO_STAGE,added);removeEventListener(Event.REMOVED_FROM_STAGE,removed);
             detachKeys();
             for each(var b:ChapterButton in permanentButtons)b.dispose();
-            permanentButtons=[];onJournalRequest=null;onPauseRequest=null;
+            permanentButtons=[];onJournalRequest=null;onPauseRequest=null;inputAvailable=null;
             if(parent)parent.removeChild(this);
         }
-        private function requestJournal():void {if(!modalOpen&&onJournalRequest!=null)onJournalRequest();}
-        private function requestPause():void {if(!modalOpen&&onPauseRequest!=null)onPauseRequest();}
+        private function requestJournal():void {if(!modalOpen&&inputAllowed()&&onJournalRequest!=null)onJournalRequest();}
+        private function requestPause():void {if(!modalOpen&&inputAllowed()&&onPauseRequest!=null)onPauseRequest();}
         private function added(e:Event):void
         {
             detachKeys();keyStage=stage;
@@ -215,11 +233,14 @@ package src.epilogue.ui
                 keyStage.removeEventListener(KeyboardEvent.KEY_UP,keyUp,false);
                 keyStage=null;
             }
-            keys={};pauseOpeningKeyHeld=false;openingEscapeEvent=null;
+            keys={};downKeys={};nativeHeldKeys={};pauseOpeningKeyHeld=false;openingEscapeEvent=null;
         }
-        private function deactivated(e:Event):void {keys={};pauseOpeningKeyHeld=false;openingEscapeEvent=null;}
+        private function deactivated(e:Event):void {keys={};downKeys={};nativeHeldKeys={};pauseOpeningKeyHeld=false;openingEscapeEvent=null;}
         private function keyDown(e:KeyboardEvent):void
         {
+            downKeys[e.keyCode]=true;
+            if(!inputAllowed()){nativeHeldKeys[e.keyCode]=true;return;}
+            if(nativeHeldKeys[e.keyCode])return;
             if(!modalOpen){
                 if(e.keyCode==27){
                     // Capture and target/bubble can see the same event. Only a
@@ -250,8 +271,12 @@ package src.epilogue.ui
         }
         private function keyUp(e:KeyboardEvent):void
         {
+            // Always release our state, even while hidden or a native panel owns input.
+            var nativeHeld:Boolean=Boolean(nativeHeldKeys[e.keyCode]);
+            delete downKeys[e.keyCode];delete nativeHeldKeys[e.keyCode];
             if(e.keyCode==27){pauseOpeningKeyHeld=false;openingEscapeEvent=null;}
             var consumed:Boolean=Boolean(keys[e.keyCode]);delete keys[e.keyCode];
+            if(!inputAllowed() || nativeHeld)return;
             if(modalOpen||consumed){e.stopImmediatePropagation();e.preventDefault();}
         }
         private function renderDialogue():void

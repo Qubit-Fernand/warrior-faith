@@ -23,6 +23,7 @@ package src.epilogue
     import src.InitData;
     import src.LocalSaveManager;
     import src.Player;
+    import src.SelMap;
     import src.epilogue.battle.ChapterEncounter;
     import src.epilogue.battle.ChapterDockEncounter;
     import src.epilogue.scene.ChapterScenery;
@@ -43,6 +44,7 @@ package src.epilogue
         private static var saveStatus:String="idle";
         private static var saveQueued:Boolean=false;
         private static var awaitingFlush:Boolean=false;
+        private static var unsupportedNotice:TextField;
         private static const ARENA_MAP:int=81;
         private static const WIDTH:Number=1600;
         private static const FLOOR:Number=450;
@@ -68,6 +70,10 @@ package src.epilogue
         private var interactionHeld:Boolean=false;
         private var pendingVictory:Boolean=false;
         private var transitioning:Boolean=false;
+        private var nativeUISuspended:Boolean=false;
+        private var nativeUIReport:Object={blocking:false,candidates:[]};
+        private var nativeUIHit:Rectangle;
+        private var nativeUIHitType:String="";
         private var timelinePause:WorldTimelinePause=new WorldTimelinePause();
         // Presentation-only snapshot: never remove effects or alter native attack state.
         private var victoryPresentationWorld:DisplayObjectContainer;
@@ -77,6 +83,22 @@ package src.epilogue
         public static function get loadingChapter():Boolean{return requestedScene!="";}
         public static function onGameStart():void
         {
+            // A future payload is opaque. Do not build v1 UI or normalize any of its fields.
+            if(ChapterState.unsupported)
+            {
+                beforeWorldRemoved();
+                requestedScene="";ChapterState.resumePending=false;
+                saveOwner=ChapterState.value;saveQueued=false;awaitingFlush=false;saveStatus="unsupported";
+                unsupportedNotice=new TextField();
+                unsupportedNotice.defaultTextFormat=new TextFormat("_sans",15,0xFFF0BF,true);
+                unsupportedNotice.text="终章存档来自更新版本；本版保留原数据，暂不开放终章。";
+                unsupportedNotice.width=540;unsupportedNotice.height=30;
+                unsupportedNotice.x=200;unsupportedNotice.y=88;
+                unsupportedNotice.background=true;unsupportedNotice.backgroundColor=0x18383D;
+                unsupportedNotice.selectable=false;unsupportedNotice.mouseEnabled=false;
+                Main._stage.addChild(unsupportedNotice);
+                return;
+            }
             var loaded:Boolean=ChapterState.resumePending;
             ChapterState.resumePending=false;
             inArena=requestedScene!="" && Main.gameNum.getValue()==ARENA_MAP;
@@ -89,6 +111,8 @@ package src.epilogue
         }
         public static function beforeWorldRemoved():void
         {
+            if(unsupportedNotice && unsupportedNotice.parent)unsupportedNotice.parent.removeChild(unsupportedNotice);
+            unsupportedNotice=null;
             if(current)current.dispose();
             current=null;paused=false;inArena=false;
         }
@@ -97,7 +121,8 @@ package src.epilogue
         {
             return {chapter:ChapterState.exported(),inArena:inArena,paused:paused,
                 scene:current?current.scene:"",saveStatus:saveStatus,saveQueued:saveQueued,battle:current&&current.encounter?current.encounter.snapshot:null,
-                dock:current&&current.dock?current.dock.snapshot:null,mentor:current&&current.mentor?getQualifiedClassName(current.mentor):null};
+                dock:current&&current.dock?current.dock.snapshot:null,mentor:current&&current.mentor?getQualifiedClassName(current.mentor):null,
+                nativeUI:current?{suspended:current.nativeUISuspended,scan:current.nativeUIReport}:null};
         }
         private function get state():Object{return ChapterState.value;}
         public function ChapterController(location:String)
@@ -108,6 +133,7 @@ package src.epilogue
             Main.allClosePanel();
             view=new EpilogueView(940,580);
             Main._stage.addChild(view);
+            view.inputAvailable=chapterInputAvailable;
             view.onJournalRequest=journal;
             view.onPauseRequest=pauseMenu;
             prompt=new TextField();prompt.defaultTextFormat=new TextFormat("_sans",15,0xFFF0BF,true);
@@ -160,16 +186,17 @@ package src.epilogue
         {
             var b:Rectangle=mentor.getBounds(Main.world);
             marker.x=b.x+b.width/2;marker.y=b.y-30;
-            marker.visible=unlocked() || int(state.stage)>0;
+            marker.visible=!nativeUISuspended && (unlocked() || int(state.stage)>0);
         }
         private function unlocked():Boolean {return TaskData.isOldById(110117);}
         private function mentorClick(event:MouseEvent):void
         {
+            if(!chapterInputAvailable())return;
             if(marker && marker.visible){event.stopImmediatePropagation();talkMentor();}
         }
         private function talkMentor():void
         {
-            if(view.modalOpen)return;
+            if(view.modalOpen || !chapterInputAvailable())return;
             if(ChapterState.unsupported){notice("此角色的终章保存格式较新，请用对应版本打开。");return;}
             if(!unlocked() && int(state.stage)==0){notice("完成并提交【主线70】再战奥加后，奥古斯汀会收到新的消息。");return;}
             if(Main.P1P2){notice("《归光之约》当前为单人章节。请使用单人角色存档进入；双人角色进度不会被更改。");return;}
@@ -191,7 +218,7 @@ package src.epilogue
             {
                 modalPause();
                 view.showChoice("归光之约","继续旅途会从本段的安全检查点出发；未胜的首领重新开始。",[
-                    {label:"继续旅途",description:"接续已完成的交互；未胜的首领重新开始。",action:function():void{resume();travel(String(state.scene));}},
+                    {label:"继续旅途",description:"接续已完成的交互；未胜的首领重新开始。",action:function():void{travel(String(state.scene));}},
                     {label:"稍后再来",description:"留在村庄。",action:resume}]);
             }
         }
@@ -289,6 +316,7 @@ package src.epilogue
         {
             if(disposed || transitioning)return;
             var now:int=getTimer();var dt:Number=Math.min(.05,Math.max(0,(now-lastTick)/1000));lastTick=now;
+            if(!chapterInputAvailable())return;
             if(resumeNextFrame){resumeNextFrame=false;travel(String(state.scene));return;}
             if(pendingVictory){applyVictory();return;}
             if(pendingDockChange){applyDockChange();return;}
@@ -302,7 +330,7 @@ package src.epilogue
             {
                 if(view.modalOpen)return;
                 actionTime-=dt;
-                if(actionTime<=0 && !scenery.animating){var done:Function=pendingAction;pendingAction=null;resume();done();}
+                if(actionTime<=0 && !scenery.animating){var done:Function=pendingAction;pendingAction=null;finishModal(done);}
                 return;
             }
             if(paused){prompt.text="";return;}
@@ -323,6 +351,93 @@ package src.epilogue
             }
             updateInteraction();
         }
+        private function chapterInputAvailable():Boolean
+        {
+            if(disposed || transitioning)return false;
+            // Native UI retains ownership; this must never call allClosePanel or set stopXX.
+            var blocked:Boolean=!inArena && !view.modalOpen && nativePanelOpen();
+            if(blocked!=nativeUISuspended)
+            {
+                nativeUISuspended=blocked;
+                view.setNativeUISuspended(blocked);
+                interactionHeld=false;nearest=null;
+                if(marker)marker.visible=!blocked && mentor!=null && (unlocked() || int(state.stage)>0);
+            }
+            if(blocked){prompt.visible=false;prompt.text="";nearest=null;}
+            return !blocked;
+        }
+        private function nativePanelOpen():Boolean
+        {
+            nativeUIReport={blocking:false,candidates:[]};
+            // Inspect rendered descendants, not the root translation: the special
+            // difficulty panel lives at +2000 inside a SelMap positioned at -2000.
+            var mapOpen:Boolean=SelMap.selMapX!=null && nativePanelShown(SelMap.selMapX,"SelMap");
+            var stageOpen:Boolean=nativePanelIn(Main._stage);
+            var mainOpen:Boolean=nativePanelIn(Main._this);
+            nativeUIReport.blocking=mapOpen || stageOpen || mainOpen;
+            return Boolean(nativeUIReport.blocking);
+        }
+        private function nativeVisible(object:DisplayObject):Boolean
+        {
+            nativeUIHit=null;nativeUIHitType="";
+            if(!object || !object.stage)return false;
+            for(var ancestor:DisplayObject=object;ancestor;ancestor=ancestor.parent)
+                if(!ancestor.visible || ancestor.alpha<=0)return false;
+            var viewport:Rectangle=new Rectangle(0,0,Main._stage.stageWidth,Main._stage.stageHeight);
+            return nativeContentVisible(object,viewport);
+        }
+        private function nativeContentVisible(object:DisplayObject,viewport:Rectangle):Boolean
+        {
+            if(!object.visible || object.alpha<=0)return false;
+            var bounds:Rectangle=object.getBounds(Main._stage);
+            if(bounds.width<=0 || bounds.height<=0 || !bounds.intersects(viewport))return false;
+            var container:DisplayObjectContainer=object as DisplayObjectContainer;
+            if(container && container.numChildren>0)
+            {
+                // A container's bounds include invisible/offscreen children. Only a
+                // visible rendered leaf is evidence that this native UI is on screen.
+                for(var i:int=0;i<container.numChildren;i++)
+                    if(nativeContentVisible(container.getChildAt(i),viewport))return true;
+                return false;
+            }
+            if(object is TextField)
+            {
+                var text:TextField=object as TextField;
+                if(text.text.length==0 && !text.background && !text.border)return false;
+            }
+            nativeUIHit=bounds;nativeUIHitType=getQualifiedClassName(object);
+            return true;
+        }
+        private function nativePanelShown(object:DisplayObject,source:String):Boolean
+        {
+            var shown:Boolean=nativeVisible(object);
+            var bounds:Rectangle=object.stage?object.getBounds(Main._stage):new Rectangle();
+            nativeUIReport.candidates.push({type:getQualifiedClassName(object),source:source,
+                visible:object.visible,onStage:object.stage!=null,x:object.x,y:object.y,
+                children:object is DisplayObjectContainer?DisplayObjectContainer(object).numChildren:0,
+                rootBounds:{x:bounds.x,y:bounds.y,width:bounds.width,height:bounds.height},shown:shown,
+                leafType:nativeUIHitType,leafBounds:nativeUIHit?{x:nativeUIHit.x,y:nativeUIHit.y,width:nativeUIHit.width,height:nativeUIHit.height}:null});
+            return shown;
+        }
+        private function nativePanelIn(parent:DisplayObjectContainer):Boolean
+        {
+            if(!parent)return false;
+            var found:Boolean=false;
+            var source:String=parent===Main._stage?"Stage":"Main";
+            // Root class names are stable even for private native panel singletons.
+            var nativeRoots:String="|src.Shop4399|src.ShopKillPoint|src.Shop_LiBao|src.Shop_LiBao2|src.PK_UI|src.PK_UI_Sel|src.PK_JiFen_UI|src.Vip_Interface|src.JiHua_Interface|src.XingLing_Interface|src.SixOne_Interface|src.GameStop|";
+            for(var i:int=0;i<parent.numChildren;i++)
+            {
+                var child:DisplayObject=parent.getChildAt(i);
+                var type:String=getQualifiedClassName(child).replace("::", ".");
+                var candidate:Boolean=type.indexOf("src.npc.")==0 &&
+                    (type.indexOf("界面")>=0 || type=="src.npc.InWaterDoor" || type=="src.npc.InWaterKey");
+                candidate=candidate || (type.indexOf("com.hotpoint.braveManIII.views.")==0 && type.substr(type.length-5)=="Panel");
+                candidate=candidate || nativeRoots.indexOf("|"+type+"|")>=0;
+                if(candidate && nativePanelShown(child,source))found=true;
+            }
+            return found;
+        }
         private function updateInteraction():void
         {
             nearest=null;
@@ -341,6 +456,7 @@ package src.epilogue
         private function keyDown(event:KeyboardEvent):void
         {
             if(disposed || transitioning || view.modalOpen)return;
+            if(!chapterInputAvailable() || view.isNativeHeldKey(event.keyCode))return;
             if(pendingAction!=null && event.keyCode==13){event.stopImmediatePropagation();scenery.settle();actionTime=0;return;}
             if(event.keyCode==27){event.stopImmediatePropagation();pauseMenu();return;}
             if(event.keyCode==69 && !interactionHeld && !paused)
@@ -409,7 +525,7 @@ package src.epilogue
             modalPause();
             view.showChoice(id=="beacon"?"留下长明之约":"万家之火",
                 id=="beacon"?"女神自愿留下回应的通道，村民共同守护港口灯塔。此选择会写入本角色的结局。":"解开王座留下的束缚。神殿引路灯熄灭，居民用手灯和路旁灯龛标记归路。此选择会写入本角色的结局。",[
-                {label:"确认这个结局",description:"完成场景仪式并保存结果。",action:function():void{resume();finishEnding(id);}},
+                {label:"确认这个结局",description:"完成场景仪式并保存结果。",action:function():void{finishModal(function():void{finishEnding(id);});}},
                 {label:"再想一想",description:"可以走到另一装置检查。",action:resume}]);
         }
         private function finishEnding(id:String):void
@@ -457,7 +573,7 @@ package src.epilogue
         }
         private function animateChange(seconds:Number,after:Function):void
         {
-            clearInput();paused=true;timelinePause.freeze(Main.world);scenery.setProgress(state);
+            modalPause();scenery.setProgress(state);
             if(navigation)navigation.setProgress(state);
             actionTime=seconds;pendingAction=after;prompt.text="";
         }
@@ -465,18 +581,26 @@ package src.epilogue
         {
             if(dead)return;dead=true;state.deaths=int(state.deaths)+1;modalPause();
             view.showFailure("倒下不会推进剧情。已完成的救援和机关会保留；本场首领将从第一阶段重新开始。",
-                function():void{resume();travel(scene);},function():void{resume();returnVillage();});
+                function():void{travel(scene);},returnVillage);
         }
         private function pauseMenu():void
         {
-            if(view.modalOpen || disposed || transitioning)return;
+            if(view.modalOpen || disposed || transitioning || !chapterInputAvailable())return;
             modalPause();view.showPause(resume,journal,returnVillage,
                 saveStatus=="failed" || saveStatus=="blocked"?function():void{checkpoint(true);resume();}:null);
         }
         private function journal():void
         {
+            if(disposed || transitioning || !chapterInputAvailable())return;
             modalPause();var entries:Array=[];
             var keys:Array=state.journal.concat();if(keys.length==0)keys.push("not_unlocked");
+            // After the ending, lead with its resolution while keeping every earlier page.
+            if(state.ending!="")
+            {
+                var endingIndex:int=keys.indexOf(state.ending);
+                if(endingIndex>=0)keys.splice(endingIndex,1);
+                keys.unshift(state.ending);
+            }
             for each(var key:String in keys)if(ChapterContent.DATA.journal[key])entries.push(ChapterContent.DATA.journal[key]);
             if(state.rewardClaims.returnLight)
                 entries.push({speaker:"归光谢礼",text:"已收到 "+state.rewardClaims.returnLight.gold+" 金币。"+(rewardOwed()>0?"奥古斯汀仍为你保管 "+rewardOwed()+" 金币；留出金币空间后可再领取。":"谢礼已全部领取，不会重复发放。"),portrait:"mentor"});
@@ -487,7 +611,7 @@ package src.epilogue
             if(!ChapterContent.DATA.dialogues[key])throw new Error("Missing chapter dialogue: "+key);
             modalPause();
             view.showDialogue(ChapterContent.DATA.dialogues[key],function():void{
-                state.seenDialogues[key]=true;checkpoint();finishModal(after);
+                state.seenDialogues[key]=true;checkpoint();updateObjective();finishModal(after);
             },Boolean(state.seenDialogues[key]));
         }
         private function notice(text:String,after:Function=null):void
@@ -502,17 +626,31 @@ package src.epilogue
         }
         private function hideVictoryPresentation():void
         {
-            if(victoryPresentationWorld!=null)return;
-            victoryPresentationWorld=Main.world;
+            // Every chapter modal/scene animation shares one original visibility snapshot.
+            // Re-scan a repeated pause without replacing the first saved visible values.
+            if(victoryPresentationWorld && victoryPresentationWorld!==Main.world)
+                clearVictoryPresentation(false);
+            if(!victoryPresentationWorld)victoryPresentationWorld=Main.world;
             if(!victoryPresentationWorld || !Main.player_1)return;
             hideVictoryObject(Main.player_1.skin_W);
-            for each(var effect:Fly in Fly.All)
-                if(effect && effect.who===Main.player_1)hideVictoryObject(effect);
+            hideOwnedProjectiles(victoryPresentationWorld);
+        }
+        private function hideOwnedProjectiles(container:DisplayObjectContainer):void
+        {
+            // Use the live world tree: native Fly.All can retain/remove unrelated entries.
+            // Hiding is presentation only; no child removal, life change or HitXX mutation.
+            for(var i:int=0;i<container.numChildren;i++)
+            {
+                var child:DisplayObject=container.getChildAt(i);
+                if(child is Fly && Fly(child).who===Main.player_1)hideVictoryObject(child);
+                if(child is DisplayObjectContainer)hideOwnedProjectiles(child as DisplayObjectContainer);
+            }
         }
         private function hideVictoryObject(object:DisplayObject):void
         {
-            if(!object || !victoryPresentationWorld.contains(object))return;
-            for each(var saved:Object in victoryPresentation)if(saved.object===object)return;
+            if(!object || !victoryPresentationWorld || !victoryPresentationWorld.contains(object))return;
+            for each(var saved:Object in victoryPresentation)
+                if(saved.object===object){object.visible=false;return;}
             victoryPresentation.push({object:object,visible:object.visible});
             object.visible=false;
         }
@@ -529,7 +667,7 @@ package src.epilogue
             }
         }
         private function modalPause():void
-        {paused=true;timelinePause.freeze(Main.world);clearInput();interactionHeld=false;prompt.text="";if(encounter)encounter.setPaused(true);if(dock)dock.setPaused(true);}
+        {paused=true;hideVictoryPresentation();timelinePause.freeze(Main.world);clearInput();interactionHeld=false;prompt.text="";if(encounter)encounter.setPaused(true);if(dock)dock.setPaused(true);}
         private function resume():void
         {paused=pendingAction!=null || transitioning || view.modalOpen;if(!paused){clearVictoryPresentation(true);timelinePause.resume();}clearInput();interactionHeld=false;lastTick=getTimer();if(encounter)encounter.setPaused(paused);
             if(dock)dock.setPaused(paused);}
@@ -541,6 +679,7 @@ package src.epilogue
         }
         private function checkpoint(showFeedback:Boolean=false):void
         {
+            if(ChapterState.unsupported)return;
             syncTasks();
             if(LocalSaveManager.isPending)
             {saveQueued=true;awaitingFlush=true;saveStatus="pending";return;}
@@ -550,6 +689,7 @@ package src.epilogue
         }
         public static function onSaveResolved(status:String,completedOwner:Object):void
         {
+            if(ChapterState.unsupported){saveQueued=false;awaitingFlush=false;return;}
             if(!awaitingFlush || saveOwner!==ChapterState.value)return;
             awaitingFlush=false;
             if(completedOwner===saveOwner)
@@ -568,6 +708,7 @@ package src.epilogue
         }
         private function syncTasks():void
         {
+            if(ChapterState.unsupported)return;
             for each(var task:Task in TaskData.taskArr)
             {
                 var id:int=task.getId();if(id<190001 || id>190003)continue;
@@ -579,11 +720,23 @@ package src.epilogue
         private function updateObjective():void
         {
             var objective:String="";
-            if(!inArena)objective=state.ending!=""?"故人仍在村庄等你":unlocked()?"寻找奥古斯汀身旁的信标":"完成并提交【主线70】再战奥加";
+            var title:String="归光之约";
+            var complete:Boolean=state.ending!="" && Boolean(state.seenDialogues["post_"+state.ending]);
+            if(!inArena)
+            {
+                objective=state.ending!=""?"与故人告别，听听居民的新打算":unlocked()?"寻找奥古斯汀身旁的信标":"完成并提交【主线70】再战奥加";
+                if(complete)
+                {
+                    title=(state.ending=="beacon"?"长明之约":"万家之火")+" · 已完成";
+                    objective=rewardOwed()>0?"故事已结束，故人保管着未领谢礼":"归途已写完。可自由探索或翻阅记录。";
+                }
+                if(marker && marker.numChildren>0 && marker.getChildAt(0) is TextField)
+                    TextField(marker.getChildAt(0)).text=complete?"✓":"!";
+            }
             else if(scene=="dock")objective=!state.bridgeOpen?"攻击桥锁，放下封锁渡桥":int(state.dockRelays)!=3?"击破继电器，再带居民撤离":int(state.rescuedGroups)<2?"救出居民 "+state.rescuedGroups+" / 2":!state.calibrationDone?(int(state.navigationSteps)<3?"观察线索，校准航标 "+state.navigationSteps+" / 3":"三盘已亮，前往旧罗盘确认"):"沿新方位前往司灯遗址";
             else if(scene=="warden")objective=!state.boss1Defeated?"击破供能灯座，关闭司灯":"修复归光装置，再进入王座";
             else objective=!state.boss2Defeated?"切断输光臂，击败窃光王座":state.endingChoice!=""?"完成归光仪式 "+state.endingNodes+" / 3":"走近归光装置，决定最后的归途";
-            view.setObjective("归光之约",objective,inArena?"E 交互 · Esc 暂停 · 检查点存档":"同人最终章 · 独立存档");
+            view.setObjective(title,objective,inArena?"E 交互 · Esc 暂停 · 检查点存档":"同人最终章 · 独立存档");
         }
         private function travel(destination:String):void
         {

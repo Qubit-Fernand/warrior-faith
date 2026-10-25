@@ -50,7 +50,7 @@ package src.epilogue
         }
         public static function reset():void {restore(null);}
         public static function record(key:String):void
-        { if(value.journal.indexOf(key)<0)value.journal.push(key); }
+        { if(!unsupported && value.journal.indexOf(key)<0)value.journal.push(key); }
         public static function exported():Object {return copy(value);}
     }
 }

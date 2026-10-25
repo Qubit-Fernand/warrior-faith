@@ -201,11 +201,64 @@
         "beacon completed-state cold read pending",
         "final direct shortcut acceptance pending"
       ]
+    },
+    {
+      "time_utc": "2026-10-25T18:59:55.032030+00:00",
+      "candidate": "7/7b-build-only",
+      "commit": "98973ea",
+      "main7b_sha256": "fdc82ff08c40b38be5b08879944a26d5c192a737e18841da0126b1d0f4dd140f",
+      "package7b": "reverse/build/runtime-all-rebuilt-20261025T185524.417086Z",
+      "strict_assembly": "164 rebuilt,0 fallback",
+      "runtime": "not launched; superseded before playtesting by future-version guard repair",
+      "added": "Residents/lanterns/stone idol/lamp niches; explicit three-step ending lights; bounded Boss retirement; story callbacks to original betrayal and compass; developer guide",
+      "found_before_launch": "ChapterState preserved future payload but Controller read v1-only missing fields, changed inChapter and could call undefined journal.concat. Candidate8 avoids creating v1 controller for unsupported versions and preserves opaque payload during native saves."
+    },
+    {
+      "time_utc": "2026-10-25T19:52:47.656304+00:00",
+      "candidate": "8",
+      "package": "reverse/build/runtime-all-rebuilt-20261025T190217.036891Z",
+      "main_sha256": "ee67137cda0c87e22cfcb86193443fcae90c4d44f4e0197f947582086c489d8b",
+      "assembly_sha256": "4d2ad7296b3c30038be64753db34e69df0c5142e86ab796590f841b4179823fc",
+      "strict_assembly": "164 rebuilt,0 fallback",
+      "observed": [
+        "Slot7 future version99: UI only static notice; original movement/save works; full quit/reopen unchanged; full opaque payload canonical AMF graph unchanged, slots1-6 unchanged. Initial field-order-sensitive comparison was corrected before conclusion.",
+        "Slot4 new graduation cap fixture actual full route: intro, bridge, relays, two rescues, navigation3/2/1, warden victory85.476s, both preparations, regent victory108.273s phase2/80hits/2interruptions/1sanctuary escape, release3nodes, animated light ritual, village/post/journal. No new victory flags injected.",
+        "Gold remains500000000; returnLight gold0 pending50000; poststory readable despite cap. Actual spend/refill/cold of this role still pending.",
+        "Original map8 star2: sword/staff kills,drops,room1→2→3 through normal doors. Door1 initially appeared blocked because player was on original overhead platform; step left to x1280/drop and return underneath solved without code.",
+        "Original castle room4 and room5 reached; actual original Enemy28 dark prince screenshot059 and defeated through normal sword/staff skills. Original summons remained before Return Town.",
+        "Actual native WantedPanel purchase spent80000 gold:500000000→499920000; E mentor paid pending50000 exactly, gold499970000, claim50000 pending0. Screenshot060/061. Full quit protected four SOL unchanged.",
+        "Candidate9 cold load slot4 preserved village release state, postread flags, gold499970000 and full claim; chapter entry hidden by native UI false positive, so repeated interaction pending fix."
+      ],
+      "evidence": "private/043–058;052 includes legit prechoice checkpoint SHA8072b1fe16426f419339ec636ac2c8187f1f83cf850cd3a03ccf43ad50bba15d",
+      "issues": [
+        "Bridge-open modal still freezes native finishing skill over scene. Candidate9 broadens presentation hide to all chapter modals.",
+        "Village chapter HUD overlays native world map/NPC panels. Candidate9 adds known-native-panel UI and input handoff."
+      ],
+      "limitations": [
+        "Not final same-package acceptance",
+        "Final shortcut unchanged",
+        "20–40min target not yet demonstrated; do not count tool wait/analysis as playtime",
+        "Slot7 future inChapter=true not tested"
+      ]
+    },
+    {
+      "time_utc": "2026-10-25T20:08:22.169584+00:00",
+      "candidate": "9-rejected-during-playtest",
+      "package": "reverse/build/runtime-all-rebuilt-20261025T195229.975186Z",
+      "main_sha256": "7d4cb0582123e3ef080ece33f712880032f056d4430ae1ff815fd9eb7fa81ec1",
+      "assembly_sha256": "a91006b639baec295d5d61a76a252638f3fa16ccc090d1c32f7c80abf933bf1b",
+      "strict_assembly": "164 rebuilt,0 fallback; launch inputs current",
+      "observed": "Cold slot4 ending state persists, gold499970000 claim50000 pending0. Native UI handoff falsely hides all chapter controls in empty village. Readonly observer root listing identifies two visible CardPanel shells with zero children and zero bounds.",
+      "evidence": [
+        "private/062-candidate9-hidden-entry-regression.png",
+        "private/062-candidate9-hidden-entry-regression.json"
+      ],
+      "fix": "Candidate10 requires actual visible nonempty on-screen descendants; preserves SelMap parent/child coordinate cancellation. Adds blocking leaf diagnostic; compiling, not yet validated."
     }
   ],
   "resume": {
-    "next": "Build candidate7 with reviewed scenery/ritual and bounded visual Boss retirement; then fresh cap-graduation and normal full runs, original Boss comparison, final integration",
-    "player": "fully quit",
-    "acceptance": "all final acceptance pending; minimum7h not reached"
+    "next": "candidate10b Main52424c0a… run-mwj70_hk built; strict assembly session70642. Test native UI and ending closure then integrate final worktree/entry and same-package runs.",
+    "player": "official debugger exited; last candidate9 slot4 release complete/refilled499970000",
+    "acceptance": "all final same-package pending; 7h earliest22:23:17UTC"
   }
 }

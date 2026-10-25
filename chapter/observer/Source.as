@@ -64,8 +64,18 @@ package {
                 sample.npcs=[];if(world)collectNPCs(world as DisplayObject,sample.npcs,0);
                 sample.ui=[];
                 collectText(stage,sample.ui,0);
+                sample.nativeRoots={stage:rootChildren(stage),main:rootChildren(read(main,"_this") as DisplayObjectContainer)};
             }catch(error:Error){sample.observerError={id:error.errorID,text:error.message};}
             report.samples.push(sample);while(report.samples.length>20)report.samples.shift();persist();
+        }
+        private function rootChildren(parent:DisplayObjectContainer):Array{
+            var result:Array=[];if(!parent)return result;
+            for(var i:int=0;i<parent.numChildren;i++){
+                var child:DisplayObject=parent.getChildAt(i);
+                result.push({type:getQualifiedClassName(child),name:child.name,visible:child.visible,
+                    bounds:rect(child),children:child is DisplayObjectContainer?DisplayObjectContainer(child).numChildren:null});
+            }
+            return result;
         }
         private function collectNPCs(node:DisplayObject,output:Array,depth:int):void{
             if(depth>12 || output.length>=40)return;
