@@ -1,0 +1,169 @@
+public function GoTo(param1:String, param2:int = 0, param3:Boolean = false) : *
+{
+trait method Name("GoTo")
+dispid 0
+method
+name null
+flag HAS_OPTIONAL
+param Name("String")
+param Name("int")
+param Name("Boolean")
+optional Integer(0)
+optional False()
+returns null
+
+body
+maxstack 3
+localcount 4
+initscopedepth 10
+maxscopedepth 11
+
+code
+getlocal0
+pushscope
+getlocal3
+pushtrue
+ifne ofs0011
+findproperty Name("stopRun")
+pushtrue
+initproperty Name("stopRun")
+ofs0011:
+getlocal1
+pushstring "怪物技能"
+ifne ofs0022
+findpropstrict Name("enemySkill")
+callpropvoid Name("enemySkill"), 0
+ofs0022:
+getlocal1
+pushstring "被打"
+ifne ofs00ae
+findproperty Name("runType")
+getlocal1
+initproperty Name("runType")
+findproperty Name("runOver")
+pushfalse
+initproperty Name("runOver")
+findproperty Name("stopRun")
+pushfalse
+initproperty Name("stopRun")
+findpropstrict Name("gotoAndPlay")
+getlex Name("runType")
+callpropvoid Name("gotoAndPlay"), 1
+getlex Name("playX")
+getproperty Name("skin_W")
+getlex Name("runType")
+callpropvoid Name("gotoAndPlay"), 1
+getlex Name("playX")
+getproperty Name("skin_Z")
+getlex Name("runType")
+callpropvoid Name("gotoAndPlay"), 1
+getlex Name("playX")
+getproperty Name("skin_Z2")
+iffalse ofs0091
+getlex Name("playX")
+getproperty Name("skin_Z2")
+getlex Name("runType")
+callpropvoid Name("gotoAndPlay"), 1
+ofs0091:
+getlex Name("playX")
+getproperty Name("skin_Z3")
+iffalse ofs00ae
+getlex Name("playX")
+getproperty Name("skin_Z3")
+getlex Name("runType")
+callpropvoid Name("gotoAndPlay"), 1
+ofs00ae:
+getlex Name("runOver")
+convert_b
+dup
+iftrue ofs00be
+pop
+getlex Name("stopRun")
+convert_b
+ofs00be:
+dup
+iffalse ofs00cb
+pop
+getlex Name("runType")
+getlocal1
+equals
+not
+ofs00cb:
+iffalse ofs01c5
+findpropstrict Name("OtherGoTo")
+getlocal1
+callproperty Name("OtherGoTo"), 1
+coerce_s
+setlocal1
+findpropstrict Name("CanGoTo")
+getlocal1
+callproperty Name("CanGoTo"), 1
+iffalse ofs01c5
+findproperty Name("runType")
+getlocal1
+initproperty Name("runType")
+findpropstrict Name("otherGoTo")
+getlex Name("runType")
+callpropvoid Name("otherGoTo"), 1
+findpropstrict Name("gotoAndPlay")
+getlex Name("runType")
+callpropvoid Name("gotoAndPlay"), 1
+getlex Name("playX")
+getproperty Name("skin_W")
+getlex Name("runType")
+callpropvoid Name("gotoAndPlay"), 1
+getlex Name("playX")
+getproperty Name("skin_Z")
+getlex Name("runType")
+callpropvoid Name("gotoAndPlay"), 1
+getlex Name("playX")
+getproperty Name("skin_Z2")
+iffalse ofs014b
+getlex Name("playX")
+getproperty Name("skin_Z2")
+getlex Name("runType")
+callpropvoid Name("gotoAndPlay"), 1
+ofs014b:
+getlex Name("playX")
+getproperty Name("skin_Z3")
+iffalse ofs0189
+getlex Name("runType")
+pushstring "跳"
+equals
+iffalse ofs0178
+getlex Name("playX")
+getproperty Name("skin_Z3")
+getlex Name("runType")
+callpropvoid Name("gotoAndStop"), 1
+jump ofs0189
+ofs0178:
+getlex Name("playX")
+getproperty Name("skin_Z3")
+getlex Name("runType")
+callpropvoid Name("gotoAndPlay"), 1
+ofs0189:
+findproperty Name("runOver")
+pushfalse
+initproperty Name("runOver")
+findproperty Name("frame")
+pushbyte 0
+initproperty Name("frame")
+getlex Name("MusicBox")
+getlex Name("playX")
+getproperty Name("data")
+getproperty Name("skinArr")
+getlex Name("playX")
+getproperty Name("data")
+getproperty Name("skinNum")
+getproperty MultinameL([PrivateNamespace(null,"183"),PackageNamespace(""),PrivateNamespace(null,"885"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("com.greensock"),Namespace("com.greensock.easing"),ProtectedNamespace("src:Skin"),StaticProtectedNs("src:Skin"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+getlex Name("runType")
+callpropvoid Name("ActMusicPlay"), 2
+ofs01c5:
+findproperty Name("continuousTime")
+getlocal2
+initproperty Name("continuousTime")
+returnvoid
+end ; code
+end ; body
+end ; method
+}

@@ -1,0 +1,726 @@
+package com.hotpoint.braveManIII.repository.skill
+{
+   import com.hotpoint.braveManIII.models.common.*;
+   import com.hotpoint.braveManIII.models.skill.*;
+   import flash.utils.ByteArray;
+   import src.tool.*;
+   
+   public class SkillFactory
+   {
+      
+      public static var skillAllDataArr:Array;
+      
+      public static var isSkillDataOk:Boolean;
+      
+      public static var myXml:XML;
+      
+      public static var myXmlMD5:ByteArray;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"skillAllDataArr")
+               newarray 0
+               setproperty QName(PackageNamespace(""),"skillAllDataArr")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function SkillFactory()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function creatSkillData() : void
+      {
+         trait method QName(PackageNamespace(""),"creatSkillData")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 2
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findproperty Multiname("myXmlMD5",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                     getlex Multiname("Obj_Compare",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                     getlex Multiname("SkillFactory",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                     getproperty Multiname("myXml",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                     callproperty Multiname("getObj_ByteArray",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                     setproperty Multiname("myXmlMD5",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                     getlocal0
+                     construct 0
+                     coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.skill"),"SkillFactory")
+                     setlocal1
+                     getlocal1
+                     callpropvoid Multiname("creatLoard",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 0
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public static function getSkillById(param1:Number) : Skill
+         {
+            trait method QName(PackageNamespace(""),"getSkillById")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  param QName(PackageNamespace(""),"Number")
+                  returns QName(PackageNamespace("com.hotpoint.braveManIII.models.skill"),"Skill")
+                  
+                  body
+                     maxstack 2
+                     localcount 6
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushnull
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.skill"),"Skill")
+                        setlocal3
+                        pushnull
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.skill"),"Skill")
+                        setlocal2
+                        pushbyte 0
+                        setlocal 4
+                        getlex Multiname("skillAllDataArr",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                        coerce_a
+                        setlocal 5
+                        jump ofs002f
+               ofs0018:
+                        label
+                        getlocal 5
+                        getlocal 4
+                        nextvalue
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.skill"),"Skill")
+                        setlocal3
+                        getlocal3
+                        callproperty Multiname("getId",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 0
+                        getlocal1
+                        ifne ofs002f
+                        getlocal3
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.skill"),"Skill")
+                        setlocal2
+               ofs002f:
+                        hasnext2 5, 4
+                        iftrue ofs0018
+                        kill 5
+                        kill 4
+                        getlocal2
+                        pushnull
+                        ifne ofs0040
+               ofs0040:
+                        getlocal2
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public static function getSkillByTypeIAndLevel(param1:String, param2:Number = 1) : Skill
+            {
+               trait method QName(PackageNamespace(""),"getSkillByTypeIAndLevel")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     flag HAS_OPTIONAL
+                     param QName(PackageNamespace(""),"String")
+                     param QName(PackageNamespace(""),"Number")
+                     optional Integer(1)
+                     returns QName(PackageNamespace("com.hotpoint.braveManIII.models.skill"),"Skill")
+                     
+                     body
+                        maxstack 2
+                        localcount 9
+                        initscopedepth 3
+                        maxscopedepth 4
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushnull
+                           coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.skill"),"Skill")
+                           setlocal 5
+                           pushnull
+                           coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.skill"),"Skill")
+                           setlocal 6
+                           newarray 0
+                           coerce QName(PackageNamespace(""),"Array")
+                           setlocal3
+                           pushnull
+                           coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.skill"),"Skill")
+                           setlocal 4
+                           pushbyte 0
+                           setlocal 7
+                           getlex Multiname("skillAllDataArr",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                           coerce_a
+                           setlocal 8
+                           jump ofs003f
+                  ofs0024:
+                           label
+                           getlocal 8
+                           getlocal 7
+                           nextvalue
+                           coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.skill"),"Skill")
+                           dup
+                           setlocal 5
+                           callproperty Multiname("getTypeId",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 0
+                           getlocal1
+                           ifne ofs003f
+                           getlocal3
+                           getlocal 5
+                           callpropvoid Multiname("push",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                  ofs003f:
+                           hasnext2 8, 7
+                           iftrue ofs0024
+                           kill 8
+                           kill 7
+                           pushbyte 0
+                           setlocal 7
+                           getlocal3
+                           coerce_a
+                           setlocal 8
+                           jump ofs0070
+                  ofs0056:
+                           label
+                           getlocal 8
+                           getlocal 7
+                           nextvalue
+                           coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.skill"),"Skill")
+                           dup
+                           setlocal 6
+                           callproperty Multiname("getSkillLevel",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 0
+                           getlocal2
+                           ifne ofs0070
+                           getlocal 6
+                           coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.skill"),"Skill")
+                           setlocal 4
+                  ofs0070:
+                           hasnext2 8, 7
+                           iftrue ofs0056
+                           kill 8
+                           kill 7
+                           getlocal 4
+                           pushnull
+                           ifne ofs0082
+                  ofs0082:
+                           getlocal 4
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public static function getSkillByPet(param1:String) : Number
+               {
+                  trait method QName(PackageNamespace(""),"getSkillByPet")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"String")
+                        returns QName(PackageNamespace(""),"Number")
+                        
+                        body
+                           maxstack 5
+                           localcount 7
+                           initscopedepth 3
+                           maxscopedepth 4
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushnull
+                              coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.skill"),"Skill")
+                              setlocal 4
+                              newarray 0
+                              coerce QName(PackageNamespace(""),"Array")
+                              setlocal2
+                              pushnull
+                              coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.skill"),"Skill")
+                              setlocal3
+                              pushbyte 0
+                              setlocal 5
+                              getlex Multiname("skillAllDataArr",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                              coerce_a
+                              setlocal 6
+                              jump ofs003d
+                     ofs001e:
+                              label
+                              getlocal 6
+                              getlocal 5
+                              nextvalue
+                              coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.skill"),"Skill")
+                              dup
+                              setlocal 4
+                              callproperty Multiname("getProfessional",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 0
+                              getlocal1
+                              ifne ofs003d
+                              getlocal2
+                              getlocal 4
+                              callproperty Multiname("getId",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 0
+                              callpropvoid Multiname("push",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                     ofs003d:
+                              hasnext2 6, 5
+                              iftrue ofs001e
+                              kill 6
+                              kill 5
+                              getlocal2
+                              getlex Multiname("Math",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                              getlex Multiname("Math",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                              callproperty Multiname("random",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 0
+                              getlocal2
+                              getproperty Multiname("length",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                              decrement
+                              multiply
+                              callproperty Multiname("round",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                              getproperty MultinameL([PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  private function creatLoard() : *
+                  {
+                     trait method QName(PrivateNamespace(null,"12"),"creatLoard")
+                        dispid 0
+                        method
+                           name null
+                           returns null
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 findpropstrict Multiname("xmlLoaded",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                 callpropvoid Multiname("xmlLoaded",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 0
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     internal function xmlLoaded() : *
+                     {
+                        trait method QName(PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),"xmlLoaded")
+                           dispid 0
+                           method
+                              name null
+                              returns null
+                              
+                              body
+                                 maxstack 17
+                                 localcount 25
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    pushnull
+                                    coerce QName(PackageNamespace(""),"XML")
+                                    setlocal1
+                                    pushnan
+                                    setlocal2
+                                    pushnull
+                                    coerce_s
+                                    setlocal3
+                                    pushnan
+                                    setlocal 4
+                                    pushnull
+                                    coerce_s
+                                    setlocal 5
+                                    pushnull
+                                    coerce_s
+                                    setlocal 6
+                                    pushnull
+                                    coerce_s
+                                    setlocal 7
+                                    pushnull
+                                    coerce_s
+                                    setlocal 8
+                                    pushnull
+                                    coerce_s
+                                    setlocal 9
+                                    pushnan
+                                    setlocal 10
+                                    pushnan
+                                    setlocal 11
+                                    pushnan
+                                    setlocal 12
+                                    pushnan
+                                    setlocal 13
+                                    pushnan
+                                    setlocal 14
+                                    pushnan
+                                    setlocal 15
+                                    pushnan
+                                    setlocal 16
+                                    pushnull
+                                    coerce QName(PackageNamespace(""),"XMLList")
+                                    setlocal 17
+                                    pushnull
+                                    coerce QName(PackageNamespace(""),"Array")
+                                    setlocal 18
+                                    pushnull
+                                    coerce QName(PackageNamespace(""),"XML")
+                                    setlocal 19
+                                    pushnull
+                                    coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.skill"),"Skill")
+                                    setlocal 20
+                                    pushbyte 0
+                                    setlocal 21
+                                    getlex Multiname("myXml",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getproperty Multiname("数据",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    coerce_a
+                                    setlocal 22
+                                    jump ofs02e5
+                           ofs005d:
+                                    label
+                                    getlocal 22
+                                    getlocal 21
+                                    nextvalue
+                                    coerce QName(PackageNamespace(""),"XML")
+                                    setlocal1
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal1
+                                    getproperty Multiname("编号",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    convert_d
+                                    setlocal2
+                                    findpropstrict Multiname("String",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal1
+                                    getproperty Multiname("技能类型",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("String",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    coerce_s
+                                    setlocal3
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal1
+                                    getproperty Multiname("帧数",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    convert_d
+                                    setlocal 4
+                                    findpropstrict Multiname("String",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal1
+                                    getproperty Multiname("技能名称",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("String",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    coerce_s
+                                    setlocal 5
+                                    findpropstrict Multiname("String",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal1
+                                    getproperty Multiname("技能描述",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("String",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    coerce_s
+                                    setlocal 6
+                                    findpropstrict Multiname("String",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal1
+                                    getproperty Multiname("触发类型",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("String",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    coerce_s
+                                    setlocal 7
+                                    findpropstrict Multiname("String",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal1
+                                    getproperty Multiname("职业要求",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("String",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    coerce_s
+                                    setlocal 8
+                                    findpropstrict Multiname("String",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal1
+                                    getproperty Multiname("武器要求",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("String",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    coerce_s
+                                    setlocal 9
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal1
+                                    getproperty Multiname("技能等级",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    convert_d
+                                    setlocal 10
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal1
+                                    getproperty Multiname("技能等级上限",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    convert_d
+                                    setlocal 11
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal1
+                                    getproperty Multiname("魔法消耗",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    convert_d
+                                    setlocal 12
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal1
+                                    getproperty Multiname("能量消耗",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    convert_d
+                                    setlocal 13
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal1
+                                    getproperty Multiname("技能冷却",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    convert_d
+                                    setlocal 14
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal1
+                                    getproperty Multiname("持续时间",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    convert_d
+                                    setlocal 15
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal1
+                                    getproperty Multiname("作用类型",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    convert_d
+                                    setlocal 16
+                                    getlocal1
+                                    getproperty Multiname("具体数值",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    coerce QName(PackageNamespace(""),"XMLList")
+                                    setlocal 17
+                                    newarray 0
+                                    coerce QName(PackageNamespace(""),"Array")
+                                    setlocal 18
+                                    pushbyte 0
+                                    setlocal 23
+                                    getlocal 17
+                                    coerce_a
+                                    setlocal 24
+                                    jump ofs02a8
+                           ofs0152:
+                                    label
+                                    getlocal 24
+                                    getlocal 23
+                                    nextvalue
+                                    coerce QName(PackageNamespace(""),"XML")
+                                    dup
+                                    setlocal 19
+                                    getproperty Multiname("数值1",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    pushstring "null"
+                                    ifeq ofs0180
+                                    getlocal 18
+                                    getlex Multiname("VT",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory"),PackageNamespace("com.hotpoint.braveManIII.models.common")])
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal 19
+                                    getproperty Multiname("数值1",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    callproperty Multiname("createVT",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    callpropvoid Multiname("push",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                           ofs0180:
+                                    getlocal 19
+                                    getproperty Multiname("数值2",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    pushstring "null"
+                                    ifeq ofs01a5
+                                    getlocal 18
+                                    getlex Multiname("VT",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory"),PackageNamespace("com.hotpoint.braveManIII.models.common")])
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal 19
+                                    getproperty Multiname("数值2",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    callproperty Multiname("createVT",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    callpropvoid Multiname("push",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                           ofs01a5:
+                                    getlocal 19
+                                    getproperty Multiname("数值3",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    pushstring "null"
+                                    ifeq ofs01ca
+                                    getlocal 18
+                                    getlex Multiname("VT",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory"),PackageNamespace("com.hotpoint.braveManIII.models.common")])
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal 19
+                                    getproperty Multiname("数值3",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    callproperty Multiname("createVT",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    callpropvoid Multiname("push",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                           ofs01ca:
+                                    getlocal 19
+                                    getproperty Multiname("数值4",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    pushstring "null"
+                                    ifeq ofs01ef
+                                    getlocal 18
+                                    getlex Multiname("VT",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory"),PackageNamespace("com.hotpoint.braveManIII.models.common")])
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal 19
+                                    getproperty Multiname("数值4",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    callproperty Multiname("createVT",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    callpropvoid Multiname("push",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                           ofs01ef:
+                                    getlocal 19
+                                    getproperty Multiname("次数",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    pushstring "null"
+                                    ifeq ofs0214
+                                    getlocal 18
+                                    getlex Multiname("VT",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory"),PackageNamespace("com.hotpoint.braveManIII.models.common")])
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal 19
+                                    getproperty Multiname("次数",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    callproperty Multiname("createVT",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    callpropvoid Multiname("push",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                           ofs0214:
+                                    getlocal 19
+                                    getproperty Multiname("硬直",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    pushstring "null"
+                                    ifeq ofs0239
+                                    getlocal 18
+                                    getlex Multiname("VT",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory"),PackageNamespace("com.hotpoint.braveManIII.models.common")])
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal 19
+                                    getproperty Multiname("硬直",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    callproperty Multiname("createVT",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    callpropvoid Multiname("push",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                           ofs0239:
+                                    getlocal 19
+                                    getproperty Multiname("挑高",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    pushstring "null"
+                                    ifeq ofs025e
+                                    getlocal 18
+                                    getlex Multiname("VT",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory"),PackageNamespace("com.hotpoint.braveManIII.models.common")])
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal 19
+                                    getproperty Multiname("挑高",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    callproperty Multiname("createVT",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    callpropvoid Multiname("push",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                           ofs025e:
+                                    getlocal 19
+                                    getproperty Multiname("震退",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    pushstring "null"
+                                    ifeq ofs0283
+                                    getlocal 18
+                                    getlex Multiname("VT",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory"),PackageNamespace("com.hotpoint.braveManIII.models.common")])
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal 19
+                                    getproperty Multiname("震退",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    callproperty Multiname("createVT",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    callpropvoid Multiname("push",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                           ofs0283:
+                                    getlocal 19
+                                    getproperty Multiname("持续",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    pushstring "null"
+                                    ifeq ofs02a8
+                                    getlocal 18
+                                    getlex Multiname("VT",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory"),PackageNamespace("com.hotpoint.braveManIII.models.common")])
+                                    findpropstrict Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal 19
+                                    getproperty Multiname("持续",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    callproperty Multiname("Number",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    callproperty Multiname("createVT",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                                    callpropvoid Multiname("push",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                           ofs02a8:
+                                    hasnext2 24, 23
+                                    iftrue ofs0152
+                                    kill 24
+                                    kill 23
+                                    getlex Multiname("Skill",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory"),PackageNamespace("com.hotpoint.braveManIII.models.skill")])
+                                    getlocal2
+                                    getlocal3
+                                    getlocal 4
+                                    getlocal 5
+                                    getlocal 6
+                                    getlocal 7
+                                    getlocal 9
+                                    getlocal 8
+                                    getlocal 10
+                                    getlocal 11
+                                    getlocal 12
+                                    getlocal 13
+                                    getlocal 14
+                                    getlocal 15
+                                    getlocal 16
+                                    getlocal 18
+                                    callproperty Multiname("creatSkill",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 16
+                                    coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.skill"),"Skill")
+                                    setlocal 20
+                                    getlex Multiname("skillAllDataArr",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    getlocal 20
+                                    callpropvoid Multiname("push",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")]), 1
+                           ofs02e5:
+                                    hasnext2 22, 21
+                                    iftrue ofs005d
+                                    kill 22
+                                    kill 21
+                                    findproperty Multiname("isSkillDataOk",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    pushtrue
+                                    setproperty Multiname("isSkillDataOk",[PrivateNamespace(null,"12"),PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool"),ProtectedNamespace("com.hotpoint.braveManIII.repository.skill:SkillFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.skill:SkillFactory")])
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                     }
+                  }
+                  
+                  method
+                     name null
+                     returns null
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 1
+                        maxscopedepth 3
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           findpropstrict Multiname("SkillFactory",[PackageNamespace("com.hotpoint.braveManIII.repository.skill")])
+                           getlex QName(PackageNamespace(""),"Object")
+                           pushscope
+                           getlex Multiname("Object",[PackageNamespace(""),PrivateNamespace(null,"226"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageInternalNs("com.hotpoint.braveManIII.repository.skill"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src.tool")])
+                           newclass 10
+                           popscope
+                           initproperty QName(PackageNamespace("com.hotpoint.braveManIII.repository.skill"),"SkillFactory")
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+                  

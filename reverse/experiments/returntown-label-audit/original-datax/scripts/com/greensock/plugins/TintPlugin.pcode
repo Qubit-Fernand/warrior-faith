@@ -1,0 +1,323 @@
+package com.greensock.plugins
+{
+   import com.greensock.*;
+   import com.greensock.core.*;
+   import flash.display.*;
+   import flash.geom.*;
+   
+   public class TintPlugin extends TweenPlugin
+   {
+      
+      public static const API:Number = 1;
+      
+      protected static var _props:Array;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 9
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"API")
+               pushbyte 1
+               initproperty QName(PackageNamespace(""),"API")
+               findproperty QName(StaticProtectedNs("com.greensock.plugins:TintPlugin"),"_props")
+               pushstring "redMultiplier"
+               pushstring "greenMultiplier"
+               pushstring "blueMultiplier"
+               pushstring "alphaMultiplier"
+               pushstring "redOffset"
+               pushstring "greenOffset"
+               pushstring "blueOffset"
+               pushstring "alphaOffset"
+               newarray 8
+               setproperty QName(StaticProtectedNs("com.greensock.plugins:TintPlugin"),"_props")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var _transform:Transform;
+      
+      protected var _ct:ColorTransform;
+      
+      protected var _ignoreAlpha:Boolean;
+      
+      public function TintPlugin()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  pushstring "tint"
+                  initproperty Multiname("propName",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  getlocal0
+                  pushstring "tint"
+                  newarray 1
+                  initproperty Multiname("overwriteProps",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function onInitTween(param1:Object, param2:*, param3:TweenLite) : Boolean
+      {
+         trait method QName(PackageNamespace(""),"onInitTween")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"Object")
+               param null
+               param QName(PackageNamespace("com.greensock"),"TweenLite")
+               returns QName(PackageNamespace(""),"Boolean")
+               
+               body
+                  maxstack 3
+                  localcount 5
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal1
+                     getlex Multiname("DisplayObject",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     istypelate
+                     iftrue ofs000d
+                     pushfalse
+                     returnvalue
+            ofs000d:
+                     findpropstrict Multiname("ColorTransform",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin"),PackageNamespace("flash.geom")])
+                     constructprop Multiname("ColorTransform",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin"),PackageNamespace("flash.geom")]), 0
+                     coerce QName(PackageNamespace("flash.geom"),"ColorTransform")
+                     setlocal 4
+                     getlocal2
+                     pushnull
+                     equals
+                     not
+                     dup
+                     iffalse ofs002c
+                     pop
+                     getlocal3
+                     getproperty Multiname("vars",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("removeTint",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     pushtrue
+                     equals
+                     not
+            ofs002c:
+                     iffalse ofs003d
+                     getlocal 4
+                     findpropstrict Multiname("uint",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal2
+                     callproperty Multiname("uint",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                     setproperty Multiname("color",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+            ofs003d:
+                     findproperty Multiname("_ignoreAlpha",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     pushtrue
+                     initproperty Multiname("_ignoreAlpha",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     findproperty Multiname("_transform",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     findpropstrict Multiname("DisplayObject",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal1
+                     callproperty Multiname("DisplayObject",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                     getproperty Multiname("transform",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     initproperty Multiname("_transform",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     findpropstrict Multiname("init",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlex Multiname("_transform",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("colorTransform",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     callpropvoid Multiname("init",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 2
+                     pushtrue
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function init(param1:ColorTransform, param2:ColorTransform) : void
+         {
+            trait method QName(PackageNamespace(""),"init")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("flash.geom"),"ColorTransform")
+                  param QName(PackageNamespace("flash.geom"),"ColorTransform")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 9
+                     localcount 7
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushnull
+                        coerce_s
+                        setlocal 4
+                        findproperty Multiname("_ct",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal1
+                        initproperty Multiname("_ct",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlex Multiname("_props",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getproperty Multiname("length",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        convert_i
+                        setlocal3
+                        getlex Multiname("_tweens",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getproperty Multiname("length",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        convert_i
+                        setlocal 5
+                        jump ofs0077
+               ofs0022:
+                        label
+                        getlex Multiname("_props",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal3
+                        getproperty MultinameL([PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        coerce_s
+                        setlocal 4
+                        getlex Multiname("_ct",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal 4
+                        getproperty MultinameL([PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal2
+                        getlocal 4
+                        getproperty MultinameL([PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        ifeq ofs0077
+                        getlex Multiname("_tweens",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal 5
+                        dup
+                        increment_i
+                        setlocal 5
+                        dup
+                        setlocal 6
+                        findpropstrict Multiname("PropTween",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlex Multiname("_ct",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal 4
+                        getlex Multiname("_ct",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal 4
+                        getproperty MultinameL([PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal2
+                        getlocal 4
+                        getproperty MultinameL([PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlex Multiname("_ct",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal 4
+                        getproperty MultinameL([PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        subtract
+                        pushstring "tint"
+                        pushfalse
+                        constructprop Multiname("PropTween",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 6
+                        setproperty MultinameL([PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        kill 6
+               ofs0077:
+                        getlocal3
+                        dup
+                        decrement_i
+                        setlocal3
+                        iftrue ofs0022
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            override public function set changeFactor(param1:Number) : void
+            {
+               trait setter QName(PackageNamespace(""),"changeFactor")
+                  flag OVERRIDE
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"Number")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 3
+                        initscopedepth 5
+                        maxscopedepth 6
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushnull
+                           coerce QName(PackageNamespace("flash.geom"),"ColorTransform")
+                           setlocal2
+                           findpropstrict Multiname("updateTweens",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal1
+                           callpropvoid Multiname("updateTweens",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                           getlex Multiname("_transform",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           iffalse ofs0042
+                           getlex Multiname("_ignoreAlpha",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           iffalse ofs0039
+                           getlex Multiname("_transform",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("colorTransform",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           coerce QName(PackageNamespace("flash.geom"),"ColorTransform")
+                           setlocal2
+                           getlex Multiname("_ct",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal2
+                           getproperty Multiname("alphaMultiplier",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           setproperty Multiname("alphaMultiplier",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlex Multiname("_ct",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal2
+                           getproperty Multiname("alphaOffset",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           setproperty Multiname("alphaOffset",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  ofs0039:
+                           getlex Multiname("_transform",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlex Multiname("_ct",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           setproperty Multiname("colorTransform",[PrivateNamespace(null,"386"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:TintPlugin"),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:TintPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  ofs0042:
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+            }
+         }
+         
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 1
+               maxscopedepth 4
+               
+               code
+                  getlocal0
+                  pushscope
+                  findpropstrict Multiname("TintPlugin",[PackageNamespace("com.greensock.plugins")])
+                  getlex QName(PackageNamespace(""),"Object")
+                  pushscope
+                  getlex QName(PackageNamespace("com.greensock.plugins"),"TweenPlugin")
+                  pushscope
+                  getlex Multiname("TweenPlugin",[PackageNamespace(""),PrivateNamespace(null,"387"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),PackageNamespace("flash.display")])
+                  newclass 144
+                  popscope
+                  popscope
+                  initproperty QName(PackageNamespace("com.greensock.plugins"),"TintPlugin")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+         

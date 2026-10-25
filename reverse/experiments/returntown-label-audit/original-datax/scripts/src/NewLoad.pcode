@@ -1,0 +1,536 @@
+package src
+{
+   import com.hotpoint.braveManIII.models.player.*;
+   import flash.display.*;
+   import flash.events.*;
+   import flash.geom.*;
+   import flash.text.*;
+   import flash.utils.*;
+   import src.tool.*;
+   
+   public class NewLoad extends MovieClip
+   {
+      
+      public static var zhuangBeiSkin:Array;
+      
+      public static var loadArr:Array;
+      
+      public static var loadType:uint = 1;
+      
+      public static var who:uint = 1;
+      
+      private static var loadingYN:Boolean = true;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 4
+            localcount 1
+            initscopedepth 9
+            maxscopedepth 10
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"zhuangBeiSkin")
+               findpropstrict Multiname("Array",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+               constructprop Multiname("Array",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+               findpropstrict Multiname("Array",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+               constructprop Multiname("Array",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+               findpropstrict Multiname("Array",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+               constructprop Multiname("Array",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+               newarray 3
+               setproperty QName(PackageNamespace(""),"zhuangBeiSkin")
+               findproperty QName(PackageNamespace(""),"loadArr")
+               findpropstrict Multiname("Array",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+               constructprop Multiname("Array",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+               setproperty QName(PackageNamespace(""),"loadArr")
+               findproperty QName(PackageNamespace(""),"loadType")
+               pushbyte 1
+               setproperty QName(PackageNamespace(""),"loadType")
+               findproperty QName(PackageNamespace(""),"who")
+               pushbyte 1
+               setproperty QName(PackageNamespace(""),"who")
+               findproperty QName(PrivateNamespace(null,"193"),"loadingYN")
+               pushtrue
+               setproperty QName(PrivateNamespace(null,"193"),"loadingYN")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function NewLoad()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 10
+               maxscopedepth 11
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function Loading(param1:uint = 1, param2:uint = 1) : *
+      {
+         trait method QName(PackageNamespace(""),"Loading")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               flag HAS_OPTIONAL
+               param QName(PackageNamespace(""),"uint")
+               param QName(PackageNamespace(""),"uint")
+               optional Integer(1)
+               optional Integer(1)
+               returns null
+               
+               body
+                  maxstack 4
+                  localcount 5
+                  initscopedepth 9
+                  maxscopedepth 10
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushbyte 0
+                     convert_u
+                     setlocal 4
+                     findproperty Multiname("loadType",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal1
+                     setproperty Multiname("loadType",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     findproperty Multiname("who",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal2
+                     setproperty Multiname("who",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     pushbyte 1
+                     convert_u
+                     setlocal3
+                     getlex Multiname("Main",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("P1P2",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     iffalse ofs0027
+                     pushbyte 2
+                     convert_u
+                     setlocal3
+            ofs0027:
+                     getlex Multiname("loadType",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     pushbyte 3
+                     ifne ofs0041
+                     findpropstrict Multiname("Loading_Equip",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlex Multiname("PK_UI",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("whoData",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callpropvoid Multiname("Loading_Equip",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                     jump ofs0090
+            ofs0041:
+                     pushbyte 1
+                     convert_u
+                     setlocal 4
+                     jump ofs0089
+            ofs004a:
+                     label
+                     getlex Multiname("Main",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     pushstring "player"
+                     getlocal 4
+                     add
+                     getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     iftrue ofs0070
+                     getlex Multiname("Main",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     pushstring "player"
+                     getlocal 4
+                     add
+                     getlex Multiname("PlayerData",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher"),PackageNamespace("com.hotpoint.braveManIII.models.player")])
+                     getlocal 4
+                     callproperty Multiname("creatPlayerData",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                     setproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+            ofs0070:
+                     findpropstrict Multiname("Loading_Equip",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlex Multiname("Main",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     pushstring "player"
+                     getlocal 4
+                     add
+                     getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callpropvoid Multiname("Loading_Equip",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                     getlocal 4
+                     increment
+                     convert_u
+                     setlocal 4
+            ofs0089:
+                     getlocal 4
+                     getlocal3
+                     ifle ofs004a
+            ofs0090:
+                     findpropstrict Multiname("LoadGo",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callpropvoid Multiname("LoadGo",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private static function Loading_Equip(param1:PlayerData) : *
+         {
+            trait method QName(PrivateNamespace(null,"193"),"Loading_Equip")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  param QName(PackageNamespace("com.hotpoint.braveManIII.models.player"),"PlayerData")
+                  returns null
+                  
+                  body
+                     maxstack 4
+                     localcount 11
+                     initscopedepth 9
+                     maxscopedepth 10
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushbyte 0
+                        setlocal 4
+                        pushnull
+                        coerce_s
+                        setlocal 5
+                        pushbyte 0
+                        convert_u
+                        setlocal 8
+                        pushundefined
+                        coerce_a
+                        setlocal 9
+                        pushnull
+                        coerce_s
+                        setlocal 10
+                        getlocal1
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.player"),"PlayerData")
+                        setlocal2
+                        getlocal2
+                        getproperty Multiname("skinArr",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal2
+                        getproperty Multiname("skinNum",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        convert_u
+                        setlocal3
+                        pushbyte 1
+                        pushbyte 6
+                        pushbyte 7
+                        pushbyte 9
+                        newarray 4
+                        coerce QName(PackageNamespace(""),"Array")
+                        setlocal 6
+                        pushbyte 0
+                        convert_u
+                        setlocal 7
+                        jump ofs00e6
+               ofs003f:
+                        label
+                        getlocal 6
+                        getlocal 7
+                        getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        convert_u
+                        setlocal 8
+                        getlocal2
+                        callproperty Multiname("getEquipSlot",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                        getlocal 8
+                        callproperty Multiname("getEquipFromSlot",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                        pushnull
+                        ifeq ofs0082
+                        getlocal2
+                        callproperty Multiname("getEquipSlot",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                        getlocal 8
+                        callproperty Multiname("getEquipFromSlot",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                        callproperty Multiname("getClassName3",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                        convert_i
+                        setlocal 4
+                        getlocal2
+                        callproperty Multiname("getEquipSlot",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                        getlocal 8
+                        callproperty Multiname("getEquipFromSlot",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                        callproperty Multiname("getClassName4",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                        coerce_s
+                        setlocal 5
+                        jump ofs009f
+               ofs0082:
+                        getlocal 7
+                        pushbyte 0
+                        equals
+                        dup
+                        iftrue ofs0092
+                        pop
+                        getlocal 7
+                        pushbyte 3
+                        equals
+               ofs0092:
+                        iffalse ofs009f
+                        pushbyte 1
+                        setlocal 4
+                        pushstring "1_v2"
+                        setlocal 5
+               ofs009f:
+                        getlex Multiname("zhuangBeiSkin",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal3
+                        getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal 4
+                        getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        coerce_a
+                        dup
+                        setlocal 9
+                        not
+                        dup
+                        iffalse ofs00bc
+                        pop
+                        getlocal 5
+                        pushbyte 0
+                        equals
+                        not
+               ofs00bc:
+                        iffalse ofs00e0
+                        pushstring "equip_"
+                        getlocal3
+                        add
+                        pushstring "_"
+                        add
+                        getlocal 5
+                        add
+                        pushstring ".swf"
+                        add
+                        setlocal 10
+                        getlex Multiname("loadArr",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal3
+                        getlocal 4
+                        getlocal 10
+                        newarray 3
+                        callpropvoid Multiname("push",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+               ofs00e0:
+                        getlocal 7
+                        increment
+                        convert_u
+                        setlocal 7
+               ofs00e6:
+                        getlocal 7
+                        getlocal 6
+                        getproperty Multiname("length",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        iflt ofs003f
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private static function LoadGo() : *
+            {
+               trait method QName(PrivateNamespace(null,"193"),"LoadGo")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     returns null
+                     
+                     body
+                        maxstack 5
+                        localcount 1
+                        initscopedepth 9
+                        maxscopedepth 10
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlex Multiname("loadArr",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty Multiname("length",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushbyte 0
+                           ifngt ofs00a1
+                           getlex Multiname("loadingYN",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           iffalse ofs0083
+                           getlex Multiname("zhuangBeiSkin",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getlex Multiname("loadArr",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getlex Multiname("loadArr",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushbyte 1
+                           getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           findpropstrict Multiname("ClassLoader",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getlex Multiname("loadArr",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushbyte 2
+                           getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           constructprop Multiname("ClassLoader",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                           setproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getlex Multiname("zhuangBeiSkin",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getlex Multiname("loadArr",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getlex Multiname("loadArr",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushbyte 1
+                           getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getlex Multiname("Event",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty Multiname("COMPLETE",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getlex Multiname("LoadEnd",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           callpropvoid Multiname("addEventListener",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                           findproperty Multiname("loadingYN",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushfalse
+                           setproperty Multiname("loadingYN",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  ofs0083:
+                           getlex Multiname("Play_Interface",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty Multiname("interfaceX",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           iffalse ofs009d
+                           getlex Multiname("Play_Interface",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty Multiname("interfaceX",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushstring "load_mc"
+                           getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushtrue
+                           setproperty Multiname("visible",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  ofs009d:
+                           jump ofs0116
+                  ofs00a1:
+                           getlex Multiname("loadType",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushbyte 1
+                           ifne ofs00b5
+                           getlex Multiname("Load",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           callpropvoid Multiname("newLoad_Ok",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                           jump ofs00fc
+                  ofs00b5:
+                           getlex Multiname("loadType",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushbyte 2
+                           ifne ofs00ec
+                           getlex Multiname("who",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushbyte 1
+                           ifne ofs00d5
+                           getlex Multiname("Main",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty Multiname("player_1",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           callpropvoid Multiname("newSkin_LoadEnd",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                           jump ofs00e8
+                  ofs00d5:
+                           getlex Multiname("who",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushbyte 2
+                           ifne ofs00e8
+                           getlex Multiname("Main",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty Multiname("player_2",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           callpropvoid Multiname("newSkin_LoadEnd",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                  ofs00e8:
+                           jump ofs00fc
+                  ofs00ec:
+                           getlex Multiname("loadType",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushbyte 3
+                           ifne ofs00fc
+                           getlex Multiname("PK_UI",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           callpropvoid Multiname("LoadEnd_And_AddPlayer2",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                  ofs00fc:
+                           getlex Multiname("Play_Interface",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty Multiname("interfaceX",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           iffalse ofs0116
+                           getlex Multiname("Play_Interface",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty Multiname("interfaceX",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushstring "load_mc"
+                           getproperty MultinameL([PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushfalse
+                           setproperty Multiname("visible",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                  ofs0116:
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private static function LoadEnd(param1:*) : *
+               {
+                  trait method QName(PrivateNamespace(null,"193"),"LoadEnd")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name null
+                        param null
+                        returns null
+                        
+                        body
+                           maxstack 3
+                           localcount 2
+                           initscopedepth 9
+                           maxscopedepth 10
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlex Multiname("loadArr",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              pushbyte 0
+                              pushbyte 1
+                              callpropvoid Multiname("splice",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                              findproperty Multiname("loadingYN",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              pushtrue
+                              setproperty Multiname("loadingYN",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              findpropstrict Multiname("LoadGo",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              callpropvoid Multiname("LoadGo",[PrivateNamespace(null,"193"),PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool"),ProtectedNamespace("src:NewLoad"),StaticProtectedNs("src:NewLoad"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+               }
+            }
+            
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 1
+                  maxscopedepth 9
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict Multiname("NewLoad",[PackageNamespace("src")])
+                     getlex QName(PackageNamespace(""),"Object")
+                     pushscope
+                     getlex QName(PackageNamespace("flash.events"),"EventDispatcher")
+                     pushscope
+                     getlex QName(PackageNamespace("flash.display"),"DisplayObject")
+                     pushscope
+                     getlex QName(PackageNamespace("flash.display"),"InteractiveObject")
+                     pushscope
+                     getlex QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+                     pushscope
+                     getlex QName(PackageNamespace("flash.display"),"Sprite")
+                     pushscope
+                     getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                     pushscope
+                     getlex Multiname("MovieClip",[PackageNamespace(""),PrivateNamespace(null,"445"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.geom"),PackageNamespace("flash.events"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),PackageNamespace("src.tool")])
+                     newclass 209
+                     popscope
+                     popscope
+                     popscope
+                     popscope
+                     popscope
+                     popscope
+                     popscope
+                     initproperty QName(PackageNamespace("src"),"NewLoad")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+            

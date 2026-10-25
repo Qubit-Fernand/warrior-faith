@@ -1,0 +1,907 @@
+package com.hotpoint.braveManIII.views.strPanel
+{
+   import com.hotpoint.braveManIII.models.equip.*;
+   import com.hotpoint.braveManIII.models.gem.*;
+   import src.*;
+   
+   public class StrSlot
+   {
+      
+      method
+         name ""
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var _bagArr:Array;
+      
+      private var _pointArr:Array;
+      
+      private var _whoBag:Array;
+      
+      public function StrSlot()
+      {
+         method
+            name ""
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  newarray 0
+                  initproperty QName(PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),"_bagArr")
+                  getlocal0
+                  newarray 0
+                  initproperty QName(PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),"_pointArr")
+                  getlocal0
+                  newarray 0
+                  initproperty QName(PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),"_whoBag")
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function creatSlot() : StrSlot
+      {
+         trait method QName(PackageNamespace(""),"creatSlot")
+            flag FINAL
+            dispid 3
+            method
+               name ""
+               returns QName(PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),"StrSlot")
+               
+               body
+                  maxstack 1
+                  localcount 2
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     construct 0
+                     coerce QName(PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),"StrSlot")
+                     setlocal1
+                     getlocal1
+                     callproperty Multiname("initBag",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                     pop
+                     getlocal1
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function initBag() : void
+         {
+            trait method QName(PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),"initBag")
+               dispid 0
+               method
+                  name ""
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 3
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushbyte 0
+                        convert_u
+                        setlocal1
+                        jump ofs0027
+               ofs000a:
+                        label
+                        getlocal0
+                        getproperty Multiname("_bagArr",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                        getlocal1
+                        pushbyte -1
+                        setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                        getlocal0
+                        getproperty Multiname("_pointArr",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                        getlocal1
+                        pushbyte -1
+                        setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                        getlocal0
+                        getproperty Multiname("_whoBag",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                        getlocal1
+                        pushbyte -1
+                        setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                        getlocal1
+                        increment
+                        convert_u
+                        setlocal1
+               ofs0027:
+                        getlocal1
+                        pushbyte 3
+                        iflt ofs000a
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function addBag(param1:Array, param2:Number) : void
+            {
+               trait method QName(PackageNamespace(""),"addBag")
+                  dispid 0
+                  method
+                     name ""
+                     param QName(PackageNamespace(""),"Array")
+                     param QName(PackageNamespace(""),"Number")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 4
+                        localcount 3
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal1
+                           pushnull
+                           ifeq ofs0103
+                           getlocal1
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           findpropstrict Multiname("Equip",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           getproperty Multiname("Equip",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           istypelate
+                           iffalse ofs003a
+                           getlocal0
+                           getproperty Multiname("_bagArr",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           pushbyte 0
+                           getlocal1
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           getlocal0
+                           getproperty Multiname("_pointArr",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           pushbyte 0
+                           getlocal1
+                           pushbyte 1
+                           getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           getlocal0
+                           getproperty Multiname("_whoBag",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           pushbyte 0
+                           getlocal2
+                           setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           jump ofs0103
+                  ofs003a:
+                           getlocal1
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           findpropstrict Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           getproperty Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           istypelate
+                           iffalse ofs0103
+                           getlocal1
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           findpropstrict Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           getproperty Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           astypelate
+                           callproperty Multiname("getType",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                           pushbyte 4
+                           ifne ofs007f
+                           getlocal0
+                           getproperty Multiname("_bagArr",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           pushbyte 0
+                           getlocal1
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           getlocal0
+                           getproperty Multiname("_pointArr",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           pushbyte 0
+                           getlocal1
+                           pushbyte 1
+                           getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           getlocal0
+                           getproperty Multiname("_whoBag",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           pushbyte 0
+                           getlocal2
+                           setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           jump ofs0103
+                  ofs007f:
+                           getlocal1
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           findpropstrict Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           getproperty Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           astypelate
+                           callproperty Multiname("getType",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                           pushbyte 1
+                           equals
+                           convert_b
+                           dup
+                           convert_b
+                           iftrue ofs00a8
+                           pop
+                           getlocal1
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           findpropstrict Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           getproperty Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           astypelate
+                           callproperty Multiname("getType",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                           pushbyte 0
+                           equals
+                           convert_b
+                  ofs00a8:
+                           iffalse ofs00d0
+                           getlocal0
+                           getproperty Multiname("_bagArr",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           pushbyte 1
+                           getlocal1
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           getlocal0
+                           getproperty Multiname("_pointArr",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           pushbyte 1
+                           getlocal1
+                           pushbyte 1
+                           getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           getlocal0
+                           getproperty Multiname("_whoBag",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           pushbyte 1
+                           getlocal2
+                           setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           jump ofs0103
+                  ofs00d0:
+                           getlocal1
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           findpropstrict Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           getproperty Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           astypelate
+                           callproperty Multiname("getType",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                           pushbyte 2
+                           ifne ofs0103
+                           getlocal0
+                           getproperty Multiname("_bagArr",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           pushbyte 2
+                           getlocal1
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           getlocal0
+                           getproperty Multiname("_pointArr",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           pushbyte 2
+                           getlocal1
+                           pushbyte 1
+                           getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           getlocal0
+                           getproperty Multiname("_whoBag",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                           pushbyte 2
+                           getlocal2
+                           setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                  ofs0103:
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function getObj(param1:Number) : Array
+               {
+                  trait method QName(PackageNamespace(""),"getObj")
+                     dispid 0
+                     method
+                        name ""
+                        param QName(PackageNamespace(""),"Number")
+                        returns QName(PackageNamespace(""),"Array")
+                        
+                        body
+                           maxstack 4
+                           localcount 3
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              newarray 0
+                              coerce QName(PackageNamespace(""),"Array")
+                              setlocal2
+                              getlocal0
+                              getproperty Multiname("_bagArr",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                              getlocal1
+                              getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                              pushbyte -1
+                              ifeq ofs0028
+                              getlocal0
+                              getproperty Multiname("_bagArr",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                              getlocal1
+                              getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                              getlocal0
+                              getproperty Multiname("_pointArr",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                              getlocal1
+                              getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                              getlocal0
+                              getproperty Multiname("_whoBag",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                              getlocal1
+                              getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                              newarray 3
+                              returnvalue
+                     ofs0028:
+                              pushnull
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function clearOnly(param1:Number) : void
+                  {
+                     trait method QName(PackageNamespace(""),"clearOnly")
+                        dispid 0
+                        method
+                           name ""
+                           param QName(PackageNamespace(""),"Number")
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 3
+                              localcount 2
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty Multiname("_bagArr",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                 getlocal1
+                                 getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                 pushbyte -1
+                                 ifeq ofs0026
+                                 getlocal0
+                                 getproperty Multiname("_bagArr",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                 getlocal1
+                                 pushbyte -1
+                                 setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                 getlocal0
+                                 getproperty Multiname("_pointArr",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                 getlocal1
+                                 pushbyte -1
+                                 setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                 getlocal0
+                                 getproperty Multiname("_whoBag",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                 getlocal1
+                                 pushbyte -1
+                                 setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                        ofs0026:
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function clearBag() : void
+                     {
+                        trait method QName(PackageNamespace(""),"clearBag")
+                           dispid 0
+                           method
+                              name ""
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 3
+                                 localcount 2
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    pushbyte 0
+                                    convert_u
+                                    setlocal1
+                                    jump ofs0027
+                           ofs000a:
+                                    label
+                                    getlocal0
+                                    getproperty Multiname("_bagArr",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                    getlocal1
+                                    pushbyte -1
+                                    setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                    getlocal0
+                                    getproperty Multiname("_pointArr",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                    getlocal1
+                                    pushbyte -1
+                                    setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                    getlocal0
+                                    getproperty Multiname("_whoBag",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                    getlocal1
+                                    pushbyte -1
+                                    setproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                    getlocal1
+                                    increment
+                                    convert_u
+                                    setlocal1
+                           ofs0027:
+                                    getlocal1
+                                    pushbyte 3
+                                    iflt ofs000a
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function addTj(param1:Object) : Boolean
+                        {
+                           trait method QName(PackageNamespace(""),"addTj")
+                              dispid 0
+                              method
+                                 name ""
+                                 param QName(PackageNamespace(""),"Object")
+                                 returns QName(PackageNamespace(""),"Boolean")
+                                 
+                                 body
+                                    maxstack 3
+                                    localcount 2
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       findpropstrict Multiname("StrPanel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("StrPanel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("state",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       pushbyte 0
+                                       ifne ofs006d
+                                       findpropstrict Multiname("StrPanel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("StrPanel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("stateTow",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       pushbyte 0
+                                       ifne ofs0033
+                                       getlocal1
+                                       findpropstrict Multiname("Equip",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("Equip",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       istypelate
+                                       iffalse ofs002f
+                                       getlocal0
+                                       getlocal1
+                                       findpropstrict Multiname("Equip",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("Equip",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       astypelate
+                                       callproperty Multiname("equipTj",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 1
+                                       returnvalue
+                              ofs002f:
+                                       jump ofs0069
+                              ofs0033:
+                                       findpropstrict Multiname("StrPanel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("StrPanel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("stateTow",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       pushbyte 1
+                                       ifne ofs0069
+                                       getlocal1
+                                       findpropstrict Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       istypelate
+                                       iffalse ofs0054
+                                       getlocal0
+                                       getlocal1
+                                       findpropstrict Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       astypelate
+                                       callproperty Multiname("strGemTj",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 1
+                                       returnvalue
+                              ofs0054:
+                                       getlocal1
+                                       findpropstrict Multiname("Equip",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("Equip",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       istypelate
+                                       iffalse ofs0069
+                                       getlocal0
+                                       getlocal1
+                                       findpropstrict Multiname("Equip",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("Equip",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       astypelate
+                                       callproperty Multiname("equipTj",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 1
+                                       returnvalue
+                              ofs0069:
+                                       jump ofs00d0
+                              ofs006d:
+                                       findpropstrict Multiname("StrPanel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("StrPanel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("state",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       pushbyte 1
+                                       ifne ofs00d0
+                                       findpropstrict Multiname("StrPanel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("StrPanel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("stateTow",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       pushbyte 0
+                                       ifne ofs009e
+                                       getlocal1
+                                       findpropstrict Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       istypelate
+                                       iffalse ofs009a
+                                       getlocal0
+                                       getlocal1
+                                       findpropstrict Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       astypelate
+                                       callproperty Multiname("gemTj",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 1
+                                       returnvalue
+                              ofs009a:
+                                       jump ofs00d0
+                              ofs009e:
+                                       findpropstrict Multiname("StrPanel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("StrPanel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("stateTow",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       pushbyte 1
+                                       ifne ofs00d0
+                                       getlocal1
+                                       findpropstrict Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       istypelate
+                                       iffalse ofs00d0
+                                       getlocal1
+                                       findpropstrict Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       astypelate
+                                       callproperty Multiname("getType",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                                       pushbyte 4
+                                       ifne ofs00ce
+                                       getlocal0
+                                       getlocal1
+                                       findpropstrict Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       getproperty Multiname("Gem",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                       astypelate
+                                       callproperty Multiname("gemTj",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 1
+                                       returnvalue
+                              ofs00ce:
+                                       pushtrue
+                                       returnvalue
+                              ofs00d0:
+                                       pushfalse
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           private function strGemTj(param1:Gem) : Boolean
+                           {
+                              trait method QName(PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),"strGemTj")
+                                 dispid 0
+                                 method
+                                    name ""
+                                    param QName(PackageNamespace("com.hotpoint.braveManIII.models.gem"),"Gem")
+                                    returns QName(PackageNamespace(""),"Boolean")
+                                    
+                                    body
+                                       maxstack 10
+                                       localcount 3
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          pushbyte 0
+                                          callproperty Multiname("getObj",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 1
+                                          findpropstrict Multiname("Array",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                          getproperty Multiname("Array",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                          astypelate
+                                          pushbyte 0
+                                          getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                          coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.equip"),"Equip")
+                                          setlocal2
+                                          getlocal1
+                                          callproperty Multiname("getType",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                                          pushbyte 1
+                                          ifne ofs0030
+                                          getlocal2
+                                          callproperty Multiname("getReinforceLevel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                                          getlocal1
+                                          callproperty Multiname("getUseLevel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                                          ifnlt ofs002c
+                                          pushtrue
+                                          returnvalue
+                                 ofs002c:
+                                          jump ofs003c
+                                 ofs0030:
+                                          getlocal1
+                                          callproperty Multiname("getType",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                                          pushbyte 2
+                                          ifne ofs003c
+                                          pushtrue
+                                          returnvalue
+                                 ofs003c:
+                                          findpropstrict Multiname("NewMC",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                          getproperty Multiname("NewMC",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                          pushstring "文字提示"
+                                          findpropstrict Multiname("Main",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                          getproperty Multiname("Main",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                          getproperty Multiname("_stage",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                          pushshort 480
+                                          pushshort 400
+                                          pushbyte 30
+                                          pushbyte 0
+                                          pushtrue
+                                          pushbyte 2
+                                          pushstring "强化石等级太低"
+                                          callproperty Multiname("Open",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 9
+                                          pop
+                                          pushfalse
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              private function equipTj(param1:Equip) : Boolean
+                              {
+                                 trait method QName(PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),"equipTj")
+                                    dispid 0
+                                    method
+                                       name ""
+                                       param QName(PackageNamespace("com.hotpoint.braveManIII.models.equip"),"Equip")
+                                       returns QName(PackageNamespace(""),"Boolean")
+                                       
+                                       body
+                                          maxstack 10
+                                          localcount 2
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal1
+                                             callproperty Multiname("getDropLevel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                                             pushint 51510
+                                             equals
+                                             not
+                                             convert_b
+                                             dup
+                                             convert_b
+                                             iffalse ofs001b
+                                             pop
+                                             getlocal1
+                                             callproperty Multiname("getDropLevel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                                             pushint 51511
+                                             equals
+                                             not
+                                             convert_b
+                                    ofs001b:
+                                             dup
+                                             convert_b
+                                             iffalse ofs002b
+                                             pop
+                                             getlocal1
+                                             callproperty Multiname("getDropLevel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                                             pushint 51512
+                                             equals
+                                             not
+                                             convert_b
+                                    ofs002b:
+                                             dup
+                                             convert_b
+                                             iffalse ofs003b
+                                             pop
+                                             getlocal1
+                                             callproperty Multiname("getDropLevel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                                             pushint 51610
+                                             equals
+                                             not
+                                             convert_b
+                                    ofs003b:
+                                             dup
+                                             convert_b
+                                             iffalse ofs004b
+                                             pop
+                                             getlocal1
+                                             callproperty Multiname("getDropLevel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                                             pushint 51611
+                                             equals
+                                             not
+                                             convert_b
+                                    ofs004b:
+                                             dup
+                                             convert_b
+                                             iffalse ofs005b
+                                             pop
+                                             getlocal1
+                                             callproperty Multiname("getDropLevel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                                             pushint 51612
+                                             equals
+                                             not
+                                             convert_b
+                                    ofs005b:
+                                             iffalse ofs00b4
+                                             getlocal1
+                                             callproperty Multiname("getDressLevel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                                             pushbyte 50
+                                             ifnlt ofs0079
+                                             getlocal1
+                                             callproperty Multiname("getReinforceLevel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                                             pushbyte 6
+                                             ifnlt ofs0075
+                                             pushtrue
+                                             returnvalue
+                                    ofs0075:
+                                             jump ofs00b0
+                                    ofs0079:
+                                             getlocal1
+                                             callproperty Multiname("getColor",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                                             pushbyte 1
+                                             equals
+                                             convert_b
+                                             dup
+                                             convert_b
+                                             iftrue ofs0090
+                                             pop
+                                             getlocal1
+                                             callproperty Multiname("getColor",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                                             pushbyte 2
+                                             equals
+                                             convert_b
+                                    ofs0090:
+                                             iffalse ofs00a4
+                                             getlocal1
+                                             callproperty Multiname("getReinforceLevel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                                             pushbyte 6
+                                             ifnlt ofs00a0
+                                             pushtrue
+                                             returnvalue
+                                    ofs00a0:
+                                             jump ofs00b0
+                                    ofs00a4:
+                                             getlocal1
+                                             callproperty Multiname("getReinforceLevel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                                             pushbyte 10
+                                             ifnlt ofs00b0
+                                             pushtrue
+                                             returnvalue
+                                    ofs00b0:
+                                             jump ofs00c0
+                                    ofs00b4:
+                                             getlocal1
+                                             callproperty Multiname("getReinforceLevel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                                             pushbyte 12
+                                             ifnlt ofs00c0
+                                             pushtrue
+                                             returnvalue
+                                    ofs00c0:
+                                             findpropstrict Multiname("NewMC",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                             getproperty Multiname("NewMC",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                             pushstring "文字提示"
+                                             findpropstrict Multiname("Main",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                             getproperty Multiname("Main",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                             getproperty Multiname("_stage",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                             pushshort 480
+                                             pushshort 400
+                                             pushbyte 30
+                                             pushbyte 0
+                                             pushtrue
+                                             pushbyte 2
+                                             pushstring "装备已强化满级"
+                                             callproperty Multiname("Open",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 9
+                                             pop
+                                             pushfalse
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 private function gemTj(param1:Gem, param2:Boolean = true) : Boolean
+                                 {
+                                    trait method QName(PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),"gemTj")
+                                       dispid 0
+                                       method
+                                          name ""
+                                          flag HAS_OPTIONAL
+                                          param QName(PackageNamespace("com.hotpoint.braveManIII.models.gem"),"Gem")
+                                          param QName(PackageNamespace(""),"Boolean")
+                                          optional True()
+                                          returns QName(PackageNamespace(""),"Boolean")
+                                          
+                                          body
+                                             maxstack 10
+                                             localcount 3
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlocal1
+                                                callproperty Multiname("getStrengthenLevel",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 0
+                                                pushbyte 4
+                                                ifnlt ofs000e
+                                                pushtrue
+                                                returnvalue
+                                       ofs000e:
+                                                findpropstrict Multiname("NewMC",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                                getproperty Multiname("NewMC",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                                pushstring "文字提示"
+                                                findpropstrict Multiname("Main",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                                getproperty Multiname("Main",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                                getproperty Multiname("_stage",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")])
+                                                pushshort 480
+                                                pushshort 400
+                                                pushbyte 30
+                                                pushbyte 0
+                                                pushtrue
+                                                pushbyte 2
+                                                pushstring "装备已强化满级"
+                                                callproperty Multiname("Open",[PrivateNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.views.strPanel:StrSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.strPanel:StrSlot")]), 9
+                                                pop
+                                                pushfalse
+                                                returnvalue
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                 }
+                              }
+                              
+                              method
+                                 name ""
+                                 returns null
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 1
+                                    maxscopedepth 3
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       findpropstrict Multiname("StrSlot",[PackageNamespace("com.hotpoint.braveManIII.views.strPanel")])
+                                       findpropstrict QName(PackageNamespace(""),"Object")
+                                       getproperty QName(PackageNamespace(""),"Object")
+                                       pushscope
+                                       findpropstrict Multiname("Object",[PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src")])
+                                       getproperty Multiname("Object",[PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),PrivateNamespace("StrSlot.as$58"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.strPanel"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageNamespace("com.hotpoint.braveManIII.models.gem"),PackageNamespace("src")])
+                                       newclass 0
+                                       popscope
+                                       initproperty QName(PackageNamespace("com.hotpoint.braveManIII.views.strPanel"),"StrSlot")
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                              

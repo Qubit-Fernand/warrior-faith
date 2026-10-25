@@ -1,0 +1,652 @@
+package com.greensock
+{
+   import com.greensock.core.*;
+   
+   public final class OverwriteManager
+   {
+      
+      public static const version:Number = 6.1;
+      
+      public static const NONE:int = 0;
+      
+      public static const ALL_IMMEDIATE:int = 1;
+      
+      public static const AUTO:int = 2;
+      
+      public static const CONCURRENT:int = 3;
+      
+      public static const ALL_ONSTART:int = 4;
+      
+      public static const PREEXISTING:int = 5;
+      
+      public static var mode:int;
+      
+      public static var enabled:Boolean;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"version")
+               pushdouble 6.1
+               initproperty QName(PackageNamespace(""),"version")
+               findproperty QName(PackageNamespace(""),"NONE")
+               pushbyte 0
+               initproperty QName(PackageNamespace(""),"NONE")
+               findproperty QName(PackageNamespace(""),"ALL_IMMEDIATE")
+               pushbyte 1
+               initproperty QName(PackageNamespace(""),"ALL_IMMEDIATE")
+               findproperty QName(PackageNamespace(""),"AUTO")
+               pushbyte 2
+               initproperty QName(PackageNamespace(""),"AUTO")
+               findproperty QName(PackageNamespace(""),"CONCURRENT")
+               pushbyte 3
+               initproperty QName(PackageNamespace(""),"CONCURRENT")
+               findproperty QName(PackageNamespace(""),"ALL_ONSTART")
+               pushbyte 4
+               initproperty QName(PackageNamespace(""),"ALL_ONSTART")
+               findproperty QName(PackageNamespace(""),"PREEXISTING")
+               pushbyte 5
+               initproperty QName(PackageNamespace(""),"PREEXISTING")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function OverwriteManager()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function init(param1:int = 2) : int
+      {
+         trait method QName(PackageNamespace(""),"init")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               flag HAS_OPTIONAL
+               param QName(PackageNamespace(""),"int")
+               optional Integer(2)
+               returns QName(PackageNamespace(""),"int")
+               
+               body
+                  maxstack 2
+                  localcount 2
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex Multiname("TweenLite",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                     getproperty Multiname("version",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                     pushdouble 11.6
+                     ifnlt ofs0019
+                     findpropstrict Multiname("Error",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                     pushstring "Warning: Your TweenLite class needs to be updated to work with OverwriteManager (or you may need to clear your ASO files). Please download and install the latest version from http://www.tweenlite.com."
+                     constructprop Multiname("Error",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")]), 1
+                     throw
+            ofs0019:
+                     getlex Multiname("TweenLite",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                     getlex Multiname("OverwriteManager",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                     setproperty Multiname("overwriteManager",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                     findproperty Multiname("mode",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                     getlocal1
+                     setproperty Multiname("mode",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                     findproperty Multiname("enabled",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                     pushtrue
+                     setproperty Multiname("enabled",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                     getlex Multiname("mode",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public static function manageOverwrites(param1:TweenLite, param2:Object, param3:Array, param4:int) : Boolean
+         {
+            trait method QName(PackageNamespace(""),"manageOverwrites")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  param QName(PackageNamespace("com.greensock"),"TweenLite")
+                  param QName(PackageNamespace(""),"Object")
+                  param QName(PackageNamespace(""),"Array")
+                  param QName(PackageNamespace(""),"int")
+                  returns QName(PackageNamespace(""),"Boolean")
+                  
+                  body
+                     maxstack 3
+                     localcount 20
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushbyte 0
+                        setlocal 5
+                        pushfalse
+                        setlocal 6
+                        pushnull
+                        coerce QName(PackageNamespace("com.greensock"),"TweenLite")
+                        setlocal 7
+                        pushbyte 0
+                        setlocal 13
+                        pushnan
+                        setlocal 14
+                        pushnan
+                        setlocal 15
+                        pushnull
+                        coerce QName(PackageNamespace("com.greensock.core"),"TweenCore")
+                        setlocal 16
+                        pushnan
+                        setlocal 17
+                        pushnull
+                        coerce QName(PackageNamespace("com.greensock.core"),"SimpleTimeline")
+                        setlocal 18
+                        getlocal 4
+                        pushbyte 4
+                        ifnge ofs007a
+                        getlocal3
+                        getproperty Multiname("length",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        convert_i
+                        setlocal 13
+                        pushbyte 0
+                        setlocal 5
+                        jump ofs006f
+               ofs003d:
+                        label
+                        getlocal3
+                        getlocal 5
+                        getproperty MultinameL([PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        coerce QName(PackageNamespace("com.greensock"),"TweenLite")
+                        dup
+                        setlocal 7
+                        getlocal1
+                        ifeq ofs0061
+                        getlocal 7
+                        pushfalse
+                        pushfalse
+                        callproperty Multiname("setEnabled",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")]), 2
+                        iffalse ofs005d
+                        pushtrue
+                        setlocal 6
+               ofs005d:
+                        jump ofs006d
+               ofs0061:
+                        getlocal 4
+                        pushbyte 5
+                        ifne ofs006d
+                        jump ofs0077
+               ofs006d:
+                        inclocal_i 5
+               ofs006f:
+                        getlocal 5
+                        getlocal 13
+                        iflt ofs003d
+               ofs0077:
+                        getlocal 6
+                        returnvalue
+               ofs007a:
+                        getlocal1
+                        getproperty Multiname("cachedStartTime",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        pushdouble 1e-10
+                        add
+                        convert_d
+                        setlocal 8
+                        newarray 0
+                        coerce QName(PackageNamespace(""),"Array")
+                        setlocal 9
+                        newarray 0
+                        coerce QName(PackageNamespace(""),"Array")
+                        setlocal 10
+                        pushbyte 0
+                        setlocal 11
+                        pushbyte 0
+                        setlocal 12
+                        getlocal3
+                        getproperty Multiname("length",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        convert_i
+                        setlocal 5
+                        jump ofs0172
+               ofs00a3:
+                        label
+                        getlocal3
+                        getlocal 5
+                        getproperty MultinameL([PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        coerce QName(PackageNamespace("com.greensock"),"TweenLite")
+                        dup
+                        setlocal 7
+                        getlocal1
+                        equals
+                        dup
+                        iftrue ofs00bd
+                        pop
+                        getlocal 7
+                        getproperty Multiname("gc",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        convert_b
+               ofs00bd:
+                        dup
+                        iftrue ofs00da
+                        pop
+                        getlocal 7
+                        getproperty Multiname("initted",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        not
+                        dup
+                        iffalse ofs00da
+                        pop
+                        getlocal 8
+                        getlocal 7
+                        getproperty Multiname("cachedStartTime",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        subtract
+                        pushdouble 2e-10
+                        lessequals
+               ofs00da:
+                        iffalse ofs00e2
+                        jump ofs0172
+               ofs00e2:
+                        getlocal 7
+                        getproperty Multiname("timeline",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        getlocal1
+                        getproperty Multiname("timeline",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        ifeq ofs0112
+                        findpropstrict Multiname("getGlobalPaused",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        getlocal 7
+                        callproperty Multiname("getGlobalPaused",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")]), 1
+                        iftrue ofs010e
+                        getlocal 10
+                        getlocal 11
+                        dup
+                        increment_i
+                        setlocal 11
+                        dup
+                        setlocal 19
+                        getlocal 7
+                        setproperty MultinameL([PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        kill 19
+               ofs010e:
+                        jump ofs0172
+               ofs0112:
+                        getlocal 7
+                        getproperty Multiname("cachedStartTime",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        getlocal 8
+                        lessequals
+                        dup
+                        iffalse ofs0131
+                        pop
+                        getlocal 7
+                        getproperty Multiname("cachedStartTime",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        getlocal 7
+                        getproperty Multiname("totalDuration",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        add
+                        pushdouble 1e-10
+                        add
+                        getlocal 8
+                        greaterthan
+               ofs0131:
+                        dup
+                        iffalse ofs013d
+                        pop
+                        getlocal 7
+                        getproperty Multiname("cachedPaused",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        not
+               ofs013d:
+                        dup
+                        iffalse ofs015c
+                        pop
+                        getlocal1
+                        getproperty Multiname("cachedDuration",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        pushbyte 0
+                        equals
+                        dup
+                        iffalse ofs015b
+                        pop
+                        getlocal 8
+                        getlocal 7
+                        getproperty Multiname("cachedStartTime",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        subtract
+                        pushdouble 2e-10
+                        lessequals
+               ofs015b:
+                        not
+               ofs015c:
+                        iffalse ofs0172
+                        getlocal 9
+                        getlocal 12
+                        dup
+                        increment_i
+                        setlocal 12
+                        dup
+                        setlocal 19
+                        getlocal 7
+                        setproperty MultinameL([PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        kill 19
+               ofs0172:
+                        getlocal 5
+                        decrement_i
+                        dup
+                        convert_i
+                        setlocal 5
+                        pushbyte -1
+                        ifgt ofs00a3
+                        getlocal 11
+                        pushbyte 0
+                        ifeq ofs027c
+                        getlocal1
+                        getproperty Multiname("cachedTimeScale",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        convert_d
+                        setlocal 14
+                        getlocal 8
+                        convert_d
+                        setlocal 15
+                        getlocal1
+                        getproperty Multiname("timeline",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        coerce QName(PackageNamespace("com.greensock.core"),"SimpleTimeline")
+                        setlocal 18
+                        jump ofs01c1
+               ofs01a0:
+                        label
+                        getlocal 14
+                        getlocal 18
+                        getproperty Multiname("cachedTimeScale",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        multiply
+                        convert_d
+                        setlocal 14
+                        getlocal 15
+                        getlocal 18
+                        getproperty Multiname("cachedStartTime",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        add
+                        convert_d
+                        setlocal 15
+                        getlocal 18
+                        getproperty Multiname("timeline",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        coerce QName(PackageNamespace("com.greensock.core"),"SimpleTimeline")
+                        setlocal 18
+               ofs01c1:
+                        getlocal 18
+                        iftrue ofs01a0
+                        getlocal 14
+                        getlocal 15
+                        multiply
+                        convert_d
+                        setlocal 8
+                        getlocal 11
+                        convert_i
+                        setlocal 5
+                        jump ofs026f
+               ofs01d8:
+                        label
+                        getlocal 10
+                        getlocal 5
+                        getproperty MultinameL([PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        coerce QName(PackageNamespace("com.greensock.core"),"TweenCore")
+                        dup
+                        setlocal 16
+                        getproperty Multiname("cachedTimeScale",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        convert_d
+                        setlocal 14
+                        getlocal 16
+                        getproperty Multiname("cachedStartTime",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        convert_d
+                        setlocal 15
+                        getlocal 16
+                        getproperty Multiname("timeline",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        coerce QName(PackageNamespace("com.greensock.core"),"SimpleTimeline")
+                        setlocal 18
+                        jump ofs0222
+               ofs0201:
+                        label
+                        getlocal 14
+                        getlocal 18
+                        getproperty Multiname("cachedTimeScale",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        multiply
+                        convert_d
+                        setlocal 14
+                        getlocal 15
+                        getlocal 18
+                        getproperty Multiname("cachedStartTime",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        add
+                        convert_d
+                        setlocal 15
+                        getlocal 18
+                        getproperty Multiname("timeline",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        coerce QName(PackageNamespace("com.greensock.core"),"SimpleTimeline")
+                        setlocal 18
+               ofs0222:
+                        getlocal 18
+                        iftrue ofs0201
+                        getlocal 14
+                        getlocal 15
+                        multiply
+                        convert_d
+                        dup
+                        setlocal 17
+                        getlocal 8
+                        lessequals
+                        dup
+                        iffalse ofs0259
+                        pop
+                        getlocal 17
+                        getlocal 16
+                        getproperty Multiname("totalDuration",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        getlocal 14
+                        multiply
+                        add
+                        pushdouble 1e-10
+                        add
+                        getlocal 8
+                        greaterthan
+                        dup
+                        iftrue ofs0259
+                        pop
+                        getlocal 16
+                        getproperty Multiname("cachedDuration",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        pushbyte 0
+                        equals
+               ofs0259:
+                        iffalse ofs026f
+                        getlocal 9
+                        getlocal 12
+                        dup
+                        increment_i
+                        setlocal 12
+                        dup
+                        setlocal 19
+                        getlocal 16
+                        setproperty MultinameL([PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        kill 19
+               ofs026f:
+                        getlocal 5
+                        decrement_i
+                        dup
+                        convert_i
+                        setlocal 5
+                        pushbyte -1
+                        ifgt ofs01d8
+               ofs027c:
+                        getlocal 12
+                        pushbyte 0
+                        ifne ofs0287
+                        getlocal 6
+                        returnvalue
+               ofs0287:
+                        getlocal 12
+                        convert_i
+                        setlocal 5
+                        getlocal 4
+                        pushbyte 2
+                        ifne ofs02e1
+                        jump ofs02d0
+               ofs0298:
+                        label
+                        getlocal 9
+                        getlocal 5
+                        getproperty MultinameL([PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        coerce QName(PackageNamespace("com.greensock"),"TweenLite")
+                        dup
+                        setlocal 7
+                        getlocal2
+                        callproperty Multiname("killVars",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")]), 1
+                        iffalse ofs02b1
+                        pushtrue
+                        setlocal 6
+               ofs02b1:
+                        getlocal 7
+                        getproperty Multiname("cachedPT1",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        pushnull
+                        equals
+                        dup
+                        iffalse ofs02c4
+                        pop
+                        getlocal 7
+                        getproperty Multiname("initted",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        convert_b
+               ofs02c4:
+                        iffalse ofs02d0
+                        getlocal 7
+                        pushfalse
+                        pushfalse
+                        callpropvoid Multiname("setEnabled",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")]), 2
+               ofs02d0:
+                        getlocal 5
+                        decrement_i
+                        dup
+                        convert_i
+                        setlocal 5
+                        pushbyte -1
+                        ifgt ofs0298
+                        jump ofs030e
+               ofs02e1:
+                        jump ofs0301
+               ofs02e5:
+                        label
+                        findpropstrict Multiname("TweenLite",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        getlocal 9
+                        getlocal 5
+                        getproperty MultinameL([PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                        callproperty Multiname("TweenLite",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")]), 1
+                        pushfalse
+                        pushfalse
+                        callproperty Multiname("setEnabled",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")]), 2
+                        iffalse ofs0301
+                        pushtrue
+                        setlocal 6
+               ofs0301:
+                        getlocal 5
+                        decrement_i
+                        dup
+                        convert_i
+                        setlocal 5
+                        pushbyte -1
+                        ifgt ofs02e5
+               ofs030e:
+                        getlocal 6
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public static function getGlobalPaused(param1:TweenCore) : Boolean
+            {
+               trait method QName(PackageNamespace(""),"getGlobalPaused")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     param QName(PackageNamespace("com.greensock.core"),"TweenCore")
+                     returns QName(PackageNamespace(""),"Boolean")
+                     
+                     body
+                        maxstack 1
+                        localcount 3
+                        initscopedepth 3
+                        maxscopedepth 4
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushfalse
+                           setlocal2
+                           jump ofs001e
+                  ofs0008:
+                           label
+                           getlocal1
+                           getproperty Multiname("cachedPaused",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                           iffalse ofs0017
+                           pushtrue
+                           setlocal2
+                           jump ofs0023
+                  ofs0017:
+                           getlocal1
+                           getproperty Multiname("timeline",[PrivateNamespace(null,"298"),PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock:OverwriteManager"),StaticProtectedNs("com.greensock:OverwriteManager")])
+                           coerce QName(PackageNamespace("com.greensock.core"),"TweenCore")
+                           setlocal1
+                  ofs001e:
+                           getlocal1
+                           iftrue ofs0008
+                  ofs0023:
+                           getlocal2
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+            }
+         }
+         
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 1
+               maxscopedepth 3
+               
+               code
+                  getlocal0
+                  pushscope
+                  findpropstrict Multiname("OverwriteManager",[PackageNamespace("com.greensock")])
+                  getlex QName(PackageNamespace(""),"Object")
+                  pushscope
+                  getlex Multiname("Object",[PackageNamespace(""),PrivateNamespace(null,"299"),PackageNamespace("com.greensock"),PackageInternalNs("com.greensock"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock.core")])
+                  newclass 73
+                  popscope
+                  initproperty QName(PackageNamespace("com.greensock"),"OverwriteManager")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+         

@@ -1,0 +1,309 @@
+{
+  "started_utc": "2026-10-23T16:04:51.460837+00:00",
+  "rea_source_package_version": "6.7.0",
+  "rea_entry_sha256": "88736b0f28ca3b0b11a2ee9067ae571be6410665f83d735645bbe51f30c585bb",
+  "node_version": "26.11.1",
+  "input": {
+    "path": "3_L4399Main_gamefile.swf",
+    "sha256": "b362fd3035995e63998de714cec9eb2fbe5216b4ee078182d48e30f5e1474b32",
+    "size": 27160482
+  },
+  "compressed_input": {
+    "path": "Map1.swf",
+    "sha256": "1355c628a5f505eed65ca128ad87ff0da919618779ea32bb7f2d06d29477ad4a",
+    "size": 1982378
+  },
+  "derivative": {
+    "path": ".runtime/rea/inputs/Map1-uncompressed.swf",
+    "sha256": "161f64f673fbe3632f91eaf6bd54d0491f2eaae77009678bf93bce6daad31534",
+    "size": 2241238,
+    "operation": "CWS zlib body decompression; FWS signature; declared length verified"
+  },
+  "runs": [
+    {
+      "name": "capabilities",
+      "argv": [
+        "mise",
+        "exec",
+        "node@26.11.1",
+        "--",
+        "node",
+        "/Users/AntiEntropy/Games/勇者的信仰-逆向/.runtime/rea/source/scripts/rea.mjs",
+        "capabilities",
+        "--json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.645,
+      "stdout": "reverse/logs/rea-probe-20261023T160451Z/capabilities.json",
+      "stdout_sha256": "84ff713ab6f7d8d4dea760781ae5c8e7afde034c662881a0f688d174e2b2fcb8",
+      "stderr": "reverse/logs/rea-probe-20261023T160451Z/capabilities.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "response_top_level_keys": [
+        "open",
+        "cleanup_pending",
+        "capabilities",
+        "analysis_provider_binding",
+        "analysis_provider_candidates",
+        "analysis_run",
+        "analysis_activity",
+        "provider_operation_health",
+        "server_identity"
+      ]
+    },
+    {
+      "name": "providers",
+      "argv": [
+        "mise",
+        "exec",
+        "node@26.11.1",
+        "--",
+        "node",
+        "/Users/AntiEntropy/Games/勇者的信仰-逆向/.runtime/rea/source/scripts/rea.mjs",
+        "providers",
+        "--json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.848,
+      "stdout": "reverse/logs/rea-probe-20261023T160451Z/providers.json",
+      "stdout_sha256": "08c4a74664436a74a0bd2360a8475ac51839d1a253a428da51bfbe657c269470",
+      "stderr": "reverse/logs/rea-probe-20261023T160451Z/providers.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "response_top_level_keys": [
+        "open",
+        "cleanup_pending",
+        "capabilities",
+        "analysis_provider_binding",
+        "analysis_provider_candidates",
+        "analysis_run",
+        "analysis_activity",
+        "provider_operation_health",
+        "server_identity"
+      ]
+    },
+    {
+      "name": "artifact-main",
+      "argv": [
+        "mise",
+        "exec",
+        "node@26.11.1",
+        "--",
+        "node",
+        "/Users/AntiEntropy/Games/勇者的信仰-逆向/.runtime/rea/source/scripts/rea.mjs",
+        "inspect-artifact",
+        "/Users/AntiEntropy/Games/勇者的信仰-逆向/3_L4399Main_gamefile.swf",
+        "--json"
+      ],
+      "exit_code": 1,
+      "elapsed_seconds": 4.555,
+      "stdout": "reverse/logs/rea-probe-20261023T160451Z/artifact-main.json",
+      "stdout_sha256": "d1fcfb85dd8a761f8c471541c9a58bdbbb91fef5ee205668d7b5a1b34589bc27",
+      "stderr": "reverse/logs/rea-probe-20261023T160451Z/artifact-main.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "response_top_level_keys": [
+        "error",
+        "code",
+        "category",
+        "message",
+        "retryable",
+        "remediation",
+        "details"
+      ],
+      "error": {
+        "error": "Analysis failed",
+        "code": "target_unavailable",
+        "category": "unsupported_target",
+        "message": "Cannot open artifact: unsupported binary format.",
+        "retryable": false,
+        "remediation": {
+          "action": "Review the reported file-format reason and select a supported, well-formed target."
+        },
+        "details": {
+          "path": "/Users/AntiEntropy/Games/勇者的信仰-逆向/3_L4399Main_gamefile.swf",
+          "reason": "unsupported binary format",
+          "constraint": "file_format_rejected"
+        }
+      }
+    },
+    {
+      "name": "entropy-main-fws",
+      "argv": [
+        "mise",
+        "exec",
+        "node@26.11.1",
+        "--",
+        "node",
+        "/Users/AntiEntropy/Games/勇者的信仰-逆向/.runtime/rea/source/scripts/rea.mjs",
+        "inspect-byte-entropy",
+        "/Users/AntiEntropy/Games/勇者的信仰-逆向/3_L4399Main_gamefile.swf",
+        "--block-size",
+        "65536",
+        "--json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.194,
+      "stdout": "reverse/logs/rea-probe-20261023T160451Z/entropy-main-fws.json",
+      "stdout_sha256": "5d3d218133aac39219b8abe153ffbddd1b1a619a5b4573de86a969f5193a18a5",
+      "stderr": "reverse/logs/rea-probe-20261023T160451Z/entropy-main-fws.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "response_top_level_keys": [
+        "evidence_id",
+        "subject",
+        "provider",
+        "analysis_profile",
+        "predicate_type",
+        "operation",
+        "parameters",
+        "raw_result",
+        "normalized_result",
+        "confidence",
+        "authority",
+        "environment",
+        "limitations",
+        "relationship_coverage",
+        "locations",
+        "evidence_links"
+      ],
+      "evidence_id": "ev_49a21bfa21f2a93c40d4b86773d7732ca660e6d0a102d4b6a5eadb1e5522f501",
+      "summary": {
+        "artifact": {
+          "path": "/Users/AntiEntropy/Games/勇者的信仰-逆向/3_L4399Main_gamefile.swf",
+          "bytes": 27160482,
+          "sha256": "b362fd3035995e63998de714cec9eb2fbe5216b4ee078182d48e30f5e1474b32"
+        },
+        "file_entropy": 7.8775,
+        "block_size": 65536,
+        "window": {
+          "offset": 0,
+          "length": 27160482
+        },
+        "limitations": [
+          "Entropy does not prove encryption; compressed and encrypted bytes cannot be distinguished by this measure.",
+          "Entropy is rounded to four decimal places; thresholds classify those reported values. Small blocks can underestimate entropy.",
+          "The file-wide hash and entropy cover the entire file; blocks and runs cover only the selected window. Empty input has entropy 0 by convention."
+        ]
+      }
+    },
+    {
+      "name": "entropy-map1-cws",
+      "argv": [
+        "mise",
+        "exec",
+        "node@26.11.1",
+        "--",
+        "node",
+        "/Users/AntiEntropy/Games/勇者的信仰-逆向/.runtime/rea/source/scripts/rea.mjs",
+        "inspect-byte-entropy",
+        "/Users/AntiEntropy/Games/勇者的信仰-逆向/Map1.swf",
+        "--block-size",
+        "65536",
+        "--json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.812,
+      "stdout": "reverse/logs/rea-probe-20261023T160451Z/entropy-map1-cws.json",
+      "stdout_sha256": "95c3b5ea3a7b87f6e0feccac18115fea6b40ef96b33e95ef14105752eecba479",
+      "stderr": "reverse/logs/rea-probe-20261023T160451Z/entropy-map1-cws.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "response_top_level_keys": [
+        "evidence_id",
+        "subject",
+        "provider",
+        "analysis_profile",
+        "predicate_type",
+        "operation",
+        "parameters",
+        "raw_result",
+        "normalized_result",
+        "confidence",
+        "authority",
+        "environment",
+        "limitations",
+        "relationship_coverage",
+        "locations",
+        "evidence_links"
+      ],
+      "evidence_id": "ev_925fe57b9392cbfcec1ac28e344f66cdd6ed06d255867cfe3702ef567b3c16b5",
+      "summary": {
+        "artifact": {
+          "path": "/Users/AntiEntropy/Games/勇者的信仰-逆向/Map1.swf",
+          "bytes": 1982378,
+          "sha256": "1355c628a5f505eed65ca128ad87ff0da919618779ea32bb7f2d06d29477ad4a"
+        },
+        "file_entropy": 7.9975,
+        "block_size": 65536,
+        "window": {
+          "offset": 0,
+          "length": 1982378
+        },
+        "limitations": [
+          "Entropy does not prove encryption; compressed and encrypted bytes cannot be distinguished by this measure.",
+          "Entropy is rounded to four decimal places; thresholds classify those reported values. Small blocks can underestimate entropy.",
+          "The file-wide hash and entropy cover the entire file; blocks and runs cover only the selected window. Empty input has entropy 0 by convention."
+        ]
+      }
+    },
+    {
+      "name": "entropy-map1-fws",
+      "argv": [
+        "mise",
+        "exec",
+        "node@26.11.1",
+        "--",
+        "node",
+        "/Users/AntiEntropy/Games/勇者的信仰-逆向/.runtime/rea/source/scripts/rea.mjs",
+        "inspect-byte-entropy",
+        "/Users/AntiEntropy/Games/勇者的信仰-逆向/.runtime/rea/inputs/Map1-uncompressed.swf",
+        "--block-size",
+        "65536",
+        "--json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.82,
+      "stdout": "reverse/logs/rea-probe-20261023T160451Z/entropy-map1-fws.json",
+      "stdout_sha256": "2572c93b65d21d8b2ef59b2a7b5bf15e39f07c9b5a0c8fcab907b572950ec8c4",
+      "stderr": "reverse/logs/rea-probe-20261023T160451Z/entropy-map1-fws.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "response_top_level_keys": [
+        "evidence_id",
+        "subject",
+        "provider",
+        "analysis_profile",
+        "predicate_type",
+        "operation",
+        "parameters",
+        "raw_result",
+        "normalized_result",
+        "confidence",
+        "authority",
+        "environment",
+        "limitations",
+        "relationship_coverage",
+        "locations",
+        "evidence_links"
+      ],
+      "evidence_id": "ev_f5168de5f1d8d7242ec12ff15d06d5d7f9876a0d847bd43591614a65e7750e1e",
+      "summary": {
+        "artifact": {
+          "path": "/Users/AntiEntropy/Games/勇者的信仰-逆向/.runtime/rea/inputs/Map1-uncompressed.swf",
+          "bytes": 2241238,
+          "sha256": "161f64f673fbe3632f91eaf6bd54d0491f2eaae77009678bf93bce6daad31534"
+        },
+        "file_entropy": 7.909,
+        "block_size": 65536,
+        "window": {
+          "offset": 0,
+          "length": 2241238
+        },
+        "limitations": [
+          "Entropy does not prove encryption; compressed and encrypted bytes cannot be distinguished by this measure.",
+          "Entropy is rounded to four decimal places; thresholds classify those reported values. Small blocks can underestimate entropy.",
+          "The file-wide hash and entropy cover the entire file; blocks and runs cover only the selected window. Empty input has entropy 0 by convention."
+        ]
+      }
+    }
+  ],
+  "completed_utc": "2026-10-23T16:05:04.364701+00:00",
+  "original_unchanged": true,
+  "compressed_input_unchanged": true,
+  "expected_rea_source_commit": "2452efa9211d09e0acdf8cf9bfbf82a96f5a3522"
+}

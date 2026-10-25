@@ -1,0 +1,125 @@
+# Runtime validation log
+
+## Main reconstruction, first candidate
+
+- Compiled all 710 exported script units with Flex; materialized from AS3 plus script-free asset SWF. External modules still original at this stage, so this is core reconstruction, not full-package completion.
+- Test store: `yzlr2_rebuild_probe`, seeded only from repository graduation preset. Three protected live saves verified unchanged after title startup.
+- Adobe Flash Player Debugger 32.0.0.465: title/update UI rendered successfully; isolated slot1 Lv85 visible and slots2–8 empty as expected.
+- Reading slot1 failed with ReferenceError1065 `com` undefined in XingLingFactory.creatFactory via Data2/Load. Full-qualified syntax without matching import under non-strict Flex was treated as dynamic property traversal. Candidate is failed, not accepted.
+- Repaired import sets: retain explicit Tool.XMLAsset, expand conflicting src.tool wildcard to used TiaoShi (or empty). Repeat runtime test passed read/save-slot loading and village entry.
+
+## Core runtime candidate fee59837, 2026-10-24 00:16–00:40 Beijing
+
+The running core SHA-256 is `fee59837cf0d2d331deeae2d917dda1a2fd0bf8208202e0954d46448f46fd57f`. The other 163 SWFs are still original, loaded from the isolated runtime directory; these results do not validate full-package reconstruction.
+
+| Check | Observed result | Scope |
+| --- | --- | --- |
+| Title and update dialog | Pass | Debugger32.0.0.465, direct SWF open |
+| Isolated preset read | Pass | Lv85 slot1; slots2–8 empty; initial HP48848, MP17571 |
+| Village | Pass | Loaded with character/equipment/NPC visuals |
+| Movement/jump/camera | Pass in sampled route | D/A/K, village to right portal, map1 rooms1–4 |
+| World map/difficulty selection | Pass | 落月之原 one-star |
+| Ordinary encounter | Pass | Snakes and one-eye enemies spawn, move, hit player and die |
+| Basic attack | Pass in sampled encounter | J alone caused nearby remaining enemies to disappear and drop items |
+| Skills | Pass in sampled encounter | U/I/O animation, MP reduction, hit numbers (one observed123680) and combos |
+| Room completion | Pass for rooms1–4 | Exit appeared after enemies cleared; W moved to next room |
+| Boss and clear result | Pass | Room5 金光蛇王Lv5 spawned and died; W portal opened result screen, then returned to village |
+| Equipment manipulation | Pass | Dragging armor to bag removed it, character appearance and stats changed |
+| Save and cold reload | Pass | System save success; full player quit/relaunch; armor remained in bag and stats persisted |
+| Quest | Pass for main quest1 | Accepted 落月之原, entered map1, complete button enabled, reward granted |
+
+Screenshots are under ignored `reverse/logs/runtime/`; capture timing after a damage animation may show a later frame, so textual observations and exact runtime hash are retained here. HP decreases while the game runs between actions; no numerical equality with an original control has yet been claimed. Protected original/final/epilogue save hashes were all unchanged at UTC16:36:50.
+
+## Reproducible canonical-source candidate 96ce6635
+
+`build_main.py` now consumes tracked `reverse/source/3_L4399Main_gamefile`, stages only exported non-AS resources, archives the previous staging directory, and compiles to a fresh output path. It checks compiler output existence and error text as well as return code; normalized output must parse recursively.
+
+Two builds with fixed staging path (`run-39691ycz`, `run-txy0xskm`) produced byte-identical SHA-256 `96ce6635d3ad0868d83f0fcbe74890a3ef7dedbcf4046d5619b417a0b7b458ba`. Randomized staging paths were an unsuccessful reproducibility route: Flex changed private helper numbering and ABC ordering. The fixed-path candidate retains 712 classes/710 scripts/7148 methods and the audited XMLAsset binding, but has not yet been opened for runtime verification. It is separate from the currently running fee59837 candidate.
+
+## Equipment/save observation, 2026-10-24 00:57–01:03 Beijing
+
+Core candidate fee59837 remained paired with original external resource SWFs. Armor 热血—玄冰战甲+10 was dragged from equipped slot into bag cell1. HP maximum changed48848→23953, attack7104→5840, defense3658→1747, critical24.3%→23.4%, dodge24.5%→19.2%. After explicit System→保存进度, the player process was fully exited and restarted. Slot1 timestamp00:58:36, bag armor cell1 and all five values matched. EXP1603 and gold10000652 also persisted. Re-equipping restored HP maximum48848 and defense3658; current HP stayed23953, so low-HP attack modifiers apply and attack should not be compared to a full-health initial state.
+
+Images: core-map1-clear-result.png, core-armor-removed.png, core-save-success.png, core-armor-cold-reload.png, core-quest-accepted.png. Screenshot capture after a temporary save-success toast can miss the toast; actual UI response and slot timestamp are recorded separately. The three protected user saves were checked again after save/reload and remained byte-identical to baseline.
+
+## Gates at 01:05
+
+Original comparison, full rebuilt resource integration, and fresh canonical-source candidate runtime were unverified at that checkpoint. Subsequent results below supersede this historical status.
+
+## Main quest1, 2026-10-24 01:05 Beijing
+
+Accepted through quest panel, then entered map1 one-star. Complete button changed from gray to blue. Clicking it removed the quest from accepted list and awarded one head equipment icon, EXP1603→2103 (+500), gold10000652→10000982 (+330), matching displayed rewards. Player was not edited or scripted to trigger the condition. Screenshots core-quest-ready.png, core-quest-turned-in.png and core-quest-reward-stats.png. This is still core fee59837 with original external modules.
+
+
+## Original control, 01:09–01:18 Beijing
+
+The control uses original Main with only the SharedObject string changed to `yzlr2_original_probe`; all 7,147 original method body hashes and the other 163 SWFs remain original. It is a save-isolated control, not a reconstructed main. The repository graduation preset was seeded into the separate store.
+
+Observed: title/read/village, initial HP48848/MP17571/attack7104/defense3658/critical24.3%/dodge24.5%; skill NPC dialogue and skill panel (LV9, 999 points); armor removal produced HP23953/attack5840/defense1747/critical23.4%/dodge19.2%. Re-equipping left current HP23953, causing low-HP attack8880. Main quest1 completed on entering map1; turn-in gave exactly +500EXP/+330gold and a head item. Basic attacks, drops and H/U/O animations/MP use were observed in room1. The original control did not finish a Boss run in this sample. Images `original-*.png` under ignored runtime logs.
+
+## Full source-rebuilt package, 01:19–01:43 Beijing
+
+Package `reverse/build/runtime-all-rebuilt-20261023T171635.802067Z`: 164 rebuilt SWFs, zero original-code fallbacks. Main `96ce6635d3ad0868d83f0fcbe74890a3ef7dedbcf4046d5619b417a0b7b458ba`; DataX `02ab9b45c2310ffb79b2e84a1ba0d70da53b24f40a1a4a57f1148813a3ce5def`. Its 164 provenance receipts are pinned inside `diagnostic-origin/`; later builds do not alter this historical package. This package predates full build-input fingerprint gating, so current strict launcher will not select it.
+
+Fresh isolated `yzlr2_rebuild_probe` fixture was installed while all players were stopped. Direct Adobe Debugger launch passed title, save-slot read, DataX initialization, village, skill-NPC dialogue/panel, matching initial stats and equipment visuals. Main quest1 was accepted, then Map1 one-star entered.
+
+All four ordinary rooms were cleared in order and their W exits used. Snake and one-eye enemies spawned, moved, damaged the player and died; J attacks produced combos and equipment drops; H/U/O caused animations and MP reduction. Room5 金光蛇王Lv5 appeared, its HP bar emptied, and its portal led to the actual challenge-success screen. Result: time0:14:55, highestcombo9, hitsreceived455, totaldamage1671351, killpoints2. This is a human-operated sample with analysis pauses between inputs, not a performance benchmark. A surviving ordinary enemy did not prevent the Boss exit, consistent with the exit depending on Boss defeat rather than every enemy.
+
+Return-to-village stats: EXP1621, gold10000655, killpoints1000001, HPmax48848, attack7104, defense3658, critical24.4%, dodge24.5%. Armor moved into bag cell1 changed HPmax23953/attack5840/defense1747/critical23.5%/dodge19.2%. Main quest1 turn-in awarded EXP+500=2121, gold+330=10000985, head item in bag cell2. Explicit system save displayed success.
+
+Player was fully quit; `pgrep -fl 'Flash Player'` returned no process. Reopening the same immutable package showed slot1 timestamp **2026-10-24 01:41:29**. After reading, armor remained unequipped in cell1, reward head item remained cell2, EXP2121/gold10000985/killpoints1000001 and all five unequipped stats matched. This verifies persistent mutation rather than only re-reading the unchanged preset.
+
+The +0.1 percentage-point critical difference from the original-control/core samples was investigated instead of ignored. After cold reload, monster book showed **小蛇 three gold stars**, earned attributes **critical20**, all other attributes0, totalstars3/30. This independently confirms the original random monster-card reward mechanism (`critical-rate-analysis.md`). Re-equipping restored HPmax48848 and defense3658; current HP23953 activated attack8880 as in the original control.
+
+Images: `full-village.png`, `full-skill-npc-dialog.png`, `full-skill-panel.png`, `full-initial-stats.png`, `full-room1-combat.png`, `full-boss-entry.png`, `full-map1-clear-result.png`, `full-after-clear-stats.png`, `full-armor-removed.png`, `full-quest-ready.png`, `full-quest-reward-stats.png`, `full-save-success.png`, `full-cold-reload-stats.png`, `full-snake-card-confirmed.png`. Original/final/epilogue saves were rehashed after the test and remained unchanged.
+
+### Build-repeat limitation discovered after runtime packaging
+
+Two new input-fingerprinted Main builds `run-lx5icqis` and `run-b062kbrm` both succeeded, but hashes were respectively96ce6635 and928e3d909992abb9b73e1820a45dd373d26171c460a72e296f605601df396248. All46,154 SWF tags except the ABC payload are identical. Full resolved P-code comparison found only three compiler private-namespace serials and six single-class script initializer global-lookup/slot allocation differences; branch targets resolve to the same instruction. No business-instruction difference was found. These are static equivalence indications, not proof of all gameplay equivalence. Fixed staging alone therefore does **not** guarantee byte-reproducibility. See `module-probe/main-repeat-resolved-audit.json`; the later928e variant needs its own runtime sample.
+
+### Coverage still open
+
+This validates the full source-rebuilt package in one ordinary/Boss route and selected NPC/equipment/task/save flows. It does not cover all maps, enemy mechanics, careers, shops, pets, cooperative play, online services or every story branch. Audio has not been independently listened to. Newer strict fingerprints/launcher, resource import harness and numeric boundary harness still need runtime acceptance at this checkpoint.
+
+
+## Strict package 928e and caller-version regression, 02:03–02:28 Beijing
+
+`runtime-all-rebuilt-20261023T175702.006475Z` contains164 rebuilt modules/zero fallback with full build-input snapshots. Main928e loaded the save written by96ce, showed the expected equipped stats and empty pet panel, and entered one-star机械试验场. Mechanical red/blue enemies appeared, attacked, took damage, and player attacks/skills consumed MP. This sample did not clear that map or its Boss.
+
+System→回城 then threw Adobe Error2109 (missing站立 frame label), with stack `MovieClip.gotoAndPlay→src.Skin.GoTo→src.Player.信春哥→Player.一起信春哥→Play_Interface.回城`. The error was recorded and the process closed; it was not suppressed to count the test as passed. Original control in the same route returned successfully. A separate probe changed only byte3 of Main/DataX fromSWF14 to their originalSWF9, preserving all ABC and other bytes. That probe completed the same mechanical combat/return-town route without error. Screenshots: `latest928e-returntown-error2109.png`, `original-returntown-success.png`, `header9-returntown-success.png`. See `returntown-label-audit.md` for source, labels, version rules and exact hashes. Formal recipes now retain original versions; their new complete package still needs UI verification.
+
+The strict launcher was tested through an actual Finder double-click with no player process running. The first attempt did not launch and lacked a diagnostic log; it cannot retrospectively be assigned a definite cause. After adding retained logs and distinguishing launch environment differences from build-input changes, the second Finder attempt passed the164-input verification and opened the game title. Evidence: `reverse/logs/launcher/20261023T182158Z-25101.log`, `finder-cold-launch-928e.png`. This verifies the launcher at928e, not the subsequent canonical semantic repairs. Later source changes correctly make that historical package stale.
+
+## Original fresh-character shop control, 02:33–02:37 Beijing
+
+A completely restarted original-control player created a **new isolated slot2**, leaving slot1 intact. Single player, sword/staff selection, opening-story skip, level1 HP1432/MP768. The normal village has similar background art to the graduation fixture's alternate village; appearance alone is not a map-number test. Fresh妮蒂亚 showed the normal smiling portrait and visible购买物品 button. Initial gold4399, eight red and eight blue low-level potions occupied16 slots.
+
+Observed quantity-down1→24 and up24→1. The quantity field accepted keyboard editing. Entering `-2147483648` then clicking down showed a clipped suffix `47`; the field is too narrow to claim the full2147483647 value from this screenshot alone. Exact compiled int32 behavior is independently covered by the bytecode audit; a complete UI text snapshot is still pending.
+
+Entering2 and buying low-level HP potions created two distinct new slots and changed gold4399→4383. Selling the second new potion removed one slot and returned4, giving4387 gold, nine red/eight blue potions. Images `original-shop-buy2.png`, `original-shop-intmin-decrement-clipped.png`, `original-shop-sell1.png`. These are game-currency operations only. The state has not yet been cold-reloaded at this checkpoint.
+
+
+## Original shop exact boundary and real-class probes, approximately03:00–03:05 Beijing
+
+Original slot2 was cold-read twice after full player quits; the saved level1 character retained gold4387, nine red and eight blue potions. Diagnostic wrapper v5 read the exact existing buyMenu.amount TextField: seq232 text `-2147483648` (11 characters) before down and seq251 `2147483647` (10) after down. Neither target field was truncated; both reports have errors=[], observerErrors=[], partial=false. Other UI tree/field budgets were truncated, so this proves the named field, not a complete display-tree observation. No purchase was made with these boundary values. See `original-shop-quantity-v5-runtime.json`; v4 failed observer evidence remains preserved separately.
+
+The actual-class v3 harness ran in Adobe Debugger against originalb362fd303599 and trace-preserving rebuilt Main71b7c20c9edc. Both showed183/183, Failures0, Persistence:flushed. All183 per-case inputs and results match in the recovered dedicated SO reports; the player encoded long names into `#/` path components, which explains why an earlier flat-basename search missed v2 files. The recovered v2 files also pass, without retroactively inventing a storage failure. See `experiments/actual-class-harness/runtime-comparison.json`. The probe executes actual unchanged ABC methods in an isolated library lifecycle; it is not whole-game equivalence or normal saving.
+
+## Original double-player key control, approximately03:05–03:08 Beijing
+
+Direct original isolated control created empty slot3 with two level1 sword/staff players. P1 HP1431/MP772; P2 HP1428/MP769, random starter equipment values. System→键位设置 showed both player tabs. Selecting player2 and confirming the default mapping closed the panel immediately; holding Right moved player2 separately while player1 remained. Assigning player2 Right to A (already player1 Left) then confirming produced `键位未设置!`. Cancel and 使用系统推荐设置 restored defaults; confirmation closed normally again. Explicit system save was clicked; cold-read of this new slot has not yet been tested. No existing slot was replaced. Screenshots `original-2p-keys-before.png`, `original-2p-keys-confirmed.png`, `original-2p-key-conflict-warning.png`. Latest reconstructed full-package comparison remains pending.
+
+
+## Final keep-trace 191531 package, 03:23–04:12 Beijing
+
+This section supersedes only the acceptance status of the final candidate, not historical observations. Main71b7c20c/DataX5e2401a8 and all162 external modules were rebuilt from canonical sources with trace argument evaluation preserved. Assembly164/164, zero original-code fallback. See final-candidate-provenance.json and independently rehashed final-delivery-audit.json.
+
+Direct Finder cold start opened the final Main. Existing fresh-character slot2 completed shop buy2/sell1 (gold4399→4383→4387; red9/blue8), explicit save, complete process exit and direct cold-read. Quest110001 accepted, entering Map1 triggered completion, return-town succeeded and reward persisted as gold4717/Exp500/head12510×1/state0-oldTime1. Reward-after-coldread remains untested. A new slot3 double-player game verified default confirm, independent Right movement, conflicting A warning and recommended defaults; both players persisted. Full double-player combat/coldread remain untested.
+
+The same final package under read-only diagnostic v5 then ran graduation slot1 through all four ordinary Map1 rooms and Boss room5. Per-room captures record enemyChildren0 and empty error arrays. Boss entry records id3/identity88 HP6000; after attack the Boss disappeared, drop/exit appeared, and the player reached the Challenge Successful result: time0:15:16, combo7, hits312, damage1040465, killpoints2. Some summoned ordinary enemies remained when the Boss portal was used; this is not a claim that every spawned Boss-room enemy was killed. Returning from results loaded village normally without2109.
+
+Equipment: equipped HPmax48848/MP17571/attack7104/defense3658/critical24.4%/dodge24.5%; remove armor→23953/17571/5840/1747/23.5%/19.2%; re-equip restores maxHP48848/defense3658/crit24.4/dodge24.5, while currentHP23953 activates the original low-HP attack8880 passive. Gold10002242, Exp7191, killPoint1000003. Explicit save clicked and read-only test-SOL summary confirmed these persisted fields and six equipped items.
+
+At20:10:07Z pgrep confirmed no Flash Player process after CmdQ. A real Finder double-click started launcher log20261023T201042Z-74951.log, which verified164 modules/28131 inputs and opened the same final Main directly without wrapper. Slot1 showed04:09:15 save time; reading it entered village and the bag retained gold10002242/Exp7191/killpoints1000003/six items. Full HP after reload gives attack7104, HPmax48848, MP17571, defense3658, critical24.4%, dodge24.5%. Evidence: experiments/final-runtime/final-slot1-cold-read.png. This completes the representative final-package save/restart lifecycle, distinct from historical96ce results.
+
+Final runtime materials and hashes are indexed in final-acceptance.json. Full-map equivalence, every career/skill/pet/2P interaction, network/cloud services and audio listening are not established. Original shop INT_MIN UI is measured, but the final candidate's identical UI boundary has not been replayed; compiled semantic probes do not replace that missing UI observation.

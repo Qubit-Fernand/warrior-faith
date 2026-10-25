@@ -1,0 +1,770 @@
+package com.ByteArrayXX
+{
+   import flash.utils.*;
+   
+   public class Base64
+   {
+      
+      private static const base64chars:String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PrivateNamespace(null,"170"),"base64chars")
+               pushstring "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
+               initproperty QName(PrivateNamespace(null,"170"),"base64chars")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function Base64()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function encode(param1:String) : String
+      {
+         trait method QName(PackageNamespace(""),"encode")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               param QName(PackageNamespace(""),"String")
+               returns QName(PackageNamespace(""),"String")
+               
+               body
+                  maxstack 4
+                  localcount 13
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushbyte 0
+                     setlocal2
+                     pushbyte 0
+                     setlocal 5
+                     pushbyte 0
+                     setlocal 6
+                     pushbyte 0
+                     setlocal 7
+                     pushbyte 0
+                     setlocal 8
+                     pushbyte 0
+                     setlocal 9
+                     pushbyte 0
+                     setlocal 10
+                     pushbyte 0
+                     setlocal 11
+                     getlocal1
+                     not
+                     dup
+                     iftrue ofs002d
+                     pop
+                     getlocal1
+                     pushstring ""
+                     equals
+            ofs002d:
+                     iffalse ofs0034
+                     pushstring ""
+                     returnvalue
+            ofs0034:
+                     getlocal1
+                     getproperty Multiname("length",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                     convert_i
+                     setlocal3
+                     pushstring ""
+                     setlocal 4
+                     jump ofs00f7
+            ofs0042:
+                     label
+                     getlocal1
+                     getlocal2
+                     dup
+                     increment_i
+                     setlocal2
+                     callproperty Multiname("charCodeAt",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                     convert_i
+                     setlocal 5
+                     getlocal1
+                     getlocal2
+                     dup
+                     increment_i
+                     setlocal2
+                     callproperty Multiname("charCodeAt",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                     convert_i
+                     setlocal 6
+                     getlocal1
+                     getlocal2
+                     dup
+                     increment_i
+                     setlocal2
+                     callproperty Multiname("charCodeAt",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                     convert_i
+                     setlocal 7
+                     getlocal 5
+                     pushbyte 2
+                     rshift
+                     setlocal 8
+                     getlocal 5
+                     pushbyte 3
+                     bitand
+                     pushbyte 4
+                     lshift
+                     getlocal 6
+                     pushbyte 4
+                     rshift
+                     bitor
+                     setlocal 9
+                     getlocal 6
+                     pushbyte 15
+                     bitand
+                     pushbyte 2
+                     lshift
+                     getlocal 7
+                     pushbyte 6
+                     rshift
+                     bitor
+                     setlocal 10
+                     getlocal 7
+                     pushbyte 63
+                     bitand
+                     setlocal 11
+                     findpropstrict Multiname("isNaN",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                     getlocal 6
+                     callproperty Multiname("isNaN",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                     iffalse ofs00b5
+                     pushbyte 64
+                     dup
+                     setlocal 12
+                     convert_i
+                     setlocal 11
+                     getlocal 12
+                     kill 12
+                     convert_i
+                     setlocal 10
+                     jump ofs00c6
+            ofs00b5:
+                     findpropstrict Multiname("isNaN",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                     getlocal 7
+                     callproperty Multiname("isNaN",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                     iffalse ofs00c6
+                     pushbyte 64
+                     setlocal 11
+            ofs00c6:
+                     getlocal 4
+                     getlex Multiname("base64chars",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                     getlocal 8
+                     callproperty Multiname("charAt",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                     getlex Multiname("base64chars",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                     getlocal 9
+                     callproperty Multiname("charAt",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                     add
+                     add
+                     coerce_s
+                     dup
+                     setlocal 4
+                     getlex Multiname("base64chars",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                     getlocal 10
+                     callproperty Multiname("charAt",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                     getlex Multiname("base64chars",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                     getlocal 11
+                     callproperty Multiname("charAt",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                     add
+                     add
+                     coerce_s
+                     setlocal 4
+            ofs00f7:
+                     getlocal2
+                     getlocal3
+                     iflt ofs0042
+                     getlocal 4
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public static function encodeByteArray(param1:ByteArray) : String
+         {
+            trait method QName(PackageNamespace(""),"encodeByteArray")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  param QName(PackageNamespace("flash.utils"),"ByteArray")
+                  returns QName(PackageNamespace(""),"String")
+                  
+                  body
+                     maxstack 5
+                     localcount 8
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushbyte 0
+                        setlocal2
+                        pushbyte 0
+                        setlocal3
+                        pushnull
+                        coerce QName(PackageNamespace(""),"Array")
+                        setlocal 6
+                        getlocal1
+                        iftrue ofs0015
+                        pushstring ""
+                        returnvalue
+               ofs0015:
+                        getlocal1
+                        getproperty Multiname("position",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        convert_u
+                        setlocal 4
+                        pushstring ""
+                        setlocal 5
+                        findpropstrict Multiname("Array",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        pushbyte 4
+                        constructprop Multiname("Array",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                        coerce QName(PackageNamespace(""),"Array")
+                        setlocal 7
+                        getlocal1
+                        pushbyte 0
+                        setproperty Multiname("position",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        jump ofs011e
+               ofs0037:
+                        label
+                        findpropstrict Multiname("Array",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        constructprop Multiname("Array",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 0
+                        coerce QName(PackageNamespace(""),"Array")
+                        setlocal 6
+                        pushbyte 0
+                        setlocal2
+                        jump ofs0058
+               ofs004a:
+                        label
+                        getlocal 6
+                        getlocal2
+                        getlocal1
+                        callproperty Multiname("readUnsignedByte",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 0
+                        setproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        inclocal_i 2
+               ofs0058:
+                        getlocal2
+                        pushbyte 3
+                        lessthan
+                        dup
+                        iffalse ofs0069
+                        pop
+                        getlocal1
+                        getproperty Multiname("bytesAvailable",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        pushbyte 0
+                        greaterthan
+               ofs0069:
+                        iftrue ofs004a
+                        getlocal 7
+                        pushbyte 0
+                        getlocal 6
+                        pushbyte 0
+                        getproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        pushshort 252
+                        bitand
+                        pushbyte 2
+                        rshift
+                        setproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        getlocal 7
+                        pushbyte 1
+                        getlocal 6
+                        pushbyte 0
+                        getproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        pushbyte 3
+                        bitand
+                        pushbyte 4
+                        lshift
+                        getlocal 6
+                        pushbyte 1
+                        getproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        pushbyte 4
+                        rshift
+                        bitor
+                        setproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        getlocal 7
+                        pushbyte 2
+                        getlocal 6
+                        pushbyte 1
+                        getproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        pushbyte 15
+                        bitand
+                        pushbyte 2
+                        lshift
+                        getlocal 6
+                        pushbyte 2
+                        getproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        pushbyte 6
+                        rshift
+                        bitor
+                        setproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        getlocal 7
+                        pushbyte 3
+                        getlocal 6
+                        pushbyte 2
+                        getproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        pushbyte 63
+                        bitand
+                        setproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        getlocal 6
+                        getproperty Multiname("length",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        convert_i
+                        setlocal3
+                        getlocal3
+                        convert_i
+                        setlocal2
+                        jump ofs00ed
+               ofs00df:
+                        label
+                        getlocal 7
+                        getlocal2
+                        pushbyte 1
+                        add
+                        pushbyte 64
+                        setproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        inclocal_i 2
+               ofs00ed:
+                        getlocal2
+                        pushbyte 3
+                        iflt ofs00df
+                        getlocal 7
+                        getproperty Multiname("length",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        convert_i
+                        setlocal3
+                        pushbyte 0
+                        setlocal2
+                        jump ofs0118
+               ofs0102:
+                        label
+                        getlocal 5
+                        getlex Multiname("base64chars",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        getlocal 7
+                        getlocal2
+                        getproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        callproperty Multiname("charAt",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                        add
+                        coerce_s
+                        setlocal 5
+                        inclocal_i 2
+               ofs0118:
+                        getlocal2
+                        getlocal3
+                        iflt ofs0102
+               ofs011e:
+                        getlocal1
+                        getproperty Multiname("bytesAvailable",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        pushbyte 0
+                        ifgt ofs0037
+                        getlocal1
+                        getlocal 4
+                        setproperty Multiname("position",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                        getlocal 5
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public static function decode(param1:String) : String
+            {
+               trait method QName(PackageNamespace(""),"decode")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"String")
+                     returns QName(PackageNamespace(""),"String")
+                     
+                     body
+                        maxstack 4
+                        localcount 12
+                        initscopedepth 3
+                        maxscopedepth 4
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushbyte 0
+                           setlocal2
+                           pushbyte 0
+                           setlocal3
+                           pushbyte 0
+                           setlocal 4
+                           pushbyte 0
+                           setlocal 5
+                           pushbyte 0
+                           setlocal 6
+                           pushbyte 0
+                           setlocal 7
+                           pushbyte 0
+                           setlocal 8
+                           pushbyte 0
+                           setlocal 9
+                           getlocal1
+                           not
+                           dup
+                           iftrue ofs002c
+                           pop
+                           getlocal1
+                           pushstring ""
+                           equals
+                  ofs002c:
+                           iffalse ofs0033
+                           pushstring ""
+                           returnvalue
+                  ofs0033:
+                           getlocal1
+                           getproperty Multiname("length",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                           convert_i
+                           setlocal 10
+                           pushstring ""
+                           setlocal 11
+                           jump ofs00fa
+                  ofs0042:
+                           label
+                           getlex Multiname("base64chars",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                           getlocal1
+                           getlocal 9
+                           dup
+                           increment_i
+                           setlocal 9
+                           callproperty Multiname("charAt",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                           callproperty Multiname("indexOf",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                           convert_i
+                           setlocal 5
+                           getlex Multiname("base64chars",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                           getlocal1
+                           getlocal 9
+                           dup
+                           increment_i
+                           setlocal 9
+                           callproperty Multiname("charAt",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                           callproperty Multiname("indexOf",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                           convert_i
+                           setlocal 6
+                           getlex Multiname("base64chars",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                           getlocal1
+                           getlocal 9
+                           dup
+                           increment_i
+                           setlocal 9
+                           callproperty Multiname("charAt",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                           callproperty Multiname("indexOf",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                           convert_i
+                           setlocal 7
+                           getlex Multiname("base64chars",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                           getlocal1
+                           getlocal 9
+                           dup
+                           increment_i
+                           setlocal 9
+                           callproperty Multiname("charAt",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                           callproperty Multiname("indexOf",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                           convert_i
+                           setlocal 8
+                           getlocal 5
+                           pushbyte 2
+                           lshift
+                           getlocal 6
+                           pushbyte 4
+                           rshift
+                           bitor
+                           setlocal2
+                           getlocal 6
+                           pushbyte 15
+                           bitand
+                           pushbyte 4
+                           lshift
+                           getlocal 7
+                           pushbyte 2
+                           rshift
+                           bitor
+                           setlocal3
+                           getlocal 7
+                           pushbyte 3
+                           bitand
+                           pushbyte 6
+                           lshift
+                           getlocal 8
+                           bitor
+                           setlocal 4
+                           getlocal 11
+                           getlex Multiname("String",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                           getlocal2
+                           callproperty Multiname("fromCharCode",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                           add
+                           coerce_s
+                           setlocal 11
+                           getlocal 7
+                           pushbyte 64
+                           ifeq ofs00e3
+                           getlocal 11
+                           getlex Multiname("String",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                           getlocal3
+                           callproperty Multiname("fromCharCode",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                           add
+                           coerce_s
+                           setlocal 11
+                  ofs00e3:
+                           getlocal 8
+                           pushbyte 64
+                           ifeq ofs00fa
+                           getlocal 11
+                           getlex Multiname("String",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                           getlocal 4
+                           callproperty Multiname("fromCharCode",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                           add
+                           coerce_s
+                           setlocal 11
+                  ofs00fa:
+                           getlocal 9
+                           getlocal 10
+                           iflt ofs0042
+                           getlocal 11
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public static function decodeToByteArray(param1:String) : ByteArray
+               {
+                  trait method QName(PackageNamespace(""),"decodeToByteArray")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"String")
+                        returns QName(PackageNamespace("flash.utils"),"ByteArray")
+                        
+                        body
+                           maxstack 6
+                           localcount 9
+                           initscopedepth 3
+                           maxscopedepth 4
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushbyte 0
+                              convert_u
+                              setlocal 6
+                              pushbyte 0
+                              convert_u
+                              setlocal 7
+                              pushbyte 0
+                              convert_u
+                              setlocal 8
+                              findpropstrict Multiname("ByteArray",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64"),PackageNamespace("flash.utils")])
+                              constructprop Multiname("ByteArray",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64"),PackageNamespace("flash.utils")]), 0
+                              coerce QName(PackageNamespace("flash.utils"),"ByteArray")
+                              setlocal2
+                              findpropstrict Multiname("Array",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                              pushbyte 4
+                              constructprop Multiname("Array",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                              coerce QName(PackageNamespace(""),"Array")
+                              setlocal3
+                              findpropstrict Multiname("Array",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                              pushbyte 3
+                              constructprop Multiname("Array",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                              coerce QName(PackageNamespace(""),"Array")
+                              setlocal 4
+                              getlocal1
+                              getproperty Multiname("length",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                              convert_u
+                              setlocal 5
+                              jump ofs0114
+                     ofs003f:
+                              label
+                              pushbyte 0
+                              convert_u
+                              setlocal 7
+                              jump ofs0067
+                     ofs0049:
+                              label
+                              getlocal3
+                              getlocal 7
+                              getlex Multiname("base64chars",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                              getlocal1
+                              getlocal 6
+                              getlocal 7
+                              add
+                              callproperty Multiname("charAt",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                              callproperty Multiname("indexOf",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                              setproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                              getlocal 7
+                              increment
+                              convert_u
+                              setlocal 7
+                     ofs0067:
+                              getlocal 7
+                              pushbyte 4
+                              lessthan
+                              dup
+                              iffalse ofs007a
+                              pop
+                              getlocal 6
+                              getlocal 7
+                              add
+                              getlocal 5
+                              lessthan
+                     ofs007a:
+                              iftrue ofs0049
+                              getlocal 4
+                              pushbyte 0
+                              getlocal3
+                              pushbyte 0
+                              getproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                              pushbyte 2
+                              lshift
+                              getlocal3
+                              pushbyte 1
+                              getproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                              pushbyte 48
+                              bitand
+                              pushbyte 4
+                              rshift
+                              add
+                              setproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                              getlocal 4
+                              pushbyte 1
+                              getlocal3
+                              pushbyte 1
+                              getproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                              pushbyte 15
+                              bitand
+                              pushbyte 4
+                              lshift
+                              getlocal3
+                              pushbyte 2
+                              getproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                              pushbyte 60
+                              bitand
+                              pushbyte 2
+                              rshift
+                              add
+                              setproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                              getlocal 4
+                              pushbyte 2
+                              getlocal3
+                              pushbyte 2
+                              getproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                              pushbyte 3
+                              bitand
+                              pushbyte 6
+                              lshift
+                              getlocal3
+                              pushbyte 3
+                              getproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                              add
+                              setproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                              pushbyte 0
+                              convert_u
+                              setlocal 8
+                              jump ofs0104
+                     ofs00de:
+                              label
+                              getlocal3
+                              getlocal 8
+                              pushbyte 1
+                              add
+                              getproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                              pushbyte 64
+                              ifne ofs00f2
+                              jump ofs010c
+                     ofs00f2:
+                              getlocal2
+                              getlocal 4
+                              getlocal 8
+                              getproperty MultinameL([PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                              callpropvoid Multiname("writeByte",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")]), 1
+                              getlocal 8
+                              increment
+                              convert_u
+                              setlocal 8
+                     ofs0104:
+                              getlocal 8
+                              pushbyte 3
+                              iflt ofs00de
+                     ofs010c:
+                              getlocal 6
+                              pushbyte 4
+                              add
+                              convert_u
+                              setlocal 6
+                     ofs0114:
+                              getlocal 6
+                              getlocal 5
+                              iflt ofs003f
+                              getlocal2
+                              pushbyte 0
+                              setproperty Multiname("position",[PrivateNamespace(null,"170"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.ByteArrayXX:Base64"),StaticProtectedNs("com.ByteArrayXX:Base64")])
+                              getlocal2
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+               }
+            }
+            
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 1
+                  maxscopedepth 3
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict Multiname("Base64",[PackageNamespace("com.ByteArrayXX")])
+                     getlex QName(PackageNamespace(""),"Object")
+                     pushscope
+                     getlex Multiname("Object",[PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("com.ByteArrayXX"),PackageInternalNs("com.ByteArrayXX"),Namespace("http://adobe.com/AS3/2006/builtin")])
+                     newclass 70
+                     popscope
+                     initproperty QName(PackageNamespace("com.ByteArrayXX"),"Base64")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+            

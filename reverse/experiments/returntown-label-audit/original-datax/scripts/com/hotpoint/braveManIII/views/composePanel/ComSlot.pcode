@@ -1,0 +1,718 @@
+package com.hotpoint.braveManIII.views.composePanel
+{
+   import com.hotpoint.braveManIII.models.equip.*;
+   import com.hotpoint.braveManIII.models.gem.*;
+   
+   public class ComSlot
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var _bagArr:Array;
+      
+      private var _pointArr:Array;
+      
+      private var _whoBag:Array;
+      
+      public function ComSlot()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  findproperty QName(PrivateNamespace(null,"79"),"_bagArr")
+                  newarray 0
+                  initproperty QName(PrivateNamespace(null,"79"),"_bagArr")
+                  findproperty QName(PrivateNamespace(null,"79"),"_pointArr")
+                  newarray 0
+                  initproperty QName(PrivateNamespace(null,"79"),"_pointArr")
+                  findproperty QName(PrivateNamespace(null,"79"),"_whoBag")
+                  newarray 0
+                  initproperty QName(PrivateNamespace(null,"79"),"_whoBag")
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function creatSlot() : ComSlot
+      {
+         trait method QName(PackageNamespace(""),"creatSlot")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               returns QName(PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),"ComSlot")
+               
+               body
+                  maxstack 1
+                  localcount 2
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     construct 0
+                     coerce QName(PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),"ComSlot")
+                     setlocal1
+                     getlocal1
+                     callpropvoid Multiname("initBag",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")]), 0
+                     getlocal1
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function initBag() : void
+         {
+            trait method QName(PrivateNamespace(null,"79"),"initBag")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 3
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushbyte 0
+                        convert_u
+                        setlocal1
+                        jump ofs002a
+               ofs000a:
+                        label
+                        getlex Multiname("_bagArr",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                        getlocal1
+                        pushbyte -1
+                        setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                        getlex Multiname("_pointArr",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                        getlocal1
+                        pushbyte -1
+                        setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                        getlex Multiname("_whoBag",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                        getlocal1
+                        pushbyte -1
+                        setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                        getlocal1
+                        increment
+                        convert_u
+                        setlocal1
+               ofs002a:
+                        getlocal1
+                        pushbyte 4
+                        iflt ofs000a
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function addBag(param1:Array, param2:Number) : void
+            {
+               trait method QName(PackageNamespace(""),"addBag")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"Array")
+                     param QName(PackageNamespace(""),"Number")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 3
+                        localcount 5
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushnull
+                           coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.equip"),"Equip")
+                           setlocal3
+                           pushnull
+                           coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.gem"),"Gem")
+                           setlocal 4
+                           getlocal1
+                           pushnull
+                           ifeq ofs010e
+                           getlocal1
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           getlex Multiname("Equip",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot"),PackageNamespace("com.hotpoint.braveManIII.models.equip")])
+                           istypelate
+                           iffalse ofs00d2
+                           getlocal1
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           getlex Multiname("Equip",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot"),PackageNamespace("com.hotpoint.braveManIII.models.equip")])
+                           astypelate
+                           coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.equip"),"Equip")
+                           setlocal3
+                           getlex Multiname("_whoBag",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           pushbyte -1
+                           ifne ofs0047
+                           findpropstrict Multiname("addone",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           getlocal1
+                           getlocal2
+                           callpropvoid Multiname("addone",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")]), 2
+                           jump ofs00ce
+                  ofs0047:
+                           getlex Multiname("_whoBag",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           pushbyte 0
+                           ifne ofs007d
+                           getlocal2
+                           pushbyte 0
+                           ifne ofs0069
+                           findpropstrict Multiname("addTow",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           getlocal1
+                           getlocal2
+                           callpropvoid Multiname("addTow",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")]), 2
+                           jump ofs0079
+                  ofs0069:
+                           getlocal2
+                           pushbyte 1
+                           ifne ofs0079
+                           findpropstrict Multiname("changeSlot",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           getlocal1
+                           getlocal2
+                           callpropvoid Multiname("changeSlot",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")]), 2
+                  ofs0079:
+                           jump ofs00ce
+                  ofs007d:
+                           getlex Multiname("_whoBag",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           pushbyte 1
+                           ifne ofs00ce
+                           getlocal2
+                           pushbyte 0
+                           ifne ofs009f
+                           findpropstrict Multiname("addTow",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           getlocal1
+                           getlocal2
+                           callpropvoid Multiname("addTow",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")]), 2
+                           jump ofs00ce
+                  ofs009f:
+                           getlocal2
+                           pushbyte 1
+                           ifne ofs00ce
+                           getlex Multiname("_pointArr",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           getlocal1
+                           pushbyte 1
+                           getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           ifne ofs00c5
+                           findpropstrict Multiname("addone",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           getlocal1
+                           getlocal2
+                           callpropvoid Multiname("addone",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")]), 2
+                           jump ofs00ce
+                  ofs00c5:
+                           findpropstrict Multiname("changeSlot",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           getlocal1
+                           getlocal2
+                           callpropvoid Multiname("changeSlot",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")]), 2
+                  ofs00ce:
+                           jump ofs010e
+                  ofs00d2:
+                           getlocal1
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           getlex Multiname("Gem",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot"),PackageNamespace("com.hotpoint.braveManIII.models.gem")])
+                           istypelate
+                           iffalse ofs010e
+                           getlocal1
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.gem"),"Gem")
+                           setlocal 4
+                           getlex Multiname("_bagArr",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           pushbyte -1
+                           ifne ofs0105
+                           findpropstrict Multiname("addone",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           getlocal1
+                           getlocal2
+                           callpropvoid Multiname("addone",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")]), 2
+                           jump ofs010e
+                  ofs0105:
+                           findpropstrict Multiname("addTow",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                           getlocal1
+                           getlocal2
+                           callpropvoid Multiname("addTow",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")]), 2
+                  ofs010e:
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function addone(param1:Array, param2:Number) : void
+               {
+                  trait method QName(PrivateNamespace(null,"79"),"addone")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"Array")
+                        param QName(PackageNamespace(""),"Number")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 4
+                           localcount 3
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlex Multiname("_bagArr",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                              pushbyte 0
+                              getlocal1
+                              pushbyte 0
+                              getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                              setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                              getlex Multiname("_pointArr",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                              pushbyte 0
+                              getlocal1
+                              pushbyte 1
+                              getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                              setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                              getlex Multiname("_whoBag",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                              pushbyte 0
+                              getlocal2
+                              setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  private function addTow(param1:Array, param2:Number) : void
+                  {
+                     trait method QName(PrivateNamespace(null,"79"),"addTow")
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace(""),"Array")
+                           param QName(PackageNamespace(""),"Number")
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 4
+                              localcount 3
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlex Multiname("_bagArr",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                 pushbyte 1
+                                 getlocal1
+                                 pushbyte 0
+                                 getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                 setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                 getlex Multiname("_pointArr",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                 pushbyte 1
+                                 getlocal1
+                                 pushbyte 1
+                                 getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                 setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                 getlex Multiname("_whoBag",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                 pushbyte 1
+                                 getlocal2
+                                 setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private function changeSlot(param1:Array, param2:Number) : void
+                     {
+                        trait method QName(PrivateNamespace(null,"79"),"changeSlot")
+                           dispid 0
+                           method
+                              name null
+                              param QName(PackageNamespace(""),"Array")
+                              param QName(PackageNamespace(""),"Number")
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 3
+                                 localcount 5
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    findpropstrict Multiname("getObj",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                    pushbyte 0
+                                    callproperty Multiname("getObj",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")]), 1
+                                    pushbyte 0
+                                    getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                    getlex Multiname("Equip",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot"),PackageNamespace("com.hotpoint.braveManIII.models.equip")])
+                                    astypelate
+                                    callproperty Multiname("getId",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")]), 0
+                                    convert_d
+                                    setlocal3
+                                    getlocal1
+                                    pushbyte 0
+                                    getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                    getlex Multiname("Equip",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot"),PackageNamespace("com.hotpoint.braveManIII.models.equip")])
+                                    astypelate
+                                    coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.equip"),"Equip")
+                                    setlocal 4
+                                    getlex Multiname("ComData",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                    getlocal 4
+                                    callproperty Multiname("getId",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")]), 0
+                                    getlocal3
+                                    callproperty Multiname("towBo",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")]), 2
+                                    iffalse ofs0047
+                                    findpropstrict Multiname("addTow",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                    getlocal1
+                                    getlocal2
+                                    callpropvoid Multiname("addTow",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")]), 2
+                                    jump ofs0050
+                           ofs0047:
+                                    findpropstrict Multiname("addone",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                    getlocal1
+                                    getlocal2
+                                    callpropvoid Multiname("addone",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")]), 2
+                           ofs0050:
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function addFishSlot(param1:Object) : void
+                        {
+                           trait method QName(PackageNamespace(""),"addFishSlot")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace(""),"Object")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 3
+                                    localcount 2
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlex Multiname("_bagArr",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                       pushbyte 3
+                                       getlocal1
+                                       setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                       getlex Multiname("_pointArr",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                       pushbyte 3
+                                       pushbyte -1
+                                       setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                       getlex Multiname("_whoBag",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                       pushbyte 3
+                                       pushbyte -1
+                                       setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function addHcSlot(param1:Object) : void
+                           {
+                              trait method QName(PackageNamespace(""),"addHcSlot")
+                                 dispid 0
+                                 method
+                                    name null
+                                    param QName(PackageNamespace(""),"Object")
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 3
+                                       localcount 2
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlex Multiname("_bagArr",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                          pushbyte 2
+                                          getlocal1
+                                          setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                          getlex Multiname("_pointArr",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                          pushbyte 2
+                                          pushbyte -1
+                                          setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                          getlex Multiname("_whoBag",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                          pushbyte 2
+                                          pushbyte -1
+                                          setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function getObj(param1:Number) : Array
+                              {
+                                 trait method QName(PackageNamespace(""),"getObj")
+                                    dispid 0
+                                    method
+                                       name null
+                                       param QName(PackageNamespace(""),"Number")
+                                       returns QName(PackageNamespace(""),"Array")
+                                       
+                                       body
+                                          maxstack 4
+                                          localcount 3
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             newarray 0
+                                             coerce QName(PackageNamespace(""),"Array")
+                                             setlocal2
+                                             getlex Multiname("_bagArr",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                             getlocal1
+                                             getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                             pushbyte -1
+                                             ifeq ofs0030
+                                             getlex Multiname("_bagArr",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                             getlocal1
+                                             getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                             getlex Multiname("_pointArr",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                             getlocal1
+                                             getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                             getlex Multiname("_whoBag",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                             getlocal1
+                                             getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                             newarray 3
+                                             coerce QName(PackageNamespace(""),"Array")
+                                             setlocal2
+                                             getlocal2
+                                             returnvalue
+                                    ofs0030:
+                                             pushnull
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function clearOnly(param1:Number) : void
+                                 {
+                                    trait method QName(PackageNamespace(""),"clearOnly")
+                                       dispid 0
+                                       method
+                                          name null
+                                          param QName(PackageNamespace(""),"Number")
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 3
+                                             localcount 2
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlex Multiname("_bagArr",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                                getlocal1
+                                                getproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                                pushbyte -1
+                                                ifeq ofs002a
+                                                getlex Multiname("_bagArr",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                                getlocal1
+                                                pushbyte -1
+                                                setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                                getlex Multiname("_pointArr",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                                getlocal1
+                                                pushbyte -1
+                                                setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                                getlex Multiname("_whoBag",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                                getlocal1
+                                                pushbyte -1
+                                                setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                       ofs002a:
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    public function clearBag() : void
+                                    {
+                                       trait method QName(PackageNamespace(""),"clearBag")
+                                          dispid 0
+                                          method
+                                             name null
+                                             returns QName(PackageNamespace(""),"void")
+                                             
+                                             body
+                                                maxstack 3
+                                                localcount 2
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   pushbyte 0
+                                                   convert_u
+                                                   setlocal1
+                                                   jump ofs002a
+                                          ofs000a:
+                                                   label
+                                                   getlex Multiname("_bagArr",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                                   getlocal1
+                                                   pushbyte -1
+                                                   setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                                   getlex Multiname("_pointArr",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                                   getlocal1
+                                                   pushbyte -1
+                                                   setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                                   getlex Multiname("_whoBag",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                                   getlocal1
+                                                   pushbyte -1
+                                                   setproperty MultinameL([PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                                   getlocal1
+                                                   increment
+                                                   convert_u
+                                                   setlocal1
+                                          ofs002a:
+                                                   getlocal1
+                                                   pushbyte 4
+                                                   iflt ofs000a
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       public function addTj(param1:Object) : Boolean
+                                       {
+                                          trait method QName(PackageNamespace(""),"addTj")
+                                             dispid 0
+                                             method
+                                                name null
+                                                param QName(PackageNamespace(""),"Object")
+                                                returns QName(PackageNamespace(""),"Boolean")
+                                                
+                                                body
+                                                   maxstack 2
+                                                   localcount 2
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      getlex Multiname("ComPosePanel",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                                      getproperty Multiname("state",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                                      pushbyte 0
+                                                      ifne ofs001d
+                                                      getlocal1
+                                                      getlex Multiname("Equip",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot"),PackageNamespace("com.hotpoint.braveManIII.models.equip")])
+                                                      istypelate
+                                                      iffalse ofs0019
+                                                      pushtrue
+                                                      returnvalue
+                                             ofs0019:
+                                                      jump ofs0034
+                                             ofs001d:
+                                                      getlex Multiname("ComPosePanel",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                                      getproperty Multiname("state",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot")])
+                                                      pushbyte 1
+                                                      ifne ofs0034
+                                                      getlocal1
+                                                      getlex Multiname("Gem",[PrivateNamespace(null,"79"),PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.views.composePanel:ComSlot"),StaticProtectedNs("com.hotpoint.braveManIII.views.composePanel:ComSlot"),PackageNamespace("com.hotpoint.braveManIII.models.gem")])
+                                                      istypelate
+                                                      iffalse ofs0034
+                                                      pushtrue
+                                                      returnvalue
+                                             ofs0034:
+                                                      pushfalse
+                                                      returnvalue
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                       }
+                                    }
+                                    
+                                    method
+                                       name null
+                                       returns null
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 1
+                                          initscopedepth 1
+                                          maxscopedepth 3
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             findpropstrict Multiname("ComSlot",[PackageNamespace("com.hotpoint.braveManIII.views.composePanel")])
+                                             getlex QName(PackageNamespace(""),"Object")
+                                             pushscope
+                                             getlex Multiname("Object",[PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),PrivateNamespace(null,"341"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.views.composePanel"),Namespace("http://adobe.com/AS3/2006/builtin")])
+                                             newclass 112
+                                             popscope
+                                             initproperty QName(PackageNamespace("com.hotpoint.braveManIII.views.composePanel"),"ComSlot")
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                    

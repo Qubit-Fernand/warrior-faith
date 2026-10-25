@@ -1,0 +1,98 @@
+{
+  "schema": "yzlr2-resource-name-classification-v1",
+  "runId": "20261023T172032Z-cf396b00",
+  "inputs": {
+    "reverse/experiments/resource-harness/results/20261023T172032Z-cf396b00-comparison.json": "dffe0c04868efa4177700b5243c397ba1206664dac320c32457aab6655b63862",
+    "reverse/experiments/resource-harness/results/20261023T172032Z-cf396b00-original.json": "10f36996ea7f2fcd99845b41502aae97b050c43a26182b44dd0c3cdfb4a661a6",
+    "reverse/experiments/resource-harness/results/20261023T172032Z-cf396b00-rebuilt.json": "fdd002453b7e64da28057aa1ac422e4ab889dcc337da2d1d96db5af18b4088cf"
+  },
+  "raw_difference_modules": 2,
+  "classified_runtime_name_fields": 3,
+  "classifications": [
+    {
+      "module": "Enemy5_v2",
+      "classified_fields": [
+        {
+          "path": "tree.name",
+          "original": "instance88",
+          "rebuilt": "instance86",
+          "classification": "runtime_generated_instance_name",
+          "basis": "Native Loader content root with no document class"
+        },
+        {
+          "path": "tree.sample[0].name",
+          "original": "instance89",
+          "rebuilt": "instance87",
+          "classification": "runtime_generated_instance_name",
+          "basis": "Unbound native DefineShape2 at depth2; PlaceObject2 HasName bit is zero in both files"
+        }
+      ],
+      "swf_evidence": {
+        "original": {
+          "path": "reverse/build/resource-probe-20261023T172032Z-cf396b00-original/modules/Enemy5_v2.swf",
+          "sha256": "daad1715be603147738193cdc3bd7d0683d346e3c287faf224e9c075fbfc86df",
+          "document_class": null,
+          "root_placements": [
+            {
+              "flags": 6,
+              "depth": 2,
+              "has_explicit_name": false,
+              "character_id": 374,
+              "payload_hex": "060200760100"
+            }
+          ],
+          "root_is_loader_content_with_no_authored_document_class": true
+        },
+        "rebuilt": {
+          "path": "reverse/build/resource-probe-20261023T172032Z-cf396b00-rebuilt/modules/Enemy5_v2.swf",
+          "sha256": "33569db560ce1c736752355ef5edac545a1e25a706d0136007e20013875f40b3",
+          "document_class": null,
+          "root_placements": [
+            {
+              "flags": 6,
+              "depth": 2,
+              "has_explicit_name": false,
+              "character_id": 373,
+              "payload_hex": "060200750100"
+            }
+          ],
+          "root_is_loader_content_with_no_authored_document_class": true
+        }
+      },
+      "remaining_tree_equal": true
+    },
+    {
+      "module": "Map0_v26",
+      "classified_fields": [
+        {
+          "path": "tree.name",
+          "original": "instance103",
+          "rebuilt": "instance101",
+          "classification": "runtime_generated_instance_name",
+          "basis": "Native Loader content root with no document class"
+        }
+      ],
+      "swf_evidence": {
+        "original": {
+          "path": "reverse/build/resource-probe-20261023T172032Z-cf396b00-original/modules/Map0_v26.swf",
+          "sha256": "2dd426f228c0cab6bc82ed6eb383704a6f8ebfc80a7d5ece05826f672ec65388",
+          "document_class": null,
+          "root_placements": [],
+          "root_is_loader_content_with_no_authored_document_class": true
+        },
+        "rebuilt": {
+          "path": "reverse/build/resource-probe-20261023T172032Z-cf396b00-rebuilt/modules/Map0_v26.swf",
+          "sha256": "e25037165ce0375ba0eb2f07b5735cde23735e417a4b8c1108dc962f945ab68c",
+          "document_class": null,
+          "root_placements": [],
+          "root_is_loader_content_with_no_authored_document_class": true
+        }
+      },
+      "remaining_tree_equal": true
+    }
+  ],
+  "remaining_structural_differences": [],
+  "original_clean": 162,
+  "rebuilt_clean": 162,
+  "scope": "Only these three observed fields classified. Raw comparison preserved. No blanket stripping of names, no assertion of identical allocation counts or full game behavior."
+}

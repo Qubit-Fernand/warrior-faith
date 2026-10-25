@@ -1,0 +1,766 @@
+package com.greensock.plugins
+{
+   import com.greensock.*;
+   import com.greensock.core.*;
+   
+   public class TweenPlugin
+   {
+      
+      public static const VERSION:Number = 1.4;
+      
+      public static const API:Number = 1;
+      
+      method
+         name ""
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"VERSION")
+               pushdouble 1.4
+               initproperty QName(PackageNamespace(""),"VERSION")
+               findproperty QName(PackageNamespace(""),"API")
+               pushbyte 1
+               initproperty QName(PackageNamespace(""),"API")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public var propName:String;
+      
+      public var overwriteProps:Array;
+      
+      public var round:Boolean;
+      
+      public var priority:int = 0;
+      
+      public var activeDisable:Boolean;
+      
+      public var onInitAllProps:Function;
+      
+      public var onComplete:Function;
+      
+      public var onEnable:Function;
+      
+      public var onDisable:Function;
+      
+      protected var _tweens:Array;
+      
+      protected var _changeFactor:Number = 0;
+      
+      public function TweenPlugin()
+      {
+         method
+            name ""
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  newarray 0
+                  initproperty QName(ProtectedNamespace("com.greensock.plugins:TweenPlugin"),"_tweens")
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private static function onTweenEvent(param1:String, param2:TweenLite) : Boolean
+      {
+         trait method QName(PrivateNamespace("com.greensock.plugins:TweenPlugin"),"onTweenEvent")
+            flag FINAL
+            dispid 3
+            method
+               name ""
+               param QName(PackageNamespace(""),"String")
+               param QName(PackageNamespace("com.greensock"),"TweenLite")
+               returns QName(PackageNamespace(""),"Boolean")
+               
+               body
+                  maxstack 4
+                  localcount 10
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnan
+                     setlocal 7
+                     pushfalse
+                     convert_b
+                     setlocal3
+                     pushnull
+                     coerce QName(PackageNamespace(""),"Array")
+                     setlocal 4
+                     pushbyte 0
+                     coerce_a
+                     setlocal 5
+                     getlocal2
+                     getproperty Multiname("cachedPT1",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     coerce QName(PackageNamespace("com.greensock.core"),"PropTween")
+                     setlocal 6
+                     getlocal1
+                     pushstring "onInitAllProps"
+                     ifne ofs00c4
+                     newarray 0
+                     coerce QName(PackageNamespace(""),"Array")
+                     setlocal 4
+                     pushbyte 0
+                     coerce_a
+                     setlocal 5
+                     jump ofs0056
+            ofs002f:
+                     label
+                     getlocal 4
+                     getlocal 5
+                     convert_d
+                     dup
+                     increment
+                     coerce_a
+                     setlocal 5
+                     dup
+                     setlocal 9
+                     convert_d
+                     setlocal 7
+                     getlocal 9
+                     kill 9
+                     setlocal 8
+                     getlocal 8
+                     getlocal 6
+                     setproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 6
+                     getproperty Multiname("nextNode",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     coerce QName(PackageNamespace("com.greensock.core"),"PropTween")
+                     setlocal 6
+                     kill 8
+            ofs0056:
+                     getlocal 6
+                     convert_b
+                     iftrue ofs002f
+                     getlocal 4
+                     pushstring "priority"
+                     findpropstrict Multiname("Array",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("Array",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("NUMERIC",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     findpropstrict Multiname("Array",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("Array",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("DESCENDING",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     bitor
+                     callproperty Multiname("sortOn",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 2
+                     pop
+                     jump ofs00a3
+            ofs0076:
+                     label
+                     findpropstrict Multiname("PropTween",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     getlocal 5
+                     getproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     callproperty Multiname("PropTween",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                     getlocal 4
+                     getlocal 5
+                     pushbyte 1
+                     add
+                     getproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     setproperty Multiname("nextNode",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     findpropstrict Multiname("PropTween",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     getlocal 5
+                     getproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     callproperty Multiname("PropTween",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                     getlocal 4
+                     getlocal 5
+                     pushbyte 1
+                     subtract
+                     getproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     setproperty Multiname("prevNode",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+            ofs00a3:
+                     getlocal 5
+                     decrement
+                     dup
+                     coerce_a
+                     setlocal 5
+                     pushbyte -1
+                     ifgt ofs0076
+                     getlocal2
+                     getlocal 4
+                     pushbyte 0
+                     getproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     dup
+                     setlocal 8
+                     setproperty Multiname("cachedPT1",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 8
+                     kill 8
+                     coerce QName(PackageNamespace("com.greensock.core"),"PropTween")
+                     setlocal 6
+            ofs00c4:
+                     jump ofs010d
+            ofs00c8:
+                     label
+                     getlocal 6
+                     getproperty Multiname("isPlugin",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     convert_b
+                     dup
+                     convert_b
+                     iffalse ofs00e2
+                     pop
+                     findpropstrict Multiname("Boolean",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 6
+                     getproperty Multiname("target",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal1
+                     getproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     callproperty Multiname("Boolean",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                     convert_b
+            ofs00e2:
+                     iffalse ofs0105
+                     getlocal 6
+                     getproperty Multiname("target",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("activeDisable",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     convert_b
+                     iffalse ofs00f4
+                     pushtrue
+                     convert_b
+                     setlocal3
+            ofs00f4:
+                     getlocal 6
+                     getproperty Multiname("target",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     dup
+                     setlocal 8
+                     getlocal1
+                     getproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 8
+                     call 0
+                     pop
+                     kill 8
+            ofs0105:
+                     getlocal 6
+                     getproperty Multiname("nextNode",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     coerce QName(PackageNamespace("com.greensock.core"),"PropTween")
+                     setlocal 6
+            ofs010d:
+                     getlocal 6
+                     convert_b
+                     iftrue ofs00c8
+                     getlocal3
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public static function activate(param1:Array) : Boolean
+         {
+            trait method QName(PackageNamespace(""),"activate")
+               flag FINAL
+               dispid 4
+               method
+                  name ""
+                  param QName(PackageNamespace(""),"Array")
+                  returns QName(PackageNamespace(""),"Boolean")
+                  
+                  body
+                     maxstack 4
+                     localcount 4
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushnull
+                        coerce QName(PackageNamespace(""),"Object")
+                        setlocal2
+                        findpropstrict Multiname("TweenLite",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getproperty Multiname("TweenLite",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        findpropstrict Multiname("TweenPlugin",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getproperty Multiname("TweenPlugin",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getproperty Multiname("onTweenEvent",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        setproperty Multiname("onPluginEvent",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        findpropstrict Multiname("int",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal1
+                        getproperty Multiname("length",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        callproperty Multiname("int",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                        coerce_a
+                        setlocal3
+                        jump ofs004c
+               ofs0020:
+                        label
+                        getlocal1
+                        getlocal3
+                        getproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        pushstring "API"
+                        callproperty Multiname("hasOwnProperty",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                        convert_b
+                        iffalse ofs004c
+                        getlocal1
+                        getlocal3
+                        getproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        findpropstrict Multiname("Class",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getproperty Multiname("Class",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        astypelate
+                        construct 0
+                        coerce QName(PackageNamespace(""),"Object")
+                        setlocal2
+                        findpropstrict Multiname("TweenLite",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getproperty Multiname("TweenLite",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getproperty Multiname("plugins",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal2
+                        getproperty Multiname("propName",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal1
+                        getlocal3
+                        getproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        setproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+               ofs004c:
+                        getlocal3
+                        convert_d
+                        dup
+                        decrement
+                        coerce_a
+                        setlocal3
+                        convert_b
+                        iftrue ofs0020
+                        pushtrue
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function onInitTween(param1:Object, param2:*, param3:TweenLite) : Boolean
+            {
+               trait method QName(PackageNamespace(""),"onInitTween")
+                  dispid 0
+                  method
+                     name ""
+                     param QName(PackageNamespace(""),"Object")
+                     param null
+                     param QName(PackageNamespace("com.greensock"),"TweenLite")
+                     returns QName(PackageNamespace(""),"Boolean")
+                     
+                     body
+                        maxstack 6
+                        localcount 4
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getlocal1
+                           getlocal0
+                           getproperty Multiname("propName",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal1
+                           getlocal0
+                           getproperty Multiname("propName",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal2
+                           getlocal0
+                           getproperty Multiname("propName",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           callproperty Multiname("addTween",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 5
+                           pop
+                           pushtrue
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               protected function addTween(param1:Object, param2:String, param3:Number, param4:*, param5:String = null) : void
+               {
+                  trait method QName(ProtectedNamespace("com.greensock.plugins:TweenPlugin"),"addTween")
+                     dispid 0
+                     method
+                        name ""
+                        flag HAS_OPTIONAL
+                        param QName(PackageNamespace(""),"Object")
+                        param QName(PackageNamespace(""),"String")
+                        param QName(PackageNamespace(""),"Number")
+                        param null
+                        param QName(PackageNamespace(""),"String")
+                        optional Null()
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 9
+                           localcount 7
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict Multiname("NaN",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              getproperty Multiname("NaN",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              convert_d
+                              setlocal 6
+                              getlocal 4
+                              pushnull
+                              ifeq ofs005c
+                              getlocal 4
+                              typeof
+                              pushstring "number"
+                              equals
+                              iffalse ofs0028
+                              findpropstrict Multiname("Number",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              getlocal 4
+                              callproperty Multiname("Number",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                              getlocal3
+                              subtract
+                              convert_d
+                              jump ofs0030
+                     ofs0028:
+                              findpropstrict Multiname("Number",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              getlocal 4
+                              callproperty Multiname("Number",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                              convert_d
+                     ofs0030:
+                              convert_d
+                              setlocal 6
+                              getlocal 6
+                              pushbyte 0
+                              ifeq ofs005c
+                              getlocal0
+                              getproperty Multiname("_tweens",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              getlocal0
+                              getproperty Multiname("_tweens",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              getproperty Multiname("length",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              findpropstrict Multiname("PropTween",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              getlocal1
+                              getlocal2
+                              getlocal3
+                              getlocal 6
+                              getlocal 5
+                              coerce_s
+                              dup
+                              convert_b
+                              iftrue ofs0056
+                              pop
+                              getlocal2
+                              coerce_s
+                     ofs0056:
+                              pushfalse
+                              constructprop Multiname("PropTween",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 6
+                              setproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     ofs005c:
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  protected function updateTweens(param1:Number) : void
+                  {
+                     trait method QName(ProtectedNamespace("com.greensock.plugins:TweenPlugin"),"updateTweens")
+                        dispid 0
+                        method
+                           name ""
+                           param QName(PackageNamespace(""),"Number")
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 5
+                              localcount 5
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 pushnull
+                                 coerce QName(PackageNamespace("com.greensock.core"),"PropTween")
+                                 setlocal2
+                                 findpropstrict Multiname("NaN",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getproperty Multiname("NaN",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 convert_d
+                                 setlocal3
+                                 findpropstrict Multiname("int",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal0
+                                 getproperty Multiname("_tweens",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getproperty Multiname("length",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 callproperty Multiname("int",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                                 convert_i
+                                 setlocal 4
+                                 getlocal0
+                                 getproperty Multiname("round",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 iffalse ofs0074
+                                 jump ofs0063
+                        ofs0024:
+                                 label
+                                 getlocal0
+                                 getproperty Multiname("_tweens",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal 4
+                                 getproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 coerce QName(PackageNamespace("com.greensock.core"),"PropTween")
+                                 setlocal2
+                                 getlocal2
+                                 getproperty Multiname("start",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal2
+                                 getproperty Multiname("change",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal1
+                                 multiply
+                                 add
+                                 convert_d
+                                 setlocal3
+                                 getlocal3
+                                 pushbyte 0
+                                 ifngt ofs0054
+                                 getlocal2
+                                 getproperty Multiname("target",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal2
+                                 getproperty Multiname("property",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal3
+                                 pushdouble 0.5
+                                 add
+                                 pushbyte 0
+                                 rshift
+                                 setproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 jump ofs0063
+                        ofs0054:
+                                 getlocal2
+                                 getproperty Multiname("target",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal2
+                                 getproperty Multiname("property",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal3
+                                 pushdouble 0.5
+                                 subtract
+                                 pushbyte 0
+                                 rshift
+                                 setproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        ofs0063:
+                                 getlocal 4
+                                 decrement_i
+                                 dup
+                                 convert_i
+                                 setlocal 4
+                                 pushbyte -1
+                                 ifgt ofs0024
+                                 jump ofs00a1
+                        ofs0074:
+                                 jump ofs0094
+                        ofs0078:
+                                 label
+                                 getlocal0
+                                 getproperty Multiname("_tweens",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal 4
+                                 getproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 coerce QName(PackageNamespace("com.greensock.core"),"PropTween")
+                                 setlocal2
+                                 getlocal2
+                                 getproperty Multiname("target",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal2
+                                 getproperty Multiname("property",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal2
+                                 getproperty Multiname("start",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal2
+                                 getproperty Multiname("change",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal1
+                                 multiply
+                                 add
+                                 setproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        ofs0094:
+                                 getlocal 4
+                                 decrement_i
+                                 dup
+                                 convert_i
+                                 setlocal 4
+                                 pushbyte -1
+                                 ifgt ofs0078
+                        ofs00a1:
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function get changeFactor() : Number
+                     {
+                        trait getter QName(PackageNamespace(""),"changeFactor")
+                           dispid 0
+                           method
+                              name ""
+                              returns QName(PackageNamespace(""),"Number")
+                              
+                              body
+                                 maxstack 1
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty Multiname("_changeFactor",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function set changeFactor(param1:Number) : void
+                        {
+                           trait setter QName(PackageNamespace(""),"changeFactor")
+                              dispid 0
+                              method
+                                 name ""
+                                 param QName(PackageNamespace(""),"Number")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 2
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getlocal1
+                                       callproperty Multiname("updateTweens",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                                       pop
+                                       getlocal0
+                                       getlocal1
+                                       initproperty Multiname("_changeFactor",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function killProps(param1:Object) : void
+                           {
+                              trait method QName(PackageNamespace(""),"killProps")
+                                 dispid 0
+                                 method
+                                    name ""
+                                    param QName(PackageNamespace(""),"Object")
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 3
+                                       localcount 3
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          findpropstrict Multiname("int",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal0
+                                          getproperty Multiname("overwriteProps",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getproperty Multiname("length",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          callproperty Multiname("int",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                                          convert_i
+                                          setlocal2
+                                          jump ofs0029
+                                 ofs0012:
+                                          label
+                                          getlocal0
+                                          getproperty Multiname("overwriteProps",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal2
+                                          getproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal1
+                                          in
+                                          iffalse ofs0029
+                                          getlocal0
+                                          getproperty Multiname("overwriteProps",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal2
+                                          pushbyte 1
+                                          callproperty Multiname("splice",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 2
+                                          pop
+                                 ofs0029:
+                                          getlocal2
+                                          decrement_i
+                                          dup
+                                          convert_i
+                                          setlocal2
+                                          pushbyte -1
+                                          ifgt ofs0012
+                                          findpropstrict Multiname("int",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal0
+                                          getproperty Multiname("_tweens",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getproperty Multiname("length",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          callproperty Multiname("int",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                                          convert_i
+                                          setlocal2
+                                          jump ofs0062
+                                 ofs0044:
+                                          label
+                                          findpropstrict Multiname("PropTween",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal0
+                                          getproperty Multiname("_tweens",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal2
+                                          getproperty MultinameL([PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          callproperty Multiname("PropTween",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                                          getproperty Multiname("name",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal1
+                                          in
+                                          iffalse ofs0062
+                                          getlocal0
+                                          getproperty Multiname("_tweens",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                          getlocal2
+                                          pushbyte 1
+                                          callproperty Multiname("splice",[PrivateNamespace("com.greensock.plugins:TweenPlugin"),PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core"),ProtectedNamespace("com.greensock.plugins:TweenPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 2
+                                          pop
+                                 ofs0062:
+                                          getlocal2
+                                          decrement_i
+                                          dup
+                                          convert_i
+                                          setlocal2
+                                          pushbyte -1
+                                          ifgt ofs0044
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                           }
+                        }
+                        
+                        method
+                           name ""
+                           returns null
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 1
+                              maxscopedepth 3
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 findpropstrict Multiname("TweenPlugin",[PackageNamespace("com.greensock.plugins")])
+                                 findpropstrict QName(PackageNamespace(""),"Object")
+                                 getproperty QName(PackageNamespace(""),"Object")
+                                 pushscope
+                                 findpropstrict Multiname("Object",[PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core")])
+                                 getproperty Multiname("Object",[PackageNamespace(""),PrivateNamespace("TweenPlugin.as$48"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("com.greensock.core")])
+                                 newclass 0
+                                 popscope
+                                 initproperty QName(PackageNamespace("com.greensock.plugins"),"TweenPlugin")
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                        

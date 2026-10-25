@@ -1,0 +1,366 @@
+package src
+{
+   import com.*;
+   import com.hotpoint.braveManIII.models.common.*;
+   import com.hotpoint.braveManIII.repository.skill.*;
+   import flash.events.*;
+   import src.other.*;
+   
+   public class EnergySlot
+   {
+      
+      public static var energyBool:Boolean = true;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"energyBool")
+               pushtrue
+               setproperty QName(PackageNamespace(""),"energyBool")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public var energyLeftMax:VT;
+      
+      public var energyRightMax:VT;
+      
+      private var player_e:Player;
+      
+      public var energyLeftNum:VT;
+      
+      public var energyRightNum:VT;
+      
+      public function EnergySlot()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 3
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  findproperty QName(PackageNamespace(""),"energyLeftMax")
+                  getlex Multiname("VT",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot"),PackageNamespace("com.hotpoint.braveManIII.models.common")])
+                  pushbyte 0
+                  callproperty Multiname("createVT",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 1
+                  initproperty QName(PackageNamespace(""),"energyLeftMax")
+                  findproperty QName(PackageNamespace(""),"energyRightMax")
+                  getlex Multiname("VT",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot"),PackageNamespace("com.hotpoint.braveManIII.models.common")])
+                  pushbyte 0
+                  callproperty Multiname("createVT",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 1
+                  initproperty QName(PackageNamespace(""),"energyRightMax")
+                  findproperty QName(PackageNamespace(""),"energyLeftNum")
+                  getlex Multiname("VT",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot"),PackageNamespace("com.hotpoint.braveManIII.models.common")])
+                  pushbyte 0
+                  callproperty Multiname("createVT",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 1
+                  initproperty QName(PackageNamespace(""),"energyLeftNum")
+                  findproperty QName(PackageNamespace(""),"energyRightNum")
+                  getlex Multiname("VT",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot"),PackageNamespace("com.hotpoint.braveManIII.models.common")])
+                  pushbyte 0
+                  callproperty Multiname("createVT",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 1
+                  initproperty QName(PackageNamespace(""),"energyRightNum")
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function setZero() : *
+      {
+         trait method QName(PackageNamespace(""),"setZero")
+            dispid 0
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex Multiname("energyLeftNum",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                     pushbyte 0
+                     callpropvoid Multiname("setValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 1
+                     getlex Multiname("energyRightNum",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                     pushbyte 0
+                     callpropvoid Multiname("setValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 1
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function getEnergyPer(param1:Player) : int
+         {
+            trait method QName(PackageNamespace(""),"getEnergyPer")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("src"),"Player")
+                  returns QName(PackageNamespace(""),"int")
+                  
+                  body
+                     maxstack 3
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findproperty Multiname("player_e",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        getlocal1
+                        initproperty Multiname("player_e",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        getlex Multiname("player_e",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        getproperty Multiname("data",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        getproperty Multiname("skinNum",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        pushbyte 0
+                        ifne ofs0070
+                        getlex Multiname("energyLeftNum",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        callproperty Multiname("getValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                        pushbyte 0
+                        ifne ofs0028
+                        pushbyte 1
+                        returnvalue
+               ofs0028:
+                        getlex Multiname("energyLeftNum",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        callproperty Multiname("getValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                        getlex Multiname("energyLeftMax",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        callproperty Multiname("getValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                        getlex Multiname("player_e",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        getproperty Multiname("use_gongji",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        callproperty Multiname("getValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                        multiply
+                        ifnge ofs0048
+                        pushbyte 100
+                        returnvalue
+               ofs0048:
+                        getlex Multiname("energyLeftNum",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        callproperty Multiname("getValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                        getlex Multiname("energyLeftMax",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        callproperty Multiname("getValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                        getlex Multiname("player_e",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        getproperty Multiname("use_gongji",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        callproperty Multiname("getValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                        multiply
+                        divide
+                        pushbyte 2
+                        callproperty Multiname("toFixed",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 1
+                        pushbyte 100
+                        multiply
+                        returnvalue
+                        jump ofs0070
+               ofs0070:
+                        getlex Multiname("energyRightNum",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        callproperty Multiname("getValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                        pushbyte 0
+                        ifne ofs0080
+                        pushbyte 1
+                        returnvalue
+               ofs0080:
+                        getlex Multiname("energyRightNum",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        callproperty Multiname("getValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                        getlex Multiname("energyRightMax",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        callproperty Multiname("getValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                        getlex Multiname("player_e",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        getproperty Multiname("use_gongji",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        callproperty Multiname("getValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                        multiply
+                        ifnge ofs00a0
+                        pushbyte 100
+                        returnvalue
+               ofs00a0:
+                        getlex Multiname("energyRightNum",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        callproperty Multiname("getValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                        getlex Multiname("energyRightMax",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        callproperty Multiname("getValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                        getlex Multiname("player_e",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        getproperty Multiname("use_gongji",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                        callproperty Multiname("getValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                        multiply
+                        divide
+                        pushbyte 2
+                        callproperty Multiname("toFixed",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 1
+                        pushbyte 100
+                        multiply
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function addEnergy(param1:Player, param2:Number) : *
+            {
+               trait method QName(PackageNamespace(""),"addEnergy")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace("src"),"Player")
+                     param QName(PackageNamespace(""),"Number")
+                     returns null
+                     
+                     body
+                        maxstack 4
+                        localcount 3
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlex Multiname("energyBool",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           pushfalse
+                           ifne ofs000b
+                           returnvoid
+                  ofs000b:
+                           findproperty Multiname("player_e",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           getlocal1
+                           initproperty Multiname("player_e",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           getlex Multiname("player_e",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           getproperty Multiname("data",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           getproperty Multiname("skinNum",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           pushbyte 0
+                           ifne ofs0092
+                           getlex Multiname("player_e",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           getproperty Multiname("data",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           callproperty Multiname("getEquipSkillSlot",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                           pushbyte 0
+                           callproperty Multiname("getGemFromSkillSlot",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 1
+                           iffalse ofs008e
+                           getlex Multiname("player_e",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           getproperty Multiname("data",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           callproperty Multiname("getEquipSlot",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                           pushbyte 6
+                           callproperty Multiname("getEquipFromSlot",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 1
+                           convert_b
+                           dup
+                           iffalse ofs0063
+                           pop
+                           getlex Multiname("player_e",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           getproperty Multiname("data",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           callproperty Multiname("getEquipSlot",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                           pushbyte 6
+                           callproperty Multiname("getEquipFromSlot",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 1
+                           callproperty Multiname("getJinHua",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                           pushbyte -2
+                           equals
+                  ofs0063:
+                           iffalse ofs007e
+                           getlex Multiname("energyLeftNum",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           getlex Multiname("energyLeftNum",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           callproperty Multiname("getValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                           getlocal2
+                           pushdouble 1.2
+                           multiply
+                           add
+                           callpropvoid Multiname("setValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 1
+                           jump ofs008e
+                  ofs007e:
+                           getlex Multiname("energyLeftNum",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           getlex Multiname("energyLeftNum",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           callproperty Multiname("getValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                           getlocal2
+                           add
+                           callpropvoid Multiname("setValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 1
+                  ofs008e:
+                           jump ofs00ff
+                  ofs0092:
+                           getlex Multiname("player_e",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           getproperty Multiname("data",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           callproperty Multiname("getEquipSkillSlot",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                           pushbyte 1
+                           callproperty Multiname("getGemFromSkillSlot",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 1
+                           iffalse ofs00ff
+                           getlex Multiname("player_e",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           getproperty Multiname("data",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           callproperty Multiname("getEquipSlot",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                           pushbyte 6
+                           callproperty Multiname("getEquipFromSlot",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 1
+                           convert_b
+                           dup
+                           iffalse ofs00d4
+                           pop
+                           getlex Multiname("player_e",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           getproperty Multiname("data",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           callproperty Multiname("getEquipSlot",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                           pushbyte 6
+                           callproperty Multiname("getEquipFromSlot",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 1
+                           callproperty Multiname("getJinHua",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                           pushbyte -2
+                           equals
+                  ofs00d4:
+                           iffalse ofs00ef
+                           getlex Multiname("energyRightNum",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           getlex Multiname("energyRightNum",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           callproperty Multiname("getValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                           getlocal2
+                           pushdouble 1.2
+                           multiply
+                           add
+                           callpropvoid Multiname("setValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 1
+                           jump ofs00ff
+                  ofs00ef:
+                           getlex Multiname("energyRightNum",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           getlex Multiname("energyRightNum",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")])
+                           callproperty Multiname("getValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 0
+                           getlocal2
+                           add
+                           callpropvoid Multiname("setValue",[PrivateNamespace(null,"4"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other"),ProtectedNamespace("src:EnergySlot"),StaticProtectedNs("src:EnergySlot")]), 1
+                  ofs00ff:
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+            }
+         }
+         
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 1
+               maxscopedepth 3
+               
+               code
+                  getlocal0
+                  pushscope
+                  findpropstrict Multiname("EnergySlot",[PackageNamespace("src")])
+                  getlex QName(PackageNamespace(""),"Object")
+                  pushscope
+                  getlex Multiname("Object",[PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com"),PackageNamespace("flash.events"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),PackageNamespace("src.other")])
+                  newclass 2
+                  popscope
+                  initproperty QName(PackageNamespace("src"),"EnergySlot")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+         

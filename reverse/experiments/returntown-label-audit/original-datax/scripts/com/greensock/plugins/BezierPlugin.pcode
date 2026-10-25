@@ -1,0 +1,1213 @@
+package com.greensock.plugins
+{
+   import com.greensock.*;
+   
+   public class BezierPlugin extends TweenPlugin
+   {
+      
+      public static const API:Number = 1;
+      
+      protected static const _RAD2DEG:Number = 57.29577951308232;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 3
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"API")
+               pushbyte 1
+               initproperty QName(PackageNamespace(""),"API")
+               findproperty QName(StaticProtectedNs("com.greensock.plugins:BezierPlugin"),"_RAD2DEG")
+               pushshort 180
+               getlex Multiname("Math",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+               getproperty Multiname("PI",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+               divide
+               initproperty QName(StaticProtectedNs("com.greensock.plugins:BezierPlugin"),"_RAD2DEG")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var _target:Object;
+      
+      protected var _orientData:Array;
+      
+      protected var _orient:Boolean;
+      
+      protected var _future:Object;
+      
+      protected var _beziers:Object;
+      
+      public function BezierPlugin()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  findproperty QName(ProtectedNamespace("com.greensock.plugins:BezierPlugin"),"_future")
+                  newobject 0
+                  initproperty QName(ProtectedNamespace("com.greensock.plugins:BezierPlugin"),"_future")
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  pushstring "bezier"
+                  initproperty Multiname("propName",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  getlocal0
+                  newarray 0
+                  initproperty Multiname("overwriteProps",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function parseBeziers(param1:Object, param2:Boolean = false) : Object
+      {
+         trait method QName(PackageNamespace(""),"parseBeziers")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               flag HAS_OPTIONAL
+               param QName(PackageNamespace(""),"Object")
+               param QName(PackageNamespace(""),"Boolean")
+               optional False()
+               returns QName(PackageNamespace(""),"Object")
+               
+               body
+                  maxstack 8
+                  localcount 11
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushbyte 0
+                     setlocal3
+                     pushnull
+                     coerce QName(PackageNamespace(""),"Array")
+                     setlocal 4
+                     pushnull
+                     coerce QName(PackageNamespace(""),"Object")
+                     setlocal 5
+                     pushnull
+                     coerce_s
+                     setlocal 6
+                     newobject 0
+                     coerce QName(PackageNamespace(""),"Object")
+                     setlocal 7
+                     getlocal2
+                     iffalse ofs011d
+                     pushbyte 0
+                     setlocal 8
+                     getlocal1
+                     coerce_a
+                     setlocal 9
+                     jump ofs010e
+            ofs002a:
+                     label
+                     getlocal 9
+                     getlocal 8
+                     nextname
+                     coerce_s
+                     setlocal 6
+                     getlocal1
+                     getlocal 6
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     coerce QName(PackageNamespace(""),"Array")
+                     setlocal 4
+                     getlocal 7
+                     getlocal 6
+                     newarray 0
+                     dup
+                     setlocal 10
+                     coerce QName(PackageNamespace(""),"Object")
+                     setlocal 5
+                     getlocal 10
+                     kill 10
+                     setproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     pushbyte 2
+                     ifngt ofs00e2
+                     getlocal 5
+                     getlocal 5
+                     getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     pushbyte 0
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     pushbyte 1
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     pushbyte 2
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     pushbyte 0
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     subtract
+                     pushbyte 4
+                     divide
+                     subtract
+                     getlocal 4
+                     pushbyte 1
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     newarray 3
+                     setproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     pushbyte 1
+                     setlocal3
+                     jump ofs00d3
+            ofs0097:
+                     label
+                     getlocal 5
+                     getlocal 5
+                     getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     getlocal3
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     getlocal3
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     getlocal3
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 5
+                     getlocal3
+                     decrement
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     pushbyte 1
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     subtract
+                     add
+                     getlocal 4
+                     getlocal3
+                     pushbyte 1
+                     add
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     newarray 3
+                     setproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal3
+                     pushbyte 1
+                     add
+                     convert_i
+                     setlocal3
+            ofs00d3:
+                     getlocal3
+                     getlocal 4
+                     getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     decrement
+                     iflt ofs0097
+                     jump ofs010e
+            ofs00e2:
+                     getlocal 5
+                     getlocal 5
+                     getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     pushbyte 0
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     pushbyte 0
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     pushbyte 1
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     add
+                     pushbyte 2
+                     divide
+                     getlocal 4
+                     pushbyte 1
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     newarray 3
+                     setproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+            ofs010e:
+                     hasnext2 9, 8
+                     iftrue ofs002a
+                     kill 9
+                     kill 8
+                     jump ofs027f
+            ofs011d:
+                     pushbyte 0
+                     setlocal 8
+                     getlocal1
+                     coerce_a
+                     setlocal 9
+                     jump ofs0274
+            ofs0129:
+                     label
+                     getlocal 9
+                     getlocal 8
+                     nextname
+                     coerce_s
+                     setlocal 6
+                     getlocal1
+                     getlocal 6
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     coerce QName(PackageNamespace(""),"Array")
+                     setlocal 4
+                     getlocal 7
+                     getlocal 6
+                     newarray 0
+                     dup
+                     setlocal 10
+                     coerce QName(PackageNamespace(""),"Object")
+                     setlocal 5
+                     getlocal 10
+                     kill 10
+                     setproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     pushbyte 3
+                     ifngt ofs020d
+                     getlocal 5
+                     getlocal 5
+                     getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     pushbyte 0
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     pushbyte 1
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     pushbyte 1
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     pushbyte 2
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     add
+                     pushbyte 2
+                     divide
+                     newarray 3
+                     setproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     pushbyte 2
+                     setlocal3
+                     jump ofs01c8
+            ofs018e:
+                     label
+                     getlocal 5
+                     getlocal 5
+                     getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 5
+                     getlocal3
+                     pushbyte 2
+                     subtract
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     pushbyte 2
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     getlocal3
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     getlocal3
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     getlocal3
+                     pushbyte 1
+                     add
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     add
+                     pushbyte 2
+                     divide
+                     newarray 3
+                     setproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal3
+                     pushbyte 1
+                     add
+                     convert_i
+                     setlocal3
+            ofs01c8:
+                     getlocal3
+                     getlocal 4
+                     getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     pushbyte 2
+                     subtract
+                     iflt ofs018e
+                     getlocal 5
+                     getlocal 5
+                     getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 5
+                     getlocal 5
+                     getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     decrement
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     pushbyte 2
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     getlocal 4
+                     getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     pushbyte 2
+                     subtract
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     getlocal 4
+                     getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     decrement
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     newarray 3
+                     setproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     jump ofs0274
+            ofs020d:
+                     getlocal 4
+                     getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     pushbyte 3
+                     ifne ofs023d
+                     getlocal 5
+                     getlocal 5
+                     getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     pushbyte 0
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     pushbyte 1
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     pushbyte 2
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     newarray 3
+                     setproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     jump ofs0274
+            ofs023d:
+                     getlocal 4
+                     getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     pushbyte 2
+                     ifne ofs0274
+                     getlocal 5
+                     getlocal 5
+                     getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     pushbyte 0
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     pushbyte 0
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal 4
+                     pushbyte 1
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     add
+                     pushbyte 2
+                     divide
+                     getlocal 4
+                     pushbyte 1
+                     getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     newarray 3
+                     setproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+            ofs0274:
+                     hasnext2 9, 8
+                     iftrue ofs0129
+                     kill 9
+                     kill 8
+            ofs027f:
+                     getlocal 7
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override public function onInitTween(param1:Object, param2:*, param3:TweenLite) : Boolean
+         {
+            trait method QName(PackageNamespace(""),"onInitTween")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"Object")
+                  param null
+                  param QName(PackageNamespace("com.greensock"),"TweenLite")
+                  returns QName(PackageNamespace(""),"Boolean")
+                  
+                  body
+                     maxstack 4
+                     localcount 4
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal2
+                        getlex Multiname("Array",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        istypelate
+                        iftrue ofs000d
+                        pushfalse
+                        returnvalue
+               ofs000d:
+                        findpropstrict Multiname("init",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal3
+                        getlocal2
+                        getlex Multiname("Array",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        astypelate
+                        pushfalse
+                        callpropvoid Multiname("init",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 3
+                        pushtrue
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            protected function init(param1:TweenLite, param2:Array, param3:Boolean) : void
+            {
+               trait method QName(ProtectedNamespace("com.greensock.plugins:BezierPlugin"),"init")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace("com.greensock"),"TweenLite")
+                     param QName(PackageNamespace(""),"Array")
+                     param QName(PackageNamespace(""),"Boolean")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 6
+                        localcount 11
+                        initscopedepth 5
+                        maxscopedepth 6
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushbyte 0
+                           setlocal 6
+                           pushnull
+                           coerce_s
+                           setlocal 7
+                           pushnull
+                           coerce QName(PackageNamespace(""),"Object")
+                           setlocal 8
+                           findproperty Multiname("_target",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal1
+                           getproperty Multiname("target",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           initproperty Multiname("_target",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal1
+                           getproperty Multiname("vars",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("isTV",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           pushtrue
+                           ifne ofs0032
+                           getlocal1
+                           getproperty Multiname("vars",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("exposedVars",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           coerce QName(PackageNamespace(""),"Object")
+                           jump ofs0038
+                  ofs0032:
+                           getlocal1
+                           getproperty Multiname("vars",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           coerce QName(PackageNamespace(""),"Object")
+                  ofs0038:
+                           coerce QName(PackageNamespace(""),"Object")
+                           dup
+                           setlocal 4
+                           getproperty Multiname("orientToBezier",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           pushtrue
+                           ifne ofs0067
+                           findproperty Multiname("_orientData",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           pushstring "x"
+                           pushstring "y"
+                           pushstring "rotation"
+                           pushbyte 0
+                           pushdouble 0.01
+                           newarray 5
+                           newarray 1
+                           initproperty Multiname("_orientData",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           findproperty Multiname("_orient",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           pushtrue
+                           initproperty Multiname("_orient",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           jump ofs0086
+                  ofs0067:
+                           getlocal 4
+                           getproperty Multiname("orientToBezier",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlex Multiname("Array",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           istypelate
+                           iffalse ofs0086
+                           findproperty Multiname("_orientData",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal 4
+                           getproperty Multiname("orientToBezier",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           initproperty Multiname("_orientData",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           findproperty Multiname("_orient",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           pushtrue
+                           initproperty Multiname("_orient",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  ofs0086:
+                           newobject 0
+                           coerce QName(PackageNamespace(""),"Object")
+                           setlocal 5
+                           pushbyte 0
+                           setlocal 6
+                           jump ofs0136
+                  ofs0094:
+                           label
+                           pushbyte 0
+                           setlocal 9
+                           getlocal2
+                           getlocal 6
+                           getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           coerce_a
+                           setlocal 10
+                           jump ofs0123
+                  ofs00a6:
+                           label
+                           getlocal 10
+                           getlocal 9
+                           nextname
+                           coerce_s
+                           setlocal 7
+                           getlocal 5
+                           getlocal 7
+                           getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlex Multiname("undefined",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           ifne ofs00cf
+                           getlocal 5
+                           getlocal 7
+                           getlocal1
+                           getproperty Multiname("target",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal 7
+                           getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           newarray 1
+                           setproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  ofs00cf:
+                           getlocal2
+                           getlocal 6
+                           getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal 7
+                           getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           typeof
+                           pushstring "number"
+                           ifne ofs00fc
+                           getlocal 5
+                           getlocal 7
+                           getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal2
+                           getlocal 6
+                           getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal 7
+                           getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           callpropvoid Multiname("push",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                           jump ofs0123
+                  ofs00fc:
+                           getlocal 5
+                           getlocal 7
+                           getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal1
+                           getproperty Multiname("target",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal 7
+                           getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           findpropstrict Multiname("Number",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal2
+                           getlocal 6
+                           getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal 7
+                           getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           callproperty Multiname("Number",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                           add
+                           callpropvoid Multiname("push",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                  ofs0123:
+                           hasnext2 10, 9
+                           iftrue ofs00a6
+                           kill 10
+                           kill 9
+                           getlocal 6
+                           pushbyte 1
+                           add
+                           convert_i
+                           setlocal 6
+                  ofs0136:
+                           getlocal 6
+                           getlocal2
+                           getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           iflt ofs0094
+                           pushbyte 0
+                           setlocal 9
+                           getlocal 5
+                           coerce_a
+                           setlocal 10
+                           jump ofs01d9
+                  ofs014d:
+                           label
+                           getlocal 10
+                           getlocal 9
+                           nextname
+                           coerce_s
+                           setlocal 7
+                           getlocal0
+                           getproperty Multiname("overwriteProps",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal0
+                           getproperty Multiname("overwriteProps",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal 7
+                           setproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal 4
+                           getlocal 7
+                           getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlex Multiname("undefined",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           ifeq ofs01d9
+                           getlocal 4
+                           getlocal 7
+                           getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           typeof
+                           pushstring "number"
+                           ifne ofs0199
+                           getlocal 5
+                           getlocal 7
+                           getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal 4
+                           getlocal 7
+                           getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           callpropvoid Multiname("push",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                           jump ofs01bc
+                  ofs0199:
+                           getlocal 5
+                           getlocal 7
+                           getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal1
+                           getproperty Multiname("target",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal 7
+                           getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           findpropstrict Multiname("Number",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal 4
+                           getlocal 7
+                           getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           callproperty Multiname("Number",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                           add
+                           callpropvoid Multiname("push",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                  ofs01bc:
+                           newobject 0
+                           coerce QName(PackageNamespace(""),"Object")
+                           dup
+                           setlocal 8
+                           getlocal 7
+                           pushtrue
+                           setproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal1
+                           getlocal 8
+                           pushfalse
+                           callpropvoid Multiname("killVars",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 2
+                           getlocal 4
+                           getlocal 7
+                           deleteproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           pop
+                  ofs01d9:
+                           hasnext2 10, 9
+                           iftrue ofs014d
+                           kill 10
+                           kill 9
+                           findproperty Multiname("_beziers",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           findpropstrict Multiname("parseBeziers",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal 5
+                           getlocal3
+                           callproperty Multiname("parseBeziers",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 2
+                           initproperty Multiname("_beziers",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               override public function killProps(param1:Object) : void
+               {
+                  trait method QName(PackageNamespace(""),"killProps")
+                     flag OVERRIDE
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"Object")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 5
+                           initscopedepth 5
+                           maxscopedepth 6
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushnull
+                              coerce_s
+                              setlocal2
+                              pushbyte 0
+                              setlocal3
+                              getlex Multiname("_beziers",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              coerce_a
+                              setlocal 4
+                              jump ofs0028
+                     ofs0012:
+                              label
+                              getlocal 4
+                              getlocal3
+                              nextname
+                              coerce_s
+                              setlocal2
+                              getlocal2
+                              getlocal1
+                              in
+                              iffalse ofs0028
+                              getlex Multiname("_beziers",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              getlocal2
+                              deleteproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              pop
+                     ofs0028:
+                              hasnext2 4, 3
+                              iftrue ofs0012
+                              kill 4
+                              kill 3
+                              getlocal0
+                              getlocal1
+                              callsupervoid Multiname("killProps",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),StaticProtectedNs("com.greensock.plugins:TweenPlugin"),ProtectedNamespace("com.greensock.plugins:TweenPlugin")]), 1
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  override public function set changeFactor(param1:Number) : void
+                  {
+                     trait setter QName(PackageNamespace(""),"changeFactor")
+                        flag OVERRIDE
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace(""),"Number")
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 9
+                              localcount 17
+                              initscopedepth 5
+                              maxscopedepth 6
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 pushbyte 0
+                                 setlocal2
+                                 pushnull
+                                 coerce_s
+                                 setlocal3
+                                 pushnull
+                                 coerce QName(PackageNamespace(""),"Object")
+                                 setlocal 4
+                                 pushnan
+                                 setlocal 5
+                                 pushbyte 0
+                                 setlocal 6
+                                 pushnan
+                                 setlocal 7
+                                 pushnull
+                                 coerce QName(PackageNamespace(""),"Object")
+                                 setlocal 8
+                                 pushnan
+                                 setlocal 9
+                                 pushnan
+                                 setlocal 10
+                                 pushnull
+                                 coerce QName(PackageNamespace(""),"Array")
+                                 setlocal 11
+                                 pushnan
+                                 setlocal 12
+                                 pushnull
+                                 coerce QName(PackageNamespace(""),"Object")
+                                 setlocal 13
+                                 pushfalse
+                                 setlocal 14
+                                 findproperty Multiname("_changeFactor",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal1
+                                 initproperty Multiname("_changeFactor",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal1
+                                 pushbyte 1
+                                 ifne ofs0089
+                                 pushbyte 0
+                                 setlocal 15
+                                 getlex Multiname("_beziers",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 coerce_a
+                                 setlocal 16
+                                 jump ofs007a
+                        ofs004e:
+                                 label
+                                 getlocal 16
+                                 getlocal 15
+                                 nextname
+                                 coerce_s
+                                 setlocal3
+                                 getlex Multiname("_beziers",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal3
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 decrement
+                                 convert_i
+                                 setlocal2
+                                 getlex Multiname("_target",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal3
+                                 getlex Multiname("_beziers",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal3
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal2
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 pushbyte 2
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 setproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        ofs007a:
+                                 hasnext2 16, 15
+                                 iftrue ofs004e
+                                 kill 16
+                                 kill 15
+                                 jump ofs01a6
+                        ofs0089:
+                                 pushbyte 0
+                                 setlocal 15
+                                 getlex Multiname("_beziers",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 coerce_a
+                                 setlocal 16
+                                 jump ofs019b
+                        ofs0097:
+                                 label
+                                 getlocal 16
+                                 getlocal 15
+                                 nextname
+                                 coerce_s
+                                 setlocal3
+                                 getlex Multiname("_beziers",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal3
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 convert_i
+                                 setlocal 6
+                                 getlocal1
+                                 pushbyte 0
+                                 ifnlt ofs00ba
+                                 pushbyte 0
+                                 setlocal2
+                                 jump ofs00d2
+                        ofs00ba:
+                                 getlocal1
+                                 pushbyte 1
+                                 ifnge ofs00ca
+                                 getlocal 6
+                                 decrement
+                                 convert_i
+                                 setlocal2
+                                 jump ofs00d2
+                        ofs00ca:
+                                 getlocal 6
+                                 getlocal1
+                                 multiply
+                                 pushbyte 0
+                                 rshift
+                                 setlocal2
+                        ofs00d2:
+                                 getlocal1
+                                 getlocal2
+                                 pushbyte 1
+                                 getlocal 6
+                                 divide
+                                 multiply
+                                 subtract
+                                 getlocal 6
+                                 multiply
+                                 convert_d
+                                 setlocal 5
+                                 getlex Multiname("_beziers",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal3
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal2
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 coerce QName(PackageNamespace(""),"Object")
+                                 setlocal 4
+                                 getlocal0
+                                 getproperty Multiname("round",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 iffalse ofs015e
+                                 getlocal 4
+                                 pushbyte 0
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal 5
+                                 pushbyte 2
+                                 pushbyte 1
+                                 getlocal 5
+                                 subtract
+                                 multiply
+                                 getlocal 4
+                                 pushbyte 1
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal 4
+                                 pushbyte 0
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 subtract
+                                 multiply
+                                 getlocal 5
+                                 getlocal 4
+                                 pushbyte 2
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal 4
+                                 pushbyte 0
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 subtract
+                                 multiply
+                                 add
+                                 multiply
+                                 add
+                                 convert_d
+                                 dup
+                                 setlocal 7
+                                 pushbyte 0
+                                 ifngt ofs014b
+                                 getlex Multiname("_target",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal3
+                                 getlocal 7
+                                 pushdouble 0.5
+                                 add
+                                 pushbyte 0
+                                 rshift
+                                 setproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 jump ofs015a
+                        ofs014b:
+                                 getlex Multiname("_target",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal3
+                                 getlocal 7
+                                 pushdouble 0.5
+                                 subtract
+                                 pushbyte 0
+                                 rshift
+                                 setproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        ofs015a:
+                                 jump ofs019b
+                        ofs015e:
+                                 getlex Multiname("_target",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal3
+                                 getlocal 4
+                                 pushbyte 0
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal 5
+                                 pushbyte 2
+                                 pushbyte 1
+                                 getlocal 5
+                                 subtract
+                                 multiply
+                                 getlocal 4
+                                 pushbyte 1
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal 4
+                                 pushbyte 0
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 subtract
+                                 multiply
+                                 getlocal 5
+                                 getlocal 4
+                                 pushbyte 2
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal 4
+                                 pushbyte 0
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 subtract
+                                 multiply
+                                 add
+                                 multiply
+                                 add
+                                 setproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        ofs019b:
+                                 hasnext2 16, 15
+                                 iftrue ofs0097
+                                 kill 16
+                                 kill 15
+                        ofs01a6:
+                                 getlex Multiname("_orient",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 iffalse ofs02e0
+                                 getlex Multiname("_orientData",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 convert_i
+                                 setlocal2
+                                 newobject 0
+                                 coerce QName(PackageNamespace(""),"Object")
+                                 setlocal 8
+                                 jump ofs01fd
+                        ofs01bf:
+                                 label
+                                 getlex Multiname("_orientData",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal2
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 coerce QName(PackageNamespace(""),"Array")
+                                 setlocal 11
+                                 getlocal 8
+                                 getlocal 11
+                                 pushbyte 0
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlex Multiname("_target",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal 11
+                                 pushbyte 0
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 setproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal 8
+                                 getlocal 11
+                                 pushbyte 1
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlex Multiname("_target",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal 11
+                                 pushbyte 1
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 setproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        ofs01fd:
+                                 getlocal2
+                                 dup
+                                 decrement_i
+                                 setlocal2
+                                 iftrue ofs01bf
+                                 getlex Multiname("_target",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 coerce QName(PackageNamespace(""),"Object")
+                                 setlocal 13
+                                 getlocal0
+                                 getproperty Multiname("round",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 convert_b
+                                 setlocal 14
+                                 findproperty Multiname("_target",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlex Multiname("_future",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 initproperty Multiname("_target",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal0
+                                 pushfalse
+                                 setproperty Multiname("round",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 findproperty Multiname("_orient",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 pushfalse
+                                 initproperty Multiname("_orient",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlex Multiname("_orientData",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getproperty Multiname("length",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 convert_i
+                                 setlocal2
+                                 jump ofs02c3
+                        ofs0234:
+                                 label
+                                 getlex Multiname("_orientData",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal2
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 coerce QName(PackageNamespace(""),"Array")
+                                 setlocal 11
+                                 getlocal0
+                                 getlocal1
+                                 getlocal 11
+                                 pushbyte 4
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 coerce_a
+                                 dup
+                                 iftrue ofs0253
+                                 pop
+                                 pushdouble 0.01
+                                 coerce_a
+                        ofs0253:
+                                 add
+                                 setproperty Multiname("changeFactor",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal 11
+                                 pushbyte 3
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 convert_d
+                                 dup
+                                 iftrue ofs0268
+                                 pop
+                                 pushbyte 0
+                                 convert_d
+                        ofs0268:
+                                 convert_d
+                                 setlocal 12
+                                 getlex Multiname("_future",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal 11
+                                 pushbyte 0
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal 8
+                                 getlocal 11
+                                 pushbyte 0
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 subtract
+                                 convert_d
+                                 setlocal 9
+                                 getlex Multiname("_future",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal 11
+                                 pushbyte 1
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal 8
+                                 getlocal 11
+                                 pushbyte 1
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 subtract
+                                 convert_d
+                                 setlocal 10
+                                 getlocal 13
+                                 getlocal 11
+                                 pushbyte 2
+                                 getproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlex Multiname("Math",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal 10
+                                 getlocal 9
+                                 callproperty Multiname("atan2",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 2
+                                 getlex Multiname("_RAD2DEG",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 multiply
+                                 getlocal 12
+                                 add
+                                 setproperty MultinameL([PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        ofs02c3:
+                                 getlocal2
+                                 dup
+                                 decrement_i
+                                 setlocal2
+                                 iftrue ofs0234
+                                 findproperty Multiname("_target",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal 13
+                                 initproperty Multiname("_target",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 getlocal0
+                                 getlocal 14
+                                 setproperty Multiname("round",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 findproperty Multiname("_orient",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                                 pushtrue
+                                 initproperty Multiname("_orient",[PrivateNamespace(null,"398"),PackageNamespace(""),StaticProtectedNs("com.greensock.plugins:BezierPlugin"),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:BezierPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        ofs02e0:
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                  }
+               }
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 1
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("BezierPlugin",[PackageNamespace("com.greensock.plugins")])
+                        getlex QName(PackageNamespace(""),"Object")
+                        pushscope
+                        getlex QName(PackageNamespace("com.greensock.plugins"),"TweenPlugin")
+                        pushscope
+                        getlex Multiname("TweenPlugin",[PackageNamespace(""),PrivateNamespace(null,"399"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock")])
+                        newclass 151
+                        popscope
+                        popscope
+                        initproperty QName(PackageNamespace("com.greensock.plugins"),"BezierPlugin")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               

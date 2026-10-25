@@ -1,0 +1,285 @@
+{
+  "schema": 1,
+  "source": "reverse/experiments/ordered-comparison/OrderedComparisonHarness.as",
+  "source_sha256": "a255fdd15e8be367f7dfd276f2d47a86f88cd687afe58cdb56b3b78f2e8383a1",
+  "swf": "reverse/build/ordered-comparison/harness/OrderedComparisonHarness.swf",
+  "swf_sha256": "8dd988cb1363260ad46f59b8f1b68425d1b3be8e62ee6a8c180c562faf0c9a6b",
+  "pcode_sha256": "a981effb810bbd8ace2d30bb4c2f88d8d083cc3a5887fcbc3213a94472ee9e7a",
+  "methods": {
+    "originalGold": [
+      {
+        "line": 399,
+        "code": "getlocal0"
+      },
+      {
+        "line": 400,
+        "code": "pushscope"
+      },
+      {
+        "line": 401,
+        "code": "getlocal1"
+      },
+      {
+        "line": 402,
+        "code": "getlocal2"
+      },
+      {
+        "line": 403,
+        "code": "add"
+      },
+      {
+        "line": 404,
+        "code": "convert_d"
+      },
+      {
+        "line": 405,
+        "code": "setlocal 4"
+      },
+      {
+        "line": 406,
+        "code": "getlocal 4"
+      },
+      {
+        "line": 407,
+        "code": "getlocal3"
+      },
+      {
+        "line": 408,
+        "code": "greaterthan"
+      },
+      {
+        "line": 409,
+        "code": "iftrue ofs0013"
+      },
+      {
+        "line": 410,
+        "code": "getlocal 4"
+      },
+      {
+        "line": 411,
+        "code": "returnvalue"
+      },
+      {
+        "line": 412,
+        "code": "ofs0013:"
+      },
+      {
+        "line": 413,
+        "code": "getlocal1"
+      },
+      {
+        "line": 414,
+        "code": "returnvalue"
+      }
+    ],
+    "recoveredGold": [
+      {
+        "line": 438,
+        "code": "getlocal0"
+      },
+      {
+        "line": 439,
+        "code": "pushscope"
+      },
+      {
+        "line": 440,
+        "code": "getlocal1"
+      },
+      {
+        "line": 441,
+        "code": "getlocal2"
+      },
+      {
+        "line": 442,
+        "code": "add"
+      },
+      {
+        "line": 443,
+        "code": "convert_d"
+      },
+      {
+        "line": 444,
+        "code": "setlocal 4"
+      },
+      {
+        "line": 445,
+        "code": "getlocal 4"
+      },
+      {
+        "line": 446,
+        "code": "getlocal3"
+      },
+      {
+        "line": 447,
+        "code": "ifnle ofs0012"
+      },
+      {
+        "line": 448,
+        "code": "getlocal 4"
+      },
+      {
+        "line": 449,
+        "code": "returnvalue"
+      },
+      {
+        "line": 450,
+        "code": "ofs0012:"
+      },
+      {
+        "line": 451,
+        "code": "getlocal1"
+      },
+      {
+        "line": 452,
+        "code": "returnvalue"
+      }
+    ],
+    "originalActive": [
+      {
+        "line": 474,
+        "code": "getlocal0"
+      },
+      {
+        "line": 475,
+        "code": "pushscope"
+      },
+      {
+        "line": 476,
+        "code": "getlocal1"
+      },
+      {
+        "line": 477,
+        "code": "pushbyte 0"
+      },
+      {
+        "line": 478,
+        "code": "lessequals"
+      },
+      {
+        "line": 479,
+        "code": "not"
+      },
+      {
+        "line": 480,
+        "code": "returnvalue"
+      }
+    ],
+    "recoveredActive": [
+      {
+        "line": 502,
+        "code": "getlocal0"
+      },
+      {
+        "line": 503,
+        "code": "pushscope"
+      },
+      {
+        "line": 504,
+        "code": "getlocal1"
+      },
+      {
+        "line": 505,
+        "code": "pushbyte 0"
+      },
+      {
+        "line": 506,
+        "code": "greaterthan"
+      },
+      {
+        "line": 507,
+        "code": "returnvalue"
+      }
+    ],
+    "originalStop": [
+      {
+        "line": 529,
+        "code": "getlocal0"
+      },
+      {
+        "line": 530,
+        "code": "pushscope"
+      },
+      {
+        "line": 531,
+        "code": "getlocal1"
+      },
+      {
+        "line": 532,
+        "code": "pushbyte 0"
+      },
+      {
+        "line": 533,
+        "code": "greaterthan"
+      },
+      {
+        "line": 534,
+        "code": "not"
+      },
+      {
+        "line": 535,
+        "code": "returnvalue"
+      }
+    ],
+    "recoveredStop": [
+      {
+        "line": 557,
+        "code": "getlocal0"
+      },
+      {
+        "line": 558,
+        "code": "pushscope"
+      },
+      {
+        "line": 559,
+        "code": "getlocal1"
+      },
+      {
+        "line": 560,
+        "code": "pushbyte 0"
+      },
+      {
+        "line": 561,
+        "code": "lessequals"
+      },
+      {
+        "line": 562,
+        "code": "returnvalue"
+      }
+    ]
+  },
+  "commands": [
+    [
+      "/Users/AntiEntropy/Games/勇者的信仰-逆向/.runtime/shared-tools/java/jdk-21.0.12.1+1-jre/Contents/Home/bin/java",
+      "-Djava.awt.headless=true",
+      "-Dflexlib=/Users/AntiEntropy/Games/勇者的信仰-逆向/.runtime/shared-tools/flex/apache-flex-sdk-4.16.1-bin/frameworks",
+      "-jar",
+      "/Users/AntiEntropy/Games/勇者的信仰-逆向/.runtime/shared-tools/flex/apache-flex-sdk-4.16.1-bin/lib/mxmlc.jar",
+      "-load-config=",
+      "-compiler.theme=",
+      "-compiler.external-library-path=/Users/AntiEntropy/Games/勇者的信仰-逆向/.runtime/shared-tools/ffdec/flashlib/playerglobal32_0.swc",
+      "-compiler.library-path=",
+      "-compiler.source-path=/Users/AntiEntropy/Games/勇者的信仰-逆向/reverse/experiments/ordered-comparison",
+      "-target-player=32.0",
+      "-use-network=false",
+      "-debug=false",
+      "-output=/Users/AntiEntropy/Games/勇者的信仰-逆向/reverse/build/ordered-comparison/harness/OrderedComparisonHarness.swf",
+      "/Users/AntiEntropy/Games/勇者的信仰-逆向/reverse/experiments/ordered-comparison/OrderedComparisonHarness.as"
+    ],
+    [
+      "/Users/AntiEntropy/Games/勇者的信仰-逆向/.runtime/shared-tools/java/jdk-21.0.12.1+1-jre/Contents/Home/bin/java",
+      "-Djava.awt.headless=true",
+      "-jar",
+      "/Users/AntiEntropy/Games/勇者的信仰-逆向/.runtime/shared-tools/ffdec/ffdec.jar",
+      "-format",
+      "script:pcode",
+      "-export",
+      "script",
+      "/Users/AntiEntropy/Games/勇者的信仰-逆向/reverse/build/ordered-comparison/harness/pcode",
+      "/Users/AntiEntropy/Games/勇者的信仰-逆向/reverse/build/ordered-comparison/harness/OrderedComparisonHarness.swf"
+    ]
+  ],
+  "compiled": true,
+  "runtime_tested": false,
+  "no_save_or_network_api_strings": true,
+  "expected_cases": 15
+}

@@ -1,0 +1,485 @@
+package com.hotpoint.braveManIII.models.equip
+{
+   import com.hotpoint.braveManIII.models.common.*;
+   import com.hotpoint.braveManIII.repository.skill.*;
+   
+   public class SuitEquipAttrib
+   {
+      
+      method
+         name ""
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var _suitId:VT;
+      
+      private var _skillAttrib:Array;
+      
+      private var _baseAttrib:Array;
+      
+      public function SuitEquipAttrib()
+      {
+         method
+            name ""
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  newarray 0
+                  initproperty QName(PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),"_skillAttrib")
+                  getlocal0
+                  newarray 0
+                  initproperty QName(PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),"_baseAttrib")
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function creatSuitEquipAttrib(param1:Number, param2:Array, param3:Array) : SuitEquipAttrib
+      {
+         trait method QName(PackageNamespace(""),"creatSuitEquipAttrib")
+            flag FINAL
+            dispid 3
+            method
+               name ""
+               param QName(PackageNamespace(""),"Number")
+               param QName(PackageNamespace(""),"Array")
+               param QName(PackageNamespace(""),"Array")
+               returns QName(PackageNamespace("com.hotpoint.braveManIII.models.equip"),"SuitEquipAttrib")
+               
+               body
+                  maxstack 3
+                  localcount 5
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     construct 0
+                     coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.equip"),"SuitEquipAttrib")
+                     setlocal 4
+                     getlocal 4
+                     findpropstrict Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                     getproperty Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                     getlocal1
+                     callproperty Multiname("createVT",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")]), 1
+                     setproperty Multiname("_suitId",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                     getlocal 4
+                     getlocal2
+                     setproperty Multiname("_skillAttrib",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                     getlocal 4
+                     getlocal3
+                     setproperty Multiname("_baseAttrib",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                     getlocal 4
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function get suitId() : VT
+         {
+            trait getter QName(PackageNamespace(""),"suitId")
+               dispid 0
+               method
+                  name ""
+                  returns QName(PackageNamespace("com.hotpoint.braveManIII.models.common"),"VT")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty Multiname("_suitId",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function set suitId(param1:VT) : void
+            {
+               trait setter QName(PackageNamespace(""),"suitId")
+                  dispid 0
+                  method
+                     name ""
+                     param QName(PackageNamespace("com.hotpoint.braveManIII.models.common"),"VT")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 2
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getlocal1
+                           initproperty Multiname("_suitId",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function get skillAttrib() : Array
+               {
+                  trait getter QName(PackageNamespace(""),"skillAttrib")
+                     dispid 0
+                     method
+                        name ""
+                        returns QName(PackageNamespace(""),"Array")
+                        
+                        body
+                           maxstack 1
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty Multiname("_skillAttrib",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function set skillAttrib(param1:Array) : void
+                  {
+                     trait setter QName(PackageNamespace(""),"skillAttrib")
+                        dispid 0
+                        method
+                           name ""
+                           param QName(PackageNamespace(""),"Array")
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 2
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getlocal1
+                                 initproperty Multiname("_skillAttrib",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function get baseAttrib() : Array
+                     {
+                        trait getter QName(PackageNamespace(""),"baseAttrib")
+                           dispid 0
+                           method
+                              name ""
+                              returns QName(PackageNamespace(""),"Array")
+                              
+                              body
+                                 maxstack 1
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty Multiname("_baseAttrib",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function set baseAttrib(param1:Array) : void
+                        {
+                           trait setter QName(PackageNamespace(""),"baseAttrib")
+                              dispid 0
+                              method
+                                 name ""
+                                 param QName(PackageNamespace(""),"Array")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 2
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getlocal1
+                                       initproperty Multiname("_baseAttrib",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function getSuitId() : Number
+                           {
+                              trait method QName(PackageNamespace(""),"getSuitId")
+                                 dispid 0
+                                 method
+                                    name ""
+                                    returns QName(PackageNamespace(""),"Number")
+                                    
+                                    body
+                                       maxstack 1
+                                       localcount 1
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          getproperty Multiname("_suitId",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                                          callproperty Multiname("getValue",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")]), 0
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function getSuitSkillAttrib() : Array
+                              {
+                                 trait method QName(PackageNamespace(""),"getSuitSkillAttrib")
+                                    dispid 0
+                                    method
+                                       name ""
+                                       returns QName(PackageNamespace(""),"Array")
+                                       
+                                       body
+                                          maxstack 3
+                                          localcount 5
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             findpropstrict Multiname("NaN",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                                             getproperty Multiname("NaN",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                                             convert_d
+                                             setlocal1
+                                             newarray 0
+                                             coerce QName(PackageNamespace(""),"Array")
+                                             setlocal2
+                                             pushbyte 0
+                                             setlocal3
+                                             getlocal0
+                                             getproperty Multiname("_skillAttrib",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                                             coerce_a
+                                             setlocal 4
+                                             jump ofs0031
+                                    ofs001a:
+                                             label
+                                             getlocal 4
+                                             getlocal3
+                                             nextvalue
+                                             convert_d
+                                             setlocal1
+                                             getlocal2
+                                             findpropstrict Multiname("SkillFactory",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                                             getproperty Multiname("SkillFactory",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                                             getlocal1
+                                             callproperty Multiname("getSkillById",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")]), 1
+                                             callproperty Multiname("getIntroduction",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")]), 0
+                                             callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")]), 1
+                                             pop
+                                    ofs0031:
+                                             hasnext2 4, 3
+                                             iftrue ofs001a
+                                             kill 4
+                                             kill 3
+                                             getlocal2
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function getSuitBaseAttrib() : Array
+                                 {
+                                    trait method QName(PackageNamespace(""),"getSuitBaseAttrib")
+                                       dispid 0
+                                       method
+                                          name ""
+                                          returns QName(PackageNamespace(""),"Array")
+                                          
+                                          body
+                                             maxstack 4
+                                             localcount 5
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                pushnull
+                                                coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.equip"),"EquipBaseAttrib")
+                                                setlocal1
+                                                newarray 0
+                                                coerce QName(PackageNamespace(""),"Array")
+                                                setlocal2
+                                                pushbyte 0
+                                                setlocal3
+                                                getlocal0
+                                                getproperty Multiname("_baseAttrib",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                                                coerce_a
+                                                setlocal 4
+                                                jump ofs0034
+                                       ofs0018:
+                                                label
+                                                getlocal 4
+                                                getlocal3
+                                                nextvalue
+                                                coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.equip"),"EquipBaseAttrib")
+                                                setlocal1
+                                                getlocal2
+                                                findpropstrict Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                                                getproperty Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                                                getlocal1
+                                                callproperty Multiname("getAttribType",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")]), 0
+                                                getlocal1
+                                                callproperty Multiname("getValue",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")]), 0
+                                                callproperty Multiname("getDescription",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")]), 2
+                                                callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")]), 1
+                                                pop
+                                       ofs0034:
+                                                hasnext2 4, 3
+                                                iftrue ofs0018
+                                                kill 4
+                                                kill 3
+                                                getlocal2
+                                                returnvalue
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    public function getSuitAttrib() : Array
+                                    {
+                                       trait method QName(PackageNamespace(""),"getSuitAttrib")
+                                          dispid 0
+                                          method
+                                             name ""
+                                             returns QName(PackageNamespace(""),"Array")
+                                             
+                                             body
+                                                maxstack 1
+                                                localcount 1
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlocal0
+                                                   getproperty Multiname("_baseAttrib",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                                                   callproperty Multiname("slice",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")]), 0
+                                                   returnvalue
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       public function getSuitSkill() : Array
+                                       {
+                                          trait method QName(PackageNamespace(""),"getSuitSkill")
+                                             dispid 0
+                                             method
+                                                name ""
+                                                returns QName(PackageNamespace(""),"Array")
+                                                
+                                                body
+                                                   maxstack 1
+                                                   localcount 1
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      getlocal0
+                                                      getproperty Multiname("_skillAttrib",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")])
+                                                      callproperty Multiname("slice",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:SuitEquipAttrib")]), 0
+                                                      returnvalue
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                       }
+                                    }
+                                    
+                                    method
+                                       name ""
+                                       returns null
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 1
+                                          initscopedepth 1
+                                          maxscopedepth 3
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             findpropstrict Multiname("SuitEquipAttrib",[PackageNamespace("com.hotpoint.braveManIII.models.equip")])
+                                             findpropstrict QName(PackageNamespace(""),"Object")
+                                             getproperty QName(PackageNamespace(""),"Object")
+                                             pushscope
+                                             findpropstrict Multiname("Object",[PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill")])
+                                             getproperty Multiname("Object",[PackageNamespace("com.hotpoint.braveManIII.models.equip"),PrivateNamespace("SuitEquipAttrib.as$36"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),PackageNamespace("com.hotpoint.braveManIII.repository.skill")])
+                                             newclass 0
+                                             popscope
+                                             initproperty QName(PackageNamespace("com.hotpoint.braveManIII.models.equip"),"SuitEquipAttrib")
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                    

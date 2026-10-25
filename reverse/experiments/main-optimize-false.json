@@ -1,0 +1,38 @@
+{
+  "experiment": "Main compiler optimize=false repeated twice",
+  "actual_compilations": 2,
+  "first_compile_analysis_recovered_without_recompiling": "Initial analyzer assumed a single ABC; corrected to handle 710 blocks and reused run-1 raw output.",
+  "source_receipt_sha256": "6645a910fcf0c0332604c44b3f64e0f68edb7d1d47e80f34175d6b07aee3b1d1",
+  "output_directory": "reverse/build/main-optimize-false-npji611t",
+  "normalized_hashes": [
+    "aa488dfe6fd3e08b28fbdbe321261d8d22948a91a6bbe75a875c3f3c6369e430",
+    "0ffcda8ab8c2ef1480d9ddd36d95e9c075fdbaf1b35e40ab23cb356b32830f47"
+  ],
+  "normalized_byte_equal": false,
+  "abc_per_swf": 710,
+  "class_count": 712,
+  "method_count": 7148,
+  "changed_abc": 305,
+  "only_private_compiler_ordinal_abc": 296,
+  "script_initialization_differences": [
+    "com/greensock/plugins/AutoAlphaPlugin",
+    "com/greensock/plugins/EndArrayPlugin",
+    "com/greensock/plugins/RoundPropsPlugin",
+    "com/greensock/plugins/ShortRotationPlugin",
+    "com/greensock/plugins/VisiblePlugin",
+    "com/greensock/plugins/VolumePlugin",
+    "src/EnemyLife",
+    "src/Skin_ZhuangBei",
+    "src/tool/ZhuFuMC"
+  ],
+  "non_script_method_body_hash_differences": [],
+  "class_and_method_metadata_equal_after_private_ordinal_comparison": true,
+  "non_abc_tag_payloads_equal": true,
+  "script_difference": "Nine script initializers use getscopeobject 0 versus findpropstrict target-class name; matching script class trait slot IDs change from explicit 1/2 to 0. EndArrayPlugin additionally initializes private ArrayTweenInfo.",
+  "comparison_only_no_namespace_rewriting": true,
+  "official_candidate_modified": false,
+  "player_started": false,
+  "staging_unchanged_during_resume_and_second_compile": true,
+  "official_receipt_unchanged_during_resume_and_second_compile": true,
+  "conclusion": "Disabling optimization does not eliminate nondeterminism. No non-script method bytecode changes found in this pair; this is not proof of full runtime equivalence."
+}

@@ -1,0 +1,193 @@
+package com.greensock.plugins
+{
+   import com.greensock.*;
+   import flash.media.SoundTransform;
+   
+   public class VolumePlugin extends TweenPlugin
+   {
+      
+      public static const API:Number = 1;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"API")
+               pushbyte 1
+               initproperty QName(PackageNamespace(""),"API")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var _target:Object;
+      
+      protected var _st:SoundTransform;
+      
+      public function VolumePlugin()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  pushstring "volume"
+                  initproperty Multiname("propName",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  getlocal0
+                  pushstring "volume"
+                  newarray 1
+                  initproperty Multiname("overwriteProps",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function onInitTween(param1:Object, param2:*, param3:TweenLite) : Boolean
+      {
+         trait method QName(PackageNamespace(""),"onInitTween")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"Object")
+               param null
+               param QName(PackageNamespace("com.greensock"),"TweenLite")
+               returns QName(PackageNamespace(""),"Boolean")
+               
+               body
+                  maxstack 6
+                  localcount 4
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict Multiname("isNaN",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal2
+                     callproperty Multiname("isNaN",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                     convert_b
+                     dup
+                     iftrue ofs001a
+                     pop
+                     getlocal1
+                     pushstring "volume"
+                     callproperty Multiname("hasOwnProperty",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                     convert_b
+            ofs001a:
+                     dup
+                     iftrue ofs0029
+                     pop
+                     getlocal1
+                     pushstring "soundTransform"
+                     callproperty Multiname("hasOwnProperty",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                     not
+            ofs0029:
+                     iffalse ofs002f
+                     pushfalse
+                     returnvalue
+            ofs002f:
+                     findproperty Multiname("_target",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal1
+                     initproperty Multiname("_target",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     findproperty Multiname("_st",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlex Multiname("_target",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("soundTransform",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     initproperty Multiname("_st",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     findpropstrict Multiname("addTween",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlex Multiname("_st",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     pushstring "volume"
+                     getlex Multiname("_st",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("volume",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal2
+                     pushstring "volume"
+                     callpropvoid Multiname("addTween",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 5
+                     pushtrue
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override public function set changeFactor(param1:Number) : void
+         {
+            trait setter QName(PackageNamespace(""),"changeFactor")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"Number")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 2
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("updateTweens",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal1
+                        callpropvoid Multiname("updateTweens",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                        getlex Multiname("_target",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlex Multiname("_st",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        setproperty Multiname("soundTransform",[PrivateNamespace(null,"392"),PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:VolumePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findpropstrict Multiname("VolumePlugin",[PackageNamespace("com.greensock.plugins")])
+               getlex QName(PackageNamespace(""),"Object")
+               pushscope
+               getlex QName(PackageNamespace("com.greensock.plugins"),"TweenPlugin")
+               pushscope
+               getlex Multiname("TweenPlugin",[PackageNamespace(""),PrivateNamespace(null,"393"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock")])
+               newclass 147
+               popscope
+               popscope
+               initproperty QName(PackageNamespace("com.greensock.plugins"),"VolumePlugin")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

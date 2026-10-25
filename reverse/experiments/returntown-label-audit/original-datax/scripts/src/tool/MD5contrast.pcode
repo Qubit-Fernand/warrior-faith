@@ -1,0 +1,450 @@
+package src.tool
+{
+   import com.ByteArrayXX.*;
+   import flash.utils.*;
+   import src.*;
+   
+   public class MD5contrast
+   {
+      
+      public static var contrastID:String = "验证通过!!";
+      
+      public static var errorID:int = 0;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"contrastID")
+               pushstring "验证通过!!"
+               setproperty QName(PackageNamespace(""),"contrastID")
+               findproperty QName(PackageNamespace(""),"errorID")
+               pushbyte 0
+               setproperty QName(PackageNamespace(""),"errorID")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function MD5contrast()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function contrast(param1:String, param2:String, param3:uint = 9) : Boolean
+      {
+         trait method QName(PackageNamespace(""),"contrast")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               flag HAS_OPTIONAL
+               param QName(PackageNamespace(""),"String")
+               param QName(PackageNamespace(""),"String")
+               param QName(PackageNamespace(""),"uint")
+               optional Integer(9)
+               returns QName(PackageNamespace(""),"Boolean")
+               
+               body
+                  maxstack 4
+                  localcount 4
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict Multiname("uint",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                     getlocal2
+                     pushbyte 5
+                     pushbyte 1
+                     callproperty Multiname("substr",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 2
+                     callproperty Multiname("uint",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 1
+                     getlocal3
+                     ifeq ofs0021
+                     findproperty Multiname("errorID",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                     pushbyte 1
+                     setproperty Multiname("errorID",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                     pushfalse
+                     returnvalue
+            ofs0021:
+                     getlocal2
+                     pushbyte 6
+                     pushbyte 8
+                     callproperty Multiname("substr",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 2
+                     getlex Multiname("MD5",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                     getlocal1
+                     callproperty Multiname("hash_X",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 1
+                     pushbyte 0
+                     pushbyte 8
+                     callproperty Multiname("substr",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 2
+                     ifeq ofs009c
+                     findproperty Multiname("contrastID",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                     pushstring "大写错误"
+                     setproperty Multiname("contrastID",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                     getlocal2
+                     pushbyte 6
+                     pushbyte 8
+                     callproperty Multiname("substr",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 2
+                     getlex Multiname("MD5",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                     getlocal1
+                     callproperty Multiname("toLocaleLowerCase",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 0
+                     callproperty Multiname("hash_X",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 1
+                     pushbyte 0
+                     pushbyte 8
+                     callproperty Multiname("substr",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 2
+                     ifeq ofs009c
+                     findproperty Multiname("contrastID",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                     pushstring "小写错误"
+                     setproperty Multiname("contrastID",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                     getlocal2
+                     pushbyte 6
+                     pushbyte 8
+                     callproperty Multiname("substr",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 2
+                     getlex Multiname("MD5",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                     getlocal1
+                     callproperty Multiname("toLocaleUpperCase",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 0
+                     callproperty Multiname("hash_X",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 1
+                     pushbyte 0
+                     pushbyte 8
+                     callproperty Multiname("substr",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 2
+                     ifeq ofs009c
+                     findproperty Multiname("errorID",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                     pushbyte 2
+                     setproperty Multiname("errorID",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                     pushfalse
+                     returnvalue
+            ofs009c:
+                     pushtrue
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public static function GetScoreMD5(param1:String) : String
+         {
+            trait method QName(PackageNamespace(""),"GetScoreMD5")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  param QName(PackageNamespace(""),"String")
+                  returns QName(PackageNamespace(""),"String")
+                  
+                  body
+                     maxstack 2
+                     localcount 2
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex Multiname("MD5",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                        getlocal1
+                        callproperty Multiname("hash_X",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 1
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public static function SaveStr(param1:String, param2:uint, param3:int = 1) : String
+            {
+               trait method QName(PackageNamespace(""),"SaveStr")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     flag HAS_OPTIONAL
+                     param QName(PackageNamespace(""),"String")
+                     param QName(PackageNamespace(""),"uint")
+                     param QName(PackageNamespace(""),"int")
+                     optional Integer(1)
+                     returns QName(PackageNamespace(""),"String")
+                     
+                     body
+                        maxstack 4
+                        localcount 5
+                        initscopedepth 3
+                        maxscopedepth 4
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushnull
+                           coerce_s
+                           setlocal 4
+                           getlocal3
+                           pushbyte 1
+                           ifne ofs0050
+                           findpropstrict Multiname("String",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                           getlex Multiname("Math",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                           callproperty Multiname("random",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 0
+                           pushint 654321
+                           multiply
+                           pushint 54321
+                           add
+                           callproperty Multiname("String",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 1
+                           pushbyte 0
+                           pushbyte 5
+                           callproperty Multiname("substr",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 2
+                           coerce_s
+                           dup
+                           setlocal 4
+                           findpropstrict Multiname("String",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                           getlocal2
+                           callproperty Multiname("String",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 1
+                           add
+                           coerce_s
+                           dup
+                           setlocal 4
+                           getlex Multiname("MD5",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                           getlocal1
+                           callproperty Multiname("hash_X",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 1
+                           pushbyte 0
+                           pushbyte 8
+                           callproperty Multiname("substr",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 2
+                           add
+                           coerce_s
+                           dup
+                           setlocal 4
+                           returnvalue
+                  ofs0050:
+                           pushstring ""
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public static function getObj_MD5String(param1:Object) : String
+               {
+                  trait method QName(PackageNamespace(""),"getObj_MD5String")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"Object")
+                        returns QName(PackageNamespace(""),"String")
+                        
+                        body
+                           maxstack 3
+                           localcount 4
+                           initscopedepth 3
+                           maxscopedepth 4
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict Multiname("ByteArray",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                              constructprop Multiname("ByteArray",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 0
+                              coerce QName(PackageNamespace("flash.utils"),"ByteArray")
+                              setlocal2
+                              getlocal2
+                              getlocal1
+                              callpropvoid Multiname("writeObject",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 1
+                              getlocal2
+                              pushbyte 0
+                              setproperty Multiname("position",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                              findpropstrict Multiname("compareObject",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                              getlocal1
+                              getlocal2
+                              callpropvoid Multiname("compareObject",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 2
+                              getlex Multiname("Base64",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast"),PackageNamespace("com.ByteArrayXX")])
+                              getlocal2
+                              callproperty Multiname("encodeByteArray",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 1
+                              coerce_s
+                              setlocal3
+                              getlex Multiname("MD5",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                              getlocal3
+                              callproperty Multiname("hash_X",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 1
+                              coerce_s
+                              setlocal3
+                              getlocal3
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public static function compareObject(param1:Object, param2:ByteArray) : Boolean
+                  {
+                     trait method QName(PackageNamespace(""),"compareObject")
+                        flag FINAL
+                        dispid 7
+                        method
+                           name null
+                           param QName(PackageNamespace(""),"Object")
+                           param QName(PackageNamespace("flash.utils"),"ByteArray")
+                           returns QName(PackageNamespace(""),"Boolean")
+                           
+                           body
+                              maxstack 5
+                              localcount 7
+                              initscopedepth 3
+                              maxscopedepth 4
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 pushbyte 0
+                                 convert_u
+                                 setlocal 5
+                                 pushbyte 0
+                                 setlocal 6
+                                 findpropstrict Multiname("ByteArray",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                                 constructprop Multiname("ByteArray",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 0
+                                 coerce QName(PackageNamespace("flash.utils"),"ByteArray")
+                                 setlocal3
+                                 getlocal3
+                                 getlocal1
+                                 callpropvoid Multiname("writeObject",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 1
+                                 getlocal3
+                                 getproperty Multiname("length",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                                 convert_u
+                                 setlocal 4
+                                 getlex Multiname("TiaoShi",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                                 pushstring "ByteArray长度"
+                                 getlocal 4
+                                 add
+                                 callpropvoid Multiname("txtShow",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 1
+                                 getlocal3
+                                 getproperty Multiname("length",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                                 getlocal2
+                                 getproperty Multiname("length",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                                 ifne ofs00d5
+                                 findpropstrict Multiname("getTimer",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                                 callproperty Multiname("getTimer",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 0
+                                 convert_u
+                                 setlocal 5
+                                 getlocal3
+                                 pushbyte 0
+                                 setproperty Multiname("position",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                                 getlocal2
+                                 pushbyte 0
+                                 setproperty Multiname("position",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                                 jump ofs0070
+                        ofs0055:
+                                 label
+                                 getlocal3
+                                 callproperty Multiname("readInt",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 0
+                                 getlocal2
+                                 callproperty Multiname("readInt",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 0
+                                 ifeq ofs0070
+                                 getlex Multiname("TiaoShi",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                                 pushstring "不相等1"
+                                 callpropvoid Multiname("txtShow",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 1
+                                 pushfalse
+                                 returnvalue
+                        ofs0070:
+                                 getlocal 4
+                                 getlocal3
+                                 getproperty Multiname("position",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                                 subtract
+                                 pushbyte 4
+                                 ifgt ofs0055
+                                 jump ofs00a0
+                        ofs0081:
+                                 label
+                                 getlocal3
+                                 callproperty Multiname("readByte",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 0
+                                 convert_i
+                                 dup
+                                 setlocal 6
+                                 getlocal2
+                                 callproperty Multiname("readByte",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 0
+                                 ifeq ofs00a0
+                                 getlex Multiname("TiaoShi",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                                 pushstring "不相等2"
+                                 callpropvoid Multiname("txtShow",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 1
+                                 pushfalse
+                                 returnvalue
+                        ofs00a0:
+                                 getlocal3
+                                 getproperty Multiname("position",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                                 getlocal 4
+                                 iflt ofs0081
+                                 findproperty Multiname("endTime",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                                 findpropstrict Multiname("getTimer",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                                 callproperty Multiname("getTimer",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 0
+                                 setproperty Multiname("endTime",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                                 getlex Multiname("TiaoShi",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                                 pushstring "耗时:"
+                                 findpropstrict Multiname("uint",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                                 getlex Multiname("endTime",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                                 getlocal 5
+                                 subtract
+                                 callproperty Multiname("uint",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 1
+                                 add
+                                 pushstring "毫秒"
+                                 add
+                                 callpropvoid Multiname("txtShow",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 1
+                                 pushtrue
+                                 returnvalue
+                        ofs00d5:
+                                 getlex Multiname("TiaoShi",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")])
+                                 pushstring "length不相等"
+                                 callpropvoid Multiname("txtShow",[PrivateNamespace(null,"316"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils"),ProtectedNamespace("src.tool:MD5contrast"),StaticProtectedNs("src.tool:MD5contrast")]), 1
+                                 pushfalse
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                  }
+               }
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 1
+                     maxscopedepth 3
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("MD5contrast",[PackageNamespace("src.tool")])
+                        getlex QName(PackageNamespace(""),"Object")
+                        pushscope
+                        getlex Multiname("Object",[PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("src.tool"),PackageInternalNs("src.tool"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),PackageNamespace("flash.utils")])
+                        newclass 88
+                        popscope
+                        initproperty QName(PackageNamespace("src.tool"),"MD5contrast")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               

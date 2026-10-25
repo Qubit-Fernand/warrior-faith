@@ -1,0 +1,93 @@
+package com.hotpoint.braveManIII.repository.skillCondition
+{
+   import com.hotpoint.braveManIII.models.common.*;
+   
+   public class SkillConditionBaseData
+   {
+      
+      private var _beforeLevel:VT;
+      
+      private var _points:VT;
+      
+      private var _transfer:Boolean;
+      
+      private var _beforeLevelId:String;
+      
+      private var _skillLevel:VT;
+      
+      private var _typeId:String;
+      
+      private var _playerLevel:VT;
+      
+      private var _rebirth:Boolean;
+      
+      private var _gold:VT;
+      
+      public function SkillConditionBaseData()
+      {
+         super();
+      }
+      
+      public static function creatConditionBaseData(param1:String, param2:Number, param3:Number, param4:Boolean, param5:Boolean, param6:String, param7:Number, param8:Number, param9:Number) : SkillConditionBaseData
+      {
+         var _loc10_:SkillConditionBaseData = null;
+         _loc10_ = new SkillConditionBaseData();
+         _loc10_._typeId = param1;
+         _loc10_._skillLevel = VT.createVT(param2);
+         _loc10_._playerLevel = VT.createVT(param3);
+         _loc10_._rebirth = param4;
+         _loc10_._transfer = param5;
+         _loc10_._beforeLevelId = param6;
+         _loc10_._beforeLevel = VT.createVT(param7);
+         _loc10_._points = VT.createVT(param8);
+         _loc10_._gold = VT.createVT(param9);
+         return _loc10_;
+      }
+      
+      public function getBeforeLevelId() : String
+      {
+         return _beforeLevelId;
+      }
+      
+      public function getBeforeLevel() : Number
+      {
+         return _beforeLevel.getValue();
+      }
+      
+      public function getPoints() : Number
+      {
+         return _points.getValue();
+      }
+      
+      public function getGold() : Number
+      {
+         return _gold.getValue();
+      }
+      
+      public function getTransfer() : Boolean
+      {
+         return _transfer;
+      }
+      
+      public function getPlayerDataLevel() : Number
+      {
+         return _playerLevel.getValue();
+      }
+      
+      public function getSkillLevel() : Number
+      {
+         return _skillLevel.getValue();
+      }
+      
+      public function getTypeId() : String
+      {
+         return _typeId;
+      }
+      
+      public function getRebirth() : Boolean
+      {
+         return _rebirth;
+      }
+   }
+}
+

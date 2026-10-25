@@ -1,0 +1,153 @@
+{
+  "schema": "yzlr2-original-shop-quantity-runtime-v1",
+  "recorded_utc": "2026-10-23T19:02:07.771046+00:00",
+  "status": "original_ui_boundary_pass_rebuilt_comparison_pending",
+  "runtime": "reverse/build/runtime-original-control",
+  "original_control_main_sha256": "77ba138c038cb454d2324149d9afe1b99fcbdaeb69ce96ffe03eb107b27273f9",
+  "wrapper_version": 5,
+  "wrapper_sha256": "7751f9b333c3ecb064d67287d22724622e3db39f6d9e8d4215452d98860f9c32",
+  "game_shared_object": "yzlr2_original_probe",
+  "resolve_class_identities": false,
+  "operation_reported_by_operator": "Enter -2147483648 in existing potion-shop amount field, click down once; observer only reads display fields.",
+  "samples": [
+    {
+      "report": "reverse/experiments/diagnostic-harness/results/original-shop-v5-before-down.json",
+      "report_sha256": "ad98f4648b9faa7833bd13ac32ec1f8fe405a2c99f0d265b9e720acdf426961a",
+      "sequence": 232,
+      "ms": 240189,
+      "label": "shop-intmin-v5",
+      "field": {
+        "role": "shop-amount-candidate",
+        "targetAmount": true,
+        "text": "-2147483648",
+        "fieldType": "input",
+        "textTruncated": false,
+        "name": "amount",
+        "visibility": {
+          "attachedToStage": true,
+          "ancestors": [
+            {
+              "visible": true,
+              "className": "flash.display::Stage",
+              "name": null,
+              "alpha": 1
+            },
+            {
+              "visible": true,
+              "className": "com.hotpoint.braveManIII.views.suppliesShopPanel::SuppliesShopPanel",
+              "name": "instance16895",
+              "alpha": 1
+            },
+            {
+              "visible": true,
+              "className": "SuppliesShopShow",
+              "name": "instance16599",
+              "alpha": 1
+            },
+            {
+              "visible": true,
+              "className": "flash.display::MovieClip",
+              "name": "buyMenu",
+              "alpha": 1
+            },
+            {
+              "visible": true,
+              "className": "flash.text::TextField",
+              "name": "amount",
+              "alpha": 1
+            }
+          ],
+          "visibilityComplete": true,
+          "visibilityMeaning": "Display-list visible/alpha only; no occlusion, mask or viewport guarantee",
+          "ancestorAlpha": 1,
+          "ancestorVisible": true,
+          "pathTruncated": false
+        },
+        "originalLength": 11
+      },
+      "partial": false,
+      "errors": [],
+      "observerErrors": [],
+      "uiText_whole_scan_truncated": true,
+      "uiText_whole_fields_truncated": true,
+      "uiText_whole_observation_complete": false
+    },
+    {
+      "report": "reverse/experiments/diagnostic-harness/results/original-shop-v5-after-down.json",
+      "report_sha256": "0faae6a142a3abedf79423a3a95249a4b2ec1d722ee820f8be29669565ce24be",
+      "sequence": 251,
+      "ms": 258470,
+      "label": "shop-intmin-v5",
+      "field": {
+        "role": "shop-amount-candidate",
+        "targetAmount": true,
+        "text": "2147483647",
+        "fieldType": "input",
+        "textTruncated": false,
+        "name": "amount",
+        "visibility": {
+          "attachedToStage": true,
+          "ancestors": [
+            {
+              "visible": true,
+              "className": "flash.display::Stage",
+              "name": null,
+              "alpha": 1
+            },
+            {
+              "visible": true,
+              "className": "com.hotpoint.braveManIII.views.suppliesShopPanel::SuppliesShopPanel",
+              "name": "instance16895",
+              "alpha": 1
+            },
+            {
+              "visible": true,
+              "className": "SuppliesShopShow",
+              "name": "instance16599",
+              "alpha": 1
+            },
+            {
+              "visible": true,
+              "className": "flash.display::MovieClip",
+              "name": "buyMenu",
+              "alpha": 1
+            },
+            {
+              "visible": true,
+              "className": "flash.text::TextField",
+              "name": "amount",
+              "alpha": 1
+            }
+          ],
+          "visibilityComplete": true,
+          "visibilityMeaning": "Display-list visible/alpha only; no occlusion, mask or viewport guarantee",
+          "ancestorAlpha": 1,
+          "ancestorVisible": true,
+          "pathTruncated": false
+        },
+        "originalLength": 10
+      },
+      "partial": false,
+      "errors": [],
+      "observerErrors": [],
+      "uiText_whole_scan_truncated": true,
+      "uiText_whole_fields_truncated": true,
+      "uiText_whole_observation_complete": false
+    }
+  ],
+  "observed_result": "-2147483648 -> 2147483647",
+  "target_field_complete": true,
+  "whole_shop_scan_complete": false,
+  "interpretation": "Original UI accepts INT_MIN text and the down action exhibits int32 wrap. It is not the independent Number decrement arithmetic test and does not yet prove rebuilt UI behavior.",
+  "operator_reported_coldread_state": {
+    "isolated_original_slot": 2,
+    "gold": 4387,
+    "red_potions": 9,
+    "blue_potions": 8
+  },
+  "inventory_report_boundary": "Snapshot records 17 occupied supplies slots, but only first 6 item summaries; red9/blue8 and gold are operator UI observations, not inferred from truncated inventory.",
+  "v4_failure_separate": "v4 last successful snapshot was 60378ms older than final observer error. v5 observed Stage.name=null; v4 name.substr lacked a null check.",
+  "latest_keep_trace_rebuilt_comparison": "pending full rebuilt package and same v5 UI exercise",
+  "this_auditor_opened_ui": false,
+  "this_auditor_accessed_sol": false
+}

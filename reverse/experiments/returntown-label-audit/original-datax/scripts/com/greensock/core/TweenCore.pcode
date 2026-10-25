@@ -1,0 +1,1513 @@
+package com.greensock.core
+{
+   import com.greensock.*;
+   
+   public class TweenCore
+   {
+      
+      public static const version:Number = 1.64;
+      
+      protected static var _classInitted:Boolean;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"version")
+               pushdouble 1.64
+               initproperty QName(PackageNamespace(""),"version")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var _delay:Number;
+      
+      protected var _hasUpdate:Boolean;
+      
+      protected var _rawPrevTime:Number = -1;
+      
+      public var vars:Object;
+      
+      public var active:Boolean;
+      
+      public var gc:Boolean;
+      
+      public var initted:Boolean;
+      
+      public var timeline:SimpleTimeline;
+      
+      public var cachedStartTime:Number;
+      
+      public var cachedTime:Number;
+      
+      public var cachedTotalTime:Number;
+      
+      public var cachedDuration:Number;
+      
+      public var cachedTotalDuration:Number;
+      
+      public var cachedTimeScale:Number;
+      
+      public var cachedPauseTime:Number;
+      
+      public var cachedReversed:Boolean;
+      
+      public var nextNode:TweenCore;
+      
+      public var prevNode:TweenCore;
+      
+      public var cachedOrphan:Boolean;
+      
+      public var cacheIsDirty:Boolean;
+      
+      public var cachedPaused:Boolean;
+      
+      public var data:*;
+      
+      public function TweenCore(param1:Number = 0, param2:Object = null)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace(""),"Number")
+            param QName(PackageNamespace(""),"Object")
+            optional Integer(0)
+            optional Null()
+            returns null
+            
+            body
+               maxstack 4
+               localcount 5
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal2
+                  pushnull
+                  ifeq ofs0013
+                  getlocal2
+                  coerce QName(PackageNamespace(""),"Object")
+                  jump ofs0017
+         ofs0013:
+                  newobject 0
+                  coerce QName(PackageNamespace(""),"Object")
+         ofs0017:
+                  initproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getlocal0
+                  getproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getproperty Multiname("isGSVars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  iffalse ofs0030
+                  getlocal0
+                  getlocal0
+                  getproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  initproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+         ofs0030:
+                  getlocal0
+                  getlocal0
+                  getlocal1
+                  dup
+                  setlocal 4
+                  initproperty Multiname("cachedTotalDuration",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getlocal 4
+                  kill 4
+                  initproperty Multiname("cachedDuration",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  findproperty Multiname("_delay",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getlocal0
+                  getproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getproperty Multiname("delay",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  iffalse ofs0061
+                  findpropstrict Multiname("Number",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getlocal0
+                  getproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getproperty Multiname("delay",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  callproperty Multiname("Number",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 1
+                  convert_d
+                  jump ofs0064
+         ofs0061:
+                  pushbyte 0
+                  convert_d
+         ofs0064:
+                  initproperty Multiname("_delay",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getlocal0
+                  getlocal0
+                  getproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getproperty Multiname("timeScale",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  iffalse ofs0086
+                  findpropstrict Multiname("Number",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getlocal0
+                  getproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getproperty Multiname("timeScale",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  callproperty Multiname("Number",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 1
+                  convert_d
+                  jump ofs0089
+         ofs0086:
+                  pushbyte 1
+                  convert_d
+         ofs0089:
+                  initproperty Multiname("cachedTimeScale",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getlocal0
+                  findpropstrict Multiname("Boolean",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getlocal1
+                  pushbyte 0
+                  equals
+                  dup
+                  iffalse ofs00a0
+                  pop
+                  getlex Multiname("_delay",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  pushbyte 0
+                  equals
+         ofs00a0:
+                  dup
+                  iffalse ofs00b0
+                  pop
+                  getlocal0
+                  getproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getproperty Multiname("immediateRender",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  pushfalse
+                  equals
+                  not
+         ofs00b0:
+                  callproperty Multiname("Boolean",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 1
+                  initproperty Multiname("active",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getlocal0
+                  getlocal0
+                  pushbyte 0
+                  dup
+                  setlocal 4
+                  initproperty Multiname("cachedTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getlocal 4
+                  kill 4
+                  initproperty Multiname("cachedTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getlocal0
+                  getlocal0
+                  getproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getproperty Multiname("data",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  initproperty Multiname("data",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getlex Multiname("_classInitted",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  iftrue ofs00fe
+                  findpropstrict Multiname("isNaN",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getlex Multiname("TweenLite",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getproperty Multiname("rootFrame",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  callproperty Multiname("isNaN",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 1
+                  iffalse ofs00fd
+                  getlex Multiname("TweenLite",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  callpropvoid Multiname("initClass",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 0
+                  findproperty Multiname("_classInitted",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  pushtrue
+                  setproperty Multiname("_classInitted",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  jump ofs00fe
+         ofs00fd:
+                  returnvoid
+         ofs00fe:
+                  getlocal0
+                  getproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getproperty Multiname("timeline",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getlex Multiname("SimpleTimeline",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  istypelate
+                  iffalse ofs011b
+                  getlocal0
+                  getproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getproperty Multiname("timeline",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  coerce QName(PackageNamespace("com.greensock.core"),"SimpleTimeline")
+                  jump ofs013c
+         ofs011b:
+                  getlocal0
+                  getproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getproperty Multiname("useFrames",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  iffalse ofs0133
+                  getlex Multiname("TweenLite",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getproperty Multiname("rootFramesTimeline",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  coerce QName(PackageNamespace("com.greensock.core"),"SimpleTimeline")
+                  jump ofs013c
+         ofs0133:
+                  getlex Multiname("TweenLite",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getproperty Multiname("rootTimeline",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  coerce QName(PackageNamespace("com.greensock.core"),"SimpleTimeline")
+         ofs013c:
+                  coerce QName(PackageNamespace("com.greensock.core"),"SimpleTimeline")
+                  setlocal3
+                  getlocal3
+                  getlocal0
+                  getlocal3
+                  getproperty Multiname("cachedTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  callpropvoid Multiname("insert",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 2
+                  getlocal0
+                  getproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getproperty Multiname("reversed",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  iffalse ofs015a
+                  getlocal0
+                  pushtrue
+                  initproperty Multiname("cachedReversed",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+         ofs015a:
+                  getlocal0
+                  getproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  getproperty Multiname("paused",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                  iffalse ofs016a
+                  getlocal0
+                  pushtrue
+                  initproperty Multiname("paused",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+         ofs016a:
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function play() : void
+      {
+         trait method QName(PackageNamespace(""),"play")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     pushfalse
+                     setproperty Multiname("reversed",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                     getlocal0
+                     pushfalse
+                     setproperty Multiname("paused",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function pause() : void
+         {
+            trait method QName(PackageNamespace(""),"pause")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        pushtrue
+                        setproperty Multiname("paused",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function resume() : void
+            {
+               trait method QName(PackageNamespace(""),"resume")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           pushfalse
+                           setproperty Multiname("paused",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function restart(param1:Boolean = false, param2:Boolean = true) : void
+               {
+                  trait method QName(PackageNamespace(""),"restart")
+                     dispid 0
+                     method
+                        name null
+                        flag HAS_OPTIONAL
+                        param QName(PackageNamespace(""),"Boolean")
+                        param QName(PackageNamespace(""),"Boolean")
+                        optional False()
+                        optional True()
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 3
+                           localcount 3
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              pushfalse
+                              setproperty Multiname("reversed",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                              getlocal0
+                              pushfalse
+                              setproperty Multiname("paused",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                              getlocal0
+                              getlocal1
+                              iffalse ofs001b
+                              getlex Multiname("_delay",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                              negate
+                              convert_d
+                              jump ofs001e
+                     ofs001b:
+                              pushbyte 0
+                              convert_d
+                     ofs001e:
+                              getlocal2
+                              callpropvoid Multiname("setTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 2
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function reverse(param1:Boolean = true) : void
+                  {
+                     trait method QName(PackageNamespace(""),"reverse")
+                        dispid 0
+                        method
+                           name null
+                           flag HAS_OPTIONAL
+                           param QName(PackageNamespace(""),"Boolean")
+                           optional True()
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 3
+                              localcount 2
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 pushtrue
+                                 setproperty Multiname("reversed",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                 getlocal1
+                                 iffalse ofs0015
+                                 getlocal0
+                                 pushfalse
+                                 setproperty Multiname("paused",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                 jump ofs0024
+                        ofs0015:
+                                 getlocal0
+                                 getproperty Multiname("gc",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                 iffalse ofs0024
+                                 getlocal0
+                                 pushtrue
+                                 pushfalse
+                                 callpropvoid Multiname("setEnabled",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 2
+                        ofs0024:
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function renderTime(param1:Number, param2:Boolean = false, param3:Boolean = false) : void
+                     {
+                        trait method QName(PackageNamespace(""),"renderTime")
+                           dispid 0
+                           method
+                              name null
+                              flag HAS_OPTIONAL
+                              param QName(PackageNamespace(""),"Number")
+                              param QName(PackageNamespace(""),"Boolean")
+                              param QName(PackageNamespace(""),"Boolean")
+                              optional False()
+                              optional False()
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 1
+                                 localcount 4
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function complete(param1:Boolean = false, param2:Boolean = false) : void
+                        {
+                           trait method QName(PackageNamespace(""),"complete")
+                              dispid 0
+                              method
+                                 name null
+                                 flag HAS_OPTIONAL
+                                 param QName(PackageNamespace(""),"Boolean")
+                                 param QName(PackageNamespace(""),"Boolean")
+                                 optional False()
+                                 optional False()
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 4
+                                    localcount 3
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal1
+                                       iftrue ofs0015
+                                       findpropstrict Multiname("renderTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       getlocal0
+                                       getproperty Multiname("totalDuration",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       getlocal2
+                                       pushfalse
+                                       callpropvoid Multiname("renderTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 3
+                                       returnvoid
+                              ofs0015:
+                                       getlocal0
+                                       getproperty Multiname("timeline",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       getproperty Multiname("autoRemoveChildren",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       iffalse ofs002b
+                                       getlocal0
+                                       pushfalse
+                                       pushfalse
+                                       callpropvoid Multiname("setEnabled",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 2
+                                       jump ofs0030
+                              ofs002b:
+                                       getlocal0
+                                       pushfalse
+                                       setproperty Multiname("active",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                              ofs0030:
+                                       getlocal2
+                                       iftrue ofs00ac
+                                       getlocal0
+                                       getproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       getproperty Multiname("onComplete",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       coerce_a
+                                       convert_b
+                                       dup
+                                       iffalse ofs004f
+                                       pop
+                                       getlocal0
+                                       getproperty Multiname("cachedTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       getlocal0
+                                       getproperty Multiname("cachedTotalDuration",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       greaterequals
+                                       coerce_a
+                                       convert_b
+                              ofs004f:
+                                       dup
+                                       iffalse ofs005a
+                                       pop
+                                       getlocal0
+                                       getproperty Multiname("cachedReversed",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       not
+                              ofs005a:
+                                       iffalse ofs0075
+                                       getlocal0
+                                       getproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       getproperty Multiname("onComplete",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       pushnull
+                                       getlocal0
+                                       getproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       getproperty Multiname("onCompleteParams",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       callpropvoid Multiname("apply",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 2
+                                       jump ofs00ac
+                              ofs0075:
+                                       getlocal0
+                                       getproperty Multiname("cachedReversed",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       convert_b
+                                       dup
+                                       iffalse ofs0087
+                                       pop
+                                       getlocal0
+                                       getproperty Multiname("cachedTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       pushbyte 0
+                                       equals
+                              ofs0087:
+                                       dup
+                                       iffalse ofs0095
+                                       pop
+                                       getlocal0
+                                       getproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       getproperty Multiname("onReverseComplete",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       convert_b
+                              ofs0095:
+                                       iffalse ofs00ac
+                                       getlocal0
+                                       getproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       getproperty Multiname("onReverseComplete",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       pushnull
+                                       getlocal0
+                                       getproperty Multiname("vars",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       getproperty Multiname("onReverseCompleteParams",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                       callpropvoid Multiname("apply",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 2
+                              ofs00ac:
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function invalidate() : void
+                           {
+                              trait method QName(PackageNamespace(""),"invalidate")
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 1
+                                       localcount 1
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function setEnabled(param1:Boolean, param2:Boolean = false) : Boolean
+                              {
+                                 trait method QName(PackageNamespace(""),"setEnabled")
+                                    dispid 0
+                                    method
+                                       name null
+                                       flag HAS_OPTIONAL
+                                       param QName(PackageNamespace(""),"Boolean")
+                                       param QName(PackageNamespace(""),"Boolean")
+                                       optional False()
+                                       returns QName(PackageNamespace(""),"Boolean")
+                                       
+                                       body
+                                          maxstack 4
+                                          localcount 3
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             getlocal1
+                                             not
+                                             setproperty Multiname("gc",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                             getlocal1
+                                             iffalse ofs005f
+                                             getlocal0
+                                             findpropstrict Multiname("Boolean",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                             getlocal0
+                                             getproperty Multiname("cachedPaused",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                             not
+                                             dup
+                                             iffalse ofs0023
+                                             pop
+                                             getlocal0
+                                             getproperty Multiname("cachedTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                             pushbyte 0
+                                             greaterthan
+                                    ofs0023:
+                                             dup
+                                             iffalse ofs0032
+                                             pop
+                                             getlocal0
+                                             getproperty Multiname("cachedTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                             getlocal0
+                                             getproperty Multiname("cachedTotalDuration",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                             lessthan
+                                    ofs0032:
+                                             callproperty Multiname("Boolean",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 1
+                                             setproperty Multiname("active",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                             getlocal2
+                                             not
+                                             dup
+                                             iffalse ofs0046
+                                             pop
+                                             getlocal0
+                                             getproperty Multiname("cachedOrphan",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                             convert_b
+                                    ofs0046:
+                                             iffalse ofs005b
+                                             getlocal0
+                                             getproperty Multiname("timeline",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                             getlocal0
+                                             getlocal0
+                                             getproperty Multiname("cachedStartTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                             getlex Multiname("_delay",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                             subtract
+                                             callpropvoid Multiname("insert",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 2
+                                    ofs005b:
+                                             jump ofs007f
+                                    ofs005f:
+                                             getlocal0
+                                             pushfalse
+                                             setproperty Multiname("active",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                             getlocal2
+                                             not
+                                             dup
+                                             iffalse ofs0071
+                                             pop
+                                             getlocal0
+                                             getproperty Multiname("cachedOrphan",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                             not
+                                    ofs0071:
+                                             iffalse ofs007f
+                                             getlocal0
+                                             getproperty Multiname("timeline",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                             getlocal0
+                                             pushtrue
+                                             callpropvoid Multiname("remove",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 2
+                                    ofs007f:
+                                             pushfalse
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function kill() : void
+                                 {
+                                    trait method QName(PackageNamespace(""),"kill")
+                                       dispid 0
+                                       method
+                                          name null
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 3
+                                             localcount 1
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                findpropstrict Multiname("setEnabled",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                pushfalse
+                                                pushfalse
+                                                callpropvoid Multiname("setEnabled",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 2
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    protected function setDirtyCache(param1:Boolean = true) : void
+                                    {
+                                       trait method QName(ProtectedNamespace("com.greensock.core:TweenCore"),"setDirtyCache")
+                                          dispid 0
+                                          method
+                                             name null
+                                             flag HAS_OPTIONAL
+                                             param QName(PackageNamespace(""),"Boolean")
+                                             optional True()
+                                             returns QName(PackageNamespace(""),"void")
+                                             
+                                             body
+                                                maxstack 2
+                                                localcount 3
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlocal1
+                                                   iffalse ofs000e
+                                                   getlocal0
+                                                   coerce QName(PackageNamespace("com.greensock.core"),"TweenCore")
+                                                   jump ofs0014
+                                          ofs000e:
+                                                   getlocal0
+                                                   getproperty Multiname("timeline",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                   coerce QName(PackageNamespace("com.greensock.core"),"TweenCore")
+                                          ofs0014:
+                                                   coerce QName(PackageNamespace("com.greensock.core"),"TweenCore")
+                                                   setlocal2
+                                                   jump ofs0028
+                                          ofs001b:
+                                                   label
+                                                   getlocal2
+                                                   pushtrue
+                                                   setproperty Multiname("cacheIsDirty",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                   getlocal2
+                                                   getproperty Multiname("timeline",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                   coerce QName(PackageNamespace("com.greensock.core"),"TweenCore")
+                                                   setlocal2
+                                          ofs0028:
+                                                   getlocal2
+                                                   iftrue ofs001b
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       protected function setTotalTime(param1:Number, param2:Boolean = false) : void
+                                       {
+                                          trait method QName(ProtectedNamespace("com.greensock.core:TweenCore"),"setTotalTime")
+                                             dispid 0
+                                             method
+                                                name null
+                                                flag HAS_OPTIONAL
+                                                param QName(PackageNamespace(""),"Number")
+                                                param QName(PackageNamespace(""),"Boolean")
+                                                optional False()
+                                                returns QName(PackageNamespace(""),"void")
+                                                
+                                                body
+                                                   maxstack 4
+                                                   localcount 5
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      pushnan
+                                                      setlocal3
+                                                      pushnan
+                                                      setlocal 4
+                                                      getlocal0
+                                                      getproperty Multiname("timeline",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                      iffalse ofs0090
+                                                      getlocal0
+                                                      getproperty Multiname("cachedPaused",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                      iffalse ofs0020
+                                                      getlocal0
+                                                      getproperty Multiname("cachedPauseTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                      convert_d
+                                                      jump ofs0028
+                                             ofs0020:
+                                                      getlocal0
+                                                      getproperty Multiname("timeline",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                      getproperty Multiname("cachedTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                      convert_d
+                                             ofs0028:
+                                                      convert_d
+                                                      setlocal3
+                                                      getlocal0
+                                                      getproperty Multiname("cachedReversed",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                      iffalse ofs005e
+                                                      getlocal0
+                                                      getproperty Multiname("cacheIsDirty",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                      iffalse ofs0043
+                                                      getlocal0
+                                                      getproperty Multiname("totalDuration",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                      convert_d
+                                                      jump ofs0048
+                                             ofs0043:
+                                                      getlocal0
+                                                      getproperty Multiname("cachedTotalDuration",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                      convert_d
+                                             ofs0048:
+                                                      convert_d
+                                                      setlocal 4
+                                                      getlocal0
+                                                      getlocal3
+                                                      getlocal 4
+                                                      getlocal1
+                                                      subtract
+                                                      getlocal0
+                                                      getproperty Multiname("cachedTimeScale",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                      divide
+                                                      subtract
+                                                      setproperty Multiname("cachedStartTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                      jump ofs006a
+                                             ofs005e:
+                                                      getlocal0
+                                                      getlocal3
+                                                      getlocal1
+                                                      getlocal0
+                                                      getproperty Multiname("cachedTimeScale",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                      divide
+                                                      subtract
+                                                      setproperty Multiname("cachedStartTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                             ofs006a:
+                                                      getlocal0
+                                                      getproperty Multiname("timeline",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                      getproperty Multiname("cacheIsDirty",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                      iftrue ofs007d
+                                                      findpropstrict Multiname("setDirtyCache",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                      pushfalse
+                                                      callpropvoid Multiname("setDirtyCache",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 1
+                                             ofs007d:
+                                                      getlocal0
+                                                      getproperty Multiname("cachedTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                      getlocal1
+                                                      ifeq ofs0090
+                                                      findpropstrict Multiname("renderTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                      getlocal1
+                                                      getlocal2
+                                                      pushfalse
+                                                      callpropvoid Multiname("renderTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 3
+                                             ofs0090:
+                                                      returnvoid
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          public function get delay() : Number
+                                          {
+                                             trait getter QName(PackageNamespace(""),"delay")
+                                                dispid 0
+                                                method
+                                                   name null
+                                                   returns QName(PackageNamespace(""),"Number")
+                                                   
+                                                   body
+                                                      maxstack 1
+                                                      localcount 1
+                                                      initscopedepth 4
+                                                      maxscopedepth 5
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         getlex Multiname("_delay",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                         returnvalue
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             public function set delay(param1:Number) : void
+                                             {
+                                                trait setter QName(PackageNamespace(""),"delay")
+                                                   dispid 0
+                                                   method
+                                                      name null
+                                                      param QName(PackageNamespace(""),"Number")
+                                                      returns QName(PackageNamespace(""),"void")
+                                                      
+                                                      body
+                                                         maxstack 4
+                                                         localcount 2
+                                                         initscopedepth 4
+                                                         maxscopedepth 5
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            getlocal0
+                                                            getlocal0
+                                                            getproperty Multiname("startTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                            getlocal1
+                                                            getlex Multiname("_delay",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                            subtract
+                                                            add
+                                                            setproperty Multiname("startTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                            findproperty Multiname("_delay",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                            getlocal1
+                                                            initproperty Multiname("_delay",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                            returnvoid
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                                
+                                                public function get duration() : Number
+                                                {
+                                                   trait getter QName(PackageNamespace(""),"duration")
+                                                      dispid 0
+                                                      method
+                                                         name null
+                                                         returns QName(PackageNamespace(""),"Number")
+                                                         
+                                                         body
+                                                            maxstack 1
+                                                            localcount 1
+                                                            initscopedepth 4
+                                                            maxscopedepth 5
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               getlocal0
+                                                               getproperty Multiname("cachedDuration",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                               returnvalue
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                   }
+                                                   
+                                                   public function set duration(param1:Number) : void
+                                                   {
+                                                      trait setter QName(PackageNamespace(""),"duration")
+                                                         dispid 0
+                                                         method
+                                                            name null
+                                                            param QName(PackageNamespace(""),"Number")
+                                                            returns QName(PackageNamespace(""),"void")
+                                                            
+                                                            body
+                                                               maxstack 4
+                                                               localcount 4
+                                                               initscopedepth 4
+                                                               maxscopedepth 5
+                                                               
+                                                               code
+                                                                  getlocal0
+                                                                  pushscope
+                                                                  getlocal1
+                                                                  getlocal0
+                                                                  getproperty Multiname("cachedDuration",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                  divide
+                                                                  convert_d
+                                                                  setlocal2
+                                                                  getlocal0
+                                                                  getlocal0
+                                                                  getlocal1
+                                                                  dup
+                                                                  setlocal3
+                                                                  setproperty Multiname("cachedTotalDuration",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                  getlocal3
+                                                                  kill 3
+                                                                  setproperty Multiname("cachedDuration",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                  getlocal0
+                                                                  getproperty Multiname("active",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                  convert_b
+                                                                  dup
+                                                                  iffalse ofs0028
+                                                                  pop
+                                                                  getlocal0
+                                                                  getproperty Multiname("cachedPaused",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                  not
+                                                         ofs0028:
+                                                                  dup
+                                                                  iffalse ofs0033
+                                                                  pop
+                                                                  getlocal1
+                                                                  pushbyte 0
+                                                                  equals
+                                                                  not
+                                                         ofs0033:
+                                                                  iffalse ofs0043
+                                                                  getlocal0
+                                                                  getlocal0
+                                                                  getproperty Multiname("cachedTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                  getlocal2
+                                                                  multiply
+                                                                  pushtrue
+                                                                  callpropvoid Multiname("setTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 2
+                                                         ofs0043:
+                                                                  findpropstrict Multiname("setDirtyCache",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                  pushfalse
+                                                                  callpropvoid Multiname("setDirtyCache",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 1
+                                                                  returnvoid
+                                                               end ; code
+                                                            end ; body
+                                                         end ; method
+                                                      }
+                                                      
+                                                      public function get totalDuration() : Number
+                                                      {
+                                                         trait getter QName(PackageNamespace(""),"totalDuration")
+                                                            dispid 0
+                                                            method
+                                                               name null
+                                                               returns QName(PackageNamespace(""),"Number")
+                                                               
+                                                               body
+                                                                  maxstack 1
+                                                                  localcount 1
+                                                                  initscopedepth 4
+                                                                  maxscopedepth 5
+                                                                  
+                                                                  code
+                                                                     getlocal0
+                                                                     pushscope
+                                                                     getlocal0
+                                                                     getproperty Multiname("cachedTotalDuration",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                     returnvalue
+                                                                  end ; code
+                                                               end ; body
+                                                            end ; method
+                                                         }
+                                                         
+                                                         public function set totalDuration(param1:Number) : void
+                                                         {
+                                                            trait setter QName(PackageNamespace(""),"totalDuration")
+                                                               dispid 0
+                                                               method
+                                                                  name null
+                                                                  param QName(PackageNamespace(""),"Number")
+                                                                  returns QName(PackageNamespace(""),"void")
+                                                                  
+                                                                  body
+                                                                     maxstack 2
+                                                                     localcount 2
+                                                                     initscopedepth 4
+                                                                     maxscopedepth 5
+                                                                     
+                                                                     code
+                                                                        getlocal0
+                                                                        pushscope
+                                                                        getlocal0
+                                                                        getlocal1
+                                                                        setproperty Multiname("duration",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                        returnvoid
+                                                                     end ; code
+                                                                  end ; body
+                                                               end ; method
+                                                            }
+                                                            
+                                                            public function get currentTime() : Number
+                                                            {
+                                                               trait getter QName(PackageNamespace(""),"currentTime")
+                                                                  dispid 0
+                                                                  method
+                                                                     name null
+                                                                     returns QName(PackageNamespace(""),"Number")
+                                                                     
+                                                                     body
+                                                                        maxstack 1
+                                                                        localcount 1
+                                                                        initscopedepth 4
+                                                                        maxscopedepth 5
+                                                                        
+                                                                        code
+                                                                           getlocal0
+                                                                           pushscope
+                                                                           getlocal0
+                                                                           getproperty Multiname("cachedTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                           returnvalue
+                                                                        end ; code
+                                                                     end ; body
+                                                                  end ; method
+                                                               }
+                                                               
+                                                               public function set currentTime(param1:Number) : void
+                                                               {
+                                                                  trait setter QName(PackageNamespace(""),"currentTime")
+                                                                     dispid 0
+                                                                     method
+                                                                        name null
+                                                                        param QName(PackageNamespace(""),"Number")
+                                                                        returns QName(PackageNamespace(""),"void")
+                                                                        
+                                                                        body
+                                                                           maxstack 3
+                                                                           localcount 2
+                                                                           initscopedepth 4
+                                                                           maxscopedepth 5
+                                                                           
+                                                                           code
+                                                                              getlocal0
+                                                                              pushscope
+                                                                              findpropstrict Multiname("setTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                              getlocal1
+                                                                              pushfalse
+                                                                              callpropvoid Multiname("setTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 2
+                                                                              returnvoid
+                                                                           end ; code
+                                                                        end ; body
+                                                                     end ; method
+                                                                  }
+                                                                  
+                                                                  public function get totalTime() : Number
+                                                                  {
+                                                                     trait getter QName(PackageNamespace(""),"totalTime")
+                                                                        dispid 0
+                                                                        method
+                                                                           name null
+                                                                           returns QName(PackageNamespace(""),"Number")
+                                                                           
+                                                                           body
+                                                                              maxstack 1
+                                                                              localcount 1
+                                                                              initscopedepth 4
+                                                                              maxscopedepth 5
+                                                                              
+                                                                              code
+                                                                                 getlocal0
+                                                                                 pushscope
+                                                                                 getlocal0
+                                                                                 getproperty Multiname("cachedTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                 returnvalue
+                                                                              end ; code
+                                                                           end ; body
+                                                                        end ; method
+                                                                     }
+                                                                     
+                                                                     public function set totalTime(param1:Number) : void
+                                                                     {
+                                                                        trait setter QName(PackageNamespace(""),"totalTime")
+                                                                           dispid 0
+                                                                           method
+                                                                              name null
+                                                                              param QName(PackageNamespace(""),"Number")
+                                                                              returns QName(PackageNamespace(""),"void")
+                                                                              
+                                                                              body
+                                                                                 maxstack 3
+                                                                                 localcount 2
+                                                                                 initscopedepth 4
+                                                                                 maxscopedepth 5
+                                                                                 
+                                                                                 code
+                                                                                    getlocal0
+                                                                                    pushscope
+                                                                                    findpropstrict Multiname("setTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                    getlocal1
+                                                                                    pushfalse
+                                                                                    callpropvoid Multiname("setTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 2
+                                                                                    returnvoid
+                                                                                 end ; code
+                                                                              end ; body
+                                                                           end ; method
+                                                                        }
+                                                                        
+                                                                        public function get startTime() : Number
+                                                                        {
+                                                                           trait getter QName(PackageNamespace(""),"startTime")
+                                                                              dispid 0
+                                                                              method
+                                                                                 name null
+                                                                                 returns QName(PackageNamespace(""),"Number")
+                                                                                 
+                                                                                 body
+                                                                                    maxstack 1
+                                                                                    localcount 1
+                                                                                    initscopedepth 4
+                                                                                    maxscopedepth 5
+                                                                                    
+                                                                                    code
+                                                                                       getlocal0
+                                                                                       pushscope
+                                                                                       getlocal0
+                                                                                       getproperty Multiname("cachedStartTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                       returnvalue
+                                                                                    end ; code
+                                                                                 end ; body
+                                                                              end ; method
+                                                                           }
+                                                                           
+                                                                           public function set startTime(param1:Number) : void
+                                                                           {
+                                                                              trait setter QName(PackageNamespace(""),"startTime")
+                                                                                 dispid 0
+                                                                                 method
+                                                                                    name null
+                                                                                    param QName(PackageNamespace(""),"Number")
+                                                                                    returns QName(PackageNamespace(""),"void")
+                                                                                    
+                                                                                    body
+                                                                                       maxstack 4
+                                                                                       localcount 2
+                                                                                       initscopedepth 4
+                                                                                       maxscopedepth 5
+                                                                                       
+                                                                                       code
+                                                                                          getlocal0
+                                                                                          pushscope
+                                                                                          getlocal0
+                                                                                          getproperty Multiname("timeline",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                          pushnull
+                                                                                          equals
+                                                                                          not
+                                                                                          dup
+                                                                                          iffalse ofs0021
+                                                                                          pop
+                                                                                          getlocal1
+                                                                                          getlocal0
+                                                                                          getproperty Multiname("cachedStartTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                          equals
+                                                                                          not
+                                                                                          dup
+                                                                                          iftrue ofs0021
+                                                                                          pop
+                                                                                          getlocal0
+                                                                                          getproperty Multiname("gc",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                          convert_b
+                                                                                 ofs0021:
+                                                                                          iffalse ofs0037
+                                                                                          getlocal0
+                                                                                          getproperty Multiname("timeline",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                          getlocal0
+                                                                                          getlocal1
+                                                                                          getlex Multiname("_delay",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                          subtract
+                                                                                          callpropvoid Multiname("insert",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 2
+                                                                                          jump ofs003c
+                                                                                 ofs0037:
+                                                                                          getlocal0
+                                                                                          getlocal1
+                                                                                          setproperty Multiname("cachedStartTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                 ofs003c:
+                                                                                          returnvoid
+                                                                                       end ; code
+                                                                                    end ; body
+                                                                                 end ; method
+                                                                              }
+                                                                              
+                                                                              public function get reversed() : Boolean
+                                                                              {
+                                                                                 trait getter QName(PackageNamespace(""),"reversed")
+                                                                                    dispid 0
+                                                                                    method
+                                                                                       name null
+                                                                                       returns QName(PackageNamespace(""),"Boolean")
+                                                                                       
+                                                                                       body
+                                                                                          maxstack 1
+                                                                                          localcount 1
+                                                                                          initscopedepth 4
+                                                                                          maxscopedepth 5
+                                                                                          
+                                                                                          code
+                                                                                             getlocal0
+                                                                                             pushscope
+                                                                                             getlocal0
+                                                                                             getproperty Multiname("cachedReversed",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                             returnvalue
+                                                                                          end ; code
+                                                                                       end ; body
+                                                                                    end ; method
+                                                                                 }
+                                                                                 
+                                                                                 public function set reversed(param1:Boolean) : void
+                                                                                 {
+                                                                                    trait setter QName(PackageNamespace(""),"reversed")
+                                                                                       dispid 0
+                                                                                       method
+                                                                                          name null
+                                                                                          param QName(PackageNamespace(""),"Boolean")
+                                                                                          returns QName(PackageNamespace(""),"void")
+                                                                                          
+                                                                                          body
+                                                                                             maxstack 3
+                                                                                             localcount 2
+                                                                                             initscopedepth 4
+                                                                                             maxscopedepth 5
+                                                                                             
+                                                                                             code
+                                                                                                getlocal0
+                                                                                                pushscope
+                                                                                                getlocal1
+                                                                                                getlocal0
+                                                                                                getproperty Multiname("cachedReversed",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                ifeq ofs001c
+                                                                                                getlocal0
+                                                                                                getlocal1
+                                                                                                setproperty Multiname("cachedReversed",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                findpropstrict Multiname("setTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                getlocal0
+                                                                                                getproperty Multiname("cachedTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                pushtrue
+                                                                                                callpropvoid Multiname("setTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 2
+                                                                                       ofs001c:
+                                                                                                returnvoid
+                                                                                             end ; code
+                                                                                          end ; body
+                                                                                       end ; method
+                                                                                    }
+                                                                                    
+                                                                                    public function get paused() : Boolean
+                                                                                    {
+                                                                                       trait getter QName(PackageNamespace(""),"paused")
+                                                                                          dispid 0
+                                                                                          method
+                                                                                             name null
+                                                                                             returns QName(PackageNamespace(""),"Boolean")
+                                                                                             
+                                                                                             body
+                                                                                                maxstack 1
+                                                                                                localcount 1
+                                                                                                initscopedepth 4
+                                                                                                maxscopedepth 5
+                                                                                                
+                                                                                                code
+                                                                                                   getlocal0
+                                                                                                   pushscope
+                                                                                                   getlocal0
+                                                                                                   getproperty Multiname("cachedPaused",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                   returnvalue
+                                                                                                end ; code
+                                                                                             end ; body
+                                                                                          end ; method
+                                                                                       }
+                                                                                       
+                                                                                       public function set paused(param1:Boolean) : void
+                                                                                       {
+                                                                                          trait setter QName(PackageNamespace(""),"paused")
+                                                                                             dispid 0
+                                                                                             method
+                                                                                                name null
+                                                                                                param QName(PackageNamespace(""),"Boolean")
+                                                                                                returns QName(PackageNamespace(""),"void")
+                                                                                                
+                                                                                                body
+                                                                                                   maxstack 4
+                                                                                                   localcount 2
+                                                                                                   initscopedepth 4
+                                                                                                   maxscopedepth 5
+                                                                                                   
+                                                                                                   code
+                                                                                                      getlocal0
+                                                                                                      pushscope
+                                                                                                      getlocal1
+                                                                                                      getlocal0
+                                                                                                      getproperty Multiname("cachedPaused",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      equals
+                                                                                                      not
+                                                                                                      dup
+                                                                                                      iffalse ofs0014
+                                                                                                      pop
+                                                                                                      getlocal0
+                                                                                                      getproperty Multiname("timeline",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      convert_b
+                                                                                             ofs0014:
+                                                                                                      iffalse ofs0081
+                                                                                                      getlocal1
+                                                                                                      iffalse ofs002c
+                                                                                                      getlocal0
+                                                                                                      getlocal0
+                                                                                                      getproperty Multiname("timeline",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      getproperty Multiname("rawTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      setproperty Multiname("cachedPauseTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      jump ofs0050
+                                                                                             ofs002c:
+                                                                                                      getlocal0
+                                                                                                      getlocal0
+                                                                                                      getproperty Multiname("cachedStartTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      getlocal0
+                                                                                                      getproperty Multiname("timeline",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      getproperty Multiname("rawTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      getlocal0
+                                                                                                      getproperty Multiname("cachedPauseTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      subtract
+                                                                                                      add
+                                                                                                      setproperty Multiname("cachedStartTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      getlocal0
+                                                                                                      getlex Multiname("NaN",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      setproperty Multiname("cachedPauseTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      findpropstrict Multiname("setDirtyCache",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      pushfalse
+                                                                                                      callpropvoid Multiname("setDirtyCache",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 1
+                                                                                             ofs0050:
+                                                                                                      getlocal0
+                                                                                                      getlocal1
+                                                                                                      setproperty Multiname("cachedPaused",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      getlocal0
+                                                                                                      findpropstrict Multiname("Boolean",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      getlocal0
+                                                                                                      getproperty Multiname("cachedPaused",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      not
+                                                                                                      dup
+                                                                                                      iffalse ofs006b
+                                                                                                      pop
+                                                                                                      getlocal0
+                                                                                                      getproperty Multiname("cachedTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      pushbyte 0
+                                                                                                      greaterthan
+                                                                                             ofs006b:
+                                                                                                      dup
+                                                                                                      iffalse ofs007a
+                                                                                                      pop
+                                                                                                      getlocal0
+                                                                                                      getproperty Multiname("cachedTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      getlocal0
+                                                                                                      getproperty Multiname("cachedTotalDuration",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      lessthan
+                                                                                             ofs007a:
+                                                                                                      callproperty Multiname("Boolean",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 1
+                                                                                                      setproperty Multiname("active",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                             ofs0081:
+                                                                                                      getlocal1
+                                                                                                      not
+                                                                                                      dup
+                                                                                                      iffalse ofs008e
+                                                                                                      pop
+                                                                                                      getlocal0
+                                                                                                      getproperty Multiname("gc",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      convert_b
+                                                                                             ofs008e:
+                                                                                                      iffalse ofs00a3
+                                                                                                      getlocal0
+                                                                                                      getlocal0
+                                                                                                      getproperty Multiname("cachedTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")])
+                                                                                                      pushfalse
+                                                                                                      callpropvoid Multiname("setTotalTime",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 2
+                                                                                                      getlocal0
+                                                                                                      pushtrue
+                                                                                                      pushfalse
+                                                                                                      callpropvoid Multiname("setEnabled",[PrivateNamespace(null,"249"),PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.core:TweenCore"),StaticProtectedNs("com.greensock.core:TweenCore")]), 2
+                                                                                             ofs00a3:
+                                                                                                      returnvoid
+                                                                                                   end ; code
+                                                                                                end ; body
+                                                                                             end ; method
+                                                                                          }
+                                                                                       }
+                                                                                    }
+                                                                                    
+                                                                                    method
+                                                                                       name null
+                                                                                       returns null
+                                                                                       
+                                                                                       body
+                                                                                          maxstack 2
+                                                                                          localcount 1
+                                                                                          initscopedepth 1
+                                                                                          maxscopedepth 3
+                                                                                          
+                                                                                          code
+                                                                                             getlocal0
+                                                                                             pushscope
+                                                                                             findpropstrict Multiname("TweenCore",[PackageNamespace("com.greensock.core")])
+                                                                                             getlex QName(PackageNamespace(""),"Object")
+                                                                                             pushscope
+                                                                                             getlex Multiname("Object",[PackageNamespace(""),PrivateNamespace(null,"250"),PackageNamespace("com.greensock.core"),PackageInternalNs("com.greensock.core"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock")])
+                                                                                             newclass 29
+                                                                                             popscope
+                                                                                             initproperty QName(PackageNamespace("com.greensock.core"),"TweenCore")
+                                                                                             returnvoid
+                                                                                          end ; code
+                                                                                       end ; body
+                                                                                    end ; method
+                                                                                    

@@ -1,0 +1,192 @@
+package com.greensock.plugins
+{
+   import com.greensock.*;
+   import flash.display.*;
+   
+   public class FramePlugin extends TweenPlugin
+   {
+      
+      public static const API:Number = 1;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"API")
+               pushbyte 1
+               initproperty QName(PackageNamespace(""),"API")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public var frame:int;
+      
+      protected var _target:MovieClip;
+      
+      public function FramePlugin()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 3
+               localcount 1
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  pushstring "frame"
+                  initproperty Multiname("propName",[PrivateNamespace(null,"400"),PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  getlocal0
+                  pushstring "frame"
+                  pushstring "frameLabel"
+                  newarray 2
+                  initproperty Multiname("overwriteProps",[PrivateNamespace(null,"400"),PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  getlocal0
+                  pushtrue
+                  initproperty Multiname("round",[PrivateNamespace(null,"400"),PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function onInitTween(param1:Object, param2:*, param3:TweenLite) : Boolean
+      {
+         trait method QName(PackageNamespace(""),"onInitTween")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"Object")
+               param null
+               param QName(PackageNamespace("com.greensock"),"TweenLite")
+               returns QName(PackageNamespace(""),"Boolean")
+               
+               body
+                  maxstack 6
+                  localcount 4
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal1
+                     getlex Multiname("MovieClip",[PrivateNamespace(null,"400"),PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     istypelate
+                     not
+                     dup
+                     iftrue ofs0017
+                     pop
+                     findpropstrict Multiname("isNaN",[PrivateNamespace(null,"400"),PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal2
+                     callproperty Multiname("isNaN",[PrivateNamespace(null,"400"),PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                     convert_b
+            ofs0017:
+                     iffalse ofs001d
+                     pushfalse
+                     returnvalue
+            ofs001d:
+                     findproperty Multiname("_target",[PrivateNamespace(null,"400"),PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal1
+                     getlex Multiname("MovieClip",[PrivateNamespace(null,"400"),PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     astypelate
+                     initproperty Multiname("_target",[PrivateNamespace(null,"400"),PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal0
+                     getlex Multiname("_target",[PrivateNamespace(null,"400"),PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getproperty Multiname("currentFrame",[PrivateNamespace(null,"400"),PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     setproperty Multiname("frame",[PrivateNamespace(null,"400"),PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     findpropstrict Multiname("addTween",[PrivateNamespace(null,"400"),PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal0
+                     pushstring "frame"
+                     getlocal0
+                     getproperty Multiname("frame",[PrivateNamespace(null,"400"),PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal2
+                     pushstring "frame"
+                     callpropvoid Multiname("addTween",[PrivateNamespace(null,"400"),PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 5
+                     pushtrue
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override public function set changeFactor(param1:Number) : void
+         {
+            trait setter QName(PackageNamespace(""),"changeFactor")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"Number")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 2
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("updateTweens",[PrivateNamespace(null,"400"),PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal1
+                        callpropvoid Multiname("updateTweens",[PrivateNamespace(null,"400"),PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                        getlex Multiname("_target",[PrivateNamespace(null,"400"),PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal0
+                        getproperty Multiname("frame",[PrivateNamespace(null,"400"),PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        callpropvoid Multiname("gotoAndStop",[PrivateNamespace(null,"400"),PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display"),ProtectedNamespace("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:FramePlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findpropstrict Multiname("FramePlugin",[PackageNamespace("com.greensock.plugins")])
+               getlex QName(PackageNamespace(""),"Object")
+               pushscope
+               getlex QName(PackageNamespace("com.greensock.plugins"),"TweenPlugin")
+               pushscope
+               getlex Multiname("TweenPlugin",[PackageNamespace(""),PrivateNamespace(null,"401"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),PackageNamespace("flash.display")])
+               newclass 152
+               popscope
+               popscope
+               initproperty QName(PackageNamespace("com.greensock.plugins"),"FramePlugin")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

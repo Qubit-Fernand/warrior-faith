@@ -1,0 +1,1036 @@
+package com.hotpoint.braveManIII.repository.make
+{
+   import com.hotpoint.braveManIII.models.common.*;
+   
+   public class MakeFactory
+   {
+      
+      public static var myXml:XML;
+      
+      public static var allData:Array;
+      
+      public static var makeData:Array;
+      
+      method
+         name ""
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"myXml")
+               findpropstrict Multiname("XML",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+               constructprop Multiname("XML",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+               setproperty QName(PackageNamespace(""),"myXml")
+               findproperty QName(PackageNamespace(""),"allData")
+               newarray 0
+               setproperty QName(PackageNamespace(""),"allData")
+               findproperty QName(PackageNamespace(""),"makeData")
+               newarray 0
+               setproperty QName(PackageNamespace(""),"makeData")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function MakeFactory()
+      {
+         method
+            name ""
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function creatMakeFactory() : void
+      {
+         trait method QName(PackageNamespace(""),"creatMakeFactory")
+            flag FINAL
+            dispid 3
+            method
+               name ""
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 1
+                  localcount 2
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     construct 0
+                     coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.make"),"MakeFactory")
+                     setlocal1
+                     getlocal1
+                     callproperty Multiname("creatLoard",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+                     pop
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private static function getDataById(param1:Number) : MakeBasicData
+         {
+            trait method QName(PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),"getDataById")
+               flag FINAL
+               dispid 4
+               method
+                  name ""
+                  param QName(PackageNamespace(""),"Number")
+                  returns QName(PackageNamespace("com.hotpoint.braveManIII.repository.make"),"MakeBasicData")
+                  
+                  body
+                     maxstack 2
+                     localcount 5
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushnull
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.make"),"MakeBasicData")
+                        setlocal2
+                        pushbyte 0
+                        setlocal3
+                        findpropstrict Multiname("allData",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                        getproperty Multiname("allData",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                        coerce_a
+                        setlocal 4
+                        jump ofs0027
+               ofs0014:
+                        label
+                        getlocal 4
+                        getlocal3
+                        nextvalue
+                        coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.make"),"MakeBasicData")
+                        setlocal2
+                        getlocal2
+                        callproperty Multiname("getId",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+                        getlocal1
+                        ifne ofs0027
+                        getlocal2
+                        returnvalue
+               ofs0027:
+                        hasnext2 4, 3
+                        iftrue ofs0014
+                        kill 4
+                        kill 3
+                        pushnull
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public static function getDataByType(param1:Number) : Array
+            {
+               trait method QName(PackageNamespace(""),"getDataByType")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name ""
+                     param QName(PackageNamespace(""),"Number")
+                     returns QName(PackageNamespace(""),"Array")
+                     
+                     body
+                        maxstack 2
+                        localcount 6
+                        initscopedepth 3
+                        maxscopedepth 4
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushnull
+                           coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.make"),"MakeBasicData")
+                           setlocal2
+                           newarray 0
+                           coerce QName(PackageNamespace(""),"Array")
+                           setlocal3
+                           pushbyte 0
+                           setlocal 4
+                           findpropstrict Multiname("allData",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                           getproperty Multiname("allData",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                           coerce_a
+                           setlocal 5
+                           jump ofs0032
+                  ofs001a:
+                           label
+                           getlocal 5
+                           getlocal 4
+                           nextvalue
+                           coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.make"),"MakeBasicData")
+                           setlocal2
+                           getlocal2
+                           callproperty Multiname("getType",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+                           getlocal1
+                           ifne ofs0032
+                           getlocal3
+                           getlocal2
+                           callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                           pop
+                  ofs0032:
+                           hasnext2 5, 4
+                           iftrue ofs001a
+                           kill 5
+                           kill 4
+                           getlocal3
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public static function getType(param1:Number) : Number
+               {
+                  trait method QName(PackageNamespace(""),"getType")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name ""
+                        param QName(PackageNamespace(""),"Number")
+                        returns QName(PackageNamespace(""),"Number")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 3
+                           maxscopedepth 4
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                              getlocal1
+                              callproperty Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                              callproperty Multiname("getType",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public static function getName(param1:Number) : String
+                  {
+                     trait method QName(PackageNamespace(""),"getName")
+                        flag FINAL
+                        dispid 7
+                        method
+                           name ""
+                           param QName(PackageNamespace(""),"Number")
+                           returns QName(PackageNamespace(""),"String")
+                           
+                           body
+                              maxstack 2
+                              localcount 2
+                              initscopedepth 3
+                              maxscopedepth 4
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 findpropstrict Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                 getlocal1
+                                 callproperty Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                 callproperty Multiname("getName",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public static function getFrame(param1:Number) : Number
+                     {
+                        trait method QName(PackageNamespace(""),"getFrame")
+                           flag FINAL
+                           dispid 8
+                           method
+                              name ""
+                              param QName(PackageNamespace(""),"Number")
+                              returns QName(PackageNamespace(""),"Number")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 2
+                                 initscopedepth 3
+                                 maxscopedepth 4
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    findpropstrict Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                    getlocal1
+                                    callproperty Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                    callproperty Multiname("getFrame",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public static function getSm(param1:Number) : String
+                        {
+                           trait method QName(PackageNamespace(""),"getSm")
+                              flag FINAL
+                              dispid 9
+                              method
+                                 name ""
+                                 param QName(PackageNamespace(""),"Number")
+                                 returns QName(PackageNamespace(""),"String")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 2
+                                    initscopedepth 3
+                                    maxscopedepth 4
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       findpropstrict Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                       getlocal1
+                                       callproperty Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                       callproperty Multiname("getSm",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public static function getNeedId(param1:Number) : Array
+                           {
+                              trait method QName(PackageNamespace(""),"getNeedId")
+                                 flag FINAL
+                                 dispid 10
+                                 method
+                                    name ""
+                                    param QName(PackageNamespace(""),"Number")
+                                    returns QName(PackageNamespace(""),"Array")
+                                    
+                                    body
+                                       maxstack 3
+                                       localcount 5
+                                       initscopedepth 3
+                                       maxscopedepth 4
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          newarray 0
+                                          coerce QName(PackageNamespace(""),"Array")
+                                          setlocal2
+                                          findpropstrict Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                          getlocal1
+                                          callproperty Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                          callproperty Multiname("getNeedId",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+                                          coerce QName(PackageNamespace(""),"Array")
+                                          setlocal3
+                                          pushbyte 0
+                                          convert_u
+                                          setlocal 4
+                                          jump ofs0030
+                                 ofs001c:
+                                          label
+                                          getlocal2
+                                          getlocal3
+                                          getlocal 4
+                                          getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                          callproperty Multiname("getValue",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+                                          callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                          pop
+                                          getlocal 4
+                                          increment
+                                          convert_u
+                                          setlocal 4
+                                 ofs0030:
+                                          getlocal 4
+                                          getlocal3
+                                          getproperty Multiname("length",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                          iflt ofs001c
+                                          getlocal2
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public static function getNeedType(param1:Number) : Array
+                              {
+                                 trait method QName(PackageNamespace(""),"getNeedType")
+                                    flag FINAL
+                                    dispid 11
+                                    method
+                                       name ""
+                                       param QName(PackageNamespace(""),"Number")
+                                       returns QName(PackageNamespace(""),"Array")
+                                       
+                                       body
+                                          maxstack 3
+                                          localcount 5
+                                          initscopedepth 3
+                                          maxscopedepth 4
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             newarray 0
+                                             coerce QName(PackageNamespace(""),"Array")
+                                             setlocal2
+                                             findpropstrict Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                             getlocal1
+                                             callproperty Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                             callproperty Multiname("getNeedType",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+                                             coerce QName(PackageNamespace(""),"Array")
+                                             setlocal3
+                                             pushbyte 0
+                                             convert_u
+                                             setlocal 4
+                                             jump ofs0030
+                                    ofs001c:
+                                             label
+                                             getlocal2
+                                             getlocal3
+                                             getlocal 4
+                                             getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                             callproperty Multiname("getValue",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+                                             callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                             pop
+                                             getlocal 4
+                                             increment
+                                             convert_u
+                                             setlocal 4
+                                    ofs0030:
+                                             getlocal 4
+                                             getlocal3
+                                             getproperty Multiname("length",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                             iflt ofs001c
+                                             getlocal2
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public static function getNeedNum(param1:Number) : Array
+                                 {
+                                    trait method QName(PackageNamespace(""),"getNeedNum")
+                                       flag FINAL
+                                       dispid 12
+                                       method
+                                          name ""
+                                          param QName(PackageNamespace(""),"Number")
+                                          returns QName(PackageNamespace(""),"Array")
+                                          
+                                          body
+                                             maxstack 3
+                                             localcount 5
+                                             initscopedepth 3
+                                             maxscopedepth 4
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                newarray 0
+                                                coerce QName(PackageNamespace(""),"Array")
+                                                setlocal2
+                                                findpropstrict Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                getlocal1
+                                                callproperty Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                callproperty Multiname("getNeedNum",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+                                                coerce QName(PackageNamespace(""),"Array")
+                                                setlocal3
+                                                pushbyte 0
+                                                convert_u
+                                                setlocal 4
+                                                jump ofs0030
+                                       ofs001c:
+                                                label
+                                                getlocal2
+                                                getlocal3
+                                                getlocal 4
+                                                getproperty MultinameL([PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                callproperty Multiname("getValue",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+                                                callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                pop
+                                                getlocal 4
+                                                increment
+                                                convert_u
+                                                setlocal 4
+                                       ofs0030:
+                                                getlocal 4
+                                                getlocal3
+                                                getproperty Multiname("length",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                iflt ofs001c
+                                                getlocal2
+                                                returnvalue
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    public static function getFinishNum(param1:Number) : Number
+                                    {
+                                       trait method QName(PackageNamespace(""),"getFinishNum")
+                                          flag FINAL
+                                          dispid 13
+                                          method
+                                             name ""
+                                             param QName(PackageNamespace(""),"Number")
+                                             returns QName(PackageNamespace(""),"Number")
+                                             
+                                             body
+                                                maxstack 2
+                                                localcount 2
+                                                initscopedepth 3
+                                                maxscopedepth 4
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   findpropstrict Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                   getlocal1
+                                                   callproperty Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                   callproperty Multiname("getFinishNum",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+                                                   returnvalue
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       public static function getGold(param1:Number) : Number
+                                       {
+                                          trait method QName(PackageNamespace(""),"getGold")
+                                             flag FINAL
+                                             dispid 14
+                                             method
+                                                name ""
+                                                param QName(PackageNamespace(""),"Number")
+                                                returns QName(PackageNamespace(""),"Number")
+                                                
+                                                body
+                                                   maxstack 2
+                                                   localcount 2
+                                                   initscopedepth 3
+                                                   maxscopedepth 4
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      findpropstrict Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                      getlocal1
+                                                      callproperty Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                      callproperty Multiname("getGold",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+                                                      returnvalue
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          public static function getDj(param1:Number) : Number
+                                          {
+                                             trait method QName(PackageNamespace(""),"getDj")
+                                                flag FINAL
+                                                dispid 15
+                                                method
+                                                   name ""
+                                                   param QName(PackageNamespace(""),"Number")
+                                                   returns QName(PackageNamespace(""),"Number")
+                                                   
+                                                   body
+                                                      maxstack 2
+                                                      localcount 2
+                                                      initscopedepth 3
+                                                      maxscopedepth 4
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         findpropstrict Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                         getlocal1
+                                                         callproperty Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                         callproperty Multiname("getDj",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+                                                         returnvalue
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             public static function getFinishId(param1:Number) : Number
+                                             {
+                                                trait method QName(PackageNamespace(""),"getFinishId")
+                                                   flag FINAL
+                                                   dispid 16
+                                                   method
+                                                      name ""
+                                                      param QName(PackageNamespace(""),"Number")
+                                                      returns QName(PackageNamespace(""),"Number")
+                                                      
+                                                      body
+                                                         maxstack 2
+                                                         localcount 2
+                                                         initscopedepth 3
+                                                         maxscopedepth 4
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            findpropstrict Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                            getlocal1
+                                                            callproperty Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                            callproperty Multiname("getFinishId",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+                                                            returnvalue
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                                
+                                                public static function get_scID(param1:Number) : Number
+                                                {
+                                                   trait method QName(PackageNamespace(""),"get_scID")
+                                                      flag FINAL
+                                                      dispid 17
+                                                      method
+                                                         name ""
+                                                         param QName(PackageNamespace(""),"Number")
+                                                         returns QName(PackageNamespace(""),"Number")
+                                                         
+                                                         body
+                                                            maxstack 2
+                                                            localcount 2
+                                                            initscopedepth 3
+                                                            maxscopedepth 4
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               findpropstrict Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                               getlocal1
+                                                               callproperty Multiname("getDataById",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                               callproperty Multiname("get_scID",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+                                                               returnvalue
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                   }
+                                                   
+                                                   private function creatLoard() : *
+                                                   {
+                                                      trait method QName(PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),"creatLoard")
+                                                         dispid 0
+                                                         method
+                                                            name ""
+                                                            returns null
+                                                            
+                                                            body
+                                                               maxstack 1
+                                                               localcount 1
+                                                               initscopedepth 4
+                                                               maxscopedepth 5
+                                                               
+                                                               code
+                                                                  getlocal0
+                                                                  pushscope
+                                                                  getlocal0
+                                                                  callproperty Multiname("xmlLoaded",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+                                                                  pop
+                                                                  returnvoid
+                                                               end ; code
+                                                            end ; body
+                                                         end ; method
+                                                      }
+                                                      
+                                                      private function xmlLoaded() : void
+                                                      {
+                                                         trait method QName(PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),"xmlLoaded")
+                                                            dispid 0
+                                                            method
+                                                               name ""
+                                                               returns QName(PackageNamespace(""),"void")
+                                                               
+                                                               body
+                                                                  maxstack 14
+                                                                  localcount 21
+                                                                  initscopedepth 4
+                                                                  maxscopedepth 5
+                                                                  
+                                                                  code
+                                                                     getlocal0
+                                                                     pushscope
+                                                                     pushnull
+                                                                     coerce QName(PackageNamespace(""),"XML")
+                                                                     setlocal1
+                                                                     findpropstrict Multiname("NaN",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("NaN",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     convert_d
+                                                                     setlocal2
+                                                                     pushnull
+                                                                     coerce_s
+                                                                     setlocal3
+                                                                     findpropstrict Multiname("NaN",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("NaN",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     convert_d
+                                                                     setlocal 4
+                                                                     findpropstrict Multiname("NaN",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("NaN",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     convert_d
+                                                                     setlocal 5
+                                                                     pushnull
+                                                                     coerce_s
+                                                                     setlocal 6
+                                                                     findpropstrict Multiname("NaN",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("NaN",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     convert_d
+                                                                     setlocal 7
+                                                                     pushnull
+                                                                     coerce QName(PackageNamespace(""),"XMLList")
+                                                                     setlocal 8
+                                                                     findpropstrict Multiname("NaN",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("NaN",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     convert_d
+                                                                     setlocal 9
+                                                                     findpropstrict Multiname("NaN",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("NaN",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     convert_d
+                                                                     setlocal 10
+                                                                     findpropstrict Multiname("NaN",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("NaN",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     convert_d
+                                                                     setlocal 11
+                                                                     findpropstrict Multiname("NaN",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("NaN",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     convert_d
+                                                                     setlocal 12
+                                                                     pushnull
+                                                                     coerce QName(PackageNamespace(""),"Array")
+                                                                     setlocal 13
+                                                                     pushnull
+                                                                     coerce QName(PackageNamespace(""),"Array")
+                                                                     setlocal 14
+                                                                     pushnull
+                                                                     coerce QName(PackageNamespace(""),"Array")
+                                                                     setlocal 15
+                                                                     pushnull
+                                                                     coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.make"),"MakeBasicData")
+                                                                     setlocal 16
+                                                                     pushbyte 0
+                                                                     setlocal 17
+                                                                     findpropstrict Multiname("myXml",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("myXml",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("卷轴",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     coerce_a
+                                                                     setlocal 18
+                                                                     jump ofs0257
+                                                            ofs006e:
+                                                                     label
+                                                                     getlocal 18
+                                                                     getlocal 17
+                                                                     nextvalue
+                                                                     coerce QName(PackageNamespace(""),"XML")
+                                                                     setlocal1
+                                                                     findpropstrict Multiname("Number",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal1
+                                                                     getproperty Multiname("id",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("Number",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     convert_d
+                                                                     setlocal2
+                                                                     getlocal1
+                                                                     getproperty Multiname("名称",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     coerce_s
+                                                                     setlocal3
+                                                                     findpropstrict Multiname("Number",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal1
+                                                                     getproperty Multiname("类型",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("Number",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     convert_d
+                                                                     setlocal 4
+                                                                     findpropstrict Multiname("Number",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal1
+                                                                     getproperty Multiname("帧数",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("Number",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     convert_d
+                                                                     setlocal 5
+                                                                     getlocal1
+                                                                     getproperty Multiname("说明",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     coerce_s
+                                                                     setlocal 6
+                                                                     findpropstrict Multiname("Number",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal1
+                                                                     getproperty Multiname("金币",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("Number",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     convert_d
+                                                                     setlocal 7
+                                                                     getlocal1
+                                                                     getproperty Multiname("必需品",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     coerce QName(PackageNamespace(""),"XMLList")
+                                                                     setlocal 8
+                                                                     findpropstrict Multiname("Number",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal1
+                                                                     getproperty Multiname("完成品Id",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("Number",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     convert_d
+                                                                     setlocal 9
+                                                                     findpropstrict Multiname("Number",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal1
+                                                                     getproperty Multiname("完成品数量",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("Number",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     convert_d
+                                                                     setlocal 10
+                                                                     findpropstrict Multiname("Number",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal1
+                                                                     getproperty Multiname("金币",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("Number",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     convert_d
+                                                                     setlocal 7
+                                                                     findpropstrict Multiname("Number",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal1
+                                                                     getproperty Multiname("点卷",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("Number",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     convert_d
+                                                                     setlocal 11
+                                                                     findpropstrict Multiname("Number",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal1
+                                                                     getproperty Multiname("商城ID",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("Number",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     convert_d
+                                                                     setlocal 12
+                                                                     newarray 0
+                                                                     coerce QName(PackageNamespace(""),"Array")
+                                                                     setlocal 13
+                                                                     newarray 0
+                                                                     coerce QName(PackageNamespace(""),"Array")
+                                                                     setlocal 14
+                                                                     newarray 0
+                                                                     coerce QName(PackageNamespace(""),"Array")
+                                                                     setlocal 15
+                                                                     pushbyte 0
+                                                                     setlocal 19
+                                                                     getlocal 8
+                                                                     coerce_a
+                                                                     setlocal 20
+                                                                     jump ofs0212
+                                                            ofs010a:
+                                                                     label
+                                                                     getlocal 20
+                                                                     getlocal 19
+                                                                     nextvalue
+                                                                     coerce QName(PackageNamespace(""),"XML")
+                                                                     setlocal1
+                                                                     getlocal 13
+                                                                     findpropstrict Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal 8
+                                                                     getproperty Multiname("需要品id0",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("createVT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     pop
+                                                                     getlocal 13
+                                                                     findpropstrict Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal 8
+                                                                     getproperty Multiname("需要品id1",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("createVT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     pop
+                                                                     getlocal 13
+                                                                     findpropstrict Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal 8
+                                                                     getproperty Multiname("需要品id2",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("createVT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     pop
+                                                                     getlocal 13
+                                                                     findpropstrict Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal 8
+                                                                     getproperty Multiname("需要品id3",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("createVT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     pop
+                                                                     getlocal 13
+                                                                     findpropstrict Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal 8
+                                                                     getproperty Multiname("需要品id4",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("createVT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     pop
+                                                                     getlocal 14
+                                                                     findpropstrict Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal 8
+                                                                     getproperty Multiname("需要品类型0",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("createVT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     pop
+                                                                     getlocal 14
+                                                                     findpropstrict Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal 8
+                                                                     getproperty Multiname("需要品类型1",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("createVT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     pop
+                                                                     getlocal 14
+                                                                     findpropstrict Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal 8
+                                                                     getproperty Multiname("需要品类型2",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("createVT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     pop
+                                                                     getlocal 14
+                                                                     findpropstrict Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal 8
+                                                                     getproperty Multiname("需要品类型3",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("createVT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     pop
+                                                                     getlocal 14
+                                                                     findpropstrict Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal 8
+                                                                     getproperty Multiname("需要品类型4",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("createVT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     pop
+                                                                     getlocal 15
+                                                                     findpropstrict Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal 8
+                                                                     getproperty Multiname("需要品数量0",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("createVT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     pop
+                                                                     getlocal 15
+                                                                     findpropstrict Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal 8
+                                                                     getproperty Multiname("需要品数量1",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("createVT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     pop
+                                                                     getlocal 15
+                                                                     findpropstrict Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal 8
+                                                                     getproperty Multiname("需要品数量2",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("createVT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     pop
+                                                                     getlocal 15
+                                                                     findpropstrict Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal 8
+                                                                     getproperty Multiname("需要品数量3",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("createVT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     pop
+                                                                     getlocal 15
+                                                                     findpropstrict Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("VT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal 8
+                                                                     getproperty Multiname("需要品数量4",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     callproperty Multiname("createVT",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     pop
+                                                            ofs0212:
+                                                                     hasnext2 20, 19
+                                                                     iftrue ofs010a
+                                                                     kill 20
+                                                                     kill 19
+                                                                     findpropstrict Multiname("MakeBasicData",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("MakeBasicData",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal2
+                                                                     getlocal3
+                                                                     getlocal 4
+                                                                     getlocal 5
+                                                                     getlocal 6
+                                                                     getlocal 13
+                                                                     getlocal 14
+                                                                     getlocal 15
+                                                                     getlocal 9
+                                                                     getlocal 7
+                                                                     getlocal 10
+                                                                     getlocal 11
+                                                                     getlocal 12
+                                                                     callproperty Multiname("creatMakeBasic",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 13
+                                                                     coerce QName(PackageNamespace("com.hotpoint.braveManIII.repository.make"),"MakeBasicData")
+                                                                     setlocal 16
+                                                                     findpropstrict Multiname("allData",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("allData",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal 16
+                                                                     callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     pop
+                                                                     findpropstrict Multiname("makeData",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getproperty Multiname("makeData",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")])
+                                                                     getlocal 16
+                                                                     callproperty Multiname("creatMake",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 0
+                                                                     callproperty Multiname("push",[PrivateNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common"),ProtectedNamespace("com.hotpoint.braveManIII.repository.make:MakeFactory"),StaticProtectedNs("com.hotpoint.braveManIII.repository.make:MakeFactory")]), 1
+                                                                     pop
+                                                            ofs0257:
+                                                                     hasnext2 18, 17
+                                                                     iftrue ofs006e
+                                                                     kill 18
+                                                                     kill 17
+                                                                     returnvoid
+                                                                  end ; code
+                                                               end ; body
+                                                            end ; method
+                                                         }
+                                                      }
+                                                   }
+                                                   
+                                                   method
+                                                      name ""
+                                                      returns null
+                                                      
+                                                      body
+                                                         maxstack 2
+                                                         localcount 1
+                                                         initscopedepth 1
+                                                         maxscopedepth 3
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            findpropstrict Multiname("MakeFactory",[PackageNamespace("com.hotpoint.braveManIII.repository.make")])
+                                                            findpropstrict QName(PackageNamespace(""),"Object")
+                                                            getproperty QName(PackageNamespace(""),"Object")
+                                                            pushscope
+                                                            findpropstrict Multiname("Object",[PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common")])
+                                                            getproperty Multiname("Object",[PackageNamespace(""),PrivateNamespace("MakeFactory.as$102"),PackageNamespace("com.hotpoint.braveManIII.repository.make"),PackageInternalNs("com.hotpoint.braveManIII.repository.make"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.hotpoint.braveManIII.models.common")])
+                                                            newclass 0
+                                                            popscope
+                                                            initproperty QName(PackageNamespace("com.hotpoint.braveManIII.repository.make"),"MakeFactory")
+                                                            returnvoid
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                   

@@ -1,0 +1,316 @@
+package src.npc
+{
+   import com.hotpoint.braveManIII.views.composePanel.*;
+   import com.hotpoint.braveManIII.views.equipShopPanel.*;
+   import com.hotpoint.braveManIII.views.itemsPanel.*;
+   import com.hotpoint.braveManIII.views.skillPanel.*;
+   import com.hotpoint.braveManIII.views.strPanel.*;
+   import com.hotpoint.braveManIII.views.strengthenPanel.*;
+   import com.hotpoint.braveManIII.views.taskPanel.*;
+   import flash.display.*;
+   import flash.events.*;
+   import flash.geom.*;
+   import flash.text.*;
+   import src.*;
+   
+   [Embed(source="/_assets/assets.swf", symbol="symbol815")]
+   public class 装备商人界面2 extends MovieClip
+   {
+      
+      private static var only:装备商人界面2;
+      
+      public var buy_btn:SimpleButton;
+      
+      public var close1:SimpleButton;
+      
+      public var close2:SimpleButton;
+      
+      public var Q_p1:SimpleButton;
+      
+      public var Q_p3:SimpleButton;
+      
+      public var getObj_mc:NpcGetObj;
+      
+      public var Q_p4:SimpleButton;
+      
+      public var jindutiao_mc:MovieClip;
+      
+      public var qinMiDu_txt:TextField;
+      
+      public var jieMian2:MovieClip;
+      
+      public var xili_p1:SimpleButton;
+      
+      public var temp2_btn:SimpleButton;
+      
+      public var xili_p2:SimpleButton;
+      
+      public var temp_btn:SimpleButton;
+      
+      public function 装备商人界面2()
+      {
+         super();
+         Q_p1.addEventListener(MouseEvent.CLICK,P1QQ);
+         Q_p3.addEventListener(MouseEvent.CLICK,P3QQ);
+         Q_p4.addEventListener(MouseEvent.CLICK,P4QQ);
+         buy_btn.addEventListener(MouseEvent.CLICK,BUY);
+         close1.addEventListener(MouseEvent.CLICK,CloseXX);
+         close2.addEventListener(MouseEvent.CLICK,CloseXX);
+         temp_btn.addEventListener(MouseEvent.CLICK,getObj_mc_Open);
+         temp2_btn.addEventListener(MouseEvent.CLICK,jieMian2_Open);
+         getObj_mc.song_btn.addEventListener(MouseEvent.CLICK,GetNpc_Obj);
+         getObj_mc.close.addEventListener(MouseEvent.CLICK,getObj_mc_Close);
+         jieMian2.ling_btn.addEventListener(MouseEvent.CLICK,GetPlayer_Obj);
+         jieMian2.quxiao_btn.addEventListener(MouseEvent.CLICK,jieMian2_Close);
+         getObj_mc.A_mc.numUP_btn.addEventListener(MouseEvent.CLICK,SongNumUP);
+         getObj_mc.A_mc.numDOWN_btn.addEventListener(MouseEvent.CLICK,SongNumDOWN);
+         xili_p1.addEventListener(MouseEvent.CLICK,P1XL);
+         xili_p2.addEventListener(MouseEvent.CLICK,P2XL);
+         if(!Main.P1P2)
+         {
+            xili_p2.visible = false;
+         }
+      }
+      
+      public static function Open(param1:int = 0, param2:int = 0) : *
+      {
+         if(!only)
+         {
+            only = new 装备商人界面2();
+         }
+         Main._stage.addChild(only);
+         only.x = param1;
+         only.y = param2;
+         only.visible = true;
+         only.ShowJinDu();
+         only.xiaoLiDaiNum();
+         only.LingQuYN();
+      }
+      
+      public static function Close() : *
+      {
+         if(!only)
+         {
+            only = new 装备商人界面2();
+         }
+         only.x = 5000;
+         only.y = 5000;
+         only.visible = false;
+      }
+      
+      private function GetNpc_Obj(param1:*) : *
+      {
+         getObj_mc_Open();
+         Use_xiaoLiDaiNum(int(getObj_mc.A_mc._txt.text));
+         ShowJinDu();
+         TaskData.isOk();
+      }
+      
+      private function GetPlayer_Obj(param1:*) : *
+      {
+         All_Npc.NpcGetPlayerObj(2);
+         LingQuYN();
+         ShowJinDu();
+      }
+      
+      private function P1XL(param1:*) : *
+      {
+         xilianPanel.open(true);
+      }
+      
+      private function P2XL(param1:*) : *
+      {
+         xilianPanel.open(false);
+      }
+      
+      private function BUY(param1:*) : *
+      {
+         EquipShopPanel.open();
+         装备商人界面2.Close();
+      }
+      
+      private function P1QQ(param1:*) : *
+      {
+         XiangQianPanel.open();
+         装备商人界面2.Close();
+      }
+      
+      private function P3QQ(param1:*) : *
+      {
+         ComPosePanel.open();
+         装备商人界面2.Close();
+      }
+      
+      private function P4QQ(param1:*) : *
+      {
+         StrPanel.open();
+         装备商人界面2.Close();
+      }
+      
+      private function CloseXX(param1:*) : *
+      {
+         Close();
+      }
+      
+      private function ShowJinDu() : *
+      {
+         qinMiDu_txt.text = InitData.qinMiDu_Arr[2].getValue() + "/" + InitData.qinMiDu_Max_Arr[2].getValue();
+         if(InitData.qinMiDu_Arr[2].getValue() <= InitData.qinMiDu_Max_Arr[2].getValue())
+         {
+            jindutiao_mc.XX_mc.scaleX = InitData.qinMiDu_Arr[2].getValue() / InitData.qinMiDu_Max_Arr[2].getValue();
+         }
+         else
+         {
+            jindutiao_mc.XX_mc.scaleX = 1;
+         }
+      }
+      
+      private function getObj_mc_Open(param1:* = null) : *
+      {
+         getObj_mc.x = 300;
+         getObj_mc.y = 100;
+         getObj_mc.visible = true;
+         jieMian2_Close();
+      }
+      
+      private function getObj_mc_Close(param1:* = null) : *
+      {
+         getObj_mc.x = 5000;
+         getObj_mc.y = 5000;
+         getObj_mc.visible = false;
+      }
+      
+      private function jieMian2_Open(param1:* = null) : *
+      {
+         jieMian2.x = 300;
+         jieMian2.y = 100;
+         jieMian2.visible = true;
+         getObj_mc_Close();
+         ShowPicAndNum();
+         if(InitData.qinMiDu_Arr[2].getValue() < InitData.qinMiDu_Max_Arr[2].getValue())
+         {
+            jieMian2.ling_btn.visible = false;
+         }
+         else if(LingQuYN())
+         {
+            jieMian2.ling_btn.visible = true;
+         }
+      }
+      
+      private function jieMian2_Close(param1:* = null) : *
+      {
+         jieMian2.x = 5000;
+         jieMian2.y = 5000;
+         jieMian2.visible = false;
+      }
+      
+      private function SongNumUP(param1:* = null) : *
+      {
+         if(int(getObj_mc.A_mc._txt.text) < 20 && xiaoLiDaiNum() > int(getObj_mc.A_mc._txt.text))
+         {
+            getObj_mc.A_mc._txt.text = int(getObj_mc.A_mc._txt.text) + 1;
+         }
+         else
+         {
+            getObj_mc.A_mc._txt.text = 1;
+         }
+      }
+      
+      private function SongNumDOWN(param1:* = null) : *
+      {
+         if(int(getObj_mc.A_mc._txt.text) > 1)
+         {
+            getObj_mc.A_mc._txt.text = int(getObj_mc.A_mc._txt.text) - 1;
+         }
+         else
+         {
+            getObj_mc.A_mc._txt.text = 20;
+         }
+      }
+      
+      private function xiaoLiDaiNum() : int
+      {
+         var _loc1_:int = int(Main.player1.getBag().getOtherobjNum(63102));
+         var _loc2_:int = 0;
+         if(Main.P1P2)
+         {
+            _loc2_ = int(Main.player2.getBag().getOtherobjNum(63102));
+         }
+         var _loc3_:int = _loc1_ + _loc2_;
+         if(_loc3_ < 1)
+         {
+            temp_btn.visible = false;
+         }
+         else
+         {
+            temp_btn.visible = true;
+         }
+         return _loc3_;
+      }
+      
+      private function Use_xiaoLiDaiNum(param1:int) : *
+      {
+         var _loc5_:int = 0;
+         var _loc2_:int = int(Main.player1.getBag().getOtherobjNum(63102));
+         var _loc3_:int = 0;
+         if(Main.P1P2)
+         {
+            _loc3_ = int(Main.player2.getBag().getOtherobjNum(63102));
+         }
+         var _loc4_:int = _loc2_ + _loc3_;
+         if(_loc4_ >= param1)
+         {
+            if(_loc2_ <= param1)
+            {
+               Main.player1.getBag().getAndUseOtherobj(63102,_loc2_);
+               if(Main.P1P2)
+               {
+                  Main.player2.getBag().getAndUseOtherobj(63102,param1 - _loc2_);
+               }
+            }
+            else
+            {
+               Main.player1.getBag().getAndUseOtherobj(63102,param1);
+            }
+            _loc5_ = param1 * 3;
+            InitData.qinMiDu_Arr[2].setValue(InitData.qinMiDu_Arr[2].getValue() + _loc5_);
+         }
+      }
+      
+      private function LingQuYN() : Boolean
+      {
+         if(InitData.qinMiDu_Time[2].getValue() >= Main.serverTime.getValue())
+         {
+            jieMian2.ling_btn.visible = false;
+            return false;
+         }
+         return true;
+      }
+      
+      private function ShowPicAndNum() : *
+      {
+         var _loc1_:Array = All_Npc.get_AllObj_Pic_And_Num(2);
+         var _loc2_:* = InitData.qinMiDu_num[2].getValue() % 7;
+         if(_loc2_ == 0)
+         {
+            _loc2_ = 7;
+         }
+         var _loc3_:int = 1;
+         while(_loc3_ < 8)
+         {
+            jieMian2["s1_" + _loc3_].gotoAndStop(_loc1_[_loc2_][1]);
+            if(_loc3_ < 2)
+            {
+               jieMian2["_txt" + _loc3_].text = "x " + _loc1_[_loc2_][0];
+            }
+            _loc2_++;
+            if(_loc2_ > 7)
+            {
+               _loc2_ = 1;
+            }
+            _loc3_++;
+         }
+      }
+   }
+}
+

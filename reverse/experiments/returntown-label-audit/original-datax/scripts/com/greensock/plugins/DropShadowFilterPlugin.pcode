@@ -1,0 +1,171 @@
+package com.greensock.plugins
+{
+   import com.greensock.*;
+   import flash.filters.*;
+   
+   public class DropShadowFilterPlugin extends FilterPlugin
+   {
+      
+      public static const API:Number = 1;
+      
+      private static var _propNames:Array;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 12
+            localcount 1
+            initscopedepth 5
+            maxscopedepth 6
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"API")
+               pushbyte 1
+               initproperty QName(PackageNamespace(""),"API")
+               findproperty QName(PrivateNamespace(null,"190"),"_propNames")
+               pushstring "distance"
+               pushstring "angle"
+               pushstring "color"
+               pushstring "alpha"
+               pushstring "blurX"
+               pushstring "blurY"
+               pushstring "strength"
+               pushstring "quality"
+               pushstring "inner"
+               pushstring "knockout"
+               pushstring "hideObject"
+               newarray 11
+               setproperty QName(PrivateNamespace(null,"190"),"_propNames")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function DropShadowFilterPlugin()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 6
+               maxscopedepth 7
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  pushstring "dropShadowFilter"
+                  initproperty Multiname("propName",[PrivateNamespace(null,"190"),PackageNamespace(""),PrivateNamespace(null,"419"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  getlocal0
+                  pushstring "dropShadowFilter"
+                  newarray 1
+                  initproperty Multiname("overwriteProps",[PrivateNamespace(null,"190"),PackageNamespace(""),PrivateNamespace(null,"419"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function onInitTween(param1:Object, param2:*, param3:TweenLite) : Boolean
+      {
+         trait method QName(PackageNamespace(""),"onInitTween")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"Object")
+               param null
+               param QName(PackageNamespace("com.greensock"),"TweenLite")
+               returns QName(PackageNamespace(""),"Boolean")
+               
+               body
+                  maxstack 14
+                  localcount 4
+                  initscopedepth 6
+                  maxscopedepth 7
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findproperty Multiname("_target",[PrivateNamespace(null,"190"),PackageNamespace(""),PrivateNamespace(null,"419"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal1
+                     initproperty Multiname("_target",[PrivateNamespace(null,"190"),PackageNamespace(""),PrivateNamespace(null,"419"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     findproperty Multiname("_type",[PrivateNamespace(null,"190"),PackageNamespace(""),PrivateNamespace(null,"419"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlex Multiname("DropShadowFilter",[PrivateNamespace(null,"190"),PackageNamespace(""),PrivateNamespace(null,"419"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin"),PackageNamespace("flash.filters")])
+                     initproperty Multiname("_type",[PrivateNamespace(null,"190"),PackageNamespace(""),PrivateNamespace(null,"419"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     findpropstrict Multiname("initFilter",[PrivateNamespace(null,"190"),PackageNamespace(""),PrivateNamespace(null,"419"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal2
+                     findpropstrict Multiname("DropShadowFilter",[PrivateNamespace(null,"190"),PackageNamespace(""),PrivateNamespace(null,"419"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin"),PackageNamespace("flash.filters")])
+                     pushbyte 0
+                     pushbyte 45
+                     pushbyte 0
+                     dup
+                     dup
+                     pushbyte 0
+                     pushbyte 1
+                     getlocal2
+                     getproperty Multiname("quality",[PrivateNamespace(null,"190"),PackageNamespace(""),PrivateNamespace(null,"419"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     convert_i
+                     dup
+                     iftrue ofs0032
+                     pop
+                     pushbyte 2
+            ofs0032:
+                     getlocal2
+                     getproperty Multiname("inner",[PrivateNamespace(null,"190"),PackageNamespace(""),PrivateNamespace(null,"419"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal2
+                     getproperty Multiname("knockout",[PrivateNamespace(null,"190"),PackageNamespace(""),PrivateNamespace(null,"419"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal2
+                     getproperty Multiname("hideObject",[PrivateNamespace(null,"190"),PackageNamespace(""),PrivateNamespace(null,"419"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     constructprop Multiname("DropShadowFilter",[PrivateNamespace(null,"190"),PackageNamespace(""),PrivateNamespace(null,"419"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin"),PackageNamespace("flash.filters")]), 11
+                     getlex Multiname("_propNames",[PrivateNamespace(null,"190"),PackageNamespace(""),PrivateNamespace(null,"419"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     callpropvoid Multiname("initFilter",[PrivateNamespace(null,"190"),PackageNamespace(""),PrivateNamespace(null,"419"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:DropShadowFilterPlugin"),StaticProtectedNs("com.greensock.plugins:FilterPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 3
+                     pushtrue
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+      }
+   }
+   
+   method
+      name null
+      returns null
+      
+      body
+         maxstack 2
+         localcount 1
+         initscopedepth 1
+         maxscopedepth 5
+         
+         code
+            getlocal0
+            pushscope
+            findpropstrict Multiname("DropShadowFilterPlugin",[PackageNamespace("com.greensock.plugins")])
+            getlex QName(PackageNamespace(""),"Object")
+            pushscope
+            getlex QName(PackageNamespace("com.greensock.plugins"),"TweenPlugin")
+            pushscope
+            getlex QName(PackageNamespace("com.greensock.plugins"),"FilterPlugin")
+            pushscope
+            getlex Multiname("FilterPlugin",[PackageNamespace(""),PrivateNamespace(null,"419"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock")])
+            newclass 166
+            popscope
+            popscope
+            popscope
+            initproperty QName(PackageNamespace("com.greensock.plugins"),"DropShadowFilterPlugin")
+            returnvoid
+         end ; code
+      end ; body
+   end ; method
+   

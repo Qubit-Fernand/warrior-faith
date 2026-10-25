@@ -1,0 +1,380 @@
+package com.hotpoint.braveManIII.models.equip
+{
+   public class EquipBaseAttribTypeConst
+   {
+      
+      public static const HP:uint = 1;
+      
+      public static const MP:uint = 2;
+      
+      public static const ATTACK:uint = 3;
+      
+      public static const DEFENSE:uint = 4;
+      
+      public static const CRIT:uint = 5;
+      
+      public static const DUCK:uint = 6;
+      
+      public static const MOVESPEED:uint = 7;
+      
+      public static const HARDVALUE:uint = 8;
+      
+      public static const MOKANG:uint = 9;
+      
+      public static const POMO:uint = 10;
+      
+      public static const HPREGEN:uint = 11;
+      
+      public static const MPREGEN:uint = 12;
+      
+      method
+         name ""
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"HP")
+               pushbyte 1
+               initproperty QName(PackageNamespace(""),"HP")
+               findproperty QName(PackageNamespace(""),"MP")
+               pushbyte 2
+               initproperty QName(PackageNamespace(""),"MP")
+               findproperty QName(PackageNamespace(""),"ATTACK")
+               pushbyte 3
+               initproperty QName(PackageNamespace(""),"ATTACK")
+               findproperty QName(PackageNamespace(""),"DEFENSE")
+               pushbyte 4
+               initproperty QName(PackageNamespace(""),"DEFENSE")
+               findproperty QName(PackageNamespace(""),"CRIT")
+               pushbyte 5
+               initproperty QName(PackageNamespace(""),"CRIT")
+               findproperty QName(PackageNamespace(""),"DUCK")
+               pushbyte 6
+               initproperty QName(PackageNamespace(""),"DUCK")
+               findproperty QName(PackageNamespace(""),"MOVESPEED")
+               pushbyte 7
+               initproperty QName(PackageNamespace(""),"MOVESPEED")
+               findproperty QName(PackageNamespace(""),"HARDVALUE")
+               pushbyte 8
+               initproperty QName(PackageNamespace(""),"HARDVALUE")
+               findproperty QName(PackageNamespace(""),"MOKANG")
+               pushbyte 9
+               initproperty QName(PackageNamespace(""),"MOKANG")
+               findproperty QName(PackageNamespace(""),"POMO")
+               pushbyte 10
+               initproperty QName(PackageNamespace(""),"POMO")
+               findproperty QName(PackageNamespace(""),"HPREGEN")
+               pushbyte 11
+               initproperty QName(PackageNamespace(""),"HPREGEN")
+               findproperty QName(PackageNamespace(""),"MPREGEN")
+               pushbyte 12
+               initproperty QName(PackageNamespace(""),"MPREGEN")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function EquipBaseAttribTypeConst()
+      {
+         method
+            name ""
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function getDescription(param1:uint, param2:uint) : String
+      {
+         trait method QName(PackageNamespace(""),"getDescription")
+            flag FINAL
+            dispid 3
+            method
+               name ""
+               param QName(PackageNamespace(""),"uint")
+               param QName(PackageNamespace(""),"uint")
+               returns QName(PackageNamespace(""),"String")
+               
+               body
+                  maxstack 3
+                  localcount 5
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnull
+                     coerce_s
+                     setlocal3
+                     jump ofs009c
+            ofs0009:
+                     label
+                     pushstring "攻击+"
+                     getlocal2
+                     add
+                     coerce_s
+                     setlocal3
+                     jump ofs01b2
+            ofs0014:
+                     label
+                     pushstring "魔抗+"
+                     getlocal2
+                     add
+                     coerce_s
+                     setlocal3
+                     jump ofs01b2
+            ofs001f:
+                     label
+                     pushstring "破魔+"
+                     getlocal2
+                     add
+                     coerce_s
+                     setlocal3
+                     jump ofs01b2
+            ofs002a:
+                     label
+                     pushstring "暴击+"
+                     getlocal2
+                     add
+                     coerce_s
+                     setlocal3
+                     jump ofs01b2
+            ofs0035:
+                     label
+                     pushstring "防御+"
+                     getlocal2
+                     add
+                     coerce_s
+                     setlocal3
+                     jump ofs01b2
+            ofs0040:
+                     label
+                     pushstring "闪避+"
+                     getlocal2
+                     add
+                     coerce_s
+                     setlocal3
+                     jump ofs01b2
+            ofs004b:
+                     label
+                     pushstring "硬值+"
+                     getlocal2
+                     add
+                     coerce_s
+                     setlocal3
+                     jump ofs01b2
+            ofs0056:
+                     label
+                     pushstring "生命+"
+                     getlocal2
+                     add
+                     coerce_s
+                     setlocal3
+                     jump ofs01b2
+            ofs0061:
+                     label
+                     pushstring "回血+"
+                     getlocal2
+                     add
+                     coerce_s
+                     setlocal3
+                     jump ofs01b2
+            ofs006c:
+                     label
+                     pushstring "移动速度+"
+                     getlocal2
+                     add
+                     coerce_s
+                     setlocal3
+                     jump ofs01b2
+            ofs0077:
+                     label
+                     pushstring "魔法+"
+                     getlocal2
+                     add
+                     coerce_s
+                     setlocal3
+                     jump ofs01b2
+            ofs0082:
+                     label
+                     pushstring "回魔+"
+                     getlocal2
+                     add
+                     coerce_s
+                     setlocal3
+                     jump ofs01b2
+            ofs008d:
+                     label
+                     findpropstrict Multiname("Error",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     pushstring "物品基础属性不存在的类型:type:"
+                     getlocal1
+                     add
+                     constructprop Multiname("Error",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")]), 1
+                     throw
+                     jump ofs009c
+            ofs009c:
+                     getlocal1
+                     setlocal 4
+                     findpropstrict Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("ATTACK",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getlocal 4
+                     ifstrictne ofs00b1
+                     pushshort 0
+                     jump ofs0184
+            ofs00b1:
+                     findpropstrict Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("MOKANG",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getlocal 4
+                     ifstrictne ofs00c3
+                     pushshort 1
+                     jump ofs0184
+            ofs00c3:
+                     findpropstrict Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("POMO",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getlocal 4
+                     ifstrictne ofs00d5
+                     pushshort 2
+                     jump ofs0184
+            ofs00d5:
+                     findpropstrict Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("CRIT",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getlocal 4
+                     ifstrictne ofs00e7
+                     pushshort 3
+                     jump ofs0184
+            ofs00e7:
+                     findpropstrict Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("DEFENSE",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getlocal 4
+                     ifstrictne ofs00f9
+                     pushshort 4
+                     jump ofs0184
+            ofs00f9:
+                     findpropstrict Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("DUCK",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getlocal 4
+                     ifstrictne ofs010b
+                     pushshort 5
+                     jump ofs0184
+            ofs010b:
+                     findpropstrict Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("HARDVALUE",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getlocal 4
+                     ifstrictne ofs011d
+                     pushshort 6
+                     jump ofs0184
+            ofs011d:
+                     findpropstrict Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("HP",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getlocal 4
+                     ifstrictne ofs012f
+                     pushshort 7
+                     jump ofs0184
+            ofs012f:
+                     findpropstrict Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("HPREGEN",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getlocal 4
+                     ifstrictne ofs0141
+                     pushshort 8
+                     jump ofs0184
+            ofs0141:
+                     findpropstrict Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("MOVESPEED",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getlocal 4
+                     ifstrictne ofs0153
+                     pushshort 9
+                     jump ofs0184
+            ofs0153:
+                     findpropstrict Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("MP",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getlocal 4
+                     ifstrictne ofs0165
+                     pushshort 10
+                     jump ofs0184
+            ofs0165:
+                     findpropstrict Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("EquipBaseAttribTypeConst",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getproperty Multiname("MPREGEN",[PrivateNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst"),StaticProtectedNs("com.hotpoint.braveManIII.models.equip:EquipBaseAttribTypeConst")])
+                     getlocal 4
+                     ifstrictne ofs0177
+                     pushshort 11
+                     jump ofs0184
+            ofs0177:
+                     pushfalse
+                     iffalse ofs0182
+                     pushshort 12
+                     jump ofs0184
+            ofs0182:
+                     pushshort 12
+            ofs0184:
+                     kill 4
+                     lookupswitch ofs008d, [ofs0009, ofs0014, ofs001f, ofs002a, ofs0035, ofs0040, ofs004b, ofs0056, ofs0061, ofs006c, ofs0077, ofs0082, ofs008d]
+            ofs01b2:
+                     getlocal3
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+      }
+   }
+   
+   method
+      name ""
+      returns null
+      
+      body
+         maxstack 2
+         localcount 1
+         initscopedepth 1
+         maxscopedepth 3
+         
+         code
+            getlocal0
+            pushscope
+            findpropstrict Multiname("EquipBaseAttribTypeConst",[PackageNamespace("com.hotpoint.braveManIII.models.equip")])
+            findpropstrict QName(PackageNamespace(""),"Object")
+            getproperty QName(PackageNamespace(""),"Object")
+            pushscope
+            findpropstrict Multiname("Object",[PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin")])
+            getproperty Multiname("Object",[PackageNamespace(""),PrivateNamespace("EquipBaseAttribTypeConst.as$110"),PackageNamespace("com.hotpoint.braveManIII.models.equip"),PackageInternalNs("com.hotpoint.braveManIII.models.equip"),Namespace("http://adobe.com/AS3/2006/builtin")])
+            newclass 0
+            popscope
+            initproperty QName(PackageNamespace("com.hotpoint.braveManIII.models.equip"),"EquipBaseAttribTypeConst")
+            returnvoid
+         end ; code
+      end ; body
+   end ; method
+   

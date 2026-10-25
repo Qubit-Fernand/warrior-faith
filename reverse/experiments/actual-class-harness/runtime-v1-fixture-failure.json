@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "date_local": "2026-10-24",
+  "executor": "root, official Adobe debugger projector",
+  "wrapper_sha256": "cac461ede24f69aa52023c1c582a923fd1764169e185ada95b1468786aaaf2b7",
+  "subject_sha256": "b362fd3035995e63998de714cec9eb2fbe5216b4ee078182d48e30f5e1474b32",
+  "passed_cases": 0,
+  "expected_cases": 183,
+  "failures": 1,
+  "failure_phase": "fixture construction before queued tests",
+  "error": "TypeError #1009 at QuestFactory.isMany -> Quest.isMany -> ActualClassHarness.loaded:57",
+  "classification": "probe fixture error, not game or recovery defect",
+  "cause": "QuestFactory.getQuestById compares getFallLevel, but fixture BaseData fallLevel=1 while Quest.fallId=991003",
+  "repair": "Set BaseData second parameter to991003; game code untouched",
+  "screenshot": "reverse/logs/runtime/actual-class-original-fixture-error1009.png",
+  "screenshot_sha256": "753bd95deb1198b1887e841f24c6bbd4bc28f617b82ae77b6ba95972c077273b",
+  "screenshot_independently_inspected": true,
+  "player_quit_reported_by_root": true,
+  "superseded_wrapper_sha256": "dd97714eeababcefa141349b9cf8d80febaccc65de56596065118130896490be"
+}

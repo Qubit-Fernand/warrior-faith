@@ -1,0 +1,382 @@
+package com.hotpoint.braveManIII.views.shortTip
+{
+   import flash.display.*;
+   import src.*;
+   
+   public class ShortTip extends MovieClip
+   {
+      
+      public static var st:ShortTip;
+      
+      private static var shortTip:MovieClip = new ShortTipShow();
+      
+      public function ShortTip()
+      {
+         super();
+         this.addChild(shortTip);
+         shortTip.visible = false;
+      }
+      
+      public static function noGold() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(16);
+         if(shortTip.mc_16)
+         {
+            shortTip.mc_16.gotoAndPlay(1);
+         }
+      }
+      
+      public static function noTakeoffWeapon() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(21);
+         if(shortTip.mc_21)
+         {
+            shortTip.mc_21.gotoAndPlay(1);
+         }
+      }
+      
+      public static function noSpace() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(3);
+         if(shortTip.mc_3)
+         {
+            shortTip.mc_3.gotoAndPlay(1);
+         }
+      }
+      
+      public static function belowEquipLV() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(24);
+         if(shortTip.mc_24)
+         {
+            shortTip.mc_24.gotoAndPlay(1);
+         }
+      }
+      
+      public static function open(param1:int) : void
+      {
+         if(st == null)
+         {
+            st = new ShortTip();
+         }
+         Main._stage.addChild(st);
+         st.x = 450;
+         st.y = 300;
+         st.visible = true;
+         switch(param1)
+         {
+            case 1:
+               taskMax();
+               break;
+            case 2:
+               noHollowed();
+               break;
+            case 3:
+               noSpace();
+               break;
+            case 4:
+               itemsTypeWrong();
+               break;
+            case 5:
+               strengthenMax();
+               break;
+            case 6:
+               setItemsFrist();
+               break;
+            case 7:
+               noSlot();
+               break;
+            case 8:
+               alreadySet();
+               break;
+            case 9:
+               composeMax();
+               break;
+            case 10:
+               noCompose();
+               break;
+            case 11:
+               weaponLevelOver();
+               break;
+            case 12:
+               setSkillKeyOk();
+               break;
+            case 13:
+               noReSet();
+               break;
+            case 14:
+               noSetAfterPay();
+               break;
+            case 15:
+               reSetOk();
+               break;
+            case 16:
+               noGold();
+               break;
+            case 17:
+               upSkillOk();
+               break;
+            case 18:
+               setKeyOk();
+               break;
+            case 19:
+               noSetKey();
+               break;
+            case 20:
+               noSkillPoint();
+               break;
+            case 21:
+               noTakeoffWeapon();
+               break;
+            case 22:
+               belowWeaponLV();
+               break;
+            case 23:
+               sameGemLV();
+               break;
+            case 24:
+               belowEquipLV();
+               break;
+            case 25:
+               noWearLV();
+               break;
+            case 26:
+               noTransfer();
+         }
+      }
+      
+      public static function setSkillKeyOk() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(12);
+         if(shortTip.mc_12)
+         {
+            shortTip.mc_12.gotoAndPlay(1);
+         }
+      }
+      
+      public static function noSetKey() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(19);
+         if(shortTip.mc_19)
+         {
+            shortTip.mc_19.gotoAndPlay(1);
+         }
+      }
+      
+      public static function noCompose() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(10);
+         if(shortTip.mc_10)
+         {
+            shortTip.mc_10.gotoAndPlay(1);
+         }
+      }
+      
+      public static function sameGemLV() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(23);
+         if(shortTip.mc_23)
+         {
+            shortTip.mc_23.gotoAndPlay(1);
+         }
+      }
+      
+      public static function setKeyOk() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(18);
+         if(shortTip.mc_18)
+         {
+            shortTip.mc_18.gotoAndPlay(1);
+         }
+      }
+      
+      public static function strengthenMax() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(5);
+         if(shortTip.mc_5)
+         {
+            shortTip.mc_5.gotoAndPlay(1);
+         }
+      }
+      
+      public static function noTransfer() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(26);
+         if(shortTip.mc_26)
+         {
+            shortTip.mc_26.gotoAndPlay(1);
+         }
+      }
+      
+      public static function noSlot() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(7);
+         if(shortTip.mc_7)
+         {
+            shortTip.mc_7.gotoAndPlay(1);
+         }
+      }
+      
+      public static function setItemsFrist() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(6);
+         if(shortTip.mc_6)
+         {
+            shortTip.mc_6.gotoAndPlay(1);
+         }
+      }
+      
+      public static function taskMax() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(1);
+         if(shortTip.mc_1)
+         {
+            shortTip.mc_1.gotoAndPlay(1);
+         }
+      }
+      
+      public static function noSkillPoint() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(20);
+         if(shortTip.mc_20)
+         {
+            shortTip.mc_20.gotoAndPlay(1);
+         }
+      }
+      
+      public static function alreadySet() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(8);
+         if(shortTip.mc_8)
+         {
+            shortTip.mc_8.gotoAndPlay(1);
+         }
+      }
+      
+      public static function reSetOk() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(15);
+         if(shortTip.mc_15)
+         {
+            shortTip.mc_15.gotoAndPlay(1);
+         }
+      }
+      
+      public static function noSetAfterPay() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(14);
+         if(shortTip.mc_14)
+         {
+            shortTip.mc_14.gotoAndPlay(1);
+         }
+      }
+      
+      public static function noReSet() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(13);
+         if(shortTip.mc_13)
+         {
+            shortTip.mc_13.gotoAndPlay(1);
+         }
+      }
+      
+      public static function noHollowed() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(2);
+         if(shortTip.mc_2)
+         {
+            shortTip.mc_2.gotoAndPlay(1);
+         }
+      }
+      
+      public static function noWearLV() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(25);
+         if(shortTip.mc_25)
+         {
+            shortTip.mc_25.gotoAndPlay(1);
+         }
+      }
+      
+      public static function composeMax() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(9);
+         if(shortTip.mc_9)
+         {
+            shortTip.mc_9.gotoAndPlay(1);
+         }
+      }
+      
+      public static function itemsTypeWrong() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(4);
+         if(shortTip.mc_4)
+         {
+            shortTip.mc_4.gotoAndPlay(1);
+         }
+      }
+      
+      public static function belowWeaponLV() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(22);
+         if(shortTip.mc_22)
+         {
+            shortTip.mc_22.gotoAndPlay(1);
+         }
+      }
+      
+      public static function close() : void
+      {
+         if(st == null)
+         {
+            st = new ShortTip();
+         }
+         st.visible = false;
+      }
+      
+      public static function upSkillOk() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(17);
+         if(shortTip.mc_17)
+         {
+            shortTip.mc_17.gotoAndPlay(1);
+         }
+      }
+      
+      public static function weaponLevelOver() : *
+      {
+         shortTip.visible = true;
+         shortTip.gotoAndStop(11);
+         if(shortTip.mc_11)
+         {
+            shortTip.mc_11.gotoAndPlay(1);
+         }
+      }
+   }
+}
+

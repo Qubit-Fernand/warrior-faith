@@ -1,0 +1,307 @@
+{
+  "goal_started_utc": "2026-10-25T15:23:17Z",
+  "earliest_seven_hour_mark_utc": "2026-10-25T22:23:17Z",
+  "timezone": "Asia/Shanghai",
+  "minimum_effective_hours": 7,
+  "excluded_idle_seconds": 0,
+  "branch": "codex/final-chapter-v2",
+  "baseline": "d37f389",
+  "protected_save_manifest": "/Users/AntiEntropy/Games/.shortcut-backups/final-chapter-v2-start-20261025/protected-saves.json",
+  "required": [
+    "three causal playable segments",
+    "two distinct original boss encounters",
+    "final boss multiple phases and mechanics",
+    "three in-game narrative sequences",
+    "main and consequential alternative ending",
+    "controlled content import/assets/build",
+    "normal unlock and isolated experience fixture",
+    "complete direct UI playthrough and cold read",
+    "integrate final-chapter and update existing shortcut"
+  ],
+  "status": "implementation in progress; no completion claimed",
+  "checkpoints": [
+    {
+      "time_utc": "2026-10-25T15:38:02Z",
+      "commit": "95c6fd6",
+      "main_sha256": "916fc64c4247fad95ac17873703eb1ef8ee756f4c7b41ad617fd201d1f3bf29f",
+      "strict_audit": "164/164 ready; zero issues",
+      "runtime": "not started",
+      "known_pending": [
+        "Map81 original puzzle must be gated when chapter is loading",
+        "dock actual combat teaching",
+        "boss differentiation and balance",
+        "full real UI playthrough, retries and cold load"
+      ]
+    },
+    {
+      "time_utc": "2026-10-25T15:44:02.073008+00:00",
+      "package": "reverse/build/runtime-all-rebuilt-20261025T154018.973956Z",
+      "main_sha256": "916fc64c4247fad95ac17873703eb1ef8ee756f4c7b41ad617fd201d1f3bf29f",
+      "assembly_sha256": "31a1e64a5616b95c7c058bd5b4cf6c084b1a4d92cfcd5b6c3bbe117602c788db",
+      "direct_title": "visible via Finder Open With official debugger; screenshot private/001-direct-title.png",
+      "protected_saves": "all four unchanged",
+      "fixture": "two isolated start-only roles installed into verified new SO; player exited first"
+    },
+    {
+      "time_utc": "2026-10-25T15:51:40.225976+00:00",
+      "observed": "candidate1 original village and new intro page 1 visible, readonly observer errors empty",
+      "evidence": [
+        "private/002-original-augustine.png",
+        "private/003-first-dialogue-layout.png"
+      ],
+      "issues": [
+        "quest marker fell back to wanted board before NPC timeline initialized",
+        "Augustine portrait incorrectly elderly",
+        "Map81 inherited puzzle must be disabled only for chapter",
+        "third ending node saved before ending/reward atomic update"
+      ],
+      "changes": "dock real HitXX combat integrated; ending transaction corrected; late NPC lookup; chapter-only Map81 guard; agents refining mechanics/art",
+      "protected_saves": "four unchanged after quit",
+      "runtime_acceptance": "not yet traversed new chapter"
+    },
+    {
+      "time_utc": "2026-10-25T16:17:59.850322+00:00",
+      "commit": "3fcbc10",
+      "package": "reverse/build/runtime-all-rebuilt-20261025T155727.493251Z",
+      "main_sha256": "0aa355cd068f0de68bb1652c25229b8c57afa06014ab5a535ef541731f64022d",
+      "assembly_sha256": "75af71f7ea14b7b5795f5f363d222342817d303f668f52e542eaa9d3e3453a94",
+      "strict_assembly": "164 rebuilt,0 fallback",
+      "observed": "normal slot1 original village unlock, correct mentor, all dock targets destroyed by real player attacks, both resident groups rescued, second walk skipped with Enter, compass and travel to warden; 16s real warden combat with hits and damage; pause blocks progression; no runtime errors",
+      "not_observed": [
+        "Boss victory",
+        "death/retry",
+        "cold-load",
+        "endings",
+        "reward",
+        "final direct shortcut acceptance"
+      ],
+      "evidence": [
+        "private/005-portrait-and-input-shield.png",
+        "private/007-pause-diagnostic.json",
+        "private/010-warden-first-fight.png",
+        "private/011-warden-diagnostic.json"
+      ],
+      "legal_checkpoint": "private/checkpoints/candidate2-slot1-warden-entry.sol",
+      "protected_saves": "all four unchanged after complete player quit",
+      "issues": [
+        "1600px arena exceeds original backdrop",
+        "foreground machines obscure player",
+        "revive sentinel visible in modal",
+        "boss durability too high and nodes lack meters",
+        "compass one-key interaction too shallow"
+      ]
+    },
+    {
+      "time_utc": "2026-10-25T16:52:14.093175+00:00",
+      "commit": "a8f64e2",
+      "package": "reverse/build/runtime-all-rebuilt-20261025T162037.144367Z",
+      "main_sha256": "976b7eeac2335c15ca90a555b414c1aa5b0d22a502b89127e1050ea3af49bd3e",
+      "assembly_sha256": "4a4413e77e244b2ec4d4402b8e69b7794e7345eabffd85205099757672b70804",
+      "strict_assembly": "164 rebuilt,0 fallback",
+      "observed": "Cold read earned warden checkpoint; distinct backdrop and player foreground; real attacks destroyed both nodes and entered phase2; jump avoided sweep; died at approximately 22% boss HP; UI retry restored full player HP/MP and boss phase1/nodes; rescue and navigation progress retained. No victory.",
+      "evidence": [
+        "private/012-candidate3-cold-warden.png",
+        "private/013-candidate3-node-bars.png",
+        "private/014-candidate3-warden-phase2.json",
+        "private/015-candidate3-warden-death.png",
+        "private/016-candidate3-retry-paused.png",
+        "private/017-candidate3-retry-diagnostic.json"
+      ],
+      "protected_saves": "all four unchanged after player exit",
+      "issues": [
+        "partial player timers ignore pause",
+        "save flush unconfirmed",
+        "gold cap can lose reward",
+        "seen dialogue completion not saved immediately"
+      ]
+    },
+    {
+      "time_utc": "2026-10-25T17:20:51.337691+00:00",
+      "commit": "bbc8a38",
+      "package": "reverse/build/runtime-all-rebuilt-20261025T165840.921655Z",
+      "main_sha256": "734e39e157d0cee5891d34f7382bacb197d5ca2972830434228cd52e41f294af",
+      "assembly_sha256": "1fa1c066d2660d97078faf9539de158ae7a0eec2a0ccb7df2ec63390bca3ba03",
+      "strict_assembly": "164 rebuilt,0 fallback",
+      "observed": "Cold read; seen dialogue skip button; save status flushed and disk seenDialogues confirmed after quit; mouse skip loses keyboard until scene clicked; actual retry and combat after scene click; nodes destroyed, no victory",
+      "evidence": [
+        "private/018-candidate4-focus-recovered-combat.png",
+        "private/019-candidate4-diagnostic.json"
+      ],
+      "protected_saves": "four unchanged after exit",
+      "issues": [
+        "mouse modal close leaves keyboard focus detached; fix staged for next candidate"
+      ]
+    },
+    {
+      "time_utc": "2026-10-25T18:13:02.469762+00:00",
+      "commit": "66c0abf",
+      "package": "reverse/build/runtime-all-rebuilt-20261025T172312.321704Z",
+      "main_sha256": "a742fa4accc9524e4679fa6f32ee9550a57b23999ede4fd13fcdcdee8ca2ffed",
+      "assembly_sha256": "8eee5c4984760012864315442f6b5bbfcdf23234b7ed4c22466c3902329139af",
+      "strict_assembly": "164 rebuilt,0 fallback",
+      "observed": "Mouse skip restores keyboard. Normal slot1 actually defeated Warden (95.829s, 125 hits) and Regent (136.808s, 222 hits, independent phase2, 9 interrupts, 2 sanctuary escapes, 1 tracking dodge). Both preparation devices operated. Release ending chosen through UI, three ritual nodes operated, gold 10000 to 60000, release village and post dialogue/journal visible. Exited player fully. Not a fresh start-to-end run on one package.",
+      "evidence": [
+        "private/021-candidate5-normal-warden-victory.png",
+        "private/022-candidate5-normal-warden-victory.json",
+        "private/023-candidate5-regent-arrival.png",
+        "private/025-candidate5-regent-phase2.json",
+        "private/026-candidate5-regent-sanctuary.json",
+        "private/028-candidate5-regent-tracking-dodge.json",
+        "private/029-candidate5-normal-regent-victory.png",
+        "private/029-candidate5-normal-regent-victory.json",
+        "private/030-candidate5-release-ritual.json",
+        "private/031-candidate5-release-village.png",
+        "private/032-candidate5-release-reward-journal.png"
+      ],
+      "legal_checkpoints": [
+        "private/checkpoints/candidate5-slot1-regent-defeated-prechoice.sol",
+        "private/checkpoints/candidate5-slot1-release-complete.sol"
+      ],
+      "protected_saves": "all four unchanged after full exit",
+      "issues": [
+        "large native finishing effects frozen over phase/victory dialogue",
+        "last damage number persists after boss death",
+        "procedural portraits/boss art too flat",
+        "candidate5 dialogue scope/time jumps fixed in unbuilt story input"
+      ],
+      "save_contract": "Independent harness run in official debugger: 36/36 PASS, canonical SHA a2b7d7494f51afe079432cffea840de3567302c2588d5f79e414bb99759ad093; private/033-save-contract-report.json and screenshot. Native permission pending not tested."
+    },
+    {
+      "time_utc": "2026-10-25T18:20:54.987025+00:00",
+      "candidate": "6-rejected-before-launch",
+      "package": "reverse/build/runtime-all-rebuilt-20261025T181646.051474Z",
+      "main_sha256": "77b9af4fa80a117ab767b0c18c82cb6ea5c98323f87dfaf5544a93b633fe7618",
+      "strict_assembly": "164 rebuilt,0 fallback",
+      "runtime": "NEVER launched; observer installer and exact-save launcher both refused yzlr2_rebuild_probe",
+      "cause": "Root omitted explicit --save-name; inherited build_main.py default was rebuild_probe",
+      "fix": "This chapter branch build_main default changed to yzlr2_rebuild_epilogue_v2; rebuilding candidate6a with explicit argument. Protected source-reconstruction worktree untouched."
+    },
+    {
+      "time_utc": "2026-10-25T18:45:48.246461+00:00",
+      "candidate": "6a",
+      "commit": "1e031ec",
+      "package": "reverse/build/runtime-all-rebuilt-20261025T182329.918927Z",
+      "main_sha256": "1193e21970c41ed757257dc66c0d505a2ffb5bfa47f47dba39c6f01fd13a49e4",
+      "assembly_sha256": "6a9a484a5ec128688bb17fd0fa79c124fddd2235697428f5d990ffd1a94cdb99",
+      "strict_assembly": "164 rebuilt,0 fallback",
+      "observed": "Slot1 release cold village/post/journal, gold remains60000 reward50000, keyboard restored after journal. Slot5 main70 unsubmitted shows prerequisite/no marker/E no start. Slot6 earned prechoice checkpoint: beacon choice, node1 actual cold exit/reopen resumes1/3; choice locked after ritual begins; nodes2/3, beacon ending, distinct village/post/journal, gold10000→60000 claim50000, errors[]. Full exit; slots1 release and6 beacon both retained.",
+      "evidence": [
+        "private/035-candidate6a-release-cold-journal.json",
+        "private/036-candidate6a-locked-main70.png",
+        "private/038-candidate6a-beacon-mid-ritual.json",
+        "private/039-candidate6a-beacon-cold-node1.png",
+        "private/041-candidate6a-beacon-village.png",
+        "private/042-candidate6a-beacon-post.json"
+      ],
+      "invalid_evidence": "037 JSON retained slot5 after File>Recent created another window; not beacon proof. That attempted progression did not persist; discarded and redone after complete quit. Never use File>Recent with another game window open. Formal launcher already rejects running players.",
+      "protected_saves": "all four unchanged after full exit",
+      "limitations": [
+        "No6a fresh start-to-end full run",
+        "6a new Boss visuals not yet run",
+        "beacon completed-state cold read pending",
+        "final direct shortcut acceptance pending"
+      ]
+    },
+    {
+      "time_utc": "2026-10-25T18:59:55.032030+00:00",
+      "candidate": "7/7b-build-only",
+      "commit": "98973ea",
+      "main7b_sha256": "fdc82ff08c40b38be5b08879944a26d5c192a737e18841da0126b1d0f4dd140f",
+      "package7b": "reverse/build/runtime-all-rebuilt-20261025T185524.417086Z",
+      "strict_assembly": "164 rebuilt,0 fallback",
+      "runtime": "not launched; superseded before playtesting by future-version guard repair",
+      "added": "Residents/lanterns/stone idol/lamp niches; explicit three-step ending lights; bounded Boss retirement; story callbacks to original betrayal and compass; developer guide",
+      "found_before_launch": "ChapterState preserved future payload but Controller read v1-only missing fields, changed inChapter and could call undefined journal.concat. Candidate8 avoids creating v1 controller for unsupported versions and preserves opaque payload during native saves."
+    },
+    {
+      "time_utc": "2026-10-25T19:52:47.656304+00:00",
+      "candidate": "8",
+      "package": "reverse/build/runtime-all-rebuilt-20261025T190217.036891Z",
+      "main_sha256": "ee67137cda0c87e22cfcb86193443fcae90c4d44f4e0197f947582086c489d8b",
+      "assembly_sha256": "4d2ad7296b3c30038be64753db34e69df0c5142e86ab796590f841b4179823fc",
+      "strict_assembly": "164 rebuilt,0 fallback",
+      "observed": [
+        "Slot7 future version99: UI only static notice; original movement/save works; full quit/reopen unchanged; full opaque payload canonical AMF graph unchanged, slots1-6 unchanged. Initial field-order-sensitive comparison was corrected before conclusion.",
+        "Slot4 new graduation cap fixture actual full route: intro, bridge, relays, two rescues, navigation3/2/1, warden victory85.476s, both preparations, regent victory108.273s phase2/80hits/2interruptions/1sanctuary escape, release3nodes, animated light ritual, village/post/journal. No new victory flags injected.",
+        "Gold remains500000000; returnLight gold0 pending50000; poststory readable despite cap. Actual spend/refill/cold of this role still pending.",
+        "Original map8 star2: sword/staff kills,drops,room1→2→3 through normal doors. Door1 initially appeared blocked because player was on original overhead platform; step left to x1280/drop and return underneath solved without code.",
+        "Original castle room4 and room5 reached; actual original Enemy28 dark prince screenshot059 and defeated through normal sword/staff skills. Original summons remained before Return Town.",
+        "Actual native WantedPanel purchase spent80000 gold:500000000→499920000; E mentor paid pending50000 exactly, gold499970000, claim50000 pending0. Screenshot060/061. Full quit protected four SOL unchanged.",
+        "Candidate9 cold load slot4 preserved village release state, postread flags, gold499970000 and full claim; chapter entry hidden by native UI false positive, so repeated interaction pending fix."
+      ],
+      "evidence": "private/043–058;052 includes legit prechoice checkpoint SHA8072b1fe16426f419339ec636ac2c8187f1f83cf850cd3a03ccf43ad50bba15d",
+      "issues": [
+        "Bridge-open modal still freezes native finishing skill over scene. Candidate9 broadens presentation hide to all chapter modals.",
+        "Village chapter HUD overlays native world map/NPC panels. Candidate9 adds known-native-panel UI and input handoff."
+      ],
+      "limitations": [
+        "Not final same-package acceptance",
+        "Final shortcut unchanged",
+        "20–40min target not yet demonstrated; do not count tool wait/analysis as playtime",
+        "Slot7 future inChapter=true not tested"
+      ]
+    },
+    {
+      "time_utc": "2026-10-25T20:08:22.169584+00:00",
+      "candidate": "9-rejected-during-playtest",
+      "package": "reverse/build/runtime-all-rebuilt-20261025T195229.975186Z",
+      "main_sha256": "7d4cb0582123e3ef080ece33f712880032f056d4430ae1ff815fd9eb7fa81ec1",
+      "assembly_sha256": "a91006b639baec295d5d61a76a252638f3fa16ccc090d1c32f7c80abf933bf1b",
+      "strict_assembly": "164 rebuilt,0 fallback; launch inputs current",
+      "observed": "Cold slot4 ending state persists, gold499970000 claim50000 pending0. Native UI handoff falsely hides all chapter controls in empty village. Readonly observer root listing identifies two visible CardPanel shells with zero children and zero bounds.",
+      "evidence": [
+        "private/062-candidate9-hidden-entry-regression.png",
+        "private/062-candidate9-hidden-entry-regression.json"
+      ],
+      "fix": "Candidate10 requires actual visible nonempty on-screen descendants; preserves SelMap parent/child coordinate cancellation. Adds blocking leaf diagnostic; compiling, not yet validated."
+    },
+    {
+      "time_utc": "2026-10-25T20:26:00Z",
+      "candidate": "10b",
+      "package": "reverse/build/runtime-all-rebuilt-20261025T201440.553731Z",
+      "main_sha256": "52424c0a545fe2b446b9b4cfca08d3e853fdb0f7ac45cebed2058c2c076996ea",
+      "assembly_sha256": "15c7cd69b668b9d0dbc427aa99f75815800479389a8be3b2fa4ee67d0a20d874",
+      "strict_modules": 164,
+      "fallback": 0,
+      "observed": [
+        "slot4 cold release ending; gold499970000 reward50000 pending0",
+        "wanted/NPC/backpack/map/difficulty suppress chapter controls; empty CardPanel does not block",
+        "hold E on close does not auto-advance; fresh E works",
+        "post-resident dialogue, ending-first journal, completed title and checkmark visible",
+        "native pause/resume and original movement restored"
+      ],
+      "evidence": [
+        "private/063-candidate10b-completed-village.png",
+        "private/064-candidate10b-native-wanted.png",
+        "private/065-candidate10b-resident-poststory.png",
+        "private/066-candidate10b-ending-journal.png",
+        "private/067-candidate10b-native-difficulty.png",
+        "private/068-candidate10b-native-ui-regression.json"
+      ],
+      "protected_saves": [
+        {
+          "path": "/Users/AntiEntropy/Library/Preferences/Macromedia/Flash Player/#SharedObjects/NS57UMMB/localhost/yzlr2_saves.sol",
+          "unchanged": true
+        },
+        {
+          "path": "/Users/AntiEntropy/Library/Preferences/Macromedia/Flash Player/#SharedObjects/NS57UMMB/localhost/yzlr2_final.sol",
+          "unchanged": true
+        },
+        {
+          "path": "/Users/AntiEntropy/Library/Preferences/Macromedia/Flash Player/#SharedObjects/NS57UMMB/localhost/yzlr2_epilogue.sol",
+          "unchanged": true
+        },
+        {
+          "path": "/Users/AntiEntropy/Library/Preferences/Macromedia/Flash Player/#SharedObjects/NS57UMMB/localhost/yzlr2_rebuild_probe.sol",
+          "unchanged": true
+        }
+      ],
+      "pending": "same-package new normal/graduation full flows, death retry, final shortcut"
+    }
+  ],
+  "resume": {
+    "next": "candidate10b Main52424c0a… run-mwj70_hk built; strict assembly session70642. Test native UI and ending closure then integrate final worktree/entry and same-package runs.",
+    "player": "official debugger exited; last candidate9 slot4 release complete/refilled499970000",
+    "acceptance": "all final same-package pending; 7h earliest22:23:17UTC"
+  }
+}

@@ -1,0 +1,726 @@
+package com.hotpoint.braveManIII.models.container
+{
+   import com.hotpoint.braveManIII.models.title.*;
+   import src.*;
+   
+   public class TitleSlot
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var _slot:Array;
+      
+      private var _titleView:Title;
+      
+      private var _titleAttrib:Title;
+      
+      public function TitleSlot()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  findproperty QName(PrivateNamespace(null,"23"),"_slot")
+                  findpropstrict Multiname("Array",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                  constructprop Multiname("Array",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")]), 0
+                  initproperty QName(PrivateNamespace(null,"23"),"_slot")
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function createTitleSlot() : TitleSlot
+      {
+         trait method QName(PackageNamespace(""),"createTitleSlot")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               returns QName(PackageNamespace("com.hotpoint.braveManIII.models.container"),"TitleSlot")
+               
+               body
+                  maxstack 3
+                  localcount 3
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     construct 0
+                     coerce QName(PackageNamespace("com.hotpoint.braveManIII.models.container"),"TitleSlot")
+                     setlocal1
+                     pushbyte 0
+                     setlocal2
+                     jump ofs001b
+            ofs000f:
+                     label
+                     getlocal1
+                     getproperty Multiname("_slot",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                     getlocal2
+                     pushnull
+                     setproperty MultinameL([PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                     inclocal_i 2
+            ofs001b:
+                     getlocal2
+                     pushbyte 20
+                     iflt ofs000f
+                     getlocal1
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function getListLength() : Number
+         {
+            trait method QName(PackageNamespace(""),"getListLength")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"Number")
+                  
+                  body
+                     maxstack 2
+                     localcount 3
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushbyte 0
+                        convert_d
+                        setlocal1
+                        pushbyte 0
+                        setlocal2
+                        jump ofs0020
+               ofs000d:
+                        label
+                        getlex Multiname("_slot",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                        getlocal1
+                        getproperty MultinameL([PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                        pushnull
+                        ifeq ofs001e
+                        getlocal1
+                        increment
+                        convert_d
+                        setlocal1
+               ofs001e:
+                        inclocal_i 2
+               ofs0020:
+                        getlocal2
+                        pushbyte 20
+                        iflt ofs000d
+                        getlocal1
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function getTitleFromSlot(param1:Number) : Title
+            {
+               trait method QName(PackageNamespace(""),"getTitleFromSlot")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"Number")
+                     returns QName(PackageNamespace("com.hotpoint.braveManIII.models.title"),"Title")
+                     
+                     body
+                        maxstack 2
+                        localcount 2
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlex Multiname("_slot",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                           getlocal1
+                           getproperty MultinameL([PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                           pushnull
+                           ifeq ofs0016
+                           getlex Multiname("_slot",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                           getlocal1
+                           getproperty MultinameL([PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                           returnvalue
+                  ofs0016:
+                           pushnull
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function addToSlot(param1:Title) : *
+               {
+                  trait method QName(PackageNamespace(""),"addToSlot")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("com.hotpoint.braveManIII.models.title"),"Title")
+                        returns null
+                        
+                        body
+                           maxstack 3
+                           localcount 3
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushbyte 0
+                              setlocal2
+                              jump ofs0064
+                     ofs0009:
+                              label
+                              getlex Multiname("_slot",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                              getlocal2
+                              getproperty MultinameL([PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                              pushnull
+                              ifne ofs0034
+                              getlex Multiname("_slot",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                              getlocal2
+                              getlocal1
+                              setproperty MultinameL([PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                              findproperty Multiname("_titleView",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                              getlocal1
+                              initproperty Multiname("_titleView",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                              findproperty Multiname("_titleAttrib",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                              getlocal1
+                              initproperty Multiname("_titleAttrib",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                              jump ofs006b
+                              jump ofs0034
+                     ofs0034:
+                              getlex Multiname("_slot",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                              getlocal2
+                              getproperty MultinameL([PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                              getlex Multiname("Title",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot"),PackageNamespace("com.hotpoint.braveManIII.models.title")])
+                              astypelate
+                              getlocal1
+                              callproperty Multiname("compare",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")]), 1
+                              iffalse ofs0062
+                              getlex Multiname("_slot",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                              getlocal2
+                              getlocal1
+                              setproperty MultinameL([PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                              findproperty Multiname("_titleView",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                              getlocal1
+                              initproperty Multiname("_titleView",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                              findproperty Multiname("_titleAttrib",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                              getlocal1
+                              initproperty Multiname("_titleAttrib",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                              jump ofs006b
+                     ofs0062:
+                              inclocal_i 2
+                     ofs0064:
+                              getlocal2
+                              pushbyte 20
+                              iflt ofs0009
+                     ofs006b:
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function delFromSlot(param1:Number) : Boolean
+                  {
+                     trait method QName(PackageNamespace(""),"delFromSlot")
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace(""),"Number")
+                           returns QName(PackageNamespace(""),"Boolean")
+                           
+                           body
+                              maxstack 3
+                              localcount 2
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlex Multiname("_slot",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                 getlocal1
+                                 getproperty MultinameL([PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                 pushnull
+                                 ifeq ofs0028
+                                 getlex Multiname("_slot",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                 getlocal1
+                                 pushbyte 1
+                                 callpropvoid Multiname("splice",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")]), 2
+                                 findproperty Multiname("_titleView",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                 pushnull
+                                 initproperty Multiname("_titleView",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                 findproperty Multiname("_titleAttrib",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                 pushnull
+                                 initproperty Multiname("_titleAttrib",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                 pushtrue
+                                 returnvalue
+                        ofs0028:
+                                 pushfalse
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function setTitleView(param1:Title) : *
+                     {
+                        trait method QName(PackageNamespace(""),"setTitleView")
+                           dispid 0
+                           method
+                              name null
+                              param QName(PackageNamespace("com.hotpoint.braveManIII.models.title"),"Title")
+                              returns null
+                              
+                              body
+                                 maxstack 2
+                                 localcount 2
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    findproperty Multiname("_titleView",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                    getlocal1
+                                    initproperty Multiname("_titleView",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function delTitleView() : *
+                        {
+                           trait method QName(PackageNamespace(""),"delTitleView")
+                              dispid 0
+                              method
+                                 name null
+                                 returns null
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       findproperty Multiname("_titleView",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                       pushnull
+                                       initproperty Multiname("_titleView",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function getTitleView() : Title
+                           {
+                              trait method QName(PackageNamespace(""),"getTitleView")
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace("com.hotpoint.braveManIII.models.title"),"Title")
+                                    
+                                    body
+                                       maxstack 1
+                                       localcount 1
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlex Multiname("_titleView",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function setTitleAttrib(param1:Title) : *
+                              {
+                                 trait method QName(PackageNamespace(""),"setTitleAttrib")
+                                    dispid 0
+                                    method
+                                       name null
+                                       param QName(PackageNamespace("com.hotpoint.braveManIII.models.title"),"Title")
+                                       returns null
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 2
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             findproperty Multiname("_titleAttrib",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                             getlocal1
+                                             initproperty Multiname("_titleAttrib",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function delTitleAttrib() : *
+                                 {
+                                    trait method QName(PackageNamespace(""),"delTitleAttrib")
+                                       dispid 0
+                                       method
+                                          name null
+                                          returns null
+                                          
+                                          body
+                                             maxstack 2
+                                             localcount 1
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                findproperty Multiname("_titleAttrib",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                pushnull
+                                                initproperty Multiname("_titleAttrib",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    public function getTitleAttrib() : Title
+                                    {
+                                       trait method QName(PackageNamespace(""),"getTitleAttrib")
+                                          dispid 0
+                                          method
+                                             name null
+                                             returns QName(PackageNamespace("com.hotpoint.braveManIII.models.title"),"Title")
+                                             
+                                             body
+                                                maxstack 1
+                                                localcount 1
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlex Multiname("_titleAttrib",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                   returnvalue
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       public function debugTitle() : *
+                                       {
+                                          trait method QName(PackageNamespace(""),"debugTitle")
+                                             dispid 0
+                                             method
+                                                name null
+                                                returns null
+                                                
+                                                body
+                                                   maxstack 3
+                                                   localcount 3
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      pushbyte 0
+                                                      convert_u
+                                                      setlocal2
+                                                      pushbyte 0
+                                                      convert_u
+                                                      setlocal1
+                                                      jump ofs006c
+                                             ofs000e:
+                                                      label
+                                                      getlocal1
+                                                      pushbyte 1
+                                                      add
+                                                      convert_u
+                                                      setlocal2
+                                                      jump ofs0061
+                                             ofs0019:
+                                                      label
+                                                      getlex Multiname("_slot",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                      getlocal1
+                                                      getproperty MultinameL([PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                      convert_b
+                                                      dup
+                                                      iffalse ofs0030
+                                                      pop
+                                                      getlex Multiname("_slot",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                      getlocal2
+                                                      getproperty MultinameL([PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                      convert_b
+                                             ofs0030:
+                                                      dup
+                                                      iffalse ofs004d
+                                                      pop
+                                                      getlex Multiname("_slot",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                      getlocal1
+                                                      getproperty MultinameL([PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                      getlex Multiname("Title",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot"),PackageNamespace("com.hotpoint.braveManIII.models.title")])
+                                                      astypelate
+                                                      getlex Multiname("_slot",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                      getlocal2
+                                                      getproperty MultinameL([PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                      callproperty Multiname("compare",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")]), 1
+                                                      convert_b
+                                             ofs004d:
+                                                      iffalse ofs005d
+                                                      findpropstrict Multiname("delFromSlot",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                      getlocal2
+                                                      callpropvoid Multiname("delFromSlot",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")]), 1
+                                                      getlocal2
+                                                      decrement
+                                                      convert_u
+                                                      setlocal2
+                                             ofs005d:
+                                                      getlocal2
+                                                      increment
+                                                      convert_u
+                                                      setlocal2
+                                             ofs0061:
+                                                      getlocal2
+                                                      pushbyte 19
+                                                      iflt ofs0019
+                                                      getlocal1
+                                                      increment
+                                                      convert_u
+                                                      setlocal1
+                                             ofs006c:
+                                                      getlocal1
+                                                      pushbyte 20
+                                                      iflt ofs000e
+                                                      returnvoid
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          public function get titleView() : Title
+                                          {
+                                             trait getter QName(PackageNamespace(""),"titleView")
+                                                dispid 0
+                                                method
+                                                   name null
+                                                   returns QName(PackageNamespace("com.hotpoint.braveManIII.models.title"),"Title")
+                                                   
+                                                   body
+                                                      maxstack 1
+                                                      localcount 1
+                                                      initscopedepth 4
+                                                      maxscopedepth 5
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         getlex Multiname("_titleView",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                         returnvalue
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             public function set titleView(param1:Title) : void
+                                             {
+                                                trait setter QName(PackageNamespace(""),"titleView")
+                                                   dispid 0
+                                                   method
+                                                      name null
+                                                      param QName(PackageNamespace("com.hotpoint.braveManIII.models.title"),"Title")
+                                                      returns QName(PackageNamespace(""),"void")
+                                                      
+                                                      body
+                                                         maxstack 2
+                                                         localcount 2
+                                                         initscopedepth 4
+                                                         maxscopedepth 5
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            findproperty Multiname("_titleView",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                            getlocal1
+                                                            initproperty Multiname("_titleView",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                            returnvoid
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                                
+                                                public function get titleAttrib() : Title
+                                                {
+                                                   trait getter QName(PackageNamespace(""),"titleAttrib")
+                                                      dispid 0
+                                                      method
+                                                         name null
+                                                         returns QName(PackageNamespace("com.hotpoint.braveManIII.models.title"),"Title")
+                                                         
+                                                         body
+                                                            maxstack 1
+                                                            localcount 1
+                                                            initscopedepth 4
+                                                            maxscopedepth 5
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               getlex Multiname("_titleAttrib",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                               returnvalue
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                   }
+                                                   
+                                                   public function set titleAttrib(param1:Title) : void
+                                                   {
+                                                      trait setter QName(PackageNamespace(""),"titleAttrib")
+                                                         dispid 0
+                                                         method
+                                                            name null
+                                                            param QName(PackageNamespace("com.hotpoint.braveManIII.models.title"),"Title")
+                                                            returns QName(PackageNamespace(""),"void")
+                                                            
+                                                            body
+                                                               maxstack 2
+                                                               localcount 2
+                                                               initscopedepth 4
+                                                               maxscopedepth 5
+                                                               
+                                                               code
+                                                                  getlocal0
+                                                                  pushscope
+                                                                  findproperty Multiname("_titleAttrib",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                                  getlocal1
+                                                                  initproperty Multiname("_titleAttrib",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                                  returnvoid
+                                                               end ; code
+                                                            end ; body
+                                                         end ; method
+                                                      }
+                                                      
+                                                      public function get slot() : Array
+                                                      {
+                                                         trait getter QName(PackageNamespace(""),"slot")
+                                                            dispid 0
+                                                            method
+                                                               name null
+                                                               returns QName(PackageNamespace(""),"Array")
+                                                               
+                                                               body
+                                                                  maxstack 1
+                                                                  localcount 1
+                                                                  initscopedepth 4
+                                                                  maxscopedepth 5
+                                                                  
+                                                                  code
+                                                                     getlocal0
+                                                                     pushscope
+                                                                     getlex Multiname("_slot",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                                     returnvalue
+                                                                  end ; code
+                                                               end ; body
+                                                            end ; method
+                                                         }
+                                                         
+                                                         public function set slot(param1:Array) : void
+                                                         {
+                                                            trait setter QName(PackageNamespace(""),"slot")
+                                                               dispid 0
+                                                               method
+                                                                  name null
+                                                                  param QName(PackageNamespace(""),"Array")
+                                                                  returns QName(PackageNamespace(""),"void")
+                                                                  
+                                                                  body
+                                                                     maxstack 2
+                                                                     localcount 2
+                                                                     initscopedepth 4
+                                                                     maxscopedepth 5
+                                                                     
+                                                                     code
+                                                                        getlocal0
+                                                                        pushscope
+                                                                        findproperty Multiname("_slot",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                                        getlocal1
+                                                                        initproperty Multiname("_slot",[PrivateNamespace(null,"23"),PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src"),ProtectedNamespace("com.hotpoint.braveManIII.models.container:TitleSlot"),StaticProtectedNs("com.hotpoint.braveManIII.models.container:TitleSlot")])
+                                                                        returnvoid
+                                                                     end ; code
+                                                                  end ; body
+                                                               end ; method
+                                                            }
+                                                         }
+                                                      }
+                                                      
+                                                      method
+                                                         name null
+                                                         returns null
+                                                         
+                                                         body
+                                                            maxstack 2
+                                                            localcount 1
+                                                            initscopedepth 1
+                                                            maxscopedepth 3
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               findpropstrict Multiname("TitleSlot",[PackageNamespace("com.hotpoint.braveManIII.models.container")])
+                                                               getlex QName(PackageNamespace(""),"Object")
+                                                               pushscope
+                                                               getlex Multiname("Object",[PackageNamespace("com.hotpoint.braveManIII.models.container"),PrivateNamespace(null,"253"),PackageNamespace(""),PackageInternalNs("com.hotpoint.braveManIII.models.container"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("src")])
+                                                               newclass 32
+                                                               popscope
+                                                               initproperty QName(PackageNamespace("com.hotpoint.braveManIII.models.container"),"TitleSlot")
+                                                               returnvoid
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                      

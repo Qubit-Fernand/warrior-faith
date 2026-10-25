@@ -1,0 +1,4988 @@
+{
+  "schema": 1,
+  "module": "Enemy52_v2",
+  "output_sha256": "f7c3c0c20d96d384db6c14f486920c0dad9a07d4c1611a9d2feecc2473c5e2f9",
+  "generation": "8755f7f9-f6c1-4c83-adb5-134d464ff861",
+  "build_receipt": "reverse/experiments/module-probe/Enemy52_v2/result.json",
+  "build_receipt_sha256": "b38f5fc4fe0597ed3fceeb46acccbb07db75fee66078a5012ba6c2dedb73336f",
+  "source_freeze_sha256": "c38cfb9817b930010bf7ded0448ab86454697068c09df28215c9ca7b000b7985",
+  "verified_method_count": 23,
+  "checker_inputs": {
+    "reverse/tools/verify_nonmain_semantic_repairs.py": "6f5c10f38adb1734eb3e2c7885e019b1c364686520bffcee1558edc78e81068b",
+    "reverse/tools/audit_decrement_semantics.py": "50ae3ce291460c8f224c01f43609f1ba254696319e6775e6e4f774d1350d85e3",
+    "reverse/tools/audit_ordered_comparisons.py": "7891f96e3babb900129db668523bc3fc8b4c271348df97ccdcc3e18f2b9a396d",
+    "reverse/tools/audit_shop_cfg.py": "7a5b7141cb60da56c911dc608b10bd6ef752c180970cbe25fe3564da5ba85a77",
+    "reverse/tools/nonstack_path_interpreter.py": "c0206b8f987834ee87337608f8e2f082cb452744351216ffdabc0fc74bc0f383",
+    "reverse/tools/audit_continue_loops.py": "0aa2f3adb3588d75c7a4b5e946cb724e1284a95cd6d26d25e7d1670d45ce9a9c",
+    "reverse/manifests/nonmain-semantic-source-freeze.json": "c38cfb9817b930010bf7ded0448ab86454697068c09df28215c9ca7b000b7985",
+    "reverse/manifests/addgold-copy-repair-applied.json": "b2af12d2288f635e62c4933fc27fa2fac41670180f68dafeb59be8579ab3fd04",
+    "reverse/manifests/addgold-original-49-proof.json": "dce11c54d0b1bf68838bc12d651d3c51fd9dc6593e2669ff245ab6826b57d1d4",
+    "reverse/manifests/addgold-copy-repair-candidates.json": "8c660948a7638c6026204db3e5d5921c1118cf37005c3e24584a2d1b75c714e0",
+    "reverse/manifests/nonstack-copy-original-proof.json": "dad6aec4503d9bfcc51852c12dab235f4c39dea4f3c3c11c5844cb558fe9a702",
+    "reverse/manifests/ordered-copy-original-proof.json": "2c3d6656c2c104e557ce10ddba938461947d4e95b0166fa0fe472dd3c3b1f239",
+    "reverse/manifests/continue-copy-original-proof.json": "ae7764ce32657afcc112714e81eddbd486fa5ebd246523f8baefd62800792629",
+    "reverse/manifests/enemy202-nonstack-proof.json": "9cac6388257aca9a9e613a5bab65e41bf63eacc75f60f4f9d3a1110c3f5186d8",
+    "reverse/manifests/trace-continue-copies-proof.json": "9e8cf879ea50ffd3fd1f80afcfc263ffd92cb7bea3c4a09256707942395e6d7c"
+  },
+  "results": [
+    {
+      "class": "com/hotpoint/braveManIII/models/player/PlayerData",
+      "method": "addGold",
+      "kind": "gold",
+      "pcode_sha256": "1e2b9e6ea47d0f2d456ae11703e2ba35395f2c2a0c64f1ee219d3456e53ea85b",
+      "method_instructions_sha256": "205ffb8c2b38e75ecee5d06669c38e86d95423bd5349ece684bd654138905292",
+      "witness": {
+        "branch": {
+          "line": 2862,
+          "code": "iffalse ofs0024"
+        },
+        "operand_context": [
+          {
+            "line": 2852,
+            "code": "add"
+          },
+          {
+            "line": 2853,
+            "code": "convert_d"
+          },
+          {
+            "line": 2854,
+            "code": "setlocal2"
+          },
+          {
+            "line": 2855,
+            "code": "getlocal2"
+          },
+          {
+            "line": 2856,
+            "code": "findpropstrict Multiname(\"InitData\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.player:PlayerData\"),PackageNamespace(\"com.hotpoint.braveManIII.models.player\"),PrivateNamespace(\"PlayerData.as$124\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.player\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.common\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.skill\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.supplies\"),PackageNamespace(\"com.hotpoint.braveManIII.views.itemsPanel\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setProfession\"),PackageNamespace(\"flash.utils\"),PackageNamespace(\"src\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.player:PlayerData\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.player:PlayerData\")])"
+          },
+          {
+            "line": 2857,
+            "code": "getproperty Multiname(\"InitData\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.player:PlayerData\"),PackageNamespace(\"com.hotpoint.braveManIII.models.player\"),PrivateNamespace(\"PlayerData.as$124\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.player\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.common\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.skill\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.supplies\"),PackageNamespace(\"com.hotpoint.braveManIII.views.itemsPanel\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setProfession\"),PackageNamespace(\"flash.utils\"),PackageNamespace(\"src\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.player:PlayerData\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.player:PlayerData\")])"
+          },
+          {
+            "line": 2858,
+            "code": "getproperty Multiname(\"Money_max\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.player:PlayerData\"),PackageNamespace(\"com.hotpoint.braveManIII.models.player\"),PrivateNamespace(\"PlayerData.as$124\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.player\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.common\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.skill\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.supplies\"),PackageNamespace(\"com.hotpoint.braveManIII.views.itemsPanel\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setProfession\"),PackageNamespace(\"flash.utils\"),PackageNamespace(\"src\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.player:PlayerData\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.player:PlayerData\")])"
+          },
+          {
+            "line": 2859,
+            "code": "callproperty Multiname(\"getValue\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.player:PlayerData\"),PackageNamespace(\"com.hotpoint.braveManIII.models.player\"),PrivateNamespace(\"PlayerData.as$124\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.player\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.common\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.skill\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.supplies\"),PackageNamespace(\"com.hotpoint.braveManIII.views.itemsPanel\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setProfession\"),PackageNamespace(\"flash.utils\"),PackageNamespace(\"src\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.player:PlayerData\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.player:PlayerData\")]), 0"
+          },
+          {
+            "line": 2860,
+            "code": "greaterthan"
+          },
+          {
+            "line": 2861,
+            "code": "not"
+          }
+        ],
+        "taken_path_to_next_branch_or_return": [
+          {
+            "line": 2868,
+            "code": "ofs0024:"
+          },
+          {
+            "line": 2869,
+            "code": "returnvoid"
+          }
+        ],
+        "fallthrough_path_to_next_branch_or_return": [
+          {
+            "line": 2863,
+            "code": "getlocal0"
+          },
+          {
+            "line": 2864,
+            "code": "getproperty Multiname(\"_gold\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.player:PlayerData\"),PackageNamespace(\"com.hotpoint.braveManIII.models.player\"),PrivateNamespace(\"PlayerData.as$124\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.player\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.common\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.skill\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.supplies\"),PackageNamespace(\"com.hotpoint.braveManIII.views.itemsPanel\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setProfession\"),PackageNamespace(\"flash.utils\"),PackageNamespace(\"src\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.player:PlayerData\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.player:PlayerData\")])"
+          },
+          {
+            "line": 2865,
+            "code": "getlocal2"
+          },
+          {
+            "line": 2866,
+            "code": "callproperty Multiname(\"setValue\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.player:PlayerData\"),PackageNamespace(\"com.hotpoint.braveManIII.models.player\"),PrivateNamespace(\"PlayerData.as$124\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.player\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.common\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.skill\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.supplies\"),PackageNamespace(\"com.hotpoint.braveManIII.views.itemsPanel\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setKeyPanel\"),PackageNamespace(\"com.hotpoint.braveManIII.views.setProfession\"),PackageNamespace(\"flash.utils\"),PackageNamespace(\"src\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.player:PlayerData\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.player:PlayerData\")]), 1"
+          },
+          {
+            "line": 2867,
+            "code": "pop"
+          },
+          {
+            "line": 2868,
+            "code": "ofs0024:"
+          },
+          {
+            "line": 2869,
+            "code": "returnvoid"
+          }
+        ]
+      }
+    },
+    {
+      "class": "com/hotpoint/braveManIII/models/container/Bag",
+      "method": "isGemBagEmpty",
+      "kind": "loop",
+      "pcode_sha256": "f8ffe2c9bf994931dd990b7e82a4a6a34205f227e32226d92b864147e5031c33",
+      "method_instructions_sha256": "ad10d351c6d1db739f6b2b02c568ab18573ebbeaad3c209444bc795d6b77ee92",
+      "cases": [
+        {
+          "hole": 0,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 30,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 1,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 47,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 2,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 64,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 3,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 81,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 4,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 98,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 5,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 115,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 6,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 132,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 7,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 149,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 8,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 166,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 9,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 183,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 10,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 200,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 11,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 217,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 12,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 234,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 13,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 251,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 14,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 268,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 15,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 285,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 16,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 302,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 17,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 319,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 18,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 336,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 19,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 353,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 20,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 370,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 21,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 387,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 22,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 404,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": 23,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 421,
+            "writes": false,
+            "written_indexes": []
+          }
+        },
+        {
+          "hole": null,
+          "result": {
+            "termination": "return",
+            "value": false,
+            "steps": 430,
+            "writes": false,
+            "written_indexes": []
+          }
+        }
+      ]
+    },
+    {
+      "class": "com/hotpoint/braveManIII/models/container/Bag",
+      "method": "addGemBag",
+      "kind": "loop",
+      "pcode_sha256": "f8ffe2c9bf994931dd990b7e82a4a6a34205f227e32226d92b864147e5031c33",
+      "method_instructions_sha256": "4d585741450297d885f20cb8f9d22101c40659448c14694d4c600d533163d247",
+      "cases": [
+        {
+          "hole": 0,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 38,
+            "writes": true,
+            "written_indexes": [
+              0
+            ]
+          }
+        },
+        {
+          "hole": 1,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 55,
+            "writes": true,
+            "written_indexes": [
+              1
+            ]
+          }
+        },
+        {
+          "hole": 2,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 72,
+            "writes": true,
+            "written_indexes": [
+              2
+            ]
+          }
+        },
+        {
+          "hole": 3,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 89,
+            "writes": true,
+            "written_indexes": [
+              3
+            ]
+          }
+        },
+        {
+          "hole": 4,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 106,
+            "writes": true,
+            "written_indexes": [
+              4
+            ]
+          }
+        },
+        {
+          "hole": 5,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 123,
+            "writes": true,
+            "written_indexes": [
+              5
+            ]
+          }
+        },
+        {
+          "hole": 6,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 140,
+            "writes": true,
+            "written_indexes": [
+              6
+            ]
+          }
+        },
+        {
+          "hole": 7,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 157,
+            "writes": true,
+            "written_indexes": [
+              7
+            ]
+          }
+        },
+        {
+          "hole": 8,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 174,
+            "writes": true,
+            "written_indexes": [
+              8
+            ]
+          }
+        },
+        {
+          "hole": 9,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 191,
+            "writes": true,
+            "written_indexes": [
+              9
+            ]
+          }
+        },
+        {
+          "hole": 10,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 208,
+            "writes": true,
+            "written_indexes": [
+              10
+            ]
+          }
+        },
+        {
+          "hole": 11,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 225,
+            "writes": true,
+            "written_indexes": [
+              11
+            ]
+          }
+        },
+        {
+          "hole": 12,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 242,
+            "writes": true,
+            "written_indexes": [
+              12
+            ]
+          }
+        },
+        {
+          "hole": 13,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 259,
+            "writes": true,
+            "written_indexes": [
+              13
+            ]
+          }
+        },
+        {
+          "hole": 14,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 276,
+            "writes": true,
+            "written_indexes": [
+              14
+            ]
+          }
+        },
+        {
+          "hole": 15,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 293,
+            "writes": true,
+            "written_indexes": [
+              15
+            ]
+          }
+        },
+        {
+          "hole": 16,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 310,
+            "writes": true,
+            "written_indexes": [
+              16
+            ]
+          }
+        },
+        {
+          "hole": 17,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 327,
+            "writes": true,
+            "written_indexes": [
+              17
+            ]
+          }
+        },
+        {
+          "hole": 18,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 344,
+            "writes": true,
+            "written_indexes": [
+              18
+            ]
+          }
+        },
+        {
+          "hole": 19,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 361,
+            "writes": true,
+            "written_indexes": [
+              19
+            ]
+          }
+        },
+        {
+          "hole": 20,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 378,
+            "writes": true,
+            "written_indexes": [
+              20
+            ]
+          }
+        },
+        {
+          "hole": 21,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 395,
+            "writes": true,
+            "written_indexes": [
+              21
+            ]
+          }
+        },
+        {
+          "hole": 22,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 412,
+            "writes": true,
+            "written_indexes": [
+              22
+            ]
+          }
+        },
+        {
+          "hole": 23,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 429,
+            "writes": true,
+            "written_indexes": [
+              23
+            ]
+          }
+        },
+        {
+          "hole": null,
+          "result": {
+            "termination": "return",
+            "value": false,
+            "steps": 433,
+            "writes": false,
+            "written_indexes": []
+          }
+        }
+      ]
+    },
+    {
+      "class": "com/hotpoint/braveManIII/models/container/Bag",
+      "method": "addOtherobjBag",
+      "kind": "loop",
+      "pcode_sha256": "f8ffe2c9bf994931dd990b7e82a4a6a34205f227e32226d92b864147e5031c33",
+      "method_instructions_sha256": "ff978d3a4aa7f0f62288f1dfe14a749ab2ed8dbc620b45ad1f35494eff47e8c1",
+      "cases": [
+        {
+          "hole": 0,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 38,
+            "writes": true,
+            "written_indexes": [
+              0
+            ]
+          }
+        },
+        {
+          "hole": 1,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 55,
+            "writes": true,
+            "written_indexes": [
+              1
+            ]
+          }
+        },
+        {
+          "hole": 2,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 72,
+            "writes": true,
+            "written_indexes": [
+              2
+            ]
+          }
+        },
+        {
+          "hole": 3,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 89,
+            "writes": true,
+            "written_indexes": [
+              3
+            ]
+          }
+        },
+        {
+          "hole": 4,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 106,
+            "writes": true,
+            "written_indexes": [
+              4
+            ]
+          }
+        },
+        {
+          "hole": 5,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 123,
+            "writes": true,
+            "written_indexes": [
+              5
+            ]
+          }
+        },
+        {
+          "hole": 6,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 140,
+            "writes": true,
+            "written_indexes": [
+              6
+            ]
+          }
+        },
+        {
+          "hole": 7,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 157,
+            "writes": true,
+            "written_indexes": [
+              7
+            ]
+          }
+        },
+        {
+          "hole": 8,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 174,
+            "writes": true,
+            "written_indexes": [
+              8
+            ]
+          }
+        },
+        {
+          "hole": 9,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 191,
+            "writes": true,
+            "written_indexes": [
+              9
+            ]
+          }
+        },
+        {
+          "hole": 10,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 208,
+            "writes": true,
+            "written_indexes": [
+              10
+            ]
+          }
+        },
+        {
+          "hole": 11,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 225,
+            "writes": true,
+            "written_indexes": [
+              11
+            ]
+          }
+        },
+        {
+          "hole": 12,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 242,
+            "writes": true,
+            "written_indexes": [
+              12
+            ]
+          }
+        },
+        {
+          "hole": 13,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 259,
+            "writes": true,
+            "written_indexes": [
+              13
+            ]
+          }
+        },
+        {
+          "hole": 14,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 276,
+            "writes": true,
+            "written_indexes": [
+              14
+            ]
+          }
+        },
+        {
+          "hole": 15,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 293,
+            "writes": true,
+            "written_indexes": [
+              15
+            ]
+          }
+        },
+        {
+          "hole": 16,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 310,
+            "writes": true,
+            "written_indexes": [
+              16
+            ]
+          }
+        },
+        {
+          "hole": 17,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 327,
+            "writes": true,
+            "written_indexes": [
+              17
+            ]
+          }
+        },
+        {
+          "hole": 18,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 344,
+            "writes": true,
+            "written_indexes": [
+              18
+            ]
+          }
+        },
+        {
+          "hole": 19,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 361,
+            "writes": true,
+            "written_indexes": [
+              19
+            ]
+          }
+        },
+        {
+          "hole": 20,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 378,
+            "writes": true,
+            "written_indexes": [
+              20
+            ]
+          }
+        },
+        {
+          "hole": 21,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 395,
+            "writes": true,
+            "written_indexes": [
+              21
+            ]
+          }
+        },
+        {
+          "hole": 22,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 412,
+            "writes": true,
+            "written_indexes": [
+              22
+            ]
+          }
+        },
+        {
+          "hole": 23,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 429,
+            "writes": true,
+            "written_indexes": [
+              23
+            ]
+          }
+        },
+        {
+          "hole": null,
+          "result": {
+            "termination": "return",
+            "value": false,
+            "steps": 433,
+            "writes": false,
+            "written_indexes": []
+          }
+        }
+      ]
+    },
+    {
+      "class": "com/hotpoint/braveManIII/models/container/Bag",
+      "method": "addQuestBag",
+      "kind": "loop",
+      "pcode_sha256": "f8ffe2c9bf994931dd990b7e82a4a6a34205f227e32226d92b864147e5031c33",
+      "method_instructions_sha256": "468e1a725d9c16810429752c4490680baae0d13b57c3126e83ac6c5231ac5eae",
+      "cases": [
+        {
+          "hole": 0,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 38,
+            "writes": true,
+            "written_indexes": [
+              0
+            ]
+          }
+        },
+        {
+          "hole": 1,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 55,
+            "writes": true,
+            "written_indexes": [
+              1
+            ]
+          }
+        },
+        {
+          "hole": 2,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 72,
+            "writes": true,
+            "written_indexes": [
+              2
+            ]
+          }
+        },
+        {
+          "hole": 3,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 89,
+            "writes": true,
+            "written_indexes": [
+              3
+            ]
+          }
+        },
+        {
+          "hole": 4,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 106,
+            "writes": true,
+            "written_indexes": [
+              4
+            ]
+          }
+        },
+        {
+          "hole": 5,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 123,
+            "writes": true,
+            "written_indexes": [
+              5
+            ]
+          }
+        },
+        {
+          "hole": 6,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 140,
+            "writes": true,
+            "written_indexes": [
+              6
+            ]
+          }
+        },
+        {
+          "hole": 7,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 157,
+            "writes": true,
+            "written_indexes": [
+              7
+            ]
+          }
+        },
+        {
+          "hole": 8,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 174,
+            "writes": true,
+            "written_indexes": [
+              8
+            ]
+          }
+        },
+        {
+          "hole": 9,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 191,
+            "writes": true,
+            "written_indexes": [
+              9
+            ]
+          }
+        },
+        {
+          "hole": 10,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 208,
+            "writes": true,
+            "written_indexes": [
+              10
+            ]
+          }
+        },
+        {
+          "hole": 11,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 225,
+            "writes": true,
+            "written_indexes": [
+              11
+            ]
+          }
+        },
+        {
+          "hole": 12,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 242,
+            "writes": true,
+            "written_indexes": [
+              12
+            ]
+          }
+        },
+        {
+          "hole": 13,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 259,
+            "writes": true,
+            "written_indexes": [
+              13
+            ]
+          }
+        },
+        {
+          "hole": 14,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 276,
+            "writes": true,
+            "written_indexes": [
+              14
+            ]
+          }
+        },
+        {
+          "hole": 15,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 293,
+            "writes": true,
+            "written_indexes": [
+              15
+            ]
+          }
+        },
+        {
+          "hole": 16,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 310,
+            "writes": true,
+            "written_indexes": [
+              16
+            ]
+          }
+        },
+        {
+          "hole": 17,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 327,
+            "writes": true,
+            "written_indexes": [
+              17
+            ]
+          }
+        },
+        {
+          "hole": 18,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 344,
+            "writes": true,
+            "written_indexes": [
+              18
+            ]
+          }
+        },
+        {
+          "hole": 19,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 361,
+            "writes": true,
+            "written_indexes": [
+              19
+            ]
+          }
+        },
+        {
+          "hole": 20,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 378,
+            "writes": true,
+            "written_indexes": [
+              20
+            ]
+          }
+        },
+        {
+          "hole": 21,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 395,
+            "writes": true,
+            "written_indexes": [
+              21
+            ]
+          }
+        },
+        {
+          "hole": 22,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 412,
+            "writes": true,
+            "written_indexes": [
+              22
+            ]
+          }
+        },
+        {
+          "hole": 23,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 429,
+            "writes": true,
+            "written_indexes": [
+              23
+            ]
+          }
+        },
+        {
+          "hole": null,
+          "result": {
+            "termination": "return",
+            "value": false,
+            "steps": 433,
+            "writes": false,
+            "written_indexes": []
+          }
+        }
+      ]
+    },
+    {
+      "class": "com/hotpoint/braveManIII/models/container/Storage",
+      "method": "addGemStorage",
+      "kind": "loop",
+      "pcode_sha256": "0adf62d470fbfc244de97c93a0d9d71f27287c546df50835d94f9d5ff9cd5a15",
+      "method_instructions_sha256": "b81db93d1778135cb2d10bb2538a8db11bdb6357f9fa883087a82121cf5cf80a",
+      "cases": [
+        {
+          "hole": 0,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 38,
+            "writes": true,
+            "written_indexes": [
+              0
+            ]
+          }
+        },
+        {
+          "hole": 1,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 55,
+            "writes": true,
+            "written_indexes": [
+              1
+            ]
+          }
+        },
+        {
+          "hole": 2,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 72,
+            "writes": true,
+            "written_indexes": [
+              2
+            ]
+          }
+        },
+        {
+          "hole": 3,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 89,
+            "writes": true,
+            "written_indexes": [
+              3
+            ]
+          }
+        },
+        {
+          "hole": 4,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 106,
+            "writes": true,
+            "written_indexes": [
+              4
+            ]
+          }
+        },
+        {
+          "hole": 5,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 123,
+            "writes": true,
+            "written_indexes": [
+              5
+            ]
+          }
+        },
+        {
+          "hole": 6,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 140,
+            "writes": true,
+            "written_indexes": [
+              6
+            ]
+          }
+        },
+        {
+          "hole": 7,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 157,
+            "writes": true,
+            "written_indexes": [
+              7
+            ]
+          }
+        },
+        {
+          "hole": 8,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 174,
+            "writes": true,
+            "written_indexes": [
+              8
+            ]
+          }
+        },
+        {
+          "hole": 9,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 191,
+            "writes": true,
+            "written_indexes": [
+              9
+            ]
+          }
+        },
+        {
+          "hole": 10,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 208,
+            "writes": true,
+            "written_indexes": [
+              10
+            ]
+          }
+        },
+        {
+          "hole": 11,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 225,
+            "writes": true,
+            "written_indexes": [
+              11
+            ]
+          }
+        },
+        {
+          "hole": 12,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 242,
+            "writes": true,
+            "written_indexes": [
+              12
+            ]
+          }
+        },
+        {
+          "hole": 13,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 259,
+            "writes": true,
+            "written_indexes": [
+              13
+            ]
+          }
+        },
+        {
+          "hole": 14,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 276,
+            "writes": true,
+            "written_indexes": [
+              14
+            ]
+          }
+        },
+        {
+          "hole": 15,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 293,
+            "writes": true,
+            "written_indexes": [
+              15
+            ]
+          }
+        },
+        {
+          "hole": 16,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 310,
+            "writes": true,
+            "written_indexes": [
+              16
+            ]
+          }
+        },
+        {
+          "hole": 17,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 327,
+            "writes": true,
+            "written_indexes": [
+              17
+            ]
+          }
+        },
+        {
+          "hole": 18,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 344,
+            "writes": true,
+            "written_indexes": [
+              18
+            ]
+          }
+        },
+        {
+          "hole": 19,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 361,
+            "writes": true,
+            "written_indexes": [
+              19
+            ]
+          }
+        },
+        {
+          "hole": 20,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 378,
+            "writes": true,
+            "written_indexes": [
+              20
+            ]
+          }
+        },
+        {
+          "hole": 21,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 395,
+            "writes": true,
+            "written_indexes": [
+              21
+            ]
+          }
+        },
+        {
+          "hole": 22,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 412,
+            "writes": true,
+            "written_indexes": [
+              22
+            ]
+          }
+        },
+        {
+          "hole": 23,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 429,
+            "writes": true,
+            "written_indexes": [
+              23
+            ]
+          }
+        },
+        {
+          "hole": 24,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 446,
+            "writes": true,
+            "written_indexes": [
+              24
+            ]
+          }
+        },
+        {
+          "hole": 25,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 463,
+            "writes": true,
+            "written_indexes": [
+              25
+            ]
+          }
+        },
+        {
+          "hole": 26,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 480,
+            "writes": true,
+            "written_indexes": [
+              26
+            ]
+          }
+        },
+        {
+          "hole": 27,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 497,
+            "writes": true,
+            "written_indexes": [
+              27
+            ]
+          }
+        },
+        {
+          "hole": 28,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 514,
+            "writes": true,
+            "written_indexes": [
+              28
+            ]
+          }
+        },
+        {
+          "hole": 29,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 531,
+            "writes": true,
+            "written_indexes": [
+              29
+            ]
+          }
+        },
+        {
+          "hole": 30,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 548,
+            "writes": true,
+            "written_indexes": [
+              30
+            ]
+          }
+        },
+        {
+          "hole": 31,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 565,
+            "writes": true,
+            "written_indexes": [
+              31
+            ]
+          }
+        },
+        {
+          "hole": 32,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 582,
+            "writes": true,
+            "written_indexes": [
+              32
+            ]
+          }
+        },
+        {
+          "hole": 33,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 599,
+            "writes": true,
+            "written_indexes": [
+              33
+            ]
+          }
+        },
+        {
+          "hole": 34,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 616,
+            "writes": true,
+            "written_indexes": [
+              34
+            ]
+          }
+        },
+        {
+          "hole": null,
+          "result": {
+            "termination": "return",
+            "value": false,
+            "steps": 620,
+            "writes": false,
+            "written_indexes": []
+          }
+        }
+      ]
+    },
+    {
+      "class": "com/hotpoint/braveManIII/models/container/Storage",
+      "method": "addOtherobjStorage",
+      "kind": "loop",
+      "pcode_sha256": "0adf62d470fbfc244de97c93a0d9d71f27287c546df50835d94f9d5ff9cd5a15",
+      "method_instructions_sha256": "a50bae4d6052ad46afff2f48291b7a49506a54b3f7692b1f6382781a7eb13530",
+      "cases": [
+        {
+          "hole": 0,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 38,
+            "writes": true,
+            "written_indexes": [
+              0
+            ]
+          }
+        },
+        {
+          "hole": 1,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 55,
+            "writes": true,
+            "written_indexes": [
+              1
+            ]
+          }
+        },
+        {
+          "hole": 2,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 72,
+            "writes": true,
+            "written_indexes": [
+              2
+            ]
+          }
+        },
+        {
+          "hole": 3,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 89,
+            "writes": true,
+            "written_indexes": [
+              3
+            ]
+          }
+        },
+        {
+          "hole": 4,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 106,
+            "writes": true,
+            "written_indexes": [
+              4
+            ]
+          }
+        },
+        {
+          "hole": 5,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 123,
+            "writes": true,
+            "written_indexes": [
+              5
+            ]
+          }
+        },
+        {
+          "hole": 6,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 140,
+            "writes": true,
+            "written_indexes": [
+              6
+            ]
+          }
+        },
+        {
+          "hole": 7,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 157,
+            "writes": true,
+            "written_indexes": [
+              7
+            ]
+          }
+        },
+        {
+          "hole": 8,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 174,
+            "writes": true,
+            "written_indexes": [
+              8
+            ]
+          }
+        },
+        {
+          "hole": 9,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 191,
+            "writes": true,
+            "written_indexes": [
+              9
+            ]
+          }
+        },
+        {
+          "hole": 10,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 208,
+            "writes": true,
+            "written_indexes": [
+              10
+            ]
+          }
+        },
+        {
+          "hole": 11,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 225,
+            "writes": true,
+            "written_indexes": [
+              11
+            ]
+          }
+        },
+        {
+          "hole": 12,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 242,
+            "writes": true,
+            "written_indexes": [
+              12
+            ]
+          }
+        },
+        {
+          "hole": 13,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 259,
+            "writes": true,
+            "written_indexes": [
+              13
+            ]
+          }
+        },
+        {
+          "hole": 14,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 276,
+            "writes": true,
+            "written_indexes": [
+              14
+            ]
+          }
+        },
+        {
+          "hole": 15,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 293,
+            "writes": true,
+            "written_indexes": [
+              15
+            ]
+          }
+        },
+        {
+          "hole": 16,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 310,
+            "writes": true,
+            "written_indexes": [
+              16
+            ]
+          }
+        },
+        {
+          "hole": 17,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 327,
+            "writes": true,
+            "written_indexes": [
+              17
+            ]
+          }
+        },
+        {
+          "hole": 18,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 344,
+            "writes": true,
+            "written_indexes": [
+              18
+            ]
+          }
+        },
+        {
+          "hole": 19,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 361,
+            "writes": true,
+            "written_indexes": [
+              19
+            ]
+          }
+        },
+        {
+          "hole": 20,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 378,
+            "writes": true,
+            "written_indexes": [
+              20
+            ]
+          }
+        },
+        {
+          "hole": 21,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 395,
+            "writes": true,
+            "written_indexes": [
+              21
+            ]
+          }
+        },
+        {
+          "hole": 22,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 412,
+            "writes": true,
+            "written_indexes": [
+              22
+            ]
+          }
+        },
+        {
+          "hole": 23,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 429,
+            "writes": true,
+            "written_indexes": [
+              23
+            ]
+          }
+        },
+        {
+          "hole": 24,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 446,
+            "writes": true,
+            "written_indexes": [
+              24
+            ]
+          }
+        },
+        {
+          "hole": 25,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 463,
+            "writes": true,
+            "written_indexes": [
+              25
+            ]
+          }
+        },
+        {
+          "hole": 26,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 480,
+            "writes": true,
+            "written_indexes": [
+              26
+            ]
+          }
+        },
+        {
+          "hole": 27,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 497,
+            "writes": true,
+            "written_indexes": [
+              27
+            ]
+          }
+        },
+        {
+          "hole": 28,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 514,
+            "writes": true,
+            "written_indexes": [
+              28
+            ]
+          }
+        },
+        {
+          "hole": 29,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 531,
+            "writes": true,
+            "written_indexes": [
+              29
+            ]
+          }
+        },
+        {
+          "hole": 30,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 548,
+            "writes": true,
+            "written_indexes": [
+              30
+            ]
+          }
+        },
+        {
+          "hole": 31,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 565,
+            "writes": true,
+            "written_indexes": [
+              31
+            ]
+          }
+        },
+        {
+          "hole": 32,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 582,
+            "writes": true,
+            "written_indexes": [
+              32
+            ]
+          }
+        },
+        {
+          "hole": 33,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 599,
+            "writes": true,
+            "written_indexes": [
+              33
+            ]
+          }
+        },
+        {
+          "hole": 34,
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 616,
+            "writes": true,
+            "written_indexes": [
+              34
+            ]
+          }
+        },
+        {
+          "hole": null,
+          "result": {
+            "termination": "return",
+            "value": false,
+            "steps": 620,
+            "writes": false,
+            "written_indexes": []
+          }
+        }
+      ]
+    },
+    {
+      "class": "com/hotpoint/braveManIII/models/container/EquipSlot",
+      "method": "getAllHP",
+      "kind": "guard",
+      "pcode_sha256": "7663b5599bb38c53e1a749e1b24cad18255970e9d5ed696fb4ef0f6372d37179",
+      "method_instructions_sha256": "76a73f75bc6cfbe88c4350d00ac946e14b9c93871fe08e434b67eae02c730a43",
+      "witness": {
+        "branch": {
+          "line": 450,
+          "code": "iffalse ofs006d"
+        },
+        "operand_context": [
+          {
+            "line": 440,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 441,
+            "code": "getlocal2"
+          },
+          {
+            "line": 442,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 443,
+            "code": "findpropstrict Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 444,
+            "code": "getproperty Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 445,
+            "code": "astypelate"
+          },
+          {
+            "line": 446,
+            "code": "callproperty Multiname(\"getRemainingTime\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 447,
+            "code": "pushbyte 0"
+          },
+          {
+            "line": 448,
+            "code": "lessequals"
+          },
+          {
+            "line": 449,
+            "code": "not"
+          }
+        ],
+        "taken_path_to_next_branch_or_return": [
+          {
+            "line": 460,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 461,
+            "code": "getlocal2"
+          },
+          {
+            "line": 462,
+            "code": "increment"
+          },
+          {
+            "line": 463,
+            "code": "coerce_a"
+          },
+          {
+            "line": 464,
+            "code": "setlocal2"
+          },
+          {
+            "line": 465,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 466,
+            "code": "getlocal2"
+          },
+          {
+            "line": 467,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 468,
+            "code": "iflt ofs000e"
+          }
+        ],
+        "fallthrough_path_to_next_branch_or_return": [
+          {
+            "line": 451,
+            "code": "getlocal1"
+          },
+          {
+            "line": 452,
+            "code": "getlocal0"
+          },
+          {
+            "line": 453,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 454,
+            "code": "getlocal2"
+          },
+          {
+            "line": 455,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 456,
+            "code": "callproperty Multiname(\"getHP\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 457,
+            "code": "add"
+          },
+          {
+            "line": 458,
+            "code": "convert_d"
+          },
+          {
+            "line": 459,
+            "code": "setlocal1"
+          },
+          {
+            "line": 460,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 461,
+            "code": "getlocal2"
+          },
+          {
+            "line": 462,
+            "code": "increment"
+          },
+          {
+            "line": 463,
+            "code": "coerce_a"
+          },
+          {
+            "line": 464,
+            "code": "setlocal2"
+          },
+          {
+            "line": 465,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 466,
+            "code": "getlocal2"
+          },
+          {
+            "line": 467,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 468,
+            "code": "iflt ofs000e"
+          }
+        ]
+      }
+    },
+    {
+      "class": "com/hotpoint/braveManIII/models/container/EquipSlot",
+      "method": "getAllMP",
+      "kind": "guard",
+      "pcode_sha256": "7663b5599bb38c53e1a749e1b24cad18255970e9d5ed696fb4ef0f6372d37179",
+      "method_instructions_sha256": "bffb9ca5c6b8d5339a74c74e61ced22ff3fd7bd1865047ebe1663db92c1d0802",
+      "witness": {
+        "branch": {
+          "line": 547,
+          "code": "iffalse ofs006d"
+        },
+        "operand_context": [
+          {
+            "line": 537,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 538,
+            "code": "getlocal2"
+          },
+          {
+            "line": 539,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 540,
+            "code": "findpropstrict Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 541,
+            "code": "getproperty Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 542,
+            "code": "astypelate"
+          },
+          {
+            "line": 543,
+            "code": "callproperty Multiname(\"getRemainingTime\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 544,
+            "code": "pushbyte 0"
+          },
+          {
+            "line": 545,
+            "code": "lessequals"
+          },
+          {
+            "line": 546,
+            "code": "not"
+          }
+        ],
+        "taken_path_to_next_branch_or_return": [
+          {
+            "line": 557,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 558,
+            "code": "getlocal2"
+          },
+          {
+            "line": 559,
+            "code": "increment"
+          },
+          {
+            "line": 560,
+            "code": "coerce_a"
+          },
+          {
+            "line": 561,
+            "code": "setlocal2"
+          },
+          {
+            "line": 562,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 563,
+            "code": "getlocal2"
+          },
+          {
+            "line": 564,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 565,
+            "code": "iflt ofs000e"
+          }
+        ],
+        "fallthrough_path_to_next_branch_or_return": [
+          {
+            "line": 548,
+            "code": "getlocal1"
+          },
+          {
+            "line": 549,
+            "code": "getlocal0"
+          },
+          {
+            "line": 550,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 551,
+            "code": "getlocal2"
+          },
+          {
+            "line": 552,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 553,
+            "code": "callproperty Multiname(\"getMP\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 554,
+            "code": "add"
+          },
+          {
+            "line": 555,
+            "code": "convert_d"
+          },
+          {
+            "line": 556,
+            "code": "setlocal1"
+          },
+          {
+            "line": 557,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 558,
+            "code": "getlocal2"
+          },
+          {
+            "line": 559,
+            "code": "increment"
+          },
+          {
+            "line": 560,
+            "code": "coerce_a"
+          },
+          {
+            "line": 561,
+            "code": "setlocal2"
+          },
+          {
+            "line": 562,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 563,
+            "code": "getlocal2"
+          },
+          {
+            "line": 564,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 565,
+            "code": "iflt ofs000e"
+          }
+        ]
+      }
+    },
+    {
+      "class": "com/hotpoint/braveManIII/models/container/EquipSlot",
+      "method": "getAllAttack",
+      "kind": "guard",
+      "pcode_sha256": "7663b5599bb38c53e1a749e1b24cad18255970e9d5ed696fb4ef0f6372d37179",
+      "method_instructions_sha256": "937d2bb005a95b0034c5948a7f809f943e752e3833ae17f0f3dc75f8fab9edb1",
+      "witness": {
+        "branch": {
+          "line": 644,
+          "code": "iffalse ofs006d"
+        },
+        "operand_context": [
+          {
+            "line": 634,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 635,
+            "code": "getlocal2"
+          },
+          {
+            "line": 636,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 637,
+            "code": "findpropstrict Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 638,
+            "code": "getproperty Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 639,
+            "code": "astypelate"
+          },
+          {
+            "line": 640,
+            "code": "callproperty Multiname(\"getRemainingTime\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 641,
+            "code": "pushbyte 0"
+          },
+          {
+            "line": 642,
+            "code": "lessequals"
+          },
+          {
+            "line": 643,
+            "code": "not"
+          }
+        ],
+        "taken_path_to_next_branch_or_return": [
+          {
+            "line": 654,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 655,
+            "code": "getlocal2"
+          },
+          {
+            "line": 656,
+            "code": "increment"
+          },
+          {
+            "line": 657,
+            "code": "coerce_a"
+          },
+          {
+            "line": 658,
+            "code": "setlocal2"
+          },
+          {
+            "line": 659,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 660,
+            "code": "getlocal2"
+          },
+          {
+            "line": 661,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 662,
+            "code": "iflt ofs000e"
+          }
+        ],
+        "fallthrough_path_to_next_branch_or_return": [
+          {
+            "line": 645,
+            "code": "getlocal1"
+          },
+          {
+            "line": 646,
+            "code": "getlocal0"
+          },
+          {
+            "line": 647,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 648,
+            "code": "getlocal2"
+          },
+          {
+            "line": 649,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 650,
+            "code": "callproperty Multiname(\"getAttack\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 651,
+            "code": "add"
+          },
+          {
+            "line": 652,
+            "code": "convert_d"
+          },
+          {
+            "line": 653,
+            "code": "setlocal1"
+          },
+          {
+            "line": 654,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 655,
+            "code": "getlocal2"
+          },
+          {
+            "line": 656,
+            "code": "increment"
+          },
+          {
+            "line": 657,
+            "code": "coerce_a"
+          },
+          {
+            "line": 658,
+            "code": "setlocal2"
+          },
+          {
+            "line": 659,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 660,
+            "code": "getlocal2"
+          },
+          {
+            "line": 661,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 662,
+            "code": "iflt ofs000e"
+          }
+        ]
+      }
+    },
+    {
+      "class": "com/hotpoint/braveManIII/models/container/EquipSlot",
+      "method": "getAllAttackIgnoreDefense",
+      "kind": "guard",
+      "pcode_sha256": "7663b5599bb38c53e1a749e1b24cad18255970e9d5ed696fb4ef0f6372d37179",
+      "method_instructions_sha256": "695f0895419e2449eb8c197b5e85a2eae8ed655c3008d2659256424e2eb48e23",
+      "witness": {
+        "branch": {
+          "line": 820,
+          "code": "iffalse ofs006d"
+        },
+        "operand_context": [
+          {
+            "line": 810,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 811,
+            "code": "getlocal2"
+          },
+          {
+            "line": 812,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 813,
+            "code": "findpropstrict Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 814,
+            "code": "getproperty Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 815,
+            "code": "astypelate"
+          },
+          {
+            "line": 816,
+            "code": "callproperty Multiname(\"getRemainingTime\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 817,
+            "code": "pushbyte 0"
+          },
+          {
+            "line": 818,
+            "code": "lessequals"
+          },
+          {
+            "line": 819,
+            "code": "not"
+          }
+        ],
+        "taken_path_to_next_branch_or_return": [
+          {
+            "line": 830,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 831,
+            "code": "getlocal2"
+          },
+          {
+            "line": 832,
+            "code": "increment"
+          },
+          {
+            "line": 833,
+            "code": "coerce_a"
+          },
+          {
+            "line": 834,
+            "code": "setlocal2"
+          },
+          {
+            "line": 835,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 836,
+            "code": "getlocal2"
+          },
+          {
+            "line": 837,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 838,
+            "code": "iflt ofs000e"
+          }
+        ],
+        "fallthrough_path_to_next_branch_or_return": [
+          {
+            "line": 821,
+            "code": "getlocal1"
+          },
+          {
+            "line": 822,
+            "code": "getlocal0"
+          },
+          {
+            "line": 823,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 824,
+            "code": "getlocal2"
+          },
+          {
+            "line": 825,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 826,
+            "code": "callproperty Multiname(\"getAttackIgnoreDefense\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 827,
+            "code": "add"
+          },
+          {
+            "line": 828,
+            "code": "convert_d"
+          },
+          {
+            "line": 829,
+            "code": "setlocal1"
+          },
+          {
+            "line": 830,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 831,
+            "code": "getlocal2"
+          },
+          {
+            "line": 832,
+            "code": "increment"
+          },
+          {
+            "line": 833,
+            "code": "coerce_a"
+          },
+          {
+            "line": 834,
+            "code": "setlocal2"
+          },
+          {
+            "line": 835,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 836,
+            "code": "getlocal2"
+          },
+          {
+            "line": 837,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 838,
+            "code": "iflt ofs000e"
+          }
+        ]
+      }
+    },
+    {
+      "class": "com/hotpoint/braveManIII/models/container/EquipSlot",
+      "method": "getAllDefense",
+      "kind": "guard",
+      "pcode_sha256": "7663b5599bb38c53e1a749e1b24cad18255970e9d5ed696fb4ef0f6372d37179",
+      "method_instructions_sha256": "9a7823d21ddb6904fa3a203472f9ce4ac9fb084b408a545f7fcf06b5ee110bae",
+      "witness": {
+        "branch": {
+          "line": 917,
+          "code": "iffalse ofs006d"
+        },
+        "operand_context": [
+          {
+            "line": 907,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 908,
+            "code": "getlocal2"
+          },
+          {
+            "line": 909,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 910,
+            "code": "findpropstrict Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 911,
+            "code": "getproperty Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 912,
+            "code": "astypelate"
+          },
+          {
+            "line": 913,
+            "code": "callproperty Multiname(\"getRemainingTime\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 914,
+            "code": "pushbyte 0"
+          },
+          {
+            "line": 915,
+            "code": "lessequals"
+          },
+          {
+            "line": 916,
+            "code": "not"
+          }
+        ],
+        "taken_path_to_next_branch_or_return": [
+          {
+            "line": 927,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 928,
+            "code": "getlocal2"
+          },
+          {
+            "line": 929,
+            "code": "increment"
+          },
+          {
+            "line": 930,
+            "code": "coerce_a"
+          },
+          {
+            "line": 931,
+            "code": "setlocal2"
+          },
+          {
+            "line": 932,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 933,
+            "code": "getlocal2"
+          },
+          {
+            "line": 934,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 935,
+            "code": "iflt ofs000e"
+          }
+        ],
+        "fallthrough_path_to_next_branch_or_return": [
+          {
+            "line": 918,
+            "code": "getlocal1"
+          },
+          {
+            "line": 919,
+            "code": "getlocal0"
+          },
+          {
+            "line": 920,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 921,
+            "code": "getlocal2"
+          },
+          {
+            "line": 922,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 923,
+            "code": "callproperty Multiname(\"getDefense\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 924,
+            "code": "add"
+          },
+          {
+            "line": 925,
+            "code": "convert_d"
+          },
+          {
+            "line": 926,
+            "code": "setlocal1"
+          },
+          {
+            "line": 927,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 928,
+            "code": "getlocal2"
+          },
+          {
+            "line": 929,
+            "code": "increment"
+          },
+          {
+            "line": 930,
+            "code": "coerce_a"
+          },
+          {
+            "line": 931,
+            "code": "setlocal2"
+          },
+          {
+            "line": 932,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 933,
+            "code": "getlocal2"
+          },
+          {
+            "line": 934,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 935,
+            "code": "iflt ofs000e"
+          }
+        ]
+      }
+    },
+    {
+      "class": "com/hotpoint/braveManIII/models/container/EquipSlot",
+      "method": "getAllMoveSpeed",
+      "kind": "guard",
+      "pcode_sha256": "7663b5599bb38c53e1a749e1b24cad18255970e9d5ed696fb4ef0f6372d37179",
+      "method_instructions_sha256": "e48c12068b943f0ecab4cd243b24255bc96930fcdbd3af9dbbd8998ebb0f1815",
+      "witness": {
+        "branch": {
+          "line": 1014,
+          "code": "iffalse ofs006d"
+        },
+        "operand_context": [
+          {
+            "line": 1004,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1005,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1006,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1007,
+            "code": "findpropstrict Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1008,
+            "code": "getproperty Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1009,
+            "code": "astypelate"
+          },
+          {
+            "line": 1010,
+            "code": "callproperty Multiname(\"getRemainingTime\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 1011,
+            "code": "pushbyte 0"
+          },
+          {
+            "line": 1012,
+            "code": "lessequals"
+          },
+          {
+            "line": 1013,
+            "code": "not"
+          }
+        ],
+        "taken_path_to_next_branch_or_return": [
+          {
+            "line": 1024,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 1025,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1026,
+            "code": "increment"
+          },
+          {
+            "line": 1027,
+            "code": "coerce_a"
+          },
+          {
+            "line": 1028,
+            "code": "setlocal2"
+          },
+          {
+            "line": 1029,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 1030,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1031,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 1032,
+            "code": "iflt ofs000e"
+          }
+        ],
+        "fallthrough_path_to_next_branch_or_return": [
+          {
+            "line": 1015,
+            "code": "getlocal1"
+          },
+          {
+            "line": 1016,
+            "code": "getlocal0"
+          },
+          {
+            "line": 1017,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1018,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1019,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1020,
+            "code": "callproperty Multiname(\"getMoveSpeed\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 1021,
+            "code": "add"
+          },
+          {
+            "line": 1022,
+            "code": "convert_d"
+          },
+          {
+            "line": 1023,
+            "code": "setlocal1"
+          },
+          {
+            "line": 1024,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 1025,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1026,
+            "code": "increment"
+          },
+          {
+            "line": 1027,
+            "code": "coerce_a"
+          },
+          {
+            "line": 1028,
+            "code": "setlocal2"
+          },
+          {
+            "line": 1029,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 1030,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1031,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 1032,
+            "code": "iflt ofs000e"
+          }
+        ]
+      }
+    },
+    {
+      "class": "com/hotpoint/braveManIII/models/container/EquipSlot",
+      "method": "getAllCrit",
+      "kind": "guard",
+      "pcode_sha256": "7663b5599bb38c53e1a749e1b24cad18255970e9d5ed696fb4ef0f6372d37179",
+      "method_instructions_sha256": "e820880cb819e2b157adacb93412d98436bac84c7a60359fa032ecea31675287",
+      "witness": {
+        "branch": {
+          "line": 1111,
+          "code": "iffalse ofs006d"
+        },
+        "operand_context": [
+          {
+            "line": 1101,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1102,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1103,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1104,
+            "code": "findpropstrict Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1105,
+            "code": "getproperty Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1106,
+            "code": "astypelate"
+          },
+          {
+            "line": 1107,
+            "code": "callproperty Multiname(\"getRemainingTime\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 1108,
+            "code": "pushbyte 0"
+          },
+          {
+            "line": 1109,
+            "code": "lessequals"
+          },
+          {
+            "line": 1110,
+            "code": "not"
+          }
+        ],
+        "taken_path_to_next_branch_or_return": [
+          {
+            "line": 1121,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 1122,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1123,
+            "code": "increment"
+          },
+          {
+            "line": 1124,
+            "code": "coerce_a"
+          },
+          {
+            "line": 1125,
+            "code": "setlocal2"
+          },
+          {
+            "line": 1126,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 1127,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1128,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 1129,
+            "code": "iflt ofs000e"
+          }
+        ],
+        "fallthrough_path_to_next_branch_or_return": [
+          {
+            "line": 1112,
+            "code": "getlocal1"
+          },
+          {
+            "line": 1113,
+            "code": "getlocal0"
+          },
+          {
+            "line": 1114,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1115,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1116,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1117,
+            "code": "callproperty Multiname(\"getCrit\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 1118,
+            "code": "add"
+          },
+          {
+            "line": 1119,
+            "code": "convert_d"
+          },
+          {
+            "line": 1120,
+            "code": "setlocal1"
+          },
+          {
+            "line": 1121,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 1122,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1123,
+            "code": "increment"
+          },
+          {
+            "line": 1124,
+            "code": "coerce_a"
+          },
+          {
+            "line": 1125,
+            "code": "setlocal2"
+          },
+          {
+            "line": 1126,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 1127,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1128,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 1129,
+            "code": "iflt ofs000e"
+          }
+        ]
+      }
+    },
+    {
+      "class": "com/hotpoint/braveManIII/models/container/EquipSlot",
+      "method": "getAllDuck",
+      "kind": "guard",
+      "pcode_sha256": "7663b5599bb38c53e1a749e1b24cad18255970e9d5ed696fb4ef0f6372d37179",
+      "method_instructions_sha256": "986dfdc815faf48658962fd38083b389135e06b52bee62c8beaa9cb6a47fad4a",
+      "witness": {
+        "branch": {
+          "line": 1208,
+          "code": "iffalse ofs006d"
+        },
+        "operand_context": [
+          {
+            "line": 1198,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1199,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1200,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1201,
+            "code": "findpropstrict Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1202,
+            "code": "getproperty Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1203,
+            "code": "astypelate"
+          },
+          {
+            "line": 1204,
+            "code": "callproperty Multiname(\"getRemainingTime\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 1205,
+            "code": "pushbyte 0"
+          },
+          {
+            "line": 1206,
+            "code": "lessequals"
+          },
+          {
+            "line": 1207,
+            "code": "not"
+          }
+        ],
+        "taken_path_to_next_branch_or_return": [
+          {
+            "line": 1218,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 1219,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1220,
+            "code": "increment"
+          },
+          {
+            "line": 1221,
+            "code": "coerce_a"
+          },
+          {
+            "line": 1222,
+            "code": "setlocal2"
+          },
+          {
+            "line": 1223,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 1224,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1225,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 1226,
+            "code": "iflt ofs000e"
+          }
+        ],
+        "fallthrough_path_to_next_branch_or_return": [
+          {
+            "line": 1209,
+            "code": "getlocal1"
+          },
+          {
+            "line": 1210,
+            "code": "getlocal0"
+          },
+          {
+            "line": 1211,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1212,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1213,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1214,
+            "code": "callproperty Multiname(\"getDuck\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 1215,
+            "code": "add"
+          },
+          {
+            "line": 1216,
+            "code": "convert_d"
+          },
+          {
+            "line": 1217,
+            "code": "setlocal1"
+          },
+          {
+            "line": 1218,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 1219,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1220,
+            "code": "increment"
+          },
+          {
+            "line": 1221,
+            "code": "coerce_a"
+          },
+          {
+            "line": 1222,
+            "code": "setlocal2"
+          },
+          {
+            "line": 1223,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 1224,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1225,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 1226,
+            "code": "iflt ofs000e"
+          }
+        ]
+      }
+    },
+    {
+      "class": "com/hotpoint/braveManIII/models/container/EquipSlot",
+      "method": "getAllHardValue",
+      "kind": "guard",
+      "pcode_sha256": "7663b5599bb38c53e1a749e1b24cad18255970e9d5ed696fb4ef0f6372d37179",
+      "method_instructions_sha256": "62f4feb47e9d1def3fae9dfb49cdb3ea57a47215fc9aca536bc43d56f54f84cd",
+      "witness": {
+        "branch": {
+          "line": 1305,
+          "code": "iffalse ofs006d"
+        },
+        "operand_context": [
+          {
+            "line": 1295,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1296,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1297,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1298,
+            "code": "findpropstrict Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1299,
+            "code": "getproperty Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1300,
+            "code": "astypelate"
+          },
+          {
+            "line": 1301,
+            "code": "callproperty Multiname(\"getRemainingTime\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 1302,
+            "code": "pushbyte 0"
+          },
+          {
+            "line": 1303,
+            "code": "lessequals"
+          },
+          {
+            "line": 1304,
+            "code": "not"
+          }
+        ],
+        "taken_path_to_next_branch_or_return": [
+          {
+            "line": 1315,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 1316,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1317,
+            "code": "increment"
+          },
+          {
+            "line": 1318,
+            "code": "coerce_a"
+          },
+          {
+            "line": 1319,
+            "code": "setlocal2"
+          },
+          {
+            "line": 1320,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 1321,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1322,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 1323,
+            "code": "iflt ofs000e"
+          }
+        ],
+        "fallthrough_path_to_next_branch_or_return": [
+          {
+            "line": 1306,
+            "code": "getlocal1"
+          },
+          {
+            "line": 1307,
+            "code": "getlocal0"
+          },
+          {
+            "line": 1308,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1309,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1310,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1311,
+            "code": "callproperty Multiname(\"getHardValue\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 1312,
+            "code": "add"
+          },
+          {
+            "line": 1313,
+            "code": "convert_d"
+          },
+          {
+            "line": 1314,
+            "code": "setlocal1"
+          },
+          {
+            "line": 1315,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 1316,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1317,
+            "code": "increment"
+          },
+          {
+            "line": 1318,
+            "code": "coerce_a"
+          },
+          {
+            "line": 1319,
+            "code": "setlocal2"
+          },
+          {
+            "line": 1320,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 1321,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1322,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 1323,
+            "code": "iflt ofs000e"
+          }
+        ]
+      }
+    },
+    {
+      "class": "com/hotpoint/braveManIII/models/container/EquipSlot",
+      "method": "getAllMOKANG",
+      "kind": "guard",
+      "pcode_sha256": "7663b5599bb38c53e1a749e1b24cad18255970e9d5ed696fb4ef0f6372d37179",
+      "method_instructions_sha256": "119e5dc7fd9cf6b28d02dbbed53743d297a7fd28b63707c2d895afa6b5dd72bc",
+      "witness": {
+        "branch": {
+          "line": 1402,
+          "code": "iffalse ofs006d"
+        },
+        "operand_context": [
+          {
+            "line": 1392,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1393,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1394,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1395,
+            "code": "findpropstrict Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1396,
+            "code": "getproperty Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1397,
+            "code": "astypelate"
+          },
+          {
+            "line": 1398,
+            "code": "callproperty Multiname(\"getRemainingTime\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 1399,
+            "code": "pushbyte 0"
+          },
+          {
+            "line": 1400,
+            "code": "lessequals"
+          },
+          {
+            "line": 1401,
+            "code": "not"
+          }
+        ],
+        "taken_path_to_next_branch_or_return": [
+          {
+            "line": 1412,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 1413,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1414,
+            "code": "increment"
+          },
+          {
+            "line": 1415,
+            "code": "coerce_a"
+          },
+          {
+            "line": 1416,
+            "code": "setlocal2"
+          },
+          {
+            "line": 1417,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 1418,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1419,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 1420,
+            "code": "iflt ofs000e"
+          }
+        ],
+        "fallthrough_path_to_next_branch_or_return": [
+          {
+            "line": 1403,
+            "code": "getlocal1"
+          },
+          {
+            "line": 1404,
+            "code": "getlocal0"
+          },
+          {
+            "line": 1405,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1406,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1407,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1408,
+            "code": "callproperty Multiname(\"getMOKANG\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 1409,
+            "code": "add"
+          },
+          {
+            "line": 1410,
+            "code": "convert_d"
+          },
+          {
+            "line": 1411,
+            "code": "setlocal1"
+          },
+          {
+            "line": 1412,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 1413,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1414,
+            "code": "increment"
+          },
+          {
+            "line": 1415,
+            "code": "coerce_a"
+          },
+          {
+            "line": 1416,
+            "code": "setlocal2"
+          },
+          {
+            "line": 1417,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 1418,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1419,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 1420,
+            "code": "iflt ofs000e"
+          }
+        ]
+      }
+    },
+    {
+      "class": "com/hotpoint/braveManIII/models/container/EquipSlot",
+      "method": "getAllPOMO",
+      "kind": "guard",
+      "pcode_sha256": "7663b5599bb38c53e1a749e1b24cad18255970e9d5ed696fb4ef0f6372d37179",
+      "method_instructions_sha256": "74fe2451997d7f5a2922f53029fb565067a900711e6b8f7abcf474e3e658eccb",
+      "witness": {
+        "branch": {
+          "line": 1499,
+          "code": "iffalse ofs006d"
+        },
+        "operand_context": [
+          {
+            "line": 1489,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1490,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1491,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1492,
+            "code": "findpropstrict Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1493,
+            "code": "getproperty Multiname(\"Equip\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1494,
+            "code": "astypelate"
+          },
+          {
+            "line": 1495,
+            "code": "callproperty Multiname(\"getRemainingTime\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 1496,
+            "code": "pushbyte 0"
+          },
+          {
+            "line": 1497,
+            "code": "lessequals"
+          },
+          {
+            "line": 1498,
+            "code": "not"
+          }
+        ],
+        "taken_path_to_next_branch_or_return": [
+          {
+            "line": 1509,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 1510,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1511,
+            "code": "increment"
+          },
+          {
+            "line": 1512,
+            "code": "coerce_a"
+          },
+          {
+            "line": 1513,
+            "code": "setlocal2"
+          },
+          {
+            "line": 1514,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 1515,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1516,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 1517,
+            "code": "iflt ofs000e"
+          }
+        ],
+        "fallthrough_path_to_next_branch_or_return": [
+          {
+            "line": 1500,
+            "code": "getlocal1"
+          },
+          {
+            "line": 1501,
+            "code": "getlocal0"
+          },
+          {
+            "line": 1502,
+            "code": "getproperty Multiname(\"_slot\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1503,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1504,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")])"
+          },
+          {
+            "line": 1505,
+            "code": "callproperty Multiname(\"getPOMO\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"EquipSlot.as$64\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.equip\"),PackageNamespace(\"flash.utils\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:EquipSlot\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:EquipSlot\")]), 0"
+          },
+          {
+            "line": 1506,
+            "code": "add"
+          },
+          {
+            "line": 1507,
+            "code": "convert_d"
+          },
+          {
+            "line": 1508,
+            "code": "setlocal1"
+          },
+          {
+            "line": 1509,
+            "code": "ofs006d:"
+          },
+          {
+            "line": 1510,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1511,
+            "code": "increment"
+          },
+          {
+            "line": 1512,
+            "code": "coerce_a"
+          },
+          {
+            "line": 1513,
+            "code": "setlocal2"
+          },
+          {
+            "line": 1514,
+            "code": "ofs0071:"
+          },
+          {
+            "line": 1515,
+            "code": "getlocal2"
+          },
+          {
+            "line": 1516,
+            "code": "pushbyte 13"
+          },
+          {
+            "line": 1517,
+            "code": "iflt ofs000e"
+          }
+        ]
+      }
+    },
+    {
+      "class": "com/hotpoint/braveManIII/models/container/Bag",
+      "method": "delGemById",
+      "kind": "guard",
+      "pcode_sha256": "f8ffe2c9bf994931dd990b7e82a4a6a34205f227e32226d92b864147e5031c33",
+      "method_instructions_sha256": "53032e1b6c57edbc1b9c92019d96e1f079ab5d5ce3cac78f9ff7762612145cbc",
+      "witness": {
+        "branch": {
+          "line": 3877,
+          "code": "iffalse ofs0023"
+        },
+        "operand_context": [
+          {
+            "line": 3867,
+            "code": "pushbyte 0"
+          },
+          {
+            "line": 3868,
+            "code": "convert_u"
+          },
+          {
+            "line": 3869,
+            "code": "setlocal 5"
+          },
+          {
+            "line": 3870,
+            "code": "jump ofs0104"
+          },
+          {
+            "line": 3871,
+            "code": "ofs0015:"
+          },
+          {
+            "line": 3872,
+            "code": "label"
+          },
+          {
+            "line": 3873,
+            "code": "getlocal2"
+          },
+          {
+            "line": 3874,
+            "code": "pushbyte 0"
+          },
+          {
+            "line": 3875,
+            "code": "greaterthan"
+          },
+          {
+            "line": 3876,
+            "code": "not"
+          }
+        ],
+        "taken_path_to_next_branch_or_return": [
+          {
+            "line": 3879,
+            "code": "ofs0023:"
+          },
+          {
+            "line": 3880,
+            "code": "getlocal0"
+          },
+          {
+            "line": 3881,
+            "code": "getproperty Multiname(\"_gemBag\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:Bag\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"Bag.as$55\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.models.gem\"),PackageNamespace(\"com.hotpoint.braveManIII.models.other\"),PackageNamespace(\"com.hotpoint.braveManIII.models.quest\"),PackageNamespace(\"com.hotpoint.braveManIII.models.supplies\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.gem\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.other\"),PackageNamespace(\"com.hotpoint.braveManIII.views.storagePanel\"),PackageNamespace(\"flash.utils\"),PackageNamespace(\"src\"),PackageNamespace(\"src.tool\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:Bag\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:Bag\")])"
+          },
+          {
+            "line": 3882,
+            "code": "getlocal 5"
+          },
+          {
+            "line": 3883,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:Bag\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"Bag.as$55\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.models.gem\"),PackageNamespace(\"com.hotpoint.braveManIII.models.other\"),PackageNamespace(\"com.hotpoint.braveManIII.models.quest\"),PackageNamespace(\"com.hotpoint.braveManIII.models.supplies\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.gem\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.other\"),PackageNamespace(\"com.hotpoint.braveManIII.views.storagePanel\"),PackageNamespace(\"flash.utils\"),PackageNamespace(\"src\"),PackageNamespace(\"src.tool\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:Bag\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:Bag\")])"
+          },
+          {
+            "line": 3884,
+            "code": "pushnull"
+          },
+          {
+            "line": 3885,
+            "code": "ifeq ofs00fe"
+          }
+        ],
+        "fallthrough_path_to_next_branch_or_return": [
+          {
+            "line": 3878,
+            "code": "jump ofs010c"
+          },
+          {
+            "line": 4014,
+            "code": "ofs010c:"
+          },
+          {
+            "line": 4015,
+            "code": "getlocal 4"
+          },
+          {
+            "line": 4016,
+            "code": "returnvalue"
+          }
+        ]
+      }
+    },
+    {
+      "class": "com/hotpoint/braveManIII/models/container/Bag",
+      "method": "delOtherById",
+      "kind": "guard",
+      "pcode_sha256": "f8ffe2c9bf994931dd990b7e82a4a6a34205f227e32226d92b864147e5031c33",
+      "method_instructions_sha256": "33bf539f72dd70485fa8dda38299e7ddd93624c057a4805a310f759a0aea288e",
+      "witness": {
+        "branch": {
+          "line": 4059,
+          "code": "iffalse ofs0023"
+        },
+        "operand_context": [
+          {
+            "line": 4049,
+            "code": "pushbyte 0"
+          },
+          {
+            "line": 4050,
+            "code": "convert_u"
+          },
+          {
+            "line": 4051,
+            "code": "setlocal 5"
+          },
+          {
+            "line": 4052,
+            "code": "jump ofs0104"
+          },
+          {
+            "line": 4053,
+            "code": "ofs0015:"
+          },
+          {
+            "line": 4054,
+            "code": "label"
+          },
+          {
+            "line": 4055,
+            "code": "getlocal2"
+          },
+          {
+            "line": 4056,
+            "code": "pushbyte 0"
+          },
+          {
+            "line": 4057,
+            "code": "greaterthan"
+          },
+          {
+            "line": 4058,
+            "code": "not"
+          }
+        ],
+        "taken_path_to_next_branch_or_return": [
+          {
+            "line": 4061,
+            "code": "ofs0023:"
+          },
+          {
+            "line": 4062,
+            "code": "getlocal0"
+          },
+          {
+            "line": 4063,
+            "code": "getproperty Multiname(\"_otherobjBag\",[PrivateNamespace(\"com.hotpoint.braveManIII.models.container:Bag\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"Bag.as$55\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.models.gem\"),PackageNamespace(\"com.hotpoint.braveManIII.models.other\"),PackageNamespace(\"com.hotpoint.braveManIII.models.quest\"),PackageNamespace(\"com.hotpoint.braveManIII.models.supplies\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.gem\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.other\"),PackageNamespace(\"com.hotpoint.braveManIII.views.storagePanel\"),PackageNamespace(\"flash.utils\"),PackageNamespace(\"src\"),PackageNamespace(\"src.tool\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:Bag\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:Bag\")])"
+          },
+          {
+            "line": 4064,
+            "code": "getlocal 5"
+          },
+          {
+            "line": 4065,
+            "code": "getproperty MultinameL([PrivateNamespace(\"com.hotpoint.braveManIII.models.container:Bag\"),PackageNamespace(\"com.hotpoint.braveManIII.models.container\"),PrivateNamespace(\"Bag.as$55\"),PackageNamespace(\"\"),PackageInternalNs(\"com.hotpoint.braveManIII.models.container\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.models.equip\"),PackageNamespace(\"com.hotpoint.braveManIII.models.gem\"),PackageNamespace(\"com.hotpoint.braveManIII.models.other\"),PackageNamespace(\"com.hotpoint.braveManIII.models.quest\"),PackageNamespace(\"com.hotpoint.braveManIII.models.supplies\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.gem\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.other\"),PackageNamespace(\"com.hotpoint.braveManIII.views.storagePanel\"),PackageNamespace(\"flash.utils\"),PackageNamespace(\"src\"),PackageNamespace(\"src.tool\"),ProtectedNamespace(\"com.hotpoint.braveManIII.models.container:Bag\"),StaticProtectedNs(\"com.hotpoint.braveManIII.models.container:Bag\")])"
+          },
+          {
+            "line": 4066,
+            "code": "pushnull"
+          },
+          {
+            "line": 4067,
+            "code": "ifeq ofs00fe"
+          }
+        ],
+        "fallthrough_path_to_next_branch_or_return": [
+          {
+            "line": 4060,
+            "code": "jump ofs010c"
+          },
+          {
+            "line": 4196,
+            "code": "ofs010c:"
+          },
+          {
+            "line": 4197,
+            "code": "getlocal 4"
+          },
+          {
+            "line": 4198,
+            "code": "returnvalue"
+          }
+        ]
+      }
+    },
+    {
+      "class": "src/ChongWu",
+      "method": "GoTo",
+      "kind": "guard",
+      "pcode_sha256": "d9b25eac0af12baf88abf8dca1d54c5e08893b8cdab4b2be3ee0db458e165fee",
+      "method_instructions_sha256": "ad67cfa403c99f0574875eb0ab6ebae5195edbc32ea0e916373b30d3c8c02c79",
+      "witness": {
+        "branch": {
+          "line": 952,
+          "code": "iffalse ofs0092"
+        },
+        "operand_context": [
+          {
+            "line": 942,
+            "code": "multiply"
+          },
+          {
+            "line": 943,
+            "code": "callproperty Multiname(\"int\",[PrivateNamespace(\"src:ChongWu\"),PackageNamespace(\"\"),PrivateNamespace(\"ChongWu.as$256\"),PackageNamespace(\"src\"),PackageInternalNs(\"src\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.Tool\"),PackageNamespace(\"com.hotpoint.braveManIII.models.common\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.pet\"),PackageNamespace(\"flash.display\"),PackageNamespace(\"flash.events\"),PackageNamespace(\"flash.geom\"),PackageNamespace(\"flash.text\"),ProtectedNamespace(\"src:ChongWu\"),StaticProtectedNs(\"src:ChongWu\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")]), 1"
+          },
+          {
+            "line": 944,
+            "code": "convert_i"
+          },
+          {
+            "line": 945,
+            "code": "setlocal 4"
+          },
+          {
+            "line": 946,
+            "code": "getlocal3"
+          },
+          {
+            "line": 947,
+            "code": "getlocal 4"
+          },
+          {
+            "line": 948,
+            "code": "getproperty MultinameL([PrivateNamespace(\"src:ChongWu\"),PackageNamespace(\"\"),PrivateNamespace(\"ChongWu.as$256\"),PackageNamespace(\"src\"),PackageInternalNs(\"src\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.Tool\"),PackageNamespace(\"com.hotpoint.braveManIII.models.common\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.pet\"),PackageNamespace(\"flash.display\"),PackageNamespace(\"flash.events\"),PackageNamespace(\"flash.geom\"),PackageNamespace(\"flash.text\"),ProtectedNamespace(\"src:ChongWu\"),StaticProtectedNs(\"src:ChongWu\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+          },
+          {
+            "line": 949,
+            "code": "pushbyte 0"
+          },
+          {
+            "line": 950,
+            "code": "greaterthan"
+          },
+          {
+            "line": 951,
+            "code": "not"
+          }
+        ],
+        "taken_path_to_next_branch_or_return": [
+          {
+            "line": 963,
+            "code": "ofs0092:"
+          },
+          {
+            "line": 964,
+            "code": "pushstring \"攻击\""
+          },
+          {
+            "line": 965,
+            "code": "getlocal3"
+          },
+          {
+            "line": 966,
+            "code": "getlocal 4"
+          },
+          {
+            "line": 967,
+            "code": "getproperty MultinameL([PrivateNamespace(\"src:ChongWu\"),PackageNamespace(\"\"),PrivateNamespace(\"ChongWu.as$256\"),PackageNamespace(\"src\"),PackageInternalNs(\"src\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.Tool\"),PackageNamespace(\"com.hotpoint.braveManIII.models.common\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.pet\"),PackageNamespace(\"flash.display\"),PackageNamespace(\"flash.events\"),PackageNamespace(\"flash.geom\"),PackageNamespace(\"flash.text\"),ProtectedNamespace(\"src:ChongWu\"),StaticProtectedNs(\"src:ChongWu\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+          },
+          {
+            "line": 968,
+            "code": "add"
+          },
+          {
+            "line": 969,
+            "code": "coerce_s"
+          },
+          {
+            "line": 970,
+            "code": "setlocal 6"
+          },
+          {
+            "line": 971,
+            "code": "ofs009d:"
+          },
+          {
+            "line": 972,
+            "code": "getlocal0"
+          },
+          {
+            "line": 973,
+            "code": "getproperty Multiname(\"runType\",[PrivateNamespace(\"src:ChongWu\"),PackageNamespace(\"\"),PrivateNamespace(\"ChongWu.as$256\"),PackageNamespace(\"src\"),PackageInternalNs(\"src\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.Tool\"),PackageNamespace(\"com.hotpoint.braveManIII.models.common\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.pet\"),PackageNamespace(\"flash.display\"),PackageNamespace(\"flash.events\"),PackageNamespace(\"flash.geom\"),PackageNamespace(\"flash.text\"),ProtectedNamespace(\"src:ChongWu\"),StaticProtectedNs(\"src:ChongWu\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+          },
+          {
+            "line": 974,
+            "code": "getlocal 6"
+          },
+          {
+            "line": 975,
+            "code": "equals"
+          },
+          {
+            "line": 976,
+            "code": "not"
+          },
+          {
+            "line": 977,
+            "code": "convert_b"
+          },
+          {
+            "line": 978,
+            "code": "dup"
+          },
+          {
+            "line": 979,
+            "code": "convert_b"
+          },
+          {
+            "line": 980,
+            "code": "iffalse ofs00ba"
+          }
+        ],
+        "fallthrough_path_to_next_branch_or_return": [
+          {
+            "line": 953,
+            "code": "findproperty Multiname(\"gongJiYn1\",[PrivateNamespace(\"src:ChongWu\"),PackageNamespace(\"\"),PrivateNamespace(\"ChongWu.as$256\"),PackageNamespace(\"src\"),PackageInternalNs(\"src\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.Tool\"),PackageNamespace(\"com.hotpoint.braveManIII.models.common\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.pet\"),PackageNamespace(\"flash.display\"),PackageNamespace(\"flash.events\"),PackageNamespace(\"flash.geom\"),PackageNamespace(\"flash.text\"),ProtectedNamespace(\"src:ChongWu\"),StaticProtectedNs(\"src:ChongWu\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+          },
+          {
+            "line": 954,
+            "code": "findproperty Multiname(\"gongJiYn2\",[PrivateNamespace(\"src:ChongWu\"),PackageNamespace(\"\"),PrivateNamespace(\"ChongWu.as$256\"),PackageNamespace(\"src\"),PackageInternalNs(\"src\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.Tool\"),PackageNamespace(\"com.hotpoint.braveManIII.models.common\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.pet\"),PackageNamespace(\"flash.display\"),PackageNamespace(\"flash.events\"),PackageNamespace(\"flash.geom\"),PackageNamespace(\"flash.text\"),ProtectedNamespace(\"src:ChongWu\"),StaticProtectedNs(\"src:ChongWu\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+          },
+          {
+            "line": 955,
+            "code": "pushfalse"
+          },
+          {
+            "line": 956,
+            "code": "dup"
+          },
+          {
+            "line": 957,
+            "code": "setlocal 7"
+          },
+          {
+            "line": 958,
+            "code": "setproperty Multiname(\"gongJiYn2\",[PrivateNamespace(\"src:ChongWu\"),PackageNamespace(\"\"),PrivateNamespace(\"ChongWu.as$256\"),PackageNamespace(\"src\"),PackageInternalNs(\"src\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.Tool\"),PackageNamespace(\"com.hotpoint.braveManIII.models.common\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.pet\"),PackageNamespace(\"flash.display\"),PackageNamespace(\"flash.events\"),PackageNamespace(\"flash.geom\"),PackageNamespace(\"flash.text\"),ProtectedNamespace(\"src:ChongWu\"),StaticProtectedNs(\"src:ChongWu\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+          },
+          {
+            "line": 959,
+            "code": "getlocal 7"
+          },
+          {
+            "line": 960,
+            "code": "kill 7"
+          },
+          {
+            "line": 961,
+            "code": "setproperty Multiname(\"gongJiYn1\",[PrivateNamespace(\"src:ChongWu\"),PackageNamespace(\"\"),PrivateNamespace(\"ChongWu.as$256\"),PackageNamespace(\"src\"),PackageInternalNs(\"src\"),Namespace(\"http://adobe.com/AS3/2006/builtin\"),PackageNamespace(\"com.hotpoint.braveManIII.Tool\"),PackageNamespace(\"com.hotpoint.braveManIII.models.common\"),PackageNamespace(\"com.hotpoint.braveManIII.repository.pet\"),PackageNamespace(\"flash.display\"),PackageNamespace(\"flash.events\"),PackageNamespace(\"flash.geom\"),PackageNamespace(\"flash.text\"),ProtectedNamespace(\"src:ChongWu\"),StaticProtectedNs(\"src:ChongWu\"),StaticProtectedNs(\"flash.display:MovieClip\"),StaticProtectedNs(\"flash.display:Sprite\"),StaticProtectedNs(\"flash.display:DisplayObjectContainer\"),StaticProtectedNs(\"flash.display:InteractiveObject\"),StaticProtectedNs(\"flash.display:DisplayObject\"),StaticProtectedNs(\"flash.events:EventDispatcher\")])"
+          },
+          {
+            "line": 962,
+            "code": "returnvoid"
+          }
+        ]
+      }
+    },
+    {
+      "class": "com/hotpoint/braveManIII/views/setKeyPanel/SetKeyPanel",
+      "method": "closeOk",
+      "kind": "continue",
+      "pcode_sha256": "3106270136fbc9c15bc05a81ab16f24d73fab4455bd405161e439fefa227449e",
+      "method_instructions_sha256": "2914984529893e6b0a9f54a07dbe8ab5e3605a4a50f21488489604ec88abf50e",
+      "cases": [
+        {
+          "fixture": {
+            "kind": "keys",
+            "keys": [
+              [
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65
+              ],
+              null
+            ],
+            "expected": true
+          },
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 342,
+            "db_calls": 0
+          }
+        },
+        {
+          "fixture": {
+            "kind": "keys",
+            "keys": [
+              [
+                -1,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65
+              ],
+              null
+            ],
+            "expected": false
+          },
+          "result": {
+            "termination": "return",
+            "value": false,
+            "steps": 32,
+            "db_calls": 0
+          }
+        },
+        {
+          "fixture": {
+            "kind": "keys",
+            "keys": [
+              [
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                -1
+              ],
+              null
+            ],
+            "expected": false
+          },
+          "result": {
+            "termination": "return",
+            "value": false,
+            "steps": 332,
+            "db_calls": 0
+          }
+        },
+        {
+          "fixture": {
+            "kind": "keys",
+            "keys": [
+              [
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65
+              ],
+              [
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66
+              ]
+            ],
+            "expected": true
+          },
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 485,
+            "db_calls": 0
+          }
+        },
+        {
+          "fixture": {
+            "kind": "keys",
+            "keys": [
+              [
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65
+              ],
+              [
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66
+              ]
+            ],
+            "expected": true
+          },
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 485,
+            "db_calls": 0
+          }
+        },
+        {
+          "fixture": {
+            "kind": "keys",
+            "keys": [
+              [
+                -1,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65
+              ],
+              [
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66
+              ]
+            ],
+            "expected": false
+          },
+          "result": {
+            "termination": "return",
+            "value": false,
+            "steps": 31,
+            "db_calls": 0
+          }
+        },
+        {
+          "fixture": {
+            "kind": "keys",
+            "keys": [
+              [
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65
+              ],
+              [
+                -1,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66
+              ]
+            ],
+            "expected": false
+          },
+          "result": {
+            "termination": "return",
+            "value": false,
+            "steps": 40,
+            "db_calls": 0
+          }
+        },
+        {
+          "fixture": {
+            "kind": "keys",
+            "keys": [
+              [
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                -1
+              ],
+              [
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66
+              ]
+            ],
+            "expected": false
+          },
+          "result": {
+            "termination": "return",
+            "value": false,
+            "steps": 466,
+            "db_calls": 0
+          }
+        },
+        {
+          "fixture": {
+            "kind": "keys",
+            "keys": [
+              [
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65,
+                65
+              ],
+              [
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                66,
+                -1
+              ]
+            ],
+            "expected": false
+          },
+          "result": {
+            "termination": "return",
+            "value": false,
+            "steps": 475,
+            "db_calls": 0
+          }
+        }
+      ]
+    },
+    {
+      "class": "com/hotpoint/braveManIII/models/achievement/Achievement",
+      "method": "getIddo",
+      "kind": "continue",
+      "pcode_sha256": "b63450fc70fc0e34e983563674ebd37d78928ae307319e6db381e194a2979719",
+      "method_instructions_sha256": "6fb716e3788eba1710bdc56a4beeffbcb7adbdc26f7db645ccb8e43606af9afd",
+      "cases": [
+        {
+          "fixture": {
+            "kind": "achievement",
+            "goods": [
+              1,
+              2
+            ],
+            "map": 1,
+            "ry": true,
+            "tg": false,
+            "expected": true
+          },
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 52,
+            "db_calls": 1
+          }
+        },
+        {
+          "fixture": {
+            "kind": "achievement",
+            "goods": [
+              1,
+              2
+            ],
+            "map": 1,
+            "ry": false,
+            "tg": true,
+            "expected": true
+          },
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 56,
+            "db_calls": 1
+          }
+        },
+        {
+          "fixture": {
+            "kind": "achievement",
+            "goods": [
+              1,
+              2
+            ],
+            "map": 1,
+            "ry": false,
+            "tg": false,
+            "expected": false
+          },
+          "result": {
+            "termination": "return",
+            "value": false,
+            "steps": 83,
+            "db_calls": 0
+          }
+        },
+        {
+          "fixture": {
+            "kind": "achievement",
+            "goods": [
+              1,
+              2
+            ],
+            "map": 2,
+            "ry": true,
+            "tg": false,
+            "expected": true
+          },
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 72,
+            "db_calls": 1
+          }
+        },
+        {
+          "fixture": {
+            "kind": "achievement",
+            "goods": [
+              1,
+              2
+            ],
+            "map": 2,
+            "ry": false,
+            "tg": true,
+            "expected": true
+          },
+          "result": {
+            "termination": "return",
+            "value": true,
+            "steps": 76,
+            "db_calls": 1
+          }
+        },
+        {
+          "fixture": {
+            "kind": "achievement",
+            "goods": [
+              1,
+              2
+            ],
+            "map": 2,
+            "ry": false,
+            "tg": false,
+            "expected": false
+          },
+          "result": {
+            "termination": "return",
+            "value": false,
+            "steps": 83,
+            "db_calls": 0
+          }
+        },
+        {
+          "fixture": {
+            "kind": "achievement",
+            "goods": [
+              1,
+              2
+            ],
+            "map": 3,
+            "ry": true,
+            "tg": false,
+            "expected": false
+          },
+          "result": {
+            "termination": "return",
+            "value": false,
+            "steps": 71,
+            "db_calls": 0
+          }
+        },
+        {
+          "fixture": {
+            "kind": "achievement",
+            "goods": [
+              1,
+              2
+            ],
+            "map": 3,
+            "ry": false,
+            "tg": true,
+            "expected": false
+          },
+          "result": {
+            "termination": "return",
+            "value": false,
+            "steps": 71,
+            "db_calls": 0
+          }
+        },
+        {
+          "fixture": {
+            "kind": "achievement",
+            "goods": [
+              1,
+              2
+            ],
+            "map": 3,
+            "ry": false,
+            "tg": false,
+            "expected": false
+          },
+          "result": {
+            "termination": "return",
+            "value": false,
+            "steps": 71,
+            "db_calls": 0
+          }
+        }
+      ]
+    }
+  ],
+  "passed": true,
+  "scope": "Repaired local guards and finite actual-P-code loop paths only, all namespaces retained. No whole-program/gameplay equivalence claim.",
+  "player_started": false,
+  "save_accessed": false
+}

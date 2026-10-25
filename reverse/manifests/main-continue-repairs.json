@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "scope": "Two additionally proven misplaced-continue Main loop repairs; previous22-method receipt retained unchanged. No compile or UI execution.",
+  "methods": [
+    {
+      "class": "com.hotpoint.braveManIII.views.setKeyPanel.SetKeyPanel",
+      "method": "closeOk",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/views/setKeyPanel/SetKeyPanel.as",
+      "before_source_sha256": "21e612b62527a11b6a38c7d932606ad4aa01318a10ab72acec057b5b4d8d886c",
+      "after_source_sha256": "b7db8333c7d3440183b3756b04b6b19050010ce86138bff2824bcf0ffe62a510",
+      "before_method_sha256": "20aa1c2c94c6b5537ba41ef8545ba3b0e5bbbdbdd7edcc1d5885cec0221381d5",
+      "after_method_sha256": "b8a4c59d9c242e7392d8507299de8bcb92dbe85ac362dbf0a690f68191172870",
+      "before_method": "private function closeOk() : Boolean\r\n      {\r\n         var _loc1_:uint = 0;\r\n         if(Main.player2 != null)\r\n         {\r\n            _loc1_ = 0;\r\n            while(true)\r\n            {\r\n               if(_loc1_ < keyNum)\r\n               {\r\n                  if(Main.player1._keyArr[_loc1_] == -1)\r\n                  {\r\n                     break;\r\n                  }\r\n                  if(Main.player2._keyArr[_loc1_] == -1)\r\n                  {\r\n                     return false;\r\n                  }\r\n                  continue;\r\n               }\r\n               _loc1_++;\r\n            }\r\n            return false;\r\n         }\r\n         _loc1_ = 0;\r\n         while(_loc1_ < keyNum)\r\n         {\r\n            if(Main.player1._keyArr[_loc1_] == -1)\r\n            {\r\n               return false;\r\n            }\r\n            _loc1_++;\r\n         }\r\n         return true;\r\n      }",
+      "after_method": "private function closeOk() : Boolean\r\n      {\r\n         var _loc1_:uint = 0;\r\n         if(Main.player2 != null)\r\n         {\r\n            _loc1_ = 0;\r\n            while(_loc1_ < keyNum)\r\n            {\r\n               if(Main.player1._keyArr[_loc1_] == -1)\r\n               {\r\n                  return false;\r\n               }\r\n               if(Main.player2._keyArr[_loc1_] == -1)\r\n               {\r\n                  return false;\r\n               }\r\n               _loc1_++;\r\n            }\r\n            return true;\r\n         }\r\n         _loc1_ = 0;\r\n         while(_loc1_ < keyNum)\r\n         {\r\n            if(Main.player1._keyArr[_loc1_] == -1)\r\n            {\r\n               return false;\r\n            }\r\n            _loc1_++;\r\n         }\r\n         return true;\r\n      }",
+      "original_abc_method": {
+        "method": 4052,
+        "offset": 2775735,
+        "length": 128,
+        "sha256": "fce8a617bd10fc448f40d015bdd978dd0e6faf0a27b85b13fc44394fe789bccb",
+        "max_stack": 2,
+        "local_count": 2,
+        "init_scope": 10,
+        "max_scope": 11,
+        "traits": []
+      }
+    },
+    {
+      "class": "com.hotpoint.braveManIII.models.achievement.Achievement",
+      "method": "getIddo",
+      "source": "reverse/source/3_L4399Main_gamefile/com/hotpoint/braveManIII/models/achievement/Achievement.as",
+      "before_source_sha256": "7dd04727d821680b9e0dad087eb33cbfd1c1db496485e655866f5d31c9ee040e",
+      "after_source_sha256": "7b915ad4bd014e6ba5ee33cf6fc02e5f498f2778c90815d95dc389012f27887f",
+      "before_method_sha256": "7eb7c5cafe9fab0eb5dd2224fdbf2466701db5391979783a46a624b3b38827b0",
+      "after_method_sha256": "9cb6ef691097e675bb5ead081d3ce1d2e2297770a3abed20eb518f8e09f2b9ab",
+      "before_method": "private function getIddo(param1:Number, param2:Number = 1) : Boolean\r\n      {\r\n         var _loc5_:uint = 0;\r\n         var _loc3_:Array = getGoodsId() as Array;\r\n         var _loc4_:Number = getTs();\r\n         if(_loc3_.length != 1)\r\n         {\r\n            _loc5_ = 0;\r\n            while(true)\r\n            {\r\n               if(_loc5_ < _loc3_.length)\r\n               {\r\n                  if(_loc3_[_loc5_].getValue() == _map.getValue())\r\n                  {\r\n                     if(_loc4_ == _star.getValue())\r\n                     {\r\n                        if(isRy())\r\n                        {\r\n                           break;\r\n                        }\r\n                        if(_tg)\r\n                        {\r\n                           return dbNum(param2,param1);\r\n                        }\r\n                     }\r\n                  }\r\n                  continue;\r\n               }\r\n               _loc5_++;\r\n            }\r\n            return dbNum(param2,param1);\r\n         }\r\n         if(_loc3_[0].getValue() == -1)\r\n         {\r\n            if(_loc4_ == -1)\r\n            {\r\n               if(isRy())\r\n               {\r\n                  return dbNum(param2,param1);\r\n               }\r\n               if(_tg)\r\n               {\r\n                  return dbNum(param2,param1);\r\n               }\r\n            }\r\n            else if(_loc4_ == _star.getValue())\r\n            {\r\n               if(isRy())\r\n               {\r\n                  return dbNum(param2,param1);\r\n               }\r\n               if(_tg)\r\n               {\r\n                  return dbNum(param2,param1);\r\n               }\r\n            }\r\n         }\r\n         else if(_loc3_[0].getValue() == _map.getValue() && _loc4_ == _star.getValue())\r\n         {\r\n            if(isRy())\r\n            {\r\n               return dbNum(param2,param1);\r\n            }\r\n            if(_tg)\r\n            {\r\n               return dbNum(param2,param1);\r\n            }\r\n         }\r\n         return false;\r\n      }",
+      "after_method": "private function getIddo(param1:Number, param2:Number = 1) : Boolean\r\n      {\r\n         var _loc5_:uint = 0;\r\n         var _loc3_:Array = getGoodsId() as Array;\r\n         var _loc4_:Number = getTs();\r\n         if(_loc3_.length != 1)\r\n         {\r\n            _loc5_ = 0;\r\n            while(_loc5_ < _loc3_.length)\r\n            {\r\n               if(_loc3_[_loc5_].getValue() == _map.getValue())\r\n               {\r\n                  if(_loc4_ == _star.getValue())\r\n                  {\r\n                     if(isRy())\r\n                     {\r\n                        return dbNum(param2,param1);\r\n                     }\r\n                     if(_tg)\r\n                     {\r\n                        return dbNum(param2,param1);\r\n                     }\r\n                  }\r\n               }\r\n               _loc5_++;\r\n            }\r\n            return false;\r\n         }\r\n         if(_loc3_[0].getValue() == -1)\r\n         {\r\n            if(_loc4_ == -1)\r\n            {\r\n               if(isRy())\r\n               {\r\n                  return dbNum(param2,param1);\r\n               }\r\n               if(_tg)\r\n               {\r\n                  return dbNum(param2,param1);\r\n               }\r\n            }\r\n            else if(_loc4_ == _star.getValue())\r\n            {\r\n               if(isRy())\r\n               {\r\n                  return dbNum(param2,param1);\r\n               }\r\n               if(_tg)\r\n               {\r\n                  return dbNum(param2,param1);\r\n               }\r\n            }\r\n         }\r\n         else if(_loc3_[0].getValue() == _map.getValue() && _loc4_ == _star.getValue())\r\n         {\r\n            if(isRy())\r\n            {\r\n               return dbNum(param2,param1);\r\n            }\r\n            if(_tg)\r\n            {\r\n               return dbNum(param2,param1);\r\n            }\r\n         }\r\n         return false;\r\n      }",
+      "original_abc_method": {
+        "method": 7081,
+        "offset": 3232856,
+        "length": 408,
+        "sha256": "56d07bc30a56b1aeb62708ec97e553f4d1d63eea9caa99266faa348623b603d1",
+        "max_stack": 3,
+        "local_count": 6,
+        "init_scope": 4,
+        "max_scope": 5,
+        "traits": []
+      }
+    }
+  ],
+  "method_count": 2,
+  "total_main_repairs_including_prior_receipt": 24,
+  "patch_sha256": "5035b6242b1e32d3aa33a2420207670492297ed8aab3143ac278fe45d8a3eebb",
+  "evidence_manifest": "reverse/manifests/continue-loops.json",
+  "evidence_sha256": "81cc9ee97cdd27f36d2cb02771eb545e73c5ff00f75ba8015b545ea5f83017d2",
+  "applied": true,
+  "crlf_preserved": true,
+  "git_apply_check_passed": true,
+  "compiled": false,
+  "runtime_tested": false
+}

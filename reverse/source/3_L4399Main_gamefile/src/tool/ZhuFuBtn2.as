@@ -1,0 +1,54 @@
+package src.tool
+{
+   import com.hotpoint.braveManIII.views.itemsPanel.*;
+   import flash.display.*;
+   import flash.events.*;
+   import flash.text.*;
+   import src.*;
+   
+   public class ZhuFuBtn2 extends SimpleButton
+   {
+      
+      public function ZhuFuBtn2()
+      {
+         super();
+         if(!Main.P1P2)
+         {
+            this.visible = false;
+            return;
+         }
+         addEventListener(MouseEvent.CLICK,onCLICK);
+      }
+      
+      private function onCLICK(param1:*) : *
+      {
+         var _loc2_:int = 0;
+         if(Main.gameNum.getValue() == 18)
+         {
+            _loc2_ = 4;
+         }
+         else if(Main.gameNum.getValue() == 19)
+         {
+            _loc2_ = 3;
+         }
+         else if(Main.gameNum.getValue() == 20)
+         {
+            _loc2_ = 1;
+         }
+         else if(Main.gameNum.getValue() == 21)
+         {
+            _loc2_ = 2;
+         }
+         else if(Main.gameNum.getValue() == 22)
+         {
+            _loc2_ = 5;
+         }
+         else if(Main.gameNum.getValue() == 23)
+         {
+            _loc2_ = 8;
+         }
+         JinHuaPanel.open(false,Main.gameNum.getValue() - 17,_loc2_);
+      }
+   }
+}
+

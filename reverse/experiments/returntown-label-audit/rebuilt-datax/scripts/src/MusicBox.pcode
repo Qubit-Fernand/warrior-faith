@@ -1,0 +1,797 @@
+package src
+{
+   import flash.display.*;
+   import flash.events.*;
+   import flash.media.*;
+   import flash.text.*;
+   import flash.utils.*;
+   
+   public class MusicBox extends MovieClip
+   {
+      
+      public static var MusicData:ClassLoader;
+      
+      public static var musicString:String;
+      
+      public static var s1:Sound;
+      
+      public static var sc1:*;
+      
+      public static var mArr0:Array;
+      
+      public static var mArr1:Array;
+      
+      public static var mArr2:Array;
+      
+      public static var mArrX0:Array;
+      
+      public static var mArrX1:Array;
+      
+      public static var mArrX2:Array;
+      
+      method
+         name ""
+         returns null
+         
+         body
+            maxstack 7
+            localcount 1
+            initscopedepth 9
+            maxscopedepth 10
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"sc1")
+               findpropstrict Multiname("SoundChannel",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+               constructprop Multiname("SoundChannel",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+               setproperty QName(PackageNamespace(""),"sc1")
+               findproperty QName(PackageNamespace(""),"mArr0")
+               pushstring "攻击1"
+               pushstring "战士挥刀声音"
+               newarray 2
+               pushstring "攻击2"
+               pushstring "战士挥刀声音"
+               newarray 2
+               pushstring "攻击3"
+               pushstring "战士挥刀声音"
+               newarray 2
+               pushstring "攻击4"
+               pushstring "战士挥刀声音"
+               newarray 2
+               pushstring "转职技能4"
+               pushstring "战士转职技能4声音"
+               newarray 2
+               newarray 5
+               setproperty QName(PackageNamespace(""),"mArr0")
+               findproperty QName(PackageNamespace(""),"mArr1")
+               pushstring "攻击1"
+               pushstring "法师挥杖声音"
+               newarray 2
+               pushstring "攻击2"
+               pushstring "法师挥杖声音"
+               newarray 2
+               pushstring "攻击3"
+               pushstring "法师挥杖声音"
+               newarray 2
+               pushstring "攻击4"
+               pushstring "法师挥杖声音"
+               newarray 2
+               newarray 4
+               setproperty QName(PackageNamespace(""),"mArr1")
+               findproperty QName(PackageNamespace(""),"mArr2")
+               pushstring "攻击1"
+               pushstring "法师挥杖声音"
+               newarray 2
+               newarray 1
+               setproperty QName(PackageNamespace(""),"mArr2")
+               findproperty QName(PackageNamespace(""),"mArrX0")
+               pushstring "攻击1"
+               pushstring "战士击中声音"
+               newarray 2
+               pushstring "攻击2"
+               pushstring "战士击中声音"
+               newarray 2
+               pushstring "攻击3"
+               pushstring "战士击中声音"
+               newarray 2
+               pushstring "攻击4"
+               pushstring "战士击中声音"
+               newarray 2
+               newarray 4
+               setproperty QName(PackageNamespace(""),"mArrX0")
+               findproperty QName(PackageNamespace(""),"mArrX1")
+               pushstring "攻击1"
+               pushstring "法师击中声音"
+               newarray 2
+               pushstring "攻击2"
+               pushstring "法师击中声音"
+               newarray 2
+               pushstring "攻击3"
+               pushstring "法师击中声音"
+               newarray 2
+               pushstring "攻击4"
+               pushstring "法师击中声音"
+               newarray 2
+               newarray 4
+               setproperty QName(PackageNamespace(""),"mArrX1")
+               findproperty QName(PackageNamespace(""),"mArrX2")
+               pushstring "攻击1"
+               pushstring "拳手普通攻击123声音"
+               newarray 2
+               pushstring "攻击2"
+               pushstring "拳手普通攻击123声音"
+               newarray 2
+               pushstring "攻击3"
+               pushstring "拳手普通攻击123声音"
+               newarray 2
+               pushstring "攻击4"
+               pushstring "拳手普通攻击4声音"
+               newarray 2
+               pushstring "技能2"
+               pushstring "拳手技能2声音"
+               newarray 2
+               newarray 5
+               setproperty QName(PackageNamespace(""),"mArrX2")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function MusicBox()
+      {
+         method
+            name ""
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 10
+               maxscopedepth 11
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function MusicPlay(param1:String = "") : *
+      {
+         trait method QName(PackageNamespace(""),"MusicPlay")
+            flag FINAL
+            dispid 3
+            method
+               name ""
+               flag HAS_OPTIONAL
+               param QName(PackageNamespace(""),"String")
+               optional Utf8("")
+               returns null
+               
+               body
+                  maxstack 4
+                  localcount 5
+                  initscopedepth 9
+                  maxscopedepth 12
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnull
+                     coerce_s
+                     setlocal2
+                     pushnull
+                     coerce QName(PackageNamespace(""),"Class")
+                     setlocal3
+                     getlocal1
+                     pushstring ""
+                     ifeq ofs0017
+                     getlocal1
+                     coerce_s
+                     setlocal2
+                     jump ofs00fc
+            ofs0017:
+                     findpropstrict Multiname("Main",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("Main",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("gameNum",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callproperty Multiname("getValue",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                     pushbyte 0
+                     equals
+                     convert_b
+                     dup
+                     convert_b
+                     iffalse ofs0038
+                     pop
+                     findpropstrict Multiname("Main",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("Main",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("gameNum2",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callproperty Multiname("getValue",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                     pushbyte 0
+                     equals
+                     convert_b
+            ofs0038:
+                     iffalse ofs0044
+                     pushstring "村庄音乐"
+                     coerce_s
+                     setlocal2
+                     jump ofs00fc
+            ofs0044:
+                     findpropstrict Multiname("Main",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("Main",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("gameNum",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callproperty Multiname("getValue",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                     pushbyte 0
+                     equals
+                     convert_b
+                     dup
+                     convert_b
+                     iffalse ofs0065
+                     pop
+                     findpropstrict Multiname("Main",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("Main",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("gameNum2",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callproperty Multiname("getValue",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                     pushbyte 1
+                     equals
+                     convert_b
+            ofs0065:
+                     iffalse ofs0071
+                     pushstring "女神音乐"
+                     coerce_s
+                     setlocal2
+                     jump ofs00fc
+            ofs0071:
+                     findpropstrict Multiname("Main",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("Main",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("gameNum",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callproperty Multiname("getValue",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                     pushbyte 0
+                     equals
+                     convert_b
+                     dup
+                     convert_b
+                     iffalse ofs0092
+                     pop
+                     findpropstrict Multiname("Main",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("Main",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("gameNum2",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callproperty Multiname("getValue",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                     pushbyte 4
+                     equals
+                     convert_b
+            ofs0092:
+                     iffalse ofs009e
+                     pushstring "海皇城"
+                     coerce_s
+                     setlocal2
+                     jump ofs00fc
+            ofs009e:
+                     findpropstrict Multiname("Main",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("Main",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("gameNum",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callproperty Multiname("getValue",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                     pushbyte 0
+                     equals
+                     convert_b
+                     dup
+                     convert_b
+                     iffalse ofs00bf
+                     pop
+                     findpropstrict Multiname("Main",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("Main",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("gameNum2",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callproperty Multiname("getValue",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                     pushbyte 3
+                     equals
+                     convert_b
+            ofs00bf:
+                     iffalse ofs00cb
+                     pushstring "村庄音乐2"
+                     coerce_s
+                     setlocal2
+                     jump ofs00fc
+            ofs00cb:
+                     findpropstrict Multiname("Main",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("Main",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("gameNum",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callproperty Multiname("getValue",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                     pushbyte 50
+                     greaterthan
+                     convert_b
+                     dup
+                     convert_b
+                     iffalse ofs00ec
+                     pop
+                     findpropstrict Multiname("Main",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("Main",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("gameNum",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callproperty Multiname("getValue",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                     pushbyte 100
+                     lessthan
+                     convert_b
+            ofs00ec:
+                     iffalse ofs00f8
+                     pushstring "艾尔之海"
+                     coerce_s
+                     setlocal2
+                     jump ofs00fc
+            ofs00f8:
+                     pushstring "战斗音乐"
+                     coerce_s
+                     setlocal2
+            ofs00fc:
+                     findpropstrict Multiname("musicString",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("musicString",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal2
+                     ifeq ofs0173
+            ofs0105:
+                     findpropstrict Multiname("s1",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("s1",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     convert_b
+                     iffalse ofs0116
+                     findpropstrict Multiname("sc1",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("sc1",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callproperty Multiname("stop",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                     pop
+            ofs0116:
+                     jump ofs0129
+            ofs011a:
+                     getlocal0
+                     pushscope
+                     newcatch 0
+                     dup
+                     setlocal 4
+                     dup
+                     pushscope
+                     swap
+                     setslot 1
+                     popscope
+                     kill 4
+            ofs0129:
+                     findproperty Multiname("musicString",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal2
+                     setproperty Multiname("musicString",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal2
+                     pushstring "封面声音"
+                     ifne ofs014a
+                     findpropstrict Multiname("getDefinitionByName",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     findpropstrict Multiname("musicString",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("musicString",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callproperty Multiname("getDefinitionByName",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                     findpropstrict Multiname("Class",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("Class",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     astypelate
+                     coerce QName(PackageNamespace(""),"Class")
+                     setlocal3
+                     jump ofs015d
+            ofs014a:
+                     findpropstrict Multiname("MusicData",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("MusicData",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     findpropstrict Multiname("musicString",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("musicString",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callproperty Multiname("getClass",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                     findpropstrict Multiname("Class",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("Class",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     astypelate
+                     coerce QName(PackageNamespace(""),"Class")
+                     setlocal3
+            ofs015d:
+                     findproperty Multiname("s1",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal3
+                     construct 0
+                     setproperty Multiname("s1",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     findproperty Multiname("sc1",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     findpropstrict Multiname("s1",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("s1",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     pushbyte 0
+                     pushint 99999
+                     callproperty Multiname("play",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                     setproperty Multiname("sc1",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+            ofs0173:
+                     returnvoid
+                  end ; code
+                  try from ofs0105 to ofs0116 target ofs011a type null name QName(PackageNamespace(""),"e") end
+               end ; body
+            end ; method
+         }
+         
+         public static function ActMusicPlay(param1:int, param2:String) : *
+         {
+            trait method QName(PackageNamespace(""),"ActMusicPlay")
+               flag FINAL
+               dispid 4
+               method
+                  name ""
+                  param QName(PackageNamespace(""),"int")
+                  param QName(PackageNamespace(""),"String")
+                  returns null
+                  
+                  body
+                     maxstack 3
+                     localcount 10
+                     initscopedepth 9
+                     maxscopedepth 10
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushbyte 0
+                        convert_i
+                        setlocal3
+                        findpropstrict Multiname("undefined",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty Multiname("undefined",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        coerce_a
+                        setlocal 4
+                        findpropstrict Multiname("undefined",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty Multiname("undefined",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        coerce_a
+                        setlocal 5
+                        pushnull
+                        coerce QName(PackageNamespace(""),"Class")
+                        setlocal 6
+                        getlocal2
+                        pushstring "站"
+                        equals
+                        convert_b
+                        dup
+                        convert_b
+                        iftrue ofs002a
+                        pop
+                        getlocal2
+                        pushstring "走"
+                        equals
+                        convert_b
+               ofs002a:
+                        dup
+                        convert_b
+                        iftrue ofs0036
+                        pop
+                        getlocal2
+                        pushstring "跳"
+                        equals
+                        convert_b
+               ofs0036:
+                        dup
+                        convert_b
+                        iftrue ofs0042
+                        pop
+                        getlocal2
+                        pushstring "跑"
+                        equals
+                        convert_b
+               ofs0042:
+                        iffalse ofs0047
+                        returnvoid
+               ofs0047:
+                        pushstring ""
+                        coerce_s
+                        setlocal 7
+                        pushbyte 0
+                        setlocal 8
+                        findpropstrict Multiname("MusicBox",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty Multiname("MusicBox",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        pushstring "mArr"
+                        getlocal1
+                        add
+                        getproperty MultinameL([PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        coerce_a
+                        setlocal 9
+                        jump ofs0093
+               ofs0061:
+                        label
+                        getlocal 9
+                        getlocal 8
+                        nextname
+                        convert_i
+                        setlocal3
+                        findpropstrict Multiname("MusicBox",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty Multiname("MusicBox",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        pushstring "mArr"
+                        getlocal1
+                        add
+                        getproperty MultinameL([PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal3
+                        getproperty MultinameL([PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        pushbyte 0
+                        getproperty MultinameL([PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal2
+                        ifne ofs0093
+                        findpropstrict Multiname("MusicBox",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty Multiname("MusicBox",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        pushstring "mArr"
+                        getlocal1
+                        add
+                        getproperty MultinameL([PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal3
+                        getproperty MultinameL([PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        pushbyte 1
+                        getproperty MultinameL([PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        coerce_s
+                        setlocal 7
+               ofs0093:
+                        hasnext2 9, 8
+                        iftrue ofs0061
+                        kill 9
+                        kill 8
+                        getlocal 7
+                        pushstring ""
+                        ifeq ofs00d7
+                        findpropstrict Multiname("SoundChannel",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        constructprop Multiname("SoundChannel",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                        coerce_a
+                        setlocal 4
+                        findpropstrict Multiname("MusicData",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty Multiname("MusicData",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal 7
+                        callproperty Multiname("getClass",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                        findpropstrict Multiname("Class",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty Multiname("Class",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        astypelate
+                        coerce QName(PackageNamespace(""),"Class")
+                        setlocal 6
+                        getlocal 6
+                        construct 0
+                        coerce_a
+                        setlocal 5
+                        getlocal 5
+                        pushbyte 0
+                        pushbyte 1
+                        callproperty Multiname("play",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                        coerce_a
+                        setlocal 4
+                        jump ofs0119
+               ofs00d7:
+                        findpropstrict Multiname("SoundChannel",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        constructprop Multiname("SoundChannel",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                        coerce_a
+                        setlocal 4
+                        findpropstrict Multiname("MusicBox",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty Multiname("MusicBox",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        pushstring "mArr"
+                        getlocal1
+                        add
+                        getproperty MultinameL([PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        pushbyte 0
+                        getproperty MultinameL([PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        pushbyte 1
+                        getproperty MultinameL([PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        coerce_s
+                        setlocal 7
+                        findpropstrict Multiname("MusicData",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty Multiname("MusicData",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getlocal 7
+                        callproperty Multiname("getClass",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                        findpropstrict Multiname("Class",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        getproperty Multiname("Class",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        astypelate
+                        coerce QName(PackageNamespace(""),"Class")
+                        setlocal 6
+                        getlocal 6
+                        construct 0
+                        coerce_a
+                        setlocal 5
+                        getlocal 5
+                        pushbyte 0
+                        pushbyte 1
+                        callproperty Multiname("play",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                        coerce_a
+                        setlocal 4
+               ofs0119:
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public static function ActMusicPlayX(param1:int, param2:String) : *
+            {
+               trait method QName(PackageNamespace(""),"ActMusicPlayX")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name ""
+                     param QName(PackageNamespace(""),"int")
+                     param QName(PackageNamespace(""),"String")
+                     returns null
+                     
+                     body
+                        maxstack 3
+                        localcount 10
+                        initscopedepth 9
+                        maxscopedepth 10
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushbyte 0
+                           convert_i
+                           setlocal3
+                           findpropstrict Multiname("undefined",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty Multiname("undefined",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           coerce_a
+                           setlocal 4
+                           findpropstrict Multiname("undefined",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty Multiname("undefined",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           coerce_a
+                           setlocal 5
+                           pushnull
+                           coerce QName(PackageNamespace(""),"Class")
+                           setlocal 6
+                           pushstring ""
+                           coerce_s
+                           setlocal 7
+                           pushbyte 0
+                           setlocal 8
+                           findpropstrict Multiname("MusicBox",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty Multiname("MusicBox",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushstring "mArrX"
+                           getlocal1
+                           add
+                           getproperty MultinameL([PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           coerce_a
+                           setlocal 9
+                           jump ofs0065
+                  ofs0033:
+                           label
+                           getlocal 9
+                           getlocal 8
+                           nextname
+                           convert_i
+                           setlocal3
+                           findpropstrict Multiname("MusicBox",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty Multiname("MusicBox",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushstring "mArrX"
+                           getlocal1
+                           add
+                           getproperty MultinameL([PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getlocal3
+                           getproperty MultinameL([PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getlocal2
+                           ifne ofs0065
+                           findpropstrict Multiname("MusicBox",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty Multiname("MusicBox",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushstring "mArrX"
+                           getlocal1
+                           add
+                           getproperty MultinameL([PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getlocal3
+                           getproperty MultinameL([PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushbyte 1
+                           getproperty MultinameL([PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           coerce_s
+                           setlocal 7
+                  ofs0065:
+                           hasnext2 9, 8
+                           iftrue ofs0033
+                           kill 9
+                           kill 8
+                           getlocal 7
+                           pushstring ""
+                           ifeq ofs00a9
+                           findpropstrict Multiname("SoundChannel",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           constructprop Multiname("SoundChannel",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                           coerce_a
+                           setlocal 4
+                           findpropstrict Multiname("MusicData",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty Multiname("MusicData",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getlocal 7
+                           callproperty Multiname("getClass",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                           findpropstrict Multiname("Class",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty Multiname("Class",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           astypelate
+                           coerce QName(PackageNamespace(""),"Class")
+                           setlocal 6
+                           getlocal 6
+                           construct 0
+                           coerce_a
+                           setlocal 5
+                           getlocal 5
+                           pushbyte 0
+                           pushbyte 1
+                           callproperty Multiname("play",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                           coerce_a
+                           setlocal 4
+                           jump ofs00eb
+                  ofs00a9:
+                           findpropstrict Multiname("SoundChannel",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           constructprop Multiname("SoundChannel",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 0
+                           coerce_a
+                           setlocal 4
+                           findpropstrict Multiname("MusicBox",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty Multiname("MusicBox",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushstring "mArrX"
+                           getlocal1
+                           add
+                           getproperty MultinameL([PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           pushbyte 1
+                           getproperty MultinameL([PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           coerce_s
+                           setlocal 7
+                           findpropstrict Multiname("MusicData",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty Multiname("MusicData",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getlocal 7
+                           callproperty Multiname("getClass",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                           findpropstrict Multiname("Class",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getproperty Multiname("Class",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           astypelate
+                           coerce QName(PackageNamespace(""),"Class")
+                           setlocal 6
+                           getlocal 6
+                           construct 0
+                           coerce_a
+                           setlocal 5
+                           getlocal 5
+                           pushbyte 0
+                           pushbyte 1
+                           callproperty Multiname("play",[PrivateNamespace("src:MusicBox"),PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils"),ProtectedNamespace("src:MusicBox"),StaticProtectedNs("src:MusicBox"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                           coerce_a
+                           setlocal 4
+                  ofs00eb:
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+            }
+         }
+         
+         method
+            name ""
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 1
+               maxscopedepth 9
+               
+               code
+                  getlocal0
+                  pushscope
+                  findpropstrict Multiname("MusicBox",[PackageNamespace("src")])
+                  findpropstrict QName(PackageNamespace(""),"Object")
+                  getproperty QName(PackageNamespace(""),"Object")
+                  pushscope
+                  findpropstrict QName(PackageNamespace("flash.events"),"EventDispatcher")
+                  getproperty QName(PackageNamespace("flash.events"),"EventDispatcher")
+                  pushscope
+                  findpropstrict QName(PackageNamespace("flash.display"),"DisplayObject")
+                  getproperty QName(PackageNamespace("flash.display"),"DisplayObject")
+                  pushscope
+                  findpropstrict QName(PackageNamespace("flash.display"),"InteractiveObject")
+                  getproperty QName(PackageNamespace("flash.display"),"InteractiveObject")
+                  pushscope
+                  findpropstrict QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+                  getproperty QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+                  pushscope
+                  findpropstrict QName(PackageNamespace("flash.display"),"Sprite")
+                  getproperty QName(PackageNamespace("flash.display"),"Sprite")
+                  pushscope
+                  findpropstrict QName(PackageNamespace("flash.display"),"MovieClip")
+                  getproperty QName(PackageNamespace("flash.display"),"MovieClip")
+                  pushscope
+                  findpropstrict Multiname("MovieClip",[PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils")])
+                  getproperty Multiname("MovieClip",[PackageNamespace(""),PrivateNamespace("MusicBox.as$213"),PackageNamespace("src"),PackageInternalNs("src"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("flash.display"),PackageNamespace("flash.events"),PackageNamespace("flash.media"),PackageNamespace("flash.text"),PackageNamespace("flash.utils")])
+                  newclass 0
+                  popscope
+                  popscope
+                  popscope
+                  popscope
+                  popscope
+                  popscope
+                  popscope
+                  initproperty QName(PackageNamespace("src"),"MusicBox")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+         

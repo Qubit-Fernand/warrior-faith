@@ -1,0 +1,390 @@
+package com.greensock.plugins
+{
+   import com.greensock.*;
+   
+   public class HexColorsPlugin extends TweenPlugin
+   {
+      
+      public static const API:Number = 1;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"API")
+               pushbyte 1
+               initproperty QName(PackageNamespace(""),"API")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var _colors:Array;
+      
+      public function HexColorsPlugin()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  pushstring "hexColors"
+                  initproperty Multiname("propName",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  getlocal0
+                  newarray 0
+                  initproperty Multiname("overwriteProps",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  findproperty Multiname("_colors",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  newarray 0
+                  initproperty Multiname("_colors",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function onInitTween(param1:Object, param2:*, param3:TweenLite) : Boolean
+      {
+         trait method QName(PackageNamespace(""),"onInitTween")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"Object")
+               param null
+               param QName(PackageNamespace("com.greensock"),"TweenLite")
+               returns QName(PackageNamespace(""),"Boolean")
+               
+               body
+                  maxstack 7
+                  localcount 7
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnull
+                     coerce_s
+                     setlocal 4
+                     pushbyte 0
+                     setlocal 5
+                     getlocal2
+                     coerce_a
+                     setlocal 6
+                     jump ofs003f
+            ofs0012:
+                     label
+                     getlocal 6
+                     getlocal 5
+                     nextname
+                     coerce_s
+                     setlocal 4
+                     findpropstrict Multiname("initColor",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal1
+                     getlocal 4
+                     findpropstrict Multiname("uint",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal1
+                     getlocal 4
+                     getproperty MultinameL([PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     callproperty Multiname("uint",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                     findpropstrict Multiname("uint",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     getlocal2
+                     getlocal 4
+                     getproperty MultinameL([PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     callproperty Multiname("uint",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 1
+                     callpropvoid Multiname("initColor",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 4
+            ofs003f:
+                     hasnext2 6, 5
+                     iftrue ofs0012
+                     kill 6
+                     kill 5
+                     pushtrue
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function initColor(param1:Object, param2:String, param3:uint, param4:uint) : void
+         {
+            trait method QName(PackageNamespace(""),"initColor")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"Object")
+                  param QName(PackageNamespace(""),"String")
+                  param QName(PackageNamespace(""),"uint")
+                  param QName(PackageNamespace(""),"uint")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 11
+                     localcount 8
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushnan
+                        setlocal 5
+                        pushnan
+                        setlocal 6
+                        pushnan
+                        setlocal 7
+                        getlocal3
+                        getlocal 4
+                        ifeq ofs006e
+                        getlocal3
+                        pushbyte 16
+                        rshift
+                        convert_d
+                        setlocal 5
+                        getlocal3
+                        pushbyte 8
+                        rshift
+                        pushshort 255
+                        bitand
+                        convert_d
+                        setlocal 6
+                        getlocal3
+                        pushshort 255
+                        bitand
+                        convert_d
+                        setlocal 7
+                        getlex Multiname("_colors",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlex Multiname("_colors",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getproperty Multiname("length",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal1
+                        getlocal2
+                        getlocal 5
+                        getlocal 4
+                        pushbyte 16
+                        rshift
+                        getlocal 5
+                        subtract
+                        getlocal 6
+                        getlocal 4
+                        pushbyte 8
+                        rshift
+                        pushshort 255
+                        bitand
+                        getlocal 6
+                        subtract
+                        getlocal 7
+                        getlocal 4
+                        pushshort 255
+                        bitand
+                        getlocal 7
+                        subtract
+                        newarray 8
+                        setproperty MultinameL([PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal0
+                        getproperty Multiname("overwriteProps",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal0
+                        getproperty Multiname("overwriteProps",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getproperty Multiname("length",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                        getlocal2
+                        setproperty MultinameL([PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+               ofs006e:
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            override public function killProps(param1:Object) : void
+            {
+               trait method QName(PackageNamespace(""),"killProps")
+                  flag OVERRIDE
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"Object")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 3
+                        localcount 3
+                        initscopedepth 5
+                        maxscopedepth 6
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlex Multiname("_colors",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty Multiname("length",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           decrement
+                           convert_i
+                           setlocal2
+                           jump ofs0034
+                  ofs000f:
+                           label
+                           getlocal1
+                           getlex Multiname("_colors",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal2
+                           getproperty MultinameL([PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           pushbyte 1
+                           getproperty MultinameL([PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getproperty MultinameL([PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlex Multiname("undefined",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           ifeq ofs0031
+                           getlex Multiname("_colors",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                           getlocal2
+                           pushbyte 1
+                           callpropvoid Multiname("splice",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")]), 2
+                  ofs0031:
+                           getlocal2
+                           decrement_i
+                           setlocal2
+                  ofs0034:
+                           getlocal2
+                           pushbyte -1
+                           ifgt ofs000f
+                           getlocal0
+                           getlocal1
+                           callsupervoid Multiname("killProps",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin"),ProtectedNamespace("com.greensock.plugins:TweenPlugin")]), 1
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               override public function set changeFactor(param1:Number) : void
+               {
+                  trait setter QName(PackageNamespace(""),"changeFactor")
+                     flag OVERRIDE
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"Number")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 7
+                           localcount 4
+                           initscopedepth 5
+                           maxscopedepth 6
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushnull
+                              coerce QName(PackageNamespace(""),"Array")
+                              setlocal3
+                              getlex Multiname("_colors",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              getproperty Multiname("length",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              convert_i
+                              setlocal2
+                              jump ofs0061
+                     ofs0012:
+                              label
+                              getlex Multiname("_colors",[PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              getlocal2
+                              getproperty MultinameL([PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              coerce QName(PackageNamespace(""),"Array")
+                              setlocal3
+                              getlocal3
+                              pushbyte 0
+                              getproperty MultinameL([PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              getlocal3
+                              pushbyte 1
+                              getproperty MultinameL([PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              getlocal3
+                              pushbyte 2
+                              getproperty MultinameL([PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              getlocal1
+                              getlocal3
+                              pushbyte 3
+                              getproperty MultinameL([PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              multiply
+                              add
+                              pushbyte 16
+                              lshift
+                              getlocal3
+                              pushbyte 4
+                              getproperty MultinameL([PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              getlocal1
+                              getlocal3
+                              pushbyte 5
+                              getproperty MultinameL([PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              multiply
+                              add
+                              pushbyte 8
+                              lshift
+                              bitor
+                              getlocal3
+                              pushbyte 6
+                              getproperty MultinameL([PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              getlocal1
+                              getlocal3
+                              pushbyte 7
+                              getproperty MultinameL([PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                              multiply
+                              add
+                              bitor
+                              setproperty MultinameL([PrivateNamespace(null,"396"),PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock"),ProtectedNamespace("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:HexColorsPlugin"),StaticProtectedNs("com.greensock.plugins:TweenPlugin")])
+                     ofs0061:
+                              getlocal2
+                              decrement_i
+                              dup
+                              convert_i
+                              setlocal2
+                              pushbyte -1
+                              ifgt ofs0012
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+               }
+            }
+            
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 1
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict Multiname("HexColorsPlugin",[PackageNamespace("com.greensock.plugins")])
+                     getlex QName(PackageNamespace(""),"Object")
+                     pushscope
+                     getlex QName(PackageNamespace("com.greensock.plugins"),"TweenPlugin")
+                     pushscope
+                     getlex Multiname("TweenPlugin",[PackageNamespace(""),PrivateNamespace(null,"397"),PackageNamespace("com.greensock.plugins"),PackageInternalNs("com.greensock.plugins"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("com.greensock")])
+                     newclass 150
+                     popscope
+                     popscope
+                     initproperty QName(PackageNamespace("com.greensock.plugins"),"HexColorsPlugin")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+            
