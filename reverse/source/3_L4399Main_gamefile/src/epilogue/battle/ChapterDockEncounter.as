@@ -261,12 +261,17 @@ package src.epilogue.battle
             {
                 if(!hit || hit.who != player || !hit.stage) continue;
                 var projectile:Fly = hit.parent as Fly;
-                if(projectile && (projectile.life == 0 || projectile.over)) continue;
+                // A spent running hit is dead; a fresh HitXX in an original ending
+                // (for example magic bolt frame 28) is a legitimate separate segment.
+                if(projectile && (projectile.life == 0 ||
+                    (projectile.over && projectile.currentLabel != "结束"))) continue;
                 lastHitBounds = boundsObject(hit.getBounds(this));
                 var damage:Number = player.use_gongji.getValue() * hit.gongJi_hp * professionScale();
                 if(!isFinite(damage) || damage <= 0) continue;
                 for(var i:int = 0; i < hitAreas.length; ++i)
                 {
+                    if(_disposed || _paused) return;
+                    if(projectile && projectile.life == 0) break;
                     // Bridge must physically open before remote attacks can disable later devices.
                     if(i > 0 && !_bridgeBroken) continue;
                     if(Number(hp[i]) <= 0) continue;

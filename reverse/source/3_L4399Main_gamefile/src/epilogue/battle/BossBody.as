@@ -18,6 +18,9 @@ package src.epilogue.battle
       private var legs:Array = [];
       private var flash:Number = 0;
       private var shattered:Boolean = false;
+      // Decorative siblings/children of frame never participate in core/node hit bounds.
+      private var detail:Sprite = new Sprite();
+      private var fractures:Sprite = new Sprite();
       private var channel:Sprite = new Sprite();
       private var channelLabel:TextField = new TextField();
       private var connections:Sprite = new Sprite();
@@ -41,6 +44,8 @@ package src.epilogue.battle
          leftNode.y = rightNode.y = -56;
          core.y = type == "warden" ? -92 : -103;
          build();
+         frame.addChild(detail); frame.addChild(fractures);
+         drawDetails();
          channelLabel.defaultTextFormat = new TextFormat("_sans", 13, 0xFFF0DE, true);
          channelLabel.width = 220; channelLabel.height = 24;
          channelLabel.x = -80; channelLabel.y = -266;
@@ -209,10 +214,17 @@ package src.epilogue.battle
          }
          else
          {
-            g.lineStyle(4, 0xA7A0CB); g.beginFill(0x24223C);
+            // Separate buttresses and seat leave the captive readable in the opening.
+            g.lineStyle(3, 0x82748D); g.beginFill(0x211E30);
             g.moveTo(-82, -24); g.lineTo(-96, -170); g.lineTo(-61, -208);
-            g.lineTo(-39, -164); g.lineTo(39, -164); g.lineTo(61, -208);
-            g.lineTo(96, -170); g.lineTo(82, -24); g.lineTo(-82, -24); g.endFill();
+            g.lineTo(-43, -166); g.lineTo(-49, -65); g.lineTo(-30, -24);
+            g.lineTo(-82, -24); g.endFill();
+            g.moveTo(82, -24); g.lineTo(96, -170); g.lineTo(61, -208);
+            g.lineTo(43, -166); g.lineTo(49, -65); g.lineTo(30, -24);
+            g.lineTo(82, -24); g.endFill();
+            g.lineStyle(2, 0x87734F); g.beginFill(0x171E29);
+            g.moveTo(-87, -31); g.lineTo(87, -31); g.lineTo(100, -10);
+            g.lineTo(-100, -10); g.lineTo(-87, -31); g.endFill();
             g.lineStyle(2, 0x6C668F);
             for(i = -1; i <= 1; i += 2)
             {
@@ -240,6 +252,120 @@ package src.epilogue.battle
          }
          drawCore(false);
          drawNode(leftNode, false); drawNode(rightNode, false);
+      }
+
+      private function rivet(g:Graphics, x:Number, y:Number, bright:Boolean = false):void
+      {
+         g.lineStyle(1, 0x1A2229, .9); g.beginFill(bright ? 0xD3BC83 : 0x827359);
+         g.drawCircle(x, y, 2.5); g.endFill();
+         g.lineStyle(1, 0xF1DFC0, .65); g.moveTo(x - 1, y - 1); g.lineTo(x + 1, y - 1);
+      }
+
+      private function drawDetails():void
+      {
+         var g:Graphics = detail.graphics;
+         var c:Graphics = crown.graphics;
+         var side:int;
+         var i:int;
+         var angle:Number;
+         g.clear();
+         if(kind == "warden")
+         {
+            // Recessed brass drum: narrow bands and vents break the flat teal hull.
+            g.lineStyle(2, 0xD4B475, .8);
+            g.moveTo(-71, -48); g.curveTo(0, -17, 71, -48);
+            g.lineStyle(1, 0x0D242A, .9);
+            g.moveTo(-64, -40); g.curveTo(0, -11, 64, -40);
+            for(i = -3; i <= 3; ++i)
+            {
+               g.lineStyle(3, 0x0E262B); g.moveTo(i * 16, -40); g.lineTo(i * 14, -26);
+               rivet(g, i * 20, -49 + Math.abs(i) * 2, i % 2 == 0);
+            }
+            for(side = -1; side <= 1; side += 2)
+            {
+               g.lineStyle(2, 0x655B43); g.beginFill(0x112B33, .9);
+               g.moveTo(side * 39, -67); g.lineTo(side * 55, -82);
+               g.lineTo(side * 75, -62); g.lineTo(side * 59, -44);
+               g.lineTo(side * 39, -67); g.endFill();
+               g.lineStyle(1, 0xC2A56C, .9);
+               g.moveTo(side * 49, -67); g.lineTo(side * 57, -74); g.lineTo(side * 66, -61);
+               rivet(g, side * 61, -51, true);
+               // Lens ribs and glints share each decorative lens's existing rotation.
+               var lens:Sprite = lenses[side < 0 ? 0 : 1] as Sprite;
+               var l:Graphics = lens.graphics;
+               l.lineStyle(1, 0x1B4B55, .8);
+               l.moveTo(side * 7, -27); l.lineTo(side * 7, 29);
+               l.moveTo(side * 15, -22); l.lineTo(side * 15, 26);
+               l.lineStyle(2, 0xD1F8E8, .75);
+               l.moveTo(side * 5, -22); l.lineTo(side * 17, -12);
+               l.lineStyle(1, 0xD1F8E8, .45);
+               l.moveTo(side * 5, 3); l.lineTo(side * 16, 13);
+            }
+            c.lineStyle(1, 0xEEE0AB, .65); c.drawEllipse(-46, -133, 92, 21);
+            c.lineStyle(2, 0x6A765F); c.moveTo(0, -139); c.lineTo(0, -151);
+            c.beginFill(0xDDCC91); c.drawCircle(0, -151, 3); c.endFill();
+         }
+         else
+         {
+            for(side = -1; side <= 1; side += 2)
+            {
+               // Faceted stone-metal ribs around an open central silhouette.
+               g.lineStyle(1, 0xAA9475, .75); g.beginFill(0x3A3144, .85);
+               g.moveTo(side * 61, -198); g.lineTo(side * 86, -166);
+               g.lineTo(side * 74, -65); g.lineTo(side * 55, -42);
+               g.lineTo(side * 60, -158); g.lineTo(side * 61, -198); g.endFill();
+               g.lineStyle(1, 0xD1BA8B, .55);
+               g.moveTo(side * 65, -185); g.lineTo(side * 77, -163); g.lineTo(side * 66, -84);
+               for(i = 0; i < 4; ++i) rivet(g, side * (77 - i * 3), -151 + i * 27, i == 0);
+               g.lineStyle(2, 0xB08D60, .8);
+               g.moveTo(side * 56, -141); g.lineTo(side * 112, -117);
+               g.lineStyle(1, 0xE1CEA0, .6);
+               g.moveTo(side * 67, -139); g.lineTo(side * 108, -121);
+               rivet(g, side * 111, -116, true);
+               // Linked cuff, chain, and fingers belong to the throne, not a reused boss.
+               g.lineStyle(2, 0x706C7E, .9);
+               g.moveTo(side * 13, -130); g.lineTo(side * 32, -105); g.lineTo(side * 43, -72);
+               for(i = 0; i < 4; ++i) g.drawEllipse(side * (38 + i * 7) - 3, -89 - i * 5, 6, 9);
+               g.lineStyle(1, 0xB2A49A, .7);
+               g.moveTo(side * 42, -75); g.lineTo(side * 47, -66);
+               g.moveTo(side * 39, -73); g.lineTo(side * 42, -64);
+            }
+            // A hood, shoulder planes, and a narrow face replace the featureless dot.
+            g.lineStyle(1, 0x716B81); g.beginFill(0x101520);
+            g.moveTo(0, -165); g.lineTo(15, -149); g.lineTo(12, -130);
+            g.lineTo(23, -113); g.lineTo(-23, -113); g.lineTo(-12, -130);
+            g.lineTo(-15, -149); g.lineTo(0, -165); g.endFill();
+            g.lineStyle(1, 0xB5A899, .8); g.moveTo(-5, -149); g.lineTo(0, -138); g.lineTo(5, -149);
+            g.lineStyle(1, 0xDED6BD, .85); g.moveTo(-7, -148); g.lineTo(-3, -147);
+            g.moveTo(3, -147); g.lineTo(7, -148);
+            g.lineStyle(1, 0xB69865, .7);
+            g.moveTo(-74, -24); g.lineTo(74, -24);
+            for(i = -3; i <= 3; ++i) rivet(g, i * 22, -17, i == 0);
+            c.lineStyle(1, 0x8C784E, .9); c.drawCircle(0, 0, 60);
+            c.lineStyle(1, 0xF3DCA3, .65); c.drawCircle(0, 0, 72);
+            for(i = 0; i < 24; ++i)
+            {
+               angle = i * Math.PI / 12;
+               c.lineStyle(i % 3 == 0 ? 2 : 1, 0xC8B178, i % 3 == 0 ? .9 : .5);
+               c.moveTo(Math.cos(angle) * 61, Math.sin(angle) * 61);
+               c.lineTo(Math.cos(angle) * (i % 3 == 0 ? 74 : 66), Math.sin(angle) * (i % 3 == 0 ? 74 : 66));
+            }
+         }
+      }
+
+      private function drawFractures():void
+      {
+         var g:Graphics = fractures.graphics;
+         for(var side:int = -1; side <= 1; side += 2)
+         {
+            g.lineStyle(4, 0x0B1421, .95);
+            g.moveTo(side * 67, -192); g.lineTo(side * 57, -161);
+            g.lineTo(side * 73, -137); g.lineTo(side * 58, -101); g.lineTo(side * 70, -55);
+            g.lineStyle(1, 0xD2B5D9, .8);
+            g.moveTo(side * 66, -191); g.lineTo(side * 56, -161);
+            g.lineTo(side * 72, -137); g.lineTo(side * 57, -101);
+            g.moveTo(side * 72, -137); g.lineTo(side * 85, -128);
+         }
       }
 
       private function drawCore(open:Boolean):void
@@ -308,6 +434,8 @@ package src.epilogue.battle
             if(phase == 2 && !shattered)
             {
                shattered = true;
+               drawFractures();
+               detail.alpha = .8;
                crown.graphics.clear();
                for(i = 0; i < 8; ++i)
                {
@@ -319,6 +447,9 @@ package src.epilogue.battle
                   crown.graphics.lineStyle(2, 0xEFE0FA, .7);
                   crown.graphics.moveTo(Math.cos(a) * 91, Math.sin(a) * 91);
                   crown.graphics.lineTo(Math.cos(a) * 107, Math.sin(a) * 107);
+                  crown.graphics.lineStyle(1, 0x64516E, .9);
+                  crown.graphics.moveTo(Math.cos(a - .13) * 75, Math.sin(a - .13) * 75);
+                  crown.graphics.lineTo(Math.cos(a) * 81, Math.sin(a) * 81);
                }
             }
             crown.rotation += dt * (phase == 2 ? 25 : 6);

@@ -131,12 +131,56 @@
       "issues": [
         "mouse modal close leaves keyboard focus detached; fix staged for next candidate"
       ]
+    },
+    {
+      "time_utc": "2026-10-25T18:13:02.469762+00:00",
+      "commit": "66c0abf",
+      "package": "reverse/build/runtime-all-rebuilt-20261025T172312.321704Z",
+      "main_sha256": "a742fa4accc9524e4679fa6f32ee9550a57b23999ede4fd13fcdcdee8ca2ffed",
+      "assembly_sha256": "8eee5c4984760012864315442f6b5bbfcdf23234b7ed4c22466c3902329139af",
+      "strict_assembly": "164 rebuilt,0 fallback",
+      "observed": "Mouse skip restores keyboard. Normal slot1 actually defeated Warden (95.829s, 125 hits) and Regent (136.808s, 222 hits, independent phase2, 9 interrupts, 2 sanctuary escapes, 1 tracking dodge). Both preparation devices operated. Release ending chosen through UI, three ritual nodes operated, gold 10000 to 60000, release village and post dialogue/journal visible. Exited player fully. Not a fresh start-to-end run on one package.",
+      "evidence": [
+        "private/021-candidate5-normal-warden-victory.png",
+        "private/022-candidate5-normal-warden-victory.json",
+        "private/023-candidate5-regent-arrival.png",
+        "private/025-candidate5-regent-phase2.json",
+        "private/026-candidate5-regent-sanctuary.json",
+        "private/028-candidate5-regent-tracking-dodge.json",
+        "private/029-candidate5-normal-regent-victory.png",
+        "private/029-candidate5-normal-regent-victory.json",
+        "private/030-candidate5-release-ritual.json",
+        "private/031-candidate5-release-village.png",
+        "private/032-candidate5-release-reward-journal.png"
+      ],
+      "legal_checkpoints": [
+        "private/checkpoints/candidate5-slot1-regent-defeated-prechoice.sol",
+        "private/checkpoints/candidate5-slot1-release-complete.sol"
+      ],
+      "protected_saves": "all four unchanged after full exit",
+      "issues": [
+        "large native finishing effects frozen over phase/victory dialogue",
+        "last damage number persists after boss death",
+        "procedural portraits/boss art too flat",
+        "candidate5 dialogue scope/time jumps fixed in unbuilt story input"
+      ],
+      "save_contract": "Independent harness run in official debugger: 36/36 PASS, canonical SHA a2b7d7494f51afe079432cffea840de3567302c2588d5f79e414bb99759ad093; private/033-save-contract-report.json and screenshot. Native permission pending not tested."
+    },
+    {
+      "time_utc": "2026-10-25T18:20:54.987025+00:00",
+      "candidate": "6-rejected-before-launch",
+      "package": "reverse/build/runtime-all-rebuilt-20261025T181646.051474Z",
+      "main_sha256": "77b9af4fa80a117ab767b0c18c82cb6ea5c98323f87dfaf5544a93b633fe7618",
+      "strict_assembly": "164 rebuilt,0 fallback",
+      "runtime": "NEVER launched; observer installer and exact-save launcher both refused yzlr2_rebuild_probe",
+      "cause": "Root omitted explicit --save-name; inherited build_main.py default was rebuild_probe",
+      "fix": "This chapter branch build_main default changed to yzlr2_rebuild_epilogue_v2; rebuilding candidate6a with explicit argument. Protected source-reconstruction worktree untouched."
     }
   ],
   "resume": {
-    "next": "candidate5 build/strict assemble/updated passive observer; retest mouse skip then keyboard immediately and normal warden completion",
-    "player": "quit, disk warden intro seen true, boss false",
-    "main_receipt_last": "reverse/build/main-probe/run-mk3to2bx/receipt.json",
-    "acceptance": "no final acceptance yet"
+    "next": "candidate6a Main build session83584 then strict assemble/install observer/launch-check; candidate6 package MUST NOT RUN because wrong SO name",
+    "player": "fully quit after candidate5 release ending and separate contract harness",
+    "main_receipt_last": "reverse/build/main-probe/run-_jyu2rj5/receipt.json",
+    "acceptance": "all final acceptance pending; minimum7h not reached"
   }
 }

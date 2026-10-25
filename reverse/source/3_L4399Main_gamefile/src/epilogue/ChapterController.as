@@ -17,6 +17,7 @@ package src.epilogue
     import flash.utils.getTimer;
     import src.Door;
     import src.GameData;
+    import src.Fly;
     import src.HitXX;
     import src.Main;
     import src.InitData;
@@ -68,6 +69,9 @@ package src.epilogue
         private var pendingVictory:Boolean=false;
         private var transitioning:Boolean=false;
         private var timelinePause:WorldTimelinePause=new WorldTimelinePause();
+        // Presentation-only snapshot: never remove effects or alter native attack state.
+        private var victoryPresentationWorld:DisplayObjectContainer;
+        private var victoryPresentation:Array=[];
 
         public static function get available():Boolean{return current!=null;}
         public static function get loadingChapter():Boolean{return requestedScene!="";}
@@ -174,7 +178,8 @@ package src.epilogue
                 if(rewardOwed()>0)
                 {
                     var received:Number=collectReward();checkpoint();
-                    notice("本次收到 "+received+" 金币。"+(rewardOwed()>0?"尚有 "+rewardOwed()+" 金币由奥古斯汀保管；用掉一些金币后再来领取。":"归光谢礼已全部领取。"));return;
+                    notice("本次收到 "+received+" 金币。"+(rewardOwed()>0?"尚有 "+rewardOwed()+" 金币由奥古斯汀保管；用掉一些金币后再来领取。":"归光谢礼已全部领取。"),
+                        function():void{dialogue("post_"+state.ending,function():void{journal();});});return;
                 }
                 dialogue("post_"+state.ending,function():void{journal();});return;
             }
@@ -257,7 +262,8 @@ package src.epilogue
         }
         private function bossPhase(event:Event):void
         {
-            if(scene=="regent" && encounter.phase==2)dialogue("regent_phase2");
+            if(scene=="regent" && encounter.phase==2)
+            {hideVictoryPresentation();dialogue("regent_phase2");}
         }
         private function bossDefeated(event:Event):void
         {
@@ -265,7 +271,7 @@ package src.epilogue
         }
         private function applyVictory():void
         {
-            pendingVictory=false;view.hideBoss();
+            pendingVictory=false;view.hideBoss();hideVictoryPresentation();
             if(scene=="warden")
             {
                 state.boss1Defeated=true;state.stage=3;ChapterState.record("devices");
@@ -402,7 +408,7 @@ package src.epilogue
             if(!available){notice("这座装置尚未准备。回到司灯遗址修复它后再来；王座已败的进度会保留。");return;}
             modalPause();
             view.showChoice(id=="beacon"?"留下长明之约":"把光还给每个人",
-                id=="beacon"?"女神自愿留下回应的通道，村民共同守护灯塔。此选择会写入本角色的结局。":"解除神力的所有束缚。女神像熄灭，居民自己点起窗灯。此选择会写入本角色的结局。",[
+                id=="beacon"?"女神自愿留下回应的通道，村民共同守护港口灯塔。此选择会写入本角色的结局。":"解开王座留下的束缚。港口神像的航灯熄灭，居民自己点起窗灯。此选择会写入本角色的结局。",[
                 {label:"确认这个结局",description:"完成场景仪式并保存结果。",action:function():void{resume();finishEnding(id);}},
                 {label:"再想一想",description:"可以走到另一装置检查。",action:resume}]);
         }
@@ -478,15 +484,51 @@ package src.epilogue
             if(!ChapterContent.DATA.dialogues[key])throw new Error("Missing chapter dialogue: "+key);
             modalPause();
             view.showDialogue(ChapterContent.DATA.dialogues[key],function():void{
-                state.seenDialogues[key]=true;checkpoint();resume();if(after!=null)after();
+                state.seenDialogues[key]=true;checkpoint();finishModal(after);
             },Boolean(state.seenDialogues[key]));
         }
-        private function notice(text:String):void
-        {modalPause();view.showDialogue([{speaker:"旅途记录",text:text,portrait:"hero"}],resume,true);}
+        private function notice(text:String,after:Function=null):void
+        {modalPause();view.showDialogue([{speaker:"旅途记录",text:text,portrait:"hero"}],function():void{finishModal(after);},true);}
+        private function finishModal(after:Function):void
+        {
+            // A continuation may open another modal or change worlds. Keep the original
+            // pause/visibility snapshot until the entire dialogue chain gives control back.
+            if(disposed)return;
+            if(after!=null)after();
+            if(!disposed && !view.modalOpen)resume();
+        }
+        private function hideVictoryPresentation():void
+        {
+            if(victoryPresentationWorld!=null)return;
+            victoryPresentationWorld=Main.world;
+            if(!victoryPresentationWorld || !Main.player_1)return;
+            hideVictoryObject(Main.player_1.skin_W);
+            for each(var effect:Fly in Fly.All)
+                if(effect && effect.who===Main.player_1)hideVictoryObject(effect);
+        }
+        private function hideVictoryObject(object:DisplayObject):void
+        {
+            if(!object || !victoryPresentationWorld.contains(object))return;
+            for each(var saved:Object in victoryPresentation)if(saved.object===object)return;
+            victoryPresentation.push({object:object,visible:object.visible});
+            object.visible=false;
+        }
+        private function clearVictoryPresentation(restore:Boolean):void
+        {
+            var world:DisplayObjectContainer=victoryPresentationWorld;
+            var savedObjects:Array=victoryPresentation;
+            victoryPresentationWorld=null;victoryPresentation=[];
+            if(!restore || !world || Main.world!==world || !world.stage)return;
+            for each(var saved:Object in savedObjects)
+            {
+                var object:DisplayObject=saved.object as DisplayObject;
+                if(object && world.contains(object))object.visible=Boolean(saved.visible);
+            }
+        }
         private function modalPause():void
         {paused=true;timelinePause.freeze(Main.world);clearInput();interactionHeld=false;prompt.text="";if(encounter)encounter.setPaused(true);if(dock)dock.setPaused(true);}
         private function resume():void
-        {paused=pendingAction!=null || transitioning;if(!paused)timelinePause.resume();clearInput();interactionHeld=false;lastTick=getTimer();if(encounter)encounter.setPaused(paused);
+        {paused=pendingAction!=null || transitioning || view.modalOpen;if(!paused){clearVictoryPresentation(true);timelinePause.resume();}clearInput();interactionHeld=false;lastTick=getTimer();if(encounter)encounter.setPaused(paused);
             if(dock)dock.setPaused(paused);}
         private function clearInput():void
         {
@@ -543,7 +585,7 @@ package src.epilogue
         private function travel(destination:String):void
         {
             if(transitioning)return;
-            transitioning=true;pendingAction=null;modalPause();
+            transitioning=true;pendingAction=null;modalPause();clearVictoryPresentation(false);
             state.inChapter=true;state.scene=destination;checkpoint();
             requestedScene=destination;clearInput();Main.allClosePanel();
             Main.gameNum.setValue(ARENA_MAP);Main.gameNum2.setValue(1);GameData.gameLV=1;
@@ -552,7 +594,7 @@ package src.epilogue
         private function returnVillage():void
         {
             if(transitioning)return;
-            transitioning=true;pendingAction=null;modalPause();
+            transitioning=true;pendingAction=null;modalPause();clearVictoryPresentation(false);
             state.inChapter=false;checkpoint();requestedScene="";
             Main.gameNum.setValue(0);Main.gameNum2.setValue(0);Main._this.Loading();
         }
@@ -571,7 +613,7 @@ package src.epilogue
             if(navigation)navigation.dispose();
             view.dispose();if(view.parent)view.parent.removeChild(view);
             if(prompt.parent)prompt.parent.removeChild(prompt);
-            pendingAction=null;timelinePause.clear();clearInput();
+            pendingAction=null;clearVictoryPresentation(false);timelinePause.clear();clearInput();
         }
     }
 }

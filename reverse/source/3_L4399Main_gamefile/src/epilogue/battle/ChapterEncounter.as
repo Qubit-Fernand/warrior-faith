@@ -124,9 +124,9 @@ package src.epilogue.battle
             return;
          }
          receivePlayerAttacks();
-         if(_disposed || _finished || stateName == "transform") return;
+         if(_disposed || _paused || _finished || stateName == "transform") return;
          updateHazards(dt);
-         if(_disposed || _finished) return;
+         if(_disposed || _paused || _finished) return;
          if(stateName == "exposed" && elapsed >= exposedUntil)
             enterState("recover", "王座重新聚光。准备横移躲避追光锁定");
          if(stateName == "recover" && stateTime >= (settings.releasePrepared ? 1.9 : 1.35))
@@ -179,6 +179,7 @@ package src.epilogue.battle
       public function reset():void
       {
          if(_disposed) return;
+         clearNumbers();
          while(numChildren > 0) removeChildAt(0);
          hazards = []; numbers = [];
          effects = new Sprite(); effects.mouseEnabled = effects.mouseChildren = false;
@@ -206,6 +207,7 @@ package src.epilogue.battle
          if(_disposed) return;
          _disposed = true;
          clearHazards();
+         clearNumbers();
          while(numChildren > 0) removeChildAt(0);
          numbers = []; player = null; body = null;
          if(parent) parent.removeChild(this);
@@ -358,77 +360,82 @@ package src.epilogue.battle
          {
             if(!hit || !(hit.who is Player) || hit.who != player || !hit.stage) continue;
             var projectile:Fly = hit.parent as Fly;
-            // Native HitXX.HitEnemy handles !cross terrain collision. It can leave
-            // life=0 hits on stage until Fly's next frame; these must not hit again.
-            // Fly.over identifies its ending animation, which is not a live attack.
-            if(projectile && (projectile.life == 0 || projectile.over)) continue;
+            // Keep spent running hits out until Fly advances to its ending timeline.
+            // Some original endings contain fresh HitXX (magic bolt frame 28).
+            // Those hits retain ordinary per-target objArr deduplication below.
+            if(projectile && (projectile.life == 0 ||
+               (projectile.over && projectile.currentLabel != "结束"))) continue;
             lastHitBounds = numericBounds(hit.getBounds(this));
             lastHitAt = elapsed;
             lastHitSource = projectile ? "projectile" : "melee";
             lastHitResult = "no-new-target";
-            var target:Sprite = null;
-            var node:int = -1;
-            if(nodes[0] > 0 && hit.objArr.indexOf(body.leftNode) < 0 && hit.hitTestObject(body.leftNode))
-            { target = body.leftNode; node = 0; }
-            else if(nodes[1] > 0 && hit.objArr.indexOf(body.rightNode) < 0 && hit.hitTestObject(body.rightNode))
-            { target = body.rightNode; node = 1; }
-            else if(hit.objArr.indexOf(body.core) < 0 && hit.hitTestObject(body.core)) target = body.core;
-            if(!target) continue;
-            // Match native once-per-HitXX-per-target semantics. Multi-hit skills create fresh hits.
-            hit.objArr.push(target);
-            lastHitResult = node >= 0 ? "node-" + node : "core";
-            // Match HitXX.as:139-144: consume one finite penetration only for
-            // a newly accepted custom target, never for a previously hit part.
-            // The native loop does not know these sprites, so it cannot also
-            // charge this same target. -1 remains unlimited penetration.
-            if(projectile && projectile.life > 0) --projectile.life;
-            var damage:Number = playerDamage(hit);
-            var rawDamage:Number = damage;
-            if(damage <= 0) continue;
-            if(node >= 0)
+            // A one-frame area hit must visit every overlapping part this frame.
+            // Keep the existing left/right/core order for finite penetration.
+            for(var part:int = 0; part < 3; ++part)
             {
-               nodes[node] = Math.max(0, Number(nodes[node]) - damage);
-               body.setNodeHealth(nodes, nodeMax);
-               if(nodes[node] == 0)
+               if(_disposed || _paused || _finished || stateName == "transform") return;
+               if(projectile && projectile.life == 0) break;
+               var node:int = part < 2 ? part : -1;
+               if(node >= 0 && nodes[node] <= 0) continue;
+               var target:Sprite = part == 0 ? body.leftNode : part == 1 ? body.rightNode : body.core;
+               if(hit.objArr.indexOf(target) >= 0 || !hit.hitTestObject(target)) continue;
+               // Match native once-per-HitXX-per-target semantics. Multi-hit skills create fresh hits.
+               hit.objArr.push(target);
+               lastHitResult = node >= 0 ? "node-" + node : "core";
+               // Match native HitXX: consume one finite penetration only for
+               // a newly accepted custom target, never for a previously hit part.
+               // The native loop does not know these sprites, so it cannot also
+               // charge this same target. -1 remains unlimited penetration.
+               if(projectile && projectile.life > 0) --projectile.life;
+               var damage:Number = playerDamage(hit);
+               var rawDamage:Number = damage;
+               if(damage <= 0) continue;
+               if(node >= 0)
                {
-                  body.breakNode(node);
-                  floating("供能切断", target.x + body.x, floorY - 110, 0xBBF8DC);
-                  announceShieldReleased();
+                  nodes[node] = Math.max(0, Number(nodes[node]) - damage);
+                  body.setNodeHealth(nodes, nodeMax);
+                  if(nodes[node] == 0)
+                  {
+                     body.breakNode(node);
+                     floating("供能切断", target.x + body.x, floorY - 110, 0xBBF8DC);
+                     announceShieldReleased();
+                  }
                }
-            }
-            else
-            {
-               if(nodes[0] > 0 || nodes[1] > 0) damage *= .3;
-               if(elapsed < exposedUntil) damage *= 1.5;
-               currentHp = Math.max(0, currentHp - damage);
-            }
-            lastDamage = damage; ++playerHits;
-            player.连击计数();
-            if(player.energySlot) player.energySlot.addEnergy(player, damage);
-            if(node >= 0) body.pulseNode(node);
-            else body.pulse();
-            floating(formatDamage(damage), target.x + body.x, target.y + body.y - 45, 0xFFF1B2);
-            if(currentHp <= 0)
-            {
-               if(kind == "regent" && currentPhase == 1) beginTransformation();
-               else finish();
-               return;
-            }
-            if(node < 0 && chargeHazard && !chargeHazard.fired)
-            {
-               // Shield mitigation does not make the interruption test impossible.
-               // Only real core hits count; the timer never removes charge by itself.
-               chargeDamage += rawDamage;
-               if(chargeDamage >= chargeRequired) interruptCharge();
-               else currentHint = "攻击核心打断夺光：" + Math.min(100, Math.round(chargeDamage / chargeRequired * 100)) + "%";
-            }
-            // Warden changes cadence and opens its lens while retaining one continuous health pool.
-            if(kind == "warden" && currentPhase == 1 && currentHp <= phaseOneMax * .5)
-            {
-               currentPhase = 2; ++transitionCount;
-               currentHint = "司灯加速：锚印锁定后立刻移动";
-               dispatchEvent(new Event(PHASE_CHANGED));
-               if(_disposed || _finished) return;
+               else
+               {
+                  if(nodes[0] > 0 || nodes[1] > 0) damage *= .3;
+                  if(elapsed < exposedUntil) damage *= 1.5;
+                  currentHp = Math.max(0, currentHp - damage);
+               }
+               lastDamage = damage; ++playerHits;
+               player.连击计数();
+               if(player.energySlot) player.energySlot.addEnergy(player, damage);
+               if(node >= 0) body.pulseNode(node);
+               else body.pulse();
+               floating(formatDamage(damage), target.x + body.x, target.y + body.y - 45, 0xFFF1B2);
+               if(currentHp <= 0)
+               {
+                  if(kind == "regent" && currentPhase == 1) beginTransformation();
+                  else finish();
+                  return;
+               }
+               if(node < 0 && chargeHazard && !chargeHazard.fired)
+               {
+                  // Shield mitigation does not make the interruption test impossible.
+                  // Only real core hits count; the timer never removes charge by itself.
+                  chargeDamage += rawDamage;
+                  if(chargeDamage >= chargeRequired) interruptCharge();
+                  else currentHint = "攻击核心打断夺光：" + Math.min(100, Math.round(chargeDamage / chargeRequired * 100)) + "%";
+               }
+               // Warden changes cadence and opens its lens while retaining one continuous health pool.
+               if(kind == "warden" && currentPhase == 1 && currentHp <= phaseOneMax * .5)
+               {
+                  currentPhase = 2; ++transitionCount;
+                  currentHint = "司灯加速：锚印锁定后立刻移动";
+                  dispatchEvent(new Event(PHASE_CHANGED));
+                  // Stop the hit scan at every phase boundary, including remaining hits.
+                  return;
+               }
             }
          }
       }
@@ -485,6 +492,9 @@ package src.epilogue.battle
       {
          _finished = true; currentHp = 0;
          clearHazards();
+         // Controller stops calling update after victory; do not strand the final hit.
+         // This is terminal cleanup, not a timer that runs through dialogue pause.
+         clearNumbers();
          nodes = [0, 0]; body.setNodeHealth(nodes, nodeMax);
          enterState("defeated", kind == "warden" ? "司灯熄灭，归航记录已经显现" : "王座崩解。女神之灵终于可以回答");
          body.animate(elapsed, .05, currentPhase, stateName, [false, false]);
@@ -513,6 +523,13 @@ package src.epilogue.battle
             var old:Object = numbers.shift();
             if(old.label.parent) old.label.parent.removeChild(old.label);
          }
+      }
+
+      private function clearNumbers():void
+      {
+         for each(var n:Object in numbers)
+            if(n.label.parent) n.label.parent.removeChild(n.label);
+         numbers = [];
       }
 
       private function updateNumbers(dt:Number):void

@@ -107,13 +107,17 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--package',type=Path,help='Select a strict package; default newest complete strict assembly')
     parser.add_argument('--player-app',type=Path,help='Existing official Adobe debugger application')
+    parser.add_argument('--expect-save',help='Require this exact isolated save name for a version-specific entry')
     parser.add_argument('--check',action='store_true',help='Validate only; never open a player')
     args=parser.parse_args()
     launch_requested=False
     try:
         package=select_package(args.package)
         print('校验严格重建包、全部文件与当前构建输入…',flush=True)
-        report=validate_inputs(package);app=debugger_app(args.player_app);running=active_players()
+        report=validate_inputs(package)
+        if args.expect_save and report['game_shared_object'] != args.expect_save:
+            raise ValueError('此版本入口要求存档名 '+args.expect_save+'；所选包使用 '+report['game_shared_object'])
+        app=debugger_app(args.player_app);running=active_players()
         report.update(player_app=str(app),active_players=running,launch_available=not running)
         if report['build_environment_differences']:
             print('检测到仅构建环境差异（只记录名称）：'+', '.join(report['build_environment_differences'])+'。本次不编译，所有输入文件和产物哈希仍须通过；重新构建时仍严格检查环境。',flush=True)

@@ -1,6 +1,15 @@
-# 勇士的信仰 5.6 · 源码重建与二次开发
+# 勇士的信仰 · 同人最终章《归光之约》开发分支
 
-**本分支：`codex/reverse-engineering`。** 从本地 5.6 离线包恢复并维护 **164 个 SWF 模块、19,910 个 ActionScript 3 文件、11 份 DataX XML 配置**。这些源码已完成全包重编译和若干真实玩法验证，可用于继续修改游戏；不是原作者的 FLA／关卡编辑工程，也没有证明所有玩法与原版等价。
+**当前分支：`codex/final-chapter-v2`，工作树：`~/Games/勇者的信仰-终章开发`。** 这是基于5.6源码重建的同人章节开发现场，尚未替换三个正式快捷方式。目标与会话记录在 [chapter/README.md](chapter/README.md)，逐候选证据在 [session.json](chapter/evidence/session.json)。
+
+- 已实现并局部实测：原主线70提交后从奥古斯汀接取、码头救援与航标、司灯与窃光王座两场新组合Boss、两条结局及独立奖励存档。候选5普通档实际通过两Boss和“万家之火”；另一结局、毕业档及最终同包全程验收仍待完成。
+- 内容修改入口：[story.json](chapter/content/story.json)、[剧情依据](chapter/docs/story-evidence.md)、[实现文件图](chapter/docs/implementation-map.md)。编辑受控内容后运行 `reverse/tools/chapter_source.py import`，再局部编译Main和严格组装。
+- 新版独立保存名为 `yzlr2_rebuild_epilogue_v2`；原版与其他版本的四个保存名均受保护。私人测试档、截图和诊断不提交Git。
+- 本地开发提交可恢复，未自动push。正式交付前必须完成 [验收清单](chapter/evidence/acceptance.json)，下方保留源码重建基线说明以供开发查阅；其中历史候选包和重建入口不是当前同人运行包。
+
+## 源码重建基线参考
+
+**来源基线分支：`codex/reverse-engineering`。** 从本地 5.6 离线包恢复并维护 **164 个 SWF 模块、19,910 个 ActionScript 3 文件、11 份 DataX XML 配置**。这些源码已完成全包重编译和若干真实玩法验证，可用于继续修改游戏；不是原作者的 FLA／关卡编辑工程，也没有证明所有玩法与原版等价。
 
 ## 从这里开始
 

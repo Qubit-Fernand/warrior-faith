@@ -33,7 +33,7 @@ def preserve_original_swf_version(output, original):
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--all-definitions',action='store_true')
     ap.add_argument('--source-dir',type=Path,default=ROOT/'reverse/source/3_L4399Main_gamefile')
-    ap.add_argument('--save-name',default='yzlr2_rebuild_probe')
+    ap.add_argument('--save-name',default='yzlr2_rebuild_epilogue_v2')
     a=ap.parse_args()
     if not a.save_name.startswith('yzlr2_rebuild_') or not a.save_name.replace('_','').isalnum():
         raise ValueError('Reconstruction test stores must use a safe yzlr2_rebuild_ prefix')
