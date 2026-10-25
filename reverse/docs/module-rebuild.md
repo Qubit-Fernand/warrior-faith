@@ -1,5 +1,7 @@
 # Representative module reconstruction
 
+> 文档导航（2026-10-25）：本页包含多个历史阶段的状态快照。“正在构建／尚未确认”等措辞仅指对应阶段；当前191531包的验收范围以[项目 README](../../README.md)和[最终验收清单](../manifests/final-acceptance.json)为准。日常操作先看[开发文件手册](developer-files.md)和[源码指南](developer-source.md)。
+
 Status: all 162 resource libraries have compiled from recovered AS sources. The final pass restored omitted button bindings and root timeline data. All 162 current receipts have `root_timeline.verified:true`, exact repeat compilation, canonical source hashes and matching output hashes; `resource-final-validation.json` records the completed set. Offline comparisons cover 69 equipment libraries (24,449 frames), 9 additional small libraries, Enemy1 and Map1. Actual full-game runtime verification belongs to the parent task. This subtask has not executed the game or accessed SharedObject.
 
 ## Reproduce
