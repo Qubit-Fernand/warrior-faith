@@ -1,0 +1,120 @@
+{
+  "runtimeExecuted": true,
+  "flushStatus": "flushed",
+  "checks": [
+    {
+      "name": "Direct host remains SWF9",
+      "pass": true
+    },
+    {
+      "name": "Default command state starts playing",
+      "pass": true
+    },
+    {
+      "name": "gotoAndStop tracks false",
+      "pass": true
+    },
+    {
+      "name": "Known label gotoAndStop tracks false",
+      "pass": true
+    },
+    {
+      "name": "Known label gotoAndPlay tracks true",
+      "pass": true
+    },
+    {
+      "name": "Missing label does not change stopped command state",
+      "pass": true
+    },
+    {
+      "name": "Default native timeline advances",
+      "pass": true
+    },
+    {
+      "name": "Explicitly stopped native timeline stays frame 2",
+      "pass": true
+    },
+    {
+      "name": "Authored frame-script stop dispatches override",
+      "pass": true
+    },
+    {
+      "name": "Missing label native baseline also remains stopped",
+      "pass": false
+    },
+    {
+      "name": "Numeric string playback matches tracked intent",
+      "pass": false
+    },
+    {
+      "name": "Holding preserves previous true and false intent",
+      "pass": true
+    },
+    {
+      "name": "play while held preserves held state",
+      "pass": true
+    },
+    {
+      "name": "Held running native timeline executes no further frame scripts",
+      "pass": true
+    },
+    {
+      "name": "Held stopped native timeline stays stopped",
+      "pass": true
+    },
+    {
+      "name": "Held script-stopped native timeline stays stopped",
+      "pass": true
+    },
+    {
+      "name": "Newly attached held native timeline does not run",
+      "pass": true
+    },
+    {
+      "name": "Previously running timeline resumes",
+      "pass": true
+    },
+    {
+      "name": "Previously stopped timeline never restarts",
+      "pass": true
+    },
+    {
+      "name": "Frame-script-stopped timeline never restarts",
+      "pass": true
+    },
+    {
+      "name": "New timeline resumes from remembered intent",
+      "pass": true
+    },
+    {
+      "name": "nextFrame tracks stopped",
+      "pass": true
+    },
+    {
+      "name": "prevFrame tracks stopped",
+      "pass": true
+    },
+    {
+      "name": "Invalid scene preserves prior playing state",
+      "pass": true
+    }
+  ],
+  "generation": "20261025T205856.847279Z",
+  "hostVersion": 9,
+  "failures": 2,
+  "samples": {
+    "invalidScene": {
+      "tracked": true,
+      "threw": true
+    },
+    "numericString": {
+      "nativeFrame": 1,
+      "tracked": false,
+      "trackedFrames": 11,
+      "trackedFrame": 1,
+      "nativeFrames": 11
+    }
+  },
+  "phase": "complete",
+  "pass": false
+}

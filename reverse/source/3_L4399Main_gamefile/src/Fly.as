@@ -1,12 +1,13 @@
 package src
 {
    import flash.display.*;
+   import src.epilogue.ui.TrackedMovieClip;
    import src.epilogue.ChapterController;
    import flash.events.*;
    import flash.utils.*;
    import src.other.*;
    
-   public class Fly extends MovieClip
+   public class Fly extends TrackedMovieClip
    {
       
       public static var FlyData:XML;

@@ -323,6 +323,8 @@ package src.epilogue
             if(pendingDockChange){applyDockChange();return;}
             if(!inArena && !mentor){mentorSearchTime+=dt;if(mentorSearchTime>.5){mentorSearchTime=0;mentor=findMentor(Main.world);if(mentor)placeMarker();}}
             paused=view.modalOpen || pendingAction!=null;
+            // Cover native effects attached after the modal opened without replacing their original visibility.
+            if(paused)hideVictoryPresentation();
             prompt.visible=false;
             if(encounter)encounter.setPaused(paused);
             if(dock)dock.setPaused(paused);

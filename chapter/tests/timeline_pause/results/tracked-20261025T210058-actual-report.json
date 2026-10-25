@@ -1,0 +1,154 @@
+{
+  "pass": false,
+  "checks": [
+    {
+      "pass": true,
+      "name": "Direct host remains SWF9"
+    },
+    {
+      "pass": true,
+      "name": "Default command state starts playing"
+    },
+    {
+      "pass": true,
+      "name": "gotoAndStop tracks false"
+    },
+    {
+      "pass": true,
+      "name": "Known label gotoAndStop tracks false"
+    },
+    {
+      "pass": true,
+      "name": "Known label gotoAndPlay tracks true"
+    },
+    {
+      "pass": true,
+      "name": "Missing label gotoAndPlay tracks the native play command"
+    },
+    {
+      "pass": true,
+      "name": "Default native timeline advances"
+    },
+    {
+      "pass": true,
+      "name": "Explicitly stopped native timeline stays frame 2"
+    },
+    {
+      "pass": true,
+      "name": "Authored frame-script stop dispatches override"
+    },
+    {
+      "pass": true,
+      "name": "Missing label native baseline really plays"
+    },
+    {
+      "pass": true,
+      "name": "Missing label gotoAndStop tracks native stop command"
+    },
+    {
+      "pass": true,
+      "name": "Numeric string playback matches tracked intent"
+    },
+    {
+      "pass": true,
+      "name": "Holding preserves previous true and false intent"
+    },
+    {
+      "pass": true,
+      "name": "World ADDED capture holds new native timeline immediately"
+    },
+    {
+      "pass": true,
+      "name": "play while held preserves held state"
+    },
+    {
+      "pass": false,
+      "name": "Missing-label gotoAndStop really stops native frames"
+    },
+    {
+      "pass": true,
+      "name": "Held running native timeline executes no further frame scripts"
+    },
+    {
+      "pass": true,
+      "name": "Held stopped native timeline stays stopped"
+    },
+    {
+      "pass": true,
+      "name": "Held script-stopped native timeline stays stopped"
+    },
+    {
+      "pass": true,
+      "name": "Newly attached held native timeline does not run"
+    },
+    {
+      "pass": true,
+      "name": "Unknown native timeline is deliberately untouched"
+    },
+    {
+      "pass": true,
+      "name": "Removed timeline is cleared without restart"
+    },
+    {
+      "pass": true,
+      "name": "Previously running timeline resumes"
+    },
+    {
+      "pass": true,
+      "name": "Previously stopped timeline never restarts"
+    },
+    {
+      "pass": true,
+      "name": "Frame-script-stopped timeline never restarts"
+    },
+    {
+      "pass": true,
+      "name": "New timeline resumes from remembered intent"
+    },
+    {
+      "pass": true,
+      "name": "nextFrame tracks stopped"
+    },
+    {
+      "pass": true,
+      "name": "prevFrame tracks stopped"
+    },
+    {
+      "pass": true,
+      "name": "Invalid scene preserves prior playing state"
+    },
+    {
+      "pass": true,
+      "name": "Invalid scene from stopped preserves false state"
+    },
+    {
+      "pass": true,
+      "name": "Clear does not restart detached/disposed world timelines"
+    }
+  ],
+  "samples": {
+    "missingStoppedAt": 12,
+    "numericString": {
+      "nativeFrames": 12,
+      "trackedFrame": 2,
+      "tracked": true,
+      "nativeFrame": 2,
+      "trackedFrames": 12
+    },
+    "invalidScene": {
+      "tracked": true,
+      "threw": true
+    },
+    "missingLabel": {
+      "nativeFrames": 12,
+      "tracked": true,
+      "trackedFrames": 12
+    }
+  },
+  "phase": "complete",
+  "generation": "20261025T210058.844051Z",
+  "failures": 1,
+  "runtimeExecuted": true,
+  "hostVersion": 9,
+  "flushStatus": "flushed"
+}
