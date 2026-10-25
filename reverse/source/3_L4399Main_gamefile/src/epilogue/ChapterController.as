@@ -397,7 +397,7 @@ package src.epilogue
         private function prepareDevice(id:String):void
         {
             var key:String=id=="beacon"?"beaconPrepared":"releasePrepared";
-            if(state[key]){notice(id=="beacon"?"灯塔已修复：最终战受到的伤害降低，结局时可留下自愿回应的通道。":"解缚环已修复：最终战可获得更长反击窗口，结局时可解除全部神力束缚。");return;}
+            if(state[key]){notice(id=="beacon"?"灯塔已修复：最终战受到的伤害降低，结局时可留下自愿回应的通道。":"解缚环已修复：最终战可获得更长反击窗口，结局时可解除这里灯台的束缚。");return;}
             state[key]=true;animateChange(1.2,function():void{checkpoint();notice(id=="beacon"?"归航灯塔重新亮起。它会保护进入王座的人，但最后留下与否仍由女神决定。":"解缚环开始转动。它将松开王座的束缚；最终选择前仍可修复另一装置。");});
         }
         private function chooseEnding(id:String):void
@@ -407,8 +407,8 @@ package src.epilogue
             var available:Boolean=id=="beacon"?Boolean(state.beaconPrepared):Boolean(state.releasePrepared);
             if(!available){notice("这座装置尚未准备。回到司灯遗址修复它后再来；王座已败的进度会保留。");return;}
             modalPause();
-            view.showChoice(id=="beacon"?"留下长明之约":"把光还给每个人",
-                id=="beacon"?"女神自愿留下回应的通道，村民共同守护港口灯塔。此选择会写入本角色的结局。":"解开王座留下的束缚。港口神像的航灯熄灭，居民自己点起窗灯。此选择会写入本角色的结局。",[
+            view.showChoice(id=="beacon"?"留下长明之约":"万家之火",
+                id=="beacon"?"女神自愿留下回应的通道，村民共同守护港口灯塔。此选择会写入本角色的结局。":"解开王座留下的束缚。神殿引路灯熄灭，居民用手灯和路旁灯龛标记归路。此选择会写入本角色的结局。",[
                 {label:"确认这个结局",description:"完成场景仪式并保存结果。",action:function():void{resume();finishEnding(id);}},
                 {label:"再想一想",description:"可以走到另一装置检查。",action:resume}]);
         }
@@ -432,6 +432,9 @@ package src.epilogue
                 state.rewardClaims.returnLight={ending:id,gold:0,total:50000,pending:50000};
             collectReward();
             checkpoint();
+            // Persist the endpoint first; this live cue is never replayed by a cold read.
+            scenery.setProgress(state);
+            scenery.beginEndingSequence(id);
             animateChange(2.5,function():void{dialogue("ending_"+id,returnVillage);});
         }
         private function rewardOwed():Number

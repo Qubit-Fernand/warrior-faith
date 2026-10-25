@@ -6,6 +6,7 @@ package src.epilogue.battle
    import flash.geom.Rectangle;
    import flash.text.TextField;
    import flash.text.TextFormat;
+   import flash.utils.getTimer;
    import src.Enemy;
    import src.Fly;
    import src.HitXX;
@@ -69,6 +70,7 @@ package src.epilogue.battle
       private var lastReceivedDamage:Number = 0;
       private var lastIncomingPower:Number = 0;
       private var shieldReleased:Boolean = false;
+      private var retirementTick:int = 0;
 
       public function ChapterEncounter(type:String, width:Number, groundY:Number, options:Object = null)
       {
@@ -167,6 +169,7 @@ package src.epilogue.battle
                  frameDelta:lastDt, damageContacts:damageContacts,
                  lastReceivedDamage:lastReceivedDamage, lastIncomingPower:lastIncomingPower,
                  configuredAttack:attackPower, configuredDefense:armor,
+                 visualRetirementActive:retirementTick != 0, bodyAlpha:body ? body.alpha : 0,
                  chargeDamage:chargeDamage, chargeRequired:chargeRequired,
                  charging:chargeHazard != null && !chargeHazard.fired,
                  chargeProgress:chargeHazard ? chargeHazard.progress : 0,
@@ -179,6 +182,7 @@ package src.epilogue.battle
       public function reset():void
       {
          if(_disposed) return;
+         stopRetirement();
          clearNumbers();
          while(numChildren > 0) removeChildAt(0);
          hazards = []; numbers = [];
@@ -206,6 +210,7 @@ package src.epilogue.battle
       {
          if(_disposed) return;
          _disposed = true;
+         stopRetirement();
          clearHazards();
          clearNumbers();
          while(numChildren > 0) removeChildAt(0);
@@ -498,7 +503,32 @@ package src.epilogue.battle
          nodes = [0, 0]; body.setNodeHealth(nodes, nodeMax);
          enterState("defeated", kind == "warden" ? "司灯熄灭，归航记录已经显现" : "王座崩解。女神之灵终于可以回答");
          body.animate(elapsed, .05, currentPhase, stateName, [false, false]);
+         body.beginRetirement();
+         retirementTick = getTimer();
+         addEventListener(Event.ENTER_FRAME, retireVisual);
          dispatchEvent(new Event(DEFEATED));
+      }
+
+      /** Presentation only: finished battles never re-enter update or advance gameplay clocks.
+       * This bounded fade may continue behind victory dialogue; it cannot damage or target anyone.
+       */
+      private function retireVisual(event:Event):void
+      {
+         if(_disposed || !_finished || !stage || !body)
+         {
+            stopRetirement();
+            return;
+         }
+         var now:int = getTimer();
+         var dt:Number = Math.max(0, Math.min(.05, (now - retirementTick) / 1000));
+         retirementTick = now;
+         if(body.retireVisual(dt)) stopRetirement();
+      }
+
+      private function stopRetirement():void
+      {
+         removeEventListener(Event.ENTER_FRAME, retireVisual);
+         retirementTick = 0;
       }
 
       private function clearHazards():void

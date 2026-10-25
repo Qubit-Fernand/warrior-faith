@@ -31,6 +31,10 @@ package src.epilogue.battle
       private var debris:Sprite = new Sprite();
       private var pieces:Array = [];
       private var breakEffectsDone:Array = [false, false];
+      private var retirementAge:Number = 0;
+      private var retirementAlpha:Number = 1;
+      private var retirementCoreAlpha:Number = 1;
+      private var retirementCrownAlpha:Number = 1;
 
       public function BossBody(type:String)
       {
@@ -169,6 +173,35 @@ package src.epilogue.battle
          g.beginFill(0xDFA0DF, .95); g.drawRect(-78, -241, 156 * progress, 5); g.endFill();
          g.beginFill(0xA3F7D4, 1); g.drawRect(-78, -233, 156 * interruption, 5); g.endFill();
          channelLabel.text = "聚光 " + Math.round(progress * 100) + "% · 打断 " + Math.round(interruption * 100) + "%";
+      }
+
+      /** Hide transient battle UI immediately so victory dialogue has no stale overlay. */
+      public function beginRetirement():void
+      {
+         retirementAge = 0;
+         retirementAlpha = alpha;
+         retirementCoreAlpha = core.alpha;
+         retirementCrownAlpha = crown.alpha;
+         channel.visible = false;
+         channel.graphics.clear();
+         nodeMeters.visible = false;
+         connections.visible = false;
+         while(debris.numChildren > 0) debris.removeChildAt(0);
+         pieces = [];
+         flash = 0; nodeFlashes = [0, 0];
+         leftNode.alpha = rightNode.alpha = 1;
+      }
+
+      /** Returns true after one visual second. Never mutates node/core geometry or game state. */
+      public function retireVisual(dt:Number):Boolean
+      {
+         retirementAge = Math.min(1, retirementAge + Math.max(0, dt));
+         // Smoothly extinguish the powered parts; retain the identifiable ruined machine.
+         var p:Number = retirementAge * retirementAge * (3 - 2 * retirementAge);
+         alpha = retirementAlpha + (.42 - retirementAlpha) * p;
+         core.alpha = retirementCoreAlpha + (.12 - retirementCoreAlpha) * p;
+         crown.alpha = retirementCrownAlpha + (.3 - retirementCrownAlpha) * p;
+         return retirementAge >= 1;
       }
 
       public function pulse():void { flash = .15; }

@@ -1,6 +1,8 @@
 package src.epilogue.scene
 {
    import flash.display.Graphics;
+   import flash.display.GradientType;
+   import flash.geom.Matrix;
    import flash.display.Sprite;
    import flash.text.TextField;
    import flash.text.TextFormat;
@@ -33,6 +35,11 @@ package src.epilogue.scene
       private var labels:Array = [];
       private var villageWindows:Array = [];
       private var villagePeople:Array = [];
+      private var endingSequence:String = "";
+      private var endingSequencePlayed:String = "";
+      private var endingSequenceTime:Number = 0;
+      private var endingSequenceLayer:Sprite;
+      private static const ENDING_SEQUENCE_DURATION:Number = 2.3;
 
       public function ChapterScenery(scene:String, width:Number = 1600, groundY:Number = 450)
       {
@@ -76,6 +83,7 @@ package src.epilogue.scene
       public function get animating():Boolean
       {
          if(disposed) return false;
+         if(endingSequence != "") return true;
          if(bridge && Math.abs(bridge.rotation - (progress.bridgeOpen ? 0 : -72)) > .8) return true;
          if(needle && progress.calibrationDone && Math.abs(needle.rotation - 35) > .8) return true;
          for each(var resident:Object in prisoners)
@@ -87,6 +95,7 @@ package src.epilogue.scene
       public function settle():void
       {
          if(disposed) return;
+         finishEndingSequence();
          if(bridge) bridge.rotation = progress.bridgeOpen ? 0 : -72;
          if(needle) needle.rotation = progress.calibrationDone ? 35 : -35;
          for each(var resident:Object in prisoners)
@@ -95,6 +104,7 @@ package src.epilogue.scene
             resident.node.y = resident.targetY;
             resident.node.rotation = 0;
             resident.node.scaleX = resident.baseScale;
+            animatePerson(resident.node as Sprite, false, 0);
          }
       }
 
@@ -104,6 +114,12 @@ package src.epilogue.scene
          if(disposed || !isFinite(dt) || dt <= 0) return;
          dt = Math.min(dt, .1);
          elapsed += dt;
+         if(endingSequence != "")
+         {
+            endingSequenceTime += dt;
+            if(endingSequenceTime >= ENDING_SEQUENCE_DURATION)finishEndingSequence();
+            else drawEndingSequence();
+         }
          var ease:Number = Math.min(1, dt * 3.8);
          if(bridge) bridge.rotation += ((progress.bridgeOpen ? 0 : -72) - bridge.rotation) * ease;
          if(needle)
@@ -123,7 +139,10 @@ package src.epilogue.scene
             node.rotation = moving ? Math.sin(elapsed * 11 + person.phase) * 3 : 0;
             // Feet remain at the same ground line; rescued residents visibly walk to the boat.
             node.scaleX = (moving && delta < 0 ? -1 : 1) * person.baseScale;
+            animatePerson(node, moving, elapsed * (moving ? 8 : 1.8) + person.phase);
          }
+         for(var residentIndex:int = 0; residentIndex < villagePeople.length; ++residentIndex)
+            animatePerson(villagePeople[residentIndex] as Sprite, false, elapsed * 1.8 + residentIndex * 1.7);
          for each(var glow:Object in glows)
          {
             glow.node.alpha = glow.active ? .65 + Math.sin(elapsed * 2 + glow.phase) * .16 : .08;
@@ -180,6 +199,7 @@ package src.epilogue.scene
          while(numChildren > 0) removeChildAt(numChildren - 1);
          prisoners = []; gates = []; glows = []; labels = [];
          villageWindows = []; villagePeople = []; ritualNodes = [];
+         endingSequence="";endingSequencePlayed="";endingSequenceLayer=null;
          bridge = chain = compass = needle = boat = beacon = release = wreck = routeMarker = ritualLinks = dockRoute = null;
          graphics.clear();
          if(parent) parent.removeChild(this);
@@ -252,7 +272,7 @@ package src.epilogue.scene
          g.lineStyle(2, 0xAE956A); g.moveTo(-65, -84); g.lineTo(65, -84);
          for(var i:int = 0; i < 3; ++i)
          {
-            var p:Sprite = person(index == 0 ? 0x87B4A8 : 0xBC9183, i == 1);
+            var p:Sprite = person(index == 0 ? 0x87B4A8 : 0xBC9183, i == 1, i + index);
             p.x = px + (i - 1) * 25; p.y = floorY; addChild(p);
             prisoners.push({node:p, group:index, homeX:p.x, targetX:p.x, targetY:floorY, baseScale:p.scaleX, phase:i * 2 + index});
          }
@@ -299,30 +319,47 @@ package src.epilogue.scene
          {
             // A quiet, unlit memorial, accompanied by many warm human-scale lights.
             var statue:Sprite = new Sprite(); statue.x = 450; statue.y = floorY; addChild(statue);
-            var g:Graphics = statue.graphics; g.lineStyle(2, 0x96989C); g.beginFill(0x555C65);
-            g.drawRect(-38, -10, 76, 10); g.drawCircle(0, -90, 14);
-            g.moveTo(-14, -74); g.lineTo(-29, -13); g.lineTo(29, -13); g.lineTo(14, -74); g.endFill();
+            var g:Graphics = statue.graphics;
+            g.beginFill(0x16222A,.25);g.drawEllipse(-43,-6,86,13);g.endFill();
+            g.lineStyle(1.5,0x353B48);stoneFill(g,0xAAAEB5,0x555E6C,-36,-17,72,17);
+            g.drawRoundRect(-36,-17,72,15,4,4);g.endFill();
+            g.lineStyle(1,0x4A515D);stoneFill(g,0xB1B3BC,0x68727E,-26,-105,52,92);
+            g.moveTo(-14,-79);g.curveTo(-20,-68,-18,-55);g.lineTo(-27,-18);
+            g.curveTo(0,-10,27,-18);g.lineTo(18,-55);g.curveTo(21,-69,13,-80);
+            g.curveTo(19,-103,0,-108);g.curveTo(-18,-104,-14,-79);g.endFill();
+            g.beginFill(0x747F8D);g.moveTo(-11,-88);g.curveTo(0,-99,11,-88);
+            g.curveTo(10,-75,0,-72);g.curveTo(-10,-76,-11,-88);g.endFill();
+            g.lineStyle(1,0xCFD0D3,.7);g.moveTo(-11,-72);g.curveTo(-17,-50,-23,-22);
+            g.moveTo(10,-72);g.curveTo(16,-47,23,-22);g.moveTo(-5,-56);g.lineTo(-10,-23);
+            g.moveTo(4,-56);g.lineTo(10,-23);g.moveTo(-11,-90);g.curveTo(0,-100,12,-90);
+            g.lineStyle(3,0x8C95A0);g.moveTo(-15,-68);g.curveTo(-17,-54,-4,-51);
+            g.moveTo(15,-68);g.curveTo(17,-54,4,-51);
+            g.lineStyle(1,0x4F5967);g.moveTo(-5,-84);g.lineTo(-2,-84);g.moveTo(2,-84);g.lineTo(5,-84);
+            g.moveTo(-2,-78);g.lineTo(2,-78);g.moveTo(9,-38);g.lineTo(5,-31);g.lineTo(8,-26);g.lineStyle();
             sign("不再束缚光的神像", 450, floorY - 130);
          }
          for(var i:int = 0; i < 3; ++i)
          {
-            var px:Number = 850 + i * 220;
+            // Low roadside lamp niches respect the native village skyline and quest board.
+            var px:Number = 900 + i * 200;
             var house:Sprite = new Sprite(); house.x = px; house.y = floorY; addChild(house);
-            var hg:Graphics = house.graphics; hg.lineStyle(2, 0x756A58); hg.beginFill(0x453E37, .75);
-            hg.drawRect(-48, -96, 96, 96); hg.endFill(); hg.beginFill(0x655144, .85);
-            hg.moveTo(-61, -93); hg.lineTo(0, -132); hg.lineTo(61, -93); hg.lineTo(-61, -93); hg.endFill();
-            hg.lineStyle(3, 0xA08760); hg.drawRect(-27, -77, 54, 38);
-            var window:Sprite = new Sprite(); window.x = px; window.y = floorY - 58; addChild(window);
-            window.graphics.beginFill(isBeacon ? 0xCCAC68 : 0xFFE0A0, .8);
-            window.graphics.drawRect(-22, -14, 44, 28); window.graphics.endFill();
-            window.graphics.lineStyle(3, 0x5B4B3B); window.graphics.moveTo(0, -14); window.graphics.lineTo(0, 14);
+            var hg:Graphics = house.graphics;hg.beginFill(0x152331,.22);hg.drawEllipse(-26,-4,52,9);hg.endFill();
+            hg.lineStyle(1,0x3A4654);stoneFill(hg,0x81909C,0x424C5B,-23,-17,46,17);
+            hg.drawRoundRect(-23,-17,46,15,4,4);hg.endFill();
+            hg.lineStyle(2,0xB89A60);hg.beginFill(0x303F49);hg.drawRoundRect(-12,-46,24,29,5,5);hg.endFill();
+            hg.moveTo(-15,-46);hg.lineTo(0,-52);hg.lineTo(15,-46);
+            var window:Sprite = new Sprite(); window.x = px; window.y = floorY - 32; addChild(window);
+            var wg:Graphics=window.graphics;wg.beginFill(isBeacon ? 0xD8EED2 : 0xFFE0A0,.9);
+            wg.drawRoundRect(-8,-10,16,20,3,3);wg.endFill();
+            wg.lineStyle(1,0x8E7951);wg.moveTo(0,-10);wg.lineTo(0,10);
+            wg.beginFill(0xFFF9D1);wg.drawEllipse(-2,-5,4,9);wg.endFill();wg.lineStyle();
             villageWindows.push(window);
          }
          for(i = 0; i < 4; ++i)
          {
-            var p:Sprite = person(i % 2 == 0 ? 0x7DA99A : 0xB39984, i == 3);
+            var p:Sprite = person(i % 2 == 0 ? 0x7DA99A : 0xB39984, i == 3, i, !isBeacon);
             p.x = isBeacon ? 620 + i * 42 : 670 + i * 155; p.y = floorY; addChild(p); villagePeople.push(p);
-            if(!isBeacon) addGlow(p, 12, -39, 0xFFE2A0, 10, true);
+
          }
          sign(isBeacon ? "长明之约 · 今日守灯人" : "万家之火 · 回家的路", 700, floorY - 112);
       }
@@ -383,6 +420,7 @@ package src.epilogue.scene
          var choice:String = progress.ending != "" ? String(progress.ending) : String(progress.endingChoice);
          var show:Boolean = Boolean(progress.boss2Defeated) && (choice == "beacon" || choice == "release");
          var complete:int = progress.ending != "" ? 3 : int(progress.endingNodes);
+         if(endingSequence != "")complete=Math.max(0,Math.min(3,int((endingSequenceTime+.02)/.65)));
          ritualLinks.visible = show; ritualLinks.graphics.clear();
          if(show)
          {
@@ -392,6 +430,9 @@ package src.epilogue.scene
          for(var i:int = 0; i < ritualNodes.length; ++i)
          {
             var node:Sprite = ritualNodes[i]; node.visible = show;
+            // The active release ring is drawn as independently separating arcs below.
+            var releaseAge:Number=(endingSequenceTime-i*.65)/.65;
+            if(endingSequence=="release" && releaseAge>0 && releaseAge<1)node.visible=false;
             var g:Graphics = node.graphics; g.clear();
             if(!show) continue;
             var done:Boolean = i < complete;
@@ -453,8 +494,99 @@ package src.epilogue.scene
             if(light.owner == beacon) light.active = sceneName == "village_beacon" || (progress.ending == "" && Boolean(progress.beaconPrepared)) || progress.ending == "beacon";
             else if(light.owner == release) light.active = progress.ending == "" && Boolean(progress.releasePrepared);
          }
-         if(release) drawReleaseFrame(release, progress.ending == "release");
+         if(release) drawReleaseFrame(release, progress.ending == "release" && endingSequence != "release");
          drawRitual();
+         if(endingSequence != "")drawEndingSequence();
+      }
+
+      /** Explicit live ending cue; loading saved state never calls this method. */
+      public function beginEndingSequence(ending:String):void
+      {
+         if(disposed || sceneName!="regent" || (ending!="beacon" && ending!="release"))return;
+         if(endingSequence!="" || endingSequencePlayed!="" || progress.ending!==ending)return;
+         endingSequence=ending;endingSequencePlayed=ending;endingSequenceTime=0;
+         endingSequenceLayer=new Sprite();endingSequenceLayer.mouseEnabled=false;
+         endingSequenceLayer.mouseChildren=false;addChild(endingSequenceLayer);
+         refreshVisuals();
+      }
+
+      private function finishEndingSequence():void
+      {
+         if(endingSequence=="")return;
+         endingSequence="";endingSequenceTime=ENDING_SEQUENCE_DURATION;
+         if(endingSequenceLayer){endingSequenceLayer.graphics.clear();endingSequenceLayer.visible=false;}
+         refreshVisuals();
+      }
+
+      private function drawEndingSequence():void
+      {
+         if(!endingSequenceLayer || endingSequence=="")return;
+         drawRitual();
+         var g:Graphics=endingSequenceLayer.graphics;g.clear();
+         var xs:Array=[520,800,1050];
+         var beaconEnding:Boolean=endingSequence=="beacon";
+         var tint:uint=beaconEnding?0xBBFFE9:0xFFE3A2;
+         for(var i:int=0;i<3;++i)
+         {
+            var age:Number=(endingSequenceTime-i*.65)/.65;
+            var p:Number=Math.max(0,Math.min(1,age));
+            if(age<0)continue;
+            if(!beaconEnding && age<1)
+               drawSeparatingRing(g,Number(xs[i]),floorY-43,23,p,1-p*.45);
+            // A sparse moving trail, rather than a filled beam over the actor.
+            if(age<=1.35)
+            {
+               var targetX:Number=beaconEnding?350:1320+i*48;
+               var targetY:Number=beaconEnding?floorY-140:floorY-42-i*8;
+               var startY:Number=beaconEnding?floorY-64:floorY-43;
+               for(var j:int=0;j<9;++j)
+               {
+                  var u:Number=Math.max(0,Math.min(1,p-j*.045));
+                  var px:Number=Number(xs[i])+(targetX-Number(xs[i]))*u;
+                  var py:Number=startY+(targetY-startY)*u-Math.sin(u*Math.PI)*(beaconEnding?44:34);
+                  var opacity:Number=(1-j/10)*.75*Math.max(0,1-Math.max(0,age-1)*3);
+                  g.lineStyle();g.beginFill(tint,opacity*.13);g.drawCircle(px,py,j==0?12:5);g.endFill();
+                  g.beginFill(tint,opacity);g.drawCircle(px,py,j==0?3.5:1.6);g.endFill();
+               }
+            }
+            if(age>=1)
+            {
+               var fade:Number=Math.max(0,1-(age-1)*.7);
+               g.lineStyle(1,tint,fade*.45);
+               g.drawCircle(beaconEnding?350:1320+i*48,beaconEnding?floorY-140:floorY-42-i*8,8+Math.min(1,age-1)*15);
+               g.lineStyle();
+            }
+         }
+         if(!beaconEnding && release)
+         {
+            // Final larger seal follows the third node; no state is written by this visual.
+            var ringProgress:Number=Math.max(0,Math.min(1,(endingSequenceTime-1.3)/.85));
+            var rg:Graphics=release.graphics;rg.clear();rg.lineStyle(3,0xA092B6);rg.beginFill(0x393443);
+            rg.drawRect(-54,-13,108,13);rg.endFill();
+            drawSeparatingRing(rg,0,-69,47,ringProgress,1-ringProgress*.95);
+         }
+      }
+
+      private function drawSeparatingRing(g:Graphics,cx:Number,cy:Number,radius:Number,p:Number,opacity:Number):void
+      {
+         for(var segment:int=0;segment<3;++segment)
+         {
+            var center:Number=segment*Math.PI*2/3-Math.PI/2;
+            var dx:Number=Math.cos(center)*p*18;
+            var dy:Number=Math.sin(center)*p*9+p*p*22;
+            g.lineStyle(radius>30?7:4,0xBCA4CE,opacity);
+            for(var step:int=0;step<=8;++step)
+            {
+               var a:Number=center-.94+step*.235;
+               var x0:Number=cx+Math.cos(a)*radius+dx;
+               var y0:Number=cy+Math.sin(a)*radius+dy;
+               if(step==0)g.moveTo(x0,y0);else g.lineTo(x0,y0);
+            }
+            g.lineStyle(1,0xFFF0C8,opacity*.8);
+            g.moveTo(cx+Math.cos(center-.94)*radius+dx-2,cy+Math.sin(center-.94)*radius+dy-3);
+            g.lineTo(cx+Math.cos(center-.94)*radius+dx+2,cy+Math.sin(center-.94)*radius+dy+3);
+         }
+         g.lineStyle();
       }
 
       private function drawDockRoute():void
@@ -514,16 +646,97 @@ package src.epilogue.scene
          g.moveTo(9, -104); g.lineTo(63, -42); g.lineTo(9, -42); g.lineTo(9, -104); g.endFill();
       }
 
-      private function person(coat:uint, small:Boolean = false):Sprite
+      private function stoneFill(g:Graphics, top:uint, bottom:uint, x:Number, y:Number, w:Number, h:Number):void
+      {
+         var matrix:Matrix=new Matrix();matrix.createGradientBox(w,h,Math.PI/2,x,y);
+         g.beginGradientFill(GradientType.LINEAR,[top,bottom],[1,1],[0,255],matrix);
+      }
+
+      private function person(coat:uint, small:Boolean = false, variant:int = 0, lantern:Boolean = false):Sprite
       {
          var s:Sprite = new Sprite(); var g:Graphics = s.graphics;
-         g.lineStyle(5, 0x273139); g.moveTo(-6, -16); g.lineTo(-8, 0); g.moveTo(6, -16); g.lineTo(8, 0);
-         g.lineStyle(1, 0x28343C); g.beginFill(coat); g.drawRoundRect(-13, -43, 26, 29, 6, 6); g.endFill();
-         g.lineStyle(4, coat); g.moveTo(-11, -37); g.lineTo(-17, -19); g.moveTo(11, -37); g.lineTo(17, -20);
-         g.lineStyle(1, 0x4D3931); g.beginFill(0xD1AA87); g.drawCircle(0, -52, 10); g.endFill();
-         g.beginFill(0x4A3C37); g.drawEllipse(-10, -62, 20, 8); g.endFill();
+         variant=variant%3;
+         g.beginFill(0x152630,.23);g.drawEllipse(-17,-4,34,8);g.endFill();
+         // Feet have independent pivots, while the outer node retains its saved ground anchor.
+         for(var i:int=0;i<2;++i)
+         {
+            var foot:Sprite=new Sprite();foot.name=i==0?"footLeft":"footRight";
+            foot.x=i==0?-6:6;foot.y=-17;s.addChild(foot);g=foot.graphics;
+            g.lineStyle(1,0x29343C);g.beginFill(0x46515B);g.drawRoundRect(-4,0,8,13,3,3);g.endFill();
+            g.beginFill(0x533F35);g.drawRoundRect(-5,11,12,6,3,3);g.endFill();
+            g.lineStyle(1,0xAD9170,.7);g.moveTo(-3,12);g.lineTo(4,12);g.lineStyle();
+         }
+         var body:Sprite=new Sprite();body.name="figure";s.addChild(body);g=body.graphics;
+         g.lineStyle(1,0x344047);stoneFill(g,coat,0x3E565B,-13,-46,26,31);
+         g.moveTo(-8,-46);g.curveTo(-16,-43,-15,-34);g.lineTo(-12,-17);
+         g.curveTo(0,-13,12,-17);g.lineTo(15,-34);g.curveTo(16,-43,8,-46);
+         g.lineTo(-8,-46);g.endFill();
+         // Curved sleeves and cuffs; a held lamp belongs to the right arm rather than floating.
+         g.lineStyle(6,coat);g.moveTo(-11,-40);g.curveTo(-16,-32,-16,-24);
+         g.lineStyle(4,0xE5BD98);g.moveTo(-16,-24);g.lineTo(-15,-21);g.lineStyle();
+         g.beginFill(0xE7C29D);g.drawRoundRect(-4,-49,8,9,3,3);g.endFill();
+         if(variant==1)
+         {
+            g.beginFill(0xDDD1AE);g.moveTo(-7,-41);g.lineTo(7,-41);g.lineTo(10,-19);g.lineTo(-10,-19);g.lineTo(-7,-41);g.endFill();
+            g.lineStyle(1,0xA28B68);g.moveTo(-7,-30);g.lineTo(7,-30);g.lineTo(6,-23);g.lineTo(-6,-23);g.lineStyle();
+         }
+         else
+         {
+            g.beginFill(variant==0?0xC7B491:0x647B92);g.moveTo(-8,-44);g.lineTo(0,-36);g.lineTo(8,-44);
+            g.lineTo(5,-37);g.lineTo(0,-32);g.lineTo(-5,-37);g.endFill();
+            g.lineStyle(1,0xD2BE99,.8);g.moveTo(0,-32);g.lineTo(0,-18);g.lineStyle();
+            g.beginFill(0xD9B670);g.drawCircle(3,-29,1);g.drawCircle(3,-24,1);g.endFill();
+         }
+         // A rounded cheek/jaw silhouette, hair locks and readable eyes replace the circle icon.
+         g.lineStyle(.8,0x705449);stoneFill(g,0xFFE1B8,0xC48E70,-13,-72,26,28);
+         g.moveTo(-11,-65);g.curveTo(-12,-74,0,-74);g.curveTo(12,-74,13,-63);
+         g.lineTo(12,-54);g.curveTo(10,-47,0,-45);g.curveTo(-11,-47,-12,-55);
+         g.lineTo(-11,-65);g.endFill();g.lineStyle();
+         var hair:uint=variant==0?0x4B3934:variant==1?0x655145:0xB39B7A;
+         g.beginFill(hair);g.moveTo(-14,-59);g.curveTo(-17,-74,-3,-77);g.curveTo(12,-80,15,-64);
+         g.lineTo(12,-56);g.lineTo(9,-66);g.lineTo(4,-63);g.lineTo(-1,-68);
+         g.lineTo(-6,-62);g.lineTo(-9,-66);g.lineTo(-11,-55);g.lineTo(-14,-59);g.endFill();
+         g.lineStyle(1,0xD7B793,.5);g.moveTo(-10,-70);g.curveTo(-3,-76,7,-72);g.lineStyle();
+         if(variant==1)
+         {
+            g.beginFill(0xB5ADA0);g.moveTo(-14,-69);g.curveTo(-4,-81,9,-75);g.lineTo(15,-65);
+            g.curveTo(0,-73,-14,-64);g.lineTo(-14,-69);g.endFill();
+            g.beginFill(0xDED4BC);g.drawEllipse(9,-68,7,5);g.endFill();
+         }
+         for(i=0;i<2;++i)
+         {
+            var ex:Number=i==0?-8:3;
+            g.lineStyle(.7,0x463B39);g.beginFill(0xFFF2DB);g.drawEllipse(ex,-60,6,7);g.endFill();g.lineStyle();
+            g.beginFill(0x395D5C);g.drawEllipse(ex+2,-59,3,5);g.endFill();
+            g.beginFill(0xFFFFFF);g.drawCircle(ex+2.7,-58.3,.8);g.endFill();
+         }
+         g.lineStyle(.8,0x9D6F5C);g.moveTo(-2,-50);g.curveTo(1,-48,4,-51);g.lineStyle();
+         var arm:Sprite=new Sprite();arm.name="lampArm";arm.x=11;arm.y=-39;s.addChild(arm);g=arm.graphics;
+         g.lineStyle(6,coat);g.moveTo(0,0);g.curveTo(6,7,5,13);
+         g.lineStyle(4,0xE5BD98);g.moveTo(5,13);g.lineTo(8,15);g.lineStyle();
+         if(lantern)
+         {
+            g.lineStyle(1.5,0xC3A064);g.drawEllipse(5,13,8,8);
+            g.beginFill(0x394A50);g.drawRoundRect(3,20,14,17,3,3);g.endFill();
+            g.beginFill(0xFFE5A2);g.drawRoundRect(6,23,8,11,2,2);g.endFill();
+            g.lineStyle(1,0x9F814F);g.moveTo(10,22);g.lineTo(10,35);g.lineStyle();
+            addGlow(arm,10,28,0xFFE2A0,12,true);
+         }
          if(small) s.scaleX = s.scaleY = .77;
          return s;
+      }
+
+      private function animatePerson(node:Sprite, moving:Boolean, phase:Number):void
+      {
+         if(!node)return;
+         var figure:Sprite=node.getChildByName("figure") as Sprite;
+         var left:Sprite=node.getChildByName("footLeft") as Sprite;
+         var right:Sprite=node.getChildByName("footRight") as Sprite;
+         var arm:Sprite=node.getChildByName("lampArm") as Sprite;
+         if(figure)figure.y=moving?-Math.abs(Math.sin(phase))*.9:Math.sin(phase)*.35;
+         if(left)left.rotation=moving?Math.sin(phase)*12:0;
+         if(right)right.rotation=moving?-Math.sin(phase)*12:0;
+         if(arm)arm.rotation=Math.sin(phase)*(moving?5:1.4);
       }
 
       private function addGlow(owner:Sprite, px:Number, py:Number, color:uint, radius:Number, active:Boolean):void
