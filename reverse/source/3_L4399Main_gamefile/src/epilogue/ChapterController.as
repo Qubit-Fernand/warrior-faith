@@ -754,6 +754,16 @@ package src.epilogue
         {
             if(transitioning)return;
             transitioning=true;pendingAction=null;modalPause();clearVictoryPresentation(false);
+            // Main.GameStart revives only village variant 0. Story variants 3/4
+            // otherwise retain a dead player at y=-50 and cannot move. Revive
+            // before AddPlayer positions the retained native player, and before
+            // checkpointing. Normal living returns keep their existing vitals.
+            if(dead || Main.player_1.hp.getValue()<=0)
+            {
+                Player.一起信春哥();
+                Main.player_1.hp.setValue(Main.player_1.use_hp_Max.getValue());
+                Main.player_1.mp.setValue(Main.player_1.use_mp_Max.getValue());
+            }
             state.inChapter=false;checkpoint();requestedScene="";
             Main.gameNum.setValue(0);Main.gameNum2.setValue(0);Main._this.Loading();
         }

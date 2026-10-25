@@ -77,3 +77,7 @@ PY=/opt/miniconda3/envs/Qubit/bin/python
 村庄章节HUD/E/Esc由Controller检查Stage/Main直接挂载的已知原生窗口及SelMap；必须有舞台内实际可见内容才让位。CardPanel存在visible=true但零子项、零边界的常驻空壳，不能仅看visible/stage。SelMap特殊难度页用父容器-2000、子容器+2000抵消，不能仅用root坐标判离屏。`snapshot.nativeUI`只读记录阻断对象和叶子边界；原生窗口关闭后恢复终章输入，长按键需释放后再触发。
 
 原生暂停的隔离测试、实际报告和覆盖边界见 [timeline_pause](../tests/timeline_pause/README.md)。Main 的 SWF 9 版本不得为访问新 API 随意提高。
+
+### 战败返村的原生生命周期
+
+`Main.AddPlayer`沿用现有Player；HP为0时将其放到y=-50。`Main.GameStart`只对村庄变体0调用原生复活，主线后的变体3/4不调用。因此终章的死亡菜单必须在保存/Loading前显式复活并恢复真实HP/MP上限。正常活着返村和胜利返村不额外回血。候选12实际发现此缺陷，候选13补上该顺序，运行证据以验收表为准。

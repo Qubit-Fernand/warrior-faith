@@ -37,9 +37,11 @@
     {
       "id": "normal_complete",
       "requirement": "正常属性角色从接取连续完成码头、司灯、王座、仪式、领奖和回村",
-      "status": "failed_attempts_in_progress",
+      "status": "six_warden_failures",
       "evidence": [
-        "private/100-normal-warden-death-repeat.png"
+        "private/100-normal-warden-death-repeat.png",
+        "private/114-normal-warden-fifth-failed.png",
+        "private/115-normal-warden-sixth-failed.png"
       ]
     },
     {
@@ -71,21 +73,24 @@
     {
       "id": "graduation",
       "requirement": "毕业高伤害通过两血池，进度/奖励/结局不软锁",
-      "status": "flow_passed_cold_reward_pending",
+      "status": "passed",
       "evidence": [
         "private/105-graduation-warden-victory.png",
         "private/106-graduation-regent-transformation.png",
         "private/107-graduation-regent-victory.png",
-        "private/candidate12-graduation-result.json"
+        "private/candidate12-graduation-result.json",
+        "private/112-graduation-ending-cold-read.png",
+        "private/113-graduation-reward-cold-idempotence.png"
       ]
     },
     {
       "id": "death_retry",
       "requirement": "两核心Boss死亡后重试，不提前写胜利；既有探索进度保留",
-      "status": "warden_verified_regent_pending",
+      "status": "warden_retry_verified_death_return_failed_regent_pending",
       "evidence": [
         "private/095-normal-warden-death.png",
-        "private/100-normal-warden-death-repeat.png"
+        "private/100-normal-warden-death-repeat.png",
+        "private/116-normal-death-return-zero-hp.png"
       ]
     },
     {
@@ -118,19 +123,23 @@
     {
       "id": "alternate_ending",
       "requirement": "从真实合法分歧前检查点完成万家之火，路旁灯龛/居民手灯/本章引路像/后日谈区别持续",
-      "status": "completed_cold_ending_pending",
+      "status": "passed",
       "evidence": [
         "private/110-graduation-release-village.png",
-        "private/111-graduation-reward-journal.png"
+        "private/111-graduation-reward-journal.png",
+        "private/112-graduation-ending-cold-read.png",
+        "private/113-graduation-reward-cold-idempotence.png"
       ]
     },
     {
       "id": "reward_atomic",
       "requirement": "结局、第三节点与50000应得谢礼及已付/待领余额同时保存；退出/重入不重复领奖",
-      "status": "paid_once_observed_cold_idempotence_pending",
+      "status": "release_paid_once_and_cold_idempotence_verified",
       "evidence": [
         "private/candidate12-graduation-result.json",
-        "private/111-graduation-reward-journal.png"
+        "private/111-graduation-reward-journal.png",
+        "private/112-graduation-ending-cold-read.png",
+        "private/113-graduation-reward-cold-idempotence.png"
       ]
     },
     {
