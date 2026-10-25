@@ -6,7 +6,8 @@ package src.epilogue.ui
     import flash.display.Stage;
 
     /**
-     * Pauses only timelines that were playing inside one world display tree.
+     * Pauses only timelines whose playing state is explicitly readable and true.
+     * SWF9 may not expose isPlaying: unknown clips are never stopped or restarted.
      * ENTER_FRAME handlers, timers, sounds and UI are owned by the controller.
      * Use one instance per world; call clear(), never resume(), during disposal.
      */
@@ -16,27 +17,51 @@ package src.epilogue.ui
         private var worldStage:Stage;
         private var playing:Array = [];
         private var frozen:Boolean = false;
+        private var knownStates:int = 0;
+        private var unknownStates:int = 0;
 
         public function WorldTimelinePause() {}
 
         public function get isFrozen():Boolean {return frozen;}
         public function get frozenCount():int {return playing.length;}
+        public function get playbackMode():String
+        {
+            if(!frozen)return "idle";
+            if(unknownStates==0)return "timelines";
+            return knownStates==0?"logic-only":"partial";
+        }
+        public function get playbackDiagnostics():Object
+        {return {mode:playbackMode,known:knownStates,unknown:unknownStates,stopped:playing.length};}
 
         /** Nested/repeated calls do not replace the original playback snapshot. */
         public function freeze(root:DisplayObjectContainer):void
         {
             if(frozen || root==null)return;
             frozen=true;world=root;worldStage=root.stage;playing=[];
+            knownStates=0;unknownStates=0;
             freezeTree(root);
         }
 
         private function freezeTree(node:DisplayObject):void
         {
             var clip:MovieClip=node as MovieClip;
-            if(clip && clip.isPlaying)
+            if(clip)
             {
-                playing.push(clip);
-                clip.stop();
+                var state:* = null;
+                // A newer observer SWF can expose APIs unavailable to the direct SWF9
+                // entry. Dynamic lookup alone is not enough: sealed clips throw 1069.
+                try {state=Object(clip)["isPlaying"];}
+                catch(unavailable:Error) {state=null;}
+                if(state is Boolean)
+                {
+                    knownStates++;
+                    if(state===true)
+                    {
+                        clip.stop();
+                        playing.push(clip);
+                    }
+                }
+                else unknownStates++;
             }
             var container:DisplayObjectContainer=node as DisplayObjectContainer;
             if(container==null)return;
@@ -76,6 +101,7 @@ package src.epilogue.ui
         public function clear():void
         {
             frozen=false;playing=[];world=null;worldStage=null;
+            knownStates=0;unknownStates=0;
         }
     }
 }

@@ -3,6 +3,7 @@
 import argparse,hashlib,json,shutil,subprocess,sys
 from pathlib import Path
 from diagnostic_harness import validate_package
+from build_main import preserve_original_swf_version
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'tools'))
 from sol import loads
@@ -21,9 +22,10 @@ def build():
     result=subprocess.run(command,capture_output=True,text=True,timeout=90)
     (out/'compile.log').write_text(result.stdout+result.stderr)
     assert result.returncode==0,result.stdout+result.stderr
-    receipt={'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),
+    version_receipt=preserve_original_swf_version(target,ROOT/'3_L4399Main_gamefile.swf')
+    receipt={'swf_version_compatibility':version_receipt,'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),
         'output_sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'command':command,
-        'diagnostic_SO':NAME,'mode':'passive observer wrapper; not direct game acceptance'}
+        'diagnostic_SO':NAME,'mode':'SWF9 passive observer wrapper; not direct game acceptance'}
     (out/'receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
     return target,receipt
 

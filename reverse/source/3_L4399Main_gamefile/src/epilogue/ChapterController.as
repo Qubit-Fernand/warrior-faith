@@ -122,6 +122,7 @@ package src.epilogue
             return {chapter:ChapterState.exported(),inArena:inArena,paused:paused,
                 scene:current?current.scene:"",saveStatus:saveStatus,saveQueued:saveQueued,battle:current&&current.encounter?current.encounter.snapshot:null,
                 dock:current&&current.dock?current.dock.snapshot:null,mentor:current&&current.mentor?getQualifiedClassName(current.mentor):null,
+                timelinePause:current?current.timelinePause.playbackDiagnostics:null,
                 nativeUI:current?{suspended:current.nativeUISuspended,scan:current.nativeUIReport}:null};
         }
         private function get state():Object{return ChapterState.value;}
