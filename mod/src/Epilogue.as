@@ -11,7 +11,7 @@ package {
     public class Epilogue extends Sprite {
         private var game:Loader = new Loader();
         private var domain:ApplicationDomain;
-        private var M:*, G:*, P:*, E:*;
+        private var M:*, G:*, P:*, E:*, S:*;
         private var story:Object = JSON.parse(StoryData.JSON_TEXT);
         private var store:SharedObject;
         private var overlay:Sprite = new Sprite();
@@ -56,15 +56,32 @@ package {
             domain=game.contentLoaderInfo.applicationDomain;
             M=domain.getDefinition("src.Main") as Class;G=domain.getDefinition("src.GameData") as Class;
             P=domain.getDefinition("src.Player") as Class;E=domain.getDefinition("src.Enemy") as Class;
+            S=domain.getDefinition("src.Strat") as Class;
             store=SharedObject.getLocal("yzlr2_epilogue");
             if(!store.data.slots)store.data.slots={};
-            menuButton=button("终章 · 归来的曙光",735,12,192,openJournal);overlay.addChild(menuButton);
+            menuButton=button("5.7 · 归来的曙光",735,42,192,openJournal);overlay.addChild(menuButton);
             stage.addEventListener(KeyboardEvent.KEY_DOWN,keyDown,true,10000);
             stage.addEventListener(KeyboardEvent.KEY_UP,keyUp,true,10000);
             stage.addEventListener(Event.ENTER_FRAME,tick,false,10000);
             clock.addEventListener(TimerEvent.TIMER,tick);clock.start();
             game.contentLoaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR,onError);
             status("同人终章 · 先读取角色，再点击右上角进入");
+        }
+        // Legacy 5.7 presentation only. Original core/save version stays 5.6.
+        private function refreshLegacyAnnouncement():void {
+            if(!S || !S.stratX || S["说明1"]=="123")return;
+            var panel:MovieClip=S.stratX["游戏更新"] as MovieClip;
+            if(!panel || panel["_txt"].text=="5.7 同人创作")return;
+            S["说明1"]="勇士的信仰【5.7 同人创作】归来的曙光";
+            S["说明2"]="1. 早期同人续写版本，基于原版5.6。\n2. 三场战斗沿用原作Boss，包含暗黑王子；不是新Boss设计。\n3. 通过右上角入口体验文字剧情、战斗与结局选择。\n4. 使用本版本独立存档，与原版5.6和新版6.0分开。\n5. 新版《归光之约》为6.0同人创作，加入新Boss机制与场景演出。\n6. 本版属于保留的旧创作，不是原团队发布的官方5.7。";
+            S["说明3"]="非官方同人旧版 · 归来的曙光";
+            S.VarXX();
+            var label:TextField=panel["_txt"] as TextField;
+            var edge:Number=label.x+label.width;
+            label.width=220;label.x=edge-label.width;
+            var format:TextFormat=label.defaultTextFormat;
+            format.size=14;format.align="right";
+            label.defaultTextFormat=format;label.text="5.7 同人创作";label.setTextFormat(format);
         }
         private function state():Object {
             var key:String=String(M.saveNum);
@@ -77,6 +94,7 @@ package {
         private function status(s:String):void {if(s!=lastStatus){hud.text=s;lastStatus=s;}}
         private function tick(e:Event):void {
             if(!M)return;
+            refreshLegacyAnnouncement();
             if(overlay.parent!=stage)stage.addChild(overlay);
             stage.setChildIndex(overlay,stage.numChildren-1);
             if(modal)return;

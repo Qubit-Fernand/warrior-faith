@@ -1,8 +1,10 @@
-# 勇士的信仰 · 同人终章《归光之约》
+# 勇士的信仰 · 6.0 同人创作《归光之约》
 
 《归光之约》是基于《勇士的信仰》5.6 源码重建的非官方续写：从奥加之后尚未归家的居民出发，沿亡海罗盘与运输航标的线索进入神殿，阻止霍根夺取女神之灵，再决定如何守护归航之路。内容包括码头救援、可观察的航标校准、两场新 Boss 和两种有村庄变化及后日谈的结局。
 
-**当前仍待最终运行包验收。** 候选13已由正式入口运行，普通角色实际击败两个新 Boss，现保存于长明仪式1/3；剩余结局冷读、毕业角色等验收因 Mac 锁屏等待续测。[当前实测记录](chapter/docs/candidate13-playtest.md)列出画面、真实检查点和未完成项；[运行记录](chapter/evidence/session.json)保留各候选的失败与修复，最终交付以[章节验收表](chapter/evidence/acceptance.json)为准。20–40分钟体验目标仍待验证；本次没有推送远端。开发进度见[章节维护记录](chapter/README.md)。
+版本命名：**5.6 原版**；**5.7 同人创作《归来的曙光》**为包含暗黑王子等旧Boss的早期续写；**6.0 同人创作《归光之约》**为当前源码续写。5.7/6.0不是原团队发布的官方版本。首页公告与游戏内“历史版本”页说明这一对应关系，旧实现见 [mod/README.md](mod/README.md)。
+
+**当前仍待最终运行包验收。** 候选13普通角色已实际完成两个新 Boss、长明结局、后日谈和冷读奖励复核。用户解锁后已恢复工作；后续候选更新6.0/5.7首页公告和存档名称，毕业角色等最终同包验收仍在继续。[当前实测记录](chapter/docs/candidate13-playtest.md)列出画面、真实检查点和未完成项；[运行记录](chapter/evidence/session.json)保留各候选的失败与修复，最终交付以[章节验收表](chapter/evidence/acceptance.json)为准。20–40分钟体验目标仍待验证；本次没有推送远端。开发进度见[章节维护记录](chapter/README.md)。
 
 新章逻辑位于重建 Main 的 `src/epilogue/` 内，随源码编译进游戏；不再通过旧 `mod/` 的外层加载器推进剧情。原游戏事实与同人新增设定分列于[剧情依据](chapter/docs/story-evidence.md)，不是官方隐藏章节或原作者遗失结局。
 
@@ -48,6 +50,8 @@
 ## 独立存档与旧版恢复
 
 新版使用 **`yzlr2_rebuild_epilogue_v2.sol`**；章节状态 `fanChapterReturnLight` 与当前角色一起保存。原版 `yzlr2_saves.sol`、旧终章 `yzlr2_final.sol`／`yzlr2_epilogue.sol`、源码重建版 `yzlr2_rebuild_probe.sol` 保持独立，不自动迁移到新版。
+
+存档显示名已按版本与用途区分，见[存档名称与对应版本](chapter/docs/save-labels.md)。6.0的角色名字会在再次保存时保留；显示名不决定存档格式，不能靠改文件名跨版本导入。
 
 Flash 实时存档位于本机 `~/Library/Preferences/Macromedia/Flash Player/#SharedObjects/<随机目录>/localhost/` 下。随机路径应实际查找；Git checkout、切换工作树和回滚提交不会回滚角色。重要测试前另存备份，私人 SOL、截图和诊断不随 Git 分发。
 

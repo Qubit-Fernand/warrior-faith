@@ -8,7 +8,7 @@ package src
    public class TempData extends MovieClip
    {
       
-      private static var infoArr:Array = ["1.游戏画面大改版,变更了新的游戏登录图,加载图,世界地图,新村庄图片,新手形象,2个发型调整,NPC形象等","2.新增悬赏怪物LV6：毁灭者-初号机","3.击杀点商城新增力量印章制作书，力量印章碎片由【毁灭者—初号机】掉落","4.增加2个怪物图鉴:毁灭能源,毁灭者—初号机","5.降低开启下一等级悬赏怪条件,现在只需要击败10次悬赏怪开启下一等级悬赏怪了","6.悬赏称号领取也只需要击败10次对应悬赏怪即可。","7.增加新称号: 悬赏猎人LV6","8.仓库功能转移到NPC“探险家—艾路斯”上"];
+      private static var infoArr:Array = ["1. 非官方同人续写《归光之约》，基于原版5.6源码重建。", "2. 新增归航码头救援、三座航标校准与神殿终战。", "3. 两位新首领：缄潮司灯·诺弥、窃光王座·霍根；独立机制与阶段。", "4. 长明之约 / 万家之火：选择改变村庄灯光、居民与后日谈。", "5. 完成并提交【主线70】再战奥加后，寻找奥古斯汀身旁的新信标。", "6. 头像对白、场景演出、旅途日志；支持已读跳过、重试与检查点续玩。", "7. 本版使用独立存档；原5.6及5.7同人旧档保留，当前支持单人。", "8. 同人版本沿革可点左下角查看；6.0当前仍在完整流程验收中。"];
       
       public function TempData()
       {
@@ -18,7 +18,7 @@ package src
       public static function Init() : *
       {
          Main.varX = 560;
-         Strat.说明1 = "勇士的信仰【v5.6】版本更新内容:";
+         Strat.说明1 = "勇士的信仰【6.0 同人创作】归光之约";
          Strat.说明2 = "";
          var _loc1_:int = 0;
          while(_loc1_ < infoArr.length)
@@ -26,7 +26,7 @@ package src
             Strat.说明2 += infoArr[_loc1_] + "\n";
             _loc1_++;
          }
-         Strat.说明3 = "勇士的信仰团队 2013.7.4";
+         Strat.说明3 = "非官方同人续写  2026.10.26";
          Strat.VarXX();
          Load.mapArr = ["Map0_v26.swf","Map1.swf","Map2.swf","Map3_v2.swf","Map4.swf","Map5.swf","Map6.swf","Map7.swf","Map8.swf","Map9_v2.swf","Map10.swf","Map11_v2.swf","Map12_v6.swf","Map13.swf","Map14.swf","Map15.swf","Map16.swf","Map17.swf","Map18.swf"];
          Load.mapArr[101] = "Map101.swf";
