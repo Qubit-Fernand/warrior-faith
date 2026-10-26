@@ -1,0 +1,195 @@
+{
+  "schema": 1,
+  "final_candidate": {
+    "id": "candidate12",
+    "package": "reverse/build/runtime-all-rebuilt-20261025T210733.479077Z",
+    "main_sha256": "69259d8c4847ca80eef4d8809c4d53eb57f275feb9eba56e736c471495660bb2",
+    "assembly_sha256": "2441e639a6e8074a9716b733b5d4c2d0b3ee93025154849ff19b5fe4ac91233e",
+    "rebuilt": 164,
+    "original_fallback": 0,
+    "status": "runtime_acceptance_in_progress"
+  },
+  "overall": "incomplete",
+  "checks": [
+    {
+      "id": "same_package",
+      "requirement": "最终全部验收绑定同一严格完整包与Main/assembly SHA",
+      "status": "package_verified_runs_pending",
+      "evidence": [
+        "private/candidate12-formal-check.txt"
+      ]
+    },
+    {
+      "id": "direct_shortcut",
+      "requirement": "Finder双击既有同人终章快捷方式，直开真实游戏，无诊断wrapper",
+      "status": "passed",
+      "evidence": [
+        "private/candidate12-direct-trace.json",
+        "private/candidate12-formal-check.txt"
+      ]
+    },
+    {
+      "id": "normal_unlock",
+      "requirement": "未交主线70不可进入；已提交可从导师新信标接取",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "normal_complete",
+      "requirement": "正常属性角色从接取连续完成码头、司灯、王座、仪式、领奖和回村",
+      "status": "six_warden_failures",
+      "evidence": [
+        "private/100-normal-warden-death-repeat.png",
+        "private/114-normal-warden-fifth-failed.png",
+        "private/115-normal-warden-sixth-failed.png"
+      ]
+    },
+    {
+      "id": "dock_combat",
+      "requirement": "真实攻击破桥锁/两继电器；E不能跳过；跳跃地波/横移光锚",
+      "status": "partial_verified",
+      "evidence": [
+        "private/candidate12-direct-trace.json"
+      ]
+    },
+    {
+      "id": "new_boss_visuals",
+      "requirement": "两首领轮廓/部件/动作实图与旧Boss对比，不是旧ID换名",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "warden_mechanics",
+      "requirement": "节点护盾、真实削血、地波跳跃和光锚横移有操作证据",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "regent_mechanics",
+      "requirement": "两血池真实切阶段、追光锁定横移、夺光真实打断与避难均有证据",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "graduation",
+      "requirement": "毕业高伤害通过两血池，进度/奖励/结局不软锁",
+      "status": "passed",
+      "evidence": [
+        "private/105-graduation-warden-victory.png",
+        "private/106-graduation-regent-transformation.png",
+        "private/107-graduation-regent-victory.png",
+        "private/candidate12-graduation-result.json",
+        "private/112-graduation-ending-cold-read.png",
+        "private/113-graduation-reward-cold-idempotence.png"
+      ]
+    },
+    {
+      "id": "death_retry",
+      "requirement": "两核心Boss死亡后重试，不提前写胜利；既有探索进度保留",
+      "status": "warden_retry_verified_death_return_failed_regent_pending",
+      "evidence": [
+        "private/095-normal-warden-death.png",
+        "private/100-normal-warden-death-repeat.png",
+        "private/116-normal-death-return-zero-hp.png"
+      ]
+    },
+    {
+      "id": "pause_inputs",
+      "requirement": "暂停计时与伤害冻结，继续恢复；对白背景不穿透，长按Esc/演出跳跃不缓冲",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "skip",
+      "requirement": "已读对白及演出跳过后到达与观看相同合法状态",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "cold_mid_progress",
+      "requirement": "完全退出播放器后重开读档，恢复救援/装置/仪式中途合法状态",
+      "status": "ritual_verified",
+      "evidence": [
+        "private/108-graduation-ritual-one.png",
+        "private/109-graduation-ritual-cold-read.png"
+      ]
+    },
+    {
+      "id": "main_ending",
+      "requirement": "长明结局仪式、女神通道与回村灯塔/后日谈持续可见",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "alternate_ending",
+      "requirement": "从真实合法分歧前检查点完成万家之火，路旁灯龛/居民手灯/本章引路像/后日谈区别持续",
+      "status": "passed",
+      "evidence": [
+        "private/110-graduation-release-village.png",
+        "private/111-graduation-reward-journal.png",
+        "private/112-graduation-ending-cold-read.png",
+        "private/113-graduation-reward-cold-idempotence.png"
+      ]
+    },
+    {
+      "id": "reward_atomic",
+      "requirement": "结局、第三节点与50000应得谢礼及已付/待领余额同时保存；退出/重入不重复领奖",
+      "status": "release_paid_once_and_cold_idempotence_verified",
+      "evidence": [
+        "private/candidate12-graduation-result.json",
+        "private/111-graduation-reward-journal.png",
+        "private/112-graduation-ending-cold-read.png",
+        "private/113-graduation-reward-cold-idempotence.png"
+      ]
+    },
+    {
+      "id": "slot_isolation",
+      "requirement": "正常/毕业等槽位进度互不串写，未来版本保留不降级",
+      "status": "normal_and_graduation_verified_future_runtime_pending",
+      "evidence": [
+        "private/candidate12-normal8-slot-compare.json",
+        "private/candidate12-graduation-slot-compare.json"
+      ]
+    },
+    {
+      "id": "three_sequences",
+      "requirement": "桥落下、居民撤船、Boss变形、结局世界至少三处实际演出",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "original_regression",
+      "requirement": "隔离角色在原村庄、移动、普通战斗和保存仍可用",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "protected_saves",
+      "requirement": "受保护四个现有SOL逐一哈希未变",
+      "status": "passed_at_checkpoint",
+      "evidence": [
+        "private/candidate12-protected-after-normal.json"
+      ]
+    },
+    {
+      "id": "duration",
+      "requirement": "独立记录真实章节体验时长并判断20–40分钟目标是否达到；完成计时不等于达到目标，调试停顿不计入",
+      "status": "pending",
+      "evidence": [],
+      "measurement_status": "pending",
+      "target_status": "unverified"
+    },
+    {
+      "id": "delivery",
+      "requirement": "整合已有final分支/快捷方式，保留旧引用；起点/构建/说明/用途索引/限制完整",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "time_gate",
+      "requirement": "至少7小时有效主任务墙钟工作，扣除无效等待，非并行相加",
+      "status": "pending",
+      "evidence": []
+    }
+  ]
+}

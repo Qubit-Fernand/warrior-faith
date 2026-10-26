@@ -2,7 +2,11 @@
 
 `chapter/content/extensions.json` 声明本章相对原 FFDec `RAW/scripts` 新增的 AS 类及三张受控背景资源。`reverse/tools/chapter_source.py` 在生成、验证和构建调用的 overlay 路径上执行检查。它不扫描到新增文件后自动认可、不自动修改其他 canonical 源码。
 
-## 基线与新增的区分
+## 当前数量与历史检查
+
+下文725/15及41个变体检查描述最初清单。候选12加入 `src.epilogue.ui.TrackedMovieClip`，当前受控清单为 **726个AS＝710原始＋16新增**，仍为三张背景、两个生成AS。候选13严格运行包沿用这份16类清单。真实入口以 `chapter/content/extensions.json` 为准，不把历史数量当作当前校验期望。
+
+## 基线与新增的区分（最初15类清单）
 
 - Main 原始导出为 **710 个 AS 文件**，以 `reverse/manifests/recovered-sources.json` 的 Main 条目为准。清单固定该来源账本的 SHA、源目录、RAW 目录和脚本数量。
 - 当前 canonical 是 **725 个 AS 文件**，相对 RAW 新增 **15 个**，逐个列出路径、完整类名、类型和用途。`authored` 是手写新增类，`generated` 是受控生成类，`compatibility` 是本章新增兼容支持。
