@@ -9,6 +9,7 @@ package src
    import src.epilogue.ChapterState;
    import flash.events.*;
    import flash.net.*;
+   import flash.text.TextFormat;
    import src._data.*;
    import src.tool.*;
    
@@ -115,7 +116,17 @@ package src
       {
          if(stratX)
          {
-            stratX.游戏更新._txt.text = "正式版v" + int(Main.varX / 100) + "." + int(Main.varX % 100);
+            // Display version only: keep Main.varX=560 for original save migration semantics.
+            var versionField:* = stratX.游戏更新._txt;
+            var rightEdge:Number = versionField.x + versionField.width;
+            versionField.width = 220;
+            versionField.x = rightEdge - versionField.width;
+            var versionFormat:TextFormat = versionField.defaultTextFormat;
+            versionFormat.align = "right";
+            versionFormat.size = 14;
+            versionField.defaultTextFormat = versionFormat;
+            versionField.text = "6.0 同人创作";
+            versionField.setTextFormat(versionFormat);
             stratX.游戏更新.说明1_txt.text = Strat.说明1;
             stratX.游戏更新.说明2_txt.text = Strat.说明2;
             stratX.游戏更新.说明3_txt.text = Strat.说明3;
@@ -142,8 +153,14 @@ package src
       
       private function http_Fun(param1:*) : *
       {
-         var _loc2_:URLRequest = new URLRequest("http://my.4399.com/forums-thread-id-33880763-tagid-81127.html");
-         navigateToURL(_loc2_,"_blank");
+         if(游戏更新.说明1_txt.text == "同人版本沿革 · 5.6 / 5.7 / 6.0")
+         {
+            VarXX();
+            return;
+         }
+         游戏更新.说明1_txt.text = "同人版本沿革 · 5.6 / 5.7 / 6.0";
+         游戏更新.说明2_txt.text = "5.6 · 原版基线\n保留原作游戏与主线内容，原存档独立保存。\n\n5.7 · 同人创作《归来的曙光》\n早期续写版本，沿用原有Boss（含暗黑王子），以文字剧情串联战斗。\n\n6.0 · 同人创作《归光之约》\n源码续写：码头救援、新Boss机制、场景演出与双结局。\n本页的5.7与6.0是同人版本号，不是原团队发布的官方版本。\n\n再次点击左下角可返回6.0更新公告。";
+         游戏更新.说明3_txt.text = "原作保留 · 非官方同人续写";
       }
       
       private function 论坛(param1:*) : *

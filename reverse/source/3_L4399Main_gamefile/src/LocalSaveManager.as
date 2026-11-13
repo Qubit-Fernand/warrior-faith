@@ -60,6 +60,17 @@ package src
             var meta:Object = {"index":slot,"title":title,
                "datetime":now.fullYear+"-"+pad2(now.month+1)+"-"+pad2(now.date)+" "+pad2(now.hours)+":"+pad2(now.minutes)+":"+pad2(now.seconds),
                "data":data};
+            // Keep the user-facing label when saving the same role, not a new
+            // character that happens to occupy the same slot.
+            var previous:Object = _confirmedSlots[slot];
+            if(previous && previous.hasOwnProperty("displayName") &&
+               previous.data && data && previous.data.hasOwnProperty("logNameSave") &&
+               data.hasOwnProperty("logNameSave") &&
+               previous.data.logNameSave == data.logNameSave)
+            {
+               meta.displayName = previous.displayName;
+               meta.title = String(meta.displayName) + " " + title.replace("P1:", "");
+            }
             // AMF snapshot detaches live inventory/chapter mutations while permission is pending.
             var next:Array = snapshot(_confirmedSlots) as Array;
             next[slot] = snapshot(meta);
@@ -147,7 +158,13 @@ package src
          for(var i:int=0;i<MAX_SLOT;i++)
          {
             var meta:Object=_confirmedSlots[i];
-            arr[i]=meta==null ? "空存档" : meta.title+"\n"+meta.datetime;
+            if(meta==null) arr[i]="空存档";
+            else
+            {
+               var stamp:String=String(meta.datetime);
+               if(stamp.indexOf("explicit")>=0) stamp=stamp.substr(0,10)+" · 体验起点";
+               arr[i]=meta.title+"\n"+stamp;
+            }
          }
          return arr;
       }

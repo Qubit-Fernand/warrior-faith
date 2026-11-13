@@ -32,7 +32,7 @@ def main():
     before={i:graph(s) for i,s in enumerate(current['slots'].dense) if s is not None}
     role=copy.deepcopy(seed['slots'][0]);role['index']=6
     token=role['data']['logNameSave'];role['data']['logNameSave']=token[:5]+'6'+token[6:]
-    role['title']='P1:Lv85 未来版本保留测试';role['datetime']='2026-10-26 explicit version compatibility fixture'
+    role['title']='6.0·格式兼容 Lv85';role['displayName']='6.0·格式兼容';role['datetime']='2026-10-26 explicit version compatibility fixture'
     role['data']['fanChapterReturnLight']=Obj(fields={'version':99,'stage':0,'inChapter':False,'futureSentinel':Obj(fields={'text':'preserve-future-chapter-payload','values':Arr([17,'untouched',True])})})
     current['slots'][6]=role
     output=dumps(NAME,current);dn,decoded=loads(output)

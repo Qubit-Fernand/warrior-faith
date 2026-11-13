@@ -1,195 +1,293 @@
 {
   "schema": 1,
+  "overall": "playable_both_endings_verified_guided_duration_below_target_and_targeted_checks_open",
   "final_candidate": {
-    "id": "candidate12",
-    "package": "reverse/build/runtime-all-rebuilt-20261025T210733.479077Z",
-    "main_sha256": "69259d8c4847ca80eef4d8809c4d53eb57f275feb9eba56e736c471495660bb2",
-    "assembly_sha256": "2441e639a6e8074a9716b733b5d4c2d0b3ee93025154849ff19b5fe4ac91233e",
+    "id": "candidate17",
+    "package": "reverse/build/runtime-all-rebuilt-20261113T053513.097050Z",
+    "main_sha256": "9b20b6a7bc4f39239e86c9d8dcc9f467d3ca2f6207afd22cd5156cae2ed5f880",
+    "assembly_sha256": "1f4f58c9b2c8d7f76c5aa98da60818c4222b430ea73395e4397e72236522c493",
     "rebuilt": 164,
-    "original_fallback": 0,
-    "status": "runtime_acceptance_in_progress"
+    "original_fallback": 0
   },
-  "overall": "incomplete",
+  "prior_candidate_report": "candidate16-acceptance.json",
   "checks": [
     {
       "id": "same_package",
       "requirement": "最终全部验收绑定同一严格完整包与Main/assembly SHA",
-      "status": "package_verified_runs_pending",
+      "status": "passed_both_routes_bound_to_verified_package",
       "evidence": [
-        "private/candidate12-formal-check.txt"
+        "candidate17-build.json",
+        "private/candidate17-formal-check.txt",
+        "private/candidate17-native/001-title.png",
+        "private/candidate17-native/normal-final-cold.json",
+        "private/candidate17-native/bonus-cold.json"
       ]
     },
     {
       "id": "direct_shortcut",
       "requirement": "Finder双击既有同人终章快捷方式，直开真实游戏，无诊断wrapper",
-      "status": "passed",
+      "status": "passed_launchservices_existing_app_and_visible_game",
       "evidence": [
-        "private/candidate12-direct-trace.json",
-        "private/candidate12-formal-check.txt"
+        "candidate17-build.json",
+        "private/candidate17-native/001-title.png"
       ]
     },
     {
       "id": "normal_unlock",
       "requirement": "未交主线70不可进入；已提交可从导师新信标接取",
-      "status": "pending",
-      "evidence": []
+      "status": "passed_submitted_starts_and_unsubmitted_blocked",
+      "evidence": [
+        "private/candidate17-native/006-grad-mentor.png",
+        "private/candidate17-native/029-normal-start.png",
+        "private/candidate17-native/gate-unsubmitted.png"
+      ]
     },
     {
       "id": "normal_complete",
       "requirement": "正常属性角色从接取连续完成码头、司灯、王座、仪式、领奖和回村",
-      "status": "six_warden_failures",
+      "status": "passed_ordinary_full_route",
       "evidence": [
-        "private/100-normal-warden-death-repeat.png",
-        "private/114-normal-warden-fifth-failed.png",
-        "private/115-normal-warden-sixth-failed.png"
+        "private/candidate17-native/029-normal-start.png",
+        "private/candidate17-native/031-normal-rescue.png",
+        "private/candidate17-native/050-warden-defeat.png",
+        "private/candidate17-native/078a-victory.png",
+        "private/candidate17-native/080-beacon-ending.png",
+        "private/candidate17-native/normal-village.png",
+        "private/candidate17-native/normal-final.json"
       ]
     },
     {
       "id": "dock_combat",
       "requirement": "真实攻击破桥锁/两继电器；E不能跳过；跳跃地波/横移光锚",
-      "status": "partial_verified",
+      "status": "passed_attack_bridge_and_relays_both_routes_precise_dock_hazard_negatives_not_isolated",
       "evidence": [
-        "private/candidate12-direct-trace.json"
+        "private/candidate17-native/007-bridge.png",
+        "private/candidate17-native/008-bridge.png",
+        "private/candidate17-native/011-group2.png",
+        "private/candidate17-native/014-group2.png",
+        "private/candidate17-native/031-normal-rescue.png"
       ]
     },
     {
       "id": "new_boss_visuals",
       "requirement": "两首领轮廓/部件/动作实图与旧Boss对比，不是旧ID换名",
-      "status": "pending",
-      "evidence": []
+      "status": "passed_compared_with_archived_original_boss",
+      "evidence": [
+        "private/059-candidate8-original-dark-prince.png",
+        "private/candidate17-native/017-warden-core.png",
+        "private/candidate17-native/020-regent.png",
+        "private/candidate17-native/021-regent2.png"
+      ]
     },
     {
       "id": "warden_mechanics",
       "requirement": "节点护盾、真实削血、地波跳跃和光锚横移有操作证据",
-      "status": "pending",
-      "evidence": []
+      "status": "both_nodes_core_and_two_phases_passed_precise_wave_dodge_pending",
+      "evidence": [
+        "private/candidate17-native/016-warden.png",
+        "private/candidate17-native/017-warden-core.png",
+        "private/candidate17-native/048-warden-second.png",
+        "private/candidate17-native/049-warden-done.png",
+        "private/candidate17-native/050-warden-defeat.png"
+      ]
     },
     {
       "id": "regent_mechanics",
       "requirement": "两血池真实切阶段、追光锁定横移、夺光真实打断与避难均有证据",
-      "status": "pending",
-      "evidence": []
+      "status": "passed_both_pools_interrupt_tracking_dodge_sanctuary",
+      "evidence": [
+        "private/candidate17-native/020-regent.png",
+        "private/candidate17-native/021-regent2.png",
+        "private/candidate17-native/022-regent-defeat.png",
+        "private/candidate17-native/052-regent-shield.png",
+        "private/candidate17-native/053-dodged.png",
+        "private/candidate17-native/054-shelter.png",
+        "private/candidate17-native/055-regent-core.png",
+        "private/candidate17-native/056-regent-transition.png",
+        "private/candidate17-native/057-shelter-cue.png",
+        "private/candidate17-native/057-shelter-after.png",
+        "private/candidate17-native/058-track-cue.png",
+        "private/candidate17-native/058-track-after.png"
+      ]
     },
     {
       "id": "graduation",
       "requirement": "毕业高伤害通过两血池，进度/奖励/结局不软锁",
       "status": "passed",
       "evidence": [
-        "private/105-graduation-warden-victory.png",
-        "private/106-graduation-regent-transformation.png",
-        "private/107-graduation-regent-victory.png",
-        "private/candidate12-graduation-result.json",
-        "private/112-graduation-ending-cold-read.png",
-        "private/113-graduation-reward-cold-idempotence.png"
+        "private/candidate17-native/017-warden-core.png",
+        "private/candidate17-native/021-regent2.png",
+        "private/candidate17-native/023-release-one.png",
+        "private/candidate17-native/028-release-saved.json"
       ]
     },
     {
       "id": "death_retry",
       "requirement": "两核心Boss死亡后重试，不提前写胜利；既有探索进度保留",
-      "status": "warden_retry_verified_death_return_failed_regent_pending",
+      "status": "passed_both_real_failures_and_checkpoint_retries",
       "evidence": [
-        "private/095-normal-warden-death.png",
-        "private/100-normal-warden-death-repeat.png",
-        "private/116-normal-death-return-zero-hp.png"
+        "private/candidate17-native/040-warden-failure.png",
+        "private/candidate17-native/041-retry-core.png",
+        "private/candidate17-native/041-retried-save.json",
+        "private/candidate17-native/060-regent-failure-cue.png",
+        "private/candidate17-native/060-regent-failure-after.png",
+        "private/candidate17-native/060-retried.json",
+        "private/candidate17-native/061-regent-retry.png"
       ]
     },
     {
       "id": "pause_inputs",
       "requirement": "暂停计时与伤害冻结，继续恢复；对白背景不穿透，长按Esc/演出跳跃不缓冲",
-      "status": "pending",
-      "evidence": []
+      "status": "passed_no_visible_movement_or_vital_change_during_paused_input_exact_timer_pending",
+      "evidence": [
+        "private/candidate17-native/032-pause.png",
+        "private/candidate17-native/033-pause-input.png",
+        "private/candidate17-native/034-pause-warden.png"
+      ]
     },
     {
       "id": "skip",
       "requirement": "已读对白及演出跳过后到达与观看相同合法状态",
-      "status": "pending",
-      "evidence": []
+      "status": "passed_retried_seen_intro_skip_and_afterword_revisit_animation_parity_not_isolated",
+      "evidence": [
+        "private/candidate17-native/040-warden-failure.png",
+        "private/candidate17-native/041-retry-core.png",
+        "private/candidate17-native/normal-cold.png",
+        "private/candidate17-native/bonus-cold.png"
+      ]
     },
     {
       "id": "cold_mid_progress",
       "requirement": "完全退出播放器后重开读档，恢复救援/装置/仪式中途合法状态",
-      "status": "ritual_verified",
+      "status": "passed_release_ritual_cold_restart",
       "evidence": [
-        "private/108-graduation-ritual-one.png",
-        "private/109-graduation-ritual-cold-read.png"
+        "private/candidate17-native/023-release-one.png",
+        "private/candidate17-native/025-release-cold.png",
+        "private/candidate17-native/026-release-ending.png"
       ]
     },
     {
       "id": "main_ending",
       "requirement": "长明结局仪式、女神通道与回村灯塔/后日谈持续可见",
-      "status": "pending",
-      "evidence": []
+      "status": "passed_earned_and_cold_village_afterword",
+      "evidence": [
+        "private/candidate17-native/079-beacon-choice.png",
+        "private/candidate17-native/080-beacon-ending.png",
+        "private/candidate17-native/normal-village.png",
+        "private/candidate17-native/normal-final.json",
+        "private/candidate17-native/normal-cold.png",
+        "private/candidate17-native/normal-final-cold.json"
+      ]
     },
     {
       "id": "alternate_ending",
       "requirement": "从真实合法分歧前检查点完成万家之火，路旁灯龛/居民手灯/本章引路像/后日谈区别持续",
-      "status": "passed",
+      "status": "passed_earned_and_cold_village_afterword",
       "evidence": [
-        "private/110-graduation-release-village.png",
-        "private/111-graduation-reward-journal.png",
-        "private/112-graduation-ending-cold-read.png",
-        "private/113-graduation-reward-cold-idempotence.png"
+        "private/candidate17-native/023-release-one.png",
+        "private/candidate17-native/025-release-cold.png",
+        "private/candidate17-native/026-release-ending.png",
+        "private/candidate17-native/027-release-village.png",
+        "private/candidate17-native/028-release-saved.json",
+        "private/candidate17-native/bonus-cold.png",
+        "private/candidate17-native/bonus-cold.json"
       ]
     },
     {
       "id": "reward_atomic",
       "requirement": "结局、第三节点与50000应得谢礼及已付/待领余额同时保存；退出/重入不重复领奖",
-      "status": "release_paid_once_and_cold_idempotence_verified",
+      "status": "passed_earned_50000_both_once_after_cold_and_revisit",
       "evidence": [
-        "private/candidate12-graduation-result.json",
-        "private/111-graduation-reward-journal.png",
-        "private/112-graduation-ending-cold-read.png",
-        "private/113-graduation-reward-cold-idempotence.png"
+        "private/candidate17-native/normal-final.json",
+        "private/candidate17-native/normal-final-cold.json",
+        "private/candidate17-native/028-release-saved.json",
+        "private/candidate17-native/bonus-cold.json",
+        "candidate17-native-results.json"
       ]
     },
     {
       "id": "slot_isolation",
       "requirement": "正常/毕业等槽位进度互不串写，未来版本保留不降级",
-      "status": "normal_and_graduation_verified_future_runtime_pending",
+      "status": "passed_only_active_slots_and_preserved_future_payload",
       "evidence": [
-        "private/candidate12-normal8-slot-compare.json",
-        "private/candidate12-graduation-slot-compare.json"
+        "private/candidate17-native/028-release-saved.json",
+        "private/candidate17-native/normal-final.json",
+        "private/candidate17-native/future-native-save.png",
+        "private/candidate17-native/future-cold.png",
+        "private/candidate17-native/future-roundtrip.json",
+        "candidate17-native-results.json"
       ]
     },
     {
       "id": "three_sequences",
       "requirement": "桥落下、居民撤船、Boss变形、结局世界至少三处实际演出",
-      "status": "pending",
-      "evidence": []
+      "status": "passed",
+      "evidence": [
+        "private/candidate17-native/008-bridge.png",
+        "private/candidate17-native/014-group2.png",
+        "private/candidate17-native/021-regent2.png",
+        "private/candidate17-native/026-release-ending.png"
+      ]
     },
     {
       "id": "original_regression",
       "requirement": "隔离角色在原村庄、移动、普通战斗和保存仍可用",
-      "status": "pending",
-      "evidence": []
+      "status": "passed_native_village_map_castle_movement_combat_and_saving",
+      "evidence": [
+        "private/candidate17-native/original-map-attempt.png",
+        "private/candidate17-native/original-castle.png",
+        "private/candidate17-native/original-castle-combat.png",
+        "private/candidate17-native/future-native-save.png"
+      ]
     },
     {
       "id": "protected_saves",
-      "requirement": "受保护四个现有SOL逐一哈希未变",
-      "status": "passed_at_checkpoint",
+      "requirement": "Old role data unchanged; explicitly user-authorized display-label migration backed up and audited separately",
+      "status": "passed_after_both_routes_and_original_combat",
       "evidence": [
-        "private/candidate12-protected-after-normal.json"
+        "candidate17-delivery.json",
+        "private/candidate16-protected-after-normal.json",
+        "candidate17-native-results.json"
       ]
     },
     {
       "id": "duration",
       "requirement": "独立记录真实章节体验时长并判断20–40分钟目标是否达到；完成计时不等于达到目标，调试停顿不计入",
-      "status": "pending",
-      "evidence": [],
-      "measurement_status": "pending",
-      "target_status": "unverified"
+      "status": "measured_both_routes_below_target_in_guided_play_human_first_play_unknown",
+      "evidence": [
+        "private/candidate17-native/normal-final.json",
+        "private/candidate17-native/028-release-saved.json",
+        "candidate17-native-results.json"
+      ]
     },
     {
       "id": "delivery",
       "requirement": "整合已有final分支/快捷方式，保留旧引用；起点/构建/说明/用途索引/限制完整",
-      "status": "pending",
-      "evidence": []
+      "status": "passed_local_package_shortcut_fixture_baseline_and_guides",
+      "evidence": [
+        "candidate17-delivery.json",
+        "candidate17-build.json"
+      ]
     },
     {
       "id": "time_gate",
       "requirement": "至少7小时有效主任务墙钟工作，扣除无效等待，非并行相加",
-      "status": "pending",
-      "evidence": []
+      "status": "estimated_7h23m_primary_activity_excluding_gaps_over_40s",
+      "evidence": [
+        "primary-work-time.json"
+      ]
+    },
+    {
+      "id": "version_labels",
+      "requirement": "User requested6.0/5.7 announcements and readable version-specific save labels",
+      "status": "passed_6_0_title_and_legacy_history_and_role_list",
+      "evidence": [
+        "candidate17-delivery.json",
+        "../docs/save-labels.md",
+        "private/candidate17-native/001-title.png",
+        "private/candidate17-native/004-slots.png",
+        "private/candidate17-native/history-versions.png"
+      ]
     }
   ]
 }

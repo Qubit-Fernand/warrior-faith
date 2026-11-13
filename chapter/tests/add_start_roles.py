@@ -47,9 +47,9 @@ def main():
     if preset_name != NAME:
         raise ValueError('Unexpected start fixture name')
     existing = {i: graph(slot) for i, slot in enumerate(slots) if slot is not None}
-    for index, source_index, label in ((2, 0, '普通完整验收起点'),
-                                       (3, 1, '毕业金币上限起点'),
-                                       (4, 0, '主线70未提交')):
+    for index, source_index, label in ((2, 0, '6.0·普通验收'),
+                                       (3, 1, '6.0·毕业上限'),
+                                       (4, 0, '6.0·前置未交')):
         role = copy.deepcopy(start['slots'][source_index])
         data = role['data']
         if 'fanChapterReturnLight' in data.fields:
@@ -59,7 +59,8 @@ def main():
             raise ValueError('Unexpected role token')
         data['logNameSave'] = token[:5] + str(index) + token[6:]
         role['index'] = index
-        role['title'] = 'P1:Lv85 ' + label
+        role['title'] = label + ' Lv85'
+        role['displayName'] = label
         role['datetime'] = '2026-10-26 explicit start-only acceptance fixture'
         if index == 3:
             # InitData.Money_max = 500000000. No reward/debt/completion is set.
