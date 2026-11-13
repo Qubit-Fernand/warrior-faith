@@ -14,6 +14,7 @@ package src.epilogue
         public static function defaults():Object
         {
             return {version:1,stage:0,inChapter:false,scene:"dock",bridgeOpen:false,
+                beaconMirrorMask:-1,releaseMirrorMask:-1,
                 crossingMoves:[],crossingDone:false,rescuedGroups:0,dockRelays:0,calibrationDone:false,navigationSteps:0,navigationTurns:[0,0,0],beaconPrepared:false,releasePrepared:false,
                 boss1Defeated:false,boss2Defeated:false,ending:"",endingChoice:"",seenEndings:[],
                 rewardClaims:{},seenDialogues:{},journal:[],endingNodes:0,

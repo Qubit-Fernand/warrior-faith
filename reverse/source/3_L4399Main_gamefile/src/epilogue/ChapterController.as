@@ -30,6 +30,7 @@ package src.epilogue
     import src.epilogue.scene.ChapterBackdrop;
     import src.epilogue.scene.ChapterNavigation;
     import src.epilogue.scene.LanternCrossing;
+    import src.epilogue.scene.LightCircuit;
     import src.epilogue.ui.EpilogueView;
     import src.epilogue.ui.WorldTimelinePause;
 
@@ -539,7 +540,19 @@ package src.epilogue
         {
             var key:String=id=="beacon"?"beaconPrepared":"releasePrepared";
             if(state[key]){notice(id=="beacon"?"灯塔已修复：最终战受到的伤害降低，结局时可留下自愿回应的通道。":"解缚环已修复：最终战可获得更长反击窗口，结局时可解除这里灯台的束缚。");return;}
-            state[key]=true;animateChange(1.2,function():void{checkpoint();notice(id=="beacon"?"归航灯塔重新亮起。它会保护进入王座的人，但最后留下与否仍由女神决定。":"解缚环开始转动。它将松开王座的束缚；最终选择前仍可修复另一装置。");});
+            var maskKey:String = id=="beacon" ? "beaconMirrorMask" : "releaseMirrorMask";
+            var circuit:LightCircuit = new LightCircuit(id=="beacon",int(state[maskKey]));
+            modalPause();
+            view.showLightCircuit(circuit,function(mask:int):void {
+                state[maskKey]=mask;
+                checkpoint();
+            },function():void {
+                state[key]=true;
+                checkpoint();
+                animateChange(1.2,function():void {
+                    notice(id=="beacon"?"海面的灯闪了两下。塔丽莎遮住灯芯，回了两下。求援的人也能听见回应了。":"孩子把灯芯从两枚松开的铜扣间捧出来。解缚环已备好，最后一步留给女神。");
+                });
+            },resume);
         }
         private function chooseEnding(id:String):void
         {

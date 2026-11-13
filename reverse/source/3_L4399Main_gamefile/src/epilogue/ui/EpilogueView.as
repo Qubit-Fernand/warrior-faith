@@ -1,6 +1,8 @@
 package src.epilogue.ui
 {
     import src.epilogue.scene.LanternCrossing;
+    import src.epilogue.scene.LightCircuit;
+    import flash.geom.Point;
     import flash.display.Sprite;
     import flash.display.Graphics;
     import flash.display.Stage;
@@ -224,6 +226,80 @@ package src.epilogue.ui
                     selected=0;feedback="已回到上一次出发前。";draw();
                 }).setEnabled(route.moves.length>0);
                 addButton("收起航图",210,42,592,413,function():void {closeModal();leave();});
+                updateSelection();
+            };
+            draw();
+        }
+
+        public function showLightCircuit(circuit:LightCircuit, changed:Function, finish:Function, leave:Function):void
+        {
+            var draw:Function;
+            function mirrorAction(index:int):Function
+            {
+                return function():void {
+                    circuit.rotate(index);
+                    changed(circuit.mask);
+                    draw();
+                    selection=index;
+                    updateSelection();
+                };
+            }
+            draw = function():void {
+                closeModal();
+                kind="mirrors";
+                chrome.visible=false;
+                modalBackdrop();
+                var board:Sprite=parchment(838,464);
+                board.x=51;board.y=56;modal.addChild(board);
+                var mode:Boolean=circuit.beacon;
+                var names:Array=mode ? ["求援","回信"] : ["内扣","外扣"];
+                var colors:Array=[0xFFD369,0x7DDAD8];
+                addText(board,mode?"归航灯塔 · 往返信号":"解缚环 · 双扣释压",22,0x30484B,28,15,780,38,true);
+                addText(board,mode?"把港口的求援送到塔顶，再把回应引回海面。":"让两束光分别托住内扣和外扣，灯芯才能完整取出。",16,0x4F4A3E,28,55,782,36);
+                var g:Graphics=board.graphics;
+                g.lineStyle(1,0x827352);
+                g.beginFill(0x213C46);
+                g.drawRoundRect(20,101,544,279,12,12);g.endFill();
+                var sx:int=99,sy:int=170,step:int=65,row:int=44;
+                for (var x:int=0;x<LightCircuit.WIDTH;x++) {
+                    g.lineStyle(1,0x567078,.5);g.moveTo(sx+x*step,sy);g.lineTo(sx+x*step,sy+3*row);
+                }
+                for (var y:int=0;y<LightCircuit.HEIGHT;y++) {
+                    g.moveTo(sx,sy+y*row);g.lineTo(sx+5*step,sy+y*row);
+                }
+                var ready:Boolean=true;
+                for (var n:int=0;n<2;n++) {
+                    var beam:Array=circuit.traceBeam(n);
+                    var lit:Boolean=circuit.connected(n,beam);
+                    ready=ready && lit;
+                    var source:Point=circuit.sources[n];
+                    var target:Point=circuit.receivers[n];
+                    var offset:Number=n ? 2 : -2;
+                    g.lineStyle(3,uint(colors[n]),.93);
+                    g.moveTo(sx+source.x*step+offset,sy+source.y*row+offset);
+                    for (var j:int=1;j<beam.length;j++)
+                        g.lineTo(sx+beam[j].x*step+offset,sy+beam[j].y*row+offset);
+                    g.beginFill(uint(colors[n]));g.drawCircle(sx+source.x*step,sy+source.y*row,5);g.endFill();
+                    g.lineStyle(2,uint(colors[n]));g.beginFill(lit?uint(colors[n]):0x213C46);
+                    g.drawRect(sx+target.x*step-6,sy+target.y*row-6,12,12);g.endFill();
+                    addText(board,names[n]+(lit?"  已接通":"  待接通"),14,uint(colors[n]),35+n*180,106,170,24,true);
+                }
+                for (var i:int=0;i<circuit.mirrors.length;i++) {
+                    var pt:Point=circuit.mirrors[i];
+                    var mx:int=sx+pt.x*step,my:int=sy+pt.y*row;
+                    var slant:int=(circuit.mask & (1<<i))!=0 ? 1 : -1;
+                    g.lineStyle(1,0xB78A4B);g.beginFill(0x345665);g.drawCircle(mx,my,12);g.endFill();
+                    g.lineStyle(3,0xFAEACC);g.moveTo(mx-8,my-8*slant);g.lineTo(mx+8,my+8*slant);
+                    addText(board,String(i+1),12,0xFFF1BF,mx+12,my-23,24,22,true);
+                    addButton("转动 "+(i+1)+" 号镜",211,37,650,161+i*46,mirrorAction(i));
+                }
+                addText(board,"● 光源　 □ 接收口　　 数字 1—5 转镜",14,0xE5DABA,36,350,475,26);
+                addButton(mode?"点亮灯塔":"松开双扣",243,43,87,454,function():void {
+                    if (!ready) return;
+                    closeModal();
+                    finish();
+                }).setEnabled(ready);
+                addButton("收起镜盘",184,43,667,454,function():void {closeModal();leave();});
                 updateSelection();
             };
             draw();
