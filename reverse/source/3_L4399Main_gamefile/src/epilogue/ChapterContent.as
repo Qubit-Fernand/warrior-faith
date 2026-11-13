@@ -112,7 +112,7 @@ public static const DATA:Object = {
             },
             {
                 "speaker": "塔丽莎",
-                "text": "居民都已登船，码头通路也安全了。该去截断输光的线路了。",
+                "text": "暗道找到了，可船吃水太深。去浮桥那头系好牵船索，我带他们过去。",
                 "portrait": "talisha"
             }
         ],
@@ -290,6 +290,18 @@ public static const DATA:Object = {
                 "text": "把航图留一份给我。下次返航，我也能带路。",
                 "portrait": "hero"
             }
+        ],
+        "crossing_safe": [
+            {
+                "speaker": "获救居民",
+                "text": "锚栓卡住了！把绳给我。这一回，是我们把船拉进来。",
+                "portrait": "villager"
+            },
+            {
+                "speaker": "塔丽莎",
+                "text": "灯留给还在后头的人。走，顺着牵索去找司灯。",
+                "portrait": "talisha"
+            }
         ]
     },
     "journal": {
@@ -336,6 +348,10 @@ public static const DATA:Object = {
         "release": {
             "title": "万家之火",
             "text": "女神离开了神殿灯台，旧引路灯也随之熄灭。居民换上普通灯芯，重新标记返航方向。回村看看他们的准备。"
+        },
+        "crossing": {
+            "title": "一灯两岸",
+            "text": "四人用同一盏手灯过了浮桥，把接应船拉进暗道。回程要有人肯提灯，也要有人在岸上等。"
         }
     }
 };

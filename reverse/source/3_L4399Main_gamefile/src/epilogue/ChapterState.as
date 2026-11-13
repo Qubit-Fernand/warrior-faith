@@ -1,6 +1,7 @@
 package src.epilogue
 {
     import flash.utils.ByteArray;
+    import src.epilogue.scene.LanternCrossing;
 
     /** Plain AMF object in the same role slot as player inventory and rewards. */
     public class ChapterState
@@ -13,7 +14,7 @@ package src.epilogue
         public static function defaults():Object
         {
             return {version:1,stage:0,inChapter:false,scene:"dock",bridgeOpen:false,
-                rescuedGroups:0,dockRelays:0,calibrationDone:false,navigationSteps:0,navigationTurns:[0,0,0],beaconPrepared:false,releasePrepared:false,
+                crossingMoves:[],crossingDone:false,rescuedGroups:0,dockRelays:0,calibrationDone:false,navigationSteps:0,navigationTurns:[0,0,0],beaconPrepared:false,releasePrepared:false,
                 boss1Defeated:false,boss2Defeated:false,ending:"",endingChoice:"",seenEndings:[],
                 rewardClaims:{},seenDialogues:{},journal:[],endingNodes:0,
                 elapsedSeconds:0,deaths:0,fixture:false};
@@ -40,6 +41,11 @@ package src.epilogue
             else value.navigationTurns=[int(value.navigationTurns[0])&3,int(value.navigationTurns[1])&3,int(value.navigationTurns[2])&3];
             // Earlier v2 candidates had a single compass interaction; keep earned progress.
             if(value.calibrationDone){value.navigationSteps=3;value.navigationTurns=[3,2,1];}
+            // Already calibrated on an earlier release: preserve its open route.
+            if (!source.hasOwnProperty("crossingMoves") && value.calibrationDone) value.crossingDone = true;
+            var crossing:LanternCrossing = new LanternCrossing(value.crossingMoves as Array);
+            value.crossingMoves = crossing.moves;
+            value.crossingDone = Boolean(value.crossingDone) || crossing.finished;
             value.endingNodes=Math.max(0,Math.min(3,int(value.endingNodes)));
             if(["dock","warden","regent"].indexOf(value.scene)<0)value.scene="dock";
             if(!(value.seenEndings is Array))value.seenEndings=[];

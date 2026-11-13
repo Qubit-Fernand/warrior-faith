@@ -1,6 +1,8 @@
 package src.epilogue.ui
 {
+    import src.epilogue.scene.LanternCrossing;
     import flash.display.Sprite;
+    import flash.display.Graphics;
     import flash.display.Stage;
     import flash.events.Event;
     import flash.events.KeyboardEvent;
@@ -153,6 +155,80 @@ package src.epilogue.ui
             }
             updateSelection();
         }
+        public function showCrossing(route:LanternCrossing, save:Function, leave:Function):void
+        {
+            var selected:int = 0;
+            var feedback:String = "浮桥只容两人。同行按慢者耗油，灯也要有人带回来。";
+            var draw:Function;
+            function personAction(bit:int):Function
+            {
+                return function():void {
+                    var proposed:int = selected ^ bit;
+                    if (proposed && !route.cost(proposed)) {
+                        feedback = "木板承不住第三人。先让一人留在岸上。";
+                    } else {
+                        selected = proposed;
+                        feedback = selected ? "这趟要用 " + route.cost(selected) + " 格灯油。" : "选出这趟提灯的人。";
+                    }
+                    var oldSelection:int = selection;
+                    draw();
+                    selection=oldSelection;updateSelection();
+                };
+            }
+            draw = function():void {
+                closeModal();
+                kind = "crossing";
+                chrome.visible = false;
+                modalBackdrop();
+                var board:Sprite = parchment(820,438);
+                board.x = 60; board.y = 69; modal.addChild(board);
+                addText(board,"暗道浮桥　·　渡灯系船",23,0x30484B,28,18,530,40,true);
+                addText(board,"灯油  " + route.oil + " / " + LanternCrossing.OIL,18,0x754D1F,565,24,220,35,true,"right");
+                addText(board,"把四人送到对岸，系住接应船的牵索。",16,0x4F4A3E,30,63,750,34);
+                addText(board,route.lampAcross ? "码头" : "码头　◆ 提灯",17,0x365A54,46,108,270,32,true);
+                addText(board,route.lampAcross ? "对岸　◆ 提灯" : "对岸",17,0x365A54,523,108,265,32,true);
+                var g:Graphics = board.graphics;
+                g.lineStyle(4,0x64969B);
+                g.moveTo(369,117); g.lineTo(369,282); g.moveTo(450,117); g.lineTo(450,282);
+                g.lineStyle(4,0x896C48);
+                g.moveTo(349,190); g.lineTo(469,190); g.moveTo(349,217); g.lineTo(469,217);
+                for (var plank:int=354;plank<470;plank+=12) {g.moveTo(plank,189);g.lineTo(plank,218);}
+                for (var i:int=0;i<4;i++) {
+                    var bit:int=1<<i;
+                    var far:Boolean=(route.farBank & bit)!=0;
+                    var name:String=LanternCrossing.NAMES[i] + "　" + LanternCrossing.COST[i] + " 格";
+                    var px:int=far ? 573 : 105;
+                    if ((route.available & bit)!=0) {
+                        addButton(((selected & bit)!=0 ? "✓ " : "")+name,268,31,px,209+i*34,personAction(bit));
+                    } else {
+                        addText(modal,name,15,0x665D51,px+12,212+i*34,250,30);
+                    }
+                }
+                addText(board,feedback,15,0x4F4A3E,35,290,751,40);
+                addButton(route.lampAcross ? "提灯返回" : "提灯出发",220,42,104,413,function():void {
+                    if (!route.cross(selected)) {
+                        feedback = selected ? "剩下的灯油不够。退回上一趟，换一组人试试。" : "先选一至两名同行者。";
+                        draw(); return;
+                    }
+                    selected=0;
+                    feedback=route.lampAcross ? "灯到了对岸。谁来把它送回去？" : "灯回来了。下一趟让谁同行？";
+                    if (route.finished) closeModal();
+                    save(route.moves);
+                    if (!route.finished) draw();
+                });
+                addButton("退回上一趟",210,42,352,413,function():void {
+                    if (route.moves.length) {
+                        route.undo();
+                        save(route.moves);
+                    }
+                    selected=0;feedback="已回到上一次出发前。";draw();
+                }).setEnabled(route.moves.length>0);
+                addButton("收起航图",210,42,592,413,function():void {closeModal();leave();});
+                updateSelection();
+            };
+            draw();
+        }
+
         public function showJournal(entries:Array,onClose:Function):void
         {
             closeModal();if(disposed)return;

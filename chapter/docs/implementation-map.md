@@ -87,3 +87,5 @@
 本分支Main默认保存名已改为新版独立名；精确参数仍建议保留以便审阅。终章启动脚本使用`launch_rebuilt.py --expect-save`强制拒绝其他保存名。原版/源码重建工作树的脚本与默认值不随这里改变。测试辅助程序用途见[测试目录](../tests/README.md)。
 
 11 月 13 日候选 17 的运行验证在 [candidate17-playtest.md](candidate17-playtest.md)；两套独立角色的实测时间、结局、余额和旧档保护检查见 [candidate17-native-results.json](../evidence/candidate17-native-results.json)。原生窗口截图和完整角色备份只在本机 evidence/private/，不属于构建输入。
+
+开发分支的渡灯段由 `scene/LanternCrossing.as` 计算两岸位置、同行耗油与撤回。角色存档的 `crossingMoves` 逐趟记录同行者，`crossingDone` 保留已完成的航路。`EpilogueView.showCrossing` 在航图上显示两岸、手灯和余油，控制器在每次靠岸和撤回后保存。旧档已校准罗盘且缺少新字段时按原来已开放的通路恢复。

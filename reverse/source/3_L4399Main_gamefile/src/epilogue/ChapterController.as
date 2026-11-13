@@ -29,6 +29,7 @@ package src.epilogue
     import src.epilogue.scene.ChapterScenery;
     import src.epilogue.scene.ChapterBackdrop;
     import src.epilogue.scene.ChapterNavigation;
+    import src.epilogue.scene.LanternCrossing;
     import src.epilogue.ui.EpilogueView;
     import src.epilogue.ui.WorldTimelinePause;
 
@@ -493,6 +494,7 @@ package src.epilogue
                 {notice("航标还没有对齐。沿码头找潮线、三纹船帆和回光，把三座盘校准后再确认罗盘。");}
                 else if(id=="compass" && int(state.rescuedGroups)==2 && !state.calibrationDone)
                 {state.calibrationDone=true;navigation.setProgress(state);state.stage=2;ChapterState.record("calibration");animateChange(1.2,function():void{checkpoint();dialogue("calibration");});}
+                else if(id=="exit" && state.calibrationDone && !state.crossingDone){openCrossing();}
                 else if(id=="exit" && state.calibrationDone){ChapterState.record("warden");checkpoint();travel("warden");}
                 else notice("先放下渡桥，带两组居民脱离封锁，再检查船上的航标。");
             }
@@ -513,6 +515,23 @@ package src.epilogue
             }
             updateObjective();
         }
+        private function openCrossing():void
+        {
+            modalPause();
+            var route:LanternCrossing = new LanternCrossing(state.crossingMoves as Array);
+            view.showCrossing(route, function(history:Array):void {
+                state.crossingMoves = history.concat();
+                state.crossingDone = route.finished;
+                if (route.finished) ChapterState.record("crossing");
+                checkpoint();
+                updateObjective();
+                if (route.finished) {
+                    scenery.setProgress(state);
+                    dialogue("crossing_safe", resume);
+                }
+            }, resume);
+        }
+
         private function prepareDevice(id:String):void
         {
             var key:String=id=="beacon"?"beaconPrepared":"releasePrepared";
@@ -736,7 +755,7 @@ package src.epilogue
                 if(marker && marker.numChildren>0 && marker.getChildAt(0) is TextField)
                     TextField(marker.getChildAt(0)).text=complete?"✓":"!";
             }
-            else if(scene=="dock")objective=!state.bridgeOpen?"攻击桥锁，放下封锁渡桥":int(state.dockRelays)!=3?"击破继电器，再带居民撤离":int(state.rescuedGroups)<2?"救出居民 "+state.rescuedGroups+" / 2":!state.calibrationDone?(int(state.navigationSteps)<3?"观察线索，校准航标 "+state.navigationSteps+" / 3":"三盘已亮，前往旧罗盘确认"):"沿新方位前往司灯遗址";
+            else if(scene=="dock")objective=!state.bridgeOpen?"攻击桥锁，放下封锁渡桥":int(state.dockRelays)!=3?"击破继电器，再带居民撤离":int(state.rescuedGroups)<2?"救出居民 "+state.rescuedGroups+" / 2":!state.calibrationDone?(int(state.navigationSteps)<3?"观察线索，校准航标 "+state.navigationSteps+" / 3":"三盘已亮，前往旧罗盘确认"):state.crossingDone?"沿新方位前往司灯遗址":"沿新航向到浮桥，帮四人渡灯系船";
             else if(scene=="warden")objective=!state.boss1Defeated?"击破供能灯座，关闭司灯":"修复归光装置，再进入王座";
             else objective=!state.boss2Defeated?"切断输光臂，击败窃光王座":state.endingChoice!=""?"完成归光仪式 "+state.endingNodes+" / 3":"走近归光装置，决定最后的归途";
             view.setObjective(title,objective,inArena?"E 交互 · Esc 暂停 · 检查点存档":"同人最终章 · 独立存档");

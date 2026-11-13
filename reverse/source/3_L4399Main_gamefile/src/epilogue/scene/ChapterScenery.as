@@ -164,7 +164,7 @@ package src.epilogue.scene
             point("group1", progress.rescuedGroups >= 1 ? "居民已经获救" : (int(progress.dockRelays) & 1) != 0 ? "通路安全 · 解救居民" : "先攻击扫波继电器", 620),
             point("group2", progress.rescuedGroups >= 2 ? "居民已经获救" : (int(progress.dockRelays) & 2) != 0 ? "通路安全 · 解救居民" : "先攻击光锚继电器", 1080),
             point("compass", progress.calibrationDone ? "航路已经校准" : "校准罗盘", 1380),
-            point("exit", "沿航路前进", 1510)
+            point("exit", progress.calibrationDone && !progress.crossingDone ? "渡灯过浮桥" : "沿航路前进", 1510)
          ];
          if(sceneName == "warden" && progress.boss1Defeated) return [
             point("beacon", progress.beaconPrepared ? "归航灯塔已准备" : "检查归航灯塔", 250),
