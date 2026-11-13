@@ -23,9 +23,10 @@
     {
       "id": "direct_shortcut",
       "requirement": "Finder双击既有同人终章快捷方式，直开真实游戏，无诊断wrapper",
-      "status": "formal_app_launch_and_player_process_verified_visual_check_pending",
+      "status": "passed_launchservices_existing_app_and_visible_game",
       "evidence": [
-        "candidate17-build.json"
+        "candidate17-build.json",
+        "private/candidate17-native/001-title.png"
       ]
     },
     {
@@ -49,8 +50,13 @@
     {
       "id": "new_boss_visuals",
       "requirement": "两首领轮廓/部件/动作实图与旧Boss对比，不是旧ID换名",
-      "status": "requires_candidate17_verification",
-      "evidence": []
+      "status": "passed_compared_with_archived_original_boss",
+      "evidence": [
+        "private/059-candidate8-original-dark-prince.png",
+        "private/candidate17-native/017-warden-core.png",
+        "private/candidate17-native/020-regent.png",
+        "private/candidate17-native/021-regent2.png"
+      ]
     },
     {
       "id": "warden_mechanics",
@@ -67,20 +73,33 @@
     {
       "id": "graduation",
       "requirement": "毕业高伤害通过两血池，进度/奖励/结局不软锁",
-      "status": "requires_candidate17_verification",
-      "evidence": []
+      "status": "passed",
+      "evidence": [
+        "private/candidate17-native/017-warden-core.png",
+        "private/candidate17-native/021-regent2.png",
+        "private/candidate17-native/023-release-one.png",
+        "private/candidate17-native/028-release-saved.json"
+      ]
     },
     {
       "id": "death_retry",
       "requirement": "两核心Boss死亡后重试，不提前写胜利；既有探索进度保留",
-      "status": "requires_candidate17_verification",
-      "evidence": []
+      "status": "passed_warden_failure_retry_regent_pending",
+      "evidence": [
+        "private/candidate17-native/040-warden-failure.png",
+        "private/candidate17-native/041-retry-core.png",
+        "private/candidate17-native/041-retried-save.json"
+      ]
     },
     {
       "id": "pause_inputs",
       "requirement": "暂停计时与伤害冻结，继续恢复；对白背景不穿透，长按Esc/演出跳跃不缓冲",
-      "status": "requires_candidate17_verification",
-      "evidence": []
+      "status": "passed_no_visible_movement_or_vital_change_during_paused_input_exact_timer_pending",
+      "evidence": [
+        "private/candidate17-native/032-pause.png",
+        "private/candidate17-native/033-pause-input.png",
+        "private/candidate17-native/034-pause-warden.png"
+      ]
     },
     {
       "id": "skip",
@@ -91,8 +110,12 @@
     {
       "id": "cold_mid_progress",
       "requirement": "完全退出播放器后重开读档，恢复救援/装置/仪式中途合法状态",
-      "status": "requires_candidate17_verification",
-      "evidence": []
+      "status": "passed_release_ritual_cold_restart",
+      "evidence": [
+        "private/candidate17-native/023-release-one.png",
+        "private/candidate17-native/025-release-cold.png",
+        "private/candidate17-native/026-release-ending.png"
+      ]
     },
     {
       "id": "main_ending",
@@ -103,8 +126,14 @@
     {
       "id": "alternate_ending",
       "requirement": "从真实合法分歧前检查点完成万家之火，路旁灯龛/居民手灯/本章引路像/后日谈区别持续",
-      "status": "requires_candidate17_verification",
-      "evidence": []
+      "status": "earned_release_and_village_afterword_final_cold_pending",
+      "evidence": [
+        "private/candidate17-native/023-release-one.png",
+        "private/candidate17-native/025-release-cold.png",
+        "private/candidate17-native/026-release-ending.png",
+        "private/candidate17-native/027-release-village.png",
+        "private/candidate17-native/028-release-saved.json"
+      ]
     },
     {
       "id": "reward_atomic",
@@ -115,14 +144,21 @@
     {
       "id": "slot_isolation",
       "requirement": "正常/毕业等槽位进度互不串写，未来版本保留不降级",
-      "status": "requires_candidate17_verification",
-      "evidence": []
+      "status": "graduate_run_changed_only_slot8_future_native_roundtrip_pending",
+      "evidence": [
+        "private/candidate17-native/028-release-saved.json"
+      ]
     },
     {
       "id": "three_sequences",
       "requirement": "桥落下、居民撤船、Boss变形、结局世界至少三处实际演出",
-      "status": "requires_candidate17_verification",
-      "evidence": []
+      "status": "passed",
+      "evidence": [
+        "private/candidate17-native/008-bridge.png",
+        "private/candidate17-native/014-group2.png",
+        "private/candidate17-native/021-regent2.png",
+        "private/candidate17-native/026-release-ending.png"
+      ]
     },
     {
       "id": "original_regression",
@@ -165,10 +201,12 @@
     {
       "id": "version_labels",
       "requirement": "User requested6.0/5.7 announcements and readable version-specific save labels",
-      "status": "compiled_announcement_and_live_titles_checked_visual_confirmation_pending",
+      "status": "title_60_and_slot_names_visually_confirmed_history_menu_pending",
       "evidence": [
         "candidate17-delivery.json",
-        "../docs/save-labels.md"
+        "../docs/save-labels.md",
+        "private/candidate17-native/001-title.png",
+        "private/candidate17-native/004-slots.png"
       ]
     }
   ]
