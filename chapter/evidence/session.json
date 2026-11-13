@@ -470,6 +470,15 @@
         "candidate17-build.json",
         "private/candidate17-formal-check.txt"
       ]
+    },
+    {
+      "time_utc": "2026-11-13T05:41:14.888184+00:00",
+      "candidate": "candidate17",
+      "observed": "Checked Main embedded task XML byte-for-byte, all declared extensions, save key, zero-progress fixture with submitted prerequisite, original restore ref and legacy hashes after app launch. Prepared two timed start slots in private offline copy only.",
+      "evidence": [
+        "candidate17-delivery.json",
+        "private/checkpoints/candidate17-timing-20261113T054054Z/receipt.json"
+      ]
     }
   ],
   "resume": {
@@ -479,7 +488,17 @@
     "checkpoint": "private/checkpoints/candidate16-normal3-beacon-cold.sol",
     "package": "reverse/build/runtime-all-rebuilt-20261113T053513.097050Z",
     "main_sha256": "9b20b6a7bc4f39239e86c9d8dcc9f467d3ca2f6207afd22cd5156cae2ed5f880",
-    "acceptance": "incomplete; no push; do not inflate elapsed play time with idle/debugging."
+    "acceptance": "incomplete; no push; do not inflate elapsed play time with idle/debugging.",
+    "timing_group": {
+      "path": "private/checkpoints/candidate17-timing-20261113T054054Z/timing-starts.sol",
+      "receipt": "private/checkpoints/candidate17-timing-20261113T054054Z/receipt.json",
+      "installed": false,
+      "slots": {
+        "6": "ordinary start",
+        "8": "graduation start"
+      },
+      "installation": "The whole-group switch requires that the live bytes still match the before hash in this receipt and all players are closed. Preserve more recent progress if hashes differ."
+    }
   },
   "time_accounting": "primary-work-time.json estimates effective activity from the primary thread; total idle time was not measured."
 }
