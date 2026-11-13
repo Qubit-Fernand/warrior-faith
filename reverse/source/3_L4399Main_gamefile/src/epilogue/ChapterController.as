@@ -253,7 +253,10 @@ package src.epilogue
                     bridgeOpen:Boolean(state.bridgeOpen),dockRelays:int(state.dockRelays)});
                 Main.world.moveChild_Enemy.addChild(dock);
                 dock.addEventListener(ChapterDockEncounter.CHANGED,dockChanged);
-                dialogue("dock_arrival");
+                // Native cold loads rebuild the scene, including its props and controls.
+                // Once the bridge is open, the arrival speech describes a lock that is gone.
+                if (!state.bridgeOpen && !state.seenDialogues.dock_arrival) dialogue("dock_arrival");
+                else resume();
             }
             else if(scene=="warden" && !state.boss1Defeated)dialogue("warden_intro",startEncounter);
             else if(scene=="regent" && !state.boss2Defeated)dialogue("regent_intro",startEncounter);
