@@ -30,10 +30,11 @@
     {
       "id": "normal_unlock",
       "requirement": "未交主线70不可进入；已提交可从导师新信标接取",
-      "status": "submitted_prerequisite_passed_unsubmitted_gate_requires_same_build_retest",
+      "status": "passed_submitted_entry_and_unsubmitted_gate",
       "evidence": [
         "candidate19-native-results.json",
-        "candidate19-crossing.json"
+        "candidate19-crossing.json",
+        "candidate19-targeted-results.json"
       ]
     },
     {
@@ -66,9 +67,10 @@
     {
       "id": "warden_mechanics",
       "requirement": "节点护盾、真实削血、地波跳跃和光锚横移有操作证据",
-      "status": "passed_two_nodes_two_phases_and_anchor_dodge_clean_wave_jump_open",
+      "status": "passed_two_nodes_two_phases_wave_jump_and_anchor_dodge",
       "evidence": [
-        "candidate19-native-results.json"
+        "candidate19-native-results.json",
+        "candidate19-targeted-results.json"
       ]
     },
     {
@@ -98,16 +100,19 @@
     {
       "id": "pause_inputs",
       "requirement": "暂停计时与伤害冻结，继续恢复；对白背景不穿透，长按Esc/演出跳跃不缓冲",
-      "status": "pause_and_resume_observed_timing_and_input_contract_open",
+      "status": "passed_no_vital_movement_or_menu_change_under_input_precise_clock_not_measured",
       "evidence": [
-        "candidate19-native-results.json"
+        "candidate19-native-results.json",
+        "candidate19-targeted-results.json"
       ]
     },
     {
       "id": "skip",
       "requirement": "已读对白及演出跳过后到达与观看相同合法状态",
-      "status": "open_same_build_skip_and_watch_equivalence",
-      "evidence": []
+      "status": "passed_read_dialogue_watch_and_skip_state_equivalence_animation_skip_not_isolated",
+      "evidence": [
+        "candidate19-targeted-results.json"
+      ]
     },
     {
       "id": "cold_mid_progress",
@@ -145,9 +150,10 @@
     {
       "id": "slot_isolation",
       "requirement": "正常/毕业等槽位进度互不串写，未来版本保留不降级",
-      "status": "passed_two_independent_slots_future_format_roundtrip_open",
+      "status": "passed_separate_role_saves_and_future_payload_roundtrip",
       "evidence": [
-        "candidate19-native-results.json"
+        "candidate19-native-results.json",
+        "candidate19-targeted-results.json"
       ]
     },
     {
@@ -201,9 +207,10 @@
     {
       "id": "version_labels",
       "requirement": "User requested6.0/5.7 announcements and readable version-specific save labels",
-      "status": "current_homepage_seen_legacy_menu_and_personal_labels_previously_checked",
+      "status": "passed_title_version_history_and_personal_slot_label_regression",
       "evidence": [
-        "candidate19-native-results.json"
+        "candidate19-native-results.json",
+        "candidate19-targeted-results.json"
       ]
     }
   ]
