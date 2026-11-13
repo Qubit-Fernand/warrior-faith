@@ -85,3 +85,5 @@
 ```
 
 本分支Main默认保存名已改为新版独立名；精确参数仍建议保留以便审阅。终章启动脚本使用`launch_rebuilt.py --expect-save`强制拒绝其他保存名。原版/源码重建工作树的脚本与默认值不随这里改变。测试辅助程序用途见[测试目录](../tests/README.md)。
+
+11 月 13 日候选 17 的运行验证在 [candidate17-playtest.md](candidate17-playtest.md)；两套独立角色的实测时间、结局、余额和旧档保护检查见 [candidate17-native-results.json](../evidence/candidate17-native-results.json)。原生窗口截图和完整角色备份只在本机 evidence/private/，不属于构建输入。
