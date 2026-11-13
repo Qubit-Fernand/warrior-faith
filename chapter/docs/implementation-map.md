@@ -1,6 +1,6 @@
 # 归光之约 · 二次开发入口
 
-当前版本、失败记录及接入状态以 [session.json](../evidence/session.json) 为准；最终同包验收以 [acceptance.json](../evidence/acceptance.json) 为准。本轮交接时候选11已拒绝；候选12的暂停追踪实现已接入开发树并开始 Main 构建，正式工作树待同步，游戏包运行验收尚未完成。下文的实现职责与历史局部证据不能视为最终交付通过。
+下表列出正式终章工作树中的可编辑输入、生成类和原作接入点。10 月 26 日已从正式入口跑通两条结局，各次构建及剩余验收项见[运行记录](../evidence/session.json)和[验收表](../evidence/acceptance.json)。
 
 ## 受跟踪输入与构建
 

@@ -3,7 +3,7 @@
   "earliest_seven_hour_mark_utc": "2026-10-25T22:23:17Z",
   "timezone": "Asia/Shanghai",
   "minimum_effective_hours": 7,
-  "excluded_idle_seconds": 0,
+  "excluded_idle_seconds": null,
   "branch": "codex/final-chapter",
   "baseline": "d37f389",
   "protected_save_manifest": "/Users/AntiEntropy/Games/.shortcut-backups/final-chapter-v2-start-20261025/protected-saves.json",
@@ -18,7 +18,7 @@
     "complete direct UI playthrough and cold read",
     "integrate final-chapter and update existing shortcut"
   ],
-  "status": "Candidate16 graduation release/reward/cold, prerequisite and future-format regressions passed; ordinary slot3 dock complete, Warden real death then village revival and same-role reentry verified. Full acceptance incomplete.",
+  "status": "Candidate16 passed both ending playthroughs and original castle combat. November host toolchain fingerprint changed. Strict rebuild in progress.",
   "checkpoints": [
     {
       "time_utc": "2026-10-25T15:38:02Z",
@@ -451,15 +451,26 @@
       "changed_slots": [
         3
       ]
+    },
+    {
+      "time_utc": "2026-10-26T04:54:37.237Z",
+      "candidate": "candidate16",
+      "observed": "Ordinary slot3 completed both bosses after real failures, beacon ritual, afterword, completed cold load and single reward. Original castle one-star room cleared with native staff, drops and door.",
+      "evidence": [
+        "private/candidate16-direct-trace.json",
+        "private/candidate16-normal3-beacon-cold.json",
+        "private/candidate16-protected-after-normal.json"
+      ]
     }
   ],
   "resume": {
-    "next": "Candidate16 ordinary slot3: obtain native HP3000 potions if needed, actual Warden victory and mechanics, Regent death/retry and beacon ending; original normal map combat and honest experience duration remain.",
-    "player": "Running official candidate16, ordinary slot3 Warden phase1 reset, paused at screenshot274. HP18627 MP8265,8 default red/blue potions. Skip already-read intro worked.",
-    "live_save": "Slot1 historical normalbeacon,2 untouchedgraduation start,3 actual dock complete/Warden reentry,4 release paid and cold,5 unsubmitted prerequisite,7 futureformat;6/8empty.",
-    "checkpoint": "private/checkpoints/candidate16-normal3-warden-reentry.sol",
+    "next": "Verify fresh strict package, assess byte differences, fresh gameplay timing and release verification.",
+    "player": "No running player when checked 2026-11-13.",
+    "live_save": "Last verified October state: slot3 beacon, slot4 release, slot2 untouched graduation start.",
+    "checkpoint": "private/checkpoints/candidate16-normal3-beacon-cold.sol",
     "package": "reverse/build/runtime-all-rebuilt-20261026T020855.385197Z",
     "main_sha256": "4c3f73cc9a406474e91522b80e7c111099fe5c5db6d920e1f7b443817d9fa92b",
     "acceptance": "incomplete; no push; do not inflate elapsed play time with idle/debugging."
-  }
+  },
+  "time_accounting": "primary-work-time.json estimates effective activity from the primary thread; total idle time was not measured."
 }

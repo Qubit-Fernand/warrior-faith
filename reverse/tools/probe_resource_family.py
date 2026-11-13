@@ -7,11 +7,20 @@ from probe_rebuild_module import ROOT,SOURCES,BUILD,LOGS
 from build_inputs import verify
 
 def resource_files():
- files=[]
- for p in sorted(ROOT.glob('*.swf')):
-  d=json.loads((ROOT/'reverse/exports'/p.stem/'inventory/structure.json').read_text())
-  if not d['document_classes']:files.append((p,d))
- return files
+    baseline = json.loads((ROOT / 'reverse/manifests/original-files.json').read_text())
+    modules = [row for row in baseline if row['path'].endswith('.swf')]
+    if len(modules) != 164 or len({row['path'] for row in modules}) != 164:
+        raise ValueError('Expected exactly 164 unique baseline SWFs')
+    resources = []
+    for row in modules:
+        module = ROOT / row['path']
+        inventory = ROOT / 'reverse/exports' / module.stem / 'inventory/structure.json'
+        structure = json.loads(inventory.read_text())
+        if structure['sha256'] != row['sha256']:
+            raise ValueError(f'Inventory does not match original baseline: {module.name}')
+        if not structure['document_classes']:
+            resources.append((module, structure))
+    return resources
 
 def build_one(pair):
  p,d=pair;receipt=SOURCES/p.stem/'result.json';existing=json.loads(receipt.read_text()) if receipt.exists() else {}
