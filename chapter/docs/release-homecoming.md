@@ -44,4 +44,4 @@
 
 八槽个人SOL已经从本轮最初备份逐字节恢复，SHA256为 `cdba72ea3ca60d221aeca68d7e3608ae27b39c9db844b42e8d0ccad8116d3f7d`。普通/毕业测试进度、换组回执与截图均留在开发工作树的 `chapter/evidence/private/candidate21/` 和 `private/checkpoints/save-groups/`，不提交Git。播放器已退出。你原先的槽8仍是自己的旧进度，可直接体验新收尾；不会被测试通关进度替代。
 
-正式整合前代码留有本地标签 `returnlight-before-homecoming-20261123`，旧运行包保留。已有三个正式快捷方式名称不变，本次没有新增第四个入口。代码与验证文档已本地提交；没有推送远端。
+正式整合前代码留有本地标签 `returnlight-before-homecoming-20261123`，旧运行包保留。已有三个正式快捷方式名称不变，本次没有新增第四个入口。代码与验证文档已提交；2026-11-23 应用户要求推送至 origin 的 `codex/final-chapter`、`codex/final-chapter-v2`，并同步回退标签 `returnlight-before-homecoming-20261123`。

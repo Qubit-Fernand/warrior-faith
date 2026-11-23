@@ -97,7 +97,7 @@ PY=/opt/miniconda3/envs/Qubit/bin/python
 
 以[章节验收表](chapter/evidence/acceptance.json)记录最终同包的入口、完整流程、双结局、冷读、正常／毕业角色、奖励和原功能回归；以[运行记录](chapter/evidence/session.json)保留各候选摘要、失败与修复。历史候选通过不能自动移作最新包通过。原始重建阶段的结果另见[重建报告](reverse/docs/final-report.md)。
 
-正式分支和既有快捷方式已整合候选21b。26项AS3契约检查、普通角色战后分歧至归航完成、部分进度冷读、正式入口通关冷读及奖励防重均已通过。本轮没有重新通打两场Boss或测全章首玩时长，历史完整流程记录仍属于各自候选。[本轮验证](chapter/evidence/candidate21-homecoming.json)。私人八槽存档已恢复，测试进度单独保留。长篇历史维护在 [chapter/README.md](chapter/README.md)。本轮仅本地提交，没有推送远端。
+正式分支和既有快捷方式已整合候选21b。26项AS3契约检查、普通角色战后分歧至归航完成、部分进度冷读、正式入口通关冷读及奖励防重均已通过。本轮没有重新通打两场Boss或测全章首玩时长，历史完整流程记录仍属于各自候选。[本轮验证](chapter/evidence/candidate21-homecoming.json)。私人八槽存档已恢复，测试进度单独保留。长篇历史维护在 [chapter/README.md](chapter/README.md)。2026-11-23 已同步正式分支、开发分支及本次回退标签到 origin。
 
 ## 来源与许可
 
