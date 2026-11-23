@@ -13,7 +13,7 @@
 | `chapter/content/extensions.json` | 显式允许的新增类及生成资源清单 | 新类需登记，保留原710脚本基线检查 |
 | `chapter/assets/backgrounds/` | 三个场景的实际背景PNG、摘要及生成提示 | 修改图片后更新 manifest 并导入；提示词本身不是游戏资源 |
 | `ChapterContent.as` | story.json 导入生成的运行内容 | 自动生成；手改将被一致性验证拒绝 |
-| `ChapterState.as` | 独立章节状态、默认值、恢复和版本边界 | `fanChapterReturnLight` 随当前角色保存，不改原任务与罗盘字段 |
+| `ChapterState.as` | 独立章节状态、默认值、恢复和版本边界；万家之火归航步骤及航向 | `fanChapterReturnLight` 随当前角色保存，不改原任务与罗盘字段 |
 | `ChapterController.as` | 接取、场景装配、交互、剧情链、检查点、结局奖励 | 主协调者；暂停/转场/存档回调互有关联，应局部修改后实测 |
 | `battle/ChapterDockEncounter.as` | 桥锁与两继电器的真实命中、危险与完成事件 | 不能用 E 直接完成；只有原玩家实际攻击可以造成伤害 |
 | `battle/ChapterEncounter.as` | 两场Boss数值、阶段、供能节点、攻击扫描、胜利事件 | 毕业伤害不能跳过必需状态；第二Boss有独立第二血池 |
@@ -81,3 +81,5 @@ PY=/opt/miniconda3/envs/Qubit/bin/python
 ### 战败返村的原生生命周期
 
 `Main.AddPlayer`沿用现有Player；HP为0时将其放到y=-50。`Main.GameStart`只对村庄变体0调用原生复活，主线后的变体3/4不调用。因此终章的死亡菜单必须在保存/Loading前显式复活并恢复真实HP/MP上限。正常活着返村和胜利返村不额外回血。候选12实际发现此缺陷，候选13补上该顺序，运行证据以验收表为准。
+
+2026-11-23 新增第二结局回村可玩收尾：状态字段、操作和兼容边界见 [第一趟归航](release-homecoming.md)。
