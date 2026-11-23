@@ -153,13 +153,13 @@ public static const DATA:Object = {
         "devices": [
             {
                 "speaker": "塔丽莎",
-                "text": "归航灯塔能让她回应求援。灯芯和潮汐刻度，要由人照看。",
+                "text": "港口的船点起了求援灯。旧塔只能看见他们，还得把我们的回信送回海面。",
                 "portrait": "talisha"
             },
             {
-                "speaker": "塔丽莎",
-                "text": "解缚环能解开这里的神力束缚。神殿引路灯会熄灭，返航要换新灯。",
-                "portrait": "talisha"
+                "speaker": "获救居民",
+                "text": "我给军船装过这种灯。托住内外两道铜扣，灯芯就能整个取出来。我来教你。",
+                "portrait": "villager"
             },
             {
                 "speaker": "勇士",
@@ -243,18 +243,23 @@ public static const DATA:Object = {
         "ending_release": [
             {
                 "speaker": "勇士",
-                "text": "三个锁环都断了。神殿的引路灯开始熄灭。",
+                "text": "最后一道锁环松开了。她的光不再被拉回王座。",
                 "portrait": "hero"
             },
             {
                 "speaker": "女神之灵",
-                "text": "我的光会离开这些灯台。海上的路，要靠你们的新灯了。",
+                "text": "我想去看看没有灯台的地方。往后的航路，不能再靠这座神殿。",
                 "portrait": "goddess"
             },
             {
                 "speaker": "塔丽莎",
-                "text": "回去后，我把航图交给奥古斯汀。我们一起教大家辨潮。",
+                "text": "船上还有普通灯芯，还有他们抄下的航图。我们回去，把第一趟归航准备好。",
                 "portrait": "talisha"
+            },
+            {
+                "speaker": "勇士",
+                "text": "这次送你到这里。剩下的路，你自己选。",
+                "portrait": "hero"
             }
         ],
         "post_beacon": [
@@ -276,19 +281,24 @@ public static const DATA:Object = {
         ],
         "post_release": [
             {
-                "speaker": "获救居民",
-                "text": "这次灯不往神殿送光了。我提着它，把后面的人带回来。",
-                "portrait": "villager"
-            },
-            {
                 "speaker": "奥古斯汀",
-                "text": "我把潮汐刻度再教一遍。第一趟返航，我跟船去。",
+                "text": "灯芯、航图、手灯都齐了。第一趟我跟船去，下回让年轻人带路。",
                 "portrait": "augustine"
             },
             {
+                "speaker": "获救居民",
+                "text": "这盏灯会用完，灯芯也会烧尽。但换灯、看潮、提灯回来，我们都学会了。",
+                "portrait": "villager"
+            },
+            {
                 "speaker": "勇士",
-                "text": "把航图留一份给我。下次返航，我也能带路。",
+                "text": "给后来的人留一份航图。等我再回来，希望已经用不着我领路。",
                 "portrait": "hero"
+            },
+            {
+                "speaker": "塔丽莎",
+                "text": "那就约在港口见。总有一盏灯，是给归来的人留的。",
+                "portrait": "talisha"
             }
         ],
         "crossing_safe": [
@@ -300,6 +310,59 @@ public static const DATA:Object = {
             {
                 "speaker": "塔丽莎",
                 "text": "灯留给还在后头的人。走，顺着牵索去找司灯。",
+                "portrait": "talisha"
+            }
+        ],
+        "release_homecoming": [
+            {
+                "speaker": "获救居民",
+                "text": "神殿的灯灭了，右边三座路灯还是冷的。我们带回来的灯芯正好用得上。",
+                "portrait": "villager"
+            },
+            {
+                "speaker": "奥古斯汀",
+                "text": "先换灯芯，再按潮痕标出返航方向。最后把手灯交给领航的人。",
+                "portrait": "augustine"
+            },
+            {
+                "speaker": "勇士",
+                "text": "那就一起动手。总得有人去接还在路上的船。",
+                "portrait": "hero"
+            }
+        ],
+        "release_wick": [
+            {
+                "speaker": "获救居民",
+                "text": "以前灯芯一亮，光就被抽走。现在它暖在我们手里。",
+                "portrait": "villager"
+            },
+            {
+                "speaker": "塔丽莎",
+                "text": "第一盏稳了。中间灯座留着潮向标记，把返航指针转到迎潮的一边。",
+                "portrait": "talisha"
+            }
+        ],
+        "release_course": [
+            {
+                "speaker": "奥古斯汀",
+                "text": "箭头向左，迎着潮水来。这个标记，第一趟船能看懂。",
+                "portrait": "augustine"
+            },
+            {
+                "speaker": "勇士",
+                "text": "航图留在灯座旁。后来的人也得知道，我们为什么这样画。",
+                "portrait": "hero"
+            }
+        ],
+        "release_departure": [
+            {
+                "speaker": "获救居民",
+                "text": "浮桥上是你把灯送回来。这一趟，换我提着它去接人。",
+                "portrait": "villager"
+            },
+            {
+                "speaker": "塔丽莎",
+                "text": "我在岸上守着回信灯。看见两下闪光，就知道你们进港了。",
                 "portrait": "talisha"
             }
         ]
@@ -331,7 +394,7 @@ public static const DATA:Object = {
         },
         "devices": {
             "title": "两条归光之路",
-            "text": "检查归航灯塔与解缚环。准备装置会帮助终战，最终结局仍可另行确认。"
+            "text": "在灯塔或解缚环转动五面镜子，把两种颜色的光分别送到同色接收口。镜面会保留上次的位置。至少修好一台，就能进入王座。"
         },
         "regent": {
             "title": "窃光王座",
@@ -347,11 +410,19 @@ public static const DATA:Object = {
         },
         "release": {
             "title": "万家之火",
-            "text": "女神离开了神殿灯台，旧引路灯也随之熄灭。居民换上普通灯芯，重新标记返航方向。回村看看他们的准备。"
+            "text": "女神离开了神殿灯台。回村为第一趟归航换灯芯、标航向、交接手灯；已赢得的结局和谢礼保留。"
         },
         "crossing": {
             "title": "一灯两岸",
             "text": "四人用同一盏手灯过了浮桥，把接应船拉进暗道。回程要有人肯提灯，也要有人在岸上等。"
+        },
+        "homecoming_prepare": {
+            "title": "第一趟归航",
+            "text": "右侧三座路灯依次准备：第一座换普通灯芯；中间按潮痕转动指针，迎潮向左；最后把手灯交给领航居民。每次操作都会保存，退出后可接着做。"
+        },
+        "homecoming": {
+            "title": "留给归来的人",
+            "text": "普通灯芯点亮了路旁灯龛，航图标好迎潮方向，居民接过了手灯。奥古斯汀跟第一趟船，塔丽莎在岸上等待回信。万家之火，从这一趟归航开始。"
         }
     }
 };

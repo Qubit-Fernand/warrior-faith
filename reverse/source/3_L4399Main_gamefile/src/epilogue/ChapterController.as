@@ -30,6 +30,7 @@ package src.epilogue
     import src.epilogue.scene.ChapterBackdrop;
     import src.epilogue.scene.ChapterNavigation;
     import src.epilogue.scene.LanternCrossing;
+    import src.epilogue.scene.LightCircuit;
     import src.epilogue.ui.EpilogueView;
     import src.epilogue.ui.WorldTimelinePause;
 
@@ -172,6 +173,14 @@ package src.epilogue
                 Main.world.moveChild_Back.addChild(scenery);scenery.setProgress(state);
             }
         }
+        private function showHomecomingConversation():void
+        {
+            if(state.ending=="release" && int(state.homecomingSteps)<3)
+            {
+                dialogue("release_homecoming",function():void{updateObjective();});return;
+            }
+            dialogue("post_"+state.ending,function():void{journal();});
+        }
         private function findMentor(container:DisplayObjectContainer):DisplayObject
         {
             for(var i:int=0;i<container.numChildren;i++)
@@ -208,9 +217,9 @@ package src.epilogue
                 {
                     var received:Number=collectReward();checkpoint();
                     notice("本次收到 "+received+" 金币。"+(rewardOwed()>0?"尚有 "+rewardOwed()+" 金币由奥古斯汀保管；用掉一些金币后再来领取。":"归光谢礼已全部领取。"),
-                        function():void{dialogue("post_"+state.ending,function():void{journal();});});return;
+                        showHomecomingConversation);return;
                 }
-                dialogue("post_"+state.ending,function():void{journal();});return;
+                showHomecomingConversation();return;
             }
             if(int(state.stage)==0)
             {
@@ -475,6 +484,18 @@ package src.epilogue
         private function interact(id:String):void
         {
             if(id=="mentor" || id=="post"){talkMentor();return;}
+            if(!inArena && id.indexOf("home_")==0)
+            {
+                if(!ChapterState.advanceHomecoming(id))return;
+                var step:int=int(state.homecomingSteps);
+                scenery.setProgress(state);
+                if(id!="home_course" || step==2)ChapterState.record(step==3?"homecoming":"homecoming_prepare");
+                checkpoint();updateObjective();
+                if(id=="home_wick")dialogue("release_wick");
+                else if(id=="home_course" && step==2)dialogue("release_course");
+                else if(id=="home_lantern")dialogue("release_departure",function():void{dialogue("post_release");});
+                return;
+            }
             if(scene=="dock")
             {
                 if(id.indexOf("nav")==0 && navigation && int(state.rescuedGroups)==2 && !state.calibrationDone)
@@ -539,7 +560,19 @@ package src.epilogue
         {
             var key:String=id=="beacon"?"beaconPrepared":"releasePrepared";
             if(state[key]){notice(id=="beacon"?"灯塔已修复：最终战受到的伤害降低，结局时可留下自愿回应的通道。":"解缚环已修复：最终战可获得更长反击窗口，结局时可解除这里灯台的束缚。");return;}
-            state[key]=true;animateChange(1.2,function():void{checkpoint();notice(id=="beacon"?"归航灯塔重新亮起。它会保护进入王座的人，但最后留下与否仍由女神决定。":"解缚环开始转动。它将松开王座的束缚；最终选择前仍可修复另一装置。");});
+            var maskKey:String = id=="beacon" ? "beaconMirrorMask" : "releaseMirrorMask";
+            var circuit:LightCircuit = new LightCircuit(id=="beacon",int(state[maskKey]));
+            modalPause();
+            view.showLightCircuit(circuit,function(mask:int):void {
+                state[maskKey]=mask;
+                checkpoint();
+            },function():void {
+                state[key]=true;
+                checkpoint();
+                animateChange(1.2,function():void {
+                    notice(id=="beacon"?"海面的灯闪了两下。塔丽莎遮住灯芯，回了两下。求援的人也能听见回应了。":"孩子把灯芯从两枚松开的铜扣间捧出来。解缚环已备好，最后一步留给女神。");
+                });
+            },resume);
         }
         private function chooseEnding(id:String):void
         {
@@ -746,10 +779,15 @@ package src.epilogue
         {
             var objective:String="";
             var title:String="归光之约";
-            var complete:Boolean=state.ending!="" && Boolean(state.seenDialogues["post_"+state.ending]);
+            var complete:Boolean=state.ending!="" && Boolean(state.seenDialogues["post_"+state.ending]) && (state.ending!="release" || int(state.homecomingSteps)==3);
             if(!inArena)
             {
                 objective=state.ending!=""?"与故人告别，听听居民的新打算":unlocked()?"寻找奥古斯汀身旁的信标":"完成并提交【主线70】再战奥加";
+                if(state.ending=="release" && int(state.homecomingSteps)<3)
+                {
+                    title="万家之火 · 第一趟归航";
+                    objective=["到右侧第一盏路灯换上普通灯芯（E）","观察中间灯座潮向，按 E 调整指针","到最右侧灯座，按 E 交接手灯"][int(state.homecomingSteps)];
+                }
                 if(complete)
                 {
                     title=(state.ending=="beacon"?"长明之约":"万家之火")+" · 已完成";

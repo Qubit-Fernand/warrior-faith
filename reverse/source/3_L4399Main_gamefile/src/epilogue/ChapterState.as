@@ -14,9 +14,11 @@ package src.epilogue
         public static function defaults():Object
         {
             return {version:1,stage:0,inChapter:false,scene:"dock",bridgeOpen:false,
+                beaconMirrorMask:-1,releaseMirrorMask:-1,
                 crossingMoves:[],crossingDone:false,rescuedGroups:0,dockRelays:0,calibrationDone:false,navigationSteps:0,navigationTurns:[0,0,0],beaconPrepared:false,releasePrepared:false,
                 boss1Defeated:false,boss2Defeated:false,ending:"",endingChoice:"",seenEndings:[],
                 rewardClaims:{},seenDialogues:{},journal:[],endingNodes:0,
+                homecomingSteps:0,homecomingHeading:0,
                 elapsedSeconds:0,deaths:0,fixture:false};
         }
         public static function copy(source:Object):Object
@@ -47,12 +49,30 @@ package src.epilogue
             value.crossingMoves = crossing.moves;
             value.crossingDone = Boolean(value.crossingDone) || crossing.finished;
             value.endingNodes=Math.max(0,Math.min(3,int(value.endingNodes)));
+            value.homecomingSteps=Math.max(0,Math.min(3,int(value.homecomingSteps)));
+            value.homecomingHeading=int(value.homecomingHeading)&3;
+            if(value.homecomingSteps>=2)value.homecomingHeading=3;
             if(["dock","warden","regent"].indexOf(value.scene)<0)value.scene="dock";
             if(!(value.seenEndings is Array))value.seenEndings=[];
             if(!(value.journal is Array))value.journal=[];
             if(!value.rewardClaims)value.rewardClaims={};
             if(!value.seenDialogues)value.seenDialogues={};
             resumePending=Boolean(value.inChapter);
+        }
+        /** Return-voyage actions never rewrite the earned ending or its reward. */
+        public static function advanceHomecoming(action:String):Boolean
+        {
+            if(unsupported || value.ending!="release")return false;
+            var step:int=int(value.homecomingSteps);
+            if(action=="home_wick" && step==0)value.homecomingSteps=1;
+            else if(action=="home_course" && step==1)
+            {
+                value.homecomingHeading=(int(value.homecomingHeading)+1)%4;
+                if(value.homecomingHeading==3)value.homecomingSteps=2;
+            }
+            else if(action=="home_lantern" && step==2)value.homecomingSteps=3;
+            else return false;
+            return true;
         }
         public static function reset():void {restore(null);}
         public static function record(key:String):void

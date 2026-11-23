@@ -35,6 +35,10 @@ package src.epilogue.scene
       private var labels:Array = [];
       private var villageWindows:Array = [];
       private var villagePeople:Array = [];
+      private var homecomingDial:Sprite;
+      private var homecomingArrow:Sprite;
+      private var homecomingCaption:TextField;
+      private var homecomingCarrier:Sprite;
       private var endingSequence:String = "";
       private var endingSequencePlayed:String = "";
       private var endingSequenceTime:Number = 0;
@@ -69,7 +73,9 @@ package src.epilogue.scene
             boss2Defeated:Boolean(source.boss2Defeated),
             ending:source.ending == null ? "" : String(source.ending),
             endingChoice:source.endingChoice == null ? "" : String(source.endingChoice),
-            endingNodes:Math.max(0, Math.min(3, int(source.endingNodes)))
+            endingNodes:Math.max(0, Math.min(3, int(source.endingNodes))),
+            homecomingSteps:Math.max(0, Math.min(3, int(source.homecomingSteps))),
+            homecomingHeading:int(source.homecomingHeading)&3
          };
          refreshVisuals();
          if(!initialized)
@@ -151,7 +157,7 @@ package src.epilogue.scene
          for(var i:int = 0; i < villageWindows.length; ++i)
          {
             // Window flames are independent, so the release village reads as many human lights.
-            Sprite(villageWindows[i]).alpha = .75 + Math.sin(elapsed * 2.3 + i * 1.9) * .12;
+            Sprite(villageWindows[i]).alpha = sceneName=="village_release" && i>=int(progress.homecomingSteps) ? .08 : .75 + Math.sin(elapsed * 2.3 + i * 1.9) * .12;
          }
       }
 
@@ -188,7 +194,14 @@ package src.epilogue.scene
             return points;
          }
          if(sceneName == "village_beacon") return [point("post", "与守灯的人交谈", 700)];
-         if(sceneName == "village_release") return [point("post", "与归来的居民交谈", 700)];
+         if(sceneName == "village_release")
+         {
+            var home:Array=[point("post", "与归来的居民交谈", 700)];
+            if(int(progress.homecomingSteps)==0)home.push(point("home_wick","换上普通灯芯",900));
+            else if(int(progress.homecomingSteps)==1)home.push(point("home_course","转动返航指针 · 迎潮而行",1100));
+            else if(int(progress.homecomingSteps)==2)home.push(point("home_lantern","把手灯交给领航居民",1300));
+            return home;
+         }
          return [];
       }
 
@@ -357,11 +370,26 @@ package src.epilogue.scene
          }
          for(i = 0; i < 4; ++i)
          {
-            var p:Sprite = person(i % 2 == 0 ? 0x7DA99A : 0xB39984, i == 3, i, !isBeacon);
+            var p:Sprite = person(i % 2 == 0 ? 0x7DA99A : 0xB39984, i == 3, i, false);
             p.x = isBeacon ? 620 + i * 42 : 670 + i * 155; p.y = floorY; addChild(p); villagePeople.push(p);
 
          }
          sign(isBeacon ? "长明之约 · 今日守灯人" : "万家之火 · 回家的路", 700, floorY - 112);
+         if(!isBeacon)
+         {
+            homecomingDial=new Sprite();homecomingDial.x=1100;homecomingDial.y=floorY-100;addChild(homecomingDial);
+            var dg:Graphics=homecomingDial.graphics;
+            dg.lineStyle(2,0xC5A773);dg.beginFill(0x263B46,.94);dg.drawCircle(0,0,27);dg.endFill();
+            dg.moveTo(0,-24);dg.lineTo(0,-20);dg.moveTo(24,0);dg.lineTo(20,0);dg.moveTo(0,24);dg.lineTo(0,20);dg.moveTo(-24,0);dg.lineTo(-20,0);
+            homecomingArrow=new Sprite();homecomingDial.addChild(homecomingArrow);
+            dg=homecomingArrow.graphics;dg.lineStyle(3,0xFFE5A2);dg.moveTo(0,16);dg.lineTo(0,-16);
+            dg.moveTo(-6,-8);dg.lineTo(0,-16);dg.lineTo(6,-8);
+            homecomingCaption=new TextField();homecomingCaption.defaultTextFormat=new TextFormat("_sans",13,0xFFF0C9,true);
+            homecomingCaption.width=230;homecomingCaption.height=48;homecomingCaption.x=990;homecomingCaption.y=floorY-179;
+            homecomingCaption.mouseEnabled=false;homecomingCaption.background=true;homecomingCaption.backgroundColor=0x263B46;
+            addChild(homecomingCaption);
+            homecomingCarrier=person(0x7DA99A,false,1,true);homecomingCarrier.x=1300;homecomingCarrier.y=floorY;addChild(homecomingCarrier);
+         }
       }
 
       private function makeBeacon(px:Number):Sprite
@@ -495,6 +523,13 @@ package src.epilogue.scene
             else if(light.owner == release) light.active = progress.ending == "" && Boolean(progress.releasePrepared);
          }
          if(release) drawReleaseFrame(release, progress.ending == "release" && endingSequence != "release");
+         if(homecomingDial)
+         {
+            homecomingArrow.rotation=int(progress.homecomingHeading)*90;
+            homecomingCaption.text=int(progress.homecomingSteps)>=2?"返航方向  ←\n迎潮航向已标定":"潮水  →    返航须迎潮\n靠近灯座按 E 转动指针";
+            homecomingCarrier.visible=int(progress.homecomingSteps)>=3;
+            for(i=0;i<villageWindows.length;i++)Sprite(villageWindows[i]).alpha=i<int(progress.homecomingSteps)?.85:.08;
+         }
          drawRitual();
          if(endingSequence != "")drawEndingSequence();
       }
